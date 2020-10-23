@@ -1,0 +1,5 @@
+export const GET_TUBE_MENU = 'GET_TUBE_MENU';
+export const GET_TUBE_MENU_SUCCESS = 'GET_TUBE_MENU_SUCCESS';
+export const GET_TUBE_MENU_FAIL = 'GET_TUBE_MENU_FAIL';
+
+export const RESET_TUBE_MENU = 'RESET_TUBE_MENU';

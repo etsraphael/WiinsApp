@@ -6,7 +6,6 @@
  * @flow strict-local
  */
 
-import React from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -23,6 +22,14 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+
+import React, { Component } from 'react'
+import { Provider } from 'react-redux'
+import { configureStore } from './app/stores/configureStore'
+import { PersistGate } from 'redux-persist/integration/react'
+import MainApp from './app/components/core/main-app'
+
 
 const App: () => React$Node = () => {
   return (

@@ -1,0 +1,5 @@
+export const GET_TUBE_PAGE = 'GET_TUBE_PAGE';
+export const GET_TUBE_PAGE_SUCCESS = 'GET_TUBE_PAGE_SUCCESS';
+export const GET_TUBE_PAGE_FAIL = 'GET_TUBE_PAGE_FAIL';
+
+export const RESET_TUBE_PAGE = 'RESET_TUBE_PAGE';
