@@ -4,7 +4,7 @@ import {
     LayoutAnimation, Image, YellowBox, DeviceEventEmitter, ScrollView
 } from 'react-native'
 import { connect } from 'react-redux'
-import * as PublicationFeedActions from '../../../../redux/PublicationFeed/actions'
+import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as SearchActions from '../../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStandard from '../../core/publication-standard'

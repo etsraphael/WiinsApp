@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, FlatList, TouchableOpacity, ScrollView, Text } from 'react-native'
 import { connect } from 'react-redux'
-import * as PublicationFeedActions from '../../../../../redux/PublicationFeed/actions'
+import * as PublicationFeedActions from '../../../../../redux/FeedPublications/actions'
 import * as StoriesActions from '../../../../../redux/Stories/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'

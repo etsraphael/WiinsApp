@@ -8,7 +8,7 @@ import ProfileMusic from './profile-music'
 import * as ProfilePublicationActions from '../../../../redux/publicationProfile/actions'
 import * as musicProjectListActions from '../../../../redux/musicProjectList/actions'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
-import * as PublicationFeedActions from '../../../../redux/PublicationFeed/actions'
+import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import LinearGradient from 'react-native-linear-gradient'
 import ActionSheet from 'react-native-actionsheet'
 import { AsyncStorage } from 'react-native';

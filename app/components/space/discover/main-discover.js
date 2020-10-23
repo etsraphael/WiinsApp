@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as TopHastagActions from '../../../../redux/TopHastag/actions'
-import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublication/actions'
+import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublications/actions'
 import { bindActionCreators } from 'redux'
 import DiscoverNavigation from '../../../navigation/discover-navigation'
 

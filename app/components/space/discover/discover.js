@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TextInput, Image, FlatList, TouchableOpacity, A
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as TopHastagActions from '../../../../redux/TopHastag/actions'
-import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublication/actions'
+import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublications/actions'
 import { bindActionCreators } from 'redux'
 import MasonryList from '@appandflow/masonry-list'
 import PublicationStandard from '../../core/publication-standard'
