@@ -19,7 +19,11 @@ target 'Wiins' do
   # you should disable these next few lines.
   use_flipper!
   post_install do |installer|
-    flipper_post_install(installer)
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings.delete 'IPHONEOS_DEPLOYMENT_TARGET'
+      end
+    end
   end
 end
 
@@ -31,3 +35,4 @@ target 'Wiins-tvOS' do
     # Pods for testing
   end
 end
+
