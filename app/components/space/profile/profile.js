@@ -4,11 +4,11 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import * as ProfileActions from '../../../../redux/Profile/actions'
-import * as ProfilePublicationActions from '../../../../redux/publicationProfile/actions'
-import * as musicProjectListActions from '../../../../redux/musicProjectList/actions'
+import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
+import * as MusicProjectListActions from '../../../../redux/MusicProjectList/actions'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import LinearGradient from 'react-native-linear-gradient'
-import ProfilePublication from './profile-wiins'
+import ProfilePublication from './profile-publication'
 import ProfileMusic from './profile-music'
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -307,7 +307,7 @@ const ActionCreators = Object.assign(
     ProfileActions,
     PublicationFeedActions,
     ProfilePublicationActions,
-    musicProjectListActions
+    MusicProjectListActions
 )
 
 const mapDispatchToProps = dispatch => ({

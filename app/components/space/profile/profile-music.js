@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, FlatList, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as musicProjectListActions from '../../../../redux/musicProjectList/actions'
+import * as MusicProjectListActions from '../../../../redux/MusicProjectList/actions'
 import MusicProjectStandard from '../music/music-project-standard'
 
 class ProfileMusic extends React.Component {
@@ -78,7 +78,7 @@ const mapStateToProps = state => ({
 
 const ActionCreators = Object.assign(
     {},
-    musicProjectListActions
+    MusicProjectListActions
 )
 
 const mapDispatchToProps = dispatch => ({

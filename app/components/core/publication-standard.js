@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, Text, Image, TouchableOpacity, DeviceEventEmitter, FlatList } from 'react-native'
 import { connect } from 'react-redux'
-import * as PublicationFeedActions from '../../../redux/PublicationFeed/actions'
+import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 import * as ProfilePublicationActions from '../../../redux/publicationProfile/actions'
 import * as DiscoverdPublicationActions from '../../../redux/DiscoverPublication/actions'
 import { bindActionCreators } from 'redux'

@@ -8,7 +8,7 @@ import MasonryList from '@appandflow/masonry-list';
 class ProfilePublication extends React.Component {
 
     constructor(props) {
-        super(props),
+        super(props)
         this.state = {
             pagePublication: 1,
             publicationLoading: false

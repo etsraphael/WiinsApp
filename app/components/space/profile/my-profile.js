@@ -3,10 +3,10 @@ import { StyleSheet, View, Text, TouchableOpacity, ScrollView, Image } from 'rea
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
-import ProfilePublication from './profile-wiins'
+import ProfilePublication from './profile-publication'
 import ProfileMusic from './profile-music'
-import * as ProfilePublicationActions from '../../../../redux/publicationProfile/actions'
-import * as musicProjectListActions from '../../../../redux/musicProjectList/actions'
+import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
+import * as MusicProjectListActions from '../../../../redux/MusicProjectList/actions'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import LinearGradient from 'react-native-linear-gradient'
@@ -231,7 +231,7 @@ const ActionCreators = Object.assign(
     {},
     PublicationFeedActions,
     ProfilePublicationActions,
-    musicProjectListActions,
+    MusicProjectListActions,
     MyUserActions
 )
 
