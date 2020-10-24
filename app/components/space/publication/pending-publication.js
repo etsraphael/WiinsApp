@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faAngleLeft, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import MinPublication from './../../core/miniature/min-wiins'
+import MinPublication from './../../core/miniature/min-publication'
 import { DotIndicator } from 'react-native-indicators';
 
 class PendingPublication extends React.Component {

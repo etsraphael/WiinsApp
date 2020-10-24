@@ -107,7 +107,7 @@ export function sendPostPublication(publication, token, url) {
 
 }
 
-export function sendPublication(publicationReceived, token, url) {
+export function sendImagePublication(publicationReceived, token, url) {
 
     return async (dispatch) => {
         try {
