@@ -78,6 +78,7 @@ PODS:
   - libwebp/mux (1.1.0):
     - libwebp/demux
   - libwebp/webp (1.1.0)
+  - mobile-ffmpeg-https (4.4.LTS)
   - OpenSSL-Universal (1.0.2.20):
     - OpenSSL-Universal/Static (= 1.0.2.20)
   - OpenSSL-Universal/Static (1.0.2.20)
@@ -255,6 +256,9 @@ PODS:
     - React-Core
   - react-native-camera/RN (3.40.0):
     - React-Core
+  - react-native-ffmpeg/https-lts (0.5.0):
+    - mobile-ffmpeg-https (= 4.4.LTS)
+    - React
   - react-native-image-picker (2.3.4):
     - React-Core
   - react-native-safe-area-context (3.1.8):
@@ -326,12 +330,16 @@ PODS:
     - React-Core (= 0.63.3)
     - React-cxxreact (= 0.63.3)
     - React-jsi (= 0.63.3)
+  - rn-fetch-blob (0.12.0):
+    - React-Core
   - RNCMaskedView (0.1.10):
     - React
   - RNFastImage (8.3.2):
     - React
     - SDWebImage (~> 5.8)
     - SDWebImageWebPCoder (~> 0.6.1)
+  - RNFS (2.16.6):
+    - React
   - RNGestureHandler (1.8.0):
     - React
   - RNI18n (2.0.15):
@@ -340,11 +348,16 @@ PODS:
     - React
   - RNSnackbar (2.2.3):
     - React
+  - RNSound (0.11.0):
+    - React
+    - RNSound/Core (= 0.11.0)
+  - RNSound/Core (0.11.0):
+    - React
   - RNSVG (12.1.0):
     - React
-  - SDWebImage (5.9.3):
-    - SDWebImage/Core (= 5.9.3)
-  - SDWebImage/Core (5.9.3)
+  - SDWebImage (5.9.4):
+    - SDWebImage/Core (= 5.9.4)
+  - SDWebImage/Core (5.9.4)
   - SDWebImageWebPCoder (0.6.1):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.7)
@@ -391,6 +404,7 @@ DEPENDENCIES:
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
   - react-native-camera (from `../node_modules/react-native-camera`)
+  - react-native-ffmpeg/https-lts (from `../node_modules/react-native-ffmpeg`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-track-player (from `../node_modules/react-native-track-player`)
@@ -405,12 +419,15 @@ DEPENDENCIES:
   - React-RCTText (from `../node_modules/react-native/Libraries/Text`)
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - rn-fetch-blob (from `../node_modules/rn-fetch-blob`)
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
   - RNFastImage (from `../node_modules/react-native-fast-image`)
+  - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNI18n (from `../node_modules/react-native-i18n`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSnackbar (from `../node_modules/react-native-snackbar`)
+  - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
@@ -427,6 +444,7 @@ SPEC REPOS:
     - Flipper-RSocket
     - FlipperKit
     - libwebp
+    - mobile-ffmpeg-https
     - OpenSSL-Universal
     - SDWebImage
     - SDWebImageWebPCoder
@@ -467,6 +485,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
   react-native-camera:
     :path: "../node_modules/react-native-camera"
+  react-native-ffmpeg:
+    :path: "../node_modules/react-native-ffmpeg"
   react-native-image-picker:
     :path: "../node_modules/react-native-image-picker"
   react-native-safe-area-context:
@@ -495,10 +515,14 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  rn-fetch-blob:
+    :path: "../node_modules/rn-fetch-blob"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
   RNFastImage:
     :path: "../node_modules/react-native-fast-image"
+  RNFS:
+    :path: "../node_modules/react-native-fs"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNI18n:
@@ -507,6 +531,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNSnackbar:
     :path: "../node_modules/react-native-snackbar"
+  RNSound:
+    :path: "../node_modules/react-native-sound"
   RNSVG:
     :path: "../node_modules/react-native-svg"
   Yoga:
@@ -530,6 +556,7 @@ SPEC CHECKSUMS:
   Folly: b73c3869541e86821df3c387eb0af5f65addfab4
   glog: 40a13f7840415b9a77023fbcae0f1e6f43192af3
   libwebp: 946cb3063cea9236285f7e9a8505d806d30e07f3
+  mobile-ffmpeg-https: 7ec3461d626f2d86be1e904bcfb29ed0be8cad7a
   OpenSSL-Universal: ff34003318d5e1163e9529b08470708e389ffcdd
   RCTRequired: 48884c74035a0b5b76dbb7a998bd93bcfc5f2047
   RCTTypeSafety: edf4b618033c2f1c5b7bc3d90d8e085ed95ba2ab
@@ -542,6 +569,7 @@ SPEC CHECKSUMS:
   React-jsiexecutor: b56c03e61c0dd5f5801255f2160a815f4a53d451
   React-jsinspector: 8e68ffbfe23880d3ee9bafa8be2777f60b25cbe2
   react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
+  react-native-ffmpeg: 7c64ba2e41eeb06144ad77f17e62ecbbc29ae3c0
   react-native-image-picker: c6d75c4ab2cf46f9289f341242b219cb3c1180d3
   react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
   react-native-track-player: 28b96dd6404dea3eee80e67b74507679235a8dfb
@@ -556,18 +584,21 @@ SPEC CHECKSUMS:
   React-RCTText: 65a6de06a7389098ce24340d1d3556015c38f746
   React-RCTVibration: 8e9fb25724a0805107fc1acc9075e26f814df454
   ReactCommon: 4167844018c9ed375cc01a843e9ee564399e53c3
+  rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNFastImage: e19ba191922e7dab9d932a4d59d62d76660aa222
+  RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
   RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
   RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
   RNScreens: 0e91da98ab26d5d04c7b59a9b6bd694124caf88c
   RNSnackbar: a08d0d7e1e18c7312cd2b9c6f476211267855bce
+  RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
-  SDWebImage: a31ee8e90a97303529e03fb0c333eae0eacb88e9
+  SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
   SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
   Yoga: 7d13633d129fd179e01b8953d38d47be90db185a
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
-PODFILE CHECKSUM: c9d65e3663d5969014d396b7df16c19715dae7aa
+PODFILE CHECKSUM: b835050efe2e225ce8345b85a01500759f1ed2b0
 
 COCOAPODS: 1.9.3
