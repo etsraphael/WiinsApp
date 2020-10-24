@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     StyleSheet, View, Text, DeviceEventEmitter, TouchableOpacity, Image,
-    ActivityIndicator, KeyboardAvoidingView, Platform, FlatList, Keyboard, ScrollView, TextInput
+    ActivityIndicator, KeyboardAvoidingView, Platform, FlatList, Keyboard, TextInput
 } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -12,8 +12,8 @@ import * as CommentListActions from '../../../redux/CommentList/actions'
 import CommentList from './comment-list'
 import TagSuggest from './tag-suggest'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
-import * as ProfilePublicationActions from '../../../redux/publicationProfile/actions'
-import * as DiscoverPublicationActions from '../../../redux/DiscoverPublication/actions'
+import * as ProfilePublicationActions from '../../../redux/ProfilePublications/actions'
+import * as DiscoverPublicationActions from '../../../redux/DiscoverPublications/actions'
 import Video from 'react-native-video'
 import I18n from '../../i18n/i18n'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'

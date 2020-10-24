@@ -326,6 +326,8 @@ PODS:
     - React
   - RNI18n (2.0.15):
     - React
+  - RNScreens (2.11.0):
+    - React
   - RNSnackbar (2.2.3):
     - React
   - RNSVG (12.1.0):
@@ -395,6 +397,7 @@ DEPENDENCIES:
   - RNFastImage (from `../node_modules/react-native-fast-image`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNI18n (from `../node_modules/react-native-i18n`)
+  - RNScreens (from `../node_modules/react-native-screens`)
   - RNSnackbar (from `../node_modules/react-native-snackbar`)
   - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -484,6 +487,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-gesture-handler"
   RNI18n:
     :path: "../node_modules/react-native-i18n"
+  RNScreens:
+    :path: "../node_modules/react-native-screens"
   RNSnackbar:
     :path: "../node_modules/react-native-snackbar"
   RNSVG:
@@ -537,6 +542,7 @@ SPEC CHECKSUMS:
   RNFastImage: e19ba191922e7dab9d932a4d59d62d76660aa222
   RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
   RNI18n: e2f7e76389fcc6e84f2c8733ea89b92502351fd8
+  RNScreens: 0e91da98ab26d5d04c7b59a9b6bd694124caf88c
   RNSnackbar: a08d0d7e1e18c7312cd2b9c6f476211267855bce
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   SDWebImage: a31ee8e90a97303529e03fb0c333eae0eacb88e9
