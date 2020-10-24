@@ -261,6 +261,8 @@ PODS:
     - React
   - react-native-image-picker (2.3.4):
     - React-Core
+  - react-native-image-resizer (1.3.0):
+    - React-Core
   - react-native-safe-area-context (3.1.8):
     - React-Core
   - react-native-track-player (1.2.3):
@@ -406,6 +408,7 @@ DEPENDENCIES:
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-ffmpeg/https-lts (from `../node_modules/react-native-ffmpeg`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
+  - react-native-image-resizer (from `../node_modules/react-native-image-resizer`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-track-player (from `../node_modules/react-native-track-player`)
   - react-native-video (from `../node_modules/react-native-video`)
@@ -489,6 +492,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-ffmpeg"
   react-native-image-picker:
     :path: "../node_modules/react-native-image-picker"
+  react-native-image-resizer:
+    :path: "../node_modules/react-native-image-resizer"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-track-player:
@@ -571,6 +576,7 @@ SPEC CHECKSUMS:
   react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
   react-native-ffmpeg: 7c64ba2e41eeb06144ad77f17e62ecbbc29ae3c0
   react-native-image-picker: c6d75c4ab2cf46f9289f341242b219cb3c1180d3
+  react-native-image-resizer: a79bcffdef1b52160ff91db0d6fa24816a4ff332
   react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
   react-native-track-player: 28b96dd6404dea3eee80e67b74507679235a8dfb
   react-native-video: dbb8df4f0bbdf80de6797c90fcad8bc12b19401d
