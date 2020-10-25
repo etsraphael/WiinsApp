@@ -7,7 +7,7 @@ import thunk from 'redux-thunk'
 import MyUserReducer from './../../redux/MyUser/reducer'
 import FeedPublicationsReducer from './../../redux/FeedPublications/reducer'
 import PublicationsProfileReducer from './../../redux/ProfilePublications/reducer'
-import PublicationsDiscoverReducer from './../../redux/DiscoverPublications/reducer'
+import DiscoverPublicationsReducer from './../../redux/DiscoverPublications/reducer'
 import PlayerReducer from './../../redux/Player/reducer'
 import SearchReducer from './../../redux/SearchBar/reducer'
 import PageReducer from './../../redux/Page/reducer'
@@ -36,7 +36,7 @@ const rootReducer = combineReducers(
         MusicProjectList: MusicProjectList,
         Profile: ProfileReducer,
         TopHastag: TopHastagReducer,
-        DiscoverPublication: PublicationsDiscoverReducer,
+        DiscoverPublications: DiscoverPublicationsReducer,
         MyFavMusic: MyFavMusicReducer,
         MusicMenu: MusicMenuReducer,
         TubeMenu: TubeMenuReducer,

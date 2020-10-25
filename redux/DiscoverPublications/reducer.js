@@ -12,7 +12,7 @@ export default PublicationsDiscoverReducer = (state = initialState, action) => {
     case ActionTypes.GET_PUBLICATIONS_SUCCESS: {
       return {
         ...state,
-        publications: state.publication.concat(action.payload),
+        publications: state.publications.concat(action.payload),
         isLoading: false,
         error: null,
       }

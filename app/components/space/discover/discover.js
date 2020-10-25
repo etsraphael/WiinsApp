@@ -31,7 +31,7 @@ class Discover extends React.Component {
     // to load more publications
     _getPublicationList = () => {
 
-        if (!this.props.DiscoverPublication.isLoading && !this.state.publicationLoading) {
+        if (!this.props.DiscoverPublications.isLoading && !this.state.publicationLoading) {
 
             this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true  })
             setTimeout(() => this.setState({ publicationLoading: false }), 3000); 
@@ -121,9 +121,9 @@ class Discover extends React.Component {
         return (<MasonryList
             onRefresh={this._refreshRequest}
             refreshing={this.state.isRefreshing}
-            data={this.props.DiscoverPublication.wiins}
+            data={this.props.DiscoverPublications.publications}
             keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <PublicationStandard wiins={item} navigation={this.props.navigation} space={'discover'} />}
+            renderItem={({ item }) => <PublicationStandard publication={item} navigation={this.props.navigation} space={'discover'} />}
             getHeightForItem={() => 15}
             numColumns={2}
             onEndReachedThreshold={0.5}
@@ -135,7 +135,7 @@ class Discover extends React.Component {
         return (
             <View style={styles.main_container}>
                 {this._header()}
-                {(this.props.DiscoverPublication.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._PublicationFeed()}
+                {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._PublicationFeed()}
             </View>
         );
     }
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
     MyUser: state.MyUser,
     TopHastag: state.TopHastag,
-    DiscoverPublication: state.DiscoverPublication
+    DiscoverPublications: state.DiscoverPublications
 })
 
 const ActionCreators = Object.assign(

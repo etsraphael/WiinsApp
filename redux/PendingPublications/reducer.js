@@ -6,7 +6,7 @@ export default PendingPublicationsReducer = (state = initialState, action) => {
     case ActionTypes.ADD_PUBLICATIONS_PENDING: {
       return {
         ...state,
-        publications: state.publication.concat(action.payload)
+        publications: state.publications.concat(action.payload)
       }
     }
     case ActionTypes.CANCEL_publications:
