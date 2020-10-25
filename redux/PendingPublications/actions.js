@@ -128,7 +128,6 @@ export function sendImagePublication(publicationReceived, token, url) {
             })
                 .then((response) => response.json())
                 .then((response) => {
-                    console.log(response)
                     if (response.status == 201) return dispatch(publicationPosted(publicationReceived.savingDate))
                     return dispatch(addPublicationFail(error))
                 })
@@ -188,7 +187,6 @@ export function sendPostStory(publication, token, url) {
         })
             .then((response) => response.json())
             .then((response) => {
-                console.log(response)
                 if (response.status == 201) return dispatch(publicationPosted(publication.savingDate))
                 return dispatch(addPublicationFail(response))
             })
@@ -216,7 +214,6 @@ export function sendPictureStory(publicationReceived, token, url) {
             })
                 .then((response) => response.json())
                 .then((response) => {
-                    console.log(response)
                     if (response.status == 201) return dispatch(publicationPosted(publicationReceived.savingDate))
                     return dispatch(addPublicationFail(error))
                 })

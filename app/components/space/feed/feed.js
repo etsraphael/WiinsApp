@@ -239,7 +239,7 @@ class Feed extends React.Component {
                 {/* Modal */}
                 {this._btnPublication()}
                 {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
-                {this.state.modal ? <PublicationModal PublicationModal={this.state.PublicationModal} /> : null}
+                {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} /> : null}
                 {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
 
             </View>

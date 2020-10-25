@@ -47,7 +47,6 @@ export function feedsearch(name) {
                     return dispatch(searchFail(response.message))
                 })
         } catch (error) {
-            console.log(error)
             return dispatch(searchFail(error));
         }
     };
@@ -69,15 +68,11 @@ export function friendsearch(name) {
                 }
             })
                 .then((response) => response.json())
-                .then(async (response) => {
-
-                    console.log(response.results)
-                    
+                .then(async (response) => {                    
                     if (response.status == 200) return dispatch(searchSuccess(response.results))
                     return dispatch(searchFail(response.message))
                 })
         } catch (error) {
-            console.log(error)
             return dispatch(searchFail(error));
         }
     };

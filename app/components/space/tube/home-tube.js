@@ -66,7 +66,6 @@ class HomeTube extends React.Component {
     // to set the category
     _changeCategory = (category) => {
         this.setState({ categorySelected: category.code })
-        console.log(category)
     }
 
     // to display all the categories
