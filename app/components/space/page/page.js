@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, ActivityIndicator, TouchableOpacity, Text, ScrollView, YellowBox } from 'react-native'
+import { StyleSheet, View, ActivityIndicator, TouchableOpacity, Text, ScrollView, LogBox } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
@@ -17,7 +17,7 @@ class Page extends React.Component {
             space: 'feed'
         }
 
-        YellowBox.ignoreWarnings(['VirtualizedLists should never be nested'])
+        LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
     }
 
     componentWillUnmount(){

@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     StyleSheet, View, FlatList, TextInput, TouchableOpacity,
-    LayoutAnimation, Image, YellowBox, DeviceEventEmitter, ScrollView
+    LayoutAnimation, Image, LogBox, DeviceEventEmitter, ScrollView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
@@ -43,7 +43,7 @@ class Feed extends React.Component {
         }
         _listViewOffset = 0
 
-        YellowBox.ignoreWarnings([
+        LogBox.ignoreLogs([
             'VirtualizedLists should never be nested', // TODO: Remove when fixed
         ])
     }
@@ -165,6 +165,11 @@ class Feed extends React.Component {
 
     // to display the list of the publications
     _PublicationFeed = () => {
+
+
+        console.log(this.props.Stories.stories)
+
+        return null
 
         return (
             <ScrollView
