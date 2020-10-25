@@ -78,7 +78,7 @@ class SignIn extends React.Component {
                     onChangeText={(val) => { this.setState({ password: val }) }}
                 />
                 <TouchableOpacity style={styles.btn_log} onPress={() => this._login()} underlayColor='#fff'>
-                    <Text style={styles.loginText}>{'LOGIN-REGISTRER.Login'}</Text>
+                    <Text style={styles.loginText}>LOGIN-REGISTRER.Login</Text>
                 </TouchableOpacity>
                 {this._orSeparator()}
                 <TouchableOpacity onPress={() => this.props.view('register')}

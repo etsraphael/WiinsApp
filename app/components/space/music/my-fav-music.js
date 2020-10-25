@@ -59,7 +59,7 @@ class MyFavMusic extends React.Component {
         return (
             <View style={{ alignItems: 'center' }}>
                 <View style={{ marginVertical: 15 }}>
-                    <Text style={{ fontSize: 15 }}>{'CORE.My-Favorites'}</Text>
+                    <Text style={{ fontSize: 15 }}>CORE.My-Favorites</Text>
                 </View>
                 <TouchableOpacity 
                  onPress={() => this.props.navigation.goBack(null)}

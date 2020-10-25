@@ -22,10 +22,11 @@ def flipper_post_install(installer)
   end
 end
 
+
 target 'Wiins' do
   pod 'react-native-ffmpeg/https-lts', :path => '../node_modules/react-native-ffmpeg'
   config = use_native_modules!
-
+  
   use_react_native!(:path => config["reactNativePath"])
 
   target 'WiinsTests' do

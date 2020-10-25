@@ -332,6 +332,7 @@ class PublicationStandard extends React.Component {
 
     render() {
         const { publication } = this.props
+
         return (
             <View style={styles.card}>
                 {this._showHeader(publication)}

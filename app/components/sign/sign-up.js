@@ -138,7 +138,7 @@ class SignUp extends React.Component {
                     onDateChange={(val) => this.setState({ birthDate: val })}
                 />
                 <TouchableOpacity onPress={() => this._register()} style={styles.btn_log} underlayColor='#fff'>
-                    <Text style={styles.loginText}>{'LOGIN-REGISTRER.Registration'}</Text>
+                    <Text style={styles.loginText}>LOGIN-REGISTRER.Registration</Text>
                 </TouchableOpacity>
                 {this._orSeparator()}
                 <TouchableOpacity onPress={() => this.props.view('login')} style={styles.btn_back}>

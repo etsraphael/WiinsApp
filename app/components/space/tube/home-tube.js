@@ -82,7 +82,7 @@ class HomeTube extends React.Component {
                         keyExtractor={(item) => item.id.toString()}
                         renderItem={({ item }) => (
                             <TouchableOpacity style={styles.one_hastag} onPress={() => this._changeCategory(item)}>
-                                <Text style={[styles.categoryText, this._actifCategory(item.code)]}>{'TUBE.Categorie.' + item.name}</Text>
+                                <Text style={[styles.categoryText, this._actifCategory(item.code)]}>TUBE.Categorie.' + item.name</Text>
                             </TouchableOpacity>
                         )}
                     />
