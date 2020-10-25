@@ -1,5 +1,4 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import PublicationStandard from '../../core/publication-standard'
@@ -18,7 +17,7 @@ class ProfilePublication extends React.Component {
     // to show the publications feed
     _getPublicationList = () => {
 
-        if (!this.props.PublicationFeed.publication.isLoading && !this.state.publicationLoading) {
+        if (!this.props.ProfilePublications.isLoading) {
             this.setState({pagePublication: ++this.state.pagePublication, publicationLoading: true})
             setTimeout(() => this.setState({ publicationLoading: false }), 3000); 
         }
@@ -26,11 +25,12 @@ class ProfilePublication extends React.Component {
     }
 
     render() {
+
         return (
             <MasonryList
                 onRefresh={this._refreshRequest}
                 refreshing={this.state.isRefreshing}
-                data={this.props.PublicationFeed.publication}
+                data={this.props.ProfilePublications.publications}
                 keyExtractor={(item) => item.id}
                 renderItem={({ item }) => <PublicationStandard publication={item} navigation={this.props.navigation} space={'profile'} />}
                 getHeightForItem={({ item }) => 15}
@@ -42,12 +42,9 @@ class ProfilePublication extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-})
-
 const mapStateToProps = state => ({
     MyProfile: state.MyProfile,
-    PublicationFeed: state.publicationProfile,
+    ProfilePublications: state.ProfilePublications,
 })
 
 const ActionCreators = Object.assign({})

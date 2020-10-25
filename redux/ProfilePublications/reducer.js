@@ -25,7 +25,7 @@ export default PublicationsProfileReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.LIKE_PUBLICATIONS_PROFILE_SUCCESS: {
-      const found = state.publication.map(x => x._id).indexOf(action.id)
+      const found = state.publications.map(x => x._id).indexOf(action.id)
       state.publication[found].like.isLike = true
       ++state.publication[found].like.likeNumber
       return {
@@ -33,7 +33,7 @@ export default PublicationsProfileReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.UNLIKE_PUBLICATIONS_PROFILE_SUCCESS: {
-      const found = state.publication.map(x => x._id).indexOf(action.id)
+      const found = state.publications.map(x => x._id).indexOf(action.id)
       state.publication[found].like.isLike = false
       --state.publication[found].like.likeNumber
       return {

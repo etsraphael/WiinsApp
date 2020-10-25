@@ -23,11 +23,11 @@ class MyProfile extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.actions.getByMode(1, 'FollowerAndFriend')
+        // this.props.actions.getByMode(1, 'FollowerAndFriend')
     }
 
     componentDidMount() {
-        this.props.actions.getByMode(1, 'mypublications')
+        this.props.actions.getByMode(1, 'myfeedpublication')
     }
 
     // to set the dropdowns actions
@@ -229,7 +229,7 @@ const mapStateToProps = state => ({
 
 const ActionCreators = Object.assign(
     {},
-    PublicationFeedActions,
+    // PublicationFeedActions,
     ProfilePublicationActions,
     MusicProjectListActions,
     MyUserActions

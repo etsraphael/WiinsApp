@@ -6,7 +6,7 @@ import thunk from 'redux-thunk'
 
 import MyUserReducer from './../../redux/MyUser/reducer'
 import FeedPublicationsReducer from './../../redux/FeedPublications/reducer'
-import PublicationsProfileReducer from './../../redux/ProfilePublications/reducer'
+import ProfilePublicationsReducer from './../../redux/ProfilePublications/reducer'
 import DiscoverPublicationsReducer from './../../redux/DiscoverPublications/reducer'
 import PlayerReducer from './../../redux/Player/reducer'
 import SearchReducer from './../../redux/SearchBar/reducer'
@@ -43,7 +43,7 @@ const rootReducer = combineReducers(
         TubePage: TubePageReducer,
         PlaylistPage: PlaylistPageReducer,
         CommentList: CommentListReducer,
-        publicationProfile: PublicationsProfileReducer,
+        ProfilePublications: ProfilePublicationsReducer,
         Page: PageReducer,
         Rooms: RoomListReducer,
         Room: RoomReducer,
