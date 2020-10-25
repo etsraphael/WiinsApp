@@ -4,7 +4,6 @@ import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import DatePicker from 'react-native-datepicker'
-import I18n from '../../i18n/i18n'
 import { Platform, NativeModules } from 'react-native'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -113,14 +112,14 @@ class SignUp extends React.Component {
                     placeholderTextColor="white"
                     onChangeText={(val) => this.setState({ pseudo: val })}
                 />
-                <TextInput placeholder={I18n.t('PROFILE.Email')}
+                <TextInput placeholder={'PROFILE.Email'}
                     autoCompleteType={'email'}
                     style={styles.input_container}
                     placeholderTextColor="white"
                     onChangeText={(val) => this.setState({ email: val })}
                 />
                 <TextInput
-                    placeholder={I18n.t('CORE.Password')}
+                    placeholder={'CORE.Password'}
                     style={styles.input_container}
                     secureTextEntry={true}
                     placeholderTextColor="white"
@@ -130,7 +129,7 @@ class SignUp extends React.Component {
                     style={dateStyle.containerDatePicker}
                     date={this.state.birthDate}
                     mode="date"
-                    placeholder={I18n.t('PROFILE.BirthDate')}
+                    placeholder={'PROFILE.BirthDate'}
                     format="YYYY-MM-DD"
                     maxDate={new Date().getFullYear() - 18}
                     confirmBtnText="Confirm"
@@ -139,7 +138,7 @@ class SignUp extends React.Component {
                     onDateChange={(val) => this.setState({ birthDate: val })}
                 />
                 <TouchableOpacity onPress={() => this._register()} style={styles.btn_log} underlayColor='#fff'>
-                    <Text style={styles.loginText}>{I18n.t('LOGIN-REGISTRER.Registration')}</Text>
+                    <Text style={styles.loginText}>{'LOGIN-REGISTRER.Registration'}</Text>
                 </TouchableOpacity>
                 {this._orSeparator()}
                 <TouchableOpacity onPress={() => this.props.view('login')} style={styles.btn_back}>

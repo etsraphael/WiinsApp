@@ -9,7 +9,6 @@ import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { TubesCategories } from './../../core/data/tubes'
-import I18n from '../../../i18n/i18n'
 import * as TubeMenuActions from '../../../../redux/TubeMenu/actions'
 
 class HomeTube extends React.Component {
@@ -83,7 +82,7 @@ class HomeTube extends React.Component {
                         keyExtractor={(item) => item.id.toString()}
                         renderItem={({ item }) => (
                             <TouchableOpacity style={styles.one_hastag} onPress={() => this._changeCategory(item)}>
-                                <Text style={[styles.categoryText, this._actifCategory(item.code)]}>{I18n.t('TUBE.Categorie.' + item.name)}</Text>
+                                <Text style={[styles.categoryText, this._actifCategory(item.code)]}>{'TUBE.Categorie.' + item.name}</Text>
                             </TouchableOpacity>
                         )}
                     />

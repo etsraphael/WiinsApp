@@ -21,7 +21,6 @@ import {
 import Video from 'react-native-video'
 import LinearGradient from 'react-native-linear-gradient'
 import { listFontPost } from '../../core/data/font-post'
-import I18n from '../../../i18n/i18n'
 import TagSuggest from '../../core/tag-suggest'
 import { createPublication, createStoryPublication } from '../../../services/publication/publication-service'
 import Snackbar from 'react-native-snackbar'
@@ -100,11 +99,11 @@ class Camera extends React.Component {
     Keyboard.dismiss()
 
     if (this.state.screenMode == 'PostPublication' && this.state.textInput.replace(/\s/g, '') == '') {
-      return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Your-wiins-is-empty'), duration: Snackbar.LENGTH_LONG })
+      return Snackbar.show({ text: 'ERROR-MESSAGE.Your-wiins-is-empty', duration: Snackbar.LENGTH_LONG })
     }
 
     if (this.state.textInputHastag !== '') {
-      return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Please-complete-your-hastag-or-delete-it'), duration: Snackbar.LENGTH_LONG })
+      return Snackbar.show({ text: 'ERROR-MESSAGE.Please-complete-your-hastag-or-delete-it', duration: Snackbar.LENGTH_LONG })
     }
 
     let publicationCreated
@@ -142,11 +141,11 @@ class Camera extends React.Component {
       if (!profile) return null
 
       if (this.state.profileAuth.length > 2) {
-        return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Not-more-3-friend'), duration: Snackbar.LENGTH_LONG })
+        return Snackbar.show({ text: 'ERROR-MESSAGE.Not-more-3-friend', duration: Snackbar.LENGTH_LONG })
       }
 
       if (this.state.profileAuth.map(x => x._id).includes(profile._id)) {
-        return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.This-profile-is-already-added'), duration: Snackbar.LENGTH_LONG })
+        return Snackbar.show({ text: 'ERROR-MESSAGE.This-profile-is-already-added', duration: Snackbar.LENGTH_LONG })
       }
 
       this.setState({
@@ -268,11 +267,11 @@ class Camera extends React.Component {
     if (event == '') return null
 
     if (this.state.hastags.length >= 5) {
-      return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.not-more-5-hastags'), duration: Snackbar.LENGTH_LONG })
+      return Snackbar.show({ text: 'ERROR-MESSAGE.not-more-5-hastags', duration: Snackbar.LENGTH_LONG })
     }
 
     if (this.state.hastags.includes(event)) {
-      return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.T-hashtag-is-already-there'), duration: Snackbar.LENGTH_LONG })
+      return Snackbar.show({ text: 'ERROR-MESSAGE.T-hashtag-is-already-there', duration: Snackbar.LENGTH_LONG })
     }
 
     this.setState({ hastags: this.state.hastags.concat(event), textInputHastag: '' })
@@ -361,7 +360,7 @@ class Camera extends React.Component {
                     style={{ fontSize: 25, color: 'white', fontWeight: '600', lineHeight: 35, textAlign: 'center' }}
                     multiline={true}
                     numberOfLines={4}
-                    placeholder={I18n.t('PUBLICATION.Write-a-comment')}
+                    placeholder={'PUBLICATION.Write-a-comment'}
                     placeholderTextColor={'white'}
                     onChangeText={(event) => this.setState({ textInput: event })}
                     onKeyPress={(event) => this._writeComment(event.nativeEvent.key)}
@@ -392,7 +391,7 @@ class Camera extends React.Component {
                     <TextInput
                       blurOnSubmit={true}
                       style={{ fontSize: 16, paddingLeft: 10, color: 'white', alignItems: 'center' }}
-                      placeholder={I18n.t('CORE.With')}
+                      placeholder={'CORE.With'}
                       placeholderTextColor={'white'}
                       onChangeText={(event) => this._searchProfile(event)}
                       value={this.state.searchProfile}
@@ -406,7 +405,7 @@ class Camera extends React.Component {
                       maxLength={10}
                       onChangeText={(event) => this.setState({ textInputHastag: event.replace(/\s/g, '') })}
                       value={this.state.textInputHastag}
-                      placeholder={I18n.t('PLACEHOLDER.Hastags')}
+                      placeholder={'PLACEHOLDER.Hastags'}
                       placeholderTextColor={'white'}
                       onSubmitEditing={(event) => this._addHastags(event.nativeEvent.text)}
                     />
@@ -501,7 +500,7 @@ class Camera extends React.Component {
               numberOfLines={4}
               blurOnSubmit={true}
               style={{ fontSize: 16, paddingLeft: 10, paddingTop: 15, color: 'white', lineHeight: 22 }}
-              placeholder={I18n.t('PUBLICATION.Write-a-comment')}
+              placeholder={'PUBLICATION.Write-a-comment'}
               placeholderTextColor={'white'}
               onChangeText={(event) => this.setState({ textInput: event })}
               onKeyPress={(event) => this._writeComment(event.nativeEvent.key)}
@@ -518,7 +517,7 @@ class Camera extends React.Component {
             <TextInput
               blurOnSubmit={true}
               style={{ fontSize: 16, paddingLeft: 10, color: 'white', alignItems: 'center' }}
-              placeholder={I18n.t('CORE.With')}
+              placeholder={'CORE.With'}
               placeholderTextColor={'white'}
               onChangeText={(event) => this._searchProfile(event)}
               value={this.state.searchProfile}
@@ -532,7 +531,7 @@ class Camera extends React.Component {
               maxLength={10}
               onChangeText={(event) => this.setState({ textInputHastag: event.replace(/\s/g, '') })}
               value={this.state.textInputHastag}
-              placeholder={I18n.t('PLACEHOLDER.Hastags')}
+              placeholder={'PLACEHOLDER.Hastags'}
               placeholderTextColor={'white'}
               onSubmitEditing={(event) => this._addHastags(event.nativeEvent.text)}
             />

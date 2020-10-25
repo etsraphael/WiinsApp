@@ -10,7 +10,6 @@ import CommentList from '../../core/comment-list'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
-import I18n from '../../../i18n/i18n'
 import * as TubePageActions from '../../../../redux/TubePage/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 
@@ -109,7 +108,7 @@ class TubePage extends React.Component {
                 <CommentList type={'tube'} />
                 <View style={{ flexDirection: 'row', height: 39, marginBottom: 15 }}>
                     <TextInput
-                        placeholder={I18n.t('PUBLICATION.Write-a-comment')}
+                        placeholder={'PUBLICATION.Write-a-comment'}
                         placeholderTextColor="#FFFFFF"
                         style={{ flex: 9, paddingLeft: 15, color: 'grey', backgroundColor: '#485164', borderRadius: 17, height: '100%' }}
                     ></TextInput>
@@ -141,8 +140,8 @@ class TubePage extends React.Component {
     _suggestionTubeRender = () => {
         return (
             <ScrollView style={{ height: '100%' }}>
-                {this._tubeListBySection(this.props.TubePage.tubesFollower, I18n.t('CORE.From-X', { value: this.props.TubePage.tube.profile._meta.pseudo }), true)}
-                {this._tubeListBySection(this.props.TubePage.tubesSuggestions, I18n.t('CORE.Suggestion'), false)}
+                {this._tubeListBySection(this.props.TubePage.tubesFollower, 'CORE.From-X', { value: this.props.TubePage.tube.profile._meta.pseudo }, true)}
+                {this._tubeListBySection(this.props.TubePage.tubesSuggestions, 'CORE.Suggestion', false)}
                 {this.state.commentView ? null : this._footerComment()}
             </ScrollView>
         )

@@ -6,7 +6,6 @@ import * as MyFavMusicActions from '../../../../redux/MyFavMusic/actions'
 import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import { bindActionCreators } from 'redux'
 import OneMusic from './one-music'
-import I18n from '../../../i18n/i18n'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faRandom, faAngleLeft } from '@fortawesome/free-solid-svg-icons'
@@ -60,7 +59,7 @@ class MyFavMusic extends React.Component {
         return (
             <View style={{ alignItems: 'center' }}>
                 <View style={{ marginVertical: 15 }}>
-                    <Text style={{ fontSize: 15 }}>{I18n.t('CORE.My-Favorites')}</Text>
+                    <Text style={{ fontSize: 15 }}>{'CORE.My-Favorites'}</Text>
                 </View>
                 <TouchableOpacity 
                  onPress={() => this.props.navigation.goBack(null)}

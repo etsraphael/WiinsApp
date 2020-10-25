@@ -15,7 +15,6 @@ import * as PublicationFeedActions from '../../../redux/FeedPublications/actions
 import * as ProfilePublicationActions from '../../../redux/ProfilePublications/actions'
 import * as DiscoverPublicationActions from '../../../redux/DiscoverPublications/actions'
 import Video from 'react-native-video'
-import I18n from '../../i18n/i18n'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { getDateTranslated } from '../../services/translation/translation-service'
 
@@ -92,7 +91,7 @@ class PublicationModal extends React.Component {
 
                 <View style={{ flex: 1, flexDirection: 'row', height: 39 }}>
                     <TextInput
-                        placeholder={I18n.t('PUBLICATION.Write-a-comment')}
+                        placeholder={'PUBLICATION.Write-a-comment'}
                         placeholderTextColor="#FFFFFF"
                         style={{ flex: 9, paddingLeft: 15, color: 'grey', backgroundColor: '#485164', borderRadius: 17, height: '100%' }}
                     ></TextInput>

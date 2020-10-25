@@ -3,7 +3,6 @@ import { StyleSheet, View, TextInput, Text, TouchableOpacity, Keyboard, Activity
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import I18n from '../../i18n/i18n'
 import Snackbar from 'react-native-snackbar';
 
 
@@ -66,26 +65,26 @@ class SignIn extends React.Component {
         return (
             <View>
                 <TextInput
-                    placeholder={I18n.t('LOGIN-REGISTRER.PseudoOrEmail')}
+                    placeholder={'LOGIN-REGISTRER.PseudoOrEmail'}
                     style={styles.input_container}
                     placeholderTextColor="white"
                     onChangeText={(val) => this.setState({ pseudo_email: val })}
                 />
                 <TextInput
-                    placeholder={I18n.t('CORE.Password')}
+                    placeholder={'CORE.Password'}
                     style={styles.input_container}
                     secureTextEntry={true}
                     placeholderTextColor="white"
                     onChangeText={(val) => { this.setState({ password: val }) }}
                 />
                 <TouchableOpacity style={styles.btn_log} onPress={() => this._login()} underlayColor='#fff'>
-                    <Text style={styles.loginText}>{I18n.t('LOGIN-REGISTRER.Login')}</Text>
+                    <Text style={styles.loginText}>{'LOGIN-REGISTRER.Login'}</Text>
                 </TouchableOpacity>
                 {this._orSeparator()}
                 <TouchableOpacity onPress={() => this.props.view('register')}
                     style={styles.btn_back}>
                     <Text style={styles.btn_Text}>
-                        {I18n.t('LOGIN-REGISTRER.Register')}
+                        {'LOGIN-REGISTRER.Register'}
                     </Text>
                 </TouchableOpacity>
             </View>
