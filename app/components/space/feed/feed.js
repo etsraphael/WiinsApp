@@ -66,7 +66,7 @@ class Feed extends React.Component {
     // to load the next page of the publication
     _getPublicationList = () => {
 
-        if (!this.props.PublicationFeed.isLoading && !this.state.publicationLoading) {
+        if (!this.props.FeedPublications.isLoading && !this.state.publicationLoading) {
             this.props.actions.getByMode(this.state.pagePublication, 'FollowerAndFriend')
             this.setState({ pagePublication: this.state.pagePublication + 1, publicationLoading: true })
             setTimeout(() => this.setState({ publicationLoading: false }), 3000); 
@@ -166,11 +166,6 @@ class Feed extends React.Component {
     // to display the list of the publications
     _PublicationFeed = () => {
 
-
-        console.log(this.props.Stories.stories)
-
-        return null
-
         return (
             <ScrollView
                 onScroll={this._onScroll}
@@ -181,7 +176,7 @@ class Feed extends React.Component {
                 <MasonryList
                     onRefresh={this._refreshRequest}
                     refreshing={this.state.isRefreshing}
-                    data={this.props.PublicationFeed.publication}
+                    data={this.props.FeedPublications.publications}
                     keyExtractor={(item) => item.id}
                     renderItem={({ item }) => <PublicationStandard navigation={this.props.navigation} publication={item} space={'feed'} />}
                     getHeightForItem={() => 15}
@@ -250,6 +245,7 @@ class Feed extends React.Component {
             </View>
         )
     }
+
 }
 
 const styles = StyleSheet.create({
@@ -277,7 +273,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
-    PublicationFeed: state.PublicationFeed,
+    FeedPublications: state.FeedPublications,
     MyUser: state.MyUser,
     SearchList: state.Search,
     MyProfile: state.MyProfile,

@@ -5,7 +5,7 @@ import { applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 
 import MyUserReducer from './../../redux/MyUser/reducer'
-import PublicationsReducer from './../../redux/FeedPublications/reducer'
+import FeedPublicationsReducer from './../../redux/FeedPublications/reducer'
 import PublicationsProfileReducer from './../../redux/ProfilePublications/reducer'
 import PublicationsDiscoverReducer from './../../redux/DiscoverPublications/reducer'
 import PlayerReducer from './../../redux/Player/reducer'
@@ -30,7 +30,7 @@ import TubePageReducer from './../../redux/TubePage/reducer'
 const rootReducer = combineReducers(
     { 
         MyUser: MyUserReducer,
-        PublicationFeed: PublicationsReducer,
+        FeedPublications: FeedPublicationsReducer,
         Search: SearchReducer,
         MyProfile: MyProfileReducer,
         MusicProjectList: MusicProjectList,
