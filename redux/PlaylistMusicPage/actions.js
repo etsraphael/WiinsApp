@@ -40,7 +40,8 @@ export function getMusicPlaylist(id) {
             })
                 .then((response) => response.json())
                 .then( async (response) => {
-                    if (response.status == 201) return dispatch(getMusicPlaylistSuccess(response.playlist))
+                    console.log(response)
+                    if (response.status == 200) return dispatch(getMusicPlaylistSuccess(response.playlist))
                     return dispatch(getMusicPlaylistFail(response.message))
                 })
         } catch (error) {

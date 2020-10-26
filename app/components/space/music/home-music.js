@@ -157,7 +157,7 @@ class HomeMusic extends React.Component {
 
         return (
             <TouchableOpacity 
-            onPress={() => this.props.navigation.navigate('PlaylistPage', { playlistId: '5f27b74eda3e240031fe2f18' })}
+            onPress={() => this.props.navigation.navigate('PlaylistPage', { playlistId: '5f7ac5ebbbb5d000314fe647' })}
             style={styles.onePlaylistContainer}
             >
 
