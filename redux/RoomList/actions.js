@@ -17,7 +17,6 @@ export function resetRoomList() {
     return { type: ActionTypes.REST_ROOM_LIST }
 }
 
-
 export function getRoom(page) {
     return async (dispatch) => {
         try {
@@ -34,7 +33,7 @@ export function getRoom(page) {
             })
                 .then((response) => response.json())
                 .then( async (response) => {
-                    if (response.status == 201) return dispatch(getRoomListSuccess(response.results))
+                    if (response.status == 200) return dispatch(getRoomListSuccess(response.results))
                     return dispatch(getRoomListFail(response))
                 })
         } catch (error) {

@@ -53,7 +53,7 @@ export function getRoomById(id, page, nBMessage) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 201) return dispatch(getRoomByIdSuccess(response.result))
+                    if (response.status == 200) return dispatch(getRoomByIdSuccess(response.result))
                     return dispatch(getRoomByIdFail(response))
                 })
         } catch (error) {
