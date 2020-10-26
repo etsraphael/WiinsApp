@@ -379,8 +379,7 @@ const styles = StyleSheet.create({
     comment_icon: {
         width: 22,
         height: 19,
-        marginHorizontal: 5,
-
+        marginHorizontal: 5
     },
     heart_icon: {
         marginLeft: 7

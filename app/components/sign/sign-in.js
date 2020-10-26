@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import Snackbar from 'react-native-snackbar';
-
+import I18n from '../../i18n/i18n'
 
 class SignIn extends React.Component {
 
@@ -65,26 +65,26 @@ class SignIn extends React.Component {
         return (
             <View>
                 <TextInput
-                    placeholder={'LOGIN-REGISTRER.PseudoOrEmail'}
+                    placeholder={I18n.t('LOGIN-REGISTRER.PseudoOrEmail')}
                     style={styles.input_container}
                     placeholderTextColor="white"
                     onChangeText={(val) => this.setState({ pseudo_email: val })}
                 />
                 <TextInput
-                    placeholder={'CORE.Password'}
+                    placeholder={I18n.t('CORE.Password')}
                     style={styles.input_container}
                     secureTextEntry={true}
                     placeholderTextColor="white"
                     onChangeText={(val) => { this.setState({ password: val }) }}
                 />
                 <TouchableOpacity style={styles.btn_log} onPress={() => this._login()} underlayColor='#fff'>
-                    <Text style={styles.loginText}>LOGIN-REGISTRER.Login</Text>
+                    <Text style={styles.loginText}>{I18n.t('LOGIN-REGISTRER.Login')}</Text>
                 </TouchableOpacity>
                 {this._orSeparator()}
                 <TouchableOpacity onPress={() => this.props.view('register')}
                     style={styles.btn_back}>
                     <Text style={styles.btn_Text}>
-                        {'LOGIN-REGISTRER.Register'}
+                    {I18n.t('LOGIN-REGISTRER.Register')}
                     </Text>
                 </TouchableOpacity>
             </View>
