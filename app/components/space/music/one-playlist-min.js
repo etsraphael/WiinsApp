@@ -11,7 +11,6 @@ class OnePlaylistMin extends React.Component {
         super(props)
     }
 
-
     render() {
 
         const { playlist } = this.props
@@ -61,15 +60,15 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     MyUser: state.MyUser
-});
+})
 
 const ActionCreators = Object.assign(
     {},
     MyUserActions
-);
+)
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(ActionCreators, dispatch),
-});
+    actions: bindActionCreators(ActionCreators, dispatch)
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(OnePlaylistMin)
