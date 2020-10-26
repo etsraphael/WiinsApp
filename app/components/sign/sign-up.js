@@ -7,7 +7,8 @@ import DatePicker from 'react-native-datepicker'
 import { Platform, NativeModules } from 'react-native'
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import Snackbar from 'react-native-snackbar';
+import Snackbar from 'react-native-snackbar'
+import I18n from '../../i18n/i18n'
 
 class SignUp extends React.Component {
 
@@ -107,19 +108,19 @@ class SignUp extends React.Component {
     _displayInput() {
         return (
             <View>
-                <TextInput placeholder='Pseudo'
+                <TextInput placeholder={I18n.t('PROFILE.Pseudo')}
                     style={styles.input_container}
                     placeholderTextColor="white"
                     onChangeText={(val) => this.setState({ pseudo: val })}
                 />
-                <TextInput placeholder={'PROFILE.Email'}
+                <TextInput placeholder={I18n.t('PROFILE.Email')}
                     autoCompleteType={'email'}
                     style={styles.input_container}
                     placeholderTextColor="white"
                     onChangeText={(val) => this.setState({ email: val })}
                 />
                 <TextInput
-                    placeholder={'CORE.Password'}
+                    placeholder={I18n.t('CORE.Password')}
                     style={styles.input_container}
                     secureTextEntry={true}
                     placeholderTextColor="white"
@@ -129,7 +130,7 @@ class SignUp extends React.Component {
                     style={dateStyle.containerDatePicker}
                     date={this.state.birthDate}
                     mode="date"
-                    placeholder={'PROFILE.BirthDate'}
+                    placeholder={I18n.t('PROFILE.BirthDate')}
                     format="YYYY-MM-DD"
                     maxDate={new Date().getFullYear() - 18}
                     confirmBtnText="Confirm"
@@ -138,7 +139,7 @@ class SignUp extends React.Component {
                     onDateChange={(val) => this.setState({ birthDate: val })}
                 />
                 <TouchableOpacity onPress={() => this._register()} style={styles.btn_log} underlayColor='#fff'>
-                    <Text style={styles.loginText}>LOGIN-REGISTRER.Registration</Text>
+                    <Text style={styles.loginText}>{I18n.t('LOGIN-REGISTRER.Registration')}</Text>
                 </TouchableOpacity>
                 {this._orSeparator()}
                 <TouchableOpacity onPress={() => this.props.view('login')} style={styles.btn_back}>
