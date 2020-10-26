@@ -915,5 +915,20 @@
       "Video-name": "视频名称",
       "Visualisation-of-the-video": "视频的可视化"
     }
+  },
+  "TUBE": {
+    "Categorie": {
+      "Trending": "",
+      "Gaming": "",
+      "Dance": "",
+      "News": "",
+      "Travel": "",
+      "Beauty": "",
+      "Comedy": "",
+      "Movies": "",
+      "How-to": "",
+      "Sport": "",
+      "Music": ""
+    }
   }
 }

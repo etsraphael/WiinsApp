@@ -915,5 +915,20 @@
       "Video-name": "Nom de la vidéo",
       "Visualisation-of-the-video": "Rendue de la video"
     }
+  },
+  "TUBE": {
+    "Categorie": {
+      "Trending": "",
+      "Gaming": "",
+      "Dance": "",
+      "News": "",
+      "Travel": "",
+      "Beauty": "",
+      "Comedy": "",
+      "Movies": "",
+      "How-to": "",
+      "Sport": "",
+      "Music": ""
+    }
   }
 }

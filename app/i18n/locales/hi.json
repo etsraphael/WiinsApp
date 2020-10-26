@@ -915,5 +915,20 @@
       "Video-name": "वीडियो का नाम",
       "Visualisation-of-the-video": "वीडियो का विज़ुअलाइज़ेशन"
     }
+  },
+  "TUBE": {
+    "Categorie": {
+      "Trending": "",
+      "Gaming": "",
+      "Dance": "",
+      "News": "",
+      "Travel": "",
+      "Beauty": "",
+      "Comedy": "",
+      "Movies": "",
+      "How-to": "",
+      "Sport": "",
+      "Music": ""
+    }
   }
 }

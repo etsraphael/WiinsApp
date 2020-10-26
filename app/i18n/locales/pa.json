@@ -915,5 +915,20 @@
       "Video-name": "ਵੀਡੀਓ ਨਾਮ",
       "Visualisation-of-the-video": "ਵੀਡੀਓ ਦਾ ਵਿਜ਼ੂਅਲਾਈਜ਼ੇਸ਼ਨ"
     }
+  },
+  "TUBE": {
+    "Categorie": {
+      "Trending": "",
+      "Gaming": "",
+      "Dance": "",
+      "News": "",
+      "Travel": "",
+      "Beauty": "",
+      "Comedy": "",
+      "Movies": "",
+      "How-to": "",
+      "Sport": "",
+      "Music": ""
+    }
   }
 }
