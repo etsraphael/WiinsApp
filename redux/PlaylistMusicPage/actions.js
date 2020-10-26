@@ -30,7 +30,7 @@ export function getMusicPlaylist(id) {
             dispatch(getMusicPlaylistStart())
             const url = 'https://wiins-backend.herokuapp.com/music/playlist/' + id
             const token = await AsyncStorage.getItem('userToken')
-
+            
             return fetch(url, {
                 method: 'GET',
                 headers: { 
