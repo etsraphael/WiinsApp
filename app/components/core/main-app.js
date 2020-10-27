@@ -1,0 +1,57 @@
+import React from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import MainNavigation from '../../navigation/navigation'
+import HomeApp from '../core/homeApp'
+import { StyleSheet, View } from 'react-native'
+import MiniPlayer from './mini-player'
+
+class MainApp extends React.Component {
+
+    constructor(props) {
+        super(props)
+    }
+
+    // to select the sign view
+    _beforAuth() {
+        return (<MainNavigation />)
+    }
+
+    // to select the home view
+    _afterAuth() {
+        return (
+            <View style={styles.container}>
+                <HomeApp/>
+                {this.props.Player.displayMiniPlayer ? <View style={styles.btnPlayer}><MiniPlayer/></View> : false}
+            </View>
+        )
+    }
+
+    render() {
+        if (!!this.props.MyUser.user) return this._afterAuth()
+        else return this._beforAuth()
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    btnPlayer: {
+        position: 'absolute',
+        bottom: '15%',
+    }
+})
+
+const mapStateToProps = state => ({
+    MyUser: state.MyUser,
+    Player: state.Player
+})
+
+const ActionCreators = Object.assign({})
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(ActionCreators, dispatch),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainApp)
