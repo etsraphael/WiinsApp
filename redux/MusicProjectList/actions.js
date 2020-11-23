@@ -1,5 +1,5 @@
 import { GET_LIST_PUBLICATIONS_MUSIC, GET_LIST_PUBLICATIONS_MUSIC_SUCCESS, GET_LIST_PUBLICATIONS_MUSIC_FAIL, RESET_PUBLICATIONS_MUSIC} from './constants';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export function getmusicProjectListSuccess(publication) {
     return {

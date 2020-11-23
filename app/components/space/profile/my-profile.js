@@ -11,7 +11,7 @@ import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import LinearGradient from 'react-native-linear-gradient'
 import ActionSheet from 'react-native-actionsheet'
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 class MyProfile extends React.Component {
 

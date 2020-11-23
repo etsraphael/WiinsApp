@@ -1,5 +1,5 @@
 import * as ActionTypes from './constants'
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 
 export function storySeen(profileId, storyId) {
     return { type: ActionTypes.STORY_SEEN, profileId, storyId }

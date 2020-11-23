@@ -1,5 +1,5 @@
 import * as ActionTypes from './constants'
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export function getRoomListSuccess(rooms) {
     return { type: ActionTypes.GET_ROOM_LIST_SUCCESS, payload: rooms }
