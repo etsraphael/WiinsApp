@@ -261,9 +261,9 @@ PODS:
     - React
   - react-native-image-picker (2.3.4):
     - React-Core
-  - react-native-image-resizer (1.3.0):
+  - react-native-image-resizer (1.4.0):
     - React-Core
-  - react-native-safe-area-context (3.1.8):
+  - react-native-safe-area-context (3.1.9):
     - React-Core
   - react-native-track-player (1.2.3):
     - React
@@ -336,18 +336,20 @@ PODS:
     - React-Core
   - RNCMaskedView (0.1.10):
     - React
-  - RNFastImage (8.3.2):
-    - React
+  - RNFastImage (8.3.4):
+    - React-Core
     - SDWebImage (~> 5.8)
     - SDWebImageWebPCoder (~> 0.6.1)
   - RNFS (2.16.6):
     - React
   - RNGestureHandler (1.8.0):
     - React
-  - RNScreens (2.11.0):
-    - React
-  - RNSnackbar (2.2.3):
-    - React
+  - RNLocalize (2.0.1):
+    - React-Core
+  - RNScreens (2.15.0):
+    - React-Core
+  - RNSnackbar (2.2.4):
+    - React-Core
   - RNSound (0.11.0):
     - React
     - RNSound/Core (= 0.11.0)
@@ -425,6 +427,7 @@ DEPENDENCIES:
   - RNFastImage (from `../node_modules/react-native-fast-image`)
   - RNFS (from `../node_modules/react-native-fs`)
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
+  - RNLocalize (from `../node_modules/react-native-localize`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSnackbar (from `../node_modules/react-native-snackbar`)
   - RNSound (from `../node_modules/react-native-sound`)
@@ -527,6 +530,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-fs"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
+  RNLocalize:
+    :path: "../node_modules/react-native-localize"
   RNScreens:
     :path: "../node_modules/react-native-screens"
   RNSnackbar:
@@ -571,8 +576,8 @@ SPEC CHECKSUMS:
   react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
   react-native-ffmpeg: 7c64ba2e41eeb06144ad77f17e62ecbbc29ae3c0
   react-native-image-picker: c6d75c4ab2cf46f9289f341242b219cb3c1180d3
-  react-native-image-resizer: a79bcffdef1b52160ff91db0d6fa24816a4ff332
-  react-native-safe-area-context: 79fea126c6830c85f65947c223a5e3058a666937
+  react-native-image-resizer: 9bb7382bc4faf0e840b088460d6f463b434a4818
+  react-native-safe-area-context: b6e0e284002381d2ff29fa4fff42b4d8282e3c94
   react-native-track-player: 28b96dd6404dea3eee80e67b74507679235a8dfb
   react-native-video: dbb8df4f0bbdf80de6797c90fcad8bc12b19401d
   React-RCTActionSheet: 53ea72699698b0b47a6421cb1c8b4ab215a774aa
@@ -587,11 +592,12 @@ SPEC CHECKSUMS:
   ReactCommon: 4167844018c9ed375cc01a843e9ee564399e53c3
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
-  RNFastImage: e19ba191922e7dab9d932a4d59d62d76660aa222
+  RNFastImage: d4870d58f5936111c56218dbd7fcfc18e65b58ff
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
   RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
-  RNScreens: 0e91da98ab26d5d04c7b59a9b6bd694124caf88c
-  RNSnackbar: a08d0d7e1e18c7312cd2b9c6f476211267855bce
+  RNLocalize: 41026b7c14878f1a1b381bc79f668f1fbf841adb
+  RNScreens: 2ad555d4d9fa10b91bb765ca07fe9b29d59573f0
+  RNSnackbar: 86092381dba7a0ed9fbd7acdb82ebbd5bfd26372
   RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
