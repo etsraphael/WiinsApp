@@ -38,6 +38,7 @@ class ProgressBar extends ProgressComponent {
             </View>
         )
     }
+    
 }
 
 const styles = StyleSheet.create({
