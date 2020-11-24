@@ -106,7 +106,7 @@ class PublicationStandard extends React.Component {
                 onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
             >
                 <FastImage
-                    style={{ flex: 1, width: '100%', height: this.state.imageHeight }}
+                    style={{ flex: 1, width: '100%', aspectRatio: 1 }}
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.cover}
                     onLoad={this.onImageLoaded}
@@ -167,7 +167,7 @@ class PublicationStandard extends React.Component {
             return (
                 <View style={styles.header_container}>
 
-                    <View style={{ height: '100%', flexDirection: 'row', flex: 2 }}>
+                    {/* <View style={{ height: '100%', flexDirection: 'row' }}>
                         <TouchableOpacity onPress={() => this._goToProfile(publication.profile._id)}>
                             <FastImage
                                 style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15, borderColor: 'white', borderWidth: 2 }}
@@ -182,10 +182,8 @@ class PublicationStandard extends React.Component {
                             <Text style={{ fontSize: 13, color: '#3F3F3F', fontWeight: '600' }}>{publication.profile._meta.pseudo}</Text>
                             <Text style={{ fontSize: 13, color: '#4E586E' }}>{getDateTranslated(publication.createdAt)}</Text>
                         </View>
-                    </View>
+                    </View> */}
 
-                    <View style={{ height: '100%', flex: 2 }}>
-                    </View>
                 </View>
             )
         }
@@ -335,9 +333,10 @@ class PublicationStandard extends React.Component {
 
         return (
             <View style={styles.card}>
-                {this._showHeader(publication)}
                 {this._showTypePublication(publication)}
-                {this._showFooter(publication)}
+                {this._showHeader(publication)}
+
+                {/* {this._showFooter(publication)} */}
             </View>
         )
     }
@@ -346,28 +345,23 @@ class PublicationStandard extends React.Component {
 
 const styles = StyleSheet.create({
     card: {
-        backgroundColor: 'white',
-        marginVertical: 5,
-        marginHorizontal: 4,
-        borderRadius: 8,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
         flex: 1,
+        borderRadius: 35,
+        overflow: 'hidden'
     },
     container_type: {
         overflow: 'hidden',
         flex: 4
     },
     header_container: {
-        paddingHorizontal: 15,
-        paddingVertical: 10,
-        flexDirection: 'row'
+        // flexDirection: 'row',
+        // backgroundColor: '#d4d4d41c',
+        // height: 30
+        position: 'absolute',
+        height: 65,
+        width: '100%',
+        backgroundColor: '#5d5d5d91',
+        zIndex: 1
     },
     header_info: {
         justifyContent: 'center'

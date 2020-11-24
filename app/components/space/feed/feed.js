@@ -12,7 +12,6 @@ import PublicationStoryHeader from './stories/publication-story-header'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient';
 import StantardSuggest from '../../core/stantard-suggest'
-import MasonryList from '@appandflow/masonry-list';
 import PublicationModal from '../../core/publication-modal'
 import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
@@ -171,9 +170,16 @@ class Feed extends React.Component {
                 onScroll={this._onScroll}
                 scrollEventThrottle={5}
             >
-
                 {this.props.Stories.stories.length > 0 ? <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend}/> : null}
-                <MasonryList
+
+
+                <FlatList
+                    data={this.props.FeedPublications.publications}
+                    renderItem={({ item }) => <PublicationStandard navigation={this.props.navigation} publication={item} space={'feed'} />}
+                    keyExtractor={item => item.id}
+                />
+
+                {/* <MasonryList
                     onRefresh={this._refreshRequest}
                     refreshing={this.state.isRefreshing}
                     data={this.props.FeedPublications.publications}
@@ -182,6 +188,9 @@ class Feed extends React.Component {
                     getHeightForItem={() => 15}
                     numColumns={2}
                 />
+ */}
+
+
             </ScrollView>
         )
     }
