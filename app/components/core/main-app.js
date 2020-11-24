@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import MainNavigation from '../../navigation/navigation'
-import HomeApp from '../core/homeApp'
 import { StyleSheet, View } from 'react-native'
 import MiniPlayer from './mini-player'
+import ContainerHomeNav from '../../navigation/container-home-nav'
+
 
 class MainApp extends React.Component {
 
@@ -14,14 +14,14 @@ class MainApp extends React.Component {
 
     // to select the sign view
     _beforAuth() {
-        return (<MainNavigation />)
+        return ContainerHomeNav
     }
 
     // to select the home view
     _afterAuth() {
         return (
             <View style={styles.container}>
-                <HomeApp/>
+                <ContainerHomeNav/>
                 {this.props.Player.displayMiniPlayer ? <View style={styles.btnPlayer}><MiniPlayer/></View> : false}
             </View>
         )

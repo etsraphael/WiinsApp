@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     StyleSheet, View, FlatList, TextInput, TouchableOpacity,
-    LayoutAnimation, Image, LogBox, DeviceEventEmitter, ScrollView
+    LayoutAnimation, Image, LogBox, DeviceEventEmitter, ScrollView, Text
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
@@ -213,7 +213,7 @@ class Feed extends React.Component {
     // to display the button to add a new post
     _btnPublication = () => {
         return (
-            <View style={{ borderRadius: 45, width: 75, height: 75, position: 'absolute', bottom: 110, left: 15, overflow: 'hidden' }}>
+            <View style={{ borderRadius: 45, width: 75, height: 75, position: 'absolute', bottom: 10, left: 15, overflow: 'hidden' }}>
 
                 <TouchableOpacity onPress={this._togglePublicationMode}>
 
