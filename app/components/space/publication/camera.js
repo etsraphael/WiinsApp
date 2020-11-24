@@ -831,7 +831,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
   MyUser: state.MyUser,
   SearchList: state.Search,
-  Publication: state.PublicationFeed.posted,
+  Publication: state.FeedPublications.posted,
   MyStory: state.MyStory,
 })
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, ActivityIndicator, Image } from 'react-native'
+import { StyleSheet, View, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyProfileActions from './../../redux/MyProfile/actions'
 import { bindActionCreators } from 'redux'
@@ -14,7 +14,6 @@ import * as PlayerMusicActions from '../../redux/Player/actions'
 import { listenerMusic } from '../services/music/music-service'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCircle } from '@fortawesome/free-solid-svg-icons'
-
 
 class ContainerHomeNav extends React.Component {
 
