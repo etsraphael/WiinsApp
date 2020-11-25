@@ -172,7 +172,6 @@ class Feed extends React.Component {
             >
                 {this.props.Stories.stories.length > 0 ? <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend}/> : null}
 
-
                 <FlatList
                     data={this.props.FeedPublications.publications}
                     renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}

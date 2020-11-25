@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import PublicationStandard from '../../core/publication-standard'
-import MasonryList from '@appandflow/masonry-list';
+import { FlatList } from 'react-native'
 
 class ProfilePublication extends React.Component {
 
@@ -16,29 +16,18 @@ class ProfilePublication extends React.Component {
 
     // to show the publications feed
     _getPublicationList = () => {
-
         if (!this.props.ProfilePublications.isLoading) {
-            this.setState({pagePublication: ++this.state.pagePublication, publicationLoading: true})
-            setTimeout(() => this.setState({ publicationLoading: false }), 3000); 
+            this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true })
+            setTimeout(() => this.setState({ publicationLoading: false }), 3000);
         }
-
     }
 
     render() {
-
-        return (
-            <MasonryList
-                onRefresh={this._refreshRequest}
-                refreshing={this.state.isRefreshing}
-                data={this.props.ProfilePublications.publications}
-                keyExtractor={(item) => item.id}
-                renderItem={({ item }) => <PublicationStandard publication={item} navigation={this.props.navigation} space={'profile'} />}
-                getHeightForItem={({ item }) => 15}
-                numColumns={2}
-                onEndReachedThreshold={0.5}
-                onEndReached={() => this._getPublicationList()}
-            />
-        )
+        return (<FlatList
+            data={this.props.ProfilePublications.publications}
+            renderItem={({ item, index }) => <PublicationStandard index={index} publication={item} navigation={this.props.navigation} space={'profile'} />}
+            keyExtractor={item => item.id}
+        />)
     }
 }
 

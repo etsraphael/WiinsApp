@@ -5,7 +5,6 @@ import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as TopHastagActions from '../../../../redux/TopHastag/actions'
 import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublications/actions'
 import { bindActionCreators } from 'redux'
-import MasonryList from '@appandflow/masonry-list'
 import PublicationStandard from '../../core/publication-standard'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
@@ -116,26 +115,19 @@ class Discover extends React.Component {
     }
 
     // select the publication list
-    _PublicationFeed = () => {
-
-        return (<MasonryList
-            onRefresh={this._refreshRequest}
-            refreshing={this.state.isRefreshing}
+    _publicationFeed = () => {
+        return (<FlatList
             data={this.props.DiscoverPublications.publications}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => <PublicationStandard publication={item} navigation={this.props.navigation} space={'discover'} />}
-            getHeightForItem={() => 15}
-            numColumns={2}
-            onEndReachedThreshold={0.5}
-            onEndReached={() => this._getPublicationList()} />
-        )
+            renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'discover'} />}
+            keyExtractor={item => item.id}
+        />)
     }
 
     render() {
         return (
             <View style={styles.main_container}>
                 {this._header()}
-                {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._PublicationFeed()}
+                {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
             </View>
         );
     }

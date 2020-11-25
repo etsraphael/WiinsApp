@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image, TouchableOpacity, DeviceEventEmitter, FlatList } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, DeviceEventEmitter } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 import * as ProfilePublicationActions from '../../../redux/ProfilePublications/actions'
@@ -166,7 +166,6 @@ class PublicationStandard extends React.Component {
             return (
                 <View style={styles.header_container}>
 
-
                     <LinearGradient
                         colors={['#00000099', '#0000005c', '#4e4e4e00']}
                         start={{ x: 0, y: 0 }}
@@ -194,7 +193,11 @@ class PublicationStandard extends React.Component {
         if (publication.page) {
             return (
                 <View style={styles.header_container}>
-                    <View style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25 }}>
+                    <LinearGradient
+                        colors={['#00000099', '#0000005c', '#4e4e4e00']}
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 0, y: 1 }}
+                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25 }}>
                         <TouchableOpacity onPress={() => this._goToPage(publication.page._id)}>
                             <FastImage
                                 style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
@@ -208,7 +211,7 @@ class PublicationStandard extends React.Component {
                         <View style={styles.header_info}>
                             <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.page.name}</Text>
                         </View>
-                    </View>
+                    </LinearGradient>
                     <View style={{ height: '100%', flex: 2 }}>
                     </View>
                 </View>
@@ -278,50 +281,19 @@ class PublicationStandard extends React.Component {
         return (
             <View style={styles.container_footer}>
 
-
                 <LinearGradient
                     colors={['#00000099', '#0000005c', '#4e4e4e00']}
                     start={{ x: 0, y: 1 }}
                     end={{ x: 0, y: 0 }}
-                    style={{ flexDirection: 'row', flex: 1, alignItems: 'center', paddingHorizontal: 25 }}>
-
-
-                    {/* Description Container */}
-                    {publication.hastags.length > 0 ?
-                        <View style={{ flex: 1 }}>
-
-                            {/* Hastag List */}
-                            <FlatList
-                                horizontal={true}
-                                showsHorizontalScrollIndicator={false}
-                                style={{ flexDirection: 'row', flexWrap: 'wrap' }}
-                                data={publication.hastags}
-                                keyExtractor={(item) => item.toString()}
-                                renderItem={({ item }) => (
-                                    <TouchableOpacity>
-                                        <Text style={{ fontSize: 15, fontFamily: 'Avenir-Book', color: '#F54B64', paddingRight: 4 }}>#{item}</Text>
-                                    </TouchableOpacity>
-                                )}
-                            />
-
-
-                            {/* Description */}
-                            {!!publication.text && publication.type !== 'PostPublication' ?
-                                <View>
-                                    <Text style={{ color: '#3F3F3F', fontSize: 15, lineHeight: 20 }}>{publication.text}</Text>
-                                </View>
-                                : null}
-
-
-                        </View>
-                        : null}
+                    style={{ flexDirection: 'row', flex: 1, alignItems: 'center', paddingHorizontal: 25 }}
+                >
 
                     {/*  Stat Container */}
                     <View style={{ flex: 1 }}>
                         <View style={{ flexDirection: 'row', flex: 1, paddingTop: 18 }}>
 
 
-                            <TouchableOpacity 
+                            <TouchableOpacity
                                 onPress={() => this._likePublication()}
                                 style={{ flex: 1 }}
                             >
@@ -336,8 +308,8 @@ class PublicationStandard extends React.Component {
                                 onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
                                 style={{ flex: 1 }}
                             >
-                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 30 }}>                                    
-                                    <FontAwesomeIcon icon={faComment} color={this._getColorLike()} size={19} style={{ opacity: 0.9 }} />
+                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 30 }}>
+                                    <FontAwesomeIcon icon={faComment} color={'white'} size={19} style={{ opacity: 0.9 }} />
                                     <Text style={{ marginLeft: 8, fontSize: 15, color: 'white', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.commentNumber}</Text>
                                 </View>
                             </TouchableOpacity>
