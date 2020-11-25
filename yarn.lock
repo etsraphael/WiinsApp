@@ -2,11 +2,6 @@
 # yarn lockfile v1
 
 
-"@appandflow/masonry-list@^0.4.0":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@appandflow/masonry-list/-/masonry-list-0.4.0.tgz#26a723dd26a4ce9e1fef05bed0969b5b18d3f1a6"
-  integrity sha1-Jqcj3Sakzp4f7wW+0JabWxjT8aY=
-
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4":
   version "7.10.4"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
