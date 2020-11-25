@@ -175,21 +175,9 @@ class Feed extends React.Component {
 
                 <FlatList
                     data={this.props.FeedPublications.publications}
-                    renderItem={({ item }) => <PublicationStandard navigation={this.props.navigation} publication={item} space={'feed'} />}
+                    renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
                     keyExtractor={item => item.id}
                 />
-
-                {/* <MasonryList
-                    onRefresh={this._refreshRequest}
-                    refreshing={this.state.isRefreshing}
-                    data={this.props.FeedPublications.publications}
-                    keyExtractor={(item) => item.id}
-                    renderItem={({ item }) => <PublicationStandard navigation={this.props.navigation} publication={item} space={'feed'} />}
-                    getHeightForItem={() => 15}
-                    numColumns={2}
-                />
- */}
-
 
             </ScrollView>
         )
