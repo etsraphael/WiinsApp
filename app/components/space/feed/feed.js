@@ -169,6 +169,7 @@ class Feed extends React.Component {
             <ScrollView
                 onScroll={this._onScroll}
                 scrollEventThrottle={5}
+                style={{borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden'}}
             >
                 {this.props.Stories.stories.length > 0 ? <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend}/> : null}
 
