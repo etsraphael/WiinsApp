@@ -25,10 +25,14 @@ class PublicationStandard extends React.Component {
         const ratio = ((event.nativeEvent.width / event.nativeEvent.height) * 100)
 
         switch (true) {
-            case ratio <= 75: this.setState({ imageHeight: ratio * 4 }); break;
-            case ratio <= 90: this.setState({ imageHeight: ratio * 3 }); break;
-            case ratio <= 110: this.setState({ imageHeight: ratio * 2 }); break;
-            case ratio > 120: this.setState({ imageHeight: ratio * 1 }); break;
+            case ratio <= 70: this.setState({ imageHeight: ratio * 9 }); break;
+            case ratio <= 85: this.setState({ imageHeight: ratio * 7.5 }); break;
+            case ratio <= 100: this.setState({ imageHeight: ratio * 5 }); break;
+            case ratio <= 115: this.setState({ imageHeight: ratio * 3 }); break;
+            case ratio <= 130: this.setState({ imageHeight: ratio * 2.5 }); break;
+            case ratio <= 155: this.setState({ imageHeight: ratio * 1.8 }); break;
+            case ratio <= 180: this.setState({ imageHeight: ratio * 1.3 }); break;
+            case ratio > 180: this.setState({ imageHeight: ratio * 0.8 }); break;
         }
 
     }
@@ -105,7 +109,7 @@ class PublicationStandard extends React.Component {
                 onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
             >
                 <FastImage
-                    style={{ flex: 1, width: '100%', aspectRatio: 2.3 / 3 }}
+                    style={{ flex: 1, width: '100%', height: this.state.imageHeight }}
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.cover}
                     onLoad={this.onImageLoaded}
@@ -330,7 +334,7 @@ class PublicationStandard extends React.Component {
         if (index > 0) {
             return {
                 position: 'relative',
-                top: -45 * index
+                top: -31 * index
             }
         }
     }
@@ -355,7 +359,7 @@ const styles = StyleSheet.create({
         flex: 1,
         borderTopLeftRadius: 35,
         borderTopRightRadius: 35,
-        overflow: 'hidden'
+        overflow: 'hidden',
     },
     container_type: {
         overflow: 'hidden',
@@ -371,10 +375,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     container_footer: {
-        paddingVertical: 13,
         bottom: 0,
         position: 'absolute',
-        height: 120,
+        height: 100,
         width: '100%'
     },
     comment_icon: {
