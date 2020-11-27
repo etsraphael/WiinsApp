@@ -10,9 +10,8 @@ import * as PublicationFeedActions from '../../../../redux/FeedPublications/acti
 import LinearGradient from 'react-native-linear-gradient'
 import ProfilePublication from './profile-publication'
 import ProfileMusic from './profile-music'
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-
+import { faNewspaper, faMusic, faVideo, faUserPlus } from '@fortawesome/free-solid-svg-icons'
 
 class Profile extends React.Component {
 
@@ -193,27 +192,15 @@ class Profile extends React.Component {
                     <View style={{ flexDirection: 'row', padding: 15, paddingRight: 15, borderColor: '#9d9d9d', borderBottomWidth: 0.5 }}>
                         <TouchableOpacity onPress={() => this.setState({ space: 'feed' })}
                             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Image
-                                source={require('../../../../assets/image/navigation/nav-feed-icon.png')}
-                                style={{ width: 24, height: 24 }}
-                                resizeMode={'contain'}
-                            />
+                            <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
                         </TouchableOpacity>
                         <TouchableOpacity
                             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Image
-                                source={require('../../../../assets/image/navigation/nav-tube-icon.png')}
-                                style={{ width: 24, height: 24 }}
-                                resizeMode={'contain'}
-                            />
+                            <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
                         </TouchableOpacity>
                         <TouchableOpacity onPress={() => this.setState({ space: 'music' })}
                             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Image
-                                source={require('../../../../assets/image/navigation/nav-music-icon.png')}
-                                style={{ width: 24, height: 24 }}
-                                resizeMode={'contain'}
-                            />
+                            <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
                         </TouchableOpacity>
                     </View>
 

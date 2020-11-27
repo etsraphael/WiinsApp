@@ -45,18 +45,19 @@ class ContainerHomeNav extends React.Component {
         const Tab = createBottomTabNavigator()
         return (
             <View style={styles.main_container}>
-                <Tab.Navigator 
+                <Tab.Navigator
                     initialRouteName="Home"
                     tabBarOptions={
                         {
                             showLabel: false,
                             style: {
-                            borderRadius: 35,
-                            overflow: 'hidden',
-                            backgroundColor: '#ffffff',
-                            position: 'absolute',
-                            border: 0
-                        }}
+                                borderRadius: 35,
+                                overflow: 'hidden',
+                                backgroundColor: '#ffffff',
+                                position: 'absolute',
+                                border: 0
+                            }
+                        }
                     }
                 >
                     <Tab.Screen

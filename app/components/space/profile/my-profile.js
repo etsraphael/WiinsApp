@@ -12,6 +12,8 @@ import * as PublicationFeedActions from '../../../../redux/FeedPublications/acti
 import LinearGradient from 'react-native-linear-gradient'
 import ActionSheet from 'react-native-actionsheet'
 import AsyncStorage from '@react-native-community/async-storage';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faNewspaper, faMusic, faVideo } from '@fortawesome/free-solid-svg-icons'
 
 class MyProfile extends React.Component {
 
@@ -132,25 +134,13 @@ class MyProfile extends React.Component {
                     {/* Nav */}
                     <View style={{ flexDirection: 'row', padding: 15, paddingRight: 15, borderColor: '#9d9d9d', borderBottomWidth: 0.5 }}>
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Image
-                                source={require('../../../../assets/image/navigation/nav-feed-icon.png')}
-                                style={{ width: 24, height: 24 }}
-                                resizeMode={'contain'}
-                            />
+                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
                         </View>
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Image
-                                source={require('../../../../assets/image/navigation/nav-tube-icon.png')}
-                                style={{ width: 24, height: 24 }}
-                                resizeMode={'contain'}
-                            />
+                        <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
                         </View>
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Image
-                                source={require('../../../../assets/image/navigation/nav-music-icon.png')}
-                                style={{ width: 24, height: 24 }}
-                                resizeMode={'contain'}
-                            />
+                        <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
                         </View>
                     </View>
 
