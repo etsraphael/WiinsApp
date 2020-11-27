@@ -16,6 +16,9 @@ import PublicationModal from '../../core/publication-modal'
 import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
 
 const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
     const paddingToBottom = 20;
@@ -88,11 +91,11 @@ class Feed extends React.Component {
             ? 'down'
             : 'up'
         // If the user is scrolling down (and the action-button is still visible) hide it
-        const isHeaderVisible = direction === 'up'
-        if (isHeaderVisible !== this.state.isHeaderVisible) {
-            LayoutAnimation.configureNext(CustomLayoutLinear)
-            this.setState({ isHeaderVisible })
-        }
+        // const isHeaderVisible = direction === 'up'
+        // if (isHeaderVisible !== this.state.isHeaderVisible) {
+        //     LayoutAnimation.configureNext(CustomLayoutLinear)
+        //     this.setState({ isHeaderVisible })
+        // }
         // Update your scroll position
         this._listViewOffset = currentOffset
 
@@ -110,17 +113,13 @@ class Feed extends React.Component {
 
     // to display the header
     _header() {
-
         return (
             <View style={styles.header_container}>
-                <View style={{ flex: 8, flexDirection: 'row', alignItems: 'center', borderRadius: 18, backgroundColor: '#8e8e9329', overflow: 'hidden' }}>
-                    <Image style={{ marginLeft: 20, width: 18, height: 18 }} source={require('../../../../assets/image/icon/search-icon.png')} />
-                    <TextInput
-                        placeholder='Search'
-                        style={styles.search_bar}
-                        placeholderTextColor="#737373"
-                        onChangeText={(val) => this._searching(val)}
-                    />
+                <TouchableOpacity onPress={this._togglePublicationMode} style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
+                    <FontAwesomeIcon icon={faPlus} color={'grey'} size={21} style={{ opacity: 0.8 }} />
+                </TouchableOpacity>
+                <View style={{flex: 5, flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+                    <Text style={{fontSize: 25}}>Wiins</Text>
                 </View>
                 <View style={{ flex: 2, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <TouchableOpacity underlayColor='#fff' onPress={() => this.props.navigation.navigate('MyProfile')}>
@@ -171,7 +170,9 @@ class Feed extends React.Component {
                 scrollEventThrottle={5}
                 style={{borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden'}}
             >
-                {this.props.Stories.stories.length > 0 ? <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend}/> : null}
+                {this.props.Stories.stories.length > 0 ? 
+                <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend}/>
+                 : null}
 
                 <FlatList
                     data={this.props.FeedPublications.publications}
@@ -207,24 +208,6 @@ class Feed extends React.Component {
         setTimeout(() => this.setState({ storysModalExist: !this.state.storysModalExist }), 100)
     }
 
-    // to display the button to add a new post
-    _btnPublication = () => {
-        return (
-            <View style={{ borderRadius: 45, width: 75, height: 75, position: 'absolute', bottom: 10, left: 15, overflow: 'hidden' }}>
-
-                <TouchableOpacity onPress={this._togglePublicationMode}>
-
-                <Image
-                    source={require('../../../../assets/image/icon/faplus.png')}
-                    style={{ width: '100%', height: '100%' }}
-                    resizeMode={'cover'}
-                />
-                </TouchableOpacity>
-
-            </View>
-        )
-    }
-
     render = () => {
         return (
             <View style={styles.feed_container}>
@@ -234,7 +217,6 @@ class Feed extends React.Component {
                 {this.state.search.length == 0 ? this._PublicationFeed() : this._suggestionSearch()}
 
                 {/* Modal */}
-                {this._btnPublication()}
                 {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
                 {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} /> : null}
                 {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
