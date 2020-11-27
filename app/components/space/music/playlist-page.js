@@ -151,8 +151,6 @@ class PlaylistPage extends React.Component {
     // to display the playlist view
     _displayPlaylist() {
 
-        console.log(this.props.PlaylistPage)
-
         return (
             <View>
                 {this._headerPlaylist()}

@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     main_container: {
         flex: 1,
         paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 0,
-        backgroundColor: 'white'
+        backgroundColor: '#e3e6ef'
     },
     header_container: {
         flexDirection: 'row',

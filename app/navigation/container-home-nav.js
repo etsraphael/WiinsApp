@@ -45,8 +45,19 @@ class ContainerHomeNav extends React.Component {
         const Tab = createBottomTabNavigator()
         return (
             <View style={styles.main_container}>
-                <Tab.Navigator initialRouteName="Home"
-                    tabBarOptions={{ showLabel: false }}
+                <Tab.Navigator 
+                    initialRouteName="Home"
+                    tabBarOptions={
+                        {
+                            showLabel: false,
+                            style: {
+                            borderRadius: 35,
+                            overflow: 'hidden',
+                            backgroundColor: '#ffffff',
+                            position: 'absolute',
+                            border: 0
+                        }}
+                    }
                 >
                     <Tab.Screen
                         name="Home"
@@ -98,7 +109,8 @@ class ContainerHomeNav extends React.Component {
 
 const styles = StyleSheet.create({
     main_container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: '#e3e6ef'
     },
     loading_container: {
         flex: 1,

@@ -109,7 +109,7 @@ class HomeMessenger extends React.Component {
         return (
             <TouchableOpacity
                 onPress={() => this.setState({ newMessageModal: true })}
-                style={{ position: 'absolute', bottom: 35, left: 35, backgroundColor: 'red', width: 55, height: 55, borderRadius: 55, overflow: 'hidden', backgroundColor: 'red' }}
+                style={{ position: 'absolute', bottom: 105, left: 35, backgroundColor: 'red', width: 55, height: 55, borderRadius: 55, overflow: 'hidden', backgroundColor: 'red' }}
             >
                 <LinearGradient
                     colors={['#4524fd', '#4725ff', '#4725ff']}
@@ -226,7 +226,7 @@ class HomeMessenger extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: '#e3e6ef'
     },
     header_container: {
         flexDirection: 'row',
