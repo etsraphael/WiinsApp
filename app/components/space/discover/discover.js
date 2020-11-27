@@ -116,11 +116,14 @@ class Discover extends React.Component {
 
     // select the publication list
     _publicationFeed = () => {
-        return (<FlatList
+        return (
+        <FlatList
+            style={{borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden'}}
             data={this.props.DiscoverPublications.publications}
             renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'discover'} />}
             keyExtractor={item => item.id}
-        />)
+        />
+        )
     }
 
     render() {
