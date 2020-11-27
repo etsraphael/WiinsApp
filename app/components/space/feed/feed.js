@@ -1,7 +1,7 @@
 import React from 'react'
 import {
-    StyleSheet, View, FlatList, TextInput, TouchableOpacity,
-    LayoutAnimation, Image, LogBox, DeviceEventEmitter, ScrollView, Text
+    StyleSheet, View, FlatList, TouchableOpacity,
+    LayoutAnimation, Image, LogBox, DeviceEventEmitter, ScrollView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
@@ -119,7 +119,7 @@ class Feed extends React.Component {
                     <FontAwesomeIcon icon={faPlus} color={'grey'} size={21} style={{ opacity: 0.8 }} />
                 </TouchableOpacity>
                 <View style={{flex: 5, flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-                    <Text style={{fontSize: 25}}>Wiins</Text>
+                    <Image style={{width: 75, height: 40}} source={require('../../../../assets/image/wiins-written.png')} />
                 </View>
                 <View style={{ flex: 2, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <TouchableOpacity underlayColor='#fff' onPress={() => this.props.navigation.navigate('MyProfile')}>
