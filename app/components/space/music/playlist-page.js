@@ -9,7 +9,7 @@ import OneMusic from './one-music'
 import CommentList from '../../core/comment-list'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlay, faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faAngleLeft } from '@fortawesome/pro-light-svg-icons'
 import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 

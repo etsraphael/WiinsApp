@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlay, faHeart, faComment } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faHeart, faComment } from '@fortawesome/pro-light-svg-icons'
 
 class PublicationStandard extends React.Component {
 

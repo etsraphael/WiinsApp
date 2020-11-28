@@ -17,7 +17,7 @@ import {
   faAngleRight, faSync, faPhotoVideo, faTimes, faBolt,
   faEnvelopeOpenText, faPaperPlane, faUserPlus, faCheckCircle,
   faClone
-} from '@fortawesome/free-solid-svg-icons'
+} from '@fortawesome/pro-light-svg-icons'
 import Video from 'react-native-video'
 import LinearGradient from 'react-native-linear-gradient'
 import { listFontPost } from '../../core/data/font-post'

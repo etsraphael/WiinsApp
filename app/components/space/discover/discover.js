@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux'
 import PublicationStandard from '../../core/publication-standard'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/pro-light-svg-icons'
 
 class Discover extends React.Component {
 

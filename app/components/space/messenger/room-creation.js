@@ -9,7 +9,7 @@ import * as RoomActions from '../../../../redux/OneRoom/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import { faAngleLeft, faEllipsisH, faPaperPlane, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faEllipsisH, faPaperPlane, faUser } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 class RoomCreation extends React.Component {

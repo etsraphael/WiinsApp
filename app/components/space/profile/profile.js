@@ -11,7 +11,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import ProfilePublication from './profile-publication'
 import ProfileMusic from './profile-music'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faNewspaper, faMusic, faVideo, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faNewspaper, faMusic, faVideo, faUserPlus } from '@fortawesome/pro-light-svg-icons'
 
 class Profile extends React.Component {
 

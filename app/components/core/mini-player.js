@@ -8,7 +8,7 @@ import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
 import TrackPlayer from 'react-native-track-player'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
-import { faStepForward, faStepBackward, faPlay, faMusic, faPause, faStop } from '@fortawesome/free-solid-svg-icons'
+import { faStepForward, faStepBackward, faPlay, faMusic, faPause, faStop } from '@fortawesome/pro-light-svg-icons'
 import ProgressBar from '../space/music/progress-bar'
 
 class MiniPlayer extends React.Component {

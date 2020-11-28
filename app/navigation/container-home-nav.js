@@ -13,7 +13,7 @@ import MainTube from './../components/space/tube/main-tube'
 import * as PlayerMusicActions from '../../redux/Player/actions'
 import { listenerMusic } from '../services/music/music-service'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faNewspaper, faMusic, faComments, faVideo, faCompass } from '@fortawesome/pro-light-svg-icons'
+import { faHomeLg, faMusic, faCommentsAlt, faTv, faCompass } from '@fortawesome/pro-light-svg-icons'
 
 class ContainerHomeNav extends React.Component {
 
@@ -67,7 +67,7 @@ class ContainerHomeNav extends React.Component {
                     <Tab.Screen
                         name="Home"
                         component={MainFeed}
-                        options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faNewspaper} color={color} size={25} /> }}
+                        options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faHomeLg} color={color} size={25} /> }}
                     />
                     <Tab.Screen
                         name="Discover"
@@ -77,7 +77,7 @@ class ContainerHomeNav extends React.Component {
                     <Tab.Screen
                         name="Tube"
                         component={MainTube}
-                        options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faVideo} color={color} size={25} /> }}
+                        options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faTv} color={color} size={25} /> }}
                     />
                     <Tab.Screen
                         name="Music"
@@ -87,7 +87,7 @@ class ContainerHomeNav extends React.Component {
                     <Tab.Screen
                         name="Chat"
                         component={MainMessenger}
-                        options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faComments} color={color} size={25} /> }}
+                        options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faCommentsAlt} color={color} size={25} /> }}
                     />
                 </Tab.Navigator>
             </View>

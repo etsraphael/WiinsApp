@@ -13,7 +13,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import ActionSheet from 'react-native-actionsheet'
 import AsyncStorage from '@react-native-community/async-storage';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faNewspaper, faMusic, faVideo } from '@fortawesome/free-solid-svg-icons'
+import { faNewspaper, faMusic, faVideo } from '@fortawesome/pro-light-svg-icons'
 
 class MyProfile extends React.Component {
 

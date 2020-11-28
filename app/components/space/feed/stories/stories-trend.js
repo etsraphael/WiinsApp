@@ -8,7 +8,7 @@ import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faTimes } from '@fortawesome/pro-light-svg-icons'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import Video from 'react-native-video'
 
