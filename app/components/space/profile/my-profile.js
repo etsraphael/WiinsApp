@@ -12,8 +12,8 @@ import * as PublicationFeedActions from '../../../../redux/FeedPublications/acti
 import LinearGradient from 'react-native-linear-gradient'
 import ActionSheet from 'react-native-actionsheet'
 import AsyncStorage from '@react-native-community/async-storage';
+import { faNewspaper, faMusic, faVideo, faArrowLeft, faUserCog } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faNewspaper, faMusic, faVideo } from '@fortawesome/pro-light-svg-icons'
 
 class MyProfile extends React.Component {
 
@@ -61,12 +61,14 @@ class MyProfile extends React.Component {
 
                     {/* Back Btn */}
                     <TouchableOpacity  onPress={() => this.props.screenProps.rootNavigation.goBack(null)}
-                        style={{ position: 'absolute', left: 25, width: 35, height: 35, top: 55, backgroundColor: 'red', zIndex: 1}}>
+                        style={{ position: 'absolute', left: 25, width: 35, height: 35, top: 55, zIndex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                        <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
                     </TouchableOpacity>
 
                     {/* Dropdown Btn */}
                     <TouchableOpacity onPress={this.showActionSheet} 
-                    style={{position: 'absolute', right: 25, width: 35, height: 35, top: 55, backgroundColor: 'red', zIndex: 1}}>
+                    style={{position: 'absolute', right: 25, width: 35, height: 35, top: 55, zIndex: 1}}>
+                        <FontAwesomeIcon icon={faUserCog} color={'white'} size={30} />
                     </TouchableOpacity>
 
                     {/* Cover Picture */}
