@@ -51,7 +51,8 @@ class ContainerHomeNav extends React.Component {
                         {
                             showLabel: false,
                             style: {
-                                borderRadius: 35,
+                                borderTopLeftRadius: 35,
+                                borderTopRightRadius: 35,
                                 overflow: 'hidden',
                                 backgroundColor: '#ffffff',
                                 position: 'absolute',

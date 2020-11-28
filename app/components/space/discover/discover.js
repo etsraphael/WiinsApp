@@ -74,6 +74,7 @@ class Discover extends React.Component {
                     />
                 </View>
 
+
                 {/* top hastag right now */}
                 {this.props.TopHastag.top.length > 1 ?
                     <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
@@ -91,6 +92,21 @@ class Discover extends React.Component {
                         />
                     </View>
                     : null}
+
+                    {/* <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                        <FlatList
+                            horizontal={true}
+                            showsHorizontalScrollIndicator={false}
+                            style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7 }}
+                            data={['trend', 'jskdnkjdsnf', 'hejf', 'skjvhsv']}
+                            keyExtractor={(item) => item.toString()}
+                            renderItem={({ item }) => (
+                                <TouchableOpacity style={styles.one_hastag} onPress={() => this._changeHastag(item)}>
+                                    <Text style={[{ fontWeight: 'bold', fontSize: 34, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#8E8E8E' }, this._selectedHastag(item)]}>#{item}</Text>
+                                </TouchableOpacity>
+                            )}
+                        />
+                    </View> */}
 
             </View>
         )
