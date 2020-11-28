@@ -301,7 +301,7 @@ class PublicationStandard extends React.Component {
                                 onPress={() => this._likePublication()}
                                 style={{ flex: 1 }}
                             >
-                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#3e3e3e2e', borderRadius: 25, height: 30 }}>
+                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#3e3e3e2e', borderRadius: 25, height: 35 }}>
                                     <FontAwesomeIcon icon={faHeart} color={this._getColorLike()} size={19} style={{ opacity: 0.9 }} />
                                     <Text style={{ marginLeft: 8, fontSize: 15, color: 'white', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.like.likeNumber}</Text>
                                 </View>
@@ -312,7 +312,7 @@ class PublicationStandard extends React.Component {
                                 onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
                                 style={{ flex: 1 }}
                             >
-                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 30 }}>
+                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 35 }}>
                                     <FontAwesomeIcon icon={faComment} color={'white'} size={19} style={{ opacity: 0.9 }} />
                                     <Text style={{ marginLeft: 8, fontSize: 15, color: 'white', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.commentNumber}</Text>
                                 </View>

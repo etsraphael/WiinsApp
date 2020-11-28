@@ -17,7 +17,7 @@ import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlus } from '@fortawesome/pro-light-svg-icons'
+import { faPlusCircle, faUserCircle } from '@fortawesome/pro-light-svg-icons'
 
 
 const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
@@ -71,7 +71,7 @@ class Feed extends React.Component {
         if (!this.props.FeedPublications.isLoading && !this.state.publicationLoading) {
             this.props.actions.getByMode(this.state.pagePublication, 'FollowerAndFriend')
             this.setState({ pagePublication: this.state.pagePublication + 1, publicationLoading: true })
-            setTimeout(() => this.setState({ publicationLoading: false }), 3000); 
+            setTimeout(() => this.setState({ publicationLoading: false }), 3000);
         }
 
     }
@@ -115,38 +115,18 @@ class Feed extends React.Component {
     _header() {
         return (
             <View style={styles.header_container}>
-                <TouchableOpacity onPress={this._togglePublicationMode} style={{flex: 2, justifyContent: 'center', alignItems: 'center'}}>
-                    <FontAwesomeIcon icon={faPlus} color={'grey'} size={21} style={{ opacity: 0.8 }} />
-                </TouchableOpacity>
-                <View style={{flex: 5, flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
-                    <Image style={{width: 75, height: 40}} source={require('../../../../assets/image/wiins-written.png')} />
+                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', paddingLeft: 15 }}>
+                    <Image style={{ width: 75, height: 40 }} source={require('../../../../assets/image/wiins-written.png')} />
                 </View>
-                <View style={{ flex: 2, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity underlayColor='#fff' onPress={() => this.props.navigation.navigate('MyProfile')}>
-                        <LinearGradient
-                            colors={['#202D83', '#9f49ee94']}
-                            start={{ x: 1, y: 0 }}
-                            end={{ x: 0, y: 1 }}
-                            style={
-                                {
-                                    overflow: 'hidden',
-                                    borderRadius: 25,
-                                    width: 39,
-                                    height: 39,
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    marginHorizontal: 5
-                                }
-                            }>
-                            <FastImage
-                                style={{ width: 34, height: 34, borderRadius: 25 }}
-                                source={{
-                                    uri: this.props.MyProfile.profile.pictureprofile,
-                                    priority: FastImage.priority.normal,
-                                }}
-                                resizeMode={FastImage.resizeMode.cover}
-                            />
-                        </LinearGradient>
+                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingHorizontal: 15 }}>
+                    <TouchableOpacity onPress={this._togglePublicationMode}
+                        style={{ justifyContent: 'center', alignItems: 'center', padding: 10, paddingTop: 25 }}>
+                        <FontAwesomeIcon icon={faPlusCircle} size={29} />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('MyProfile')}
+                        style={{ justifyContent: 'center', alignItems: 'center', padding: 10, paddingTop: 25 }}>
+                        <FontAwesomeIcon icon={faUserCircle} size={29} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -168,11 +148,11 @@ class Feed extends React.Component {
             <ScrollView
                 onScroll={this._onScroll}
                 scrollEventThrottle={5}
-                style={{borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden'}}
+                style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}
             >
-                {this.props.Stories.stories.length > 0 ? 
-                <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend}/>
-                 : null}
+                {this.props.Stories.stories.length > 0 ?
+                    <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
+                    : null}
 
                 <FlatList
                     data={this.props.FeedPublications.publications}
