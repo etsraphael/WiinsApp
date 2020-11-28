@@ -13,7 +13,7 @@ import MainTube from './../components/space/tube/main-tube'
 import * as PlayerMusicActions from '../../redux/Player/actions'
 import { listenerMusic } from '../services/music/music-service'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faNewspaper, faMusic, faComments, faVideo, faCompass } from '@fortawesome/free-solid-svg-icons'
+import { faNewspaper, faMusic, faComments, faVideo, faCompass } from '@fortawesome/pro-light-svg-icons'
 
 class ContainerHomeNav extends React.Component {
 
