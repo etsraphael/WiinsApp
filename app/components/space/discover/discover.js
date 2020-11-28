@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, Text, TextInput, FlatList, TouchableOpacity, ActivityIndicator, LayoutAnimation } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as TopHastagActions from '../../../../redux/TopHastag/actions'
@@ -34,8 +34,8 @@ class Discover extends React.Component {
 
         if (!this.props.DiscoverPublications.isLoading && !this.state.publicationLoading) {
 
-            this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true  })
-            setTimeout(() => this.setState({ publicationLoading: false }), 3000); 
+            this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true })
+            setTimeout(() => this.setState({ publicationLoading: false }), 3000);
 
             if (this.state.hastagSelected == 'trend') this.props.actions.getTrend(this.state.pagePublication)
             else this.props.actions.getByName(this.state.pagePublication, this.state.hastagSelected)
@@ -77,48 +77,52 @@ class Discover extends React.Component {
         )
     }
 
+    // to add some event during the scrolling
+    _onScroll = (event) => {
+
+        const CustomLayoutLinear = {
+            duration: 100,
+            create: { type: LayoutAnimation.Types.linear, property: LayoutAnimation.Properties.opacity },
+            update: { type: LayoutAnimation.Types.linear, property: LayoutAnimation.Properties.opacity },
+            delete: { type: LayoutAnimation.Types.linear, property: LayoutAnimation.Properties.opacity }
+        }
+        // Check if the user is scrolling up or down by confronting the new scroll position with your own one
+        const currentOffset = event.nativeEvent.contentOffset.y
+        const direction = (currentOffset > 0 && currentOffset > this._listViewOffset)
+            ? 'down'
+            : 'up'
+        // If the user is scrolling down (and the action-button is still visible) hide it
+        const isHeaderVisible = direction === 'up'
+        if (isHeaderVisible !== this.state.isHeaderVisible) {
+            LayoutAnimation.configureNext(CustomLayoutLinear)
+            this.setState({ isHeaderVisible })
+        }
+
+        // Update your scroll position
+        this._listViewOffset = currentOffset
+
+    }
+
     // to display the top of the hastag
     _hastagView = () => {
-        return (
-            <View>
-            
-            {/* top hastag right now */}
-                {/* {this.props.TopHastag.top.length > 1 ?
-                    <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                        <FlatList
-                            horizontal={true}
-                            showsHorizontalScrollIndicator={false}
-                            style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7 }}
-                            data={['trend', ...this.props.TopHastag.top]}
-                            keyExtractor={(item) => item.toString()}
-                            renderItem={({ item }) => (
-                                <TouchableOpacity style={styles.one_hastag} onPress={() => this._changeHastag(item)}>
-                                    <Text style={[{ fontWeight: 'bold', fontSize: 34, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#8E8E8E' }, this._selectedHastag(item)]}>#{item}</Text>
-                                </TouchableOpacity>
-                            )}
-                        />
-                    </View>
-                    : null} */}
-
-
-                    <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                        <FlatList
-                            horizontal={true}
-                            showsHorizontalScrollIndicator={false}
-                            style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7,paddingLeft: 15 }}
-                            data={['trend', 'jskdnkjdsnf', 'hejf', 'skjvhsv']}
-                            keyExtractor={(item) => item.toString()}
-                            renderItem={({ item }) => (
-                                <TouchableOpacity style={styles.one_hastag} onPress={() => this._changeHastag(item)}>
-                                    <Text style={[{ fontWeight: 'bold', fontSize: 15, lineHeight: 41, letterSpacing: 1, color: '#8E8E8E' }, this._selectedHastag(item)]}>#{item}</Text>
-                                </TouchableOpacity>
-                            )}
-                        />
-                    </View> 
-        
-        
-        </View>
-        )
+        if (this.state.isHeaderVisible && this.props.TopHastag.top.length > 1) {
+            return (
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                    <FlatList
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                        style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7, paddingLeft: 15 }}
+                        data={['trend', ...this.props.TopHastag.top]}
+                        keyExtractor={(item) => item.toString()}
+                        renderItem={({ item }) => (
+                            <TouchableOpacity style={styles.one_hastag} onPress={() => this._changeHastag(item)}>
+                                <Text style={[{ fontWeight: 'bold', fontSize: 15, lineHeight: 41, letterSpacing: 1, color: '#8E8E8E' }, this._selectedHastag(item)]}>#{item}</Text>
+                            </TouchableOpacity>
+                        )}
+                    />
+                </View>
+            )
+        } else { return null }
     }
 
     // to select the loading animation
@@ -142,12 +146,13 @@ class Discover extends React.Component {
     // select the publication list
     _publicationFeed = () => {
         return (
-        <FlatList
-            style={{borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden'}}
-            data={this.props.DiscoverPublications.publications}
-            renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'discover'} />}
-            keyExtractor={item => item.id}
-        />
+            <FlatList
+                onScroll={this._onScroll}
+                style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}
+                data={this.props.DiscoverPublications.publications}
+                renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'discover'} />}
+                keyExtractor={item => item.id}
+            />
         )
     }
 
