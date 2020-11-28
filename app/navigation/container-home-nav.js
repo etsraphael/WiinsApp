@@ -50,6 +50,8 @@ class ContainerHomeNav extends React.Component {
                     tabBarOptions={
                         {
                             showLabel: false,
+                            activeTintColor: 'black',
+                            inactiveTintColor: '#ced4d9',
                             style: {
                                 borderTopLeftRadius: 35,
                                 borderTopRightRadius: 35,
@@ -60,31 +62,32 @@ class ContainerHomeNav extends React.Component {
                             }
                         }
                     }
+
                 >
                     <Tab.Screen
                         name="Home"
                         component={MainFeed}
-                        options={{ tabBarIcon: () => <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} /> }}
+                        options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faNewspaper} color={color} size={25} /> }}
                     />
                     <Tab.Screen
                         name="Discover"
                         component={MainDiscover}
-                        options={{ tabBarIcon: () => <FontAwesomeIcon icon={faCompass} color={'grey'} size={25} style={{ opacity: 0.8 }} /> }}
+                        options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faCompass} color={color} size={25} /> }}
                     />
                     <Tab.Screen
                         name="Tube"
                         component={MainTube}
-                        options={{ tabBarIcon: () => <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} /> }}
+                        options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faVideo} color={color} size={25} /> }}
                     />
                     <Tab.Screen
                         name="Music"
                         component={MainMusic}
-                        options={{ tabBarIcon: () => <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} /> }}
+                        options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faMusic} color={color} size={25} /> }}
                     />
                     <Tab.Screen
                         name="Chat"
                         component={MainMessenger}
-                        options={{ tabBarIcon: () => <FontAwesomeIcon icon={faComments} color={'grey'} size={25} style={{ opacity: 0.8 }} /> }}
+                        options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faComments} color={color} size={25} /> }}
                     />
                 </Tab.Navigator>
             </View>
