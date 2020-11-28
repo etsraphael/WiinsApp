@@ -50,7 +50,7 @@ class ContainerHomeNav extends React.Component {
                     tabBarOptions={
                         {
                             showLabel: false,
-                            activeTintColor: 'black',
+                            activeTintColor: '#ff8400cf',
                             inactiveTintColor: '#ced4d9',
                             style: {
                                 borderTopLeftRadius: 35,
@@ -62,7 +62,6 @@ class ContainerHomeNav extends React.Component {
                             }
                         }
                     }
-
                 >
                     <Tab.Screen
                         name="Home"

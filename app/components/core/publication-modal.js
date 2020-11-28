@@ -17,6 +17,8 @@ import * as DiscoverPublicationActions from '../../../redux/DiscoverPublications
 import Video from 'react-native-video'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { getDateTranslated } from '../../services/translation/translation-service'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faTimes } from '@fortawesome/pro-light-svg-icons'
 
 class PublicationModal extends React.Component {
 
@@ -117,8 +119,9 @@ class PublicationModal extends React.Component {
                     {this._profilePicture(publication)}
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
-                    <TouchableOpacity style={{ height: 35, width: 35, borderRadius: 35, backgroundColor: 'red' }}
+                    <TouchableOpacity style={{ height: 35, width: 35, borderRadius: 35, backgroundColor: '#00000036', justifyContent: 'center', alignItems: 'center' }}
                         onPress={() => DeviceEventEmitter.emit('toggleModal')}>
+                        <FontAwesomeIcon icon={faTimes} color={'white'} size={19} />
                     </TouchableOpacity>
                 </View>
             </View>
