@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, Image, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, Text, TextInput, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as TopHastagActions from '../../../../redux/TopHastag/actions'
@@ -7,6 +7,8 @@ import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublicati
 import { bindActionCreators } from 'redux'
 import PublicationStandard from '../../core/publication-standard'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 class Discover extends React.Component {
 
@@ -58,11 +60,8 @@ class Discover extends React.Component {
     _header = () => {
         return (
             <View style={styles.header_container}>
-
                 {/* search bar */}
                 <View style={styles.container_search_bar}>
-                    <Image style={{ marginLeft: 20, width: 18, height: 18 }} source={require('../../../../assets/image/icon/search-icon.png')} />
-                    <Text style={{ marginLeft: 20, color: '#737373' }}>#</Text>
                     <TextInput
                         placeholder='Search'
                         style={styles.search_bar}
@@ -72,11 +71,19 @@ class Discover extends React.Component {
                         blurOnSubmit={true}
                         onSubmitEditing={(event) => this._changeHastag(event.nativeEvent.text)}
                     />
+                    <FontAwesomeIcon icon={faSearch} color={'grey'} size={21} style={{ opacity: 0.8, position: 'absolute', right: 25 }} />
                 </View>
+            </View>
+        )
+    }
 
-
-                {/* top hastag right now */}
-                {this.props.TopHastag.top.length > 1 ?
+    // to display the top of the hastag
+    _hastagView = () => {
+        return (
+            <View>
+            
+            {/* top hastag right now */}
+                {/* {this.props.TopHastag.top.length > 1 ?
                     <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                         <FlatList
                             horizontal={true}
@@ -91,24 +98,26 @@ class Discover extends React.Component {
                             )}
                         />
                     </View>
-                    : null}
+                    : null} */}
 
-                    {/* <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+
+                    <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                         <FlatList
                             horizontal={true}
                             showsHorizontalScrollIndicator={false}
-                            style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7 }}
+                            style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7,paddingLeft: 15 }}
                             data={['trend', 'jskdnkjdsnf', 'hejf', 'skjvhsv']}
                             keyExtractor={(item) => item.toString()}
                             renderItem={({ item }) => (
                                 <TouchableOpacity style={styles.one_hastag} onPress={() => this._changeHastag(item)}>
-                                    <Text style={[{ fontWeight: 'bold', fontSize: 34, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#8E8E8E' }, this._selectedHastag(item)]}>#{item}</Text>
+                                    <Text style={[{ fontWeight: 'bold', fontSize: 15, lineHeight: 41, letterSpacing: 1, color: '#8E8E8E' }, this._selectedHastag(item)]}>#{item}</Text>
                                 </TouchableOpacity>
                             )}
                         />
-                    </View> */}
-
-            </View>
+                    </View> 
+        
+        
+        </View>
         )
     }
 
@@ -146,6 +155,7 @@ class Discover extends React.Component {
         return (
             <View style={styles.main_container}>
                 {this._header()}
+                {this._hastagView()}
                 {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
             </View>
         );
@@ -155,25 +165,38 @@ class Discover extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
-        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 5 : 5
+        backgroundColor: '#eef2f4'
     },
     header_container: {
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10,
+        paddingBottom: 15,
+        paddingHorizontal: 25,
+        backgroundColor: '#f9fafc',
+        borderBottomRightRadius: 25,
+        borderBottomLeftRadius: 25,
         position: 'relative',
-        marginVertical: 5,
-        paddingHorizontal: 15
+        borderWidth: 0.3,
+        borderColor: '#c3c3c36e'
     },
     container_search_bar: {
-        height: 38,
+        height: 45,
         fontSize: 15,
         paddingLeft: 15,
         flexDirection: 'row',
-        borderRadius: 18,
-        backgroundColor: '#8e8e9329',
+        borderRadius: 25,
+        backgroundColor: '#edf1f3',
         overflow: 'hidden',
         alignItems: 'center'
     },
     one_hastag: {
-        marginHorizontal: 8
+        backgroundColor: 'white',
+        marginTop: 8,
+        marginBottom: 15,
+        marginHorizontal: 5,
+        paddingHorizontal: 15,
+        borderRadius: 35,
+        borderWidth: 0.3,
+        borderColor: '#c3c3c36e'
     },
     loading_container: {
         alignItems: 'center',
