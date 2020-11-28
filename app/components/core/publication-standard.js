@@ -147,7 +147,7 @@ class PublicationStandard extends React.Component {
         switch (publication.type) {
             case 'PostPublication': return this._renderPost(publication)
             case 'PicturePublication': return this._renderPicture(publication)
-            case 'PublicationVideo': return this._renderVideo(publication)
+            case 'VideoPublication': return this._renderVideo(publication)
         }
     }
 
