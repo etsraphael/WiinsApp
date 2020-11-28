@@ -50,7 +50,7 @@ class ContainerHomeNav extends React.Component {
                     tabBarOptions={
                         {
                             showLabel: false,
-                            activeTintColor: '#ff8400cf',
+                            activeTintColor: 'black',
                             inactiveTintColor: '#ced4d9',
                             style: {
                                 borderTopLeftRadius: 35,
