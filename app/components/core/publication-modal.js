@@ -18,7 +18,8 @@ import Video from 'react-native-video'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { getDateTranslated } from '../../services/translation/translation-service'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faTimes, faCommentLines } from '@fortawesome/pro-light-svg-icons'
+import { faTimes, faCommentLines, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 
 class PublicationModal extends React.Component {
 
@@ -85,7 +86,7 @@ class PublicationModal extends React.Component {
                                 <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._likeBtn()}>
-                                <Image style={styles.heart_icon} source={this._getIconLike()} resizeMode={'contain'} />
+                            <FontAwesomeIcon icon={faHeart} color={'white'} size={19} />
                                 <Text style={{ marginLeft: 7, fontSize: 15, color: 'white' }}>{publication.like.likeNumber}</Text>
                             </TouchableOpacity>
                         </View>
@@ -99,11 +100,7 @@ class PublicationModal extends React.Component {
                     ></TextInput>
                     <TouchableOpacity
                         style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                        <Image
-                            source={require('../../../assets/image/icon/fa-orange-plane.png')}
-                            style={{ width: 24, height: 24 }}
-                            resizeMode={'contain'}
-                        />
+                        <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={28} />
                     </TouchableOpacity>
                 </View>
 
