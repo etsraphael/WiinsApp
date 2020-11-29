@@ -9,6 +9,7 @@ import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPlay, faHeart, faComment } from '@fortawesome/pro-light-svg-icons'
+import { BlurView } from "@react-native-community/blur";
 
 class PublicationStandard extends React.Component {
 
@@ -285,6 +286,9 @@ class PublicationStandard extends React.Component {
         return (
             <View style={styles.container_footer}>
 
+
+
+
                 <LinearGradient
                     colors={['#00000099', '#0000005c', '#4e4e4e00']}
                     start={{ x: 0, y: 1 }}
@@ -301,10 +305,15 @@ class PublicationStandard extends React.Component {
                                 onPress={() => this._likePublication()}
                                 style={{ flex: 1 }}
                             >
-                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', backgroundColor: '#3e3e3e2e', borderRadius: 25, height: 35 }}>
+                                <BlurView 
+                                blurType="light"
+                                blurAmount={1}
+                                reducedTransparencyFallbackColor="white"
+                                style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 18, height: 35 }}
+                                >
                                     <FontAwesomeIcon icon={faHeart} color={this._getColorLike()} size={19} style={{ opacity: 0.9 }} />
                                     <Text style={{ marginLeft: 8, fontSize: 15, color: 'white', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.like.likeNumber}</Text>
-                                </View>
+                                </BlurView>
                             </TouchableOpacity>
 
 
@@ -323,6 +332,9 @@ class PublicationStandard extends React.Component {
                             <View style={{ flex: 3 }} />
                         </View>
                     </View>
+
+
+
 
                 </LinearGradient>
             </View>

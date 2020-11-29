@@ -248,6 +248,8 @@ PODS:
     - React-cxxreact (= 0.63.3)
     - React-jsi (= 0.63.3)
   - React-jsinspector (0.63.3)
+  - react-native-blur (0.8.0):
+    - React
   - react-native-camera (3.40.0):
     - React-Core
     - react-native-camera/RCT (= 3.40.0)
@@ -407,6 +409,7 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - "react-native-blur (from `../node_modules/@react-native-community/blur`)"
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-ffmpeg/https-lts (from `../node_modules/react-native-ffmpeg`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
@@ -489,6 +492,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-blur:
+    :path: "../node_modules/@react-native-community/blur"
   react-native-camera:
     :path: "../node_modules/react-native-camera"
   react-native-ffmpeg:
@@ -578,6 +583,7 @@ SPEC CHECKSUMS:
   React-jsi: df07aa95b39c5be3e41199921509bfa929ed2b9d
   React-jsiexecutor: b56c03e61c0dd5f5801255f2160a815f4a53d451
   React-jsinspector: 8e68ffbfe23880d3ee9bafa8be2777f60b25cbe2
+  react-native-blur: cad4d93b364f91e7b7931b3fa935455487e5c33c
   react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
   react-native-ffmpeg: 7c64ba2e41eeb06144ad77f17e62ecbbc29ae3c0
   react-native-image-picker: c6d75c4ab2cf46f9289f341242b219cb3c1180d3
