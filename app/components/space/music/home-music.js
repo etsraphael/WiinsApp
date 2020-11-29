@@ -8,6 +8,9 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import OneMusic from './one-music'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faSearch } from '@fortawesome/pro-light-svg-icons'
+
 
 class HomeMusic extends React.Component {
 
@@ -115,7 +118,7 @@ class HomeMusic extends React.Component {
                             placeholderTextColor="#737373"
                         />
                         <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                            <Image style={{ width: 18, height: 18 }} source={require('../../../../assets/image/icon/search-icon.png')} />
+                            <FontAwesomeIcon icon={faSearch} color={'grey'} size={25} />
                         </View>
                     </View>
                 </View>
@@ -156,9 +159,9 @@ class HomeMusic extends React.Component {
     _onePlayListRender = (playlist) => {
 
         return (
-            <TouchableOpacity 
-            onPress={() => this.props.navigation.navigate('PlaylistPage', { playlistId: '5f7ac5ebbbb5d000314fe647' })}
-            style={styles.onePlaylistContainer}
+            <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('PlaylistPage', { playlistId: '5f7ac5ebbbb5d000314fe647' })}
+                style={styles.onePlaylistContainer}
             >
 
                 {/* Background Image */}

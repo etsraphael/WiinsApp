@@ -5,8 +5,7 @@ import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as RoomsListActions from '../../../../redux/RoomList/actions'
 import * as SearchActions from '../../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
-import { faPlus } from '@fortawesome/pro-light-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faPlus, faSearch } from '@fortawesome/pro-light-svg-icons'
 import OneRoomMin from './one-room-min'
 import OneRoom from './one-room'
 import RoomCreation from './room-creation'
@@ -14,6 +13,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import Modal from 'react-native-modal'
 import * as RoomActions from '../../../../redux/OneRoom/actions'
 import FastImage from 'react-native-fast-image'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 class HomeMessenger extends React.Component {
 
@@ -90,7 +90,7 @@ class HomeMessenger extends React.Component {
                 {/* search bar */}
                 <View style={{ flex: 1 }}>
                     <View style={styles.container_search_bar}>
-                        <Image style={{ marginLeft: 20, width: 18, height: 18 }} source={require('../../../../assets/image/icon/search-icon.png')} />
+                        <FontAwesomeIcon icon={faSearch} color={'grey'} size={25} />
                         <TextInput
                             placeholder='Search'
                             style={styles.search_bar}

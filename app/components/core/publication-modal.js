@@ -86,7 +86,7 @@ class PublicationModal extends React.Component {
                                 <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._likeBtn()}>
-                            <FontAwesomeIcon icon={faHeart} color={'white'} size={19} />
+                                <FontAwesomeIcon icon={faHeart} color={'white'} size={19} />
                                 <Text style={{ marginLeft: 7, fontSize: 15, color: 'white' }}>{publication.like.likeNumber}</Text>
                             </TouchableOpacity>
                         </View>
@@ -313,12 +313,6 @@ class PublicationModal extends React.Component {
                 />
             </View>
         )
-    }
-
-    // to select the like icon
-    _getIconLike() {
-        if (!this.props.publicationModal.publication.like.isLike) return require('../../../assets/image/icon/heart-icon.png')
-        else return require('../../../assets/image/icon/heart-icon-active.png')
     }
 
     // to like or dislike publication

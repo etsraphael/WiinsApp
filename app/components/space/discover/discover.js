@@ -107,7 +107,7 @@ class Discover extends React.Component {
     _hastagView = () => {
         if (this.state.isHeaderVisible && this.props.TopHastag.top.length > 1) {
             return (
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                     <FlatList
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
