@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { StyleSheet, View } from 'react-native'
 import MiniPlayer from './mini-player'
 import ContainerHomeNav from '../../navigation/container-home-nav'
+import Sign from '../sign/sign'
 
 
 class MainApp extends React.Component {
@@ -14,7 +15,7 @@ class MainApp extends React.Component {
 
     // to select the sign view
     _beforAuth() {
-        return ContainerHomeNav
+        return <Sign/>
     }
 
     // to select the home view
