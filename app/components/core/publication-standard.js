@@ -287,8 +287,6 @@ class PublicationStandard extends React.Component {
             <View style={styles.container_footer}>
 
 
-
-
                 <LinearGradient
                     colors={['#00000099', '#0000005c', '#4e4e4e00']}
                     start={{ x: 0, y: 1 }}
