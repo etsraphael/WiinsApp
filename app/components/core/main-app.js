@@ -6,7 +6,6 @@ import MiniPlayer from './mini-player'
 import ContainerHomeNav from '../../navigation/container-home-nav'
 import Sign from '../sign/sign'
 
-
 class MainApp extends React.Component {
 
     constructor(props) {
@@ -15,20 +14,22 @@ class MainApp extends React.Component {
 
     // to select the sign view
     _beforAuth() {
-        return <Sign/>
+        return <Sign />
     }
 
     // to select the home view
     _afterAuth() {
         return (
             <View style={styles.container}>
-                <ContainerHomeNav/>
-                {this.props.Player.displayMiniPlayer ? <View style={styles.btnPlayer}><MiniPlayer/></View> : false}
+                <ContainerHomeNav />
+                {this.props.Player.displayMiniPlayer ? <View style={styles.btnPlayer}><MiniPlayer /></View> : false}
             </View>
         )
     }
 
     render() {
+
+
         if (!!this.props.MyUser.user) return this._afterAuth()
         else return this._beforAuth()
     }
