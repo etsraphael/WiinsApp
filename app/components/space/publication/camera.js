@@ -16,7 +16,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
   faAngleRight, faSync, faPhotoVideo, faTimes, faBolt,
   faEnvelopeOpenText, faPaperPlane, faUserPlus, faCheckCircle,
-  faClone
+  faClone, faCircle
 } from '@fortawesome/pro-light-svg-icons'
 import Video from 'react-native-video'
 import LinearGradient from 'react-native-linear-gradient'
@@ -39,7 +39,7 @@ class Camera extends React.Component {
       ifStories: true,
       screenMode: 'default',
       secondNumber: 0,
-      zoomInAnim: new Animated.Value(85),
+      zoomInAnim: new Animated.Value(65),
       pictureData: null,
       videoData: null,
       isRecording: false,
@@ -557,7 +557,7 @@ class Camera extends React.Component {
   // to set the zoomIn effect
   zoomIn = () => {
     Animated.timing(this.state.zoomInAnim, {
-      toValue: 130,
+      toValue: 85,
       duration: 500
     }).start()
   }
@@ -565,7 +565,7 @@ class Camera extends React.Component {
   // to set the zoomOut effect
   zoomOut = () => {
     Animated.timing(this.state.zoomInAnim, {
-      toValue: 85,
+      toValue: 65,
       duration: 200
     }).start()
   }
@@ -694,8 +694,10 @@ class Camera extends React.Component {
         <View style={{ flex: 3 }}></View>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <TouchableWithoutFeedback onPressIn={this.addOneSec} onPressOut={this.stopInterval}>
-            <Animated.Image style={[{ height: this.state.zoomInAnim, aspectRatio: 1 }]}
-              source={require('../../../../assets/image/icon/circle-border-white.png')} />
+            <Animated.View 
+            style={{height: this.state.zoomInAnim, aspectRatio: 1, justifyContent: 'center', alignItems: 'center'}}>
+              <FontAwesomeIcon icon={faCircle} color={'white'} width={'100%'} height={'100%'} />
+            </Animated.View>
           </TouchableWithoutFeedback>
         </View>
         <View style={{ flex: 2 }}>{this._showDefaultBtnFooter()}</View>
