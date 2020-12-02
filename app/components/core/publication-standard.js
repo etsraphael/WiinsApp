@@ -260,7 +260,6 @@ class PublicationStandard extends React.Component {
                     hastags: this.props.publication.hastags
                 }
             }
-
             switch (this.props.space) {
                 case 'feed': return this.props.actions.likePublicationFeed(like)
                 case 'profile': return this.props.actions.likePublicationProfile(like)

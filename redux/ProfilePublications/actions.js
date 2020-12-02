@@ -109,7 +109,7 @@ export function unlikePublicationProfile(id) {
         try {
             dispatch(unlikePublicationStart())
             const token = await AsyncStorage.getItem('userToken')
-            const url = 'https://wiins-backend.herokuapp.com/likes/dislikePublication/' + id
+            const url = 'https://wiins-backend.herokuapp.com/likes/dislikeFeedPublication/' + id
             return fetch(url, {
                 method: 'GET',
                 headers: {
