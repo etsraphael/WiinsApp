@@ -244,8 +244,8 @@ class PublicationStandard extends React.Component {
             if (this.props.publication.profile) {
                 like = {
                     publicationProfile: this.props.publication.profile._id,
-                    type: 'publication',
-                    publicationId: this.props.publication._id,
+                    type: 'feed-publication',
+                    publicationID: this.props.publication._id,
                     ownerType: 'profile',
                     hastags: this.props.publication.hastags
                 }
@@ -255,7 +255,7 @@ class PublicationStandard extends React.Component {
                 like = {
                     publicationProfile: this.props.publication.page._id,
                     type: 'publication',
-                    publicationId: this.props.publication._id,
+                    publicationID: this.props.publication._id,
                     ownerType: 'page',
                     hastags: this.props.publication.hastags
                 }
