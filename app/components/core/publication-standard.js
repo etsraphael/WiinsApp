@@ -8,8 +8,10 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlay, faHeart, faComment } from '@fortawesome/pro-light-svg-icons'
-import { BlurView } from "@react-native-community/blur";
+import { faPlay, faComment } from '@fortawesome/pro-light-svg-icons'
+import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
+import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
+import { BlurView } from "@react-native-community/blur"
 
 class PublicationStandard extends React.Component {
 
@@ -229,6 +231,16 @@ class PublicationStandard extends React.Component {
     }
 
     // to select like icon
+    _displayIconLike(){
+        if (!this.props.publication.like.isLike) {
+            return (<FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />)
+        }
+        else {
+            return (<FontAwesomeIcon icon={faHeartFull} color={'red'} size={19} />)
+        }
+    }
+
+
     _getColorLike() {
         if (!this.props.publication.like.isLike) return 'white'
         else return 'red'
@@ -308,7 +320,12 @@ class PublicationStandard extends React.Component {
                                 reducedTransparencyFallbackColor="white"
                                 style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 18, height: 35 }}
                                 >
-                                    <FontAwesomeIcon icon={faHeart} color={this._getColorLike()} size={19} style={{ opacity: 0.9 }} />
+
+                                    {this._displayIconLike()}
+
+
+
+                                    
                                     <Text style={{ marginLeft: 8, fontSize: 15, color: 'white', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.like.likeNumber}</Text>
                                 </BlurView>
                             </TouchableOpacity>
