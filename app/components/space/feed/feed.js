@@ -15,7 +15,7 @@ import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlusCircle, faUserCircle } from '@fortawesome/pro-light-svg-icons'
+import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
 
 
 const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
@@ -113,18 +113,20 @@ class Feed extends React.Component {
     _header() {
         return (
             <View style={styles.header_container}>
-                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', paddingLeft: 15 }}>
-                    <Image style={{ width: 75, height: 40 }} source={require('../../../../assets/image/wiins-written.png')} />
-                </View>
-                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingHorizontal: 15 }}>
-                    <TouchableOpacity onPress={this._togglePublicationMode}
-                        style={{ justifyContent: 'center', alignItems: 'center', padding: 10, paddingTop: 25 }}>
-                        <FontAwesomeIcon icon={faPlusCircle} size={29} />
+                <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-start'}}>
+                    <TouchableOpacity 
+                        style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faCog} size={24} color={'#aeaeae'} />
                     </TouchableOpacity>
+                </View>
+                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                    <Image style={{ width: 65, height: 35 }} source={require('../../../../assets/image/wiins-written.png')} />
+                </View>
+                <View style={{ flex: 1,  justifyContent: 'center', alignItems: 'flex-end' }}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('MyProfile')}
-                        style={{ justifyContent: 'center', alignItems: 'center', padding: 10, paddingTop: 25 }}>
-                        <FontAwesomeIcon icon={faUserCircle} size={29} />
+                        style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faUserCircle} size={27} color={'#aeaeae'} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -148,9 +150,7 @@ class Feed extends React.Component {
                 scrollEventThrottle={5}
                 style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}
             >
-                {this.props.Stories.stories.length > 0 ?
-                    <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
-                    : null}
+                <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
 
                 <FlatList
                     data={this.props.FeedPublications.publications}
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
         position: 'relative',
         flexDirection: 'row',
         marginVertical: 5,
-        paddingHorizontal: 15,
+        paddingHorizontal: 30,
         height: 38
     },
     search_bar: {

@@ -75,10 +75,6 @@ class PublicationStoryHeader extends React.Component {
 
             <View style={{paddingVertical: 5}}>
 
-                <View style={{width: '100%', paddingLeft: 25}}>
-                    <Text style={{ fontWeight: 'bold', color: '#613BBA', fontSize: 34, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1 }}>Stories</Text>
-                </View>
-
                 <ScrollView style={styles.listStories} horizontal={true} showsHorizontalScrollIndicator={false}>
                     <FlatList
                         horizontal={true}
