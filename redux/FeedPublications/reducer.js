@@ -25,17 +25,17 @@ export default PublicationsReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.LIKE_PUBLICATIONS_FEED_SUCCESS: {
-      const found = state.publication.map(x => x._id).indexOf(action.id)
-      state.publication[found].like.isLike = true
-      ++state.publication[found].like.likeNumber
+      const found = state.publications.map(x => x._id).indexOf(action.id)
+      state.publications[found].like.isLike = true
+      ++state.publications[found].like.likeNumber
       return {
         ...state
       }
     }
     case ActionTypes.UNLIKE_PUBLICATIONS_FEED_SUCCESS: {
-      const found = state.publication.map(x => x._id).indexOf(action.id)
-      state.publication[found].like.isLike = false
-      --state.publication[found].like.likeNumber
+      const found = state.publications.map(x => x._id).indexOf(action.id)
+      state.publications[found].like.isLike = false
+      --state.publications[found].like.likeNumber
       return {
         ...state
       }

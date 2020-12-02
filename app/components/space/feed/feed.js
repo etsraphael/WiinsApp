@@ -9,8 +9,6 @@ import * as SearchActions from '../../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStandard from '../../core/publication-standard'
 import PublicationStoryHeader from './stories/publication-story-header'
-import FastImage from 'react-native-fast-image'
-import LinearGradient from 'react-native-linear-gradient';
 import StantardSuggest from '../../core/stantard-suggest'
 import PublicationModal from '../../core/publication-modal'
 import MainPublication from '../publication/main-publication'

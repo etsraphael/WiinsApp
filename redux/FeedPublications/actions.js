@@ -131,7 +131,7 @@ export function unlikePublicationFeed(id) {
             })
                 .then((response) => response.json())
                 .then( async (response) => {
-                    if (response.status == 201) return dispatch(unlikePublicationSuccess(id))
+                    if (response.status == 202) return dispatch(unlikePublicationSuccess(id))
                     return dispatch(unlikePublicationFail(response))
                 })
         } catch (error) {

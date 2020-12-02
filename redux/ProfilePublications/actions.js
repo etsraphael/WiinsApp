@@ -95,7 +95,7 @@ export function likePublicationProfile(like) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 201) return dispatch(likePublicationSuccess(like.publicationId))
+                    if (response.status == 201) return dispatch(likePublicationSuccess(like.publicationID))
                     return dispatch(likePublicationFail(response))
                 })
         } catch (error) {
@@ -119,7 +119,7 @@ export function unlikePublicationProfile(id) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 201) return dispatch(unlikePublicationSuccess(id))
+                    if (response.status == 202) return dispatch(unlikePublicationSuccess(id))
                     return dispatch(unlikePublicationFail(response))
                 })
         } catch (error) {
