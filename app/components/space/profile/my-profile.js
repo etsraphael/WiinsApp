@@ -45,6 +45,14 @@ class MyProfile extends React.Component {
         this.ActionSheet.show()
     }
 
+    _spaceSelected = (space) => {
+        if(this.state.space == space){
+            return 'black'
+        } else {
+            return 'grey'
+        }
+    }
+
     // display nav bar profile
     _renderNavBarProfile = () => {
         switch (this.props.MyProfile.profile.actifSpace) {
@@ -53,37 +61,39 @@ class MyProfile extends React.Component {
             // music
             case 2: return (
                 <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
+                    <TouchableOpacity onPress={() => this.setState({space: 'feed'})}
+                    style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => {this.setState({space: 'music'}); this.props.actions.getMymusicProjectList(1)} }
+                    style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faMusic} color={this._spaceSelected('music')} size={25}/>
+                    </TouchableOpacity>
                 </View>
             )
             // tube
             case 3: return (
                 <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
+                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faVideo} color={this._spaceSelected('tube')} size={25}/>
+                    </TouchableOpacity>
                 </View>
             )
             // music and tube
             case 4: return (
                 <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
+                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faVideo} color={this._spaceSelected('tube')} size={25}/>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faMusic} color={this._spaceSelected('music')} size={25}/>
+                    </TouchableOpacity>
                 </View>)
         }
     }
@@ -136,24 +146,8 @@ class MyProfile extends React.Component {
                         </View>
                     </View>
 
-                    {/* Default Navbar */}
-                    {this.props.MyProfile.profile.actifSpace !== 1 ?
-                        <View style={{ flexDirection: 'row', padding: 15 }}>
-                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                                <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                            </View>
-                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                                <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                            </View>
-                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                                <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                            </View>
-                        </View>
-                        : null}
-
                     {/* Navbar */}
                     {this._renderNavBarProfile()}
-
 
                 </View>
 
@@ -177,10 +171,7 @@ class MyProfile extends React.Component {
     _listContent = () => {
         switch (this.state.space) {
             case 'feed': return (<ProfilePublication />)
-            case 'music': {
-                this.props.actions.getMymusicProjectList(1)
-                return (<ProfileMusic />)
-            }
+            case 'music': return (<ProfileMusic />)
         }
     }
 
