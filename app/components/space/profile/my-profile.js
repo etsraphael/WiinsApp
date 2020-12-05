@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView, Image } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
@@ -8,7 +8,6 @@ import ProfileMusic from './profile-music'
 import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
 import * as MusicProjectListActions from '../../../../redux/MusicProjectList/actions'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
-import LinearGradient from 'react-native-linear-gradient'
 import ActionSheet from 'react-native-actionsheet'
 import AsyncStorage from '@react-native-community/async-storage';
 import { faNewspaper, faMusic, faVideo, faArrowLeft, faUserCog } from '@fortawesome/pro-light-svg-icons'
@@ -44,6 +43,49 @@ class MyProfile extends React.Component {
     // to display the actions sheet
     showActionSheet = () => {
         this.ActionSheet.show()
+    }
+
+    // display nav bar profile
+    _renderNavBarProfile = () => {
+        switch (this.props.MyProfile.profile.actifSpace) {
+            // default
+            case 1: return null
+            // music
+            case 2: return (
+                <View style={{ flexDirection: 'row', padding: 15 }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                </View>
+            )
+            // tube
+            case 3: return (
+                <View style={{ flexDirection: 'row', padding: 15 }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                </View>
+            )
+            // music and tube
+            case 4: return (
+                <View style={{ flexDirection: 'row', padding: 15 }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                </View>)
+        }
     }
 
     // to display the header of the profile
@@ -94,18 +136,24 @@ class MyProfile extends React.Component {
                         </View>
                     </View>
 
-                    {/* Nav */}
-                    <View style={{ flexDirection: 'row', padding: 15 }}>
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    {/* Default Navbar */}
+                    {this.props.MyProfile.profile.actifSpace !== 1 ?
+                        <View style={{ flexDirection: 'row', padding: 15 }}>
+                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                                <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                            </View>
+                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                                <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                            </View>
+                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                                <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                            </View>
                         </View>
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                        </View>
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                        </View>
-                    </View>
+                        : null}
+
+                    {/* Navbar */}
+                    {this._renderNavBarProfile()}
+
 
                 </View>
 
@@ -162,7 +210,7 @@ const styles = StyleSheet.create({
         flex: 1
     },
     header_container: {
-        position: 'relative',
+        position: 'relative'
     },
     title_btn_nav: {
         textAlign: 'center',
@@ -172,7 +220,7 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     body_container: {
-        paddingTop: 10
+        paddingTop: 5
     }
 })
 

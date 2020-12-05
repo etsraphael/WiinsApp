@@ -105,6 +105,83 @@ class Profile extends React.Component {
         }
     }
 
+    // to display the relation btn
+    _displayRelationBtn = () => {
+        return (
+        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+        {this.props.Profile.profile.relation == 'friend' ? null :
+            <LinearGradient
+                start={{ x: 0, y: 1 }}
+                end={{ x: 1, y: 0 }}
+                colors={['#f12711', '#f5af19']}
+                style={{ borderRadius: 25, position: 'relative' }}
+            >
+                {this._displayBtnFollow()}
+            </LinearGradient>
+        }
+        <LinearGradient
+            start={{ x: 0, y: 1 }}
+            end={{ x: 1, y: 0 }}
+            colors={['#3C349B', '#8E46DF']}
+            style={{ borderRadius: 25, position: 'relative' }}
+        >
+            {this._displayBtnFriend()}
+        </LinearGradient>
+    </View>
+        )
+    }
+
+    // display nav bar profile
+    _renderNavBarProfile = () => {
+
+        console.log('voila!!')
+        console.log(this.props.Profile.profile)
+
+
+        switch (this.props.Profile.profile.actifSpace) {
+            // default
+            case 1: return null
+            // music
+            case 2: return (
+                <View style={{ flexDirection: 'row', padding: 15 }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    {this._displayRelationBtn()}
+                </View>
+            )
+            // tube
+            case 3: return (
+                <View style={{ flexDirection: 'row', padding: 15 }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    {this._displayRelationBtn()}
+                </View>
+            )
+            // music and tube
+            case 4: return (
+                <View style={{ flexDirection: 'row', padding: 15 }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    {this._displayRelationBtn()}
+                </View>)
+        }
+    }
+
     // to display the header of the view
     _renderHeader = () => {
 
@@ -154,48 +231,8 @@ class Profile extends React.Component {
                         </View>
                     </View>
 
-                    {/* Stat */}
-                    <View style={{ flexDirection: 'row', padding: 15, paddingRight: 15, borderColor: '#9d9d9d', borderBottomWidth: 0.5 }}>
-
-
-                        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
-                            {this.props.Profile.profile.relation == 'friend' ? null :
-                                <LinearGradient
-                                    start={{ x: 0, y: 1 }}
-                                    end={{ x: 1, y: 0 }}
-                                    colors={['#f12711', '#f5af19']}
-                                    style={{ borderRadius: 25, position: 'relative', bottom: 3, marginHorizontal: 5 }}
-                                >
-                                    {this._displayBtnFollow()}
-                                </LinearGradient>
-                            }
-                            <LinearGradient
-                                start={{ x: 0, y: 1 }}
-                                end={{ x: 1, y: 0 }}
-                                colors={['#3C349B', '#8E46DF']}
-                                style={{ borderRadius: 25, position: 'relative', bottom: 3, marginHorizontal: 5 }}
-                            >
-                                {this._displayBtnFriend()}
-                            </LinearGradient>
-                        </View>
-
-                    </View>
-
                     {/* Nav */}
-                    <View style={{ flexDirection: 'row', padding: 15, paddingRight: 15, borderColor: '#9d9d9d', borderBottomWidth: 0.5 }}>
-                        <TouchableOpacity onPress={() => this.setState({ space: 'feed' })}
-                            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.setState({ space: 'music' })}
-                            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                        </TouchableOpacity>
-                    </View>
+                    {this._renderNavBarProfile()}
 
                 </View>
 
@@ -274,7 +311,7 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     body_container: {
-        paddingTop: 10
+        paddingTop: 5
     }
 })
 
