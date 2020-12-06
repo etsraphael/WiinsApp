@@ -160,7 +160,8 @@ class HomeTube extends React.Component {
 
     // to display the tubelist by section
     _tubeListBySection = (tubeList, title) => {
-        if(!!tubeList && tubeList.length == 0) return null
+        if(tubeList === undefined || tubeList === null || tubeList.length == 0) return null
+
         return (
             <View style={styles.container_section}>
 

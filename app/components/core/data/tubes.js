@@ -1,7 +1,7 @@
 // list of the different categorie for the tube
 
 export const TubesCategories = [
-    { id: 1, code: 'trending', name: 'Trending' },
+    { id: 1, code: 'latest', name: 'Latest' },
     { id: 2, code: 'gaming', name: 'Gaming' },
     { id: 3, code: 'dance', name: 'Dance' },
     { id: 4, code: 'news', name: 'News' },
