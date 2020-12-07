@@ -5998,11 +5998,6 @@ react-native-localize@^2.0.1:
   resolved "https://registry.yarnpkg.com/react-native-localize/-/react-native-localize-2.0.1.tgz#a5bf2f2910260ac2574d5ca5d5f95dc8bbc4ac1f"
   integrity sha512-Tuf26iH7/pHd+yCAORD2EPLhkHdGTMEUXMiiKb4Pz69dE48R7C+MA30EqubE6qTlvAs6gHM+2E5dzLAxcGH5UA==
 
-react-native-mask-loader@^0.0.3:
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/react-native-mask-loader/-/react-native-mask-loader-0.0.3.tgz#4081db3a17b574c7b9057c89b39d23fbb2105a6e"
-  integrity sha512-qZ3UpaTCGxa7whx+v+zlqV6XaZlOEi68WN8ropG9lThGEFFgvD6CvUVx7OYUcX+o2eysldQ70cNczeOybKQ38w==
-
 react-native-modal@^11.5.6:
   version "11.5.6"
   resolved "https://registry.yarnpkg.com/react-native-modal/-/react-native-modal-11.5.6.tgz#bb25a78c35a5e24f45de060e5f64284397d38a87"
