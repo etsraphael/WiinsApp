@@ -144,7 +144,6 @@ class PublicationModal extends React.Component {
             )
         }
 
-
         if (publication.page) {
             return (
                 <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._goToPage(publication.page._id)}>
