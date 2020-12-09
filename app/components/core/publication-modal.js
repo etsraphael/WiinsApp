@@ -130,7 +130,7 @@ class PublicationModal extends React.Component {
 
         if (publication.profile) {
             return (
-                <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._goToProfile(publication.profile.id)}>
+                <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._goToProfile(publication.profile._id)}>
                     <FastImage
                         style={{ width: 50, height: 50, borderRadius: 25, resizeMode: 'cover', marginRight: 15 }}
                         source={{ uri: publication.profile.pictureprofile, priority: FastImage.priority.normal }}

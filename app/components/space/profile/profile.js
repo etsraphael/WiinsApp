@@ -133,11 +133,6 @@ class Profile extends React.Component {
 
     // display nav bar profile
     _renderNavBarProfile = () => {
-
-        console.log('voila!!')
-        console.log(this.props.Profile.profile)
-
-
         switch (this.props.Profile.profile.actifSpace) {
             // default
             case 1: return null
