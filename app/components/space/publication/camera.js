@@ -406,7 +406,7 @@ class Camera extends React.Component {
                       maxLength={10}
                       onChangeText={(event) => this.setState({ textInputHastag: event.replace(/\s/g, '') })}
                       value={this.state.textInputHastag}
-                      placeholder={'PLACEHOLDER.Hastags'}
+                      placeholder={I18n.t('PLACEHOLDER.Hastags')}
                       placeholderTextColor={'white'}
                       onSubmitEditing={(event) => this._addHastags(event.nativeEvent.text)}
                     />
@@ -532,7 +532,7 @@ class Camera extends React.Component {
               maxLength={10}
               onChangeText={(event) => this.setState({ textInputHastag: event.replace(/\s/g, '') })}
               value={this.state.textInputHastag}
-              placeholder={'PLACEHOLDER.Hastags'}
+              placeholder={I18n.t('PLACEHOLDER.Hastags')}
               placeholderTextColor={'white'}
               onSubmitEditing={(event) => this._addHastags(event.nativeEvent.text)}
             />
