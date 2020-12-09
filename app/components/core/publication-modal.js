@@ -21,6 +21,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faTimes, faCommentLines, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { BlurView } from "@react-native-community/blur";
+import I18n from '../../i18n/i18n'
 
 class PublicationModal extends React.Component {
 
@@ -99,7 +100,7 @@ class PublicationModal extends React.Component {
 
                 <View style={{ flex: 1, flexDirection: 'row', height: 39 }}>
                     <TextInput
-                        placeholder={'PUBLICATION.Write-a-comment'}
+                        placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
                         placeholderTextColor="#FFFFFF"
                         style={{ flex: 9, paddingLeft: 15, color: 'grey', backgroundColor: '#485164', borderRadius: 17, height: '100%' }}
                     ></TextInput>

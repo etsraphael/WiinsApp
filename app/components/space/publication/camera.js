@@ -28,6 +28,7 @@ import FastImage from 'react-native-fast-image'
 import PendingPublication from './pending-publication'
 import ImagePicker from 'react-native-image-picker'
 import MyStoryMin from './my-story-min'
+import I18n from '../../../i18n/i18n'
 
 class Camera extends React.Component {
 
@@ -360,7 +361,7 @@ class Camera extends React.Component {
                     style={{ fontSize: 25, color: 'white', fontWeight: '600', lineHeight: 35, textAlign: 'center' }}
                     multiline={true}
                     numberOfLines={4}
-                    placeholder={'PUBLICATION.Write-a-comment'}
+                    placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
                     placeholderTextColor={'white'}
                     onChangeText={(event) => this.setState({ textInput: event })}
                     onKeyPress={(event) => this._writeComment(event.nativeEvent.key)}
@@ -500,7 +501,7 @@ class Camera extends React.Component {
               numberOfLines={4}
               blurOnSubmit={true}
               style={{ fontSize: 16, paddingLeft: 10, paddingTop: 15, color: 'white', lineHeight: 22 }}
-              placeholder={'PUBLICATION.Write-a-comment'}
+              placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
               placeholderTextColor={'white'}
               onChangeText={(event) => this.setState({ textInput: event })}
               onKeyPress={(event) => this._writeComment(event.nativeEvent.key)}

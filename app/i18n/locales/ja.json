@@ -73,10 +73,12 @@
     "Cancel": "キャンセルします",
     "Cancel-the-request": "要求をキャンセルする",
     "Category": "カテゴリ",
+    "Certification": "証明",
     "Change": "変更",
     "Change-the-photo": "写真を変更する",
     "Choice": "選択",
     "Chosse-a-date": "日付を選択してください",
+    "Close": "閉じる",
     "Coming-soon": "もうすぐです",
     "Comment": "コメントします",
     "Confirm": "確認するために",
@@ -107,13 +109,16 @@
     "Join": "参加",
     "Know-us": "私たちを知る",
     "Leave": "去る",
+    "Ledger": "元帳",
     "Like": "お気に入り",
     "Manage": "管理する",
+    "Max": "最大",
     "Members": "メンバー",
     "My-Favorites": "お気に入り",
     "My-community": "私のコミュニティ",
     "Name": "名前",
     "Next": "次に",
+    "Not-enough": "十分ではありません",
     "Now": "いま",
     "Or": "または",
     "Others": "その他",
@@ -121,13 +126,16 @@
     "Participate": "参加",
     "Password": "パスワード",
     "Payment": "支払い",
+    "Pending": "保留 中",
     "Period": "期間",
     "Premium": "プレミアム",
+    "Previous": "先の",
     "Price": "賞",
     "Private": "民間",
     "Profile": "プロフィール",
     "Public": "公衆",
     "Rate": "料金",
+    "Receipt": "領収 書",
     "Redirection": "リダイレクト",
     "Reset": "リセットする",
     "Save": "セーブ",
@@ -141,6 +149,7 @@
     "Sponsored": "料金",
     "Stages": "ステージ",
     "Start": "開始",
+    "Status": "ステータス",
     "Story": "物語",
     "Subscribe": "購読",
     "Taxes": "税金",
@@ -150,7 +159,6 @@
     "To-chosse": "選択",
     "To-signal-an-issue": "問題を報告する",
     "Total": "合計",
-    "Towards-an-infinit-space": "イニシニト空間に向かって",
     "Trend": "傾向",
     "Unsubscribe": "登録解除",
     "Update": "更新",
@@ -164,6 +172,7 @@
     "Wiins": "ウィインズ",
     "Wiins.io": "Wiins.io",
     "With": "と",
+    "You-can-do-it-here": "あなたはここでそれを行うことができます",
     "Your-Password..": "あなたのパスワード",
     "Your-Pseudo..": "ユーザー名",
     "and": "そして",
@@ -185,7 +194,20 @@
     "reply..": "応答",
     "responses": "反応",
     "soon": "すぐに",
-    "views": "景色"
+    "views": "景色",
+    "Music-publication": "音楽出版",
+    "Tube-publication": "チューブ出版",
+    "Monetization": "収益化",
+    "Loading": "読み込み中",
+    "Upload-yr-file-here": "ここにファイルをアップロードします",
+    "Both": "両方とも",
+    "Break-the-rules": "ルールを破る",
+    "For-You": "あなたのために",
+    "Discover": "発見する",
+    "Community": "",
+    "Subscribed": "",
+    "Go-to-profile": "",
+    "Friend": ""
   },
   "COUNTRY": {
     "AD": "アンドラ",
@@ -468,7 +490,7 @@
   },
   "EMPTY-MESSAGE": {
     "You-haven-t-liked-music-yet": "あなたはまだ音楽が好きじゃない",
-    "no-friend-request": "現在、需要の友人はいません",
+    "no-friend-request": "現在、友達リクエストはありません",
     "no-notification": "通知はまだありません"
   },
   "ERROR-MESSAGE": {
@@ -485,6 +507,7 @@
     "Email-invalid": "メールが無効です",
     "Email_already_exist": "この電子メールは既に存在します",
     "Incorrect": "誤った",
+    "Insufficient_amount": "金額が不足しています",
     "Invalid-password": "パスワードが間違っています",
     "No-changes-hv-been-made": "変更は行われていません",
     "No-page-has-this-name": "変更は行われていません",
@@ -533,7 +556,12 @@
     "y-h-to-accept-the-tou": "使用条件に同意する必要があります。",
     "y-h-to-delete-yr-page-or-group-before": "前にページまたはグループを削除する必要があります。",
     "y-have-to-be-friend": "あなたは友達でなければなりません",
-    "you-hav-to-upgrad-a-manager-before-leave": "グループを離れる前にマネージャーを昇格させる必要があります"
+    "you-hav-to-upgrad-a-manager-before-leave": "グループを離れる前にマネージャーを昇格させる必要があります",
+    "You-hv-to-be-verified": "確認する必要があります",
+    "You-hv-to-get-t-community": "あなたはコミュニティを取得する必要があります",
+    "Please-choose-cat-and-sub": "カテゴリとサブカテゴリを選択してください",
+    "Please-upload-the-poster-before": "前に動画のポスターをアップロードしてください",
+    "T-min-is-1$": "最低額は1ドルです"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "写真を受け取りました",
@@ -566,12 +594,12 @@
     "click-on-email": "メールのリンクをクリックしてください"
   },
   "MAIN-MUSIC": {
+    "Lastest-Project": "最後のプロジェクト",
+    "Lastest-tube": "最後のチューブ",
     "My-music": "私の音楽",
     "My-wiinsers": "私のウィインサー",
     "Tops": "トップス",
-    "Trend": "傾向",
-    "Lastest-tube": "",
-    "Lastest-Project": ""
+    "Trend": "傾向"
   },
   "MINI-CHAT": {
     "text-a-friend": "友達にメッセージを送る"
@@ -603,7 +631,11 @@
     "tag-you-in-comment": "コメントであなたにタグを付けました",
     "tag-you-in-playlist": "プレイリストであなたにタグを付けました",
     "you-appear-in-project-of": "あなたはの新しいプロジェクトに登場します",
-    "you-have": "あなたが持っている"
+    "you-have": "あなたが持っている",
+    "Yr-verification-request-was-accepted": "",
+    "Yr-verification-request-was-refused": "",
+    "Yr-certification-request-was-accepted": "",
+    "Yr-certification-request-was-refused": ""
   },
   "PAGE": {
     "Name-page": "ページ名",
@@ -725,7 +757,7 @@
           "1": "物事を変えようとする手段としての暴力の受け入れ",
           "2": "物事を変えようとする手段としての暴力の受け入れ"
         },
-        "We-delete": "物事を変えようとする手段としての暴力の受け入れ"
+        "We-delete": "削除します"
       },
       "Title-Level": {
         "1": "カレリカルになる",
@@ -747,6 +779,27 @@
     "lang": {
       "lang-of-btn-title-others": "このデバイスのプラットフォームのボタン、タイトル、その他のテキストの言語",
       "lang-of-plateforme": "プラットフォーム言語"
+    },
+    "ledger": {
+      "Account-disable-now-description": "アカウントは一時的に無効にされ、あなたは今プラットホームで見えません。次の支払いのためにアカウントが無効になっている場合、次の30日間を楽しむために、次の販売の4.99が取り消されます。",
+      "Address": "アドレス",
+      "Address-to-send": "送信するアドレス",
+      "Amount": "量",
+      "Amount-to-transfert": "転送する金額",
+      "Are-y-sure-t-cancel-t-transaction": "このトランザクションをキャンセルしますか?",
+      "Be-careful-make-sure-y-have-the-right-address-d": "注意してください、あなたが正しいアドレスを持っていることを確認してください。転送の確認後、返金は行いません。",
+      "Card-description-payment-subscription": "サブスクリプションを使用すると、すべての機能を持つこのプラットフォームに残ることができます。すべての情報は、このプラットフォーム内で非公開で保護されています。Wiinsは、第三者企業に情報を共有することはありません。すべてのコンテンツはプラットフォーム内にとどまります。ウィインズへようこそ。",
+      "Currency": "通貨",
+      "Fees-3": "手数料(3%)",
+      "Next-facturation-date": "{{値}日の次のファクトレーション",
+      "Pending-Transfert-Request": "保留中の転送要求",
+      "T-admin-ll-take-24h-d": "行政は暗号を転送するために24時間かかります。あなたの信頼に感謝します",
+      "T-update-can-take-15min-after-the-confirmation": "更新は、確認後15分かかることがあります",
+      "Total-in-USD": "米ドルの合計",
+      "Transfer": "転送",
+      "Y-are-going-t-transfert-to-this-address-d": "このアドレスに転送します。確かですか。政権は24時間遅れて取引を確認します。",
+      "Yr-account-balance-is": "口座残高は: {{value}}",
+      "price-per-month": "4.99$ / 月"
     },
     "notif": {
       "enable-sound": "音声通知",
@@ -786,6 +839,28 @@
       "btn-followers": "「フォロー」ボタンを使用可能にする",
       "btn-friend": "フレンドリクエストボタンを使用可能にする",
       "h-can-b-yr-description": "説明を入力できます。"
+    },
+    "verified": {
+      "This-feature-requires-verification-to-use.": "この機能を使用するには、検証が必要です。",
+      "Verified-zone": "確認済みゾーン",
+      "I-w-t-b-verified": "確認したい",
+      "I-w-t-b-certified": "認定を受けたい",
+      "Certification-badge": "認定バッジ",
+      "Already-verified": "検証済み",
+      "Already-certified": "すでに認定済み",
+      "Certification": "認証",
+      "Y-m-complet-t-following-cdt-t-b-certified": "認定を受けるには、次の条件を完了する必要があります。",
+      "B-verified": "確認される",
+      "H-m-t-1000-user-in-t-community": "コミュニティに1000人以上のユーザーがいる",
+      "Have-content-t-d-not-offend-the-community": "コミュニティを傷つけないコンテンツを用意する",
+      "T-b-accepted-b-t-administration": "行政に受け入れられる",
+      "Yr-profil-is-currently-being-checked-D": "あなたのプロフィールは現在チェック中です。 48時間以内にメールでご連絡いたします。",
+      "Verification": "検証",
+      "Pl-s-t-docs-a-complet-t-form-below": "必要書類を送付し、以下のフォームにご記入ください。",
+      "Upload-yr-password-id-identity-or-driver-license": "パスワード、ID ID、または運転免許証をアップロードします。",
+      "Upload-a-photo-holding-t-ID-D": "IDを保持している写真を、今日の日付と「Wiins」と書かれた紙にアップロードします。",
+      "I-agree-t-m-data-may-b-used-t-check-my-account": "私のデータが私のアカウントのチェックに使用される可能性があることに同意します。",
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "物事を変えようとする手段としての暴力の受け入れ",
@@ -841,6 +916,21 @@
   },
   "THIS-IS": {
     "id-of-t-music": "音楽識別子"
+  },
+  "TUBE": {
+    "Categorie": {
+      "Beauty": "美しさ",
+      "Comedy": "コメディ",
+      "Dance": "ダンス",
+      "Gaming": "ゲーム",
+      "How-to": "使い方",
+      "Movies": "映画",
+      "Music": "音楽",
+      "News": "ニュース",
+      "Sport": "スポーツ",
+      "Travel": "旅行",
+      "Trending": "トレンド"
+    }
   },
   "UPLOAD": {
     "add-cover-picture": "カバー画像を追加する",
@@ -916,19 +1006,48 @@
       "Visualisation-of-the-video": "ビデオの視覚化"
     }
   },
-  "TUBE": {
-    "Categorie": {
-      "Trending": "",
-      "Gaming": "",
-      "Dance": "",
-      "News": "",
-      "Travel": "",
-      "Beauty": "",
-      "Comedy": "",
-      "Movies": "",
-      "How-to": "",
-      "Sport": "",
-      "Music": ""
-    }
+  "STAT": {
+    "Better-reference": "より良いリファレンス"
+  },
+  "CATEGORY": {
+    "Pro": "プロフェッショナル",
+    "NoPro": "専門家はいません",
+    "Compagny": "会社",
+    "Association": "協会",
+    "Institution": "機関",
+    "Organization": "組織",
+    "Food": "食物",
+    "Automobile": "自動車",
+    "DIY": "DIY",
+    "Cultur": "文化",
+    "Humor": "ユーモア",
+    "Information": "情報",
+    "Health": "健康",
+    "Science": "理科",
+    "Sport": "スポーツ",
+    "Technology": "技術",
+    "Musician": "音楽家",
+    "Composer": "作曲",
+    "Group": "グループ",
+    "Interpreter": "通訳",
+    "Videographer": "ビデオグラファー",
+    "Director": "ディレクター",
+    "Filmmaker": "映画監督",
+    "Editor": "編集者",
+    "Actor": "俳優",
+    "Image": "画像",
+    "Photographer": "写真家",
+    "Painter": "画家",
+    "Writing": "書き込み",
+    "Writer": "作家",
+    "Humorist": "ユーモリスト",
+    "Author": "著者",
+    "Journalist": "ジャーナリスト",
+    "Support": "サポート",
+    "Record-company": "レコード会社",
+    "Studio": "スタジオ",
+    "Influencer": "インフルエンサー",
+    "Athletic": "アスレチック",
+    "Ch-a-category": "カテゴリを選択"
   }
 }

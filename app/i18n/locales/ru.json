@@ -73,10 +73,12 @@
     "Cancel": "Отменить",
     "Cancel-the-request": "Отмена запроса",
     "Category": "Категории",
+    "Certification": "Сертификации",
     "Change": "Изменить",
     "Change-the-photo": "Изменить фотографию",
     "Choice": "Выбор",
     "Chosse-a-date": "Выберите дату",
+    "Close": "Закрыть",
     "Coming-soon": "Скоро",
     "Comment": "Комментировать",
     "Confirm": "Подтвердить",
@@ -107,13 +109,16 @@
     "Join": "Присоединиться к",
     "Know-us": "Знайте нас",
     "Leave": "Уехать",
+    "Ledger": "Книги",
     "Like": "Нравиться",
     "Manage": "Manage",
+    "Max": "Макс",
     "Members": "Участники",
     "My-Favorites": "Мои любимые",
     "My-community": "Моя община",
     "Name": "имя",
     "Next": "Следующий",
+    "Not-enough": "Недостаточно",
     "Now": "Сейчас",
     "Or": "Или",
     "Others": "другие",
@@ -121,13 +126,16 @@
     "Participate": "Участвовать",
     "Password": "пароль",
     "Payment": "Оплаты",
+    "Pending": "Ожидающие",
     "Period": "Период",
     "Premium": "Премиум",
+    "Previous": "Предыдущей",
     "Price": "Награды",
     "Private": "Частный",
     "Profile": "Профиль",
     "Public": "общественного",
     "Rate": "Ставки",
+    "Receipt": "Получения",
     "Redirection": "Перенаправить",
     "Reset": "重启",
     "Save": "Сохранить",
@@ -141,6 +149,7 @@
     "Sponsored": "Ставки",
     "Stages": "Этапы",
     "Start": "Начать",
+    "Status": "Статус",
     "Story": "История",
     "Subscribe": "Подписаться",
     "Taxes": "Налоги",
@@ -150,7 +159,6 @@
     "To-chosse": "Выбрать",
     "To-signal-an-issue": "Сообщить о проблеме",
     "Total": "Общая",
-    "Towards-an-infinit-space": "К неимовему пространству",
     "Trend": "тенденция",
     "Unsubscribe": "Отказаться от подписки",
     "Update": "Обновить",
@@ -164,6 +172,7 @@
     "Wiins": "Уинс",
     "Wiins.io": "Wiins.io",
     "With": "С",
+    "You-can-do-it-here": "Вы можете сделать это здесь",
     "Your-Password..": "Ваш пароль",
     "Your-Pseudo..": "Ваш логин",
     "and": "и",
@@ -185,7 +194,20 @@
     "reply..": "Ответить",
     "responses": "ответы",
     "soon": "скоро",
-    "views": "взгляды"
+    "views": "взгляды",
+    "Music-publication": "Музыкальное издание",
+    "Tube-publication": "Публикация в трубке",
+    "Monetization": "Монетизация",
+    "Loading": "Загрузка",
+    "Upload-yr-file-here": "Загрузите свой файл сюда",
+    "Both": "И то и другое",
+    "Break-the-rules": "Нарушать правила",
+    "For-You": "Для тебя",
+    "Discover": "Обнаружить",
+    "Community": "",
+    "Subscribed": "",
+    "Go-to-profile": "",
+    "Friend": ""
   },
   "COUNTRY": {
     "AD": "Андорра",
@@ -468,7 +490,7 @@
   },
   "EMPTY-MESSAGE": {
     "You-haven-t-liked-music-yet": "Вам еще не понравилась музыка",
-    "no-friend-request": "Нет друзей по спросу сейчас",
+    "no-friend-request": "Нет запросов о дружбе прямо сейчас",
     "no-notification": "Уведомления пока нет"
   },
   "ERROR-MESSAGE": {
@@ -485,6 +507,7 @@
     "Email-invalid": "Email недействителен",
     "Email_already_exist": "Это письмо уже существует",
     "Incorrect": "Неправильный",
+    "Insufficient_amount": "Сумма недостаточна",
     "Invalid-password": "Ваш пароль неверный",
     "No-changes-hv-been-made": "Изменений не было",
     "No-page-has-this-name": "Изменений не было",
@@ -533,7 +556,12 @@
     "y-h-to-accept-the-tou": "Вы должны принять условия использования",
     "y-h-to-delete-yr-page-or-group-before": "Вы должны удалить свои страницы или группы, прежде чем",
     "y-have-to-be-friend": "вы должны быть друзьями",
-    "you-hav-to-upgrad-a-manager-before-leave": "Вы должны продвинуть менеджера, прежде чем покинуть группу"
+    "you-hav-to-upgrad-a-manager-before-leave": "Вы должны продвинуть менеджера, прежде чем покинуть группу",
+    "You-hv-to-be-verified": "Вы должны пройти верификацию",
+    "You-hv-to-get-t-community": "Вы должны получить сообщество",
+    "Please-choose-cat-and-sub": "Пожалуйста, выберите категорию и подкатегорию",
+    "Please-upload-the-poster-before": "Пожалуйста, загрузите постер видео перед",
+    "T-min-is-1$": "Минимум 1 $"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фото получено",
@@ -566,12 +594,12 @@
     "click-on-email": "Пожалуйста, нажмите на ссылку электронной почты"
   },
   "MAIN-MUSIC": {
+    "Lastest-Project": "Последний проект",
+    "Lastest-tube": "Последняя трубка",
     "My-music": "Моя музыка",
     "My-wiinsers": "Мои wiinsers",
     "Tops": "Вершины",
-    "Trend": "тенденция",
-    "Lastest-tube": "",
-    "Lastest-Project": ""
+    "Trend": "тенденция"
   },
   "MINI-CHAT": {
     "text-a-friend": "Напиши другу"
@@ -603,7 +631,11 @@
     "tag-you-in-comment": "отметил вас в комментарии",
     "tag-you-in-playlist": "отметил вас в плейлисте",
     "you-appear-in-project-of": "Вы появляетесь в новом проекте",
-    "you-have": "у тебя есть"
+    "you-have": "у тебя есть",
+    "Yr-verification-request-was-accepted": "",
+    "Yr-verification-request-was-refused": "",
+    "Yr-certification-request-was-accepted": "",
+    "Yr-certification-request-was-refused": ""
   },
   "PAGE": {
     "Name-page": "Название страницы",
@@ -725,7 +757,7 @@
           "1": "Принятие насилия как средства, пытаясь изменить ситуацию",
           "2": "Принятие насилия как средства, пытаясь изменить ситуацию"
         },
-        "We-delete": "Принятие насилия как средства, пытаясь изменить ситуацию"
+        "We-delete": "Мы удаляем"
       },
       "Title-Level": {
         "1": "Будьте carreful",
@@ -747,6 +779,27 @@
     "lang": {
       "lang-of-btn-title-others": "Язык кнопок, названий и других текстов платформы на этом устройстве",
       "lang-of-plateforme": "Язык платформы"
+    },
+    "ledger": {
+      "Account-disable-now-description": "Учетная запись временно отключена, вы невидимы на платформе сейчас. Если ваша учетная запись неактивна для следующего платежа, 4.99 будут сняты с вашего следующего проданного, чтобы наслаждаться следующими 30 днями.",
+      "Address": "Адрес",
+      "Address-to-send": "Адрес для отправки",
+      "Amount": "Сумма",
+      "Amount-to-transfert": "Сумма для перевода",
+      "Are-y-sure-t-cancel-t-transaction": "Вы уверены, что отмените эту транзакцию?",
+      "Be-careful-make-sure-y-have-the-right-address-d": "Будьте осторожны, убедитесь, что у вас есть правильный адрес. Нет возврата после подтверждения перевода.",
+      "Card-description-payment-subscription": "Подписка позволяет оставаться на этой платформе со всеми функциональными возможностями. Вся ваша информация находится в частной безопасности на этой платформе. Wiins никогда не будет делиться вашей информацией с сторонними компаниями. Каждый контент остается внутри платформы. Добро пожаловать в Уинс.",
+      "Currency": "Валюты",
+      "Fees-3": "Сборы (3%)",
+      "Next-facturation-date": "Следующая фактурация в дни «стоимости»",
+      "Pending-Transfert-Request": "В ожидании передачи запрос",
+      "T-admin-ll-take-24h-d": "Администрация займет 24h для передачи крипто. Спасибо вашему доверию",
+      "T-update-can-take-15min-after-the-confirmation": "Обновление может занять 15 минут после подтверждения",
+      "Total-in-USD": "Итого в долларах США",
+      "Transfer": "Передачи",
+      "Y-are-going-t-transfert-to-this-address-d": "Вы собираетесь перейти на этот адрес. Уверен? Администрация подтвердит сделку с задержкой в 24 часа.",
+      "Yr-account-balance-is": "Баланс вашего счета: {{value}}",
+      "price-per-month": "4.99$ / месяцы"
     },
     "notif": {
       "enable-sound": "Звуковые уведомления",
@@ -786,6 +839,28 @@
       "btn-followers": "Сделать кнопку «следовать»",
       "btn-friend": "Сделайте кнопку запроса друзей доступной",
       "h-can-b-yr-description": "Вы можете поместить описание"
+    },
+    "verified": {
+      "This-feature-requires-verification-to-use.": "Эта функция требует проверки для использования",
+      "Verified-zone": "Проверенная зона",
+      "I-w-t-b-verified": "Я хочу быть проверенным",
+      "I-w-t-b-certified": "Я хочу быть сертифицированным",
+      "Certification-badge": "Сертификационный значок",
+      "Already-verified": "Уже проверено",
+      "Already-certified": "Уже сертифицировано",
+      "Certification": "Сертификация",
+      "Y-m-complet-t-following-cdt-t-b-certified": "Для получения сертификата вы должны выполнить следующие условия.",
+      "B-verified": "Быть проверенным",
+      "H-m-t-1000-user-in-t-community": "Иметь более 1000 пользователей в сообществе",
+      "Have-content-t-d-not-offend-the-community": "Иметь контент, который не оскорбляет сообщество",
+      "T-b-accepted-b-t-administration": "Принимается администрацией",
+      "Yr-profil-is-currently-being-checked-D": "Ваш профиль в настоящее время проверяется. Мы свяжемся с вами в течение 48 часов по электронной почте.",
+      "Verification": "Проверка",
+      "Pl-s-t-docs-a-complet-t-form-below": "Отправьте необходимые документы и заполните форму ниже.",
+      "Upload-yr-password-id-identity-or-driver-license": "Загрузите свой пароль, удостоверение личности или водительские права.",
+      "Upload-a-photo-holding-t-ID-D": "Загрузите фотографию с удостоверением личности с листом бумаги с сегодняшней датой и надписью «Wiins».",
+      "I-agree-t-m-data-may-b-used-t-check-my-account": "Я согласен с тем, что мои данные могут быть использованы для проверки моей учетной записи.",
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Принятие насилия как средства, пытаясь изменить ситуацию",
@@ -841,6 +916,21 @@
   },
   "THIS-IS": {
     "id-of-t-music": "Ваш идентификатор музыки"
+  },
+  "TUBE": {
+    "Categorie": {
+      "Beauty": "Красоты",
+      "Comedy": "Комедия",
+      "Dance": "Танец",
+      "Gaming": "Игровой",
+      "How-to": "Как-к",
+      "Movies": "Фильмы",
+      "Music": "Музыка",
+      "News": "Новости",
+      "Sport": "Спорт",
+      "Travel": "Путешествия",
+      "Trending": "Тенденции"
+    }
   },
   "UPLOAD": {
     "add-cover-picture": "Добавить изображение обложки",
@@ -916,19 +1006,48 @@
       "Visualisation-of-the-video": "Визуализация видео"
     }
   },
-  "TUBE": {
-    "Categorie": {
-      "Trending": "",
-      "Gaming": "",
-      "Dance": "",
-      "News": "",
-      "Travel": "",
-      "Beauty": "",
-      "Comedy": "",
-      "Movies": "",
-      "How-to": "",
-      "Sport": "",
-      "Music": ""
-    }
+  "STAT": {
+    "Better-reference": "Лучшая ссылка"
+  },
+  "CATEGORY": {
+    "Pro": "Профессиональный",
+    "NoPro": "Не профессионал",
+    "Compagny": "Compagny",
+    "Association": "Ассоциация",
+    "Institution": "Учреждение",
+    "Organization": "Организация",
+    "Food": "Еда",
+    "Automobile": "Автомобиль",
+    "DIY": "Сделай сам",
+    "Cultur": "Cultur",
+    "Humor": "Юмор",
+    "Information": "Информация",
+    "Health": "Здоровье",
+    "Science": "Наука",
+    "Sport": "Спорт",
+    "Technology": "Технологии",
+    "Musician": "Музыкант",
+    "Composer": "Композитор",
+    "Group": "Группа",
+    "Interpreter": "Переводчик",
+    "Videographer": "Видеооператор",
+    "Director": "Директор",
+    "Filmmaker": "Режиссер",
+    "Editor": "редактор",
+    "Actor": "Актер",
+    "Image": "Образ",
+    "Photographer": "Фотограф",
+    "Painter": "Художник",
+    "Writing": "Письмо",
+    "Writer": "Писатель",
+    "Humorist": "Юморист",
+    "Author": "Автор",
+    "Journalist": "Журналист",
+    "Support": "Поддержка",
+    "Record-company": "Звукозаписывающая компания",
+    "Studio": "Студия",
+    "Influencer": "Инфлюенсер",
+    "Athletic": "Спортивное",
+    "Ch-a-category": "Выберите категорию"
   }
 }

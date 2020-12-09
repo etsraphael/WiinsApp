@@ -73,10 +73,12 @@
     "Cancel": "Cancelar",
     "Cancel-the-request": "Cancelar la solicitud",
     "Category": "Categoría",
+    "Certification": "Certificación",
     "Change": "cambio",
     "Change-the-photo": "Cambiar la foto",
     "Choice": "Elección",
     "Chosse-a-date": "Selecciona una fecha",
+    "Close": "Cerca",
     "Coming-soon": "Próximamente",
     "Comment": "Comentar",
     "Confirm": "Para confirmar",
@@ -107,13 +109,16 @@
     "Join": "Unirse",
     "Know-us": "Conócenos",
     "Leave": "Salir",
+    "Ledger": "libro mayor",
     "Like": "Gusta",
     "Manage": "Gestionar",
+    "Max": "máximo",
     "Members": "Miembros",
     "My-Favorites": "Mis favoritos",
     "My-community": "Mi comunidad",
     "Name": "Nombre",
     "Next": "próximo",
+    "Not-enough": "No es suficiente",
     "Now": "Ahora",
     "Or": "O",
     "Others": "Otros",
@@ -121,13 +126,16 @@
     "Participate": "Participar",
     "Password": "Contraseña",
     "Payment": "Pago",
+    "Pending": "Pendiente",
     "Period": "Período",
     "Premium": "Premium",
+    "Previous": "Anterior",
     "Price": "Premios",
     "Private": "Privado",
     "Profile": "Perfil",
     "Public": "Público",
     "Rate": "Tarifas",
+    "Receipt": "Recibo",
     "Redirection": "Redirigir",
     "Reset": "Reiniciar",
     "Save": "Salvar",
@@ -141,6 +149,7 @@
     "Sponsored": "Tarifas",
     "Stages": "Etapas",
     "Start": "Empezar",
+    "Status": "Estado",
     "Story": "Story",
     "Subscribe": "subscribir",
     "Taxes": "Impuestos",
@@ -150,7 +159,6 @@
     "To-chosse": "Elegir",
     "To-signal-an-issue": "Informar de un problema",
     "Total": "Total",
-    "Towards-an-infinit-space": "Hacia un espacio inifinit",
     "Trend": "Tendencia",
     "Unsubscribe": "Darse de baja",
     "Update": "Actualizar",
@@ -164,6 +172,7 @@
     "Wiins": "Wiins",
     "Wiins.io": "Wiins.io",
     "With": "Con",
+    "You-can-do-it-here": "Puedes hacerlo aquí",
     "Your-Password..": "Tu contraseña",
     "Your-Pseudo..": "Su nombre de usuario",
     "and": "y",
@@ -185,7 +194,20 @@
     "reply..": "respuesta",
     "responses": "respuestas",
     "soon": "pronto",
-    "views": "vistas"
+    "views": "vistas",
+    "Music-publication": "Publicación musical",
+    "Tube-publication": "Publicación de tubo",
+    "Monetization": "Monetización",
+    "Loading": "Cargando",
+    "Upload-yr-file-here": "Sube tu archivo aquí",
+    "Both": "Ambos",
+    "Break-the-rules": "Romper las reglas",
+    "For-You": "Para ti",
+    "Discover": "Descubrir",
+    "Community": "",
+    "Subscribed": "",
+    "Go-to-profile": "",
+    "Friend": ""
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -468,7 +490,7 @@
   },
   "EMPTY-MESSAGE": {
     "You-haven-t-liked-music-yet": "Aún no te ha gustado la música.",
-    "no-friend-request": "No soy amigo de la demanda en este momento",
+    "no-friend-request": "No hay solicitud de amistad en este momento",
     "no-notification": "Aún no hay notificación"
   },
   "ERROR-MESSAGE": {
@@ -485,6 +507,7 @@
     "Email-invalid": "el correo electrónico es invalido",
     "Email_already_exist": "Este correo electrónico ya existe",
     "Incorrect": "Incorrecta",
+    "Insufficient_amount": "La cantidad es insuficiente",
     "Invalid-password": "tu contraseña es incorrecta",
     "No-changes-hv-been-made": "No se han hecho cambios",
     "No-page-has-this-name": "No se han hecho cambios",
@@ -533,7 +556,12 @@
     "y-h-to-accept-the-tou": "Debe aceptar los términos y condiciones de uso",
     "y-h-to-delete-yr-page-or-group-before": "Debe eliminar sus páginas o grupos antes de",
     "y-have-to-be-friend": "debes ser amigo",
-    "you-hav-to-upgrad-a-manager-before-leave": "Debes promocionar a un gerente antes de abandonar el grupo"
+    "you-hav-to-upgrad-a-manager-before-leave": "Debes promocionar a un gerente antes de abandonar el grupo",
+    "You-hv-to-be-verified": "Tienes que ser verificado",
+    "You-hv-to-get-t-community": "Tienes que conseguir la comunidad",
+    "Please-choose-cat-and-sub": "Elija categoría y subcategoría",
+    "Please-upload-the-poster-before": "Sube el póster del video antes",
+    "T-min-is-1$": "El mínimo es 1 $"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "La foto es recibida",
@@ -566,12 +594,12 @@
     "click-on-email": "Por favor haga clic en el enlace del correo electrónico"
   },
   "MAIN-MUSIC": {
+    "Lastest-Project": "Proyecto más reciente",
+    "Lastest-tube": "Tubo más reciente",
     "My-music": "Mi música",
     "My-wiinsers": "Mis salchichas",
     "Tops": "Las tapas",
-    "Trend": "Tendencia",
-    "Lastest-tube": "",
-    "Lastest-Project": ""
+    "Trend": "Tendencia"
   },
   "MINI-CHAT": {
     "text-a-friend": "De texto a un amigo"
@@ -603,7 +631,11 @@
     "tag-you-in-comment": "te etiquetó en un comentario",
     "tag-you-in-playlist": "te etiquetó en una lista de reproducción",
     "you-appear-in-project-of": "Aparece en el nuevo proyecto de",
-    "you-have": "tienes"
+    "you-have": "tienes",
+    "Yr-verification-request-was-accepted": "",
+    "Yr-verification-request-was-refused": "",
+    "Yr-certification-request-was-accepted": "",
+    "Yr-certification-request-was-refused": ""
   },
   "PAGE": {
     "Name-page": "Nombre de la página",
@@ -725,7 +757,7 @@
           "1": "La aceptación de la violencia como medio para tratar de cambiar las cosas",
           "2": "La aceptación de la violencia como medio para tratar de cambiar las cosas"
         },
-        "We-delete": "La aceptación de la violencia como medio para tratar de cambiar las cosas"
+        "We-delete": "Borramos"
       },
       "Title-Level": {
         "1": "Sé carreful",
@@ -747,6 +779,27 @@
     "lang": {
       "lang-of-btn-title-others": "Idioma para los botones, títulos y otros textos de la plataforma en este dispositivo",
       "lang-of-plateforme": "Lenguaje de plataforma"
+    },
+    "ledger": {
+      "Account-disable-now-description": "Cuenta desactivada temporalmente, ahora es invisible en el platforme. Si su cuenta está inactiva para el próximo pago, se retirarán 4,99 de su próxima venta para disfrutar de los próximos 30 días.",
+      "Address": "Dirección",
+      "Address-to-send": "Dirección para enviar",
+      "Amount": "Cantidad",
+      "Amount-to-transfert": "Importe a transferir",
+      "Are-y-sure-t-cancel-t-transaction": "¿Está seguro de cancelar esta transacción?",
+      "Be-careful-make-sure-y-have-the-right-address-d": "Tenga cuidado, asegúrese de que tiene la dirección correcta. No hay reembolso después de la confirmación de la transferencia.",
+      "Card-description-payment-subscription": "La suscripción le permite permanecer en esta plataforma con todas las funcionalidades. Toda su información está asegurada de forma privada dentro de esta plataforma. Wiins nunca compartirá su información con empresas de terceros. Cada contenido permanece dentro de la plataforma. Bienvenido a Wiins.",
+      "Currency": "Moneda",
+      "Fees-3": "Tarifas (3%)",
+      "Next-facturation-date": "Próxima facturación en días de valor",
+      "Pending-Transfert-Request": "Solicitud de transferencia pendiente",
+      "T-admin-ll-take-24h-d": "La administración tardará 24 horas en transferir el cripto. Gracias a su confianza",
+      "T-update-can-take-15min-after-the-confirmation": "La actualización puede tardar 15 minutos después de la confirmación",
+      "Total-in-USD": "Total en USD",
+      "Transfer": "Transferencia",
+      "Y-are-going-t-transfert-to-this-address-d": "Vas a transferirte a esta dirección. ¿Estás seguro? La administración confirmará la transacción en un retraso de 24 horas.",
+      "Yr-account-balance-is": "El saldo de su cuenta es: {{value}}",
+      "price-per-month": "4.99$ / meses"
     },
     "notif": {
       "enable-sound": "Notificaciones sonoras",
@@ -786,6 +839,28 @@
       "btn-followers": "Haga que el botón \"seguir\" esté disponible",
       "btn-friend": "Haga que el botón de solicitud de amistad esté disponible",
       "h-can-b-yr-description": "Puede poner una descripción"
+    },
+    "verified": {
+      "This-feature-requires-verification-to-use.": "Esta función requiere verificación para usar",
+      "Verified-zone": "Zona verificada",
+      "I-w-t-b-verified": "Quiero ser verificado",
+      "I-w-t-b-certified": "Quiero estar certificado",
+      "Certification-badge": "Insignia de certificación",
+      "Already-verified": "Ya verificado",
+      "Already-certified": "Ya certificado",
+      "Certification": "Certificación",
+      "Y-m-complet-t-following-cdt-t-b-certified": "Debe completar las siguientes condiciones para obtener la certificación.",
+      "B-verified": "Ser verificado",
+      "H-m-t-1000-user-in-t-community": "Tener más de 1000 usuarios en la comunidad",
+      "Have-content-t-d-not-offend-the-community": "Tener contenido que no ofenda a la comunidad.",
+      "T-b-accepted-b-t-administration": "Para ser aceptado por la administración",
+      "Yr-profil-is-currently-being-checked-D": "Actualmente se está comprobando tu perfil. Nos comunicaremos con usted dentro de las 48 horas por correo electrónico.",
+      "Verification": "Verificación",
+      "Pl-s-t-docs-a-complet-t-form-below": "Envíe los documentos necesarios y complete el siguiente formulario.",
+      "Upload-yr-password-id-identity-or-driver-license": "Cargue su contraseña, identidad de identificación o licencia de conducir.",
+      "Upload-a-photo-holding-t-ID-D": "Sube una foto con la identificación con una hoja de papel con la fecha de hoy y \"Wiins\" escrito en ella.",
+      "I-agree-t-m-data-may-b-used-t-check-my-account": "Acepto que mis datos puedan usarse para verificar mi cuenta.",
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "La aceptación de la violencia como medio para tratar de cambiar las cosas",
@@ -841,6 +916,21 @@
   },
   "THIS-IS": {
     "id-of-t-music": "Su identificador de música"
+  },
+  "TUBE": {
+    "Categorie": {
+      "Beauty": "Belleza",
+      "Comedy": "Comedia",
+      "Dance": "Baile",
+      "Gaming": "Juego",
+      "How-to": "Cómo hacerlo",
+      "Movies": "Películas",
+      "Music": "Música",
+      "News": "Noticias",
+      "Sport": "Deporte",
+      "Travel": "Viaje",
+      "Trending": "Tendencias"
+    }
   },
   "UPLOAD": {
     "add-cover-picture": "Añadir una foto de portada",
@@ -916,19 +1006,48 @@
       "Visualisation-of-the-video": "Visualización del vídeo"
     }
   },
-  "TUBE": {
-    "Categorie": {
-      "Trending": "",
-      "Gaming": "",
-      "Dance": "",
-      "News": "",
-      "Travel": "",
-      "Beauty": "",
-      "Comedy": "",
-      "Movies": "",
-      "How-to": "",
-      "Sport": "",
-      "Music": ""
-    }
+  "STAT": {
+    "Better-reference": "Mejor referencia"
+  },
+  "CATEGORY": {
+    "Pro": "Profesional",
+    "NoPro": "No profesional",
+    "Compagny": "Compagny",
+    "Association": "Asociación",
+    "Institution": "Institución",
+    "Organization": "Organización",
+    "Food": "Comida",
+    "Automobile": "Automóvil",
+    "DIY": "Bricolaje",
+    "Cultur": "Cultur",
+    "Humor": "Humor",
+    "Information": "Información",
+    "Health": "Salud",
+    "Science": "Ciencias",
+    "Sport": "Deporte",
+    "Technology": "Tecnología",
+    "Musician": "Músico",
+    "Composer": "Compositor",
+    "Group": "Grupo",
+    "Interpreter": "Interprete",
+    "Videographer": "Camarógrafo",
+    "Director": "Director",
+    "Filmmaker": "Cineasta",
+    "Editor": "Editor",
+    "Actor": "Actor",
+    "Image": "Imagen",
+    "Photographer": "Fotógrafo",
+    "Painter": "Pintor",
+    "Writing": "Escritura",
+    "Writer": "Escritor",
+    "Humorist": "Humorista",
+    "Author": "Autor",
+    "Journalist": "Periodista",
+    "Support": "Apoyo",
+    "Record-company": "Compañia discografica",
+    "Studio": "Estudio",
+    "Influencer": "Hombre de influencia",
+    "Athletic": "Atlético",
+    "Ch-a-category": "Elige una categoría"
   }
 }

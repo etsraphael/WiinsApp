@@ -108,7 +108,7 @@ class TubePage extends React.Component {
                 <CommentList type={'tube'} />
                 <View style={{ flexDirection: 'row', height: 39, marginBottom: 15 }}>
                     <TextInput
-                        placeholder={'PUBLICATION.Write-a-comment'}
+                        placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
                         placeholderTextColor="#FFFFFF"
                         style={{ flex: 9, paddingLeft: 15, color: 'grey', backgroundColor: '#485164', borderRadius: 17, height: '100%' }}
                     ></TextInput>
