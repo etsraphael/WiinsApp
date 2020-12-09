@@ -35,8 +35,12 @@ class PublicationModal extends React.Component {
     }
 
     componentDidMount() {
-        this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
         this.eventListener = DeviceEventEmitter.addListener('toggleSuggest', this.toggleSuggest);
+    }
+
+    _loadComment(){
+        this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
+        this.setState({ page: 2, background_filter: true })
     }
 
     componentWillUnmount() {
@@ -82,7 +86,7 @@ class PublicationModal extends React.Component {
                 {this.state.page == 1 ?
                     <View style={{ flex: 1, paddingLeft: 25, alignItems: 'flex-end' }}>
                         <View style={{ flexDirection: 'row', flex: 1, paddingRight: 15, paddingBottom: 15 }}>
-                            <TouchableOpacity style={{ flexDirection: 'row', marginRight: 8 }} onPress={() => this.setState({ page: 2, background_filter: true })}>
+                            <TouchableOpacity style={{ flexDirection: 'row', marginRight: 8 }} onPress={() => this._loadComment()}>
                                 <FontAwesomeIcon icon={faCommentLines} color={'white'} size={19} />
                                 <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
                             </TouchableOpacity>

@@ -249,7 +249,7 @@ export function getCommentListPublication(id, page) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 201) return dispatch(getCommentListSuccess(response.results))
+                    if (response.status == 200) return dispatch(getCommentListSuccess(response.results))
                     return dispatch(getCommentListFail(response.message))
                 })
         } catch (error) {
