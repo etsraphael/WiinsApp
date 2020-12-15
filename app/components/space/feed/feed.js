@@ -87,11 +87,11 @@ class Feed extends React.Component {
             ? 'down'
             : 'up'
         // If the user is scrolling down (and the action-button is still visible) hide it
-        // const isHeaderVisible = direction === 'up'
-        // if (isHeaderVisible !== this.state.isHeaderVisible) {
-        //     LayoutAnimation.configureNext(CustomLayoutLinear)
-        //     this.setState({ isHeaderVisible })
-        // }
+        const isHeaderVisible = direction === 'up'
+        if (isHeaderVisible !== this.state.isHeaderVisible) {
+            LayoutAnimation.configureNext(CustomLayoutLinear)
+            this.setState({ isHeaderVisible })
+        }
         // Update your scroll position
         this._listViewOffset = currentOffset
 
@@ -143,7 +143,9 @@ class Feed extends React.Component {
         if(!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0){
             return (
             <FlatList
-                data={this.props.FeedPublications.publications.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
+                style={{borderTopLeftRadius: 35, borderTopRightRadius: 35}}
+                onScrollBeginDrag={this._onScroll}
+                data={this.props.FeedPublications.publications}
                 renderItem={({item, index}) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
                 keyExtractor={(item) => item._id.toString()}
             />
@@ -157,17 +159,27 @@ class Feed extends React.Component {
     _displayPublicationFeed = () => {
 
         return (
-            <ScrollView
+            <View style={{flex: 1}}>
+
+                {this.state.isHeaderVisible ? 
+                <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
+                 : null}
+
+                <ScrollView
                 onScroll={this._onScroll}
                 scrollEventThrottle={5}
                 style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}
+                >
                 
-            >
-                {/* <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} /> */}
-
+            
                 {this._publicationList()}
 
             </ScrollView>
+
+
+
+            </View>
+            
         )
     }
 
