@@ -143,7 +143,6 @@ class Feed extends React.Component {
         if(!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0){
             return (
             <FlatList
-                style={{borderTopLeftRadius: 35, borderTopRightRadius: 35}}
                 onScrollBeginDrag={this._onScroll}
                 data={this.props.FeedPublications.publications}
                 renderItem={({item, index}) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
@@ -166,7 +165,6 @@ class Feed extends React.Component {
                  : null}
 
                 <ScrollView
-                onScroll={this._onScroll}
                 scrollEventThrottle={5}
                 style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}
                 >
@@ -212,7 +210,7 @@ class Feed extends React.Component {
             <View style={styles.feed_container}>
 
                 {/* Header */}
-                {this.state.isHeaderVisible ? this._header() : null}
+                {this._header()}
                 {this.state.search.length == 0 ? this._displayPublicationFeed() : this._suggestionSearch()}
 
                 {/* Modal */}
