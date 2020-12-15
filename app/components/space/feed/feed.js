@@ -143,6 +143,7 @@ class Feed extends React.Component {
         if(!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0){
             return (
             <FlatList
+                
                 onScrollBeginDrag={this._onScroll}
                 data={this.props.FeedPublications.publications}
                 renderItem={({item, index}) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
@@ -158,18 +159,19 @@ class Feed extends React.Component {
     _displayPublicationFeed = () => {
 
         return (
-            <View style={{flex: 1}}>
+            <View style={{flex: 1, borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden'}}>
 
-                {this.state.isHeaderVisible ? 
-                <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
-                 : null}
+                
 
                 <ScrollView
                 scrollEventThrottle={5}
-                style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}
+                style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35}}
                 >
                 
-            
+                {/* {this.state.isHeaderVisible ?  */}
+                <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
+                 {/* : null} */}
+
                 {this._publicationList()}
 
             </ScrollView>
