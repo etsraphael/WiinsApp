@@ -32,7 +32,6 @@ class Feed extends React.Component {
             isHeaderVisible: true,
             search: '',
             pagePublication: 1,
-            publicationLoading: false,
             isRefreshing: false,
             modal: false,
             PublicationModal: null,
@@ -66,10 +65,9 @@ class Feed extends React.Component {
     // to load the next page of the publication
     _getPublicationList = () => {
 
-        if (!this.props.FeedPublications.isLoading && !this.state.publicationLoading) {
+        if (!this.props.FeedPublications.isLoading) {
             this.props.actions.getByMode(this.state.pagePublication, 'FollowerAndFriend')
-            this.setState({ pagePublication: this.state.pagePublication + 1, publicationLoading: true })
-            setTimeout(() => this.setState({ publicationLoading: false }), 3000);
+            this.setState({ pagePublication: this.state.pagePublication + 1})
         }
 
     }
@@ -141,22 +139,33 @@ class Feed extends React.Component {
         this.props.actions.getByMode(1, 'FollowerAndFriend')
     }
 
+    _publicationList = () => {
+        if(!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0){
+            return (
+            <FlatList
+                data={this.props.FeedPublications.publications.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
+                renderItem={({item, index}) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
+                keyExtractor={(item) => item._id.toString()}
+            />
+            )
+        } else {
+            return null
+        }
+    }
+
     // to display the list of the publications
-    _PublicationFeed = () => {
+    _displayPublicationFeed = () => {
 
         return (
             <ScrollView
                 onScroll={this._onScroll}
                 scrollEventThrottle={5}
                 style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}
+                
             >
-                <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
+                {/* <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} /> */}
 
-                <FlatList
-                    data={this.props.FeedPublications.publications}
-                    renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
-                    keyExtractor={item => item.id}
-                />
+                {this._publicationList()}
 
             </ScrollView>
         )
@@ -192,7 +201,7 @@ class Feed extends React.Component {
 
                 {/* Header */}
                 {this.state.isHeaderVisible ? this._header() : null}
-                {this.state.search.length == 0 ? this._PublicationFeed() : this._suggestionSearch()}
+                {this.state.search.length == 0 ? this._displayPublicationFeed() : this._suggestionSearch()}
 
                 {/* Modal */}
                 {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}

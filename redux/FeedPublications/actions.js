@@ -65,6 +65,7 @@ export function getByMode(page, mode) {
 
     return async (dispatch) => {
         try {
+
             if(page == 1) dispatch(resetPublication())
             dispatch(getPublicationsStart())
             const token = await AsyncStorage .getItem('userToken')
@@ -78,11 +79,11 @@ export function getByMode(page, mode) {
                 }
             })
                 .then((response) => response.json())
-                .then( async (response) => {
+                .then(response=> {
                     if (response.status == 200) {
                         return dispatch(getPublicationsSuccess(response.results))
                     }
-                    return dispatch(getPublicationsFail(response.message))
+                    else return dispatch(getPublicationsFail(response.message))
                 })
         } catch (error) {
             return dispatch(getPublicationsFail(error));

@@ -28,14 +28,14 @@ class PublicationStandard extends React.Component {
         const ratio = ((event.nativeEvent.width / event.nativeEvent.height) * 100)
 
         switch (true) {
-            case ratio <= 70: this.setState({ imageHeight: ratio * 9 }); break;
-            case ratio <= 85: this.setState({ imageHeight: ratio * 7.5 }); break;
-            case ratio <= 100: this.setState({ imageHeight: ratio * 5 }); break;
-            case ratio <= 115: this.setState({ imageHeight: ratio * 3 }); break;
-            case ratio <= 130: this.setState({ imageHeight: ratio * 2.5 }); break;
-            case ratio <= 155: this.setState({ imageHeight: ratio * 1.8 }); break;
-            case ratio <= 180: this.setState({ imageHeight: ratio * 1.3 }); break;
-            case ratio > 180: this.setState({ imageHeight: ratio * 0.8 }); break;
+            case ratio <= 70: return this.setState({ imageHeight: ratio * 9 });
+            case ratio <= 85: return this.setState({ imageHeight: ratio * 7.5 });
+            case ratio <= 100: return this.setState({ imageHeight: ratio * 5 });
+            case ratio <= 115: return this.setState({ imageHeight: ratio * 3 });
+            case ratio <= 130: return this.setState({ imageHeight: ratio * 2.5 });
+            case ratio <= 155: return this.setState({ imageHeight: ratio * 1.8 });
+            case ratio <= 180: return this.setState({ imageHeight: ratio * 1.3 });
+            case ratio > 180: return this.setState({ imageHeight: ratio * 0.8 });
         }
 
     }
@@ -108,15 +108,18 @@ class PublicationStandard extends React.Component {
     _renderPicture(publication) {
 
         return (
-            <TouchableOpacity style={styles.container_type}
-                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+            <TouchableOpacity 
+            style={styles.container_type} 
+            onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
             >
+
                 <FastImage
-                    style={{ flex: 1, width: '100%', height: this.state.imageHeight }}
+                    style={{ flex: 1, width: '100%', height: 400 }}
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.cover}
                     onLoad={this.onImageLoaded}
                 />
+
             </TouchableOpacity>
         )
     }
@@ -148,9 +151,10 @@ class PublicationStandard extends React.Component {
     // to select the publication type
     _showTypePublication(publication) {
         switch (publication.type) {
-            case 'PostPublication': return this._renderPost(publication)
-            case 'PicturePublication': return this._renderPicture(publication)
-            case 'VideoPublication': return this._renderVideo(publication)
+            case 'PostPublication': return this._renderPost(publication);
+            case 'PicturePublication': return this._renderPicture(publication);
+            case 'VideoPublication': return this._renderVideo(publication);
+            default: return null
         }
     }
 
@@ -231,7 +235,7 @@ class PublicationStandard extends React.Component {
     }
 
     // to select like icon
-    _displayIconLike(){
+    _displayIconLike() {
         if (!this.props.publication.like.isLike) {
             return (<FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />)
         }
@@ -239,7 +243,6 @@ class PublicationStandard extends React.Component {
             return (<FontAwesomeIcon icon={faHeartFull} color={'red'} size={19} />)
         }
     }
-
 
     _getColorLike() {
         if (!this.props.publication.like.isLike) return 'white'
@@ -296,41 +299,36 @@ class PublicationStandard extends React.Component {
     _showFooter(publication) {
         return (
             <View style={styles.container_footer}>
-
-
                 <LinearGradient
                     colors={['#00000099', '#0000005c', '#4e4e4e00']}
                     start={{ x: 0, y: 1 }}
                     end={{ x: 0, y: 0 }}
                     style={{ flexDirection: 'row', flex: 1, alignItems: 'center', paddingHorizontal: 25 }}
                 >
-
                     {/*  Stat Container */}
                     <View style={{ flex: 1 }}>
                         <View style={{ flexDirection: 'row', flex: 1, paddingTop: 18 }}>
-
-
                             <TouchableOpacity
                                 onPress={() => this._likePublication()}
                                 style={{ flex: 1 }}
                             >
-                                <BlurView 
-                                blurType="light"
-                                blurAmount={1}
-                                reducedTransparencyFallbackColor="white"
-                                style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 18, height: 35 }}
+                                {/* Temporaly disabled */}
+                                {/* <BlurView
+                                    blurType="light"
+                                    blurAmount={1}
+                                    reducedTransparencyFallbackColor="white"
+                                    style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 18, height: 35 }}
                                 >
-
                                     {this._displayIconLike()}
-
-
-
-                                    
                                     <Text style={{ marginLeft: 8, fontSize: 15, color: 'white', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.like.likeNumber}</Text>
-                                </BlurView>
+                                </BlurView> */}
+                                <View 
+                                    style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 18, height: 35 }}
+                                >
+                                    {this._displayIconLike()}
+                                    <Text style={{ marginLeft: 8, fontSize: 15, color: 'white', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.like.likeNumber}</Text>
+                                </View>
                             </TouchableOpacity>
-
-
                             <TouchableOpacity
                                 onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
                                 style={{ flex: 1 }}
@@ -340,16 +338,9 @@ class PublicationStandard extends React.Component {
                                     <Text style={{ marginLeft: 8, fontSize: 15, color: 'white', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.commentNumber}</Text>
                                 </View>
                             </TouchableOpacity>
-
-
-
                             <View style={{ flex: 3 }} />
                         </View>
                     </View>
-
-
-
-
                 </LinearGradient>
             </View>
         )
