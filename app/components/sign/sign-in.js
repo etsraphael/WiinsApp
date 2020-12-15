@@ -81,7 +81,7 @@ class SignIn extends React.Component {
                     <Text style={styles.loginText}>{I18n.t('LOGIN-REGISTRER.Login')}</Text>
                 </TouchableOpacity>
                 {this._orSeparator()}
-                <TouchableOpacity onPress={() => this.props.view('register')}
+                <TouchableOpacity onPress={() => this.props.view(null)}
                     style={styles.btn_back}>
                     <Text style={styles.btn_Text}>
                         {I18n.t('LOGIN-REGISTRER.Register')}

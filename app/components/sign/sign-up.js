@@ -142,7 +142,7 @@ class SignUp extends React.Component {
                     <Text style={styles.loginText}>{I18n.t('LOGIN-REGISTRER.Registration')}</Text>
                 </TouchableOpacity>
                 {this._orSeparator()}
-                <TouchableOpacity onPress={() => this.props.view('login')} style={styles.btn_back}>
+                <TouchableOpacity onPress={() => this.props.view('null')} style={styles.btn_back}>
                     <Text style={styles.btn_Text}> Back </Text>
                 </TouchableOpacity>
             </View>
