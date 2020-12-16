@@ -20,7 +20,6 @@ import { getDateTranslated } from '../../services/translation/translation-servic
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faTimes, faCommentLines, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import { BlurView } from "@react-native-community/blur";
 import I18n from '../../i18n/i18n'
 
 class PublicationModal extends React.Component {
@@ -242,12 +241,13 @@ class PublicationModal extends React.Component {
                     resizeMode={FastImage.resizeMode.cover}
                 />
 
-                <BlurView
+                {/* Temporaly disabled */} 
+                {/* <BlurView
                     blurType="light"
                     blurAmount={15}
                     reducedTransparencyFallbackColor="white"
                     style={{ position: 'absolute', width: '100%', height: '100%' }}
-                />
+                /> */}
 
                 {/* Display Img */}
                 <FastImage

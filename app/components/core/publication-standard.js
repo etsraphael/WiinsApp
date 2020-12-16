@@ -11,7 +11,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPlay, faComment } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
-import { BlurView } from "@react-native-community/blur"
 
 class PublicationStandard extends React.Component {
 
