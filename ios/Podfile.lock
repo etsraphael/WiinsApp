@@ -261,9 +261,9 @@ PODS:
   - react-native-ffmpeg/https-lts (0.5.0):
     - mobile-ffmpeg-https (= 4.4.LTS)
     - React
-  - react-native-image-picker (2.3.4):
-    - React-Core
-  - react-native-image-resizer (1.4.0):
+  - react-native-image-picker (2.4.0):
+    - React
+  - react-native-image-resizer (1.4.1):
     - React-Core
   - react-native-safe-area-context (3.1.9):
     - React-Core
@@ -346,11 +346,11 @@ PODS:
     - SDWebImageWebPCoder (~> 0.6.1)
   - RNFS (2.16.6):
     - React
-  - RNGestureHandler (1.8.0):
-    - React
+  - RNGestureHandler (1.9.0):
+    - React-Core
   - RNLocalize (2.0.1):
     - React-Core
-  - RNScreens (2.15.0):
+  - RNScreens (2.16.1):
     - React-Core
   - RNSnackbar (2.2.4):
     - React-Core
@@ -586,8 +586,8 @@ SPEC CHECKSUMS:
   react-native-blur: cad4d93b364f91e7b7931b3fa935455487e5c33c
   react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
   react-native-ffmpeg: 7c64ba2e41eeb06144ad77f17e62ecbbc29ae3c0
-  react-native-image-picker: c6d75c4ab2cf46f9289f341242b219cb3c1180d3
-  react-native-image-resizer: 9bb7382bc4faf0e840b088460d6f463b434a4818
+  react-native-image-picker: 4e63090db19a528e36c0cc07d1423c8c0cb4c4ef
+  react-native-image-resizer: 354b09df56858289f386dfbd804e318155c14c8f
   react-native-safe-area-context: b6e0e284002381d2ff29fa4fff42b4d8282e3c94
   react-native-track-player: 28b96dd6404dea3eee80e67b74507679235a8dfb
   react-native-video: dbb8df4f0bbdf80de6797c90fcad8bc12b19401d
@@ -606,9 +606,9 @@ SPEC CHECKSUMS:
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNFastImage: d4870d58f5936111c56218dbd7fcfc18e65b58ff
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
-  RNGestureHandler: 7a5833d0f788dbd107fbb913e09aa0c1ff333c39
+  RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
   RNLocalize: 41026b7c14878f1a1b381bc79f668f1fbf841adb
-  RNScreens: 2ad555d4d9fa10b91bb765ca07fe9b29d59573f0
+  RNScreens: 45c457af3d2ee9e08fc01e70da87e653d46b1198
   RNSnackbar: 86092381dba7a0ed9fbd7acdb82ebbd5bfd26372
   RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
