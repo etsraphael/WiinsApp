@@ -19,6 +19,7 @@ class MusicProjectStandard extends React.Component {
 
     render() {
         const { musicProject } = this.props
+
         return (
             <View style={styles.container}>
                 <View style={styles.header_card}>

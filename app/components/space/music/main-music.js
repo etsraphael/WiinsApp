@@ -23,7 +23,7 @@ class MainMusic extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: '#e3e6ef'
     }
 
 })

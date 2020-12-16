@@ -73,10 +73,12 @@
     "Cancel": "रद्द करने के लिए",
     "Cancel-the-request": "अनुरोध रद्द करें",
     "Category": "श्रेणी",
+    "Certification": "प्रमाणीकरण",
     "Change": "बदल",
     "Change-the-photo": "फोटो बदलें",
     "Choice": "पसंद",
     "Chosse-a-date": "एक तारीख का चयन करें",
+    "Close": "बंद करना",
     "Coming-soon": "जल्दी ही आगमन",
     "Comment": "टिप्पणी करने के लिए",
     "Confirm": "पुष्टि करने के लिए",
@@ -107,13 +109,16 @@
     "Join": "सम्मिलित हों",
     "Know-us": "हमें पता है",
     "Leave": "छोड़ना",
+    "Ledger": "खाता बही",
     "Like": "पसंद",
     "Manage": "का प्रबंधन करें",
+    "Max": "अधिकतम",
     "Members": "सदस्यों",
     "My-Favorites": "मेरे पसंदीदा",
     "My-community": "मेरा समुदाय",
     "Name": "नाम",
     "Next": "अगला",
+    "Not-enough": "पर्याप्त नहीं",
     "Now": "अभी",
     "Or": "या",
     "Others": "अन्य",
@@ -121,13 +126,16 @@
     "Participate": "भाग लेने",
     "Password": "कुंजिका",
     "Payment": "भुगतान",
+    "Pending": "लंबित",
     "Period": "अवधि",
     "Premium": "प्रीमियम",
+    "Previous": "पिछला",
     "Price": "पुरस्कार",
     "Private": "निजी",
     "Profile": "प्रोफ़ाइल",
     "Public": "जनता",
     "Rate": "दरों",
+    "Receipt": "प्राप्ति",
     "Redirection": "अनुप्रेषित",
     "Reset": "रीसेट",
     "Save": "सहेजें",
@@ -141,6 +149,7 @@
     "Sponsored": "दरों",
     "Stages": "चरणों",
     "Start": "प्रारंभ",
+    "Status": "स्थिति",
     "Story": "कहानी",
     "Subscribe": "सदस्यता लें",
     "Taxes": "करों",
@@ -150,7 +159,6 @@
     "To-chosse": "चुनें",
     "To-signal-an-issue": "किसी समस्या की रिपोर्ट करें",
     "Total": "कुल",
-    "Towards-an-infinit-space": "एक इनिफिनिट स्पेस की ओर",
     "Trend": "ट्रेंड",
     "Unsubscribe": "सदस्यता रद्द",
     "Update": "अपडेट करें",
@@ -164,6 +172,7 @@
     "Wiins": "वाइज",
     "Wiins.io": "Wiins.io",
     "With": "साथ में",
+    "You-can-do-it-here": "आप इसे यहां कर सकते हैं",
     "Your-Password..": "आपका पासवर्ड",
     "Your-Pseudo..": "तुम्हारा प्रयोगकर्ती नाम",
     "and": "तथा",
@@ -185,7 +194,20 @@
     "reply..": "जवाब दे दो",
     "responses": "प्रतिक्रियाओं",
     "soon": "जल्द ही",
-    "views": "विचारों"
+    "views": "विचारों",
+    "Music-publication": "संगीत प्रकाशन",
+    "Tube-publication": "ट्यूब प्रकाशन",
+    "Monetization": "मुद्रीकरण",
+    "Loading": "लोड हो रहा है",
+    "Upload-yr-file-here": "अपनी फ़ाइल यहाँ अपलोड करें",
+    "Both": "दोनों",
+    "Break-the-rules": "नियम तोड़ा",
+    "For-You": "तुम्हारे लिए",
+    "Discover": "डिस्कवर",
+    "Community": "",
+    "Subscribed": "",
+    "Go-to-profile": "",
+    "Friend": ""
   },
   "COUNTRY": {
     "AD": "एंडोरा",
@@ -468,7 +490,7 @@
   },
   "EMPTY-MESSAGE": {
     "You-haven-t-liked-music-yet": "आपको अभी तक संगीत पसंद नहीं आया है",
-    "no-friend-request": "अभी मांग का कोई मित्र नहीं",
+    "no-friend-request": "अभी कोई मित्र अनुरोध नहीं",
     "no-notification": "अभी तक कोई अधिसूचना नहीं"
   },
   "ERROR-MESSAGE": {
@@ -485,6 +507,7 @@
     "Email-invalid": "ईमेल अमान्य है",
     "Email_already_exist": "यह ईमेल पहले से मौजूद है",
     "Incorrect": "गलत",
+    "Insufficient_amount": "राशि अपर्याप्त है",
     "Invalid-password": "आपका पासवर्ड गलत है",
     "No-changes-hv-been-made": "कोई बदलाव नहीं किया गया है",
     "No-page-has-this-name": "कोई बदलाव नहीं किया गया है",
@@ -533,7 +556,12 @@
     "y-h-to-accept-the-tou": "आपको उपयोग के नियम और शर्तों को स्वीकार करना होगा",
     "y-h-to-delete-yr-page-or-group-before": "इससे पहले आपको अपने पेज या समूह ों को हटाना होगा",
     "y-have-to-be-friend": "आप दोस्त होने चाहिए",
-    "you-hav-to-upgrad-a-manager-before-leave": "समूह छोड़ने से पहले आपको एक प्रबंधक को बढ़ावा देना चाहिए"
+    "you-hav-to-upgrad-a-manager-before-leave": "समूह छोड़ने से पहले आपको एक प्रबंधक को बढ़ावा देना चाहिए",
+    "You-hv-to-be-verified": "आपको सत्यापित किया जाना है",
+    "You-hv-to-get-t-community": "आपको समुदाय प्राप्त करना होगा",
+    "Please-choose-cat-and-sub": "कृपया श्रेणी और उप श्रेणी चुनें",
+    "Please-upload-the-poster-before": "कृपया पहले वीडियो का पोस्टर अपलोड करें",
+    "T-min-is-1$": "न्यूनतम 1 $ है"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "फोटो प्राप्त हुआ",
@@ -566,12 +594,12 @@
     "click-on-email": "कृपया ईमेल लिंक पर क्लिक करें"
   },
   "MAIN-MUSIC": {
+    "Lastest-Project": "लास्ट प्रोजेक्ट",
+    "Lastest-tube": "लास्ट ट्यूब",
     "My-music": "मेरा संगीत",
     "My-wiinsers": "मेरे वाइजर्स",
     "Tops": "अव्वल तो",
-    "Trend": "ट्रेंड",
-    "Lastest-tube": "",
-    "Lastest-Project": ""
+    "Trend": "ट्रेंड"
   },
   "MINI-CHAT": {
     "text-a-friend": "एक दोस्त पाठ"
@@ -603,7 +631,11 @@
     "tag-you-in-comment": "आपको एक टिप्पणी में टैग किया गया",
     "tag-you-in-playlist": "आपको एक प्लेलिस्ट में टैग किया गया है",
     "you-appear-in-project-of": "आप की नई परियोजना में दिखाई देते हैं",
-    "you-have": "आपके पास"
+    "you-have": "आपके पास",
+    "Yr-verification-request-was-accepted": "",
+    "Yr-verification-request-was-refused": "",
+    "Yr-certification-request-was-accepted": "",
+    "Yr-certification-request-was-refused": ""
   },
   "PAGE": {
     "Name-page": "पन्ने का नाम",
@@ -725,7 +757,7 @@
           "1": "चीजों को बदलने की कोशिश के एक साधन के रूप में हिंसा की स्वीकृति",
           "2": "चीजों को बदलने की कोशिश के एक साधन के रूप में हिंसा की स्वीकृति"
         },
-        "We-delete": "चीजों को बदलने की कोशिश के एक साधन के रूप में हिंसा की स्वीकृति"
+        "We-delete": "हम हटाते हैं"
       },
       "Title-Level": {
         "1": "कैरिफुल रहें",
@@ -747,6 +779,27 @@
     "lang": {
       "lang-of-btn-title-others": "इस डिवाइस पर बटन, शीर्षक और मंच के अन्य ग्रंथों के लिए भाषा",
       "lang-of-plateforme": "मंच की भाषा"
+    },
+    "ledger": {
+      "Account-disable-now-description": "खाता अस्थायी रूप से अक्षम है, अब आप प्लेटफ़ॉर्म पर अदृश्य हैं। अगर आपका खाता अगले भुगतान के लिए निष्क्रिय है, तो अगले 30 दिनों का आनंद लेने के लिए 4.99 आपके अगले बेचे गए हिस्से को वापस ले लिया जाएगा.",
+      "Address": "पता",
+      "Address-to-send": "भेजने के लिए पता",
+      "Amount": "कुल धनराशि",
+      "Amount-to-transfert": "हस्तांतरण के लिए राशि",
+      "Are-y-sure-t-cancel-t-transaction": "क्या आप इस लेन-देन को रद्द करना सुनिश्चित कर रहे हैं?",
+      "Be-careful-make-sure-y-have-the-right-address-d": "सावधान रहें, सुनिश्चित करें कि आपके पास सही पता है। स्थानांतरण की पुष्टि के बाद कोई वापसी नहीं।",
+      "Card-description-payment-subscription": "सदस्यता आपको सभी कार्यक्षमताओं के साथ इस मंच में रहने की अनुमति देती है। आपकी सभी जानकारी निजी तौर पर इस मंच के भीतर सुरक्षित हैं। Wiins तीसरी पार्टी कंपनियों के लिए अपनी जानकारी साझा कभी नहीं होगा। हर सामग्री मंच के भीतर रहती है। Wiins में आपका स्वागत है।",
+      "Currency": "मुद्रा",
+      "Fees-3": "फीस (3%)",
+      "Next-facturation-date": "{{मूल्य}} दिनों में अगला तथ्य",
+      "Pending-Transfert-Request": "लंबित ट्रांसफरट अनुरोध",
+      "T-admin-ll-take-24h-d": "क्रिप्टो को स्थानांतरित करने के लिए प्रशासन 24h लेगा। आपके विश्वास के लिए धन्यवाद",
+      "T-update-can-take-15min-after-the-confirmation": "अद्यतन पुष्टि के बाद 15min ले जा सकते है",
+      "Total-in-USD": "USD में कुल",
+      "Transfer": "स्थानांतरण",
+      "Y-are-going-t-transfert-to-this-address-d": "आप इस पते पर स्थानांतरण करने जा रहे हैं। क्या आपको यकीन है? प्रशासन 24h देरी में लेनदेन की पुष्टि करेगा ।",
+      "Yr-account-balance-is": "आपका खाता शेष है: {{value}}",
+      "price-per-month": "4.99 $ / महीने"
     },
     "notif": {
       "enable-sound": "ध्वनि सूचनाएं",
@@ -786,6 +839,28 @@
       "btn-followers": "\"फॉलो\" बटन उपलब्ध कराएं",
       "btn-friend": "फ्रेंड रिक्वेस्ट बटन उपलब्ध कराएं",
       "h-can-b-yr-description": "आप विवरण डाल सकते हैं"
+    },
+    "verified": {
+      "This-feature-requires-verification-to-use.": "इस सुविधा का उपयोग करने के लिए सत्यापन की आवश्यकता है",
+      "Verified-zone": "सत्यापित क्षेत्र",
+      "I-w-t-b-verified": "मैं सत्यापित होना चाहता हूं",
+      "I-w-t-b-certified": "मैं प्रमाणित होना चाहता हूं",
+      "Certification-badge": "प्रमाणन बैज",
+      "Already-verified": "पहले से ही सत्यापित है",
+      "Already-certified": "पहले से ही प्रमाणित है",
+      "Certification": "प्रमाणीकरण",
+      "Y-m-complet-t-following-cdt-t-b-certified": "प्रमाणित होने के लिए आपको निम्नलिखित शर्तों को पूरा करना होगा।",
+      "B-verified": "सत्यापित हो",
+      "H-m-t-1000-user-in-t-community": "समुदाय में 1000 से अधिक उपयोगकर्ता हैं",
+      "Have-content-t-d-not-offend-the-community": "ऐसी सामग्री रखें जो समुदाय को अपमानित न करें",
+      "T-b-accepted-b-t-administration": "प्रशासन द्वारा स्वीकार किया जाना है",
+      "Yr-profil-is-currently-being-checked-D": "आपकी प्रोफ़ाइल वर्तमान में जाँची जा रही है। हम ईमेल द्वारा 48 घंटे के भीतर आपसे संपर्क करेंगे।",
+      "Verification": "सत्यापन",
+      "Pl-s-t-docs-a-complet-t-form-below": "कृपया आवश्यक दस्तावेज भेजें और नीचे दिए गए फॉर्म को पूरा करें।",
+      "Upload-yr-password-id-identity-or-driver-license": "अपना पासवर्ड, आईडी पहचान या चालक लाइसेंस अपलोड करें।",
+      "Upload-a-photo-holding-t-ID-D": "आज की तारीख के साथ कागज की एक शीट के साथ आईडी रखने वाली एक तस्वीर अपलोड करें और उस पर \"वाईन्स\" लिखता है।",
+      "I-agree-t-m-data-may-b-used-t-check-my-account": "मैं सहमत हूं कि मेरे खाते की जांच के लिए मेरे डेटा का उपयोग किया जा सकता है।",
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "चीजों को बदलने की कोशिश के एक साधन के रूप में हिंसा की स्वीकृति",
@@ -841,6 +916,21 @@
   },
   "THIS-IS": {
     "id-of-t-music": "आपका संगीत पहचानकर्ता"
+  },
+  "TUBE": {
+    "Categorie": {
+      "Beauty": "उदाहरण",
+      "Comedy": "मनोरंजकता",
+      "Dance": "उछल-कूद करना",
+      "Gaming": "गेमिंग",
+      "How-to": "कैसे",
+      "Movies": "फिल्मों",
+      "Music": "राग",
+      "News": "समाचार",
+      "Sport": "खेल",
+      "Travel": "यात्रा",
+      "Trending": "ट्रेंडिंग"
+    }
   },
   "UPLOAD": {
     "add-cover-picture": "एक कवर चित्र जोड़ें",
@@ -916,19 +1006,48 @@
       "Visualisation-of-the-video": "वीडियो का विज़ुअलाइज़ेशन"
     }
   },
-  "TUBE": {
-    "Categorie": {
-      "Trending": "",
-      "Gaming": "",
-      "Dance": "",
-      "News": "",
-      "Travel": "",
-      "Beauty": "",
-      "Comedy": "",
-      "Movies": "",
-      "How-to": "",
-      "Sport": "",
-      "Music": ""
-    }
+  "STAT": {
+    "Better-reference": "बेहतर संदर्भ"
+  },
+  "CATEGORY": {
+    "Pro": "पेशेवर",
+    "NoPro": "कोई पेशेवर नहीं",
+    "Compagny": "Compagny",
+    "Association": "संगति",
+    "Institution": "संस्थान",
+    "Organization": "संगठन",
+    "Food": "खाना",
+    "Automobile": "ऑटोमोबाइल",
+    "DIY": "DIY",
+    "Cultur": "संस्कृतियों",
+    "Humor": "हास्य",
+    "Information": "जानकारी",
+    "Health": "स्वास्थ्य",
+    "Science": "विज्ञान",
+    "Sport": "खेल",
+    "Technology": "प्रौद्योगिकी",
+    "Musician": "संगीतकार",
+    "Composer": "संगीतकार",
+    "Group": "समूह",
+    "Interpreter": "दुभाषिया",
+    "Videographer": "वीडियोग्राफर",
+    "Director": "निदेशक",
+    "Filmmaker": "फिल्म निर्माता",
+    "Editor": "संपादक",
+    "Actor": "अभिनेता",
+    "Image": "छवि",
+    "Photographer": "फोटोग्राफर",
+    "Painter": "चित्रकार",
+    "Writing": "लिख रहे हैं",
+    "Writer": "लेखक",
+    "Humorist": "ठिठोलिया",
+    "Author": "लेखक",
+    "Journalist": "पत्रकार",
+    "Support": "सहयोग",
+    "Record-company": "अभिलेख कंपनी",
+    "Studio": "स्टूडियो",
+    "Influencer": "प्रभावशाली व्यक्ति",
+    "Athletic": "पुष्ट",
+    "Ch-a-category": "कोई श्रेणी चुनें"
   }
 }

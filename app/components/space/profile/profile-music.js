@@ -15,17 +15,6 @@ class ProfileMusic extends React.Component {
         }
     }
 
-    UNSAFE_componentWillReceiveProps(newProps) {
-        if (!newProps.musicProjectList.isLoading) {
-            if (newProps.musicProjectList.musicProject.length !== 0) {
-                this.setState({
-                    musicProject: this.state.musicProject.push(newProps.musicProjectList.musicProject),
-                    isLoading: false
-                })
-            }
-        }
-    }
-
     // to display the animation loading
     _displayLoading() {
         return (
@@ -41,7 +30,7 @@ class ProfileMusic extends React.Component {
         return (
             <View style={styles.container_musicProjectList}>
                 <FlatList
-                    data={this.props.musicProjectList.musicProject}
+                    data={this.props.MusicProjectList.musicProjects}
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({ item }) => (<MusicProjectStandard musicProject={item} />)}
                 />
@@ -52,7 +41,7 @@ class ProfileMusic extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                {this.props.musicProjectList.isLoading ? this._displayLoading() : this._displaymusicProjectList()}
+                {this.props.MusicProjectList.isLoading ? this._displayLoading() : this._displaymusicProjectList()}
             </View>
         )
     }
@@ -73,7 +62,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     MyProfile: state.MyProfile,
-    musicProjectList: state.musicProjectList
+    MusicProjectList: state.MusicProjectList
 })
 
 const ActionCreators = Object.assign(

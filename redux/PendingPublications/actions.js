@@ -1,5 +1,5 @@
 import * as ActionTypes from './constants'
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 import { uploadImageFile, uploadVideoFile, getFileNameUploaded } from '../../app/services/upload/upload'
 import { v4 as uuidv4 } from 'uuid';
 

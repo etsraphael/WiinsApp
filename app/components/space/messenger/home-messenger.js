@@ -5,8 +5,7 @@ import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as RoomsListActions from '../../../../redux/RoomList/actions'
 import * as SearchActions from '../../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faPlus, faSearch } from '@fortawesome/pro-light-svg-icons'
 import OneRoomMin from './one-room-min'
 import OneRoom from './one-room'
 import RoomCreation from './room-creation'
@@ -14,6 +13,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import Modal from 'react-native-modal'
 import * as RoomActions from '../../../../redux/OneRoom/actions'
 import FastImage from 'react-native-fast-image'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 class HomeMessenger extends React.Component {
 
@@ -90,7 +90,7 @@ class HomeMessenger extends React.Component {
                 {/* search bar */}
                 <View style={{ flex: 1 }}>
                     <View style={styles.container_search_bar}>
-                        <Image style={{ marginLeft: 20, width: 18, height: 18 }} source={require('../../../../assets/image/icon/search-icon.png')} />
+                        <FontAwesomeIcon icon={faSearch} color={'grey'} size={25} />
                         <TextInput
                             placeholder='Search'
                             style={styles.search_bar}
@@ -109,7 +109,7 @@ class HomeMessenger extends React.Component {
         return (
             <TouchableOpacity
                 onPress={() => this.setState({ newMessageModal: true })}
-                style={{ position: 'absolute', bottom: 135, left: 35, backgroundColor: 'red', width: 55, height: 55, borderRadius: 55, overflow: 'hidden', backgroundColor: 'red' }}
+                style={{ position: 'absolute', bottom: 105, left: 35, backgroundColor: 'red', width: 55, height: 55, borderRadius: 55, overflow: 'hidden', backgroundColor: 'red' }}
             >
                 <LinearGradient
                     colors={['#4524fd', '#4725ff', '#4725ff']}
@@ -226,7 +226,7 @@ class HomeMessenger extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: '#e3e6ef'
     },
     header_container: {
         flexDirection: 'row',

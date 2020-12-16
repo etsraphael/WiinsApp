@@ -73,10 +73,12 @@
     "Cancel": "Annuler",
     "Cancel-the-request": "取消请求",
     "Category": "类别",
+    "Certification": "认证",
     "Change": "改变",
     "Change-the-photo": "更改照片",
     "Choice": "选择",
     "Chosse-a-date": "选择一个日期",
+    "Close": "关闭",
     "Coming-soon": "即将推出",
     "Comment": "评论",
     "Confirm": "确认",
@@ -107,13 +109,16 @@
     "Join": "加入",
     "Know-us": "了解我们",
     "Leave": "离开",
+    "Ledger": "帐",
     "Like": "喜欢",
     "Manage": "去管理",
+    "Max": "麦克斯",
     "Members": "会员",
     "My-Favorites": "我最喜欢的",
     "My-community": "我的社区",
     "Name": "名称",
     "Next": "下一个",
+    "Not-enough": "不够",
     "Now": "现在",
     "Or": "或",
     "Others": "其他",
@@ -121,13 +126,16 @@
     "Participate": "参与",
     "Password": "密码",
     "Payment": "付款",
+    "Pending": "等待",
     "Period": "时期",
     "Premium": "溢价",
+    "Previous": "以前",
     "Price": "奖",
     "Private": "私人的",
     "Profile": "Profile",
     "Public": "上市",
     "Rate": "率",
+    "Receipt": "收据",
     "Redirection": "重 定向",
     "Reset": "重启",
     "Save": "保存",
@@ -141,6 +149,7 @@
     "Sponsored": "率",
     "Stages": "阶段",
     "Start": "开始",
+    "Status": "地位",
     "Story": "故事",
     "Subscribe": "订阅",
     "Taxes": "税",
@@ -150,7 +159,6 @@
     "To-chosse": "选择",
     "To-signal-an-issue": "报告问题",
     "Total": "总",
-    "Towards-an-infinit-space": "走向一个 inifinit 空间",
     "Trend": "趋势",
     "Unsubscribe": "退订",
     "Update": "更新资料",
@@ -164,6 +172,7 @@
     "Wiins": "温斯",
     "Wiins.io": "Wiins.io",
     "With": "用",
+    "You-can-do-it-here": "你可以在这里做",
     "Your-Password..": "你的密码",
     "Your-Pseudo..": "您的用户名",
     "and": "和",
@@ -185,7 +194,20 @@
     "reply..": "回复",
     "responses": "回应",
     "soon": "不久",
-    "views": "意见"
+    "views": "意见",
+    "Music-publication": "音乐出版",
+    "Tube-publication": "管出版物",
+    "Monetization": "营利",
+    "Loading": "载入中",
+    "Upload-yr-file-here": "在此处上传文件",
+    "Both": "都",
+    "Break-the-rules": "打破常规",
+    "For-You": "为了你",
+    "Discover": "发现",
+    "Community": "",
+    "Subscribed": "",
+    "Go-to-profile": "",
+    "Friend": ""
   },
   "COUNTRY": {
     "AD": "安道尔",
@@ -468,7 +490,7 @@
   },
   "EMPTY-MESSAGE": {
     "You-haven-t-liked-music-yet": "你还不喜欢音乐",
-    "no-friend-request": "现在没有需求的朋友",
+    "no-friend-request": "现在没有朋友的要求",
     "no-notification": "暂无通知"
   },
   "ERROR-MESSAGE": {
@@ -485,6 +507,7 @@
     "Email-invalid": "电邮无效",
     "Email_already_exist": "此电子邮件已存在",
     "Incorrect": "错误",
+    "Insufficient_amount": "金额不足",
     "Invalid-password": "您的密码不正确",
     "No-changes-hv-been-made": "未进行任何更改",
     "No-page-has-this-name": "尚未进行任何更改",
@@ -533,7 +556,12 @@
     "y-h-to-accept-the-tou": "您必须接受使用条款和条件",
     "y-h-to-delete-yr-page-or-group-before": "您必须在删除页面或组之前",
     "y-have-to-be-friend": "你一定是朋友",
-    "you-hav-to-upgrad-a-manager-before-leave": "您必须先晋升经理才能离开小组"
+    "you-hav-to-upgrad-a-manager-before-leave": "您必须先晋升经理才能离开小组",
+    "You-hv-to-be-verified": "您必须经过验证",
+    "You-hv-to-get-t-community": "你必须得到社区",
+    "Please-choose-cat-and-sub": "请选择类别和子类别",
+    "Please-upload-the-poster-before": "请先上传视频的海报",
+    "T-min-is-1$": "最低为1 $"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "收到照片",
@@ -566,12 +594,12 @@
     "click-on-email": "请点击电子邮件链接"
   },
   "MAIN-MUSIC": {
+    "Lastest-Project": "最近的项目",
+    "Lastest-tube": "最后管",
     "My-music": "我的音乐",
     "My-wiinsers": "我的温瑟斯",
     "Tops": "上衣",
-    "Trend": "趋势",
-    "Lastest-tube": "",
-    "Lastest-Project": ""
+    "Trend": "趋势"
   },
   "MINI-CHAT": {
     "text-a-friend": "给朋友发短信"
@@ -603,7 +631,11 @@
     "tag-you-in-comment": "在评论中标记了您",
     "tag-you-in-playlist": "在播放列表中标记了您",
     "you-appear-in-project-of": "您出现在的新项目中",
-    "you-have": "你有"
+    "you-have": "你有",
+    "Yr-verification-request-was-accepted": "",
+    "Yr-verification-request-was-refused": "",
+    "Yr-certification-request-was-accepted": "",
+    "Yr-certification-request-was-refused": ""
   },
   "PAGE": {
     "Name-page": "页面名称",
@@ -725,7 +757,7 @@
           "1": "接受暴力作为试图改变事物的手段",
           "2": "接受暴力作为试图改变事物的手段"
         },
-        "We-delete": "接受暴力作为试图改变事物的手段"
+        "We-delete": "我们删除"
       },
       "Title-Level": {
         "1": "是可伤害的",
@@ -747,6 +779,27 @@
     "lang": {
       "lang-of-btn-title-others": "该设备上平台的按钮，标题和其他文本的语言",
       "lang-of-plateforme": "平台语言"
+    },
+    "ledger": {
+      "Account-disable-now-description": "帐户暂时禁用，您现在在平台上不可见。如果您的帐户在下次付款时处于非活动状态，则 4.99 将提取您下一笔售出的账户，以享受接下来的 30 天。",
+      "Address": "地址",
+      "Address-to-send": "要发送的地址",
+      "Amount": "量",
+      "Amount-to-transfert": "要转移的金额",
+      "Are-y-sure-t-cancel-t-transaction": "您确定要取消此交易吗？",
+      "Be-careful-make-sure-y-have-the-right-address-d": "小心，确保地址正确。确认转账后不予退款。",
+      "Card-description-payment-subscription": "订阅允许您保留在此平台的所有功能。您的所有信息都在此平台内私下保护。Wiins 绝不会将您的信息分享给第三方公司。每个内容都保留在平台内。欢迎来到温斯",
+      "Currency": "货币",
+      "Fees-3": "费用 （3%）",
+      "Next-facturation-date": "[值] 天中的下一个事实",
+      "Pending-Transfert-Request": "待处理转移请求",
+      "T-admin-ll-take-24h-d": "行政当局需要24小时传输加密。感谢您的信任",
+      "T-update-can-take-15min-after-the-confirmation": "确认后可能需要 15 分钟",
+      "Total-in-USD": "总计（美元）",
+      "Transfer": "转移",
+      "Y-are-going-t-transfert-to-this-address-d": "你要转到这个地址。是否确定？行政当局将在24小时延迟确认交易。",
+      "Yr-account-balance-is": "您的帐户余额是 ： {{value}}",
+      "price-per-month": "4.99 美元 / 月"
     },
     "notif": {
       "enable-sound": "声音通知",
@@ -786,6 +839,28 @@
       "btn-followers": "使\"关注\"按钮可用",
       "btn-friend": "使好友请求按钮可用",
       "h-can-b-yr-description": "您可以放置说明"
+    },
+    "verified": {
+      "This-feature-requires-verification-to-use.": "此功能需要验证才能使用",
+      "Verified-zone": "已验证区域",
+      "I-w-t-b-verified": "我想被验证",
+      "I-w-t-b-certified": "我想获得认证",
+      "Certification-badge": "认证徽章",
+      "Already-verified": "已经验证",
+      "Already-certified": "已通过认证",
+      "Certification": "资质认证",
+      "Y-m-complet-t-following-cdt-t-b-certified": "您必须满足以下条件才能获得认证。",
+      "B-verified": "被验证",
+      "H-m-t-1000-user-in-t-community": "社区中有1000多个用户",
+      "Have-content-t-d-not-offend-the-community": "含有不冒犯社区的内容",
+      "T-b-accepted-b-t-administration": "被主管部门接受",
+      "Yr-profil-is-currently-being-checked-D": "目前正在检查您的个人资料。我们将在48小时内通过电子邮件与您联系。",
+      "Verification": "验证",
+      "Pl-s-t-docs-a-complet-t-form-below": "请发送必要的文件并填写以下表格。",
+      "Upload-yr-password-id-identity-or-driver-license": "上传您的密码，ID身份或驾驶执照。",
+      "Upload-a-photo-holding-t-ID-D": "上传带有ID的照片和一张带有今天日期的纸，并在上面写上“空白”。",
+      "I-agree-t-m-data-may-b-used-t-check-my-account": "我同意我的数据可用于检查我的帐户。",
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "接受暴力作为试图改变事物的手段",
@@ -841,6 +916,21 @@
   },
   "THIS-IS": {
     "id-of-t-music": "您的音乐标识符"
+  },
+  "TUBE": {
+    "Categorie": {
+      "Beauty": "美",
+      "Comedy": "喜剧",
+      "Dance": "舞蹈",
+      "Gaming": "游戏",
+      "How-to": "如何",
+      "Movies": "电影",
+      "Music": "音乐",
+      "News": "新闻",
+      "Sport": "运动",
+      "Travel": "旅行",
+      "Trending": "趋势"
+    }
   },
   "UPLOAD": {
     "add-cover-picture": "添加封面图片",
@@ -916,19 +1006,48 @@
       "Visualisation-of-the-video": "视频的可视化"
     }
   },
-  "TUBE": {
-    "Categorie": {
-      "Trending": "",
-      "Gaming": "",
-      "Dance": "",
-      "News": "",
-      "Travel": "",
-      "Beauty": "",
-      "Comedy": "",
-      "Movies": "",
-      "How-to": "",
-      "Sport": "",
-      "Music": ""
-    }
+  "STAT": {
+    "Better-reference": "更好的参考"
+  },
+  "CATEGORY": {
+    "Pro": "专业的",
+    "NoPro": "没有专业",
+    "Compagny": "公司",
+    "Association": "协会",
+    "Institution": "机构",
+    "Organization": "组织",
+    "Food": "餐饮",
+    "Automobile": "汽车",
+    "DIY": "自己动手做",
+    "Cultur": "文化",
+    "Humor": "幽默",
+    "Information": "信息",
+    "Health": "健康",
+    "Science": "科学",
+    "Sport": "运动",
+    "Technology": "技术",
+    "Musician": "音乐家",
+    "Composer": "作曲家",
+    "Group": "组",
+    "Interpreter": "口译员",
+    "Videographer": "摄像师",
+    "Director": "导向器",
+    "Filmmaker": "电影制片人",
+    "Editor": "编辑",
+    "Actor": "演员",
+    "Image": "图片",
+    "Photographer": "摄影家",
+    "Painter": "画家",
+    "Writing": "写作",
+    "Writer": "作家",
+    "Humorist": "幽默主义者",
+    "Author": "作者",
+    "Journalist": "记者",
+    "Support": "支持",
+    "Record-company": "唱片公司",
+    "Studio": "工作室",
+    "Influencer": "影响者",
+    "Athletic": "运动型",
+    "Ch-a-category": "选择一个类别"
   }
 }

@@ -1,5 +1,5 @@
 import * as ActionTypes from './constants'
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export function loginSuccess(user) {
     return {

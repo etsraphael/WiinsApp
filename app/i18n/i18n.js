@@ -1,12 +1,16 @@
-import I18n from 'i18n-js';
+import i18n from 'i18next';
+import {initReactI18next} from 'react-i18next';
+import {getLocales} from 'react-native-localize';
 import en from './locales/en.json';
 import fr from './locales/fr.json';
 
-I18n.fallbacks = true;
- 
-I18n.translations = {
-  en,
-  fr
-}
+i18n.use(initReactI18next).init({
+  lng: getLocales()[0].languageCode,
+  fallbackLng: 'en',
+  resources: {
+    en: {translation: en},
+    fr: {translation: fr}
+  },
+});
 
-export default I18n
+export default i18n

@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 
 // to be connected to the socket
 export const getSocket = async () => {

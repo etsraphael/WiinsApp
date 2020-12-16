@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux'
 import OneMusic from './one-music'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faRandom, faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faRandom, faAngleLeft } from '@fortawesome/pro-light-svg-icons'
 
 class MyFavMusic extends React.Component {
 

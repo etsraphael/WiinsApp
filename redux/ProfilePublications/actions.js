@@ -1,5 +1,5 @@
 import * as ActionTypes from './constants'
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export function getPublicationsSuccess(publication) {
     return {
@@ -95,7 +95,7 @@ export function likePublicationProfile(like) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 201) return dispatch(likePublicationSuccess(like.publicationId))
+                    if (response.status == 201) return dispatch(likePublicationSuccess(like.publicationID))
                     return dispatch(likePublicationFail(response))
                 })
         } catch (error) {
@@ -109,7 +109,7 @@ export function unlikePublicationProfile(id) {
         try {
             dispatch(unlikePublicationStart())
             const token = await AsyncStorage.getItem('userToken')
-            const url = 'https://wiins-backend.herokuapp.com/likes/dislikePublication/' + id
+            const url = 'https://wiins-backend.herokuapp.com/likes/dislikeFeedPublication/' + id
             return fetch(url, {
                 method: 'GET',
                 headers: {
@@ -119,7 +119,7 @@ export function unlikePublicationProfile(id) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 201) return dispatch(unlikePublicationSuccess(id))
+                    if (response.status == 202) return dispatch(unlikePublicationSuccess(id))
                     return dispatch(unlikePublicationFail(response))
                 })
         } catch (error) {

@@ -73,10 +73,12 @@
     "Cancel": "لالغاء",
     "Cancel-the-request": "إلغاء الطلب",
     "Category": "الفئه",
+    "Certification": "شهاده",
     "Change": "تغيير",
     "Change-the-photo": "تغيير الصورة",
     "Choice": "خيار",
     "Chosse-a-date": "اختر التاريخ",
+    "Close": "اغلاق",
     "Coming-soon": "قريباً",
     "Comment": "للتعليق",
     "Confirm": "للتأكيد",
@@ -107,13 +109,16 @@
     "Join": "الانضمام",
     "Know-us": "تعرف علينا",
     "Leave": "غادر",
+    "Ledger": "دفتر الاستاذ",
     "Like": "مثل",
     "Manage": "يدير",
+    "Max": "ماكس",
     "Members": "أعضاء",
     "My-Favorites": "المفضلة",
     "My-community": "مجتمعي",
     "Name": "اسم",
     "Next": "التالي",
+    "Not-enough": "لا يكفي",
     "Now": "الآن",
     "Or": "او",
     "Others": "الآخرين",
@@ -121,13 +126,16 @@
     "Participate": "المشاركه",
     "Password": "كلمه السر",
     "Payment": "الدفع",
+    "Pending": "المعلقه",
     "Period": "الفتره",
     "Premium": "بريميوم",
+    "Previous": "السابقه",
     "Price": "جوائز",
     "Private": "نشر",
     "Profile": "الملف الشخصي",
     "Public": "عامة",
     "Rate": "معدلات",
+    "Receipt": "استلام",
     "Redirection": "اعاده توجيه",
     "Reset": "إعادة تعيين",
     "Save": "حفظ",
@@ -141,6 +149,7 @@
     "Sponsored": "معدلات",
     "Stages": "مراحل",
     "Start": "بدء",
+    "Status": "حاله",
     "Story": "قصة",
     "Subscribe": "الاشتراك",
     "Taxes": "الضرائب",
@@ -150,7 +159,6 @@
     "To-chosse": "اختيار",
     "To-signal-an-issue": "الإبلاغ عن مشكلة",
     "Total": "مجموع",
-    "Towards-an-infinit-space": "نحو مساحة لا يفّت",
     "Trend": "اتجاه",
     "Unsubscribe": "إلغاء الاشتراك",
     "Update": "تحديث",
@@ -164,6 +172,7 @@
     "Wiins": "Wiins",
     "Wiins.io": "Wiins.io",
     "With": "مع",
+    "You-can-do-it-here": "يمكنك أن تفعل ذلك هنا",
     "Your-Password..": "كلمة مرورك",
     "Your-Pseudo..": "اسم المستخدم الخاص بك",
     "and": "و",
@@ -185,7 +194,20 @@
     "reply..": "الرد",
     "responses": "استجابات",
     "soon": "هكذا",
-    "views": "الآراء"
+    "views": "الآراء",
+    "Music-publication": "نشر الموسيقى",
+    "Tube-publication": "منشور الأنبوب",
+    "Monetization": "تسييل",
+    "Loading": "جار التحميل",
+    "Upload-yr-file-here": "قم بتحميل ملفك هنا",
+    "Both": "على حد سواء",
+    "Break-the-rules": "كسر القواعد",
+    "For-You": "لك",
+    "Discover": "اكتشف",
+    "Community": "",
+    "Subscribed": "",
+    "Go-to-profile": "",
+    "Friend": ""
   },
   "COUNTRY": {
     "AD": "اندورا",
@@ -468,7 +490,7 @@
   },
   "EMPTY-MESSAGE": {
     "You-haven-t-liked-music-yet": "لم تحب الموسيقى بعد",
-    "no-friend-request": "لا يوجد صديق للطلب الآن",
+    "no-friend-request": "لا يوجد طلب صداقة الآن",
     "no-notification": "لا يوجد إشعار حتى الآن"
   },
   "ERROR-MESSAGE": {
@@ -485,6 +507,7 @@
     "Email-invalid": "البريد الإلكتروني غير صالح",
     "Email_already_exist": "هذا البريد الإلكتروني موجود بالفعل",
     "Incorrect": "غير صحيحه",
+    "Insufficient_amount": "المبلغ غير كاف",
     "Invalid-password": "كلمة مرورك غير صحيحة",
     "No-changes-hv-been-made": "تم إجراء أية تغييرات",
     "No-page-has-this-name": "تم إجراء أية تغييرات",
@@ -533,7 +556,12 @@
     "y-h-to-accept-the-tou": "يجب عليك قبول شروط وأحكام الاستخدام",
     "y-h-to-delete-yr-page-or-group-before": "يجب حذف صفحاتك أو مجموعاتك قبل",
     "y-have-to-be-friend": "يجب ان نكون اصدقاء",
-    "you-hav-to-upgrad-a-manager-before-leave": "يجب ترقية مدير قبل مغادرة المجموعة"
+    "you-hav-to-upgrad-a-manager-before-leave": "يجب ترقية مدير قبل مغادرة المجموعة",
+    "You-hv-to-be-verified": "يجب أن يتم التحقق منك",
+    "You-hv-to-get-t-community": "عليك أن تحصل على المجتمع",
+    "Please-choose-cat-and-sub": "الرجاء اختيار فئة وفئة فرعية",
+    "Please-upload-the-poster-before": "يرجى تحميل ملصق الفيديو من قبل",
+    "T-min-is-1$": "الحد الأدنى هو 1 دولار"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "تم استلام الصورة",
@@ -566,12 +594,12 @@
     "click-on-email": "الرجاء الضغط على رابط البريد الإلكتروني"
   },
   "MAIN-MUSIC": {
+    "Lastest-Project": "آخر مشروع",
+    "Lastest-tube": "آخر أنبوب",
     "My-music": "موسيقاي",
     "My-wiinsers": "بلدي wiinsers",
     "Tops": "الأوائل",
-    "Trend": "اتجاه",
-    "Lastest-tube": "",
-    "Lastest-Project": ""
+    "Trend": "اتجاه"
   },
   "MINI-CHAT": {
     "text-a-friend": "نص صديق"
@@ -603,7 +631,11 @@
     "tag-you-in-comment": "وضع علامة باسمك في تعليق",
     "tag-you-in-playlist": "وضع علامة باسمك في قائمة تشغيل",
     "you-appear-in-project-of": "تظهر في المشروع الجديد لـ",
-    "you-have": "عندك"
+    "you-have": "عندك",
+    "Yr-verification-request-was-accepted": "",
+    "Yr-verification-request-was-refused": "",
+    "Yr-certification-request-was-accepted": "",
+    "Yr-certification-request-was-refused": ""
   },
   "PAGE": {
     "Name-page": "اسم الصفحة",
@@ -725,7 +757,7 @@
           "1": "قبول العنف كوسيلة لمحاولة تغيير الأمور",
           "2": "قبول العنف كوسيلة لمحاولة تغيير الأمور"
         },
-        "We-delete": "قبول العنف كوسيلة لمحاولة تغيير الأمور"
+        "We-delete": "نحذف"
       },
       "Title-Level": {
         "1": "كن كارفول",
@@ -747,6 +779,27 @@
     "lang": {
       "lang-of-btn-title-others": "لغة الأزرار والعناوين والنصوص الأخرى للمنصة على هذا الجهاز",
       "lang-of-plateforme": "لغة المنبر"
+    },
+    "ledger": {
+      "Account-disable-now-description": "تم تعطيل الحساب مؤقتًا، فأنت غير مرئي على النظام الأساسي الآن. إذا كان حسابك غير نشط للدفعة التالية، سيتم سحب 4.99 من بيعك المقبل للاستمتاع بالـ 30 يومًا التالية.",
+      "Address": "عنوان",
+      "Address-to-send": "العنوان الذي يتم إرساله",
+      "Amount": "المبلغ",
+      "Amount-to-transfert": "المبلغ المطلوب تحويله",
+      "Are-y-sure-t-cancel-t-transaction": "هل أنت متأكد من إلغاء هذه المعاملة؟",
+      "Be-careful-make-sure-y-have-the-right-address-d": "كن حذرا، تأكد من أن لديك العنوان الصحيح. لا استرداد بعد تأكيد التحويل.",
+      "Card-description-payment-subscription": "الاشتراك يسمح لك بالبقاء في هذا النظام الأساسي مع جميع الوظائف. جميع المعلومات الخاصة بك هي آمنة بشكل خاص داخل هذا النظام الأساسي. Wiins لن تشارك معلوماتك مع شركات طرف ثالث. يبقى كل محتوى داخل المنصة. مرحباً بك في (ويينز)",
+      "Currency": "العمله",
+      "Fees-3": "الرسوم (3%)",
+      "Next-facturation-date": "حقائق تالية في {{value}} يوم",
+      "Pending-Transfert-Request": "تاريخ التحويل التاليبطلب النقل في {{value}} أيام",
+      "T-admin-ll-take-24h-d": "الإدارة سوف تتخذ 24h لنقل التشفير. شكراً لك على ثقتك",
+      "T-update-can-take-15min-after-the-confirmation": "يمكن أن يستغرق التحديث 15min بعد تأكيد",
+      "Total-in-USD": "المجموع بالدولار الأمريكي",
+      "Transfer": "نقل",
+      "Y-are-going-t-transfert-to-this-address-d": "أنت ستتحول إلى هذا العنوان هل أنت متأكد؟ ستقوم الإدارة بتأكيد المعاملة في تأخير 24h.",
+      "Yr-account-balance-is": "رصيد حسابك هو : {{value}}",
+      "price-per-month": "4.99$ / أشهر"
     },
     "notif": {
       "enable-sound": "الإخطارات الصوتية",
@@ -786,6 +839,28 @@
       "btn-followers": "جعل زر \"متابعة\" متاحًا",
       "btn-friend": "جعل زر طلب الصداقة متاحًا",
       "h-can-b-yr-description": "يمكنك وضع وصف"
+    },
+    "verified": {
+      "This-feature-requires-verification-to-use.": "تتطلب هذه الميزة التحقق من استخدامها",
+      "Verified-zone": "منطقة تم التحقق منها",
+      "I-w-t-b-verified": "أريد أن يتم التحقق منها",
+      "I-w-t-b-certified": "أريد أن أكون معتمدًا",
+      "Certification-badge": "شارة التصديق",
+      "Already-verified": "تم التحقق بالفعل",
+      "Already-certified": "معتمد بالفعل",
+      "Certification": "شهادة",
+      "Y-m-complet-t-following-cdt-t-b-certified": "يجب عليك استكمال الشروط التالية للحصول على الشهادة.",
+      "B-verified": "يتم التحقق منها",
+      "H-m-t-1000-user-in-t-community": "لديها أكثر من 1000 مستخدم في المجتمع",
+      "Have-content-t-d-not-offend-the-community": "لديك محتوى لا يسيء إلى المجتمع",
+      "T-b-accepted-b-t-administration": "أن تقبل من قبل الإدارة",
+      "Yr-profil-is-currently-being-checked-D": "ملفك الشخصي قيد التحقق حاليا. سوف نتصل بك في غضون 48 ساعة عبر البريد الإلكتروني.",
+      "Verification": "التحقق",
+      "Pl-s-t-docs-a-complet-t-form-below": "يرجى إرسال المستندات اللازمة وإكمال النموذج أدناه.",
+      "Upload-yr-password-id-identity-or-driver-license": "قم بتحميل كلمة المرور أو الهوية الشخصية أو رخصة القيادة.",
+      "Upload-a-photo-holding-t-ID-D": "قم بتحميل صورة تحمل الهوية مع ورقة عليها تاريخ اليوم وكتب عليها كلمة \"Wiins\"",
+      "I-agree-t-m-data-may-b-used-t-check-my-account": "أوافق على استخدام بياناتي للتحقق من حسابي.",
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "قبول العنف كوسيلة لمحاولة تغيير الأمور",
@@ -841,6 +916,21 @@
   },
   "THIS-IS": {
     "id-of-t-music": "معرف الموسيقى"
+  },
+  "TUBE": {
+    "Categorie": {
+      "Beauty": "الجمال",
+      "Comedy": "الكوميديا",
+      "Dance": "الرقص",
+      "Gaming": "الالعاب",
+      "How-to": "كيفية",
+      "Movies": "افلام",
+      "Music": "الموسيقي",
+      "News": "اخبار",
+      "Sport": "الرياضه",
+      "Travel": "السفر",
+      "Trending": "تتجه"
+    }
   },
   "UPLOAD": {
     "add-cover-picture": "إضافة صورة غلاف",
@@ -916,19 +1006,48 @@
       "Visualisation-of-the-video": "تصور الفيديو"
     }
   },
-  "TUBE": {
-    "Categorie": {
-      "Trending": "",
-      "Gaming": "",
-      "Dance": "",
-      "News": "",
-      "Travel": "",
-      "Beauty": "",
-      "Comedy": "",
-      "Movies": "",
-      "How-to": "",
-      "Sport": "",
-      "Music": ""
-    }
+  "STAT": {
+    "Better-reference": "مرجع أفضل"
+  },
+  "CATEGORY": {
+    "Pro": "المحترفين",
+    "NoPro": "لا محترف",
+    "Compagny": "كومباني",
+    "Association": "جمعية",
+    "Institution": "المعهد",
+    "Organization": "منظمة",
+    "Food": "طعام",
+    "Automobile": "سيارة",
+    "DIY": "افعلها بنفسك",
+    "Cultur": "ثقافة",
+    "Humor": "دعابة",
+    "Information": "معلومات",
+    "Health": "الصحة",
+    "Science": "علم",
+    "Sport": "رياضة",
+    "Technology": "تقنية",
+    "Musician": "موسيقي او عازف",
+    "Composer": "ملحن",
+    "Group": "مجموعة",
+    "Interpreter": "مترجم",
+    "Videographer": "مصور فيديو",
+    "Director": "مخرج",
+    "Filmmaker": "المخرج",
+    "Editor": "محرر",
+    "Actor": "الممثل",
+    "Image": "صورة",
+    "Photographer": "مصور فوتوغرافي",
+    "Painter": "دهان",
+    "Writing": "جاري الكتابة",
+    "Writer": "كاتب",
+    "Humorist": "فكاهي",
+    "Author": "مؤلف",
+    "Journalist": "صحافي",
+    "Support": "الدعم",
+    "Record-company": "شركة الأسطوانات",
+    "Studio": "ستوديو",
+    "Influencer": "المؤثر",
+    "Athletic": "رياضي",
+    "Ch-a-category": "اختر فئة"
   }
 }

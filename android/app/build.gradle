@@ -129,11 +129,11 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.piins"
+        applicationId "com.wiins"
         minSdkVersion 24
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "3"
         multiDexEnabled true
         missingDimensionStrategy 'react-native-camera', 'general'
     }

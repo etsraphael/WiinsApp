@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    StyleSheet, View, FlatList, TextInput, TouchableOpacity,
+    StyleSheet, View, FlatList, TouchableOpacity,
     LayoutAnimation, Image, LogBox, DeviceEventEmitter, ScrollView
 } from 'react-native'
 import { connect } from 'react-redux'
@@ -9,14 +9,14 @@ import * as SearchActions from '../../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStandard from '../../core/publication-standard'
 import PublicationStoryHeader from './stories/publication-story-header'
-import FastImage from 'react-native-fast-image'
-import LinearGradient from 'react-native-linear-gradient';
 import StantardSuggest from '../../core/stantard-suggest'
-import MasonryList from '@appandflow/masonry-list';
 import PublicationModal from '../../core/publication-modal'
 import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
+
 
 const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
     const paddingToBottom = 20;
@@ -32,7 +32,6 @@ class Feed extends React.Component {
             isHeaderVisible: true,
             search: '',
             pagePublication: 1,
-            publicationLoading: false,
             isRefreshing: false,
             modal: false,
             PublicationModal: null,
@@ -66,10 +65,9 @@ class Feed extends React.Component {
     // to load the next page of the publication
     _getPublicationList = () => {
 
-        if (!this.props.FeedPublications.isLoading && !this.state.publicationLoading) {
+        if (!this.props.FeedPublications.isLoading) {
             this.props.actions.getByMode(this.state.pagePublication, 'FollowerAndFriend')
-            this.setState({ pagePublication: this.state.pagePublication + 1, publicationLoading: true })
-            setTimeout(() => this.setState({ publicationLoading: false }), 3000); 
+            this.setState({ pagePublication: this.state.pagePublication + 1})
         }
 
     }
@@ -111,44 +109,22 @@ class Feed extends React.Component {
 
     // to display the header
     _header() {
-
         return (
             <View style={styles.header_container}>
-                <View style={{ flex: 8, flexDirection: 'row', alignItems: 'center', borderRadius: 18, backgroundColor: '#8e8e9329', overflow: 'hidden' }}>
-                    <Image style={{ marginLeft: 20, width: 18, height: 18 }} source={require('../../../../assets/image/icon/search-icon.png')} />
-                    <TextInput
-                        placeholder='Search'
-                        style={styles.search_bar}
-                        placeholderTextColor="#737373"
-                        onChangeText={(val) => this._searching(val)}
-                    />
+                <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-start'}}>
+                    <TouchableOpacity 
+                        style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faCog} size={24} color={'#aeaeae'} />
+                    </TouchableOpacity>
                 </View>
-                <View style={{ flex: 2, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity underlayColor='#fff' onPress={() => this.props.navigation.navigate('MyProfile')}>
-                        <LinearGradient
-                            colors={['#202D83', '#9f49ee94']}
-                            start={{ x: 1, y: 0 }}
-                            end={{ x: 0, y: 1 }}
-                            style={
-                                {
-                                    overflow: 'hidden',
-                                    borderRadius: 25,
-                                    width: 39,
-                                    height: 39,
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    marginHorizontal: 5
-                                }
-                            }>
-                            <FastImage
-                                style={{ width: 34, height: 34, borderRadius: 25 }}
-                                source={{
-                                    uri: this.props.MyProfile.profile.pictureprofile,
-                                    priority: FastImage.priority.normal,
-                                }}
-                                resizeMode={FastImage.resizeMode.cover}
-                            />
-                        </LinearGradient>
+                <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                    <Image style={{ width: 65, height: 35 }} source={require('../../../../assets/image/wiins-written.png')} />
+                </View>
+                <View style={{ flex: 1,  justifyContent: 'center', alignItems: 'flex-end' }}>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('MyProfile')}
+                        style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faUserCircle} size={27} color={'#aeaeae'} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -163,26 +139,47 @@ class Feed extends React.Component {
         this.props.actions.getByMode(1, 'FollowerAndFriend')
     }
 
+    _publicationList = () => {
+        if(!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0){
+            return (
+            <FlatList
+                
+                onScrollBeginDrag={this._onScroll}
+                data={this.props.FeedPublications.publications}
+                renderItem={({item, index}) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
+                keyExtractor={(item) => item._id.toString()}
+            />
+            )
+        } else {
+            return null
+        }
+    }
+
     // to display the list of the publications
-    _PublicationFeed = () => {
+    _displayPublicationFeed = () => {
 
         return (
-            <ScrollView
-                onScroll={this._onScroll}
-                scrollEventThrottle={5}
-            >
+            <View style={{flex: 1, borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden'}}>
 
-                {this.props.Stories.stories.length > 0 ? <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend}/> : null}
-                <MasonryList
-                    onRefresh={this._refreshRequest}
-                    refreshing={this.state.isRefreshing}
-                    data={this.props.FeedPublications.publications}
-                    keyExtractor={(item) => item.id}
-                    renderItem={({ item }) => <PublicationStandard navigation={this.props.navigation} publication={item} space={'feed'} />}
-                    getHeightForItem={() => 15}
-                    numColumns={2}
-                />
+                
+
+                <ScrollView
+                scrollEventThrottle={5}
+                style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35}}
+                >
+                
+                {/* {this.state.isHeaderVisible ?  */}
+                <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
+                 {/* : null} */}
+
+                {this._publicationList()}
+
             </ScrollView>
+
+
+
+            </View>
+            
         )
     }
 
@@ -210,34 +207,15 @@ class Feed extends React.Component {
         setTimeout(() => this.setState({ storysModalExist: !this.state.storysModalExist }), 100)
     }
 
-    // to display the button to add a new post
-    _btnPublication = () => {
-        return (
-            <View style={{ borderRadius: 45, width: 75, height: 75, position: 'absolute', bottom: 110, left: 15, overflow: 'hidden' }}>
-
-                <TouchableOpacity onPress={this._togglePublicationMode}>
-
-                <Image
-                    source={require('../../../../assets/image/icon/faplus.png')}
-                    style={{ width: '100%', height: '100%' }}
-                    resizeMode={'cover'}
-                />
-                </TouchableOpacity>
-
-            </View>
-        )
-    }
-
     render = () => {
         return (
             <View style={styles.feed_container}>
 
                 {/* Header */}
-                {this.state.isHeaderVisible ? this._header() : null}
-                {this.state.search.length == 0 ? this._PublicationFeed() : this._suggestionSearch()}
+                {this._header()}
+                {this.state.search.length == 0 ? this._displayPublicationFeed() : this._suggestionSearch()}
 
                 {/* Modal */}
-                {this._btnPublication()}
                 {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
                 {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} /> : null}
                 {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
@@ -257,7 +235,7 @@ const styles = StyleSheet.create({
         position: 'relative',
         flexDirection: 'row',
         marginVertical: 5,
-        paddingHorizontal: 15,
+        paddingHorizontal: 30,
         height: 38
     },
     search_bar: {
