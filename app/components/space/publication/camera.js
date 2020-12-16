@@ -16,8 +16,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
   faAngleRight, faSync, faPhotoVideo, faTimes, faBolt,
   faEnvelopeOpenText, faPaperPlane, faUserPlus, faCheckCircle,
-  faClone
-} from '@fortawesome/free-solid-svg-icons'
+  faClone, faCircle
+} from '@fortawesome/pro-light-svg-icons'
 import Video from 'react-native-video'
 import LinearGradient from 'react-native-linear-gradient'
 import { listFontPost } from '../../core/data/font-post'
@@ -28,6 +28,7 @@ import FastImage from 'react-native-fast-image'
 import PendingPublication from './pending-publication'
 import ImagePicker from 'react-native-image-picker'
 import MyStoryMin from './my-story-min'
+import I18n from '../../../i18n/i18n'
 
 class Camera extends React.Component {
 
@@ -39,7 +40,7 @@ class Camera extends React.Component {
       ifStories: true,
       screenMode: 'default',
       secondNumber: 0,
-      zoomInAnim: new Animated.Value(85),
+      zoomInAnim: new Animated.Value(65),
       pictureData: null,
       videoData: null,
       isRecording: false,
@@ -360,7 +361,7 @@ class Camera extends React.Component {
                     style={{ fontSize: 25, color: 'white', fontWeight: '600', lineHeight: 35, textAlign: 'center' }}
                     multiline={true}
                     numberOfLines={4}
-                    placeholder={'PUBLICATION.Write-a-comment'}
+                    placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
                     placeholderTextColor={'white'}
                     onChangeText={(event) => this.setState({ textInput: event })}
                     onKeyPress={(event) => this._writeComment(event.nativeEvent.key)}
@@ -405,7 +406,7 @@ class Camera extends React.Component {
                       maxLength={10}
                       onChangeText={(event) => this.setState({ textInputHastag: event.replace(/\s/g, '') })}
                       value={this.state.textInputHastag}
-                      placeholder={'PLACEHOLDER.Hastags'}
+                      placeholder={I18n.t('PLACEHOLDER.Hastags')}
                       placeholderTextColor={'white'}
                       onSubmitEditing={(event) => this._addHastags(event.nativeEvent.text)}
                     />
@@ -500,7 +501,7 @@ class Camera extends React.Component {
               numberOfLines={4}
               blurOnSubmit={true}
               style={{ fontSize: 16, paddingLeft: 10, paddingTop: 15, color: 'white', lineHeight: 22 }}
-              placeholder={'PUBLICATION.Write-a-comment'}
+              placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
               placeholderTextColor={'white'}
               onChangeText={(event) => this.setState({ textInput: event })}
               onKeyPress={(event) => this._writeComment(event.nativeEvent.key)}
@@ -531,7 +532,7 @@ class Camera extends React.Component {
               maxLength={10}
               onChangeText={(event) => this.setState({ textInputHastag: event.replace(/\s/g, '') })}
               value={this.state.textInputHastag}
-              placeholder={'PLACEHOLDER.Hastags'}
+              placeholder={I18n.t('PLACEHOLDER.Hastags')}
               placeholderTextColor={'white'}
               onSubmitEditing={(event) => this._addHastags(event.nativeEvent.text)}
             />
@@ -557,7 +558,7 @@ class Camera extends React.Component {
   // to set the zoomIn effect
   zoomIn = () => {
     Animated.timing(this.state.zoomInAnim, {
-      toValue: 130,
+      toValue: 85,
       duration: 500
     }).start()
   }
@@ -565,7 +566,7 @@ class Camera extends React.Component {
   // to set the zoomOut effect
   zoomOut = () => {
     Animated.timing(this.state.zoomInAnim, {
-      toValue: 85,
+      toValue: 65,
       duration: 200
     }).start()
   }
@@ -694,8 +695,10 @@ class Camera extends React.Component {
         <View style={{ flex: 3 }}></View>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <TouchableWithoutFeedback onPressIn={this.addOneSec} onPressOut={this.stopInterval}>
-            <Animated.Image style={[{ height: this.state.zoomInAnim, aspectRatio: 1 }]}
-              source={require('../../../../assets/image/icon/circle-border-white.png')} />
+            <Animated.View 
+            style={{height: this.state.zoomInAnim, aspectRatio: 1, justifyContent: 'center', alignItems: 'center'}}>
+              <FontAwesomeIcon icon={faCircle} color={'white'} width={'100%'} height={'100%'} />
+            </Animated.View>
           </TouchableWithoutFeedback>
         </View>
         <View style={{ flex: 2 }}>{this._showDefaultBtnFooter()}</View>
@@ -831,7 +834,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
   MyUser: state.MyUser,
   SearchList: state.Search,
-  Publication: state.PublicationFeed.posted,
+  Publication: state.FeedPublications.posted,
   MyStory: state.MyStory,
 })
 

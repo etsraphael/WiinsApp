@@ -1,5 +1,5 @@
 import { GET_MY_PROFILE, GET_MY_PROFILE_SUCCESS, GET_MY_PROFILE_FAIL } from './constants';
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 
 export function getMyProfileSuccess(profile) {
     return {

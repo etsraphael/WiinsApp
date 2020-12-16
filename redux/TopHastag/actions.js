@@ -1,5 +1,5 @@
 import * as ActionTypes from './constants'
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 
 export function getTopHastagSuccess(results) {
     return { 
@@ -22,7 +22,6 @@ export function getTopHastagFail(error) {
 export function getTopHastag() {
     return async (dispatch) => {
         try {
-            
             dispatch(getTopHastagStart())
             const url = 'https://wiins-backend.herokuapp.com/publication/discover/topHastag'
             const token = await AsyncStorage.getItem('userToken')
@@ -36,11 +35,11 @@ export function getTopHastag() {
             })
                 .then((response) => response.json())
                 .then( async (response) => {
-                    if (response.status == 201) return dispatch(getTopHastagSuccess(response.hastags))
+                    if (response.status == 200) return dispatch(getTopHastagSuccess(response.hastags))
                     return dispatch(getTopHastagFail(response.message))
                 })
         } catch (error) {
             return dispatch(getTopHastagFail(error));
         }
-    };
+    }
 }

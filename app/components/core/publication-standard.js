@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image, TouchableOpacity, DeviceEventEmitter, FlatList } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, DeviceEventEmitter } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 import * as ProfilePublicationActions from '../../../redux/ProfilePublications/actions'
@@ -8,8 +8,9 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
-import { getDateTranslated } from '../../services/translation/translation-service'
+import { faPlay, faComment } from '@fortawesome/pro-light-svg-icons'
+import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
+import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 
 class PublicationStandard extends React.Component {
 
@@ -26,10 +27,14 @@ class PublicationStandard extends React.Component {
         const ratio = ((event.nativeEvent.width / event.nativeEvent.height) * 100)
 
         switch (true) {
-            case ratio <= 75: this.setState({ imageHeight: ratio * 4 }); break;
-            case ratio <= 90: this.setState({ imageHeight: ratio * 3 }); break;
-            case ratio <= 110: this.setState({ imageHeight: ratio * 2 }); break;
-            case ratio > 120: this.setState({ imageHeight: ratio * 1 }); break;
+            case ratio <= 70: return this.setState({ imageHeight: ratio * 9 });
+            case ratio <= 85: return this.setState({ imageHeight: ratio * 7.5 });
+            case ratio <= 100: return this.setState({ imageHeight: ratio * 5 });
+            case ratio <= 115: return this.setState({ imageHeight: ratio * 3 });
+            case ratio <= 130: return this.setState({ imageHeight: ratio * 2.5 });
+            case ratio <= 155: return this.setState({ imageHeight: ratio * 1.8 });
+            case ratio <= 180: return this.setState({ imageHeight: ratio * 1.3 });
+            case ratio > 180: return this.setState({ imageHeight: ratio * 0.8 });
         }
 
     }
@@ -74,17 +79,17 @@ class PublicationStandard extends React.Component {
         }
 
         return (
-            <TouchableOpacity style={styles.container_type}
+            <TouchableOpacity
+                style={{ height: 400 }}
                 onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
             >
-                <LinearGradient colors={background} start={orientation[0]} end={orientation[1]} style={{ flex: 1 }}>
+                <LinearGradient colors={background} start={orientation[0]} end={orientation[1]} style={{ flex: 1, justifyContent: 'center' }}>
                     <Text style={{
-                        paddingTop: 15,
                         paddingBottom: 10,
                         paddingHorizontal: 15,
                         lineHeight: 25,
                         fontWeight: '400',
-                        fontSize: 19,
+                        fontSize: 25,
                         fontFamily: 'Gill Sans',
                         textAlign: 'center',
                         margin: 10,
@@ -102,15 +107,18 @@ class PublicationStandard extends React.Component {
     _renderPicture(publication) {
 
         return (
-            <TouchableOpacity style={styles.container_type}
-                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+            <TouchableOpacity 
+            style={styles.container_type} 
+            onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
             >
+
                 <FastImage
-                    style={{ flex: 1, width: '100%', height: this.state.imageHeight }}
+                    style={{ flex: 1, width: '100%', height: 400 }}
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.cover}
                     onLoad={this.onImageLoaded}
                 />
+
             </TouchableOpacity>
         )
     }
@@ -142,9 +150,10 @@ class PublicationStandard extends React.Component {
     // to select the publication type
     _showTypePublication(publication) {
         switch (publication.type) {
-            case 'PostPublication': return this._renderPost(publication)
-            case 'PicturePublication': return this._renderPicture(publication)
-            case 'PublicationVideo': return this._renderVideo(publication)
+            case 'PostPublication': return this._renderPost(publication);
+            case 'PicturePublication': return this._renderPicture(publication);
+            case 'VideoPublication': return this._renderVideo(publication);
+            default: return null
         }
     }
 
@@ -167,10 +176,14 @@ class PublicationStandard extends React.Component {
             return (
                 <View style={styles.header_container}>
 
-                    <View style={{ height: '100%', flexDirection: 'row', flex: 2 }}>
+                    <LinearGradient
+                        colors={['#00000099', '#0000005c', '#4e4e4e00']}
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 0, y: 1 }}
+                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25 }}>
                         <TouchableOpacity onPress={() => this._goToProfile(publication.profile._id)}>
                             <FastImage
-                                style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15, borderColor: 'white', borderWidth: 2 }}
+                                style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
                                 source={{
                                     uri: publication.profile.pictureprofile,
                                     priority: FastImage.priority.normal,
@@ -179,13 +192,10 @@ class PublicationStandard extends React.Component {
                             />
                         </TouchableOpacity>
                         <View style={styles.header_info}>
-                            <Text style={{ fontSize: 13, color: '#3F3F3F', fontWeight: '600' }}>{publication.profile._meta.pseudo}</Text>
-                            <Text style={{ fontSize: 13, color: '#4E586E' }}>{getDateTranslated(publication.createdAt)}</Text>
+                            <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.profile._meta.pseudo}</Text>
                         </View>
-                    </View>
+                    </LinearGradient>
 
-                    <View style={{ height: '100%', flex: 2 }}>
-                    </View>
                 </View>
             )
         }
@@ -193,10 +203,14 @@ class PublicationStandard extends React.Component {
         if (publication.page) {
             return (
                 <View style={styles.header_container}>
-                    <View style={{ height: '100%', flexDirection: 'row', flex: 2 }}>
+                    <LinearGradient
+                        colors={['#00000099', '#0000005c', '#4e4e4e00']}
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 0, y: 1 }}
+                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25 }}>
                         <TouchableOpacity onPress={() => this._goToPage(publication.page._id)}>
                             <FastImage
-                                style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15, borderColor: 'white', borderWidth: 2 }}
+                                style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
                                 source={{
                                     uri: publication.page.pictureprofile,
                                     priority: FastImage.priority.normal,
@@ -205,10 +219,9 @@ class PublicationStandard extends React.Component {
                             />
                         </TouchableOpacity>
                         <View style={styles.header_info}>
-                            <Text style={{ fontSize: 13, color: '#3F3F3F', fontWeight: '600' }}>{publication.page.name}</Text>
-                            <Text style={{ fontSize: 13, color: '#4E586E' }}>{getDateTranslated(publication.createdAt)}</Text>
+                            <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.page.name}</Text>
                         </View>
-                    </View>
+                    </LinearGradient>
                     <View style={{ height: '100%', flex: 2 }}>
                     </View>
                 </View>
@@ -221,9 +234,18 @@ class PublicationStandard extends React.Component {
     }
 
     // to select like icon
-    _getIconLike() {
-        if (!this.props.publication.like.isLike) return require('../../../assets/image/icon/heart-icon.png')
-        else return require('../../../assets/image/icon/heart-icon-active.png')
+    _displayIconLike() {
+        if (!this.props.publication.like.isLike) {
+            return (<FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />)
+        }
+        else {
+            return (<FontAwesomeIcon icon={faHeartFull} color={'red'} size={19} />)
+        }
+    }
+
+    _getColorLike() {
+        if (!this.props.publication.like.isLike) return 'white'
+        else return 'red'
     }
 
     // to like a publication
@@ -236,8 +258,8 @@ class PublicationStandard extends React.Component {
             if (this.props.publication.profile) {
                 like = {
                     publicationProfile: this.props.publication.profile._id,
-                    type: 'publication',
-                    publicationId: this.props.publication._id,
+                    type: 'feed-publication',
+                    publicationID: this.props.publication._id,
                     ownerType: 'profile',
                     hastags: this.props.publication.hastags
                 }
@@ -247,12 +269,11 @@ class PublicationStandard extends React.Component {
                 like = {
                     publicationProfile: this.props.publication.page._id,
                     type: 'publication',
-                    publicationId: this.props.publication._id,
+                    publicationID: this.props.publication._id,
                     ownerType: 'page',
                     hastags: this.props.publication.hastags
                 }
             }
-
             switch (this.props.space) {
                 case 'feed': return this.props.actions.likePublicationFeed(like)
                 case 'profile': return this.props.actions.likePublicationProfile(like)
@@ -277,66 +298,71 @@ class PublicationStandard extends React.Component {
     _showFooter(publication) {
         return (
             <View style={styles.container_footer}>
-
-                {/* Description Container */}
-
-                {publication.hastags.length > 0 ?
-                    <View style={{ flex: 1, paddingHorizontal: 15, marginBottom: 15 }}>
-
-                        {/* Hastag List */}
-                        <FlatList
-                            horizontal={true}
-                            showsHorizontalScrollIndicator={false}
-                            style={{ flexDirection: 'row', flexWrap: 'wrap' }}
-                            data={publication.hastags}
-                            keyExtractor={(item) => item.toString()}
-                            renderItem={({ item }) => (
-                                <TouchableOpacity>
-                                    <Text style={{ fontSize: 15, fontFamily: 'Avenir-Book', color: '#F54B64', paddingRight: 4 }}>#{item}</Text>
-                                </TouchableOpacity>
-                            )}
-                        />
-
-
-                        {/* Description */}
-                        {!!publication.text && publication.type !== 'PostPublication' ?
-                            <View>
-                                <Text style={{ color: '#3F3F3F', fontSize: 15, lineHeight: 20 }}>{publication.text}</Text>
-                            </View>
-                            : null}
-
-
+                <LinearGradient
+                    colors={['#00000099', '#0000005c', '#4e4e4e00']}
+                    start={{ x: 0, y: 1 }}
+                    end={{ x: 0, y: 0 }}
+                    style={{ flexDirection: 'row', flex: 1, alignItems: 'center', paddingHorizontal: 25 }}
+                >
+                    {/*  Stat Container */}
+                    <View style={{ flex: 1 }}>
+                        <View style={{ flexDirection: 'row', flex: 1, paddingTop: 18 }}>
+                            <TouchableOpacity
+                                onPress={() => this._likePublication()}
+                                style={{ flex: 1 }}
+                            >
+                                {/* Temporaly disabled */}
+                                {/* <BlurView
+                                    blurType="light"
+                                    blurAmount={1}
+                                    reducedTransparencyFallbackColor="white"
+                                    style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 18, height: 35 }}
+                                >
+                                    {this._displayIconLike()}
+                                    <Text style={{ marginLeft: 8, fontSize: 15, color: 'white', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.like.likeNumber}</Text>
+                                </BlurView> */}
+                                <View 
+                                    style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 18, height: 35 }}
+                                >
+                                    {this._displayIconLike()}
+                                    <Text style={{ marginLeft: 8, fontSize: 15, color: 'white', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.like.likeNumber}</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                                style={{ flex: 1 }}
+                            >
+                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 35 }}>
+                                    <FontAwesomeIcon icon={faComment} color={'white'} size={19} style={{ opacity: 0.9 }} />
+                                    <Text style={{ marginLeft: 8, fontSize: 15, color: 'white', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.commentNumber}</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <View style={{ flex: 3 }} />
+                        </View>
                     </View>
-                    : null}
-
-                {/*  Stat Container */}
-                <View style={{ flex: 1, paddingLeft: 25, alignItems: 'center' }}>
-                    <View style={{ flexDirection: 'row', flex: 1, paddingRight: 15 }}>
-                        <TouchableOpacity
-                            onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
-                            style={{ flexDirection: 'row', flex: 1, justifyContent: 'center' }}
-                        >
-                            <Image style={styles.comment_icon} source={require('../../../assets/image/icon/comment-icon.png')} />
-                            <Text style={{ marginLeft: 8, fontSize: 15, color: '#5D5D5D', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.commentNumber}</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{ flexDirection: 'row', flex: 1, justifyContent: 'center', alignItems: 'center' }} onPress={() => this._likePublication()}>
-                            <Image style={styles.heart_icon} source={this._getIconLike()} />
-                            <Text style={{ marginLeft: 8, fontSize: 15, color: '#5D5D5D', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.like.likeNumber}</Text>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-
+                </LinearGradient>
             </View>
         )
     }
 
+    // move the card to the top
+    cardMoveOn = (index) => {
+        if (index > 0) {
+            return {
+                position: 'relative',
+                top: -31 * index
+            }
+        }
+    }
+
     render() {
         const { publication } = this.props
+        const { index } = this.props
 
         return (
-            <View style={styles.card}>
-                {this._showHeader(publication)}
+            <View style={[styles.card, this.cardMoveOn(index)]}>
                 {this._showTypePublication(publication)}
+                {this._showHeader(publication)}
                 {this._showFooter(publication)}
             </View>
         )
@@ -346,35 +372,29 @@ class PublicationStandard extends React.Component {
 
 const styles = StyleSheet.create({
     card: {
-        backgroundColor: 'white',
-        marginVertical: 5,
-        marginHorizontal: 4,
-        borderRadius: 8,
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
         flex: 1,
+        borderTopLeftRadius: 35,
+        borderTopRightRadius: 35,
+        overflow: 'hidden',
     },
     container_type: {
         overflow: 'hidden',
         flex: 4
     },
     header_container: {
-        paddingHorizontal: 15,
-        paddingVertical: 10,
-        flexDirection: 'row'
+        position: 'absolute',
+        height: 65,
+        width: '100%',
+        zIndex: 1
     },
     header_info: {
         justifyContent: 'center'
     },
     container_footer: {
-        flex: 1,
-        paddingVertical: 13
+        bottom: 0,
+        position: 'absolute',
+        height: 100,
+        width: '100%'
     },
     comment_icon: {
         width: 22,
@@ -387,9 +407,9 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
-    PublicationFeed: state.PublicationFeed,
-    publicationProfile: state.publicationProfile,
-    DiscoverPublication: state.DiscoverPublication,
+    FeedPublications: state.FeedPublications,
+    ProfilePublications: state.ProfilePublications,
+    DiscoverPublications: state.DiscoverPublications,
     MyProfile: state.MyProfile
 })
 

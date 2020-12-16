@@ -10,9 +10,8 @@ import * as PublicationFeedActions from '../../../../redux/FeedPublications/acti
 import LinearGradient from 'react-native-linear-gradient'
 import ProfilePublication from './profile-publication'
 import ProfileMusic from './profile-music'
-import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-
+import { faNewspaper, faMusic, faVideo, faUserPlus, faArrowLeft, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
 
 class Profile extends React.Component {
 
@@ -106,6 +105,78 @@ class Profile extends React.Component {
         }
     }
 
+    // to display the relation btn
+    _displayRelationBtn = () => {
+        return (
+        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+        {this.props.Profile.profile.relation == 'friend' ? null :
+            <LinearGradient
+                start={{ x: 0, y: 1 }}
+                end={{ x: 1, y: 0 }}
+                colors={['#f12711', '#f5af19']}
+                style={{ borderRadius: 25, position: 'relative' }}
+            >
+                {this._displayBtnFollow()}
+            </LinearGradient>
+        }
+        <LinearGradient
+            start={{ x: 0, y: 1 }}
+            end={{ x: 1, y: 0 }}
+            colors={['#3C349B', '#8E46DF']}
+            style={{ borderRadius: 25, position: 'relative' }}
+        >
+            {this._displayBtnFriend()}
+        </LinearGradient>
+    </View>
+        )
+    }
+
+    // display nav bar profile
+    _renderNavBarProfile = () => {
+        switch (this.props.Profile.profile.actifSpace) {
+            // default
+            case 1: return null
+            // music
+            case 2: return (
+                <View style={{ flexDirection: 'row', padding: 15 }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    {this._displayRelationBtn()}
+                </View>
+            )
+            // tube
+            case 3: return (
+                <View style={{ flexDirection: 'row', padding: 15 }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    {this._displayRelationBtn()}
+                </View>
+            )
+            // music and tube
+            case 4: return (
+                <View style={{ flexDirection: 'row', padding: 15 }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    </View>
+                    {this._displayRelationBtn()}
+                </View>)
+        }
+    }
+
     // to display the header of the view
     _renderHeader = () => {
 
@@ -117,26 +188,28 @@ class Profile extends React.Component {
 
                     {/* Back Btn */}
                     <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.goBack(null)}
-                        style={{ position: 'absolute', left: 25, width: 35, height: 35, top: 55, backgroundColor: 'red', zIndex: 1 }}>
+                        style={{ position: 'absolute', left: 25, width: 35, height: 35, top: 55, zIndex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
                     </TouchableOpacity>
 
                     {/* Dropdown Btn */}
                     <TouchableOpacity
-                        style={{ position: 'absolute', right: 25, width: 35, height: 35, top: 55, backgroundColor: 'red', zIndex: 1 }}>
+                        style={{ position: 'absolute', right: 25, width: 35, height: 35, top: 55, zIndex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={40} />
                     </TouchableOpacity>
 
                     {/* Cover Picture */}
                     <FastImage
-                        style={{ height: 300 }}
+                        style={{ height: 200 }}
                         resizeMode={FastImage.resizeMode.cover}
                         source={{ uri: this.props.Profile.profile.picturecover, priority: FastImage.priority.normal }}
                     />
 
                     {/* Background Filter */}
-                    <View style={{ backgroundColor: '#0000004d', width: '100%', height: 300, position: 'absolute' }} />
+                    <View style={{ backgroundColor: '#0000004d', width: '100%', height: 200, position: 'absolute' }} />
 
                     {/* Profile picture and name */}
-                    <View style={{ position: 'absolute', top: 210, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
+                    <View style={{ position: 'absolute', top: 110, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
                         <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
                             <FastImage
                                 style={{ height: 66, width: 66, borderRadius: 66 }}
@@ -149,73 +222,12 @@ class Profile extends React.Component {
                         </View>
                         <View style={{ flex: 7, paddingLeft: 5, justifyContent: 'center' }}>
                             <Text style={{ fontSize: 22, color: 'white', fontFamily: 'Avenir-Heavy' }}>@{this.props.Profile.profile._meta.pseudo}</Text>
+                            <Text style={{ color: 'white', fontSize: 15, fontFamily: 'Avenir-Book' }}>Community : {this.props.Profile.profile.communityTotal}</Text>
                         </View>
-                    </View>
-
-                    {/* Stat */}
-                    <View style={{ flexDirection: 'row', padding: 15, paddingRight: 15, borderColor: '#9d9d9d', borderBottomWidth: 0.5 }}>
-
-                        <View style={{ flex: 1, flexDirection: 'row' }}>
-                            <View style={{ flex: 1, alignItems: 'center' }}>
-                                <Text style={{ color: '#7C7C7C', fontSize: 17, fontFamily: 'Avenir-Heavy' }}>3121</Text>
-                                <Text style={{ color: '#4E586E', fontSize: 15, fontFamily: 'Avenir-Book' }}>Following</Text>
-                            </View>
-                            <View style={{ flex: 1, alignItems: 'center' }}>
-                                <Text style={{ color: '#7C7C7C', fontSize: 17, fontFamily: 'Avenir-Heavy' }}>5024</Text>
-                                <Text style={{ color: '#4E586E', fontSize: 15, fontFamily: 'Avenir-Book' }}>Followers</Text>
-                            </View>
-                        </View>
-
-                        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center' }}>
-                            {this.props.Profile.profile.relation == 'friend' ? null :
-                                <LinearGradient
-                                    start={{ x: 0, y: 1 }}
-                                    end={{ x: 1, y: 0 }}
-                                    colors={['#f12711', '#f5af19']}
-                                    style={{ borderRadius: 25, position: 'relative', bottom: 3, marginHorizontal: 5 }}
-                                >
-                                    {this._displayBtnFollow()}
-                                </LinearGradient>
-                            }
-                            <LinearGradient
-                                start={{ x: 0, y: 1 }}
-                                end={{ x: 1, y: 0 }}
-                                colors={['#3C349B', '#8E46DF']}
-                                style={{ borderRadius: 25, position: 'relative', bottom: 3, marginHorizontal: 5 }}
-                            >
-                                {this._displayBtnFriend()}
-                            </LinearGradient>
-                        </View>
-
                     </View>
 
                     {/* Nav */}
-                    <View style={{ flexDirection: 'row', padding: 15, paddingRight: 15, borderColor: '#9d9d9d', borderBottomWidth: 0.5 }}>
-                        <TouchableOpacity onPress={() => this.setState({ space: 'feed' })}
-                            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Image
-                                source={require('../../../../assets/image/navigation/nav-feed-icon.png')}
-                                style={{ width: 24, height: 24 }}
-                                resizeMode={'contain'}
-                            />
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Image
-                                source={require('../../../../assets/image/navigation/nav-tube-icon.png')}
-                                style={{ width: 24, height: 24 }}
-                                resizeMode={'contain'}
-                            />
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.setState({ space: 'music' })}
-                            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Image
-                                source={require('../../../../assets/image/navigation/nav-music-icon.png')}
-                                style={{ width: 24, height: 24 }}
-                                resizeMode={'contain'}
-                            />
-                        </TouchableOpacity>
-                    </View>
+                    {this._renderNavBarProfile()}
 
                 </View>
 
@@ -294,7 +306,7 @@ const styles = StyleSheet.create({
         color: 'white'
     },
     body_container: {
-        paddingTop: 10
+        paddingTop: 5
     }
 })
 

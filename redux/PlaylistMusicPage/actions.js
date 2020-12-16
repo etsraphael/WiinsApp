@@ -1,5 +1,5 @@
 import * as ActionTypes from './constants'
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 
 export function getMusicPlaylistSuccess(payload) {
     return { 
@@ -40,7 +40,6 @@ export function getMusicPlaylist(id) {
             })
                 .then((response) => response.json())
                 .then( async (response) => {
-                    console.log(response)
                     if (response.status == 200) return dispatch(getMusicPlaylistSuccess(response.playlist))
                     return dispatch(getMusicPlaylistFail(response.message))
                 })

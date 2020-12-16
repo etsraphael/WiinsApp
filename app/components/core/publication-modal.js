@@ -17,6 +17,10 @@ import * as DiscoverPublicationActions from '../../../redux/DiscoverPublications
 import Video from 'react-native-video'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { getDateTranslated } from '../../services/translation/translation-service'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faTimes, faCommentLines, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import I18n from '../../i18n/i18n'
 
 class PublicationModal extends React.Component {
 
@@ -31,8 +35,12 @@ class PublicationModal extends React.Component {
     }
 
     componentDidMount() {
-        this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
         this.eventListener = DeviceEventEmitter.addListener('toggleSuggest', this.toggleSuggest);
+    }
+
+    _loadComment(){
+        this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
+        this.setState({ page: 2, background_filter: true })
     }
 
     componentWillUnmount() {
@@ -78,12 +86,12 @@ class PublicationModal extends React.Component {
                 {this.state.page == 1 ?
                     <View style={{ flex: 1, paddingLeft: 25, alignItems: 'flex-end' }}>
                         <View style={{ flexDirection: 'row', flex: 1, paddingRight: 15, paddingBottom: 15 }}>
-                            <TouchableOpacity style={{ flexDirection: 'row', marginRight: 8 }} onPress={() => this.setState({ page: 2, background_filter: true })}>
-                                <Image style={styles.comment_icon} source={require('../../../assets/image/icon/comment-icon.png')} resizeMode={'contain'} />
+                            <TouchableOpacity style={{ flexDirection: 'row', marginRight: 8 }} onPress={() => this._loadComment()}>
+                                <FontAwesomeIcon icon={faCommentLines} color={'white'} size={19} />
                                 <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._likeBtn()}>
-                                <Image style={styles.heart_icon} source={this._getIconLike()} resizeMode={'contain'} />
+                                <FontAwesomeIcon icon={faHeart} color={'white'} size={19} />
                                 <Text style={{ marginLeft: 7, fontSize: 15, color: 'white' }}>{publication.like.likeNumber}</Text>
                             </TouchableOpacity>
                         </View>
@@ -91,17 +99,13 @@ class PublicationModal extends React.Component {
 
                 <View style={{ flex: 1, flexDirection: 'row', height: 39 }}>
                     <TextInput
-                        placeholder={'PUBLICATION.Write-a-comment'}
+                        placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
                         placeholderTextColor="#FFFFFF"
                         style={{ flex: 9, paddingLeft: 15, color: 'grey', backgroundColor: '#485164', borderRadius: 17, height: '100%' }}
                     ></TextInput>
                     <TouchableOpacity
                         style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                        <Image
-                            source={require('../../../assets/image/icon/fa-orange-plane.png')}
-                            style={{ width: 24, height: 24 }}
-                            resizeMode={'contain'}
-                        />
+                        <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={28} />
                     </TouchableOpacity>
                 </View>
 
@@ -117,8 +121,9 @@ class PublicationModal extends React.Component {
                     {this._profilePicture(publication)}
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
-                    <TouchableOpacity style={{ height: 35, width: 35, borderRadius: 35, backgroundColor: 'red' }}
+                    <TouchableOpacity style={{ height: 35, width: 35, borderRadius: 35, backgroundColor: '#00000036', justifyContent: 'center', alignItems: 'center' }}
                         onPress={() => DeviceEventEmitter.emit('toggleModal')}>
+                        <FontAwesomeIcon icon={faTimes} color={'white'} size={19} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -129,7 +134,7 @@ class PublicationModal extends React.Component {
 
         if (publication.profile) {
             return (
-                <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._goToProfile(publication.profile.id)}>
+                <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._goToProfile(publication.profile._id)}>
                     <FastImage
                         style={{ width: 50, height: 50, borderRadius: 25, resizeMode: 'cover', marginRight: 15 }}
                         source={{ uri: publication.profile.pictureprofile, priority: FastImage.priority.normal }}
@@ -142,7 +147,6 @@ class PublicationModal extends React.Component {
                 </TouchableOpacity>
             )
         }
-
 
         if (publication.page) {
             return (
@@ -228,12 +232,24 @@ class PublicationModal extends React.Component {
             <View style={{ flex: 1 }}>
                 {this._header(publication)}
                 {this._commentContainer()}
-                <Image
+
+
+                {/* Blur Background */}
+                <FastImage
                     style={{ position: 'absolute', width: '100%', height: '100%' }}
-                    source={{ uri: publication.file }}
-                    resizeMode={'cover'}
-                    blurRadius={35}
+                    source={{ uri: publication.file, priority: FastImage.priority.normal }}
+                    resizeMode={FastImage.resizeMode.cover}
                 />
+
+                {/* Temporaly disabled */} 
+                {/* <BlurView
+                    blurType="light"
+                    blurAmount={15}
+                    reducedTransparencyFallbackColor="white"
+                    style={{ position: 'absolute', width: '100%', height: '100%' }}
+                /> */}
+
+                {/* Display Img */}
                 <FastImage
                     style={{ width: '100%', height: 300, flex: 1 }}
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
@@ -288,7 +304,7 @@ class PublicationModal extends React.Component {
         switch (publication.type) {
             case 'PostPublication': return this._renderPost(publication)
             case 'PicturePublication': return this._renderPicture(publication)
-            case 'PublicationVideo': return this._renderVideo(publication)
+            case 'VideoPublication': return this._renderVideo(publication)
         }
     }
 
@@ -313,12 +329,6 @@ class PublicationModal extends React.Component {
                 />
             </View>
         )
-    }
-
-    // to select the like icon
-    _getIconLike() {
-        if (!this.props.publicationModal.publication.like.isLike) return require('../../../assets/image/icon/heart-icon.png')
-        else return require('../../../assets/image/icon/heart-icon-active.png')
     }
 
     // to like or dislike publication

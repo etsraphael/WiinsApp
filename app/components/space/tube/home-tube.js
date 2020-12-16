@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image, TextInput, TouchableOpacity, FlatList, ScrollView } from 'react-native'
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
@@ -7,7 +7,7 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faSearch } from '@fortawesome/pro-light-svg-icons'
 import { TubesCategories } from './../../core/data/tubes'
 import * as TubeMenuActions from '../../../../redux/TubeMenu/actions'
 import I18n from '../../../i18n/i18n'
@@ -33,7 +33,7 @@ class HomeTube extends React.Component {
                 {/* search bar */}
                 <View style={{ flex: 8 }}>
                     <View style={styles.container_search_bar}>
-                        <Image style={{ marginLeft: 20, width: 18, height: 18 }} source={require('../../../../assets/image/icon/search-icon.png')} />
+                        <FontAwesomeIcon icon={faSearch} color={'grey'} size={25} />
                         <TextInput
                             placeholder='Search'
                             style={styles.search_bar}
@@ -160,7 +160,8 @@ class HomeTube extends React.Component {
 
     // to display the tubelist by section
     _tubeListBySection = (tubeList, title) => {
-        if(!!tubeList && tubeList.length == 0) return null
+        if(tubeList === undefined || tubeList === null || tubeList.length == 0) return null
+
         return (
             <View style={styles.container_section}>
 
@@ -201,7 +202,7 @@ const styles = StyleSheet.create({
     main_container: {
         flex: 1,
         paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 0,
-        backgroundColor: 'white'
+        backgroundColor: '#e3e6ef'
     },
     header_container: {
         flexDirection: 'row',

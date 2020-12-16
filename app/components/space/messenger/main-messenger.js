@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     main_container: {
         flex: 1,
         paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 5,
-        backgroundColor: 'white'
+        backgroundColor: '#e3e6ef'
     }
 })
 

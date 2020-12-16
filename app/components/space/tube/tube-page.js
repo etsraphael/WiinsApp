@@ -9,7 +9,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import CommentList from '../../core/comment-list'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import { faAngleDown, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
 import * as TubePageActions from '../../../../redux/TubePage/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 
@@ -29,7 +29,7 @@ class TubePage extends React.Component {
 
     // to upload the page of the tube
     uploadPageTube = (id) => {
-        this.setState({videoReady: false})
+        this.setState({ videoReady: false })
         this.props.actions.getTubePageActions(id)
     }
 
@@ -108,17 +108,13 @@ class TubePage extends React.Component {
                 <CommentList type={'tube'} />
                 <View style={{ flexDirection: 'row', height: 39, marginBottom: 15 }}>
                     <TextInput
-                        placeholder={'PUBLICATION.Write-a-comment'}
+                        placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
                         placeholderTextColor="#FFFFFF"
                         style={{ flex: 9, paddingLeft: 15, color: 'grey', backgroundColor: '#485164', borderRadius: 17, height: '100%' }}
                     ></TextInput>
                     <TouchableOpacity
                         style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                        <Image
-                            source={require('../../../../assets/image/icon/fa-orange-plane.png')}
-                            style={{ width: 24, height: 24 }}
-                            resizeMode={'contain'}
-                        />
+                        <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={28} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -155,7 +151,7 @@ class TubePage extends React.Component {
     // to display some tube by section
     _tubeListBySection = (tubeList, title, line) => {
 
-        if(!tubeList || tubeList.length == 0) return null
+        if (!tubeList || tubeList.length == 0) return null
 
         return (
             <View style={styles.container_section}>

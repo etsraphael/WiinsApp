@@ -1,5 +1,5 @@
 import * as ActionTypes from './constants'
-import { AsyncStorage } from 'react-native'
+import AsyncStorage from '@react-native-community/async-storage'
 
 export function addPublicationStart() {
     return { type: ActionTypes.ADD_PUBLICATIONS_FEED }
@@ -65,6 +65,7 @@ export function getByMode(page, mode) {
 
     return async (dispatch) => {
         try {
+
             if(page == 1) dispatch(resetPublication())
             dispatch(getPublicationsStart())
             const token = await AsyncStorage .getItem('userToken')
@@ -78,11 +79,11 @@ export function getByMode(page, mode) {
                 }
             })
                 .then((response) => response.json())
-                .then( async (response) => {
+                .then(response=> {
                     if (response.status == 200) {
                         return dispatch(getPublicationsSuccess(response.results))
                     }
-                    return dispatch(getPublicationsFail(response.message))
+                    else return dispatch(getPublicationsFail(response.message))
                 })
         } catch (error) {
             return dispatch(getPublicationsFail(error));
@@ -106,7 +107,7 @@ export function likePublicationFeed(like) {
             })
                 .then((response) => response.json())
                 .then( async (response) => {
-                    if (response.status == 201) return dispatch(likePublicationSuccess(like.publicationId))
+                    if (response.status == 201) return dispatch(likePublicationSuccess(like.publicationID))
                     return dispatch(likePublicationFail(response))
                 })
         } catch (error) {
@@ -118,9 +119,10 @@ export function likePublicationFeed(like) {
 export function unlikePublicationFeed(id) {
     return async (dispatch) => {
         try {
+
             dispatch(unlikePublicationStart())
             const token = await AsyncStorage .getItem('userToken')
-            const url = 'https://wiins-backend.herokuapp.com/likes/dislikePublication/' + id
+            const url = 'https://wiins-backend.herokuapp.com/likes/dislikeFeedPublication/' + id
             return fetch(url, {
                 method: 'GET',
                 headers: { 
@@ -130,7 +132,7 @@ export function unlikePublicationFeed(id) {
             })
                 .then((response) => response.json())
                 .then( async (response) => {
-                    if (response.status == 201) return dispatch(unlikePublicationSuccess(id))
+                    if (response.status == 202) return dispatch(unlikePublicationSuccess(id))
                     return dispatch(unlikePublicationFail(response))
                 })
         } catch (error) {
