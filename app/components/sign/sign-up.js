@@ -1,9 +1,8 @@
 import React from 'react'
-import { StyleSheet, View, TextInput, Text, TouchableOpacity, ActivityIndicator, ScrollView, StatusBar } from 'react-native'
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, ActivityIndicator, ScrollView, StatusBar, Button } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import DatePicker from 'react-native-datepicker'
 import { Platform, NativeModules } from 'react-native'
 import { faLongArrowLeft, faCheckCircle } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -11,6 +10,8 @@ import Snackbar from 'react-native-snackbar'
 import I18n from '../../i18n/i18n'
 import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import DateTimePicker from '@react-native-community/datetimepicker';
+import moment from "moment";
 
 class SignUp extends React.Component {
 
@@ -21,7 +22,8 @@ class SignUp extends React.Component {
             pseudo: null,
             birthDate: null,
             password: null,
-            registration_success: false
+            registration_success: false,
+            showDatePicker: false
         }
     }
 
@@ -93,44 +95,36 @@ class SignUp extends React.Component {
         )
     }
 
-    // to select the line separator
-    _orSeparator = () => {
-        return (
-            <View style={{ flexDirection: 'row', paddingVertical: 25, alignItems: 'center' }}>
-                <View style={{ flex: 5, height: 1, backgroundColor: 'white' }}></View>
-                <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ color: 'white', fontSize: 19 }}>Or</Text>
-                </View>
-                <View style={{ flex: 5, height: 1, backgroundColor: 'white' }}></View>
-            </View>
-        )
+    // to make sure the user is more than 18 years old
+    _getMaxDate = () => {
+        let date = new Date()
+        date.setFullYear( date.getFullYear() - 18 )
+        return Number(date.getTime())
     }
 
     // to select the input views
     _displayInput() {
+
         return (
             <View>
                 <View>
-                    <Text style={styles.inputLabel}>{ I18n.t('PROFILE.Pseudo') }</Text>
-                    <TextInput 
-                        // placeholder={I18n.t('PROFILE.Pseudo')}
+                    <Text style={styles.inputLabel}>{I18n.t('PROFILE.Pseudo')}</Text>
+                    <TextInput
                         style={styles.input_container}
                         onChangeText={(val) => this.setState({ pseudo: val })}
                     />
                 </View>
                 <View>
-                    <Text style={styles.inputLabel}>{ I18n.t('PROFILE.Email') }</Text>
-                    <TextInput 
-                        // placeholder={I18n.t('PROFILE.Email')}
+                    <Text style={styles.inputLabel}>{I18n.t('PROFILE.Email')}</Text>
+                    <TextInput
                         autoCompleteType={'email'}
                         style={styles.input_container}
                         onChangeText={(val) => this.setState({ email: val })}
                     />
                 </View>
                 <View>
-                    <Text style={styles.inputLabel}>{ I18n.t('CORE.Password') }</Text>
+                    <Text style={styles.inputLabel}>{I18n.t('CORE.Password')}</Text>
                     <TextInput
-                        // placeholder={I18n.t('CORE.Password')}
                         style={styles.input_container}
                         secureTextEntry={true}
                         onChangeText={(val) => this.setState({ password: val })}
@@ -138,35 +132,36 @@ class SignUp extends React.Component {
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Text style={styles.inputLabel}>{I18n.t('PROFILE.BirthDate')}</Text>
-                    <DatePicker
-                        style={dateStyle.containerDatePicker}
-                        date={this.state.birthDate}
-                        mode="date"
-                        // placeholder={I18n.t('PROFILE.BirthDate')}
-                        format="YYYY-MM-DD"
-                        maxDate={new Date().getFullYear() - 18}
-                        confirmBtnText="Confirm"
-                        cancelBtnText="Cancel"
-                        customStyles={dateStyle}
-                        onDateChange={(val) => this.setState({ birthDate: val })}
-                    />
+
+                    <TouchableOpacity style={dateStyle.containerDatePicker} onPress={() => this.setState({ showDatePicker: true })}>
+                        <Text>{this.state.birthDate}</Text>
+                    </TouchableOpacity>
+
+                    {this.state.showDatePicker && (
+                        <DateTimePicker
+                        style={{flex: 1}}
+                        maximumDate={this._getMaxDate()}
+                        testID="dateTimePicker"
+                        value={new Date()}
+                        mode={'date'}
+                        is24Hour={true}
+                        display="default"
+                        onChange={(val) => this.setState({ birthDate: moment(new Date(val.nativeEvent.timestamp)).format("DD-MM-YYYY"), showDatePicker: false })}
+                    /> 
+                    )}
+
                 </View>
                 <View style={{ marginTop: 40 }}>
                     <TouchableOpacity onPress={() => this._register()} style={styles.btn_log} underlayColor='#fff'>
                         <LinearGradient
-                        colors={[ '#35D1FE', '#960CF8' ]}
-                        locations={[0, 1]}
-                        start={{ x: 0.1, y: 0.09 }}
-                        end={{ x: 0.94, y: 0.95 }}
-                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            colors={['#35D1FE', '#960CF8']}
+                            locations={[0, 1]}
+                            start={{ x: 0.1, y: 0.09 }}
+                            end={{ x: 0.94, y: 0.95 }}
+                            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                             <Text style={styles.loginText}>{I18n.t('LOGIN-REGISTRER.Registration')}</Text>
                         </LinearGradient>
                     </TouchableOpacity>
-
-                    {/* {this._orSeparator()} */}
-                    {/* <TouchableOpacity onPress={() => this.props.view('null')} style={styles.btn_back}>
-                        <Text style={styles.btn_Text}> Back </Text>
-                    </TouchableOpacity> */}
                 </View>
             </View>
         )
@@ -175,10 +170,10 @@ class SignUp extends React.Component {
     render() {
         return (
             <View style={{ flex: 1, backgroundColor: 'white', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
-                <StatusBar barStyle="dark-content" hidden = {false} backgroundColor = "transparent" translucent = {true}/>
+                <StatusBar barStyle="dark-content" hidden={false} backgroundColor="transparent" translucent={true} />
                 <View style={styles.actionBarStyle}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
-                        <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />  
+                        <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />
                     </TouchableOpacity>
                 </View>
                 {
@@ -193,23 +188,23 @@ class SignUp extends React.Component {
                             </View>
                         </ScrollView>
                     ) : (
-                        <View style={{ width: '100%', paddingHorizontal: 45, justifyContent: 'center', alignItems: 'center' }}>
-                            <View style={{ flexDirection: 'row', marginBottom: 15 }}>
-                                <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                                    <FontAwesomeIcon icon={faCheckCircle} color={'white'} size={25} />
-                                </View>
-                                <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
-                                    <Text style={{ fontSize: 18, color: 'white' }}>
-                                        Veuillez confirmer votre compte par courriel.
+                            <View style={{ width: '100%', paddingHorizontal: 45, justifyContent: 'center', alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', marginBottom: 15 }}>
+                                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                                        <FontAwesomeIcon icon={faCheckCircle} color={'white'} size={25} />
+                                    </View>
+                                    <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
+                                        <Text style={{ fontSize: 18, color: 'white' }}>
+                                            Please comfirm your account by email.
                                 </Text>
+                                    </View>
                                 </View>
+                                <View style={{ backgroundColor: 'white', marginVertical: 25, height: 1, width: '80%' }}></View>
+                                <TouchableOpacity onPress={() => this.props.view('login')} style={styles.btn_back}>
+                                    <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}> Log in </Text>
+                                </TouchableOpacity>
                             </View>
-                            <View style={{ backgroundColor: 'white', marginVertical: 25, height: 1, width: '80%' }}></View>
-                            <TouchableOpacity onPress={() => this.props.view('login')} style={styles.btn_back}>
-                                <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}> Se connecter </Text>
-                            </TouchableOpacity>
-                        </View>
-                    )
+                        )
                 }
             </View>
         )
@@ -219,8 +214,12 @@ class SignUp extends React.Component {
 const dateStyle = StyleSheet.create({
     containerDatePicker: {
         flex: 1,
-        paddingTop: 20,
-        paddingLeft: 20
+        padding: 15,
+        backgroundColor: '#EDEDED',
+        borderRadius: 5,
+        marginHorizontal: 15,
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     dateIcon: {
         display: 'none'
@@ -309,12 +308,12 @@ const styles = StyleSheet.create({
     inputLabel: {
         color: '#ABABAB',
     },
-    actionBarStyle: { 
-        flexDirection: 'row', 
-        paddingTop: StatusBar.currentHeight, 
-        paddingHorizontal: 31, 
+    actionBarStyle: {
+        flexDirection: 'row',
+        paddingTop: StatusBar.currentHeight,
+        paddingHorizontal: 31,
         backgroundColor: 'white',
-        height: 60 + StatusBar.currentHeight, 
+        height: 60 + StatusBar.currentHeight,
         alignItems: 'center'
     }
 })
