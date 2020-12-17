@@ -1,11 +1,14 @@
 import React from 'react'
-import { StyleSheet, View, TextInput, Text, TouchableOpacity, Keyboard, ActivityIndicator, Image, StatusBar } from 'react-native'
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, Keyboard, ActivityIndicator, StatusBar, Platform } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import Snackbar from 'react-native-snackbar';
 import I18n from '../../i18n/i18n'
 import LinearGradient from 'react-native-linear-gradient'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faLongArrowLeft } from '@fortawesome/pro-light-svg-icons'
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 class SignIn extends React.Component {
 
@@ -68,7 +71,6 @@ class SignIn extends React.Component {
                 <View>
                     <Text style={styles.inputLabel}>{ I18n.t('LOGIN-REGISTRER.PseudoOrEmail') }</Text>
                     <TextInput
-                        // placeholder={I18n.t('LOGIN-REGISTRER.PseudoOrEmail')}
                         style={styles.input_container}
                         onChangeText={(val) => this.setState({ pseudo_email: val })}
                     />
@@ -76,7 +78,6 @@ class SignIn extends React.Component {
                 <View>
                     <Text style={styles.inputLabel}>{ I18n.t('CORE.Password') }</Text>
                     <TextInput
-                        // placeholder={I18n.t('CORE.Password')}
                         style={styles.input_container}
                         secureTextEntry={true}
                         onChangeText={(val) => { this.setState({ password: val }) }}
@@ -113,9 +114,13 @@ class SignIn extends React.Component {
         return (
             <>
             <StatusBar barStyle="dark-content" hidden = {false} backgroundColor = "transparent" translucent = {true}/>
-            <View style={{ flex: 1, width: '100%', padding: 31, paddingTop: StatusBar.currentHeight + 100, backgroundColor: 'white' }}>
+            <View style={styles.actionBarStyle}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
+                    <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />  
+                </TouchableOpacity>
+            </View>
+            <View style={{ flex: 1, width: '100%', padding: 31, paddingTop: 50, backgroundColor: 'white' }}>
                 <View style={styles.brand_container}>
-                    {/* <Image style={styles.logoBrand} source={require('../../../assets/image/icon-wiins-name.png')} /> */}
                     <Text style={{ color: '#960CF8', fontSize: 32 }}>Hello</Text>
                     <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? 'Login first to continue' : 'Checking your infos'}</Text>
                 </View>
@@ -130,7 +135,6 @@ class SignIn extends React.Component {
 
 const styles = StyleSheet.create({
     brand_container: {
-        // flex: 3,
         flexDirection: 'column',
         width: '100%',
         justifyContent: 'center',
@@ -143,8 +147,6 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     card_container: {
-        // flex: 4,
-        // paddingHorizontal: 60,
         width: '100%',
         marginTop: 56
     },
@@ -154,7 +156,6 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 10,
         color: 'black',
-        // fontSize: 18,
         height: 39,
         borderBottomColor: '#ABABAB',
         borderBottomWidth: .5,
@@ -197,6 +198,15 @@ const styles = StyleSheet.create({
     },
     inputLabel: {
         color: '#ABABAB',
+    },
+    actionBarStyle: { 
+        flexDirection: 'row', 
+        paddingTop: StatusBar.currentHeight, 
+        paddingHorizontal: 31, 
+        backgroundColor: "white",
+        height: 60 + StatusBar.currentHeight, 
+        alignItems: 'center',
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 
     }
 })
 

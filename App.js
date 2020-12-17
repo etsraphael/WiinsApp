@@ -30,8 +30,6 @@ class App extends Component {
       <>
         <Provider store={this.store}>
           <PersistGate persistor={this.persistor} onBeforeLift={() => this.onBeforeLift()} loading={null}>
-            {/* translucent status bar */}
-            <StatusBar barStyle="default" hidden = {false} backgroundColor = "transparent" translucent = {true}/>
             <MainApp/>
           </PersistGate>
         </Provider>

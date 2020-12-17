@@ -3,18 +3,11 @@ import {
     StyleSheet,
     View,
     KeyboardAvoidingView,
-    Text,
-    Image,
-    TouchableOpacity,
 } from 'react-native';
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { Platform } from 'react-native'
-import SignIn from './sign-in'
-import SignUp from './sign-up'
-import LinearGradient from 'react-native-linear-gradient'
-import FastImage from 'react-native-fast-image'
 import SignNaviation from '../../navigation/sign-naviation';
 
 
@@ -22,9 +15,6 @@ class Sign extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            view: null, // can be 'login' or 'register'
-        }
     }
 
     render() {
