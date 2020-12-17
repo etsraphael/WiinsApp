@@ -5,7 +5,7 @@ import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import DatePicker from 'react-native-datepicker'
 import { Platform, NativeModules } from 'react-native'
-import { faCheckCircle } from '@fortawesome/pro-light-svg-icons'
+import { faArrowLeft, faCheckCircle } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Snackbar from 'react-native-snackbar'
 import I18n from '../../i18n/i18n'
@@ -173,11 +173,16 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <View style={{ flex: 1, padding: 31, paddingTop: StatusBar.currentHeight + 100, backgroundColor: 'white' }}>
+            <View style={{ flex: 1, backgroundColor: 'white', }}>
                 <StatusBar barStyle="dark-content" hidden = {false} backgroundColor = "transparent" translucent = {true}/>
+                <View style={styles.actionBarStyle}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
+                        <FontAwesomeIcon icon={faArrowLeft} />  
+                    </TouchableOpacity>
+                </View>
                 {
                     !this.state.registration_success ? (
-                        <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 0 }}>
+                        <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 31, marginTop: 56 }}>
                             <View style={styles.brand_container}>
                                 {/* <Image style={styles.logoBrand} source={require('../../../assets/image/icon-wiins-name.png')} /> */}
                                 <Text style={{ color: '#960CF8', fontSize: 32 }}>Hello</Text>
@@ -307,6 +312,14 @@ const styles = StyleSheet.create({
     },
     inputLabel: {
         color: '#ABABAB',
+    },
+    actionBarStyle: { 
+        flexDirection: 'row', 
+        paddingTop: StatusBar.currentHeight, 
+        paddingHorizontal: 31, 
+        backgroundColor: 'white',
+        height: 60 + StatusBar.currentHeight, 
+        alignItems: 'center'
     }
 })
 
