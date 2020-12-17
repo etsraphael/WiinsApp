@@ -6,6 +6,8 @@ import { bindActionCreators } from 'redux'
 import Snackbar from 'react-native-snackbar';
 import I18n from '../../i18n/i18n'
 import LinearGradient from 'react-native-linear-gradient'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faArrowLeft } from '@fortawesome/pro-light-svg-icons'
 
 class SignIn extends React.Component {
 
@@ -113,7 +115,12 @@ class SignIn extends React.Component {
         return (
             <>
             <StatusBar barStyle="dark-content" hidden = {false} backgroundColor = "transparent" translucent = {true}/>
-            <View style={{ flex: 1, width: '100%', padding: 31, paddingTop: StatusBar.currentHeight + 100, backgroundColor: 'white' }}>
+            <View style={styles.actionBarStyle}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
+                    <FontAwesomeIcon icon={faArrowLeft} />  
+                </TouchableOpacity>
+            </View>
+            <View style={{ flex: 1, width: '100%', padding: 31, paddingTop: 50, backgroundColor: 'white' }}>
                 <View style={styles.brand_container}>
                     {/* <Image style={styles.logoBrand} source={require('../../../assets/image/icon-wiins-name.png')} /> */}
                     <Text style={{ color: '#960CF8', fontSize: 32 }}>Hello</Text>
@@ -197,6 +204,14 @@ const styles = StyleSheet.create({
     },
     inputLabel: {
         color: '#ABABAB',
+    },
+    actionBarStyle: { 
+        flexDirection: 'row', 
+        paddingTop: StatusBar.currentHeight, 
+        paddingHorizontal: 31, 
+        backgroundColor: "white",
+        height: 60 + StatusBar.currentHeight, 
+        alignItems: 'center' 
     }
 })
 
