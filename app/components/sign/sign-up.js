@@ -1,15 +1,16 @@
 import React from 'react'
-import { StyleSheet, View, TextInput, Text, TouchableOpacity, ActivityIndicator, Image, ScrollView, StatusBar } from 'react-native'
+import { StyleSheet, View, TextInput, Text, TouchableOpacity, ActivityIndicator, ScrollView, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import DatePicker from 'react-native-datepicker'
 import { Platform, NativeModules } from 'react-native'
-import { faArrowLeft, faCheckCircle } from '@fortawesome/pro-light-svg-icons'
+import { faLongArrowLeft, faCheckCircle } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Snackbar from 'react-native-snackbar'
 import I18n from '../../i18n/i18n'
 import LinearGradient from 'react-native-linear-gradient'
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 class SignUp extends React.Component {
 
@@ -173,18 +174,17 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <View style={{ flex: 1, backgroundColor: 'white', }}>
+            <View style={{ flex: 1, backgroundColor: 'white', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
                 <StatusBar barStyle="dark-content" hidden = {false} backgroundColor = "transparent" translucent = {true}/>
                 <View style={styles.actionBarStyle}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
-                        <FontAwesomeIcon icon={faArrowLeft} />  
+                        <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />  
                     </TouchableOpacity>
                 </View>
                 {
                     !this.state.registration_success ? (
                         <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 31, marginTop: 56 }}>
                             <View style={styles.brand_container}>
-                                {/* <Image style={styles.logoBrand} source={require('../../../assets/image/icon-wiins-name.png')} /> */}
                                 <Text style={{ color: '#960CF8', fontSize: 32 }}>Hello</Text>
                                 <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? 'Create your account' : 'Creating your account'}</Text>
                             </View>
@@ -245,7 +245,6 @@ const dateStyle = StyleSheet.create({
 
 const styles = StyleSheet.create({
     brand_container: {
-        // flex: 3,
         flexDirection: 'column',
         width: '100%',
         justifyContent: 'center',
@@ -258,8 +257,6 @@ const styles = StyleSheet.create({
         resizeMode: 'contain',
     },
     card_container: {
-        // flex: 4,
-        // paddingHorizontal: 60,
         width: '100%',
         marginTop: 56
     },
@@ -269,7 +266,6 @@ const styles = StyleSheet.create({
         marginTop: 10,
         marginBottom: 10,
         color: 'black',
-        // fontSize: 18,
         height: 39,
         borderBottomColor: '#ABABAB',
         borderBottomWidth: .5,
