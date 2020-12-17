@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { configureStore } from './app/stores/configureStore'
 import { PersistGate } from 'redux-persist/integration/react'
 import MainApp from './app/components/core/main-app'
+import { StatusBar } from 'react-native'
 
 class App extends Component {
 
@@ -29,6 +30,8 @@ class App extends Component {
       <>
         <Provider store={this.store}>
           <PersistGate persistor={this.persistor} onBeforeLift={() => this.onBeforeLift()} loading={null}>
+            {/* translucent status bar */}
+            <StatusBar barStyle="default" hidden = {false} backgroundColor = "transparent" translucent = {true}/>
             <MainApp/>
           </PersistGate>
         </Provider>
