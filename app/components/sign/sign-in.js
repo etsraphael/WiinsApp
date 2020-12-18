@@ -24,10 +24,10 @@ class SignIn extends React.Component {
         if (!newProps.MyUser.isLoading && newProps.MyUser.error) {
             switch (newProps.MyUser.error) {
                 case 'email_or_password_invalid': {
-                    return Snackbar.show({ text: 'email_or_password_invalid', duration: Snackbar.LENGTH_LONG })
+                    return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect'), duration: Snackbar.LENGTH_LONG })
                 }
                 case 'account_deactivated': {
-                    return Snackbar.show({ text: 'account_deactivated', duration: Snackbar.LENGTH_LONG })
+                    return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Account_desactivated'), duration: Snackbar.LENGTH_LONG })
                 }
             }
         }
@@ -37,7 +37,7 @@ class SignIn extends React.Component {
     _login = () => {
         Keyboard.dismiss()
         if (!this.state.pseudo_email || !this.state.password) {
-            return Snackbar.show({ text: 'Information Incorrect', duration: Snackbar.LENGTH_LONG })
+            return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect'), duration: Snackbar.LENGTH_LONG })
         }
         this.props.actions.login(this.state.pseudo_email, this.state.password)
     }
@@ -51,32 +51,19 @@ class SignIn extends React.Component {
         )
     }
 
-    // to select the line separator
-    _orSeparator = () => {
-        return (
-            <View style={{ flexDirection: 'row', paddingVertical: 25, alignItems: 'center' }}>
-                <View style={{ flex: 5, height: 1, backgroundColor: 'white' }}></View>
-                <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ color: 'white', fontSize: 19 }}>Or</Text>
-                </View>
-                <View style={{ flex: 5, height: 1, backgroundColor: 'white' }}></View>
-            </View>
-        )
-    }
-
     // to select the form view
     _displayInput = () => {
         return (
             <View>
                 <View>
-                    <Text style={styles.inputLabel}>{ I18n.t('LOGIN-REGISTRER.PseudoOrEmail') }</Text>
+                    <Text style={styles.inputLabel}>{I18n.t('LOGIN-REGISTRER.PseudoOrEmail')}</Text>
                     <TextInput
                         style={styles.input_container}
                         onChangeText={(val) => this.setState({ pseudo_email: val })}
                     />
                 </View>
                 <View>
-                    <Text style={styles.inputLabel}>{ I18n.t('CORE.Password') }</Text>
+                    <Text style={styles.inputLabel}>{I18n.t('CORE.Password')}</Text>
                     <TextInput
                         style={styles.input_container}
                         secureTextEntry={true}
@@ -84,7 +71,7 @@ class SignIn extends React.Component {
                     />
                 </View>
                 <View style={{ alignItems: 'flex-end' }}>
-                    <Text style={styles.inputLabel}>Forgot password?</Text>
+                    <Text style={styles.inputLabel}>{I18n.t('LOGIN-REGISTRER.ForgotPassword')}</Text>
                 </View>
                 <View style={{ marginTop: 25 }}>
                     <TouchableOpacity style={styles.btn_log} onPress={() => this._login()} underlayColor='#fff'>
@@ -94,17 +81,9 @@ class SignIn extends React.Component {
                         start={{ x: 0.1, y: 0.09 }}
                         end={{ x: 0.94, y: 0.95 }}
                         style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={styles.loginText}>Login</Text>
+                            <Text style={styles.loginText}>{I18n.t('LOGIN-REGISTRER.Login')}</Text>
                         </LinearGradient>
                     </TouchableOpacity>
-
-                    {/* {this._orSeparator()} */}
-                    {/* <TouchableOpacity onPress={() => this.props.view(null)}
-                        style={styles.btn_back}>
-                        <Text style={styles.btn_Text}>
-                            {I18n.t('LOGIN-REGISTRER.Register')}
-                        </Text>
-                    </TouchableOpacity> */}
                 </View>
             </View>
         )
@@ -121,8 +100,8 @@ class SignIn extends React.Component {
             </View>
             <View style={{ flex: 1, width: '100%', padding: 31, paddingTop: 50, backgroundColor: 'white' }}>
                 <View style={styles.brand_container}>
-                    <Text style={{ color: '#960CF8', fontSize: 32 }}>Hello</Text>
-                    <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? 'Login first to continue' : 'Checking your infos'}</Text>
+                    <Text style={{ color: '#960CF8', fontSize: 32 }}>{I18n.t('CORE.Hello')}</Text>
+                    <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? I18n.t('LOGIN-REGISTRER.Login-first-to-continue') : I18n.t('LOGIN-REGISTRER.Checking-yr-infos')}</Text>
                 </View>
                 <View style={styles.card_container}>
                     {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}

@@ -246,10 +246,12 @@
     "views": "wyświetlenia",
     "For-You": "Dla Was",
     "Discover": "Odkryć",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "Społeczność",
+    "Subscribed": "Zasubskrybowano",
+    "Go-to-profile": "Przejdź do profilu",
+    "Friend": "Przyjaciel",
+    "Towards-an-infinite-space": "Ku nieskończonej przestrzeni",
+    "Hello": "dzień dobry"
   },
   "COUNTRY": {
     "AD": "Andora",
@@ -603,7 +605,9 @@
     "y-h-to-delete-yr-page-or-group-before": "Musisz wcześniej usunąć swoje strony lub grupy",
     "y-have-to-be-friend": "musicie być przyjaciółmi",
     "you-hav-to-upgrad-a-manager-before-leave": "Musisz awansować menedżera przed opuszczeniem grupy",
-    "T-min-is-1$": "Minimalna kwota to 1 $"
+    "T-min-is-1$": "Minimalna kwota to 1 $",
+    "Missing-informations": "Brak informacji",
+    "Account_desactivated": "Konto zostało dezaktywowane"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Zdjęcie zostało odebrane",
@@ -633,7 +637,11 @@
     "Registration": "Rejestracja",
     "Sign-up": "Zapisz się",
     "accept-tou": "Akceptuję regulamin",
-    "click-on-email": "Kliknij łącze e-mail"
+    "click-on-email": "Kliknij łącze e-mail",
+    "Create-yr-account": "Utwórz swoje konto",
+    "Creating-yr-account": "Tworzenie Twojego konta",
+    "Login-first-to-continue": "Zaloguj się najpierw, aby kontynuować",
+    "Checking-yr-infos": "Sprawdzam Twoje informacje"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Ostatni projekt",
@@ -674,10 +682,10 @@
     "tag-you-in-playlist": "oznaczył Cię na liście odtwarzania",
     "you-appear-in-project-of": "Pojawiasz się w nowym projekcie",
     "you-have": "ty masz",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "Twoja prośba o weryfikację została zaakceptowana",
+    "Yr-verification-request-was-refused": "Twoja prośba o weryfikację została odrzucona",
+    "Yr-certification-request-was-accepted": "Twoja prośba o certyfikat została zaakceptowana",
+    "Yr-certification-request-was-refused": "Twoja prośba o certyfikat została odrzucona"
   },
   "PAGE": {
     "Name-page": "Nazwa strony",
@@ -913,7 +921,7 @@
       "Verified-zone": "Strefa zweryfikowana",
       "Y-m-complet-t-following-cdt-t-b-certified": "Aby uzyskać certyfikat, musisz spełnić następujące warunki.",
       "Yr-profil-is-currently-being-checked-D": "Twój profil jest obecnie sprawdzany. W ciągu 48 godzin skontaktujemy się z Tobą mailowo.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Pamiętaj, aby przesłać odwrotną stronę karty, jeśli jest to krajowy dowód tożsamości (tylko w przypadku krajowego dowodu osobistego)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Moje publikacje są widoczne tylko dla moich znajomych",

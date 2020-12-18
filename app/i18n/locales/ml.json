@@ -246,10 +246,12 @@
     "views": "കാഴ്ചകൾ",
     "For-You": "നിനക്കായ്",
     "Discover": "കണ്ടെത്തുക",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "കമ്മ്യൂണിറ്റി",
+    "Subscribed": "സബ്‌സ്‌ക്രൈബുചെയ്‌തു",
+    "Go-to-profile": "പ്രൊഫൈലിലേക്ക് പോകുക",
+    "Friend": "സുഹൃത്ത്",
+    "Towards-an-infinite-space": "അനന്തമായ സ്ഥലത്തേക്ക്",
+    "Hello": "ഹലോ"
   },
   "COUNTRY": {
     "AD": "അൻഡോറ",
@@ -603,7 +605,9 @@
     "y-h-to-delete-yr-page-or-group-before": "മുമ്പ് നിങ്ങളുടെ പേജുകളോ ഗ്രൂപ്പുകളോ ഇല്ലാതാക്കണം",
     "y-have-to-be-friend": "നിങ്ങൾ സുഹൃത്തുക്കളായിരിക്കണം",
     "you-hav-to-upgrad-a-manager-before-leave": "ഗ്രൂപ്പ് വിടുന്നതിനുമുമ്പ് നിങ്ങൾ ഒരു മാനേജരെ പ്രൊമോട്ട് ചെയ്യണം",
-    "T-min-is-1$": "കുറഞ്ഞത് 1 is ആണ്"
+    "T-min-is-1$": "കുറഞ്ഞത് 1 is ആണ്",
+    "Missing-informations": "വിവരങ്ങൾ‌ നഷ്‌ടമായി",
+    "Account_desactivated": "അക്കൗണ്ട് നിർജ്ജീവമാക്കി"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ഫോട്ടോ ലഭിച്ചു",
@@ -633,7 +637,11 @@
     "Registration": "രജിസ്ട്രേഷൻ",
     "Sign-up": "സൈൻ അപ്പ് ചെയ്യുക",
     "accept-tou": "ഉപയോഗ നിബന്ധനകളും വ്യവസ്ഥകളും ഞാൻ അംഗീകരിക്കുന്നു",
-    "click-on-email": "ഇമെയിൽ ലിങ്കിൽ ക്ലിക്കുചെയ്യുക"
+    "click-on-email": "ഇമെയിൽ ലിങ്കിൽ ക്ലിക്കുചെയ്യുക",
+    "Create-yr-account": "താങ്കളുടെ അക്കൗണ്ട് സൃഷ്ടിക്കുക",
+    "Creating-yr-account": "നിങ്ങളുടെ അക്കൗണ്ട് സൃഷ്‌ടിക്കുന്നു",
+    "Login-first-to-continue": "തുടരുന്നതിന് ആദ്യം ലോഗിൻ ചെയ്യുക",
+    "Checking-yr-infos": "നിങ്ങളുടെ ഇൻ‌ഫോസ് പരിശോധിക്കുന്നു"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "അവസാനത്തെ പ്രോജക്റ്റ്",
@@ -674,10 +682,10 @@
     "tag-you-in-playlist": "നിങ്ങളെ ഒരു പ്ലേലിസ്റ്റിൽ ടാഗുചെയ്‌തു",
     "you-appear-in-project-of": "ന്റെ പുതിയ പ്രോജക്റ്റിൽ നിങ്ങൾ ദൃശ്യമാകും",
     "you-have": "നിങ്ങൾക്ക് ഉണ്ട്",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "നിങ്ങളുടെ സ്ഥിരീകരണ അഭ്യർത്ഥന സ്വീകരിച്ചു",
+    "Yr-verification-request-was-refused": "നിങ്ങളുടെ സ്ഥിരീകരണ അഭ്യർത്ഥന നിരസിച്ചു",
+    "Yr-certification-request-was-accepted": "നിങ്ങളുടെ സർട്ടിഫിക്കേഷൻ അഭ്യർത്ഥന സ്വീകരിച്ചു",
+    "Yr-certification-request-was-refused": "നിങ്ങളുടെ സർട്ടിഫിക്കേഷൻ അഭ്യർത്ഥന നിരസിച്ചു"
   },
   "PAGE": {
     "Name-page": "പേജിന്റെ പേര്",
@@ -913,7 +921,7 @@
       "Verified-zone": "പരിശോധിച്ച മേഖല",
       "Y-m-complet-t-following-cdt-t-b-certified": "സാക്ഷ്യപ്പെടുത്തുന്നതിന് നിങ്ങൾ ഇനിപ്പറയുന്ന നിബന്ധനകൾ പൂർത്തിയാക്കണം.",
       "Yr-profil-is-currently-being-checked-D": "നിങ്ങളുടെ പ്രൊഫൈൽ നിലവിൽ പരിശോധിക്കുന്നു. ഇമെയിൽ വഴി 48 മണിക്കൂറിനുള്ളിൽ ഞങ്ങൾ നിങ്ങളെ ബന്ധപ്പെടും.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "ദേശീയ ഐഡി കാർഡാണെങ്കിൽ (ദേശീയ കാർഡിന് മാത്രം) കാർഡിന്റെ പിൻഭാഗം അപ്‌ലോഡുചെയ്യുന്നത് ഉറപ്പാക്കുക."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "എന്റെ പ്രസിദ്ധീകരണങ്ങൾ‌ എന്റെ ചങ്ങാതിമാർ‌ക്ക് മാത്രമേ കാണാനാകൂ",

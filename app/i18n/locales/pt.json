@@ -204,10 +204,12 @@
     "Break-the-rules": "Quebrar as regras",
     "For-You": "Para voce",
     "Discover": "Descobrir",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "Comunidade",
+    "Subscribed": "Subscrito",
+    "Go-to-profile": "Vá para o perfil",
+    "Friend": "Amigo",
+    "Towards-an-infinite-space": "Em direção a um espaço infinito",
+    "Hello": "Olá"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -561,7 +563,9 @@
     "You-hv-to-get-t-community": "Você tem que conseguir a comunidade",
     "Please-choose-cat-and-sub": "Escolha a categoria e subcategoria",
     "Please-upload-the-poster-before": "Envie o pôster do vídeo antes",
-    "T-min-is-1$": "O mínimo é 1 $"
+    "T-min-is-1$": "O mínimo é 1 $",
+    "Missing-informations": "Informações ausentes",
+    "Account_desactivated": "Conta desativada"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "A foto é recebida",
@@ -591,7 +595,11 @@
     "Registration": "Cadastro",
     "Sign-up": "Inscrição",
     "accept-tou": "Eu aceito os termos e condições de uso",
-    "click-on-email": "Por favor, clique no link do email"
+    "click-on-email": "Por favor, clique no link do email",
+    "Create-yr-account": "crie sua conta",
+    "Creating-yr-account": "Criando sua conta",
+    "Login-first-to-continue": "Faça login primeiro para continuar",
+    "Checking-yr-infos": "Verificando suas informações"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Último projeto",
@@ -632,10 +640,10 @@
     "tag-you-in-playlist": "marcou você em uma lista de reprodução",
     "you-appear-in-project-of": "Você aparece no novo projeto de",
     "you-have": "Você tem",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "Sua solicitação de verificação foi aceita",
+    "Yr-verification-request-was-refused": "Sua solicitação de verificação foi recusada",
+    "Yr-certification-request-was-accepted": "Sua solicitação de certificação foi aceita",
+    "Yr-certification-request-was-refused": "Sua solicitação de certificação foi recusada"
   },
   "PAGE": {
     "Name-page": "Nome da página",
@@ -860,7 +868,7 @@
       "Upload-yr-password-id-identity-or-driver-license": "Envie sua senha, identidade ou carteira de motorista.",
       "Upload-a-photo-holding-t-ID-D": "Faça upload de uma foto segurando o documento de identidade com uma folha de papel com a data de hoje e \"Wiins\" escrito nela.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "Eu concordo que meus dados podem ser usados para verificar minha conta.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Certifique-se de carregar o verso do cartão se for um cartão de identificação nacional (apenas para o cartão nacional)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "A aceitação da violência como um meio de tentar mudar as coisas",

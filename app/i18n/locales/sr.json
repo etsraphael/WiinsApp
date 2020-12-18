@@ -246,10 +246,12 @@
     "views": "погледа",
     "For-You": "За тебе",
     "Discover": "Откријте",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "Заједница",
+    "Subscribed": "Претплаћени",
+    "Go-to-profile": "Идите на профил",
+    "Friend": "Пријатељу",
+    "Towards-an-infinite-space": "Према бескрајном простору",
+    "Hello": "Здраво"
   },
   "COUNTRY": {
     "AD": "Андора",
@@ -603,7 +605,9 @@
     "y-h-to-delete-yr-page-or-group-before": "Морате претходно избрисати своје странице или групе",
     "y-have-to-be-friend": "морате бити пријатељи",
     "you-hav-to-upgrad-a-manager-before-leave": "Морате унапредити менаџера пре напуштања групе",
-    "T-min-is-1$": "Минимум је 1 $"
+    "T-min-is-1$": "Минимум је 1 $",
+    "Missing-informations": "Недостају информације",
+    "Account_desactivated": "Налог је деактивиран"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фотографија је примљена",
@@ -633,7 +637,11 @@
     "Registration": "Регистрација",
     "Sign-up": "Пријави се",
     "accept-tou": "Прихватам услове коришћења",
-    "click-on-email": "Молимо кликните на везу е-поште"
+    "click-on-email": "Молимо кликните на везу е-поште",
+    "Create-yr-account": "направи свој налог",
+    "Creating-yr-account": "Отварање налога",
+    "Login-first-to-continue": "Прво се пријавите да бисте наставили",
+    "Checking-yr-infos": "Проверавам вашу информацију"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Најновији пројекат",
@@ -674,10 +682,10 @@
     "tag-you-in-playlist": "вас је означио на листи за репродукцију",
     "you-appear-in-project-of": "Појављујете се у новом пројекту",
     "you-have": "Имаш",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "Ваш захтев за верификацију је прихваћен",
+    "Yr-verification-request-was-refused": "Ваш захтев за верификацију је одбијен",
+    "Yr-certification-request-was-accepted": "Ваш захтев за сертификацију је прихваћен",
+    "Yr-certification-request-was-refused": "Ваш захтев за сертификацију је одбијен"
   },
   "PAGE": {
     "Name-page": "Име странице",
@@ -913,7 +921,7 @@
       "Verified-zone": "Верификована зона",
       "Y-m-complet-t-following-cdt-t-b-certified": "Морате испунити следеће услове да бисте били сертификовани.",
       "Yr-profil-is-currently-being-checked-D": "Ваш профил се тренутно проверава. Контактираћемо вас у року од 48 сати путем е-поште.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Обавезно отпремите задњу страну картице ако је то национална лична карта (само за националну картицу)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Моје публикације виде само моји пријатељи",

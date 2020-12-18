@@ -204,10 +204,12 @@
     "Break-the-rules": "नियम तोड़ा",
     "For-You": "तुम्हारे लिए",
     "Discover": "डिस्कवर",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "समुदाय",
+    "Subscribed": "सदस्यता लिया",
+    "Go-to-profile": "प्रोफ़ाइल करने के लिए जाना",
+    "Friend": "मित्र",
+    "Towards-an-infinite-space": "एक अनंत जगह की ओर",
+    "Hello": "नमस्ते"
   },
   "COUNTRY": {
     "AD": "एंडोरा",
@@ -561,7 +563,9 @@
     "You-hv-to-get-t-community": "आपको समुदाय प्राप्त करना होगा",
     "Please-choose-cat-and-sub": "कृपया श्रेणी और उप श्रेणी चुनें",
     "Please-upload-the-poster-before": "कृपया पहले वीडियो का पोस्टर अपलोड करें",
-    "T-min-is-1$": "न्यूनतम 1 $ है"
+    "T-min-is-1$": "न्यूनतम 1 $ है",
+    "Missing-informations": "गुम होने का संकेत",
+    "Account_desactivated": "खाता निरस्त"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "फोटो प्राप्त हुआ",
@@ -591,7 +595,11 @@
     "Registration": "पंजीकरण",
     "Sign-up": "नाम लिखो",
     "accept-tou": "मैं उपयोग के नियम ों और शर्तों को स्वीकार करता हूं",
-    "click-on-email": "कृपया ईमेल लिंक पर क्लिक करें"
+    "click-on-email": "कृपया ईमेल लिंक पर क्लिक करें",
+    "Create-yr-account": "अपने खाते बनाएँ",
+    "Creating-yr-account": "अपना खाता बनाना",
+    "Login-first-to-continue": "जारी रखने के लिए सबसे पहले लॉगिन करें",
+    "Checking-yr-infos": "अपने infos की जाँच"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "लास्ट प्रोजेक्ट",
@@ -632,10 +640,10 @@
     "tag-you-in-playlist": "आपको एक प्लेलिस्ट में टैग किया गया है",
     "you-appear-in-project-of": "आप की नई परियोजना में दिखाई देते हैं",
     "you-have": "आपके पास",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "आपका सत्यापन अनुरोध स्वीकार कर लिया गया",
+    "Yr-verification-request-was-refused": "आपका सत्यापन अनुरोध अस्वीकार कर दिया गया था",
+    "Yr-certification-request-was-accepted": "आपका प्रमाणीकरण अनुरोध स्वीकार कर लिया गया",
+    "Yr-certification-request-was-refused": "आपके प्रमाणीकरण अनुरोध को अस्वीकार कर दिया गया था"
   },
   "PAGE": {
     "Name-page": "पन्ने का नाम",
@@ -860,7 +868,7 @@
       "Upload-yr-password-id-identity-or-driver-license": "अपना पासवर्ड, आईडी पहचान या चालक लाइसेंस अपलोड करें।",
       "Upload-a-photo-holding-t-ID-D": "आज की तारीख के साथ कागज की एक शीट के साथ आईडी रखने वाली एक तस्वीर अपलोड करें और उस पर \"वाईन्स\" लिखता है।",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "मैं सहमत हूं कि मेरे खाते की जांच के लिए मेरे डेटा का उपयोग किया जा सकता है।",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "यदि यह राष्ट्रीय आईडी कार्ड है (तो केवल राष्ट्रीय कार्ड के लिए) कार्ड के पीछे की ओर अपलोड करना सुनिश्चित करें"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "चीजों को बदलने की कोशिश के एक साधन के रूप में हिंसा की स्वीकृति",

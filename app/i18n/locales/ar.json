@@ -204,10 +204,12 @@
     "Break-the-rules": "كسر القواعد",
     "For-You": "لك",
     "Discover": "اكتشف",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "تواصل اجتماعي",
+    "Subscribed": "مشترك",
+    "Go-to-profile": "انتقل إلى الملف الشخصي",
+    "Friend": "صديق",
+    "Towards-an-infinite-space": "نحو فضاء لانهائي",
+    "Hello": "مرحبا"
   },
   "COUNTRY": {
     "AD": "اندورا",
@@ -561,7 +563,9 @@
     "You-hv-to-get-t-community": "عليك أن تحصل على المجتمع",
     "Please-choose-cat-and-sub": "الرجاء اختيار فئة وفئة فرعية",
     "Please-upload-the-poster-before": "يرجى تحميل ملصق الفيديو من قبل",
-    "T-min-is-1$": "الحد الأدنى هو 1 دولار"
+    "T-min-is-1$": "الحد الأدنى هو 1 دولار",
+    "Missing-informations": "المعلومات المفقودة",
+    "Account_desactivated": "تم إلغاء تنشيط الحساب"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "تم استلام الصورة",
@@ -591,7 +595,11 @@
     "Registration": "التسجيل",
     "Sign-up": "التسجيل",
     "accept-tou": "أقبل شروط وأحكام الاستخدام",
-    "click-on-email": "الرجاء الضغط على رابط البريد الإلكتروني"
+    "click-on-email": "الرجاء الضغط على رابط البريد الإلكتروني",
+    "Create-yr-account": "أنشئ حسابك",
+    "Creating-yr-account": "إنشاء حسابك",
+    "Login-first-to-continue": "تسجيل الدخول أولا للمتابعة",
+    "Checking-yr-infos": "التحقق من المعلومات الخاصة بك"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "آخر مشروع",
@@ -632,10 +640,10 @@
     "tag-you-in-playlist": "وضع علامة باسمك في قائمة تشغيل",
     "you-appear-in-project-of": "تظهر في المشروع الجديد لـ",
     "you-have": "عندك",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "تم قبول طلب التحقق الخاص بك",
+    "Yr-verification-request-was-refused": "تم رفض طلب التحقق الخاص بك",
+    "Yr-certification-request-was-accepted": "تم قبول طلب الشهادة الخاص بك",
+    "Yr-certification-request-was-refused": "تم رفض طلب الشهادة الخاص بك"
   },
   "PAGE": {
     "Name-page": "اسم الصفحة",
@@ -860,7 +868,7 @@
       "Upload-yr-password-id-identity-or-driver-license": "قم بتحميل كلمة المرور أو الهوية الشخصية أو رخصة القيادة.",
       "Upload-a-photo-holding-t-ID-D": "قم بتحميل صورة تحمل الهوية مع ورقة عليها تاريخ اليوم وكتب عليها كلمة \"Wiins\"",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "أوافق على استخدام بياناتي للتحقق من حسابي.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "تأكد من تحميل الجانب الخلفي من البطاقة إذا كانت بطاقة الهوية الوطنية (فقط للبطاقة الوطنية)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "قبول العنف كوسيلة لمحاولة تغيير الأمور",

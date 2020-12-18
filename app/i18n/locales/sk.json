@@ -246,10 +246,12 @@
     "views": "názory",
     "For-You": "Pre teba",
     "Discover": "Objavte",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "Spoločenstva",
+    "Subscribed": "Prihlásený na odber",
+    "Go-to-profile": "Prejsť na profil",
+    "Friend": "Kamarát",
+    "Towards-an-infinite-space": "Smerom do nekonečného priestoru",
+    "Hello": "Ahoj"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -603,7 +605,9 @@
     "y-h-to-delete-yr-page-or-group-before": "Predtým musíte odstrániť svoje stránky alebo skupiny",
     "y-have-to-be-friend": "musíte byť priatelia",
     "you-hav-to-upgrad-a-manager-before-leave": "Pred opustením skupiny musíte povýšiť manažéra",
-    "T-min-is-1$": "Minimum je 1 $"
+    "T-min-is-1$": "Minimum je 1 $",
+    "Missing-informations": "Chýbajúce informácie",
+    "Account_desactivated": "Účet bol deaktivovaný"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotka je prijatá",
@@ -633,7 +637,11 @@
     "Registration": "Registrácia",
     "Sign-up": "Prihlásiť Se",
     "accept-tou": "Prijímam podmienky používania",
-    "click-on-email": "Kliknite na e-mailový odkaz"
+    "click-on-email": "Kliknite na e-mailový odkaz",
+    "Create-yr-account": "Vytvor si účet",
+    "Creating-yr-account": "Vytvára sa váš účet",
+    "Login-first-to-continue": "Ak chcete pokračovať, najskôr sa prihláste",
+    "Checking-yr-infos": "Prebieha kontrola informácií"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Posledný projekt",
@@ -674,10 +682,10 @@
     "tag-you-in-playlist": "vás označil v zozname skladieb",
     "you-appear-in-project-of": "Objavujete sa v novom projekte",
     "you-have": "máš",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "Vaša žiadosť o overenie bola prijatá",
+    "Yr-verification-request-was-refused": "Vaša žiadosť o overenie bola zamietnutá",
+    "Yr-certification-request-was-accepted": "Vaša žiadosť o certifikáciu bola prijatá",
+    "Yr-certification-request-was-refused": "Vaša žiadosť o certifikáciu bola zamietnutá"
   },
   "PAGE": {
     "Name-page": "Názov stránky",
@@ -913,7 +921,7 @@
       "Verified-zone": "Overená zóna",
       "Y-m-complet-t-following-cdt-t-b-certified": "Ak chcete získať certifikát, musíte splniť nasledujúce podmienky.",
       "Yr-profil-is-currently-being-checked-D": "Váš profil sa momentálne kontroluje. Budeme vás kontaktovať do 48 hodín e-mailom.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ak je to občiansky preukaz, nahrajte zadnú stranu karty (iba pre národnú kartu)."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Moje publikácie sú viditeľné iba pre mojich priateľov",

@@ -246,10 +246,12 @@
     "views": "Peržiūros",
     "For-You": "Tau",
     "Discover": "Atrasti",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "Bendruomenė",
+    "Subscribed": "Prenumeruojama",
+    "Go-to-profile": "Eiti į profilį",
+    "Friend": "Draugas",
+    "Towards-an-infinite-space": "Begalinės erdvės link",
+    "Hello": "Sveiki"
   },
   "COUNTRY": {
     "AD": "Andora",
@@ -603,7 +605,9 @@
     "y-h-to-delete-yr-page-or-group-before": "Anksčiau turite ištrinti savo puslapius ar grupes",
     "y-have-to-be-friend": "tu privalai būti draugais",
     "you-hav-to-upgrad-a-manager-before-leave": "Prieš palikdami grupę, turite paaukštinti vadybininką",
-    "T-min-is-1$": "Minimalus dydis yra 1 $"
+    "T-min-is-1$": "Minimalus dydis yra 1 $",
+    "Missing-informations": "Trūksta informacijos",
+    "Account_desactivated": "Paskyra atjungta"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Nuotrauka gauta",
@@ -633,7 +637,11 @@
     "Registration": "Registracija",
     "Sign-up": "Registruotis",
     "accept-tou": "Aš sutinku su naudojimo sąlygomis",
-    "click-on-email": "Spustelėkite el. Pašto nuorodą"
+    "click-on-email": "Spustelėkite el. Pašto nuorodą",
+    "Create-yr-account": "Susikurkite savo paskyrą",
+    "Creating-yr-account": "Jūsų paskyros kūrimas",
+    "Login-first-to-continue": "Pirmiausia prisijunkite, jei norite tęsti",
+    "Checking-yr-infos": "Tikrinti savo informaciją"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Naujausias projektas",
@@ -674,10 +682,10 @@
     "tag-you-in-playlist": "priskyrė jums žymą grojaraštyje",
     "you-appear-in-project-of": "Jūs dalyvaujate naujame",
     "you-have": "tu turi",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "Jūsų patvirtinimo užklausa buvo priimta",
+    "Yr-verification-request-was-refused": "Jūsų patvirtinimo užklausa buvo atmesta",
+    "Yr-certification-request-was-accepted": "Jūsų sertifikavimo užklausa buvo priimta",
+    "Yr-certification-request-was-refused": "Jūsų patvirtinimo užklausa buvo atmesta"
   },
   "PAGE": {
     "Name-page": "Puslapio pavadinimas",
@@ -913,7 +921,7 @@
       "Verified-zone": "Patvirtinta zona",
       "Y-m-complet-t-following-cdt-t-b-certified": "Norėdami būti sertifikuoti, turite įvykdyti šias sąlygas.",
       "Yr-profil-is-currently-being-checked-D": "Jūsų profilis šiuo metu tikrinamas. Mes susisieksime su jumis per 48 valandas el. Paštu.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Būtinai įkelkite galinę kortelės pusę, jei tai yra nacionalinė asmens tapatybės kortelė (skirta tik nacionalinei kortelei)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Mano leidinius mato tik mano draugai",

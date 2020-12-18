@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar } from 'react-native'
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
+import I18n from '../../i18n/i18n'
 
 class OnBoarding extends React.Component {
 
@@ -22,21 +23,16 @@ class OnBoarding extends React.Component {
                                 source={require('../../../assets/image/icon/icon-single.png')}
                                 resizeMode={FastImage.resizeMode.contain}
                                 style={styles.logoBrand} />
-                            <Text style={{ fontSize: 32, color: '#FFFFFF', paddingTop: 10, fontWeight: 'bold' }}>Welcome</Text>
-                            <Text style={{ paddingTop: 29, color: '#FFFFFF', fontSize: 18, fontWeight: 'bold' }}>to an infinite space</Text>
-                            <Text style={{ paddingTop: 7, color: '#FFFFFF', fontSize: 22, fontWeight: 'bold' }}>with no ads at all!</Text>
+                            <Text style={{ fontSize: 32, color: '#FFFFFF', paddingTop: 10, fontWeight: 'bold' }}>{I18n.t('CORE.Welcome')}</Text>
+                            <Text style={{ paddingTop: 7, color: '#FFFFFF', fontSize: 22, fontWeight: 'bold' }}>{I18n.t('CORE.Towards-an-infinite-space')}</Text>
                         </View>
                         <View style={styles.buttonsBox}>
                             <TouchableOpacity style={styles.googleButton} onPress={() => this.props.navigation.navigate('SignIn')}>
-                                <Text style={{ fontSize: 16, color: '#0041C4' }}>Login</Text>
+                                <Text style={{ fontSize: 16, color: '#0041C4' }}>{I18n.t('LOGIN-REGISTRER.Login')}</Text>
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.newAccountButton} onPress={() => this.props.navigation.navigate('Register')}>
-                                <Text style={{ fontSize: 16, color: '#FFFFFF' }}>Register</Text>
+                                <Text style={{ fontSize: 16, color: '#FFFFFF' }}>{I18n.t('LOGIN-REGISTRER.Register')}</Text>
                             </TouchableOpacity>
-                            {/* <View style={{ flexDirection: 'row', marginTop: 30, justifyContent: 'center' }}>
-                            <Text style={{ color: '#35D1FE', fontSize: 14 }}>Already have an account? </Text>
-                            <Text onPress={() => this.props.navigation.navigate('SignIn')} style={{ color: '#FFFFFF', fontSize: 14 }}>Sign in</Text>
-                        </View> */}
                         </View>
                     </View>
 

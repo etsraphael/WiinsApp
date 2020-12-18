@@ -246,10 +246,12 @@
     "views": "Görüntüleme",
     "For-You": "Senin için",
     "Discover": "Keşfedin",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "Topluluk",
+    "Subscribed": "Abone olundu",
+    "Go-to-profile": "Profile git",
+    "Friend": "Arkadaş",
+    "Towards-an-infinite-space": "Sonsuz bir uzaya doğru",
+    "Hello": "Merhaba"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -603,7 +605,9 @@
     "y-h-to-delete-yr-page-or-group-before": "Daha önce sayfalarınızı veya gruplarınızı silmelisiniz",
     "y-have-to-be-friend": "arkadaş olmalısın",
     "you-hav-to-upgrad-a-manager-before-leave": "Gruptan ayrılmadan önce bir yöneticiyi yükseltmelisiniz",
-    "T-min-is-1$": "Minimum 1 $"
+    "T-min-is-1$": "Minimum 1 $",
+    "Missing-informations": "Eksik bilgiler",
+    "Account_desactivated": "Hesap devre dışı bırakıldı"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoğraf alındı",
@@ -633,7 +637,11 @@
     "Registration": "Kayıt",
     "Sign-up": "kaydol",
     "accept-tou": "Kullanım şartlarını ve koşullarını kabul ediyorum",
-    "click-on-email": "Lütfen e-posta bağlantısına tıklayın"
+    "click-on-email": "Lütfen e-posta bağlantısına tıklayın",
+    "Create-yr-account": "hesabını oluştur",
+    "Creating-yr-account": "Hesabınız oluşturuluyor",
+    "Login-first-to-continue": "Devam etmek için önce giriş yapın",
+    "Checking-yr-infos": "Bilgilerinizi kontrol etme"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "En son proje",
@@ -674,10 +682,10 @@
     "tag-you-in-playlist": "sizi bir oynatma listesinde etiketledi",
     "you-appear-in-project-of": "Yeni projesinde görünüyorsun",
     "you-have": "var",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "Doğrulama talebiniz kabul edildi",
+    "Yr-verification-request-was-refused": "Doğrulama talebiniz reddedildi",
+    "Yr-certification-request-was-accepted": "Sertifika talebiniz kabul edildi",
+    "Yr-certification-request-was-refused": "Sertifika talebiniz reddedildi"
   },
   "PAGE": {
     "Name-page": "Sayfa ismi",
@@ -913,7 +921,7 @@
       "Verified-zone": "Doğrulanmış bölge",
       "Y-m-complet-t-following-cdt-t-b-certified": "Sertifika almak için aşağıdaki koşulları yerine getirmelisiniz.",
       "Yr-profil-is-currently-being-checked-D": "Profiliniz şu anda kontrol ediliyor. 48 saat içinde sizinle e-posta yoluyla iletişime geçeceğiz.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ulusal kimlik kartı ise kartın arka yüzünü yüklediğinizden emin olun (sadece ulusal kart için)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Yayınlarım sadece arkadaşlarım tarafından görülebilir",

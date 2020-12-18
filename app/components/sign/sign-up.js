@@ -33,10 +33,10 @@ class SignUp extends React.Component {
                 switch (newProps.MyUser.message) {
                     case 'success': return this.setState({ registration_success: true })
                     case 'pseudo_already_exist': {
-                        return Snackbar.show({ text: 'pseudo_already_exist', duration: Snackbar.LENGTH_LONG })
+                        return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Pseudo-already-exist'), duration: Snackbar.LENGTH_LONG })
                     }
                     case 'email_already_exist': {
-                        return Snackbar.show({ text: 'email_already_exist', duration: Snackbar.LENGTH_LONG })
+                        return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Email_already_exist'), duration: Snackbar.LENGTH_LONG })
                     }
                 }
             }
@@ -60,26 +60,26 @@ class SignUp extends React.Component {
 
         // null value
         if (!this.state.email || !this.state.pseudo || !this.state.birthDate || !this.state.password) {
-            Snackbar.show({ text: 'empty information', duration: Snackbar.LENGTH_LONG })
+            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Missing-informations'), duration: Snackbar.LENGTH_LONG })
             return false
         }
 
         // email validation
         const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (reg.test(this.state.email) === false) {
-            Snackbar.show({ text: 'Email is Not Correct', duration: Snackbar.LENGTH_LONG })
+            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Email-invalid'), duration: Snackbar.LENGTH_LONG })
             return false
         }
 
         // password validation
         if (this.state.password.length <= 4) {
-            Snackbar.show({ text: 'Password required must be more than 5 characters', duration: Snackbar.LENGTH_LONG })
+            Snackbar.show({ text: I18n.t('SETTING.password.Error-min-5-char'), duration: Snackbar.LENGTH_LONG })
             return false
         }
 
         // pseudo validation
         if (this.state.pseudo.length <= 4) {
-            Snackbar.show({ text: 'Pseudo required must be more than 5 characters', duration: Snackbar.LENGTH_LONG })
+            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Your-username-must-have-at-least-4-char'), duration: Snackbar.LENGTH_LONG })
             return false
         }
 
@@ -180,8 +180,8 @@ class SignUp extends React.Component {
                     !this.state.registration_success ? (
                         <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 31, marginTop: 56 }}>
                             <View style={styles.brand_container}>
-                                <Text style={{ color: '#960CF8', fontSize: 32 }}>Hello</Text>
-                                <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? 'Create your account' : 'Creating your account'}</Text>
+                                <Text style={{ color: '#960CF8', fontSize: 32 }}>{I18n.t('CORE.Hello')}</Text>
+                                <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? I18n.t('LOGIN-REGISTRER.Create-yr-account')  : I18n.t('LOGIN-REGISTRER.Creating-yr-account')}</Text>
                             </View>
                             <View style={{ flex: 4, width: '100%', marginTop: 56 }}>
                                 {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
@@ -194,14 +194,12 @@ class SignUp extends React.Component {
                                         <FontAwesomeIcon icon={faCheckCircle} color={'white'} size={25} />
                                     </View>
                                     <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
-                                        <Text style={{ fontSize: 18, color: 'white' }}>
-                                            Please comfirm your account by email.
-                                </Text>
+                                        <Text style={{ fontSize: 18, color: 'white' }}>{I18n.t('LOGIN-REGISTRER.click-on-email')}</Text>
                                     </View>
                                 </View>
                                 <View style={{ backgroundColor: 'white', marginVertical: 25, height: 1, width: '80%' }}></View>
                                 <TouchableOpacity onPress={() => this.props.view('login')} style={styles.btn_back}>
-                                    <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}> Log in </Text>
+                                    <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}>{I18n.t('LOGIN-REGISTRER.Login')}</Text>
                                 </TouchableOpacity>
                             </View>
                         )

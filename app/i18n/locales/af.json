@@ -246,10 +246,12 @@
     "views": "uitsig",
     "For-You": "Vir jou",
     "Discover": "Ontdek",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "Gemeenskap",
+    "Subscribed": "Ingeteken",
+    "Go-to-profile": "Gaan na profiel",
+    "Friend": "Vriend",
+    "Towards-an-infinite-space": "Op pad na 'n oneindige ruimte",
+    "Hello": "Hallo"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -603,7 +605,9 @@
     "y-h-to-delete-yr-page-or-group-before": "U moet u bladsye of groepe voorheen uitvee",
     "y-have-to-be-friend": "jy moet vriende wees",
     "you-hav-to-upgrad-a-manager-before-leave": "U moet 'n bestuurder bevorder voordat u die groep verlaat",
-    "T-min-is-1$": "Die minimum is 1 $"
+    "T-min-is-1$": "Die minimum is 1 $",
+    "Missing-informations": "Ontbrekende inligting",
+    "Account_desactivated": "Rekening gedeaktiveer"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Die foto word ontvang",
@@ -633,7 +637,11 @@
     "Registration": "Registrasie",
     "Sign-up": "Teken aan",
     "accept-tou": "Ek aanvaar die bepalings en voorwaardes van gebruik",
-    "click-on-email": "Klik op die e-pos skakel"
+    "click-on-email": "Klik op die e-pos skakel",
+    "Create-yr-account": "Skep jou rekening",
+    "Creating-yr-account": "Maak u rekening",
+    "Login-first-to-continue": "Meld eers aan om voort te gaan",
+    "Checking-yr-infos": "Kontroleer u inligting"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Laaste projek",
@@ -674,10 +682,10 @@
     "tag-you-in-playlist": "het jou in 'n snitlys gemerk",
     "you-appear-in-project-of": "U verskyn in die nuwe projek van",
     "you-have": "jy het",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "U verifikasieversoek is aanvaar",
+    "Yr-verification-request-was-refused": "U verifikasieversoek is geweier",
+    "Yr-certification-request-was-accepted": "U sertifiseringsversoek is aanvaar",
+    "Yr-certification-request-was-refused": "U sertifiseringsversoek is geweier"
   },
   "PAGE": {
     "Name-page": "Bladsynaam",
@@ -913,7 +921,7 @@
       "Verified-zone": "Geverifieerde sone",
       "Y-m-complet-t-following-cdt-t-b-certified": "U moet die volgende voorwaardes nakom om gesertifiseer te word.",
       "Yr-profil-is-currently-being-checked-D": "U profiel word tans nagegaan. Ons sal u binne 48 uur per e-pos kontak.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Maak seker dat u die agterkant van die kaart oplaai as dit 'n nasionale ID-kaart is (slegs vir die nasionale kaart)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "My publikasies is slegs deur my vriende sigbaar",
