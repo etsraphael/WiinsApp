@@ -17,7 +17,6 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
 
-
 const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
     const paddingToBottom = 20;
     return layoutMeasurement.height + contentOffset.y >=
@@ -67,7 +66,7 @@ class Feed extends React.Component {
 
         if (!this.props.FeedPublications.isLoading) {
             this.props.actions.getByMode(this.state.pagePublication, 'FollowerAndFriend')
-            this.setState({ pagePublication: this.state.pagePublication + 1})
+            this.setState({ pagePublication: this.state.pagePublication + 1 })
         }
 
     }
@@ -111,8 +110,8 @@ class Feed extends React.Component {
     _header() {
         return (
             <View style={styles.header_container}>
-                <View style={{flex: 1, justifyContent: 'center', alignItems: 'flex-start'}}>
-                    <TouchableOpacity 
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
+                    <TouchableOpacity
                         style={{ justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faCog} size={24} color={'#aeaeae'} />
                     </TouchableOpacity>
@@ -120,7 +119,7 @@ class Feed extends React.Component {
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <Image style={{ width: 65, height: 35 }} source={require('../../../../assets/image/wiins-written.png')} />
                 </View>
-                <View style={{ flex: 1,  justifyContent: 'center', alignItems: 'flex-end' }}>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('MyProfile')}
                         style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -140,15 +139,15 @@ class Feed extends React.Component {
     }
 
     _publicationList = () => {
-        if(!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0){
+        if (!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0) {
             return (
-            <FlatList
-                
-                onScrollBeginDrag={this._onScroll}
-                data={this.props.FeedPublications.publications}
-                renderItem={({item, index}) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
-                keyExtractor={(item) => item._id.toString()}
-            />
+                <FlatList
+
+                    onScrollBeginDrag={this._onScroll}
+                    data={this.props.FeedPublications.publications}
+                    renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
+                    keyExtractor={(item) => item._id.toString()}
+                />
             )
         } else {
             return null
@@ -157,29 +156,13 @@ class Feed extends React.Component {
 
     // to display the list of the publications
     _displayPublicationFeed = () => {
-
         return (
-            <View style={{flex: 1, borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden'}}>
-
-                
-
-                <ScrollView
-                scrollEventThrottle={5}
-                style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35}}
-                >
-                
-                {/* {this.state.isHeaderVisible ?  */}
-                <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
-                 {/* : null} */}
-
-                {this._publicationList()}
-
-            </ScrollView>
-
-
-
+            <View style={{ flex: 1, borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}>
+                <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }}>
+                    <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
+                    {this._publicationList()}
+                </ScrollView>
             </View>
-            
         )
     }
 

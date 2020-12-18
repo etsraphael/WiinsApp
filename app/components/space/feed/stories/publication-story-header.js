@@ -8,6 +8,7 @@ import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPlus } from '@fortawesome/pro-light-svg-icons'
+import I18n from '../../../../i18n/i18n'
 
 class PublicationStoryHeader extends React.Component {
 
@@ -95,7 +96,7 @@ class PublicationStoryHeader extends React.Component {
                             <FontAwesomeIcon icon={faPlus} size={20} color={'black'} />
                         </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingTop: 5 }}>
-                            <Text style={{ fontWeight: '600' }}>Add</Text>
+                            <Text style={{ fontWeight: '600' }}>{I18n.t('CORE.Add')}</Text>
                         </View>
                     </TouchableOpacity>
 
@@ -115,10 +116,8 @@ class PublicationStoryHeader extends React.Component {
                         )}
                     /> */}
 
-
-
-
-                    <FlatList
+                    {/* Story list only for the design */}
+                    {/* <FlatList
                         horizontal={true}
                         contentContainerStyle={{ alignItems: 'center' }}
                         showsHorizontalScrollIndicator={false}
@@ -143,7 +142,7 @@ class PublicationStoryHeader extends React.Component {
                                 </View>
                             </View>
                         )}
-                    />
+                    /> */}
 
 
 
