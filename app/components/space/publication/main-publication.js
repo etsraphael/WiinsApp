@@ -15,8 +15,8 @@ class MainPublication extends React.Component {
 
     return (
       <Modal
-        animationIn={'bounceInLeft'}
-        animationOut={'bounceInRight'}
+        animationIn={'bounceInUp'}
+        animationOut={'bounceInDown'}
         animationInTiming={1500}
         animationOutTiming={1500}
         style={styles.main_container}

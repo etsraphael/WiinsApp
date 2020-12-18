@@ -14,10 +14,11 @@ import { bindActionCreators } from 'redux'
 import { RNCamera } from 'react-native-camera'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
-  faAngleRight, faSync, faPhotoVideo, faTimes, faBolt,
-  faEnvelopeOpenText, faPaperPlane, faUserPlus, faCheckCircle,
-  faClone, faCircle
+  faSync, faPhotoVideo, faTimes, faBolt, faClone,
+  faPaperPlane, faUserPlus, faCheckCircle, faAngleDown
 } from '@fortawesome/pro-light-svg-icons'
+import { faCircle } from '@fortawesome/pro-duotone-svg-icons'
+import { faText } from '@fortawesome/pro-solid-svg-icons'
 import Video from 'react-native-video'
 import LinearGradient from 'react-native-linear-gradient'
 import { listFontPost } from '../../core/data/font-post'
@@ -632,7 +633,7 @@ class Camera extends React.Component {
               }
             </TouchableOpacity>
             <TouchableOpacity onPress={() => this.setState({ screenMode: 'PostPublication' })} style={{ paddingVertical: 18, paddingHorizontal: 15 }}>
-              <FontAwesomeIcon icon={faEnvelopeOpenText} color={'white'} size={24} />
+              <FontAwesomeIcon icon={faText} color={'white'} size={24} />
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate('PendingPublication')}
@@ -667,7 +668,7 @@ class Camera extends React.Component {
           </View>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <TouchableOpacity onPress={() => this.props.screenProps.getBack()}>
-              <FontAwesomeIcon icon={faAngleRight} color={'white'} size={39} />
+              <FontAwesomeIcon icon={faAngleDown} color={'white'} size={39} />
             </TouchableOpacity>
           </View>
         </View>
