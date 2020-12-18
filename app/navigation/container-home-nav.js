@@ -53,8 +53,8 @@ class ContainerHomeNav extends React.Component {
                             activeTintColor: 'black',
                             inactiveTintColor: '#ced4d9',
                             style: {
-                                borderTopLeftRadius: 35,
-                                borderTopRightRadius: 35,
+                                // borderTopLeftRadius: 35,
+                                // borderTopRightRadius: 35,
                                 overflow: 'hidden',
                                 backgroundColor: '#ffffff',
                                 position: 'absolute',

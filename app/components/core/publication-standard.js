@@ -360,7 +360,7 @@ class PublicationStandard extends React.Component {
         const { index } = this.props
 
         return (
-            <View style={[styles.card, this.cardMoveOn(index)]}>
+            <View style={[styles.card ]}>
                 {this._showTypePublication(publication)}
                 {this._showHeader(publication)}
                 {this._showFooter(publication)}
@@ -373,9 +373,9 @@ class PublicationStandard extends React.Component {
 const styles = StyleSheet.create({
     card: {
         flex: 1,
-        borderTopLeftRadius: 35,
-        borderTopRightRadius: 35,
         overflow: 'hidden',
+        margin: 4,
+        borderRadius: 8
     },
     container_type: {
         overflow: 'hidden',
