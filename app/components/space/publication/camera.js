@@ -662,8 +662,8 @@ class Camera extends React.Component {
           <View style={{ flex: 3, alignItems: 'center', justifyContent: 'center' }}>
             <TouchableOpacity onPress={() => this._setDuration()}
               style={{ flexDirection: 'row', borderRadius: 25, borderWidth: 1, borderColor: 'white', overflow: 'hidden' }}>
-              <Text style={[styles.text_toggle, this._choiceDurationStyle(1)]}>Story</Text>
-              <Text style={[styles.text_toggle, this._choiceDurationStyle(2)]}>Publication</Text>
+              <Text style={[styles.text_toggle, this._choiceDurationStyle(1)]}>{I18n.t('CORE.Story')}</Text>
+              <Text style={[styles.text_toggle, this._choiceDurationStyle(2)]}>{I18n.t('CORE.Publication')}</Text>
             </TouchableOpacity>
           </View>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
