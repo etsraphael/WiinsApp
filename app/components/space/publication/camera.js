@@ -30,6 +30,7 @@ import PendingPublication from './pending-publication'
 import ImagePicker from 'react-native-image-picker'
 import MyStoryMin from './my-story-min'
 import I18n from '../../../i18n/i18n'
+import CameraView from './camera-view'
 
 class Camera extends React.Component {
 
@@ -116,7 +117,6 @@ class Camera extends React.Component {
 
     if (!publicationCreated) return null
 
-
     // send story or publication
     if (this.state.ifStories) { this.props.actions.addPublicationStoryInPendingList(publicationCreated) }
     else { this.props.actions.addPublicationInPendingList(publicationCreated) }
@@ -163,46 +163,14 @@ class Camera extends React.Component {
 
   // to enable/disable the flash
   _toggleFlah = () => {
-    if (this.state.flashMode == RNCamera.Constants.FlashMode.on) {
-      this.setState({ flashMode: RNCamera.Constants.FlashMode.off })
-    } else {
-      this.setState({ flashMode: RNCamera.Constants.FlashMode.on })
-    }
+    if (this.state.flashMode == RNCamera.Constants.FlashMode.on) return this.setState({ flashMode: RNCamera.Constants.FlashMode.off })
+    else return this.setState({ flashMode: RNCamera.Constants.FlashMode.on })
   }
 
   // to switch the camera
   _switchCamera = () => {
-    if (this.state.cameraType == RNCamera.Constants.Type.back) {
-      this.setState({ cameraType: RNCamera.Constants.Type.front })
-    }
-    else {
-      this.setState({ cameraType: RNCamera.Constants.Type.back })
-    }
-  }
-
-  // to display the view of the camera
-  _viewCamera = () => {
-
-    return (
-      <RNCamera
-        ref={ref => { this.camera = ref }}
-        style={styles.preview}
-        type={this.state.cameraType}
-        flashMode={this.state.flashMode}
-        androidCameraPermissionOptions={{
-          title: 'Permission to use camera',
-          message: 'We need your permission to use your camera',
-          buttonPositive: 'Ok',
-          buttonNegative: 'Cancel',
-        }}
-        androidRecordAudioPermissionOptions={{
-          title: 'Permission to use audio recording',
-          message: 'We need your permission to use your audio',
-          buttonPositive: 'Ok',
-          buttonNegative: 'Cancel',
-        }}
-      />
-    )
+    if (this.state.cameraType == RNCamera.Constants.Type.back) return this.setState({ cameraType: RNCamera.Constants.Type.front })
+    else return this.setState({ cameraType: RNCamera.Constants.Type.back })
   }
 
   // to choose between a story and a publication
@@ -757,7 +725,7 @@ class Camera extends React.Component {
   }
 
   // to set the cursor position in the input
-  _setCursorPosition(position) {
+  _setCursorPosition(position) { 
     if (position.end == position.start) this.setState({ currentPosition: position.end })
     if (position.end == 0) {
       this.setState({ searching: false, searchContent: '' })
@@ -765,10 +733,10 @@ class Camera extends React.Component {
   }
 
   render() {
-
     return (
       <View style={{ flex: 1 }}>
-        {this._viewCamera()}
+        <CameraView cameraType={this.state.cameraType} flashMode={this.state.flashMode}/>
+        {/* Body */}
         {this._screen()}
         {this._alertMessageView()}
       </View>
@@ -778,18 +746,6 @@ class Camera extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  main_container: {
-    flex: 1,
-    backgroundColor: 'white',
-    margin: 0
-  },
-  preview: {
-    position: 'absolute',
-    bottom: 0,
-    top: 0,
-    left: 0,
-    right: 0,
-  },
   selected_duration: {
     backgroundColor: 'white',
     color: 'grey',
