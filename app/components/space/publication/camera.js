@@ -695,10 +695,10 @@ class Camera extends React.Component {
         <View style={{ flex: 3 }}></View>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <TouchableWithoutFeedback onPressIn={this.addOneSec} onPressOut={this.stopInterval}>
-            <Animated.View 
-            style={{height: this.state.zoomInAnim, aspectRatio: 1, justifyContent: 'center', alignItems: 'center'}}>
-              <FontAwesomeIcon icon={faCircle} color={'white'} width={'100%'} height={'100%'} />
-            </Animated.View>
+            <View 
+            style={{height: 65, aspectRatio: 1, justifyContent: 'center', alignItems: 'center'}}>
+              <FontAwesomeIcon icon={faCircle} color={'white'} size={75} />
+            </View>
           </TouchableWithoutFeedback>
         </View>
         <View style={{ flex: 2 }}>{this._showDefaultBtnFooter()}</View>
