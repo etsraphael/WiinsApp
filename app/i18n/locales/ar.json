@@ -566,7 +566,8 @@
     "Please-upload-the-poster-before": "يرجى تحميل ملصق الفيديو من قبل",
     "T-min-is-1$": "الحد الأدنى هو 1 دولار",
     "Missing-informations": "المعلومات المفقودة",
-    "Account_desactivated": "تم إلغاء تنشيط الحساب"
+    "Account_desactivated": "تم إلغاء تنشيط الحساب",
+    "Y-dont-have-a-conversation-yet": "ليس لديك محادثة حتى الآن."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "تم استلام الصورة",

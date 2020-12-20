@@ -608,7 +608,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Taldea utzi aurretik kudeatzailea sustatu behar duzu",
     "T-min-is-1$": "Gutxienekoa 1 $ da",
     "Missing-informations": "Informazioa falta da",
-    "Account_desactivated": "Kontua desaktibatuta"
+    "Account_desactivated": "Kontua desaktibatuta",
+    "Y-dont-have-a-conversation-yet": "Oraindik ez duzu elkarrizketarik."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Argazkia jaso da",

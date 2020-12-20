@@ -566,7 +566,8 @@
     "Please-upload-the-poster-before": "এর আগে ভিডিওর পোস্টার আপলোড করুন",
     "T-min-is-1$": "সর্বনিম্ন 1 $",
     "Missing-informations": "হারিয়ে যাওয়া তথ্য",
-    "Account_desactivated": "অ্যাকাউন্ট নিষ্ক্রিয়"
+    "Account_desactivated": "অ্যাকাউন্ট নিষ্ক্রিয়",
+    "Y-dont-have-a-conversation-yet": "আপনার এখনও কোনও কথোপকথন নেই।"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ছবিটি প্রাপ্ত হয়েছে",

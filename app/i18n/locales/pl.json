@@ -608,7 +608,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Musisz awansować menedżera przed opuszczeniem grupy",
     "T-min-is-1$": "Minimalna kwota to 1 $",
     "Missing-informations": "Brak informacji",
-    "Account_desactivated": "Konto zostało dezaktywowane"
+    "Account_desactivated": "Konto zostało dezaktywowane",
+    "Y-dont-have-a-conversation-yet": "Nie masz jeszcze rozmowy."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Zdjęcie zostało odebrane",
