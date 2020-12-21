@@ -233,21 +233,13 @@ class PublicationModal extends React.Component {
                 {this._header(publication)}
                 {this._commentContainer()}
 
-
-                {/* Blur Background */}
+                {/* Dark Background */}
                 <FastImage
                     style={{ position: 'absolute', width: '100%', height: '100%' }}
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.cover}
                 />
-
-                {/* Temporaly disabled */} 
-                {/* <BlurView
-                    blurType="light"
-                    blurAmount={15}
-                    reducedTransparencyFallbackColor="white"
-                    style={{ position: 'absolute', width: '100%', height: '100%' }}
-                /> */}
+                <View style={{position: 'absolute', width: '100%', height: '100%', backgroundColor: '#000000c9'}}/>
 
                 {/* Display Img */}
                 <FastImage
@@ -255,6 +247,7 @@ class PublicationModal extends React.Component {
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.contain}
                 />
+
                 {this.state.background_filter ? this._backgroundFilter() : null}
                 {this._footer(publication)}
             </View>
