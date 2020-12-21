@@ -106,7 +106,8 @@ class SuggestionDiscover extends React.Component {
 
     _displaySuggestionProfile = (profile) => {
         return (
-            <TouchableOpacity style={{ flexDirection: 'row', width: '100%', padding: 15 }}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Profile', { profileId: profile._id })}
+            style={{ flexDirection: 'row', width: '100%', padding: 15 }}>
                 <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
                     <View style={styles.image_container}>
                         <FastImage style={{ width: 36, height: 36, borderRadius: 25 }} resizeMode={FastImage.resizeMode.cover}
@@ -125,7 +126,8 @@ class SuggestionDiscover extends React.Component {
 
     _displaySuggestionPage = (page) => {
         return (
-            <TouchableOpacity style={{ flexDirection: 'row', width: '100%', padding: 15 }}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Page', { pageId: page._id })}
+            style={{ flexDirection: 'row', width: '100%', padding: 15 }}>
                 <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
                     <View style={styles.image_container}>
                         <FastImage style={{ width: 36, height: 36, borderRadius: 25 }} resizeMode={FastImage.resizeMode.cover}

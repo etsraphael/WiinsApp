@@ -177,16 +177,15 @@ class Discover extends React.Component {
 
     // display the suggestion menu
     _displaySuggestionView = () => {
-        return (<SuggestionDiscover/>)
-    } 
+        return (<SuggestionDiscover navigation={this.props.navigation}/>)
+    }
 
     render() {
         return (
             <View style={styles.main_container}>
                 {this._header()}
-                {this.state.search.length <= 2 ? this._displayDiscoverView() : null }
+                {this.state.search.length <= 2 ? this._displayDiscoverView() : null}
                 {this.state.search.length > 2 ? this._displaySuggestionView() : null}
-
             </View>
         );
     }
