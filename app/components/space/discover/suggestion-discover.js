@@ -162,8 +162,6 @@ class SuggestionDiscover extends React.Component {
     }
 
     _body = () => {
-
-        console.log(this.props.Search.list)
         return (
             <View style={{ height: '100%' }}>
                 <FlatList
