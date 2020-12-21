@@ -28,11 +28,6 @@ export function searchResetActions() {
 }
 
 export function discoverSearch(name) {
-
-
-    console.log(name)
-
-
     return async (dispatch) => {
         try {
             dispatch(searchStart())

@@ -30,6 +30,6 @@ export default SearchReducer = (state = initialState, action) => {
         list: []
       }
     }
-    default: return state
+    default: return { ...state }
   }
 }

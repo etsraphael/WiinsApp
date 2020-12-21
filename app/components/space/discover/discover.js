@@ -10,6 +10,7 @@ import PublicationStandard from '../../core/publication-standard'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch } from '@fortawesome/pro-light-svg-icons'
+import SuggestionDiscover from './suggestion-discover'
 
 class Discover extends React.Component {
 
@@ -164,12 +165,28 @@ class Discover extends React.Component {
         )
     }
 
+    // to select the discover view
+    _displayDiscoverView = () => {
+        return (
+            <View>
+                {this._hastagView()}
+                {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
+            </View>
+        )
+    }
+
+    // display the suggestion menu
+    _displayDiscoverView = () => {
+        return (<SuggestionDiscover/>)
+    } 
+
     render() {
         return (
             <View style={styles.main_container}>
                 {this._header()}
-                {this._hastagView()}
-                {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
+                {/* {this._displayDiscoverView()} */}
+                {this._displayDiscoverView()}
+
             </View>
         );
     }

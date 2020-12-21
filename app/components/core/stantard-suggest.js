@@ -66,8 +66,6 @@ const styles = StyleSheet.create({
         shadowRadius: 4.65,
         elevation: 6,
     },
-
-
     suggest_image: {
         width: 36,
         height: 36,
