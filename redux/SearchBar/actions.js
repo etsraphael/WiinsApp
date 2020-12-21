@@ -27,12 +27,18 @@ export function searchResetActions() {
     return async (dispatch) => dispatch(searchReset())
 }
 
-export function feedsearch(name) {
+export function discoverSearch(name) {
+
+
+    console.log(name)
+
+
     return async (dispatch) => {
         try {
             dispatch(searchStart())
+            
             const token = await AsyncStorage.getItem('userToken')
-            const url = 'https://wiins-backend.herokuapp.com/profiles?q=' + name
+            const url = `https://wiins-backend.herokuapp.com/search?q=${name}&p=1`
 
             return fetch(url, {
                 method: 'GET',

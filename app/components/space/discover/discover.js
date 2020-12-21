@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as TopHastagActions from '../../../../redux/TopHastag/actions'
 import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublications/actions'
+import * as SearchBarActions from '../../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStandard from '../../core/publication-standard'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
@@ -56,6 +57,14 @@ class Discover extends React.Component {
         this.setState({ hastagSelected: hastag, pagePublication: 1, search: '' })
     }
 
+    // to search suggestion
+    searchSuggest = (name) => {
+        this.setState({ search: name })
+        if (name.length > 3) {
+            this.props.actions.discoverSearch(name)
+        }
+    }
+
     // to select the header view of the screen
     _header = () => {
         return (
@@ -66,10 +75,9 @@ class Discover extends React.Component {
                         placeholder='Search'
                         style={styles.search_bar}
                         placeholderTextColor="#737373"
-                        onChangeText={(val) => this.setState({ search: val.replace(/\s/g, '') })}
+                        onChangeText={(val) => this.searchSuggest(val)}
                         value={this.state.search}
                         blurOnSubmit={true}
-                        onSubmitEditing={(event) => this._changeHastag(event.nativeEvent.text)}
                     />
                     <FontAwesomeIcon icon={faSearch} color={'grey'} size={21} style={{ opacity: 0.8, position: 'absolute', right: 25 }} />
                 </View>
@@ -210,7 +218,9 @@ const styles = StyleSheet.create({
     },
     search_bar: {
         fontSize: 15,
-        paddingLeft: 5
+        paddingLeft: 5,
+        paddingVertical: 15,
+        width: '100%'
     }
 })
 
@@ -224,7 +234,8 @@ const ActionCreators = Object.assign(
     {},
     MyUserActions,
     TopHastagActions,
-    DiscoverPublicationActions
+    DiscoverPublicationActions,
+    SearchBarActions
 )
 
 const mapDispatchToProps = dispatch => ({
