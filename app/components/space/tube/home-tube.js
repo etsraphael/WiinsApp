@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView } from 'react-native'
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView, StatusBar } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
@@ -33,7 +33,9 @@ class HomeTube extends React.Component {
                 {/* search bar */}
                 <View style={{ flex: 8 }}>
                     <View style={styles.container_search_bar}>
+                        <View style={styles.container_search_bar_icon}>
                         <FontAwesomeIcon icon={faSearch} color={'grey'} size={25} />
+                        </View>
                         <TextInput
                             placeholder='Search'
                             style={styles.search_bar}
@@ -187,6 +189,8 @@ class HomeTube extends React.Component {
 
     render() {
         return (
+            <>
+            <StatusBar backgroundColor="#e3e6ef" barStyle="dark-content" />
             <ScrollView style={styles.main_container}>
                 {this._headerTube()}
                 {this._categorieViews()}
@@ -194,6 +198,7 @@ class HomeTube extends React.Component {
                 {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending')}
                 {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Suggestion')}
             </ScrollView>
+            </>
         )
     }
 }
@@ -207,22 +212,32 @@ const styles = StyleSheet.create({
     header_container: {
         flexDirection: 'row',
         position: 'relative',
-        marginVertical: 5,
+        marginVertical: 10,
         paddingHorizontal: 15
     },
     container_search_bar: {
         height: 38,
         fontSize: 15,
-        paddingLeft: 15,
         flexDirection: 'row',
         borderRadius: 18,
         backgroundColor: '#f2f3f7',
         overflow: 'hidden',
+        alignItems: 'center',
+        position: 'relative'
+    },
+    container_search_bar_icon: {
+        position: 'absolute',
+        left: 0,
+        flex: 1,
+        width: 50,
+        justifyContent: 'center',
         alignItems: 'center'
     },
     search_bar: {
         fontSize: 15,
-        paddingLeft: 10
+        paddingLeft: 50,
+        flex: 1,
+        width: '100%'
     },
     container_section: {
         backgroundColor: 'white'
