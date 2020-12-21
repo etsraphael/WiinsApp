@@ -142,7 +142,6 @@ class Feed extends React.Component {
         if (!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0) {
             return (
                 <FlatList
-                    numColumns={2}
                     onScrollBeginDrag={this._onScroll}
                     data={this.props.FeedPublications.publications}
                     renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
