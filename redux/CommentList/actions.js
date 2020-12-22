@@ -1,11 +1,20 @@
 import * as ActionTypes from './constants'
+import { UPDATE_COMMENT_PUBLICATIONS_DISCOVER_SUCCESS } from './../DiscoverPublications/constants'
+import { UPDATE_COMMENT_PUBLICATIONS_FEED_SUCCESS } from './../FeedPublications/constants'
+import { UPDATE_COMMENT_PUBLICATIONS_PROFILE_SUCCESS } from './../ProfilePublications/constants'
 import AsyncStorage from '@react-native-community/async-storage'
 
-export function likeCommentSuccess(id) {
-    return {
-        type: ActionTypes.LIKE_COMMENT_SUCCESS,
-        id
+export function updateCommentStat(publicationId, space) {
+    switch (space) {
+        case 'feed': return { type: UPDATE_COMMENT_PUBLICATIONS_FEED_SUCCESS, id: publicationId }
+        case 'profile': return { type: UPDATE_COMMENT_PUBLICATIONS_PROFILE_SUCCESS, id: publicationId }
+        case 'discover': return { type: UPDATE_COMMENT_PUBLICATIONS_DISCOVER_SUCCESS, id: publicationId }
+        default: return null
     }
+}
+
+export function likeCommentSuccess(id) {
+    return { type: ActionTypes.LIKE_COMMENT_SUCCESS, id }
 }
 
 export function likeCommentStart() {
@@ -13,18 +22,11 @@ export function likeCommentStart() {
 }
 
 export function likeCommentFail(error) {
-    return {
-        type: ActionTypes.LIKE_COMMENT_FAIL,
-        payload: error,
-    }
+    return { type: ActionTypes.LIKE_COMMENT_FAIL, payload: error }
 }
 
-
 export function unlikeCommentSuccess(id) {
-    return {
-        type: ActionTypes.UNLIKE_COMMENT_SUCCESS,
-        id
-    }
+    return { type: ActionTypes.UNLIKE_COMMENT_SUCCESS, id }
 }
 
 export function unlikeCommentStart() {
@@ -32,17 +34,11 @@ export function unlikeCommentStart() {
 }
 
 export function unlikeCommentFail(error) {
-    return {
-        type: ActionTypes.UNLIKE_COMMENT_FAIL,
-        payload: error,
-    }
+    return { type: ActionTypes.UNLIKE_COMMENT_FAIL, payload: error, }
 }
 
 export function getCommentListSuccess(menu) {
-    return {
-        type: ActionTypes.GET_COMMENT_LIST_SUCCESS,
-        payload: menu
-    }
+    return { type: ActionTypes.GET_COMMENT_LIST_SUCCESS, payload: menu }
 }
 
 export function getCommentListStart() {
@@ -50,10 +46,7 @@ export function getCommentListStart() {
 }
 
 export function getCommentListFail(error) {
-    return {
-        type: ActionTypes.GET_COMMENT_LIST_FAIL,
-        payload: error,
-    }
+    return { type: ActionTypes.GET_COMMENT_LIST_FAIL, payload: error, }
 }
 
 export function resetComment() {
@@ -65,17 +58,11 @@ export function sendCommentStart() {
 }
 
 export function sendCommentSuccess(response) {
-    return {
-        type: ActionTypes.SEND_COMMENT_SUCCESS,
-        payload: response
-    }
+    return { type: ActionTypes.SEND_COMMENT_SUCCESS, payload: response }
 }
 
 export function sendCommentFail(error) {
-    return {
-        type: ActionTypes.SEND_COMMENT_FAIL,
-        payload: error,
-    }
+    return { type: ActionTypes.SEND_COMMENT_FAIL, payload: error }
 }
 
 
@@ -88,7 +75,7 @@ export function likeCommentPublication(like) {
 
             return fetch(url, {
                 method: 'POST',
-                headers: {  
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 },
@@ -114,7 +101,7 @@ export function unlikeCommentPublication(id) {
 
             return fetch(url, {
                 method: 'GET',
-                headers: {  
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 },
@@ -130,7 +117,7 @@ export function unlikeCommentPublication(id) {
     }
 }
 
-export function sendCommentToPage(comment) {
+export function sendCommentToPage(comment, space) {
     return async (dispatch) => {
         try {
             dispatch(sendCommentStart())
@@ -139,7 +126,7 @@ export function sendCommentToPage(comment) {
 
             return fetch(url, {
                 method: 'POST',
-                headers: {  
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 },
@@ -147,7 +134,10 @@ export function sendCommentToPage(comment) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 201) return dispatch(sendCommentSuccess(response.comment))
+                    if (response.status == 201) {
+                        await dispatch(updateCommentStat(comment.publicationId, space))
+                        return dispatch(sendCommentSuccess(response.comment))
+                    }
                     return dispatch(sendCommentFail(response))
                 })
         } catch (error) {
@@ -165,7 +155,7 @@ export function sendCommentToPlaylist(comment) {
 
             return fetch(url, {
                 method: 'POST',
-                headers: {  
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 },
@@ -182,7 +172,7 @@ export function sendCommentToPlaylist(comment) {
     }
 }
 
-export function sendCommentToProfile(comment) {
+export function sendCommentToProfile(comment, space) {
     return async (dispatch) => {
         try {
             dispatch(sendCommentStart())
@@ -191,7 +181,7 @@ export function sendCommentToProfile(comment) {
 
             return fetch(url, {
                 method: 'POST',
-                headers: {  
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 },
@@ -199,7 +189,10 @@ export function sendCommentToProfile(comment) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 201) return dispatch(sendCommentSuccess(response.comment))
+                    if (response.status == 201){ 
+                        await dispatch(updateCommentStat(comment.publicationId, space))
+                        return dispatch(sendCommentSuccess(response.comment))
+                    }
                     return dispatch(sendCommentFail(response))
                 })
         } catch (error) {

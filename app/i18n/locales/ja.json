@@ -566,7 +566,8 @@
     "Please-upload-the-poster-before": "前に動画のポスターをアップロードしてください",
     "T-min-is-1$": "最低額は1ドルです",
     "Missing-informations": "不足している情報",
-    "Account_desactivated": "アカウントが非アクティブ化されました"
+    "Account_desactivated": "アカウントが非アクティブ化されました",
+    "Y-dont-have-a-conversation-yet": "まだ会話はありません。"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "写真を受け取りました",

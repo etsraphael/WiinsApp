@@ -566,7 +566,8 @@
     "Please-upload-the-poster-before": "कृपया पहले वीडियो का पोस्टर अपलोड करें",
     "T-min-is-1$": "न्यूनतम 1 $ है",
     "Missing-informations": "गुम होने का संकेत",
-    "Account_desactivated": "खाता निरस्त"
+    "Account_desactivated": "खाता निरस्त",
+    "Y-dont-have-a-conversation-yet": "आपके पास अभी तक कोई वार्तालाप नहीं है।"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "फोटो प्राप्त हुआ",

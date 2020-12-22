@@ -608,7 +608,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Du skal promovere en manager, inden du forlader gruppen",
     "T-min-is-1$": "Minimumet er 1 $",
     "Missing-informations": "Manglende information",
-    "Account_desactivated": "Konto deaktiveret"
+    "Account_desactivated": "Konto deaktiveret",
+    "Y-dont-have-a-conversation-yet": "Du har ikke en samtale endnu."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Billedet er modtaget",

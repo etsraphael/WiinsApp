@@ -12,7 +12,55 @@ export default SearchReducer = (state = initialState, action) => {
     case ActionTypes.SEARCH_SUCCESS: {
       return {
         ...state,
-        list: action.payload,
+        mainlist: action.payload,
+        isLoading: false,
+        error: null,
+      }
+    }
+    case ActionTypes.COMPLETE_PROFILE_LIST: {
+      return {
+        ...state,
+        profilelist: action.payload,
+        isLoading: false,
+        error: null,
+      }
+    }
+    case ActionTypes.COMPLETE_PAGE_LIST: {
+      return {
+        ...state,
+        pagelist: action.payload,
+        isLoading: false,
+        error: null,
+      }
+    }
+    case ActionTypes.COMPLETE_GROUP_LIST: {
+      return {
+        ...state,
+        grouplist: action.payload,
+        isLoading: false,
+        error: null,
+      }
+    }
+    case ActionTypes.COMPLETE_MUSIC_LIST: {
+      return {
+        ...state,
+        musiclist: action.payload,
+        isLoading: false,
+        error: null,
+      }
+    }
+    case ActionTypes.COMPLETE_MUSIC_PROJECT_LIST: {
+      return {
+        ...state,
+        musicProjectlist: action.payload,
+        isLoading: false,
+        error: null,
+      }
+    }
+    case ActionTypes.COMPLETE_PLAYLIST_LIST: {
+      return {
+        ...state,
+        playlistlist: action.payload,
         isLoading: false,
         error: null,
       }
@@ -25,11 +73,8 @@ export default SearchReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.SEARCH_RESET: {
-      return {
-        ...state,
-        list: []
-      }
+      return initialState
     }
-    default: return state
+    default: return { ...state }
   }
 }

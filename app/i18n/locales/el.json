@@ -608,7 +608,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Πρέπει να προωθήσετε έναν διαχειριστή πριν αποχωρήσετε από την ομάδα",
     "T-min-is-1$": "Το ελάχιστο είναι 1 $",
     "Missing-informations": "Λείπουν πληροφορίες",
-    "Account_desactivated": "Ο λογαριασμός απενεργοποιήθηκε"
+    "Account_desactivated": "Ο λογαριασμός απενεργοποιήθηκε",
+    "Y-dont-have-a-conversation-yet": "Δεν έχετε συνομιλία ακόμη."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Η φωτογραφία έχει ληφθεί",

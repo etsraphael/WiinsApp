@@ -608,7 +608,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "तपाईंले समूह छोड्नु अघि प्रबन्धकलाई प्रमोट गर्नुपर्दछ",
     "T-min-is-1$": "न्यूनतम १ $ हो",
     "Missing-informations": "हराइरहेका सूचनाहरू",
-    "Account_desactivated": "खाता निष्क्रिय गरियो"
+    "Account_desactivated": "खाता निष्क्रिय गरियो",
+    "Y-dont-have-a-conversation-yet": "तपाईंसँग अहिलेसम्म कुराकानी छैन।"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "फोटो प्राप्त भयो",

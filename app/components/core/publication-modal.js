@@ -30,7 +30,8 @@ class PublicationModal extends React.Component {
             showSuggest: false,
             displayVideo: false,
             background_filter: false,
-            page: 1
+            page: 1,
+            textComment: null
         }
     }
 
@@ -78,6 +79,45 @@ class PublicationModal extends React.Component {
         }
     }
 
+    // send the comment
+    sendComment = () => {
+
+        if(!this.state.textComment) return null
+        
+        if (this.props.publicationModal.publication.profile) {
+
+            const comment = {
+                tagFriend: [],
+                text: this.state.textComment,
+                baseComment: null,
+                commentProfile: null,
+                publicationId: this.props.publicationModal.publication._id,
+                publicationProfile: this.props.publicationModal.publication.profile._id,
+                space: 'feed-publication'
+            }
+
+            this.props.actions.sendCommentToProfile(comment, this.props.publicationModal.space)
+        }
+
+        if (this.props.publicationModal.publication.page) {
+
+            const comment = {
+                tagFriend: [],
+                text: this.state.textComment,
+                baseComment: null,
+                commentProfile: null,
+                publicationId: this.props.publicationModal.publication._id,
+                publicationProfile: this.props.publicationModal.publication.page._id,
+                space: 'feed-publication'
+            }
+
+            this.props.actions.sendCommentToPage(comment, this.props.publicationModal.space)
+        }
+
+        this.setState({textComment: null})
+
+    }
+
     // to select the footer of the view 
     _footer(publication) {
         return (
@@ -101,9 +141,11 @@ class PublicationModal extends React.Component {
                     <TextInput
                         placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
                         placeholderTextColor="#FFFFFF"
-                        style={{ flex: 9, paddingLeft: 15, color: 'grey', backgroundColor: '#485164', borderRadius: 17, height: '100%' }}
+                        value={this.state.textComment}
+                        style={{ flex: 9, paddingLeft: 15, color: "#FFFFFF", backgroundColor: '#485164', borderRadius: 17, height: '100%' }}
+                        onChangeText={(val) => this.setState({textComment: val})}
                     ></TextInput>
-                    <TouchableOpacity
+                    <TouchableOpacity onPress={() => this.sendComment()}
                         style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={28} />
                     </TouchableOpacity>
@@ -129,6 +171,7 @@ class PublicationModal extends React.Component {
             </View>
         )
     }
+
     // to select the avatar for a page or profile
     _profilePicture(publication) {
 
@@ -233,21 +276,13 @@ class PublicationModal extends React.Component {
                 {this._header(publication)}
                 {this._commentContainer()}
 
-
-                {/* Blur Background */}
+                {/* Dark Background */}
                 <FastImage
                     style={{ position: 'absolute', width: '100%', height: '100%' }}
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.cover}
                 />
-
-                {/* Temporaly disabled */} 
-                {/* <BlurView
-                    blurType="light"
-                    blurAmount={15}
-                    reducedTransparencyFallbackColor="white"
-                    style={{ position: 'absolute', width: '100%', height: '100%' }}
-                /> */}
+                <View style={{position: 'absolute', width: '100%', height: '100%', backgroundColor: '#000000c9'}}/>
 
                 {/* Display Img */}
                 <FastImage
@@ -255,6 +290,7 @@ class PublicationModal extends React.Component {
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.contain}
                 />
+
                 {this.state.background_filter ? this._backgroundFilter() : null}
                 {this._footer(publication)}
             </View>

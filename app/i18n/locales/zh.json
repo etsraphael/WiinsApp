@@ -566,7 +566,8 @@
     "Please-upload-the-poster-before": "请先上传视频的海报",
     "T-min-is-1$": "最低为1 $",
     "Missing-informations": "缺少信息",
-    "Account_desactivated": "帐户已停用"
+    "Account_desactivated": "帐户已停用",
+    "Y-dont-have-a-conversation-yet": "您还没有对话。"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "收到照片",

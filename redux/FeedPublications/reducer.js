@@ -40,6 +40,13 @@ export default PublicationsReducer = (state = initialState, action) => {
         ...state
       }
     }
+    case ActionTypes.UPDATE_COMMENT_PUBLICATIONS_FEED_SUCCESS: {
+      const found = state.publications.map(x => x._id).indexOf(action.id)
+      ++state.publications[found].commentNumber
+      return {
+        ...state
+      }  
+    }
     case ActionTypes.ADD_PUBLICATIONS_FEED_SUCCESS: {
       return {
         ...state,

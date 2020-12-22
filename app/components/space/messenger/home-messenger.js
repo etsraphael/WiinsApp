@@ -1,19 +1,21 @@
 import React from 'react'
-import { StyleSheet, View, Image, TextInput, FlatList, ActivityIndicator, TouchableOpacity, Text } from 'react-native'
+import { StyleSheet, View, FlatList, ActivityIndicator, TouchableOpacity, Text } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as RoomsListActions from '../../../../redux/RoomList/actions'
 import * as SearchActions from '../../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
-import { faPlus, faSearch } from '@fortawesome/pro-light-svg-icons'
+import { faPlus } from '@fortawesome/pro-light-svg-icons'
 import OneRoomMin from './one-room-min'
 import OneRoom from './one-room'
+import { faComments } from '@fortawesome/pro-duotone-svg-icons'
 import RoomCreation from './room-creation'
 import LinearGradient from 'react-native-linear-gradient'
 import Modal from 'react-native-modal'
 import * as RoomActions from '../../../../redux/OneRoom/actions'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import I18n from '../../../i18n/i18n'
 
 class HomeMessenger extends React.Component {
 
@@ -78,28 +80,6 @@ class HomeMessenger extends React.Component {
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({ item }) => this._onSuggest(item)}
                 />
-            </View>
-        )
-    }
-
-    // to display the header of the room list
-    _headerMessenger = () => {
-        return (
-            <View style={styles.header_container}>
-
-                {/* search bar */}
-                <View style={{ flex: 1 }}>
-                    <View style={styles.container_search_bar}>
-                        <FontAwesomeIcon icon={faSearch} color={'grey'} size={25} />
-                        <TextInput
-                            placeholder='Search'
-                            style={styles.search_bar}
-                            placeholderTextColor="#737373"
-                            onChangeText={(val) => this._searching(val.replace(/\s/g, ''))}
-                        />
-                    </View>
-                </View>
-
             </View>
         )
     }
@@ -189,6 +169,20 @@ class HomeMessenger extends React.Component {
         )
     }
 
+    // to display the no room message
+    _noRoomMessage = () => {
+        return (
+            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+                <View>
+                    <View style={{justifyContent: 'center', alignItems: 'center', marginBottom: 145}}>
+                        <FontAwesomeIcon icon={faComments} color={'grey'} size={125} />
+                        <Text style={{marginVertical: 15, fontWeight: '700', color: 'grey'}}>{I18n.t('ERROR-MESSAGE.Y-dont-have-a-conversation-yet')}</Text>
+                    </View>
+                </View>
+            </View>
+        )
+    }
+
     // to display the main screen
     _roomListView = () => {
         return (
@@ -198,6 +192,11 @@ class HomeMessenger extends React.Component {
                     (this.props.RoomsList.rooms.length > 0) &&
                         (!this.props.RoomsList.isLoading) ?
                         this._renderRoomList() : null
+                }
+                {
+                    (this.props.RoomsList.rooms.length == 0) &&
+                    (!this.props.RoomsList.isLoading) ?
+                    this._noRoomMessage() : null
                 }
                 {this._btnSearch()}
                 {this.state.newMessageModal ? this._createMessageView() : null}
@@ -215,7 +214,6 @@ class HomeMessenger extends React.Component {
     render() {
         return (
             <View style={styles.main_container}>
-                {this._headerMessenger()}
                 {this._viewSelected()}
             </View>
         )
@@ -227,26 +225,6 @@ const styles = StyleSheet.create({
     main_container: {
         flex: 1,
         backgroundColor: '#e3e6ef'
-    },
-    header_container: {
-        flexDirection: 'row',
-        position: 'relative',
-        marginVertical: 5,
-        paddingHorizontal: 15
-    },
-    container_search_bar: {
-        height: 38,
-        fontSize: 15,
-        paddingLeft: 15,
-        flexDirection: 'row',
-        borderRadius: 18,
-        backgroundColor: '#f2f3f7',
-        overflow: 'hidden',
-        alignItems: 'center'
-    },
-    search_bar: {
-        fontSize: 15,
-        paddingLeft: 10
     }
 })
 

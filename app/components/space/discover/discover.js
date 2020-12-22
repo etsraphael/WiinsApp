@@ -4,11 +4,13 @@ import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as TopHastagActions from '../../../../redux/TopHastag/actions'
 import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublications/actions'
+import * as SearchBarActions from '../../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStandard from '../../core/publication-standard'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch } from '@fortawesome/pro-light-svg-icons'
+import SuggestionDiscover from './suggestion-discover'
 
 class Discover extends React.Component {
 
@@ -20,7 +22,8 @@ class Discover extends React.Component {
             pagePublication: 0,
             publicationLoading: false,
             hastagSelected: 'trend',
-            isRefreshing: false
+            isRefreshing: false,
+            actifCategory: 'All categories'
         }
     }
 
@@ -56,6 +59,22 @@ class Discover extends React.Component {
         this.setState({ hastagSelected: hastag, pagePublication: 1, search: '' })
     }
 
+    // to search suggestion
+    searchSuggest = (name) => {
+        this.setState({ search: name })
+        if (name.length > 3) {
+            switch (this.state.actifCategory) {
+                case 'All categories': this.props.actions.discoverSearch(name); break;
+                case 'Profile': this.props.actions.discoverSearchWithCategory(name, 'ProfileSuggestion'); break;
+                case 'Page': this.props.actions.discoverSearchWithCategory(name, 'PageSuggestion'); break;
+                case 'Group': this.props.actions.discoverSearchWithCategory(name, 'GroupSuggestion'); break;
+                case 'Music': this.props.actions.discoverSearchWithCategory(name, 'MusicSuggestion'); break;
+                case 'MusicProject': this.props.actions.discoverSearchWithCategory(name, 'MusicProjectSuggestion'); break;
+                default: return null
+            }
+        }
+    }
+
     // to select the header view of the screen
     _header = () => {
         return (
@@ -66,10 +85,9 @@ class Discover extends React.Component {
                         placeholder='Search'
                         style={styles.search_bar}
                         placeholderTextColor="#737373"
-                        onChangeText={(val) => this.setState({ search: val.replace(/\s/g, '') })}
+                        onChangeText={(val) => this.searchSuggest(val)}
                         value={this.state.search}
                         blurOnSubmit={true}
-                        onSubmitEditing={(event) => this._changeHastag(event.nativeEvent.text)}
                     />
                     <FontAwesomeIcon icon={faSearch} color={'grey'} size={21} style={{ opacity: 0.8, position: 'absolute', right: 25 }} />
                 </View>
@@ -156,12 +174,27 @@ class Discover extends React.Component {
         )
     }
 
+    // to select the discover view
+    _displayDiscoverView = () => {
+        return (
+            <View>
+                {this._hastagView()}
+                {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
+            </View>
+        )
+    }
+
+    // display the suggestion menu
+    _displaySuggestionView = () => {
+        return (<SuggestionDiscover navigation={this.props.navigation} currentSearch={this.state.search} searchFilterUpdated={ actifCategory => this.setState({ actifCategory }) }/>)
+    }
+
     render() {
         return (
             <View style={styles.main_container}>
                 {this._header()}
-                {this._hastagView()}
-                {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
+                {this.state.search.length <= 2 ? this._displayDiscoverView() : null}
+                {this.state.search.length > 2 ? this._displaySuggestionView() : null}
             </View>
         );
     }
@@ -210,7 +243,9 @@ const styles = StyleSheet.create({
     },
     search_bar: {
         fontSize: 15,
-        paddingLeft: 5
+        paddingLeft: 5,
+        paddingVertical: 15,
+        width: '100%'
     }
 })
 
@@ -224,7 +259,8 @@ const ActionCreators = Object.assign(
     {},
     MyUserActions,
     TopHastagActions,
-    DiscoverPublicationActions
+    DiscoverPublicationActions,
+    SearchBarActions
 )
 
 const mapDispatchToProps = dispatch => ({

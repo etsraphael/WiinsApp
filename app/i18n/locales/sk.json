@@ -608,7 +608,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Pred opustením skupiny musíte povýšiť manažéra",
     "T-min-is-1$": "Minimum je 1 $",
     "Missing-informations": "Chýbajúce informácie",
-    "Account_desactivated": "Účet bol deaktivovaný"
+    "Account_desactivated": "Účet bol deaktivovaný",
+    "Y-dont-have-a-conversation-yet": "Zatiaľ nemáte konverzáciu."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotka je prijatá",
