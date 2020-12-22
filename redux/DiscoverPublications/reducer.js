@@ -28,7 +28,7 @@ export default PublicationsDiscoverReducer = (state = initialState, action) => {
       const found = state.publications.map(x => x._id).indexOf(action.id)
       state.publications[found].like.isLike = true
       ++state.publications[found].like.likeNumber
-      return { 
+      return {
         ...state
       }
     }
@@ -36,7 +36,14 @@ export default PublicationsDiscoverReducer = (state = initialState, action) => {
       const found = state.publications.map(x => x._id).indexOf(action.id)
       state.publications[found].like.isLike = false
       --state.publications[found].like.likeNumber
-      return { 
+      return {
+        ...state
+      }
+    }
+    case ActionTypes.UPDATE_COMMENT_PUBLICATIONS_DISCOVER_SUCCESS: {
+      const found = state.publications.map(x => x._id).indexOf(action.id)
+      ++state.publications[found].commentNumber
+      return {
         ...state
       }
     }

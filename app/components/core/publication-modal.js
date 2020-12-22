@@ -96,7 +96,7 @@ class PublicationModal extends React.Component {
                 space: 'feed-publication'
             }
 
-            this.props.actions.sendCommentToProfile(comment)
+            this.props.actions.sendCommentToProfile(comment, this.props.publicationModal.space)
         }
 
         if (this.props.publicationModal.publication.page) {
@@ -111,7 +111,7 @@ class PublicationModal extends React.Component {
                 space: 'feed-publication'
             }
 
-            this.props.actions.sendCommentToPage(comment)
+            this.props.actions.sendCommentToPage(comment, this.props.publicationModal.space)
         }
 
         this.setState({textComment: null})
