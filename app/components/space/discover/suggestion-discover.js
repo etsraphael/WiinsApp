@@ -19,6 +19,16 @@ class SuggestionDiscover extends React.Component {
 
     _changeCategory = (name) => {
         this.setState({ actifCategory: name })
+        this.props.searchFilterUpdated(name)
+        switch (name) {
+            case 'All categories': return this.props.actions.discoverSearch(this.props.currentSearch)
+            case 'Profile': return this.props.actions.discoverSearchWithCategory(this.props.currentSearch, 'ProfileSuggestion')
+            case 'Page': return this.props.actions.discoverSearchWithCategory(this.props.currentSearch, 'PageSuggestion')
+            case 'Group': return this.props.actions.discoverSearchWithCategory(this.props.currentSearch, 'GroupSuggestion')
+            case 'Music': return this.props.actions.discoverSearchWithCategory(this.props.currentSearch, 'MusicSuggestion')
+            case 'MusicProject': return this.props.actions.discoverSearchWithCategory(this.props.currentSearch, 'MusicProjectSuggestion')
+            default: return null
+        }
     }
 
     _activeColorCategory(item) {
@@ -107,7 +117,7 @@ class SuggestionDiscover extends React.Component {
     _displaySuggestionProfile = (profile) => {
         return (
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Profile', { profileId: profile._id })}
-            style={{ flexDirection: 'row', width: '100%', padding: 15 }}>
+                style={{ flexDirection: 'row', width: '100%', padding: 15 }}>
                 <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
                     <View style={styles.image_container}>
                         <FastImage style={{ width: 36, height: 36, borderRadius: 25 }} resizeMode={FastImage.resizeMode.cover}
@@ -127,7 +137,7 @@ class SuggestionDiscover extends React.Component {
     _displaySuggestionPage = (page) => {
         return (
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Page', { pageId: page._id })}
-            style={{ flexDirection: 'row', width: '100%', padding: 15 }}>
+                style={{ flexDirection: 'row', width: '100%', padding: 15 }}>
                 <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
                     <View style={styles.image_container}>
                         <FastImage style={{ width: 36, height: 36, borderRadius: 25 }} resizeMode={FastImage.resizeMode.cover}
@@ -163,11 +173,23 @@ class SuggestionDiscover extends React.Component {
         )
     }
 
+    _displayData = () => {
+        switch (this.state.actifCategory) {
+            case 'All categories': return this.props.Search.mainlist
+            case 'Profile': return this.props.Search.profilelist
+            case 'Page': return this.props.Search.pagelist
+            case 'Group': return this.props.Search.grouplist
+            case 'Music': return this.props.Search.musiclist
+            case 'MusicProject': return this.props.Search.musicProjectlist
+            default: return null
+        }
+    }
+
     _body = () => {
         return (
             <View style={{ height: '100%' }}>
                 <FlatList
-                    data={this.props.Search.list}
+                    data={this._displayData()}
                     keyExtractor={(item) => item.toString()}
                     renderItem={({ item }) => this._showSuggestion(item)}
                 />
@@ -183,6 +205,7 @@ class SuggestionDiscover extends React.Component {
             </View>
         );
     }
+
 }
 
 const styles = StyleSheet.create({

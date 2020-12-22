@@ -22,7 +22,8 @@ class Discover extends React.Component {
             pagePublication: 0,
             publicationLoading: false,
             hastagSelected: 'trend',
-            isRefreshing: false
+            isRefreshing: false,
+            actifCategory: 'All categories'
         }
     }
 
@@ -62,7 +63,15 @@ class Discover extends React.Component {
     searchSuggest = (name) => {
         this.setState({ search: name })
         if (name.length > 3) {
-            this.props.actions.discoverSearch(name)
+            switch (this.state.actifCategory) {
+                case 'All categories': this.props.actions.discoverSearch(name); break;
+                case 'Profile': this.props.actions.discoverSearchWithCategory(name, 'ProfileSuggestion'); break;
+                case 'Page': this.props.actions.discoverSearchWithCategory(name, 'PageSuggestion'); break;
+                case 'Group': this.props.actions.discoverSearchWithCategory(name, 'GroupSuggestion'); break;
+                case 'Music': this.props.actions.discoverSearchWithCategory(name, 'MusicSuggestion'); break;
+                case 'MusicProject': this.props.actions.discoverSearchWithCategory(name, 'MusicProjectSuggestion'); break;
+                default: return null
+            }
         }
     }
 
@@ -177,7 +186,7 @@ class Discover extends React.Component {
 
     // display the suggestion menu
     _displaySuggestionView = () => {
-        return (<SuggestionDiscover navigation={this.props.navigation}/>)
+        return (<SuggestionDiscover navigation={this.props.navigation} currentSearch={this.state.search} searchFilterUpdated={ actifCategory => this.setState({ actifCategory }) }/>)
     }
 
     render() {
