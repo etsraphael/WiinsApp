@@ -13,7 +13,7 @@ class CameraView extends React.Component {
   render() {
     return (
       <RNCamera
-        ref={ref => { this.camera = ref }}
+        ref={ref => { this.props.refCamera(ref) }}
         style={styles.preview}
         type={this.props.cameraType}
         flashMode={this.props.flashMode}

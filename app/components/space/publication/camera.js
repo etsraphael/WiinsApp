@@ -192,8 +192,6 @@ class Camera extends React.Component {
   // to take a picture
   _takePicture = async () => {
 
-
-    alert('look here')
     if (this.camera) {
       let options
 
@@ -648,8 +646,8 @@ class Camera extends React.Component {
         <View style={{ flex: 3 }}></View>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <TouchableWithoutFeedback onPressIn={this.addOneSec} onPressOut={this.stopInterval}>
-            <View 
-            style={{height: 65, aspectRatio: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <View
+              style={{ height: 65, aspectRatio: 1, justifyContent: 'center', alignItems: 'center' }}>
               <FontAwesomeIcon icon={faCircle} color={'white'} size={75} />
             </View>
           </TouchableWithoutFeedback>
@@ -709,7 +707,7 @@ class Camera extends React.Component {
   }
 
   // to set the cursor position in the input
-  _setCursorPosition(position) { 
+  _setCursorPosition(position) {
     if (position.end == position.start) this.setState({ currentPosition: position.end })
     if (position.end == 0) {
       this.setState({ searching: false, searchContent: '' })
@@ -719,7 +717,11 @@ class Camera extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <CameraView cameraType={this.state.cameraType} flashMode={this.state.flashMode}/>
+        <CameraView
+          cameraType={this.state.cameraType}
+          flashMode={this.state.flashMode}
+          refCamera={ref => this.camera = ref}
+        />
         {/* Body */}
         {this._screen()}
         {this._alertMessageView()}
