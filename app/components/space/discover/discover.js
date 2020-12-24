@@ -75,7 +75,7 @@ class Discover extends React.Component {
         }
     }
 
-    // to select the header view of the screen
+    // to display the header view of the screen
     _header = () => {
         return (
             <View style={styles.header_container}>

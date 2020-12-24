@@ -104,28 +104,25 @@ class HomeMusic extends React.Component {
         // this.props.actions.getMusicMenu()
     }
 
-    // to display the header view
-    _headerMusic = () => {
-        return (
-            <View style={styles.header_container}>
-
-                {/* search bar */}
-                <View style={{ flex: 1 }}>
+        // to display the header view of the screen
+        _header = () => {
+            return (
+                <View style={styles.header_container}>
+                    {/* search bar */}
                     <View style={styles.container_search_bar}>
                         <TextInput
                             placeholder='Search'
                             style={styles.search_bar}
                             placeholderTextColor="#737373"
+                            onChangeText={(val) => this.searchSuggest(val)}
+                            value={this.state.search}
+                            blurOnSubmit={true}
                         />
-                        <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faSearch} color={'grey'} size={25} />
-                        </View>
+                        <FontAwesomeIcon icon={faSearch} color={'grey'} size={21} style={{ opacity: 0.8, position: 'absolute', right: 25 }} />
                     </View>
                 </View>
-
-            </View>
-        )
-    }
+            )
+        }
 
     // to display the loading animation
     _displayLoading() {
@@ -262,7 +259,7 @@ class HomeMusic extends React.Component {
         return (
             <ScrollView style={styles.main_container}>
                 {/*  search bar */}
-                {this._headerMusic()}
+                {this._header()}
                 {/* categorie playslit */}
                 {this._categorieViews()}
                 {/* chart playslit */}
@@ -275,31 +272,31 @@ class HomeMusic extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
-        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 0,
+        backgroundColor: '#f9fafc',
     },
     container_section: {
-        backgroundColor: 'white'
+        backgroundColor: '#f9fafc',
     },
     header_container: {
-        flexDirection: 'row',
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10,
+        paddingBottom: 15,
+        paddingHorizontal: 25,
+        backgroundColor: '#f9fafc',
+        borderBottomRightRadius: 25,
+        borderBottomLeftRadius: 25,
         position: 'relative',
-        marginVertical: 5,
-        paddingHorizontal: 15
+        borderWidth: 0.3,
+        borderColor: '#c3c3c36e'
     },
     container_search_bar: {
-        height: 38,
+        height: 45,
         fontSize: 15,
-        paddingLeft: 25,
+        paddingLeft: 15,
         flexDirection: 'row',
-        borderRadius: 18,
-        backgroundColor: '#f2f3f7',
+        borderRadius: 25,
+        backgroundColor: '#edf1f3',
         overflow: 'hidden',
         alignItems: 'center'
-    },
-    search_bar: {
-        fontSize: 15,
-        paddingLeft: 10,
-        flex: 7
     },
     body_container: {
         paddingVertical: 20
