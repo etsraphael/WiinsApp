@@ -120,12 +120,8 @@ class PublicationModal extends React.Component {
     }
 
     _displayIconLikeColor = () => {
-        if (this.props.publicationModal.publication.like.isLike) {
-            return 'red'
-        }
-        else {
-            return 'white'
-        }
+        if (this.props.publicationModal.publication.like.isLike) return 'red'
+        else return 'white'
     }
 
     // to select the footer of the view 
@@ -377,6 +373,7 @@ class PublicationModal extends React.Component {
 
     // to like or dislike publication
     _likeBtn() {
+        
         if (!this.props.publicationModal.publication.like.isLike) {
 
             let like
@@ -384,46 +381,37 @@ class PublicationModal extends React.Component {
             if (this.props.publicationModal.publication.profile) {
                 like = {
                     publicationProfile: this.props.publicationModal.publication.profile._id,
-                    type: 'publication',
-                    publicationId: this.props.publicationModal.publication._id,
+                    type: 'feed-publication',
+                    publicationID: this.props.publicationModal.publication._id,
                     ownerType: 'profile',
                     hastags: this.props.publicationModal.publication.hastags
                 }
             } else {
                 like = {
                     publicationProfile: this.props.publicationModal.publication.page._id,
-                    type: 'publication',
-                    publicationId: this.props.publicationModal.publication._id,
+                    type: 'feed-publication',
+                    publicationID: this.props.publicationModal.publication._id,
                     ownerType: 'page',
                     hastags: this.props.publicationModal.publication.hastags
                 }
             }
 
-            if (this.props.publicationModal.space == 'feed') {
-                return this.props.actions.likePublicationFeed(like)
-            }
 
-            if (this.props.publicationModal.space == 'profile') {
-                return this.props.actions.likePublicationProfile(like)
+            
+            switch (this.props.publicationModal.space) {
+                case 'feed': return this.props.actions.likePublicationFeed(like)
+                case 'profile': return this.props.actions.likePublicationProfile(like)
+                case 'discover': return this.props.actions.likePublicationDiscover(like)
+                default: return null
             }
-
-            if (this.props.publicationModal.space == 'discover') {
-                return this.props.actions.likePublicationDiscover(like)
-            }
-
 
         } else {
 
-            if (this.props.publicationModal.space == 'feed') {
-                return this.props.actions.unlikePublicationFeed(this.props.publicationModal.publication._id)
-            }
-
-            if (this.props.publicationModal.space == 'profile') {
-                return this.props.actions.unlikePublicationProfile(this.props.publicationModal.publication._id)
-            }
-
-            if (this.props.publicationModal.space == 'discover') {
-                return this.props.actions.unlikePublicationDiscover(this.props.publicationModal.publication._id)
+            switch (this.props.publicationModal.space) {
+                case 'feed': return this.props.actions.unlikePublicationFeed(this.props.publicationModal.publication._id)
+                case 'profile': return this.props.actions.unlikePublicationProfile(this.props.publicationModal.publication._id)
+                case 'discover': return this.props.actions.unlikePublicationDiscover(this.props.publicationModal.publication._id)
+                default: return null
             }
 
         }
@@ -509,9 +497,9 @@ const mapStateToProps = state => ({
     MyProfile: state.MyProfile.profile,
     CommentList: state.CommentList,
     SearchList: state.Search,
-    PublicationFeed: state.PublicationFeed,
-    publicationProfile: state.publicationProfile,
-    DiscoverPublication: state.DiscoverPublication
+    FeedPublications: state.FeedPublications,
+    ProfilePublications: state.ProfilePublications,
+    DiscoverPublications: state.DiscoverPublications,
 })
 
 const ActionCreators = Object.assign(
