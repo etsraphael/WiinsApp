@@ -205,7 +205,7 @@ class PublicationModal extends React.Component {
                     />
                     <View style={{ justifyContent: 'center' }}>
                         <Text style={{ color: 'white', fontWeight: '600', fontFamily: 'Avenir-Heavy', fontSize: 17 }}>{publication.page.name}</Text>
-                        <Text style={{ color: 'white', fontWeight: '300', fontFamily: 'Avenir-Heavy', fontSize: 15 }}>...date...</Text>
+                        <Text style={{ color: 'white', fontWeight: '300', fontFamily: 'Avenir-Heavy', fontSize: 15 }}>{getDateTranslated(publication.createdAt)}</Text>
                     </View>
                 </TouchableOpacity>
             )
