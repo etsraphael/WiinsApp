@@ -114,7 +114,8 @@ class HomeMusic extends React.Component {
                 { code: 6, name: 'Alternative', key: 'alternative' },
             ],
             playlistZoneSelected: 'discover',
-            categoryZoneSelected: 'rap'
+            categoryZoneSelected: 'rap',
+            search: ''
         }
     }
 
@@ -133,7 +134,6 @@ class HomeMusic extends React.Component {
                         placeholder='Search'
                         style={styles.search_bar}
                         placeholderTextColor="#737373"
-                        onChangeText={(val) => this.searchSuggest(val)}
                         value={this.state.search}
                         blurOnSubmit={true}
                     />
@@ -214,16 +214,16 @@ class HomeMusic extends React.Component {
         this.setState({ playlistZoneSelected: key })
     }
 
-        // to color the place selected
-        _actifCategoryZoneSelected = (key) => {
-            if (key == this.state.categoryZoneSelected) return { color: '#241C50' }
-            else return null
-        }
-    
-        // change to actif zone
-        _changeCategoryZone = (key) => {
-            this.setState({ categoryZoneSelected: key })
-        }
+    // to color the place selected
+    _actifCategoryZoneSelected = (key) => {
+        if (key == this.state.categoryZoneSelected) return { color: '#241C50' }
+        else return null
+    }
+
+    // change to actif zone
+    _changeCategoryZone = (key) => {
+        this.setState({ categoryZoneSelected: key })
+    }
 
     // to display a playlist row about a category
     _categorieViews = () => {
