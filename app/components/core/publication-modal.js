@@ -18,7 +18,8 @@ import Video from 'react-native-video'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { getDateTranslated } from '../../services/translation/translation-service'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faTimes, faCommentLines, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
+import { faTimes, faCommentLines, faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
+
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import I18n from '../../i18n/i18n'
 
@@ -39,7 +40,7 @@ class PublicationModal extends React.Component {
         this.eventListener = DeviceEventEmitter.addListener('toggleSuggest', this.toggleSuggest);
     }
 
-    _loadComment(){
+    _loadComment() {
         this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
         this.setState({ page: 2, background_filter: true })
     }
@@ -82,8 +83,8 @@ class PublicationModal extends React.Component {
     // send the comment
     sendComment = () => {
 
-        if(!this.state.textComment) return null
-        
+        if (!this.state.textComment) return null
+
         if (this.props.publicationModal.publication.profile) {
 
             const comment = {
@@ -114,43 +115,50 @@ class PublicationModal extends React.Component {
             this.props.actions.sendCommentToPage(comment, this.props.publicationModal.space)
         }
 
-        this.setState({textComment: null})
+        this.setState({ textComment: null })
 
+    }
+
+    _displayIconLikeColor = () => {
+        if (this.props.publicationModal.publication.like.isLike) {
+            return 'red'
+        }
+        else {
+            return 'white'
+        }
     }
 
     // to select the footer of the view 
     _footer(publication) {
         return (
             <View style={styles.container_footer}>
-
-                {this.state.page == 1 ?
-                    <View style={{ flex: 1, paddingLeft: 25, alignItems: 'flex-end' }}>
-                        <View style={{ flexDirection: 'row', flex: 1, paddingRight: 15, paddingBottom: 15 }}>
-                            <TouchableOpacity style={{ flexDirection: 'row', marginRight: 8 }} onPress={() => this._loadComment()}>
+                <View style={{ flex: 1, flexDirection: 'row', height: 52, paddingHorizontal: 25 }}>
+                    <View style={{ flexDirection: 'row', flex: 7, backgroundColor: '#464646a8', borderRadius: 20 }}>
+                        <TextInput
+                            placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
+                            placeholderTextColor="#FFFFFF"
+                            value={this.state.textComment}
+                            style={{ flex: 9, paddingLeft: 15, color: "#FFFFFF", borderRadius: 17, height: '100%' }}
+                            onChangeText={(val) => this.setState({ textComment: val })}
+                        />
+                        <TouchableOpacity onPress={() => this._likeBtn()}
+                        style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
+                            <FontAwesomeIcon icon={faHeart} color={this._displayIconLikeColor()} size={19} />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ flex: 2, paddingLeft: 25, alignItems: 'center' }}>
+                        <View style={{ flex: 1, flexDirection: 'row' }}>
+                            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }} onPress={() => this._loadComment()}>
                                 <FontAwesomeIcon icon={faCommentLines} color={'white'} size={19} />
                                 <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._likeBtn()}>
-                                <FontAwesomeIcon icon={faHeart} color={'white'} size={19} />
-                                <Text style={{ marginLeft: 7, fontSize: 15, color: 'white' }}>{publication.like.likeNumber}</Text>
+                            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}>
+                                <FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />
+                                <Text style={{ fontSize: 15, color: 'white', paddingLeft: 7 }}>{publication.like.likeNumber}</Text>
                             </TouchableOpacity>
                         </View>
-                    </View> : null}
-
-                <View style={{ flex: 1, flexDirection: 'row', height: 39 }}>
-                    <TextInput
-                        placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
-                        placeholderTextColor="#FFFFFF"
-                        value={this.state.textComment}
-                        style={{ flex: 9, paddingLeft: 15, color: "#FFFFFF", backgroundColor: '#485164', borderRadius: 17, height: '100%' }}
-                        onChangeText={(val) => this.setState({textComment: val})}
-                    ></TextInput>
-                    <TouchableOpacity onPress={() => this.sendComment()}
-                        style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={28} />
-                    </TouchableOpacity>
+                    </View>
                 </View>
-
             </View>
         )
     }
@@ -282,7 +290,7 @@ class PublicationModal extends React.Component {
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.cover}
                 />
-                <View style={{position: 'absolute', width: '100%', height: '100%', backgroundColor: '#000000c9'}}/>
+                <View style={{ position: 'absolute', width: '100%', height: '100%', backgroundColor: '#000000c9' }} />
 
                 {/* Display Img */}
                 <FastImage
