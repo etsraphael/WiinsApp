@@ -98,7 +98,7 @@ class HomeMusic extends React.Component {
                 }
             ],
             playlistZone: [
-                { code: 1, name: 'Lastest', key: 'lastest' },
+                { code: 1, name: 'Lastest', key: 'lastestPlaylist' },
                 { code: 2, name: 'Favorites', key: 'favorites' },
                 { code: 3, name: 'Workout', key: 'workout' },
                 { code: 4, name: 'Chill', key: 'chill' },
@@ -113,7 +113,7 @@ class HomeMusic extends React.Component {
                 { code: 5, name: 'Kpop', key: 'kpop' },
                 { code: 6, name: 'Alternative', key: 'alternative' },
             ],
-            playlistZoneSelected: 'lastest',
+            playlistZoneSelected: 'lastestPlaylist',
             categoryZoneSelected: 'rap',
             search: ''
         }
@@ -121,7 +121,7 @@ class HomeMusic extends React.Component {
 
 
     componentDidMount() {
-        // this.props.actions.getMusicMenu()
+        this.props.actions.getMusicMenu()
     }
 
     // to display the header view of the screen
@@ -143,30 +143,18 @@ class HomeMusic extends React.Component {
         )
     }
 
-    // to display the loading animation
-    _displayLoading() {
-        return (
-            <View style={styles.loading_container}>
-                <ActivityIndicator size='large' color="grey" />
-            </View>
-        )
-    }
-
     // to display the list of the playlist
-    _showPlaylistList = (tubeList) => {
+    _showPlaylistList = () => {
         return (
-            <View style={{ paddingBottom: 5 }}>
-
-                <View style={{ flexDirection: 'row' }}>
-                    <FlatList
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                        style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 19 }}
-                        data={tubeList}
-                        keyExtractor={(item) => item.id.toString()}
-                        renderItem={({ item }) => this._onePlayListRender(item)}
-                    />
-                </View>
+            <View style={{ paddingBottom: 5, height: 180 }}>
+                <FlatList
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 19 }}
+                    data={this.props.MyMenu.menu.playlitsSuggestion[this.state.playlistZoneSelected]}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({ item }) => this._onePlayListRender(item)}
+                />
             </View>
         )
     }
@@ -183,17 +171,16 @@ class HomeMusic extends React.Component {
                 {/* Background Image */}
                 <FastImage
                     style={{ width: '100%', height: '100%', borderRadius: 8 }} resizeMode={FastImage.resizeMode.cover}
-                    source={{ uri: playlist.playlistImg, priority: FastImage.priority.normal }}
+                    source={{ uri: playlist.picture, priority: FastImage.priority.normal }}
                 />
 
                 {/* Footer Card */}
-                <View style={{ position: 'absolute', bottom: 0, width: '100%', height: 70, }}>
+                <View style={{ position: 'absolute', bottom: 0, width: '100%', height: 50, }}>
                     <LinearGradient
                         colors={['#fbfbfb00', '#bdc3c72e', '#2c3e50d1']}
                         style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, height: '100%', borderBottomEndRadius: 8, borderBottomStartRadius: 8 }}>
                         <View style={{ paddingLeft: 5 }}>
-                            <Text style={{ color: '#FFFFFF', fontSize: 16, fontWeight: '800', paddingVertical: 2 }}>{playlist.title}</Text>
-                            <Text style={{ color: '#FFFFFF', fontSize: 13, fontWeight: '400', paddingVertical: 2 }}>{playlist.username}</Text>
+                            <Text style={{ color: '#FFFFFF', fontSize: 16, fontWeight: '800', paddingVertical: 2 }}>{playlist.name}</Text>
                         </View>
                     </LinearGradient>
                 </View>
@@ -246,9 +233,8 @@ class HomeMusic extends React.Component {
                     />
                 </View>
 
-                {/* Playlist List */}
-                {this._showPlaylistList(this.state.fakePlaylist)}
-
+                {/* Playlist choosed */}
+                {this._showPlaylistList()}
 
             </View>
         )
@@ -296,18 +282,35 @@ class HomeMusic extends React.Component {
         )
     }
 
+    // to display the loading animation
+    _displayLoading = () => {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 115 }}>
+                <ActivityIndicator size='large' color="grey" />
+            </View>
+        )
+    }
+
+    _displayContentView = () => {
+        return (<View>
+            {/* categorie playslit */}
+            {this._categorieViews()}
+            {/* chart playslit */}
+            {this._chartViews()}
+        </View>)
+    }
+
     render() {
         return (
             <ScrollView style={styles.main_container}>
                 {/*  search bar */}
                 {this._header()}
-                {/* categorie playslit */}
-                {this._categorieViews()}
-                {/* chart playslit */}
-                {this._chartViews()}
+                {/* Body */}
+                {this.props.MyMenu.isLoading ? this._displayLoading() : this._displayContentView()}
             </ScrollView>
         )
     }
+
 }
 
 const styles = StyleSheet.create({
