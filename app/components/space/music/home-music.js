@@ -17,44 +17,6 @@ class HomeMusic extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            fakePlaylist: [
-                {
-                    id: '1',
-                    playlistImg: 'https://images.unsplash.com/photo-1597338932254-eb058b7ca878?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
-                    title: 'project1',
-                    username: 'jake_27'
-                },
-                {
-                    id: '2',
-                    playlistImg: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
-                    title: 'project2',
-                    username: 'jake_27'
-                },
-                {
-                    id: '3',
-                    playlistImg: 'https://images.unsplash.com/photo-1543840950-e6529649ce74?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
-                    title: 'project3',
-                    username: 'jake_27'
-                },
-                {
-                    id: '4',
-                    playlistImg: 'https://images.unsplash.com/photo-1583283520786-2d5119461c7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
-                    title: 'project4',
-                    username: 'jake_27'
-                },
-                {
-                    id: '5',
-                    playlistImg: 'https://images.unsplash.com/photo-1510914828947-36f754990aa5?ixlib=rb-1.2.1&auto=format&fit=crop&w=3289&q=80',
-                    title: 'project5',
-                    username: 'jake_27'
-                },
-                {
-                    id: '6',
-                    playlistImg: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2252&q=80',
-                    title: 'project5',
-                    username: 'jake_27'
-                },
-            ],
             fakeMusiclist: [
                 {
                     id: '1',
@@ -164,7 +126,7 @@ class HomeMusic extends React.Component {
 
         return (
             <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('PlaylistPage', { playlistId: '5f7ac5ebbbb5d000314fe647' })}
+                onPress={() => this.props.navigation.navigate('PlaylistPage', { playlistId: playlist._id })}
                 style={styles.onePlaylistContainer}
             >
 
