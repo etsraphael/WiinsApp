@@ -98,7 +98,7 @@ class HomeMusic extends React.Component {
                 }
             ],
             playlistZone: [
-                { code: 1, name: 'Discover', key: 'discover' },
+                { code: 1, name: 'Lastest', key: 'lastest' },
                 { code: 2, name: 'Favorites', key: 'favorites' },
                 { code: 3, name: 'Workout', key: 'workout' },
                 { code: 4, name: 'Chill', key: 'chill' },
@@ -113,7 +113,7 @@ class HomeMusic extends React.Component {
                 { code: 5, name: 'Kpop', key: 'kpop' },
                 { code: 6, name: 'Alternative', key: 'alternative' },
             ],
-            playlistZoneSelected: 'discover',
+            playlistZoneSelected: 'lastest',
             categoryZoneSelected: 'rap',
             search: ''
         }
