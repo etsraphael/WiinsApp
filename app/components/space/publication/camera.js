@@ -42,7 +42,6 @@ class Camera extends React.Component {
       ifStories: true,
       screenMode: 'default',
       secondNumber: 0,
-      zoomInAnim: new Animated.Value(65),
       pictureData: null,
       videoData: null,
       isRecording: false,
@@ -192,6 +191,7 @@ class Camera extends React.Component {
 
   // to take a picture
   _takePicture = async () => {
+
     if (this.camera) {
       let options
 
@@ -425,12 +425,12 @@ class Camera extends React.Component {
 
   // to display the profile list container
   _listSuggestView = () => {
-    if (this.props.SearchList.list.length > 0) {
+    if (this.props.SearchList.mainlist.length > 0) {
       return (
         <View style={{ top: '13%', position: 'absolute', width: '100%', backgroundColor: 'white', borderRadius: 15, overflow: 'hidden' }}>
           <FlatList
             style={styles.list}
-            data={this.props.SearchList.list}
+            data={this.props.SearchList.mainlist}
             keyExtractor={(item) => item._id.toString()}
             renderItem={({ item }) => (<TagSuggest suggest={item} />)}
           />
@@ -524,25 +524,8 @@ class Camera extends React.Component {
     )
   }
 
-  // to set the zoomIn effect
-  zoomIn = () => {
-    Animated.timing(this.state.zoomInAnim, {
-      toValue: 85,
-      duration: 500
-    }).start()
-  }
-
-  // to set the zoomOut effect
-  zoomOut = () => {
-    Animated.timing(this.state.zoomInAnim, {
-      toValue: 65,
-      duration: 200
-    }).start()
-  }
-
   // to add one more sec of the recording
   addOneSec = () => {
-    this.zoomIn()
     this.interval = setInterval(() => {
       this.setState({ secondNumber: this.state.secondNumber + 0.5 })
       if (this.state.secondNumber == 1) { this._startRecording() }
@@ -563,7 +546,6 @@ class Camera extends React.Component {
     // reset the param
     this.setState({ secondNumber: 0 })
     clearInterval(this.interval)
-    this.zoomOut()
   }
 
   // to go to my stories
@@ -664,8 +646,8 @@ class Camera extends React.Component {
         <View style={{ flex: 3 }}></View>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <TouchableWithoutFeedback onPressIn={this.addOneSec} onPressOut={this.stopInterval}>
-            <View 
-            style={{height: 65, aspectRatio: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <View
+              style={{ height: 65, aspectRatio: 1, justifyContent: 'center', alignItems: 'center' }}>
               <FontAwesomeIcon icon={faCircle} color={'white'} size={75} />
             </View>
           </TouchableWithoutFeedback>
@@ -725,7 +707,7 @@ class Camera extends React.Component {
   }
 
   // to set the cursor position in the input
-  _setCursorPosition(position) { 
+  _setCursorPosition(position) {
     if (position.end == position.start) this.setState({ currentPosition: position.end })
     if (position.end == 0) {
       this.setState({ searching: false, searchContent: '' })
@@ -735,7 +717,11 @@ class Camera extends React.Component {
   render() {
     return (
       <View style={{ flex: 1 }}>
-        <CameraView cameraType={this.state.cameraType} flashMode={this.state.flashMode}/>
+        <CameraView
+          cameraType={this.state.cameraType}
+          flashMode={this.state.flashMode}
+          refCamera={ref => this.camera = ref}
+        />
         {/* Body */}
         {this._screen()}
         {this._alertMessageView()}

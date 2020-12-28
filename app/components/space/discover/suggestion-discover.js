@@ -33,31 +33,29 @@ class SuggestionDiscover extends React.Component {
 
     _activeColorCategory(item) {
         if (item == this.state.actifCategory) {
-            return {
-                borderBottomWidth: 3,
-                borderBottomColor: '#1155fd'
-            }
-        } else return null
+            return (<View style={{width: '100%', height: 2, backgroundColor: '#0041C4', borderRadius: 8}}/>)
+        } else return (<View style={{width: '100%', height: 2, backgroundColor: '#EAEBED', borderRadius: 8}}/>)
     }
 
     _activeColorCategoryWord(item) {
         if (item == this.state.actifCategory) {
-            return { color: '#1155fd' }
+            return { color: '#0041C4' }
         } else return null
     }
 
     _header = () => {
         return (
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+            <View>
                 <FlatList
                     horizontal={true}
                     showsHorizontalScrollIndicator={false}
-                    style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7 }}
+                    contentContainerStyle={{ flexDirection: 'row', marginTop: 7, padding: 0, margin: 0 }}
                     data={['All categories', 'Profile', 'Music', 'Group', 'Page']}
                     keyExtractor={(item) => item.toString()}
                     renderItem={({ item }) => (
-                        <TouchableOpacity style={[styles.one_categorie, this._activeColorCategory(item)]} onPress={() => this._changeCategory(item)}>
-                            <Text style={[{ fontWeight: 'bold', fontSize: 15, lineHeight: 41, letterSpacing: 1, color: '#8E8E8E' }, this._activeColorCategoryWord(item)]}>{item}</Text>
+                        <TouchableOpacity onPress={() => this._changeCategory(item)}>
+                            <Text style={[{ fontWeight: 'bold', fontSize: 14, lineHeight: 41, color: '#8E8E8E', paddingHorizontal: 15 }, this._activeColorCategoryWord(item)]}>{item}</Text>
+                            {this._activeColorCategory(item)}   
                         </TouchableOpacity>
                     )}
                 />
@@ -209,11 +207,6 @@ class SuggestionDiscover extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    one_categorie: {
-        padding: 15,
-        borderBottomWidth: 1,
-        borderBottomColor: '#cdd1d4'
-    },
     image_container: {
         width: 40,
         height: 40,
