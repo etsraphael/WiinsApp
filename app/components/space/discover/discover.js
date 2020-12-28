@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux'
 import PublicationStandard from '../../core/publication-standard'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faSearch } from '@fortawesome/pro-light-svg-icons'
+import { faSearch, faTimes } from '@fortawesome/pro-light-svg-icons'
 import SuggestionDiscover from './suggestion-discover'
 
 class Discover extends React.Component {
@@ -75,6 +75,23 @@ class Discover extends React.Component {
         }
     }
 
+    // display the search bar icon
+    _displayOptionSearchBar = () => {
+        if (this.state.search.length <= 2) {
+            return (
+                <TouchableOpacity style={{position: 'absolute', right: 25, justifyContent: 'center', alignItems: 'center'}}>
+                    <FontAwesomeIcon icon={faSearch} color={'grey'} size={21} style={{ opacity: 0.8 }} />
+                </TouchableOpacity>
+            )
+        } else {
+            return (
+                <TouchableOpacity onPress={() => this.setState({search: ''})} style={{position: 'absolute', right: 25, justifyContent: 'center', alignItems: 'center'}}>
+                    <FontAwesomeIcon icon={faTimes} color={'grey'} size={21} style={{ opacity: 0.8 }} />
+                </TouchableOpacity>
+            )
+        }
+    }
+
     // to display the header view of the screen
     _header = () => {
         return (
@@ -89,7 +106,7 @@ class Discover extends React.Component {
                         value={this.state.search}
                         blurOnSubmit={true}
                     />
-                    <FontAwesomeIcon icon={faSearch} color={'grey'} size={21} style={{ opacity: 0.8, position: 'absolute', right: 25 }} />
+                    {this._displayOptionSearchBar()}
                 </View>
             </View>
         )
@@ -186,7 +203,7 @@ class Discover extends React.Component {
 
     // display the suggestion menu
     _displaySuggestionView = () => {
-        return (<SuggestionDiscover navigation={this.props.navigation} currentSearch={this.state.search} searchFilterUpdated={ actifCategory => this.setState({ actifCategory }) }/>)
+        return (<SuggestionDiscover navigation={this.props.navigation} currentSearch={this.state.search} searchFilterUpdated={actifCategory => this.setState({ actifCategory })} />)
     }
 
     render() {
