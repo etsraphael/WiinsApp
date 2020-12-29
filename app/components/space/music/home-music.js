@@ -196,8 +196,8 @@ class HomeMusic extends React.Component {
                 </View>
 
                 {/* Playlist choosed */}
-                {this._showPlaylistList()}
-
+                { this.state.playlistZoneSelected == 'favorites' ? null : this._showPlaylistList() }
+                
             </View>
         )
     }
@@ -218,6 +218,7 @@ class HomeMusic extends React.Component {
 
     // to display the list of the genre
     _chartViews = () => {
+
         return (
             <View style={styles.container_section}>
 
@@ -253,12 +254,17 @@ class HomeMusic extends React.Component {
         )
     }
 
+    // to display my music
+    _myMusicView = () => {
+        return (<View><Text>My music is progressing</Text></View>)
+    }
+
     _displayContentView = () => {
         return (<View>
             {/* categorie playslit */}
             {this._categorieViews()}
             {/* chart playslit */}
-            {this._chartViews()}
+            { this.state.playlistZoneSelected == 'favorites' ? this._myMusicView() : this._chartViews() }
         </View>)
     }
 
