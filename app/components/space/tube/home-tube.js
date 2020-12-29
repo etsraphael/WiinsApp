@@ -21,6 +21,12 @@ class HomeTube extends React.Component {
         }
     }
 
+    /* For testing purpose */
+    testValue = {
+        a: 'https://i.pinimg.com/236x/c7/a1/b8/c7a1b863aeba4b9a409b61ad7201924b.jpg',
+        b: 'https://i.pinimg.com/236x/e1/20/a8/e120a8628766f705cfd017ecf9ef00ea.jpg'
+    }   
+
     UNSAFE_componentWillMount = () => {
         this.props.actions.getTubeMenuActions()
     }
@@ -46,7 +52,7 @@ class HomeTube extends React.Component {
 
                 {/* Add Btn */}
                 <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity style={{ backgroundColor: 'red', width: 30, height: 30, borderRadius: 30, marginLeft: 15, overflow: 'hidden' }}>
+                    <TouchableOpacity style={styles.add_button}>
                         <LinearGradient
                             colors={['#FF906A', '#FF3F64']}
                             start={{ x: 1, y: 0 }} end={{ x: 0, y: 1 }}
@@ -102,18 +108,20 @@ class HomeTube extends React.Component {
     }
 
     // to display one tube
-    _oneTubeRender = (item) => {
-
+    /*
+    TODO: Change render value on real api data
+    */
+    _oneTubeRender = (item, isLarge=false, isLastIndex) => {
         return (
             <TouchableOpacity
                 onPress={() => this.props.navigation.navigate('TubePage', { tubeId: item.tube._id })}
-                style={styles.oneTubeContainer}
+                style={styles.oneTubeContainer(isLarge, isLastIndex)}
             >
 
                 {/* Background Image */}
                 <FastImage
                     style={{ width: '100%', height: '100%', borderRadius: 8 }} resizeMode={FastImage.resizeMode.cover}
-                    source={{ uri: item.tube.posterLink, priority: FastImage.priority.normal }}
+                    source={{ uri: item.tube ? item.tube.posterLink : this.testValue.a, priority: FastImage.priority.normal }} // Subject to change
                 />
 
                 {/* Footer Card */}
@@ -123,10 +131,10 @@ class HomeTube extends React.Component {
                         style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, height: '100%', borderBottomEndRadius: 8, borderBottomStartRadius: 8 }}>
                         <FastImage
                             style={{ width: 45, height: 45, borderRadius: 45, borderWidth: 2, borderColor: '#FF2D55' }} resizeMode={FastImage.resizeMode.cover}
-                            source={{ uri: item.tube.profile.pictureprofile, priority: FastImage.priority.normal }}
+                            source={{ uri: item.tube ? item.tube.profile.pictureprofile : this.testValue.b, priority: FastImage.priority.normal }} // Subject to change
                         />
                         <View style={{ paddingLeft: 10 }}>
-                            <Text style={{ color: '#FFFFFF', fontSize: 14, fontWeight: '800' }}>{item.tube.profile._meta.pseudo}</Text>
+                            <Text style={{ color: '#FFFFFF', fontSize: 14, fontWeight: '800' }}>{item.tube ? item.tube.profile._meta.pseudo : 'a'}</Text>
                         </View>
                     </LinearGradient>
 
@@ -137,18 +145,17 @@ class HomeTube extends React.Component {
     }
 
     // to display the tube list
-    _showTubeList = (tubeList) => {
+    _showTubeList = (tubeList, isLarge=false) => {
         return (
             <View style={{ paddingBottom: 10 }}>
-
                 <View style={{ flexDirection: 'row' }}>
                     <FlatList
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
-                        style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7, paddingLeft: 19 }}
+                        style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7, paddingHorizontal: 19 }}
                         data={tubeList}
-                        keyExtractor={(item) => item.id.toString()}
-                        renderItem={({ item }) => this._oneTubeRender(item)}
+                        keyExtractor={(item, index) => `tube-item-${index}`} // item.id.toString()
+                        renderItem={({ item, index }) => this._oneTubeRender(item, isLarge, index === tubeList.length - 1)}
                     />
                 </View>
             </View>
@@ -157,20 +164,20 @@ class HomeTube extends React.Component {
 
     // to display the line separator
     _lineSeparator = () => {
-        return (<View style={{ height: 5, backgroundColor: '#f3f3f6' }} />)
+        return (<View style={{ height: 5, backgroundColor: '#F1F2F6' }} />)
     }
 
     // to display the tubelist by section
-    _tubeListBySection = (tubeList, title) => {
-        if(tubeList === undefined || tubeList === null || tubeList.length == 0) return null
-
+    _tubeListBySection = (tubeList, title, titleStyle={}, isLarge=false) => {
+        if(tubeList === undefined || tubeList === null || tubeList.length == 0) tubeList = [{}, {}, {}] //return null
+        
         return (
             <View style={styles.container_section}>
 
                 {/* Header */}
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 25, paddingTop: 15, alignItems: 'center' }}>
                     <View>
-                        <Text style={{ fontSize: 30, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432' }}>{title}</Text>
+                        <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', ...titleStyle }}>{title}</Text>
                     </View>
                     <View>
                         <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>See All</Text>
@@ -178,7 +185,7 @@ class HomeTube extends React.Component {
                 </View>
 
                 {/* Video List */}
-                {this._showTubeList(tubeList)}
+                {this._showTubeList(tubeList, isLarge)}
 
                 {/* Line Separator */}
                 {this._lineSeparator()}
@@ -190,10 +197,13 @@ class HomeTube extends React.Component {
     render() {
         return (
             <>
-            <StatusBar backgroundColor="#e3e6ef" barStyle="dark-content" />
+            <StatusBar backgroundColor="white" barStyle="dark-content" />
             <ScrollView style={styles.main_container}>
                 {this._headerTube()}
-                {this._categorieViews()}
+                {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending', { fontWeight: 'bold' }, true)}
+                {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Recommended For You')}
+                
+                {/* {this._categorieViews()} */}
                 {this._tubeListBySection(this.props.TubeMenu.following, 'Following')}
                 {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending')}
                 {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Suggestion')}
@@ -207,20 +217,21 @@ const styles = StyleSheet.create({
     main_container: {
         flex: 1,
         paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 0,
-        backgroundColor: '#e3e6ef'
+        backgroundColor: '#eef2f4'
     },
     header_container: {
         flexDirection: 'row',
         position: 'relative',
-        marginVertical: 10,
-        paddingHorizontal: 15
+        paddingVertical: 10,
+        paddingHorizontal: 15,
+        backgroundColor: 'white'
     },
     container_search_bar: {
         height: 38,
         fontSize: 15,
         flexDirection: 'row',
         borderRadius: 18,
-        backgroundColor: '#f2f3f7',
+        backgroundColor: '#eef2f4',
         overflow: 'hidden',
         alignItems: 'center',
         position: 'relative'
@@ -239,17 +250,34 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%'
     },
+    add_button: {
+        backgroundColor: 'red',
+        width: 35,
+        height: 35,
+        borderRadius: 30,
+        marginLeft: 15,
+        overflow: 'hidden',
+        shadowColor: "#FF65A0",
+        shadowOffset: {
+            width: 2,
+            height: 4,
+        },
+        shadowOpacity: 0.52,
+        shadowRadius: 5.46,
+        elevation: 9,
+    },
     container_section: {
-        backgroundColor: 'white'
+        paddingVertical: 10
     },
     one_hastag: {
         marginHorizontal: 8
     },
-    oneTubeContainer: {
+    oneTubeContainer: (isLarge=false, isLastIndex=false) => ({
         marginHorizontal: 10,
         marginVertical: 15,
-        height: 155,
-        width: 175,
+        marginRight: isLastIndex ? 40 : 10,
+        height: 197,
+        width: isLarge ? 300 : 250,
         borderRadius: 8,
         shadowColor: "#000",
         shadowOffset: {
@@ -258,9 +286,9 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-
         elevation: 5,
-    },
+        overflow: 'hidden'
+    }),
     categoryText: {
         fontWeight: 'bold',
         fontSize: 20,
