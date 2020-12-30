@@ -96,18 +96,18 @@ class PlaylistPage extends React.Component {
 
                     {/* Play */}
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity onPress={() => this._playShuffleMusic()}>
-                    <LinearGradient
-                            colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
-                            style={{ width: 55, height: 55, borderRadius: 55, overflow: 'hidden', justifyContent: 'center', alignItems: 'center', padding: 2 }}>
-                              <FontAwesomeIcon icon={faPlay} color={'white'} size={23} style={{marginLeft: 5}} />
+                        <TouchableOpacity onPress={() => this._playShuffleMusic()}>
+                            <LinearGradient
+                                colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
+                                style={{ width: 55, height: 55, borderRadius: 55, overflow: 'hidden', justifyContent: 'center', alignItems: 'center', padding: 2 }}>
+                                <FontAwesomeIcon icon={faPlay} color={'white'} size={23} style={{ marginLeft: 5 }} />
                             </LinearGradient>
-                    </TouchableOpacity>
+                        </TouchableOpacity>
                     </View>
 
                     {/* Download */}
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity>
+                        <TouchableOpacity>
                             <FontAwesomeIcon icon={faDownload} color={'grey'} size={21} />
                         </TouchableOpacity>
                     </View>
@@ -151,7 +151,7 @@ class PlaylistPage extends React.Component {
     }
 
     _renderSeparator = () => {
-        return (<View style={{height: 2, width: '100%', backgroundColor: '#e6e6e6'}}/>)
+        return (<View style={{ height: 2, width: '100%', backgroundColor: '#e6e6e6' }} />)
     }
 
     // to display the comment view
@@ -200,14 +200,14 @@ const styles = StyleSheet.create({
         top: 150
     },
     container_img_playlist: {
-        height: 155, width: 155, borderRadius: 15, backgroundColor: 'red', shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 2,
-        },
+        height: 155,
+        width: 155,
+        borderRadius: 15,
+        backgroundColor: 'red',
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-
         elevation: 5
     }
 })
