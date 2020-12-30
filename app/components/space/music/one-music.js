@@ -5,6 +5,9 @@ import { bindActionCreators } from 'redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import FastImage from 'react-native-fast-image'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faHeart as faHeartEmpty, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
+import { faHeart as faHeartFull } from '@fortawesome/pro-solid-svg-icons'
 
 class OneMusic extends React.Component {
 
@@ -53,10 +56,25 @@ class OneMusic extends React.Component {
                         style={styles.image_container} resizeMode={FastImage.resizeMode.cover}
                         source={{ uri: music.profile.pictureprofile, priority: FastImage.priority.normal }}
                     />
-                    <View style={{ paddingLeft: 15 }}>
+                    <View style={{ paddingLeft: 15, justifyContent: 'center' }}>
                         <Text style={styles.title_text}>{music.name}</Text>
                         <Text style={styles.username_text}>{music.profile._meta.pseudo}</Text>
                     </View>
+                </View>
+
+
+                <View style={{ flex: 2, flexDirection: 'row' }}>
+
+                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={{ backgroundColor: '#d9d9d9', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
+                            <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
+                        </View>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faEllipsisH} size={28} color={'#b3b3b3'} />
+                    </TouchableOpacity>
+
                 </View>
 
             </TouchableOpacity>
@@ -68,45 +86,44 @@ class OneMusic extends React.Component {
 const styles = StyleSheet.create({
     one_music: {
         flexDirection: 'row',
-        height: 70,
-        marginVertical: 12,
-        width: '100%'
+        paddingHorizontal: 5,
+        width: '100%',
+        backgroundColor: '#F2F2F2',
+        paddingVertical: 15
     },
     container_index: {
-        flex: 2,
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
     },
     text_index: {
-        fontWeight: 'bold',
-        fontSize: 32,
+        fontSize: 16,
         fontFamily: 'Avenir-Heavy',
-        color: '#261a53'
+        color: '#77838F'
     },
     description_container: {
-        flex: 9,
+        flex: 5,
         borderRadius: 15,
         height: '100%',
-        backgroundColor: '#261a53',
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: 7,
         marginHorizontal: 5
     },
     image_container: {
-        width: 60,
-        height: 60,
-        borderRadius: 15
+        width: 43,
+        height: 43,
+        borderRadius: 5
     },
     title_text: {
-        color: 'white',
+        color: '#77838F',
         paddingVertical: 1,
-        fontSize: 21,
+        fontSize: 17,
         fontFamily: 'Avenir-Heavy',
         fontWeight: 'bold'
     },
     username_text: {
-        color: 'white',
+        color: '#77838F',
         paddingVertical: 1,
         fontSize: 15
     }

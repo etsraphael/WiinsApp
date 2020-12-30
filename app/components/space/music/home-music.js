@@ -202,12 +202,16 @@ class HomeMusic extends React.Component {
         )
     }
 
+    _renderSeparator = () => {
+        return (<View style={{height: 2, width: '100%', backgroundColor: '#e6e6e6'}}/>)
+    }
+
     // to display the music list
     _showMusicList = () => {
         return (
             <View>
                 <FlatList
-                    style={{ paddingHorizontal: 15 }}
+                    ItemSeparatorComponent={this._renderSeparator}
                     data={this.state.fakeMusiclist}
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({ item, index }) => (<OneMusic music={item} tracklist={this.state.fakeMusiclist} index={index} />)}
