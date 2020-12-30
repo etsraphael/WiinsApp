@@ -9,9 +9,12 @@ import OneMusic from './one-music'
 import CommentList from '../../core/comment-list'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlay, faAngleLeft } from '@fortawesome/pro-light-svg-icons'
+import { faAngleLeft, faEllipsisV, faHeart, faDownload } from '@fortawesome/pro-light-svg-icons'
+import { faPlay } from '@fortawesome/pro-solid-svg-icons'
 import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+
 
 class PlaylistPage extends React.Component {
 
@@ -37,46 +40,91 @@ class PlaylistPage extends React.Component {
 
     // to display the playlist header
     _headerPlaylist = () => {
+
         return (
-            <View style={{ height: 200, backgroundColor: '#00000061' }}>
+            <View>
 
-                {/* Background */}
-                <View style={{ width: '100%', height: '100%', position: 'absolute' }}>
-                    <FastImage
-                        style={{ width: '100%', height: '100%' }}
-                        resizeMode={FastImage.resizeMode.cover}
-                        source={{
-                            uri: this.props.PlaylistPage.playlist.picture,
-                            priority: FastImage.priority.normal,
-                        }}
-                    />
-                </View>
-                <View style={{ position: 'absolute', backgroundColor: '#00000061', width: '100%', height: '100%' }} />
-
-                {/* BtnBack */}
-                <View style={{ position: 'absolute', left: 35, top: 50, zIndex: 1 }}>
-                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.goBack(null)}>
-                        <FontAwesomeIcon icon={faAngleLeft} color={'white'} size={34} style={{ marginLeft: 5 }} />
-                    </TouchableOpacity>
-                </View>
-
-                {/* Descriptions */}
-                <View style={{ flex: 1 }} />
-                <View style={{ flex: 1, paddingHorizontal: 40, justifyContent: 'center', flexDirection: 'row' }}>
-                    <View style={{ flex: 8, justifyContent: 'center' }}>
-                        <Text style={{ fontSize: 28, fontFamily: 'Avenir-Heavy', color: 'white' }}>{this.props.PlaylistPage.playlist.name}</Text>
-                        <Text style={{ fontWeight: '300', fontSize: 13, color: 'white' }}>{getDateTranslated(this.props.PlaylistPage.playlist.createdAt)}</Text>
+                {/* Navigation Header */}
+                <View style={{ flexDirection: 'row', paddingVertical: 10 }}>
+                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.goBack(null)}>
+                            <FontAwesomeIcon icon={faAngleLeft} color={'grey'} size={38} />
+                        </TouchableOpacity>
                     </View>
-                    <View style={{ flex: 3, justifyContent: 'center', alignItems: 'flex-end' }}>
-                        <TouchableOpacity onPress={() => this._playShuffleMusic()}>
-                            <LinearGradient
-                                colors={['#834d9b', '#d04ed6']}
-                                start={{ x: 0, y: 1 }}
-                                end={{ x: 1, y: 0 }}
-                                style={{ height: 45, width: 45, borderRadius: 25, alignItems: 'center', justifyContent: 'center', alignItems: 'center', borderColor: 'white', borderWidth: 2 }}
-                            >
-                                <FontAwesomeIcon icon={faPlay} color={'white'} size={18} style={{ marginLeft: 5 }} />
+                    <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', color: '#002150' }}>Playlist Details</Text>
+                    </View>
+                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                        <TouchableOpacity>
+                            <FontAwesomeIcon icon={faEllipsisV} color={'grey'} size={38} />
+                        </TouchableOpacity>
+                    </View>
+                </View>
+
+
+                {/* Playlist Description */}
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginVertical: 15 }}>
+                    <View style={{
+                        height: 155, width: 155, borderRadius: 15, backgroundColor: 'red', shadowColor: "#000",
+                        shadowOffset: {
+                            width: 0,
+                            height: 2,
+                        },
+                        shadowOpacity: 0.25,
+                        shadowRadius: 3.84,
+
+                        elevation: 5
+                    }}>
+
+
+                        <View style={{ height: 155, width: 155, borderRadius: 15, overflow: 'hidden' }}>
+                            <FastImage
+                                style={{ width: '100%', height: '100%' }}
+                                resizeMode={FastImage.resizeMode.cover}
+                                source={{
+                                    uri: this.props.PlaylistPage.playlist.picture,
+                                    priority: FastImage.priority.normal,
+                                }}
+                            />
+                        </View>
+                    </View>
+
+                </View>
+
+
+                <View style={{ justifyContent: 'center', alignItems: 'center', marginVertical: 12 }}>
+                    <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', color: '#002150' }}>{this.props.PlaylistPage.playlist.name}</Text>
+                    <Text style={{ fontWeight: '300', fontSize: 13, color: '#7A869A' }}>{getDateTranslated(this.props.PlaylistPage.playlist.createdAt)}</Text>
+                </View>
+
+
+
+
+                {/* Controllers */}
+                <View style={{ flexDirection: 'row', paddingBottom: 5 }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <TouchableOpacity>
+                            <FontAwesomeIcon icon={faHeart} color={'grey'} size={21} />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+
+
+
+                    <TouchableOpacity onPress={() => this._playShuffleMusic()}>
+                    <LinearGradient
+                            colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
+                            style={{ width: 55, height: 55, borderRadius: 55, overflow: 'hidden', justifyContent: 'center', alignItems: 'center', padding: 2 }}>
+                              <FontAwesomeIcon icon={faPlay} color={'white'} size={23} style={{marginLeft: 5}} />
                             </LinearGradient>
+                    </TouchableOpacity>
+
+
+
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity>
+                            <FontAwesomeIcon icon={faDownload} color={'grey'} size={21} />
                         </TouchableOpacity>
                     </View>
                 </View>
@@ -98,27 +146,11 @@ class PlaylistPage extends React.Component {
         }
     }
 
-    // to display the navbar
-    _navBar() {
-
-        return (
-            <View style={{ flexDirection: 'row', borderColor: '#d9d9d9', borderTopWidth: 0.5, borderBottomWidth: 0.5 }}>
-                <TouchableOpacity style={[{ flex: 1, alignItems: 'center', paddingVertical: 19 }, this._activeNav('music')]} onPress={() => this.setState({ navigation: 'music' })}>
-                    <Text style={{ color: '#1a1a1a' }}>Music</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={[{ flex: 1, alignItems: 'center', paddingVertical: 19 }, this._activeNav('comment')]}
-                    onPress={() => { this.setState({ navigation: 'comment' }); this.props.actions.getCommentListPlaylist(this.props.PlaylistPage.playlist._id, 1) }}
-                >
-                    <Text style={{ color: '#1a1a1a' }}>Comment</Text>
-                </TouchableOpacity>
-            </View>
-        )
-    }
-
     // to display the music list
     _musicList() {
         return (
             <FlatList
+                ItemSeparatorComponent={this._renderSeparator}
                 style={{ paddingTop: 10 }}
                 data={this.props.PlaylistPage.playlist.musicList}
                 keyExtractor={(item) => item._id.toString()}
@@ -132,6 +164,10 @@ class PlaylistPage extends React.Component {
                 )}
             />
         )
+    }
+
+    _renderSeparator = () => {
+        return (<View style={{height: 2, width: '100%', backgroundColor: '#e6e6e6'}}/>)
     }
 
     // to display the comment view
@@ -154,7 +190,6 @@ class PlaylistPage extends React.Component {
         return (
             <View>
                 {this._headerPlaylist()}
-                {this._navBar()}
                 {this.state.navigation == 'music' ? this._musicList() : this._commentList()}
             </View>
         )
@@ -174,7 +209,8 @@ class PlaylistPage extends React.Component {
 const styles = StyleSheet.create({
     menu_container: {
         flex: 1,
-        backgroundColor: 'white'
+        backgroundColor: '#F2F2F2',
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10
     },
     loading_container: {
         top: 150
