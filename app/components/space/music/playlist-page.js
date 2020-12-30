@@ -64,19 +64,7 @@ class PlaylistPage extends React.Component {
 
                 {/* Playlist Description */}
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginVertical: 15 }}>
-                    <View style={{
-                        height: 155, width: 155, borderRadius: 15, backgroundColor: 'red', shadowColor: "#000",
-                        shadowOffset: {
-                            width: 0,
-                            height: 2,
-                        },
-                        shadowOpacity: 0.25,
-                        shadowRadius: 3.84,
-
-                        elevation: 5
-                    }}>
-
-
+                    <View style={styles.container_img_playlist}>
                         <View style={{ height: 155, width: 155, borderRadius: 15, overflow: 'hidden' }}>
                             <FastImage
                                 style={{ width: '100%', height: '100%' }}
@@ -88,9 +76,7 @@ class PlaylistPage extends React.Component {
                             />
                         </View>
                     </View>
-
                 </View>
-
 
                 <View style={{ justifyContent: 'center', alignItems: 'center', marginVertical: 12 }}>
                     <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', color: '#002150' }}>{this.props.PlaylistPage.playlist.name}</Text>
@@ -98,19 +84,18 @@ class PlaylistPage extends React.Component {
                 </View>
 
 
-
-
                 {/* Controllers */}
                 <View style={{ flexDirection: 'row', paddingBottom: 5 }}>
+
+                    {/* Like */}
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <TouchableOpacity>
                             <FontAwesomeIcon icon={faHeart} color={'grey'} size={21} />
                         </TouchableOpacity>
                     </View>
+
+                    {/* Play */}
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-
-
-
                     <TouchableOpacity onPress={() => this._playShuffleMusic()}>
                     <LinearGradient
                             colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
@@ -118,10 +103,9 @@ class PlaylistPage extends React.Component {
                               <FontAwesomeIcon icon={faPlay} color={'white'} size={23} style={{marginLeft: 5}} />
                             </LinearGradient>
                     </TouchableOpacity>
-
-
-
                     </View>
+
+                    {/* Download */}
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <TouchableOpacity>
                             <FontAwesomeIcon icon={faDownload} color={'grey'} size={21} />
@@ -215,18 +199,16 @@ const styles = StyleSheet.create({
     loading_container: {
         top: 150
     },
-    container_img_header: {
-        flex: 2,
-        borderRadius: 15,
-        shadowColor: "#000",
+    container_img_playlist: {
+        height: 155, width: 155, borderRadius: 15, backgroundColor: 'red', shadowColor: "#000",
         shadowOffset: {
             width: 0,
-            height: 6,
+            height: 2,
         },
-        shadowOpacity: 0.39,
-        shadowRadius: 8.30,
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
 
-        elevation: 13,
+        elevation: 5
     }
 })
 
