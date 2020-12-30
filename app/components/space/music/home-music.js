@@ -20,7 +20,7 @@ class HomeMusic extends React.Component {
             fakeMusiclist: [
                 {
                     id: '1',
-                    name: 'project1',
+                    name: 'music1',
                     profile: {
                         pictureprofile: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
                         _meta: {
@@ -30,7 +30,7 @@ class HomeMusic extends React.Component {
                 },
                 {
                     id: '2',
-                    name: 'project2',
+                    name: 'music2',
                     profile: {
                         pictureprofile: 'https://images.unsplash.com/photo-1595840635571-5d6abc7d584b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1287&q=80',
                         _meta: {
@@ -40,7 +40,7 @@ class HomeMusic extends React.Component {
                 },
                 {
                     id: '3',
-                    name: 'project3',
+                    name: 'music3',
                     profile: {
                         pictureprofile: 'https://images.unsplash.com/photo-1597361767997-7b0433fe5136?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2215&q=80',
                         _meta: {
@@ -50,7 +50,7 @@ class HomeMusic extends React.Component {
                 },
                 {
                     id: '4',
-                    name: 'project4',
+                    name: 'music4',
                     profile: {
                         pictureprofile: 'https://images.unsplash.com/photo-1516117525866-d85459db7457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
                         _meta: {
@@ -197,7 +197,7 @@ class HomeMusic extends React.Component {
 
                 {/* Playlist choosed */}
                 { this.state.playlistZoneSelected == 'favorites' ? null : this._showPlaylistList() }
-                
+
             </View>
         )
     }
