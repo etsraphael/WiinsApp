@@ -187,9 +187,7 @@ class MiniPlayer extends React.Component {
         return (
             <View style={styles.container}>
                 <TouchableOpacity onPress={() => this._openModalMusic()}>
-                    <LinearGradient colors={['#8A2387', '#E94057', '#F27121']}
-                        start={{ x: 0, y: 1 }}
-                        end={{ x: 1, y: 0 }}
+                    <LinearGradient colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
                         style={styles.container_logo}>
                         <FontAwesomeIcon style={{ left: 4 }} icon={faMusic} size={20} color={'white'} />
                     </LinearGradient>
