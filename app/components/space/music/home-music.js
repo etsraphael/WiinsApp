@@ -211,6 +211,7 @@ class HomeMusic extends React.Component {
         return (
             <View>
                 <FlatList
+                    style={{flex: 1}}
                     ItemSeparatorComponent={this._renderSeparator}
                     data={this.state.fakeMusiclist}
                     keyExtractor={(item) => item.id.toString()}

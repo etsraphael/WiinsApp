@@ -69,14 +69,8 @@ class OneMusic extends React.Component {
     // to display playing music view
     _musicPlayingView = (music, index, tracklist) => {
         return (
-            <LinearGradient
-                                colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
-                                >
+            <LinearGradient colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}>
             <TouchableOpacity style={[styles.one_music, {backgroundColor: '#ffffff00'}]} onPress={() => this._playMusic(music, tracklist)}>
-
-
-                            
-
 
             {/* Index */}
             <View style={styles.container_index}>
@@ -121,8 +115,7 @@ class OneMusic extends React.Component {
         const { index } = this.props
         const { tracklist } = this.props
 
-        // if(this.props.Player.isPlayling && music._id == this.props.Player.musicIsPlaying.id){
-        if(index == 1){    
+        if(this.props.Player.isPlayling && music._id == this.props.Player.musicIsPlaying.id){
             return this._musicPlayingView(music, index, tracklist)
         } else {
             return this._musicView(music, index, tracklist)

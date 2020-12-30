@@ -135,7 +135,6 @@ class PlaylistPage extends React.Component {
         return (
             <FlatList
                 ItemSeparatorComponent={this._renderSeparator}
-                style={{ paddingTop: 10 }}
                 data={this.props.PlaylistPage.playlist.musicList}
                 keyExtractor={(item) => item._id.toString()}
                 renderItem={({ item, index }) => (
@@ -143,8 +142,7 @@ class PlaylistPage extends React.Component {
                         music={item}
                         tracklist={this.props.PlaylistPage.playlist.musicList}
                         index={index}
-                        border={true ? (index == 1) : false}
-                    />
+                />
                 )}
             />
         )
@@ -174,6 +172,7 @@ class PlaylistPage extends React.Component {
         return (
             <View>
                 {this._headerPlaylist()}
+                {this._renderSeparator()}
                 {this.state.navigation == 'music' ? this._musicList() : this._commentList()}
             </View>
         )
