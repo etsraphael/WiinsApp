@@ -8,7 +8,7 @@ import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
 import TrackPlayer from 'react-native-track-player'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
-import { faStepForward, faStepBackward, faPlay, faMusic, faPause, faStop } from '@fortawesome/pro-light-svg-icons'
+import { faStepForward, faStepBackward, faPlay, faMusic, faPause, faStop, faAngleDown } from '@fortawesome/pro-light-svg-icons'
 import ProgressBar from '../space/music/progress-bar'
 
 class MiniPlayer extends React.Component {
@@ -60,7 +60,7 @@ class MiniPlayer extends React.Component {
 
     // to play the previous music
     _playPreviousMusic = () => {
-        if (this.props.Player.trackList.map(x => x.id).indexOf(this.props.Player.musicIsPlaying.id) !== 0){
+        if (this.props.Player.trackList.map(x => x.id).indexOf(this.props.Player.musicIsPlaying.id) !== 0) {
             this.props.actions.previousMusicActions()
         }
     }
@@ -86,43 +86,17 @@ class MiniPlayer extends React.Component {
             >
                 <View style={{ flex: 1, backgroundColor: 'white' }}>
 
-                    {/* Closing Modal */}
-                    <View style={{ position: 'absolute', top: 0, width: '100%', alignItems: 'center', zIndex: 1 }}>
-                        <TouchableOpacity
-                            onPress={() => this._closeModalMusic()}
-                            style={{ backgroundColor: '#cecece', height: 5, width: 70, marginTop: 5, borderRadius: 50 }}
-                        />
+                    <View style={{flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}}>
+                    <TouchableOpacity onPress={() => this._closeModalMusic()} style={{ paddingLeft: 20, paddingTop: 25 }} >
+                        <FontAwesomeIcon icon={faAngleDown} color={'grey'} size={32} />
+                    </TouchableOpacity>
                     </View>
 
-                    {/* Header */}
-                    <View style={{ flex: 1, flexDirection: 'row', paddingVertical: 15, paddingHorizontal: 45, justifyContent: 'center', alignItems: 'center' }}>
-                        <LinearGradient
-                            colors={['#fcb045', '#fd1d1d', '#833ab4']}
-                            style={{ width: 55, height: 55, borderRadius: 55, overflow: 'hidden', justifyContent: 'center', alignItems: 'center', padding: 2 }}>
+                    {/* Music Image */}
+                    <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 45 }}>
+                        <View style={{ shadowColor: "#000", width: 250, height: 250, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5, borderRadius: 25 }}>
                             <FastImage
-                                style={{ width: '100%', aspectRatio: 1, borderRadius: 55 }}
-                                source={{
-                                    uri: this.props.Player.musicIsPlaying.profile.pictureprofile,
-                                    priority: FastImage.priority.normal,
-                                }}
-                                resizeMode={FastImage.resizeMode.cover}
-                            />
-                        </LinearGradient>
-                        <View style={{ justifyContent: 'center', paddingLeft: 15 }}>
-                            <Text style={{ color: '#4d4d4d', fontSize: 18, marginBottom: 4 }}>{this.props.Player.musicIsPlaying.artist}</Text>
-                            <TouchableOpacity style={{ flexWrap: 'wrap' }}>
-                                <View style={{ backgroundColor: 'white', paddingHorizontal: 15, paddingVertical: 5, borderRadius: 5, borderWidth: 0.5, borderColor: '#a6a6a6' }}>
-                                    <Text style={{ color: '#a6a6a6' }}>Subscribed</Text>
-                                </View>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
-                    {/* Picture */}
-                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={styles.container_img_project}>
-                            <FastImage
-                                style={{ backgroundColor: 'white', flex: 1, borderRadius: 8 }}
+                                style={{ width: '100%', height: '100%', borderRadius: 25, overflow: 'hidden' }}
                                 source={{
                                     uri: this.props.Player.musicIsPlaying.artwork,
                                     priority: FastImage.priority.normal,
@@ -132,18 +106,22 @@ class MiniPlayer extends React.Component {
                         </View>
                     </View>
 
+                    {/* Progress Bar */}
+                    <ProgressBar />
+
+                    {/* Artist and title */}
+                    <View style={{alignItems: 'center'}}>
+                    <Text style={{ fontSize: 22, color: 'grey', marginVertical: 15 }}>{this.props.Player.musicIsPlaying.title}</Text>
+                    <Text style={{ color: '#4d4d4d', fontSize: 18, marginBottom: 4 }}>{this.props.Player.musicIsPlaying.artist}</Text>      
+                    </View>
+
                     {/* Control */}
-                    <View style={{ flex: 3 }}>
-                        <View>
-                            <View style={{ alignItems: 'center' }}>
-                                <Text style={{ fontSize: 22, color: 'grey', marginVertical: 15 }}>{this.props.Player.musicIsPlaying.title}</Text>
-                            </View>
-                        </View>
-                        <ProgressBar/>
+                    {/* <View style={{ flex: 3 }}>
+                        
                         <View>
                             <View style={{ paddingHorizontal: 25, flexDirection: 'row', marginVertical: 15 }}>
                                 <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                                    <TouchableOpacity onPress={()=> this._playPreviousMusic()}>
+                                    <TouchableOpacity onPress={() => this._playPreviousMusic()}>
                                         <FontAwesomeIcon icon={faStepBackward} color={'grey'} size={25} style={{ opacity: 0.8 }} />
                                     </TouchableOpacity>
                                 </View>
@@ -165,17 +143,17 @@ class MiniPlayer extends React.Component {
                                 </View>
                             </View>
                         </View>
-                    </View>
+                    </View> */}
 
                     {/* Footer */}
-                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                    {/* <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
                         <TouchableOpacity
                             onPress={() => this._stopThePlayer()}
                             style={{ flexDirection: 'row', paddingHorizontal: 15, paddingVertical: 9, alignItems: 'center', marginLeft: 25, borderRadius: 25, borderColor: '#dcdcdc', borderWidth: 1, paddingVertical: 0, height: 35 }}>
                             <FontAwesomeIcon icon={faStop} color={'#afafaf'} size={15} />
                             <Text style={{ paddingHorizontal: 5, color: 'grey' }}>Stop</Text>
                         </TouchableOpacity>
-                    </View>
+                    </View> */}
 
                 </View>
             </Modal>
@@ -213,10 +191,11 @@ const styles = StyleSheet.create({
     },
     container_modal: {
         flex: 1,
-        marginHorizontal: 8,
+        marginHorizontal: 0,
+        marginBottom: 0,
         marginTop: '30%',
         overflow: 'hidden',
-        borderRadius: 25
+        borderTopRightRadius: 65
     },
     container_img_project: {
         borderRadius: 8,
