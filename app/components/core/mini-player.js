@@ -8,8 +8,8 @@ import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
 import TrackPlayer from 'react-native-track-player'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
-import { faStepForward, faStepBackward, faPlay, faMusic, faPause, faStop, faAngleDown } from '@fortawesome/pro-light-svg-icons'
-import { faHeart, faUserPlus } from '@fortawesome/pro-solid-svg-icons'
+import { faPlay, faMusic, faPause, faStop, faAngleDown, faRepeat } from '@fortawesome/pro-light-svg-icons'
+import { faHeart, faUserPlus, faStepBackward, faStepForward, faRandom } from '@fortawesome/pro-solid-svg-icons'
 
 import ProgressBar from '../space/music/progress-bar'
 
@@ -95,7 +95,7 @@ class MiniPlayer extends React.Component {
                     </View>
 
                     {/* Music Image */}
-                    <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 45 }}>
+                    <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 145 }}>
                         <View style={{ shadowColor: "#000", width: 250, height: 250, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5, borderRadius: 25 }}>
                             <FastImage
                                 style={{ width: '100%', height: '100%', borderRadius: 25, overflow: 'hidden' }}
@@ -114,14 +114,11 @@ class MiniPlayer extends React.Component {
                     {/* Artist and title */}
                     <View style={{ flexDirection: 'row' }}>
 
-
                         {/* Like Btn */}
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
-
-                            <TouchableOpacity style={{backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10}}>
+                            <TouchableOpacity style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
                                 <FontAwesomeIcon icon={faHeart} color={'red'} size={17} />
                             </TouchableOpacity>
-
                         </View>
 
                         {/* Description */}
@@ -132,19 +129,40 @@ class MiniPlayer extends React.Component {
 
                         {/* Follow Btn */}
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-
-                        <TouchableOpacity style={{backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10}}>
+                            <TouchableOpacity style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
                                 <FontAwesomeIcon icon={faUserPlus} color={'blue'} size={19} />
                             </TouchableOpacity>
-
                         </View>
 
+                    </View>
+
+                    {/* Control */}
+                    <View style={{ flexDirection: 'row', marginTop: 15 }}>
+
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faRepeat} color={'#0066cc'} size={25} />
+                        </View>
+
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faStepBackward} color={'#0066cc'} size={25} />
+                        </View>
+
+                        <View style={{ flex: 2 }} />
+
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faStepForward} color={'#0066cc'} size={25} />
+                        </View>
+
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faRandom} color={'#0066cc'} size={25} />
+                        </View>
 
                     </View>
 
 
 
-                    {/* Control */}
+
+
                     {/* <View style={{ flex: 3 }}>
                         
                         <View>
