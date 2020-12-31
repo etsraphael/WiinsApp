@@ -9,6 +9,8 @@ import FastImage from 'react-native-fast-image'
 import TrackPlayer from 'react-native-track-player'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
 import { faStepForward, faStepBackward, faPlay, faMusic, faPause, faStop, faAngleDown } from '@fortawesome/pro-light-svg-icons'
+import { faHeart, faUserPlus } from '@fortawesome/pro-solid-svg-icons'
+
 import ProgressBar from '../space/music/progress-bar'
 
 class MiniPlayer extends React.Component {
@@ -86,10 +88,10 @@ class MiniPlayer extends React.Component {
             >
                 <View style={{ flex: 1, backgroundColor: 'white' }}>
 
-                    <View style={{flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}}>
-                    <TouchableOpacity onPress={() => this._closeModalMusic()} style={{ paddingLeft: 20, paddingTop: 25 }} >
-                        <FontAwesomeIcon icon={faAngleDown} color={'grey'} size={32} />
-                    </TouchableOpacity>
+                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => this._closeModalMusic()} style={{ paddingLeft: 20, paddingTop: 25 }} >
+                            <FontAwesomeIcon icon={faAngleDown} color={'grey'} size={32} />
+                        </TouchableOpacity>
                     </View>
 
                     {/* Music Image */}
@@ -110,10 +112,37 @@ class MiniPlayer extends React.Component {
                     <ProgressBar />
 
                     {/* Artist and title */}
-                    <View style={{alignItems: 'center'}}>
-                    <Text style={{ fontSize: 22, color: 'grey', marginVertical: 15 }}>{this.props.Player.musicIsPlaying.title}</Text>
-                    <Text style={{ color: '#4d4d4d', fontSize: 18, marginBottom: 4 }}>{this.props.Player.musicIsPlaying.artist}</Text>      
+                    <View style={{ flexDirection: 'row' }}>
+
+
+                        {/* Like Btn */}
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
+
+                            <TouchableOpacity style={{backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10}}>
+                                <FontAwesomeIcon icon={faHeart} color={'red'} size={17} />
+                            </TouchableOpacity>
+
+                        </View>
+
+                        {/* Description */}
+                        <View style={{ flex: 2, alignItems: 'center' }}>
+                            <Text style={{ fontSize: 22, color: '#15141E', marginVertical: 3, fontWeight: '700' }}>{this.props.Player.musicIsPlaying.title}</Text>
+                            <Text style={{ color: '#8B8F92', fontSize: 16, marginBottom: 4 }}>{this.props.Player.musicIsPlaying.artist}</Text>
+                        </View>
+
+                        {/* Follow Btn */}
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
+
+                        <TouchableOpacity style={{backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10}}>
+                                <FontAwesomeIcon icon={faUserPlus} color={'blue'} size={19} />
+                            </TouchableOpacity>
+
+                        </View>
+
+
                     </View>
+
+
 
                     {/* Control */}
                     {/* <View style={{ flex: 3 }}>
