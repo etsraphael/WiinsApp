@@ -4,6 +4,7 @@ import { bindActionCreators } from 'redux'
 import { StyleSheet, Text, View, Slider } from 'react-native'
 import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import TrackPlayer, { ProgressComponent } from 'react-native-track-player';
+// import Slider from '@react-native-community/slider';
 
 class ProgressBar extends ProgressComponent {
 
