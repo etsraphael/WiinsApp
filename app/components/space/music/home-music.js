@@ -63,10 +63,10 @@ class HomeMusic extends React.Component {
             playlistZone: [
                 { code: 1, name: 'Lastest', key: 'lastestPlaylist' },
                 { code: 2, name: 'Favorites', key: 'favorites' },
-                { code: 3, name: 'Workout', key: 'workout' },
-                { code: 4, name: 'Chill', key: 'chill' },
-                { code: 5, name: 'Dance', key: 'dance' },
-                { code: 6, name: 'Sleep', key: 'sleep' },
+                // { code: 3, name: 'Workout', key: 'workout' },
+                // { code: 4, name: 'Chill', key: 'chill' },
+                // { code: 5, name: 'Dance', key: 'dance' },
+                // { code: 6, name: 'Sleep', key: 'sleep' },
             ],
             categoryZone: [
                 { code: 1, name: 'Rap', key: 'rap' },
