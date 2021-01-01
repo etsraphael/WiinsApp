@@ -8,8 +8,8 @@ import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
 import TrackPlayer from 'react-native-track-player'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
-import { faPlay, faMusic, faPause, faStop, faAngleDown, faRepeat } from '@fortawesome/pro-light-svg-icons'
-import { faHeart, faUserPlus, faStepBackward, faStepForward, faRandom } from '@fortawesome/pro-solid-svg-icons'
+import { faMusic, faPause, faStop, faAngleDown, faRepeat } from '@fortawesome/pro-light-svg-icons'
+import { faHeart, faUserPlus, faStepBackward, faStepForward, faRandom, faPlay } from '@fortawesome/pro-solid-svg-icons'
 
 import ProgressBar from '../space/music/progress-bar'
 
@@ -130,27 +130,32 @@ class MiniPlayer extends React.Component {
                         {/* Follow Btn */}
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
                             <TouchableOpacity style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
-                                <FontAwesomeIcon icon={faUserPlus} color={'blue'} size={19} />
+                                <FontAwesomeIcon icon={faUserPlus} color={'#0066cc'} size={19} />
                             </TouchableOpacity>
                         </View>
 
                     </View>
 
                     {/* Control */}
-                    <View style={{ flexDirection: 'row', marginTop: 15 }}>
+                    <View style={{ flexDirection: 'row', marginTop: 15, paddingHorizontal: 15 }}>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                             <FontAwesomeIcon icon={faRepeat} color={'#0066cc'} size={25} />
                         </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faStepBackward} color={'#0066cc'} size={25} />
+                            <FontAwesomeIcon icon={faStepBackward} color={'#0066cc'} size={28} />
                         </View>
 
-                        <View style={{ flex: 2 }} />
+                        <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                            <LinearGradient colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
+                            style={{borderRadius: 50, padding: 15}}>
+                                <FontAwesomeIcon style={{ left: 3 }} icon={faPlay} size={25} color={'white'} />
+                            </LinearGradient>
+                        </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faStepForward} color={'#0066cc'} size={25} />
+                            <FontAwesomeIcon icon={faStepForward} color={'#0066cc'} size={28} />
                         </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
