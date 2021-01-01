@@ -4,12 +4,13 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import OnePlaylistMin from './one-playlist-min'
 import * as MusicMenuActions from '../../../../redux/MusicMenu/actions'
+import * as MyFavMusicActions from '../../../../redux/MyFavMusic/actions'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import OneMusic from './one-music'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faSearch } from '@fortawesome/pro-light-svg-icons'
+import { faSearch, faTransporterEmpty } from '@fortawesome/pro-light-svg-icons'
 
 
 class HomeMusic extends React.Component {
@@ -84,6 +85,7 @@ class HomeMusic extends React.Component {
 
     componentDidMount() {
         this.props.actions.getMusicMenu()
+        this.props.actions.getMyMusic()
     }
 
     // to display the header view of the screen
@@ -261,7 +263,24 @@ class HomeMusic extends React.Component {
 
     // to display my music
     _myMusicView = () => {
-        return (<View><Text>My music is progressing</Text></View>)
+
+        if(this.props.MyMusic.list.length == 0 ){
+            return (
+            <View style={{ justifyContent: 'center', alignItems: 'center', height: '100%'}}>
+                <FontAwesomeIcon icon={faTransporterEmpty} color={'#c7c7c79c'} size={121} />
+                <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#acb1c0e3', marginTop: 45}}>No music liked yet</Text>
+            </View>
+        ) } else return (
+            <View>
+                <FlatList
+                    style={{flex: 1}}
+                    ItemSeparatorComponent={this._renderSeparator}
+                    data={this.props.MyMusic.list}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({ item, index }) => (<OneMusic music={item} tracklist={this.props.MyMusic.list} index={index} />)}
+                />
+            </View>
+        )
     }
 
     _displayContentView = () => {
@@ -351,12 +370,14 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     MyProfile: state.MyProfile,
-    MyMenu: state.MusicMenu
+    MyMenu: state.MusicMenu,
+    MyMusic: state.MyFavMusic
 })
 
 const ActionCreators = Object.assign(
     {},
-    MusicMenuActions
+    MusicMenuActions,
+    MyFavMusicActions,
 )
 
 const mapDispatchToProps = dispatch => ({
