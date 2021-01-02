@@ -24,6 +24,21 @@ export default MyFavMusicReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
-    default: return state
+    case ActionTypes.REMOVE_FILE_IN_CACHE: {
+      return setCacheStatus(action.key, undefined, state)
+    }
+    case ActionTypes.FILE_CACHE_REQUESTED: {
+      if (!canRequestCacheForUrl(action.key, state.fileCacheMap)) {
+        return state;
+      }
+      return setCacheStatus(action.key, { type: "FileCacheRequested" }, state)
+    }
+    case ActionTypes.FILE_CACHE_SUCCEEDED: {
+      return setCacheStatus(action.key, { type: "FileCacheSucceeded", localUrl: action.localUrl, }, state)
+    }
+    case ActionTypes.FILE_CACHE_FAILED: {
+      return setCacheStatus(action.key, { type: "FileCacheFailed" }, state)
+    }
+    default: return { ...state }
   }
 }
