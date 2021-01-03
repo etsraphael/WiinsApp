@@ -58,3 +58,36 @@ export function getMyMusic() {
     };
 }
 
+export function beginFileCacheActions(url) {
+    return async (dispatch) => {
+        try {
+            return dispatch(beginFileCache(url));
+        } catch (error) {
+            return dispatch(failFileCache(url));
+        }
+    };
+}
+
+export function completeFileCacheActions(originalUrl, localUrl){
+    return async (dispatch) => {
+        try {
+            return dispatch(completeFileCache(originalUrl, localUrl));
+        } catch (error) {
+            return dispatch(failFileCache(url));
+        }
+    };
+}
+
+export function failFileCacheActions(url){
+    return (dispatch) => { return dispatch(failFileCache(url)) }
+}
+
+export function removeFileCacheActions(url){
+    return (dispatch) => {
+        try {
+            return dispatch(removeFileCache(url))
+        } catch (error) {
+            return dispatch(failFileCache(url))
+        }
+    };
+}

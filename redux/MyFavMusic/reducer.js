@@ -1,4 +1,5 @@
 import { initialState } from './state';
+import { setCacheStatus, canRequestCacheForUrl } from './../../app/services/cache/cache-service'
 import * as ActionTypes from './constants';
 
 export default MyFavMusicReducer = (state = initialState, action) => {
@@ -28,7 +29,7 @@ export default MyFavMusicReducer = (state = initialState, action) => {
       return setCacheStatus(action.key, undefined, state)
     }
     case ActionTypes.FILE_CACHE_REQUESTED: {
-      if (!canRequestCacheForUrl(action.key, state.fileCacheMap)) {
+      if (!canRequestCacheForUrl(action.key, state.musicsCache)) {
         return state;
       }
       return setCacheStatus(action.key, { type: "FileCacheRequested" }, state)

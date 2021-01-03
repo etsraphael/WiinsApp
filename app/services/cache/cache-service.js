@@ -1,5 +1,5 @@
 export function canRequestCacheForKey(key, fileCacheMap) {
-    const currentStatus = fileCacheMap[url];
+    const currentStatus = fileCacheMap[key];
     return (
         // If there's no current status, then we haven't tried caching the file yet
         !currentStatus ||
