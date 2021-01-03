@@ -22,9 +22,11 @@ export function setCacheStatus(url, status, state) {
 }
 
 export function handleFileCacheRequest(url) {
+
+    const path = RNFetchBlob.fs.dirs.DocumentDir + "/" + url.split('/')[3] + '.mp3'
+
     // this.addRequestToQueue(url);
-    const name = '' + Math.random().toString(36).substr(2, 9)
-    RNFetchBlob.config({ path: RNFetchBlob.fs.dirs.DocumentDir + "/" + name + '.mp3' })
+    RNFetchBlob.config({ path })
         .fetch("GET", url)
         .then(result => {
             console.log(result.path())
