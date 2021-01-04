@@ -30,7 +30,8 @@ export default MyFavMusicReducer = (state = initialState, action) => {
         name: action.name,
         path: action.path,
         updatedAt: new Date.now(),
-        views: 1
+        views: 1,
+        ready: false
       })
       return {
         ...state,
@@ -52,15 +53,20 @@ export default MyFavMusicReducer = (state = initialState, action) => {
 
 
 
-    // case ActionTypes.FILE_CACHE_REQUESTED: {
-    //   if (!canRequestCacheForUrl(action.key, state.musicsCache)) {
-    //     return state;
-    //   }
-    //   return setCacheStatus(action.key, { type: "FileCacheRequested" }, state)
-    // }
-    // case ActionTypes.FILE_CACHE_SUCCEEDED: {
-    //   return setCacheStatus(action.key, { type: "FileCacheSucceeded", localUrl: action.localUrl, }, state)
-    // }
+
+    case ActionTypes.FILE_CACHE_SUCCEEDED: {
+
+      const musicsCacheFound = state.musicsCache.map(x => x.url).indexOf(action.url)
+      state.musicsCache[musicsCacheFound].ready = true
+
+      return {
+        ...state 
+      }
+    }
+
+
+
+
     // case ActionTypes.FILE_CACHE_FAILED: {
     //   return setCacheStatus(action.key, { type: "FileCacheFailed" }, state)
     // }
