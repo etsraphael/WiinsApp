@@ -1,5 +1,5 @@
 export const initialState = {
-    musicsCache: null,
+    musicsCache: [],
     list: [],
     isLoading: false,
     error: null,
