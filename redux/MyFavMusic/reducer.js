@@ -1,6 +1,6 @@
-import { initialState } from './state';
-import { setCacheStatus, canRequestCacheForUrl } from './../../app/services/cache/cache-service'
-import * as ActionTypes from './constants';
+import { initialState } from './state'
+import * as ActionTypes from './constants'
+import RNFetchBlob from 'rn-fetch-blob'
 
 export default MyFavMusicReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -26,55 +26,44 @@ export default MyFavMusicReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.FILE_CACHE_IN_PROGRESS: {
-      const musicsCache = state.musicsCache.push({
-        name: action.name,
+      state.musicsCache.push({
+        url: action.url,
         path: action.path,
-        updatedAt: new Date.now(),
+        updatedAt: Date.now(),
         views: 1,
-        ready: false
+        state: 'progressing'
       })
+      return { ...state }
+    }
+    case ActionTypes.REMOVE_FILE_IN_CACHE: {
+      const musicsCacheFound = state.musicsCache.map(x => x.url).indexOf(action.url)
+      state.musicsCache.remove(musicsCacheFound)
+      return { ...state }
+    }
+    case ActionTypes.FILE_CACHE_SUCCEEDED: {
+      const musicsCacheFound = state.musicsCache.map(x => x.url).indexOf(action.url)
+      state.musicsCache[musicsCacheFound].state = 'confirmed'
       return {
-        ...state,
-        musicsCache
+        ...state 
+      }
+    }
+    case ActionTypes.FILE_CACHE_FAILED: {
+      const musicsCacheFound = state.musicsCache.map(x => x.url).indexOf(action.url)
+      state.musicsCache[musicsCacheFound].state = 'failed'
+      return {
+        ...state 
       }
     }
     case ActionTypes.REMOVE_ALL_FILE_IN_CACHE: {
+      // clean the cache for the music
+      for(let music of state.musicsCache){
+        RNFetchBlob.fs.unlink(music.path)
+      }
       return {
         ...state,
         musicsCache: []
       }
     }
-    case ActionTypes.REMOVE_FILE_IN_CACHE: {
-      const musicsCacheFound = state.musicsCache.map(x => x.url).indexOf(action.url)
-      state.musicsCache(musicsCacheFound)
-      return { ...state }
-    }
-
-
-
-
-
-    case ActionTypes.FILE_CACHE_SUCCEEDED: {
-
-      const musicsCacheFound = state.musicsCache.map(x => x.url).indexOf(action.url)
-      state.musicsCache[musicsCacheFound].ready = true
-
-      return {
-        ...state 
-      }
-    }
-
-
-
-
-    // case ActionTypes.FILE_CACHE_FAILED: {
-    //   return setCacheStatus(action.key, { type: "FileCacheFailed" }, state)
-    // }
-
-
-
-
-
     default: return { ...state }
   }
 }

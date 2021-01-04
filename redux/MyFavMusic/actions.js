@@ -23,11 +23,11 @@ export function beginFileCache(url, path) {
 }
 
 export function completeFileCache(url, path) {
-    return { type: ActionTypes.FILE_CACHE_SUCCEEDED, url, path }
+    return { type: ActionTypes.FILE_CACHE_SUCCEEDED, path, url }
 }
 
-export function failFileCache(key) {
-    return { type: ActionTypes.FILE_CACHE_FAILED, key }
+export function failFileCache(url) {
+    return { type: ActionTypes.FILE_CACHE_FAILED, url }
 }
 
 export function removeFileCache(url) {
@@ -66,11 +66,11 @@ export function getMyMusic() {
 export function saveFileInCache(url) {
     return async (dispatch) => {
         try {
-            const path = RNFetchBlob.fs.dirs.DocumentDir + "/" + url.split('/')[3] + '.mp3'
+            const path = RNFetchBlob.fs.dirs.MusicDir + "/" + url.split('/')[3] + '.mp3'
             await dispatch(beginFileCache(url, path))
             return RNFetchBlob.config({ path })
                 .fetch("GET", url)
-                .then(() => dispatch(completeFileCache(url, path)))
+                .then((result) => dispatch(completeFileCache(url, result.path())))
                 .catch(() => dispatch(failFileCache(url)))
         } catch (error) {
             return dispatch(failFileCache(url))
@@ -80,7 +80,7 @@ export function saveFileInCache(url) {
 
 export function removeFileCacheActions(url) {
     return async (dispatch) => {
-        return RNFetchBlob.fs.unlink(RNFetchBlob.fs.dirs.DocumentDir + "/" + url.split('/')[3] + '.mp3')
+        return RNFetchBlob.fs.unlink(RNFetchBlob.fs.dirs.MusicDir + "/" + url.split('/')[3] + '.mp3')
         .then(() => dispatch(removeFileCache(url)))
     }
 }

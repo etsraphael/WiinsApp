@@ -30,6 +30,13 @@ class PlaylistPage extends React.Component {
     componentDidMount() {
         this.props.actions.getMusicPlaylist(this.props.screenProps.rootNavigation.state.params.playlistId)
         // handleFileCacheRequest('https://eps-file-music.s3.eu-west-3.amazonaws.com/ac545062-0846-4144-b7d5-9b54374d90c8')
+        
+        
+        
+        this.props.actions.saveFileInCache('https://eps-file-music.s3.eu-west-3.amazonaws.com/ac545062-0846-4144-b7d5-9b54374d90c8')
+
+
+
         // this.props.actions.removeFileCacheActions('https://eps-file-music.s3.eu-west-3.amazonaws.com/ac545062-0846-4144-b7d5-9b54374d90c8')
     }
 
