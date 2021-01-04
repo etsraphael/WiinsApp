@@ -15,7 +15,6 @@ import { faPlay } from '@fortawesome/pro-solid-svg-icons'
 import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import { handleFileCacheRequest } from './../../../services/cache/cache-service'
 
 
 class PlaylistPage extends React.Component {
@@ -28,16 +27,9 @@ class PlaylistPage extends React.Component {
     }
 
     componentDidMount() {
+        // console.log(this.props.MyMusic.musicsCache.filter(obj => obj.state == 'confirmed'))
+        // this.props.actions.saveFileInCache('https://eps-file-music.s3.eu-west-3.amazonaws.com/ac545062-0846-4144-b7d5-9b54374d90c8')
         this.props.actions.getMusicPlaylist(this.props.screenProps.rootNavigation.state.params.playlistId)
-        // handleFileCacheRequest('https://eps-file-music.s3.eu-west-3.amazonaws.com/ac545062-0846-4144-b7d5-9b54374d90c8')
-        
-        
-        
-        this.props.actions.saveFileInCache('https://eps-file-music.s3.eu-west-3.amazonaws.com/ac545062-0846-4144-b7d5-9b54374d90c8')
-
-
-
-        // this.props.actions.removeFileCacheActions('https://eps-file-music.s3.eu-west-3.amazonaws.com/ac545062-0846-4144-b7d5-9b54374d90c8')
     }
 
     // to display the loading animation
@@ -131,7 +123,11 @@ class PlaylistPage extends React.Component {
     // to shuffle and play the music
     _playShuffleMusic = () => {
         const list = [...this.props.PlaylistPage.playlist.musicList]
-        this.props.actions.playRandomMusicInPlaylistActions(list)
+        
+       
+
+
+        // this.props.actions.playRandomMusicInPlaylistActions(list)
     }
 
     // to active the back button
@@ -223,7 +219,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     PlaylistPage: state.PlaylistPage,
-    CommentList: state.CommentList
+    CommentList: state.CommentList,
+    MyMusic: state.MyFavMusic
 })
 
 const ActionCreators = Object.assign(
