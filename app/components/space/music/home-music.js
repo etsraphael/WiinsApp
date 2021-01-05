@@ -274,7 +274,7 @@ class HomeMusic extends React.Component {
         else return (
             <View>
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingRight: 15, marginBottom: 15 }}>
-                    <TouchableOpacity onPress={() => downloadFavoritesMusicList()}>
+                    <TouchableOpacity onPress={() => downloadFavoritesMusicList(this.props.MyMusic.list, this.props.actions)}>
                         <LinearGradient
                             style={{ paddingHorizontal: 15, paddingVertical: 5, borderRadius: 5, overflow: 'hidden' }}
                             colors={['#7F7FD5', '#86A8E7']}

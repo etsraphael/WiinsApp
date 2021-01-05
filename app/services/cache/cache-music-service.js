@@ -141,6 +141,15 @@ export async function verificationMusicCacheFormat(musicList){
     return musicList
 }
 
-export async function downloadFavoritesMusicList(){
+export async function downloadFavoritesMusicList(musicList, actions){
+
+    // get the musics not downloaded
+    let musicToDownload = musicList.filter(x => x.inCache == false)
+
+    // download all the music, and change the cache state in the store
+    console.log(actions)
+
+
+
     alert('download in progress')
 }
