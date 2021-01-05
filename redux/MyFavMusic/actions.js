@@ -14,30 +14,6 @@ export function getMyFavMusicFail(error) {
     return { type: ActionTypes.GET_MY_FAV_MUSIC_FAIL, payload: error }
 }
 
-export function requestFileCache(key) {
-    return { type: ActionTypes.FILE_CACHE_REQUESTED, key }
-}
-
-export function beginFileCache(url, path) {
-    return { type: ActionTypes.FILE_CACHE_IN_PROGRESS, path, url }
-}
-
-export function completeFileCache(url, path) {
-    return { type: ActionTypes.FILE_CACHE_SUCCEEDED, path, url }
-}
-
-export function failFileCache(url) {
-    return { type: ActionTypes.FILE_CACHE_FAILED, url }
-}
-
-export function removeFileCache(url) {
-    return { type: ActionTypes.REMOVE_FILE_IN_CACHE, url }
-}
-
-export function removeAllFileInCache() {
-    return { type: ActionTypes.REMOVE_ALL_FILE_IN_CACHE }
-}
-
 export function getMyMusic() {
     return async (dispatch) => {
         try {
@@ -61,30 +37,4 @@ export function getMyMusic() {
             return dispatch(getMyFavMusicFail(error));
         }
     };
-}
-
-export function saveFileInCache(url) {
-    return async (dispatch) => {
-        try {
-            const path = RNFetchBlob.fs.dirs.MusicDir + "/" + url.split('/')[3] + '.mp3'
-            await dispatch(beginFileCache(url, path))
-            return RNFetchBlob.config({ path })
-                .fetch("GET", url)
-                .then((result) => dispatch(completeFileCache(url, result.path())))
-                .catch(() => dispatch(failFileCache(url)))
-        } catch (error) {
-            return dispatch(failFileCache(url))
-        }
-    }
-}
-
-export function removeFileCacheActions(url) {
-    return async (dispatch) => {
-        return RNFetchBlob.fs.unlink(RNFetchBlob.fs.dirs.MusicDir + "/" + url.split('/')[3] + '.mp3')
-        .then(() => dispatch(removeFileCache(url)))
-    }
-}
-
-export function removeAllFileInCacheActions() {
-    return (dispatch) => { return dispatch(removeAllFileInCache()) }
 }
