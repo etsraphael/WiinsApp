@@ -140,3 +140,7 @@ export async function verificationMusicCacheFormat(musicList){
 
     return musicList
 }
+
+export async function downloadFavoritesMusicList(){
+    alert('download in progress')
+}

@@ -11,6 +11,7 @@ import OneMusic from './one-music'
 import OneMusicFav from './one-music-fav'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faTransporterEmpty } from '@fortawesome/pro-light-svg-icons'
+import { downloadFavoritesMusicList } from './../../../services/cache/cache-music-service'
 
 class HomeMusic extends React.Component {
 
@@ -273,7 +274,7 @@ class HomeMusic extends React.Component {
         else return (
             <View>
                 <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingRight: 15, marginBottom: 15 }}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => downloadFavoritesMusicList()}>
                         <LinearGradient
                             style={{ paddingHorizontal: 15, paddingVertical: 5, borderRadius: 5, overflow: 'hidden' }}
                             colors={['#7F7FD5', '#86A8E7']}
