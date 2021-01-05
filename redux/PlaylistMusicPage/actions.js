@@ -4,10 +4,12 @@ import { verificationMusicCacheFormat } from './../../app/services/cache/cache-m
 
 export async function getMusicPlaylistSuccess(payload) {
 
-    return {
-        type: ActionTypes.GET_MUSIC_PLAYLIST_SUCCESS,
-        payload: await verificationMusicCacheFormat(payload)
+    payload = {
+        ...payload,
+        musicList: await verificationMusicCacheFormat(payload.musicList)
     }
+
+    return { type: ActionTypes.GET_MUSIC_PLAYLIST_SUCCESS, payload }
 }
 
 export function getMusicPlaylistStart() {

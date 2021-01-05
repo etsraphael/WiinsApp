@@ -269,17 +269,19 @@ class HomeMusic extends React.Component {
                 <FontAwesomeIcon icon={faTransporterEmpty} color={'#c7c7c79c'} size={121} />
                 <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#acb1c0e3', marginTop: 45}}>No music liked yet</Text>
             </View>
-        ) } else return (
-            <View>
-                <FlatList
-                    style={{flex: 1}}
-                    ItemSeparatorComponent={this._renderSeparator}
-                    data={this.props.MyMusic.list}
-                    keyExtractor={(item) => item.id.toString()}
-                    renderItem={({ item, index }) => (<OneMusic music={item} tracklist={this.props.MyMusic.list} index={index} />)}
-                />
-            </View>
-        )
+        ) }
+        else return null 
+        // else return (
+        //     <View>
+        //         <FlatList
+        //             style={{flex: 1}}
+        //             ItemSeparatorComponent={this._renderSeparator}
+        //             data={this.props.MyMusic.list}
+        //             keyExtractor={(item) => item.id.toString()}
+        //             renderItem={({ item, index }) => (<OneMusic music={item} tracklist={this.props.MyMusic.list} index={index} />)}
+        //         />
+        //     </View>
+        // )
     }
 
     _displayContentView = () => {

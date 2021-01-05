@@ -118,7 +118,7 @@ export async function getCacheLinkOrSeverLink(url) {
 
 }
 
-export async function verificationMusicCacheFormat(payload){
+export async function verificationMusicCacheFormat(musicList){
 
     // get the musicRefCache
     let musicRefCache = await AsyncStorage.getItem('musicRefCache')
@@ -127,16 +127,16 @@ export async function verificationMusicCacheFormat(payload){
     musicRefCache = JSON.parse(musicRefCache)
 
     // replace the link if it's in the cache
-    for([i, m] of payload.musicList.entries()){
+    for([i, m] of musicList.entries()){
         const musicFound = musicRefCache.find(music => (music.url == m.file) && (music.state == 'confirmed'))
 
         if(musicFound){
-            payload.musicList[i].file = musicFound.path
-            payload.musicList[i].inCache = true
+            musicList[i].file = musicFound.path
+            musicList[i].inCache = true
         } else {
-            payload.musicList[i].inCache = false 
+            musicList[i].inCache = false 
         }
     }
 
-    return payload
+    return musicList
 }

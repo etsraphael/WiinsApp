@@ -1,5 +1,7 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
+import { verificationMusicCacheFormat } from './../../app/services/cache/cache-music-service'
+
 
 export async function getMyFavMusicSuccess(payload) {
     return { type: ActionTypes.GET_MY_FAV_MUSIC_SUCCESS, payload: await verificationMusicCacheFormat(payload) }
@@ -29,7 +31,7 @@ export function getMyMusic() {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 201) return dispatch( await getMyFavMusicSuccess(response.playlist))
+                    if (response.status == 200) return dispatch( await getMyFavMusicSuccess(response.playlist))
                     return dispatch(getMyFavMusicFail(response.message))
                 })
         } catch (error) {
