@@ -1,10 +1,12 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
+import { verificationMusicCacheFormat } from './../../app/services/cache/cache-music-service'
 
-export function getMusicPlaylistSuccess(payload) {
-    return { 
+export async function getMusicPlaylistSuccess(payload) {
+
+    return {
         type: ActionTypes.GET_MUSIC_PLAYLIST_SUCCESS,
-        payload
+        payload: await verificationMusicCacheFormat(payload)
     }
 }
 
@@ -30,17 +32,19 @@ export function getMusicPlaylist(id) {
             dispatch(getMusicPlaylistStart())
             const url = 'https://wiins-backend.herokuapp.com/music/playlist/' + id
             const token = await AsyncStorage.getItem('userToken')
-            
+
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 }
             })
                 .then((response) => response.json())
-                .then( async (response) => {
-                    if (response.status == 200) return dispatch(getMusicPlaylistSuccess(response.playlist))
+                .then(async (response) => {
+                    if (response.status == 200) {
+                        return dispatch( await getMusicPlaylistSuccess(response.playlist))
+                    }
                     return dispatch(getMusicPlaylistFail(response.message))
                 })
         } catch (error) {

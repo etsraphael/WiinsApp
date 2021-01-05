@@ -117,3 +117,26 @@ export async function getCacheLinkOrSeverLink(url) {
     else return url
 
 }
+
+export async function verificationMusicCacheFormat(payload){
+
+    // get the musicRefCache
+    let musicRefCache = await AsyncStorage.getItem('musicRefCache')
+
+    // pars the json to manipulate it
+    musicRefCache = JSON.parse(musicRefCache)
+
+    // replace the link if it's in the cache
+    for([i, m] of payload.musicList.entries()){
+        const musicFound = musicRefCache.find(music => (music.url == m.file) && (music.state == 'confirmed'))
+
+        if(musicFound){
+            payload.musicList[i].file = musicFound.path
+            payload.musicList[i].inCache = true
+        } else {
+            payload.musicList[i].inCache = false 
+        }
+    }
+
+    return payload
+}
