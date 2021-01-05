@@ -2,6 +2,7 @@ import { initialState } from './state'
 import * as ActionTypes from './constants'
 import RNFetchBlob from 'rn-fetch-blob'
 
+
 export default MyFavMusicReducer = (state = initialState, action) => {
   switch (action.type) {
     case ActionTypes.GET_MY_FAV_MUSIC: {
@@ -26,13 +27,6 @@ export default MyFavMusicReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.FILE_CACHE_IN_PROGRESS: {
-      state.musicsCache.push({
-        url: action.url,
-        path: action.path,
-        updatedAt: Date.now(),
-        views: 1,
-        state: 'progressing'
-      })
       return { ...state }
     }
     case ActionTypes.REMOVE_FILE_IN_CACHE: {
