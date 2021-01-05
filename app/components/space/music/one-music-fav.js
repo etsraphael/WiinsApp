@@ -10,7 +10,7 @@ import { faHeart as faHeartEmpty, faEllipsisH } from '@fortawesome/pro-light-svg
 import { faHeart as faHeartFull } from '@fortawesome/pro-solid-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 
-class OneMusic extends React.Component {
+class OneMusicFav extends React.Component {
 
     constructor(props) {
         super(props)
@@ -28,14 +28,9 @@ class OneMusic extends React.Component {
     }
 
     // to display the music view
-    _musicView = (music, index, tracklist) => {
+    _musicView = (music, tracklist) => {
         return (
             <TouchableOpacity style={styles.one_music} onPress={() => this._playMusic(music, tracklist)}>
-
-                {/* Index */}
-                <View style={styles.container_index}>
-                    <Text style={styles.text_index}>{index + 1}</Text>
-                </View>
 
                 {/* Description */}
                 <View style={styles.description_container}>
@@ -67,15 +62,10 @@ class OneMusic extends React.Component {
     }
 
     // to display playing music view
-    _musicPlayingView = (music, index, tracklist) => {
+    _musicPlayingView = (music, tracklist) => {
         return (
             <LinearGradient colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}>
                 <TouchableOpacity style={[styles.one_music, { backgroundColor: '#ffffff00' }]} onPress={() => this._playMusic(music, tracklist)}>
-
-                    {/* Index */}
-                    <View style={styles.container_index}>
-                        <Text style={[styles.text_index, { color: 'white' }]}>{index + 1}</Text>
-                    </View>
 
                     {/* Description */}
                     <View style={styles.description_container}>
@@ -112,13 +102,12 @@ class OneMusic extends React.Component {
     render() {
 
         const { music } = this.props
-        const { index } = this.props
         const { tracklist } = this.props
 
         if (this.props.Player.isPlayling && music._id == this.props.Player.musicIsPlaying.id) {
-            return this._musicPlayingView(music, index, tracklist)
+            return this._musicPlayingView(music, tracklist)
         } else {
-            return this._musicView(music, index, tracklist)
+            return this._musicView(music, tracklist)
         }
 
     }
@@ -128,20 +117,10 @@ class OneMusic extends React.Component {
 const styles = StyleSheet.create({
     one_music: {
         flexDirection: 'row',
-        paddingHorizontal: 5,
+        paddingHorizontal: 15,
         width: '100%',
         backgroundColor: '#F2F2F2',
         paddingVertical: 15
-    },
-    container_index: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    text_index: {
-        fontSize: 16,
-        fontFamily: 'Avenir-Heavy',
-        color: '#77838F'
     },
     description_container: {
         flex: 5,
@@ -187,4 +166,4 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(ActionCreators, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(OneMusic)
+export default connect(mapStateToProps, mapDispatchToProps)(OneMusicFav)

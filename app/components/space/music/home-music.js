@@ -8,6 +8,7 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import OneMusic from './one-music'
+import OneMusicFav from './one-music-fav'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faTransporterEmpty } from '@fortawesome/pro-light-svg-icons'
 
@@ -197,14 +198,14 @@ class HomeMusic extends React.Component {
                 </View>
 
                 {/* Playlist choosed */}
-                { this.state.playlistZoneSelected == 'favorites' ? null : this._showPlaylistList() }
+                { this.state.playlistZoneSelected == 'favorites' ? null : this._showPlaylistList()}
 
             </View>
         )
     }
 
     _renderSeparator = () => {
-        return (<View style={{height: 2, width: '100%', backgroundColor: '#e6e6e6'}}/>)
+        return (<View style={{ height: 2, width: '100%', backgroundColor: '#e6e6e6' }} />)
     }
 
     // to display the music list
@@ -212,7 +213,7 @@ class HomeMusic extends React.Component {
         return (
             <View>
                 <FlatList
-                    style={{flex: 1}}
+                    style={{ flex: 1 }}
                     ItemSeparatorComponent={this._renderSeparator}
                     data={this.state.fakeMusiclist}
                     keyExtractor={(item) => item.id.toString()}
@@ -263,26 +264,22 @@ class HomeMusic extends React.Component {
     // to display my music
     _myMusicView = () => {
 
-        if(this.props.MyMusic.list.length == 0 ){
+        if (this.props.MyMusic.list.length == 0) {
             return (
-            <View style={{ justifyContent: 'center', alignItems: 'center', height: '100%'}}>
-                <FontAwesomeIcon icon={faTransporterEmpty} color={'#c7c7c79c'} size={121} />
-                <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#acb1c0e3', marginTop: 45}}>No music liked yet</Text>
-            </View>
-        ) }
+                <View style={{ justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+                    <FontAwesomeIcon icon={faTransporterEmpty} color={'#c7c7c79c'} size={121} />
+                    <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#acb1c0e3', marginTop: 45 }}>No music liked yet</Text>
+                </View>
+            )
+        }
         else return (
             <View>
                 <FlatList
-                    style={{flex: 1}}
+                    style={{ flex: 1 }}
                     ItemSeparatorComponent={this._renderSeparator}
                     data={this.props.MyMusic.list}
                     keyExtractor={(item) => item._id.toString()}
-                    renderItem={({ item, index }) => (
-                    <OneMusic 
-                    music={item} 
-                    tracklist={this.props.MyMusic.list} 
-                    index={index} />
-                    )}
+                    renderItem={({ item }) => (<OneMusicFav music={item} tracklist={this.props.MyMusic.list}/>)}
                 />
             </View>
         )
@@ -293,7 +290,7 @@ class HomeMusic extends React.Component {
             {/* categorie playslit */}
             {this._categorieViews()}
             {/* chart playslit */}
-            { this.state.playlistZoneSelected == 'favorites' ? this._myMusicView() : this._chartViews() }
+            { this.state.playlistZoneSelected == 'favorites' ? this._myMusicView() : this._chartViews()}
         </View>)
     }
 
