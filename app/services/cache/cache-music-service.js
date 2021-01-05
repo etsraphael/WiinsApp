@@ -76,7 +76,7 @@ export async function resetAllRefMusic() {
         musicRefCache = JSON.parse(musicRefCache)
 
         // delete each musics
-        for(let music of musicRefCache){
+        for (let music of musicRefCache) {
             await resetRefMusicByUrl(music.url)
         }
 
@@ -87,7 +87,7 @@ export async function resetAllRefMusic() {
 
 export async function resetRefMusicByUrl(url) {
     return RNFetchBlob.fs.unlink(RNFetchBlob.fs.dirs.MusicDir + "/" + url.split('/')[3] + '.mp3')
-        .then( async () => {
+        .then(async () => {
 
             // get the music ref
             let musicRefCache = await AsyncStorage.getItem('musicRefCache')
@@ -100,4 +100,20 @@ export async function resetRefMusicByUrl(url) {
 
             return AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
         })
+}
+
+export async function getCacheLinkOrSeverLink(url) {
+
+    // get the musicRefCache
+    let musicRefCache = await AsyncStorage.getItem('musicRefCache')
+
+    // pars the json to manipulate it
+    musicRefCache = JSON.parse(musicRefCache)
+
+    // replace the link if it's in the cache
+    const musicFound = musicRefCache.find(music => (music.url === url) && (music.state == 'confirmed'))
+
+    if(musicFound) return musicFound.path
+    else return url
+
 }

@@ -15,7 +15,6 @@ import { faPlay } from '@fortawesome/pro-solid-svg-icons'
 import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import { addRefMusic, resetRefMusicByUrl } from '../../../services/cache/cache-music-service'
 
 class PlaylistPage extends React.Component {
 
@@ -27,14 +26,6 @@ class PlaylistPage extends React.Component {
     }
 
     componentDidMount() {
-
-        addRefMusic('https://eps-file-music.s3.eu-west-3.amazonaws.com/ac545062-0846-4144-b7d5-9b54374d90c8')
-
-        // resetRefMusicByUrl('https://eps-file-music.s3.eu-west-3.amazonaws.com/ac545062-0846-4144-b7d5-9b54374d90c8')
-
-        
-
-
         this.props.actions.getMusicPlaylist(this.props.screenProps.rootNavigation.state.params.playlistId)
     }
 

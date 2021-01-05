@@ -1,6 +1,5 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
-import RNFetchBlob from 'rn-fetch-blob'
 
 export function getMyFavMusicSuccess(musics) {
     return { type: ActionTypes.GET_MY_FAV_MUSIC_SUCCESS, payload: musics }
