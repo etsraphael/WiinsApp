@@ -137,7 +137,6 @@ class StoriesTrend extends React.Component {
 
     // to load the publication view
     _body = () => {
-
         switch (this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.publicationList[this.state.indexProgress].publication.type) {
             case 'PostStory': return this._displayPostStory()
             case 'PictureStory': return this._displayPictureStory()

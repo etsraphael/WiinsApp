@@ -608,7 +608,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Prieš palikdami grupę, turite paaukštinti vadybininką",
     "T-min-is-1$": "Minimalus dydis yra 1 $",
     "Missing-informations": "Trūksta informacijos",
-    "Account_desactivated": "Paskyra atjungta"
+    "Account_desactivated": "Paskyra atjungta",
+    "Y-dont-have-a-conversation-yet": "Jūs dar neturite pokalbio."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Nuotrauka gauta",

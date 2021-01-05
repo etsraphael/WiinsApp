@@ -608,7 +608,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Trebuie să promovați un manager înainte de a părăsi grupul",
     "T-min-is-1$": "Minimul este de 1 $",
     "Missing-informations": "Informații lipsă",
-    "Account_desactivated": "Contul este dezactivat"
+    "Account_desactivated": "Contul este dezactivat",
+    "Y-dont-have-a-conversation-yet": "Nu aveți încă o conversație."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotografia este primită",

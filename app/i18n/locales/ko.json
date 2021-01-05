@@ -566,7 +566,8 @@
     "Please-upload-the-poster-before": "동영상 포스터를 먼저 업로드 해주세요.",
     "T-min-is-1$": "최소 금액은 1 $입니다.",
     "Missing-informations": "누락 된 정보",
-    "Account_desactivated": "계정 비활성화"
+    "Account_desactivated": "계정 비활성화",
+    "Y-dont-have-a-conversation-yet": "아직 대화가 없습니다."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "사진이 접수되었습니다",

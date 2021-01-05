@@ -268,7 +268,7 @@ class PublicationStandard extends React.Component {
             else {
                 like = {
                     publicationProfile: this.props.publication.page._id,
-                    type: 'publication',
+                    type: 'feed-publication',
                     publicationID: this.props.publication._id,
                     ownerType: 'page',
                     hastags: this.props.publication.hastags
@@ -311,16 +311,6 @@ class PublicationStandard extends React.Component {
                                 onPress={() => this._likePublication()}
                                 style={{ flex: 1 }}
                             >
-                                {/* Temporaly disabled */}
-                                {/* <BlurView
-                                    blurType="light"
-                                    blurAmount={1}
-                                    reducedTransparencyFallbackColor="white"
-                                    style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 18, height: 35 }}
-                                >
-                                    {this._displayIconLike()}
-                                    <Text style={{ marginLeft: 8, fontSize: 15, color: 'white', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.like.likeNumber}</Text>
-                                </BlurView> */}
                                 <View 
                                     style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 18, height: 35 }}
                                 >

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, Image, TextInput, FlatList, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, Text, TextInput, FlatList, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import OnePlaylistMin from './one-playlist-min'
@@ -17,48 +17,10 @@ class HomeMusic extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            fakePlaylist: [
-                {
-                    id: '1',
-                    playlistImg: 'https://images.unsplash.com/photo-1597338932254-eb058b7ca878?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
-                    title: 'project1',
-                    username: 'jake_27'
-                },
-                {
-                    id: '2',
-                    playlistImg: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
-                    title: 'project2',
-                    username: 'jake_27'
-                },
-                {
-                    id: '3',
-                    playlistImg: 'https://images.unsplash.com/photo-1543840950-e6529649ce74?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
-                    title: 'project3',
-                    username: 'jake_27'
-                },
-                {
-                    id: '4',
-                    playlistImg: 'https://images.unsplash.com/photo-1583283520786-2d5119461c7b?ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80',
-                    title: 'project4',
-                    username: 'jake_27'
-                },
-                {
-                    id: '5',
-                    playlistImg: 'https://images.unsplash.com/photo-1510914828947-36f754990aa5?ixlib=rb-1.2.1&auto=format&fit=crop&w=3289&q=80',
-                    title: 'project5',
-                    username: 'jake_27'
-                },
-                {
-                    id: '6',
-                    playlistImg: 'https://images.unsplash.com/photo-1487180144351-b8472da7d491?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2252&q=80',
-                    title: 'project5',
-                    username: 'jake_27'
-                },
-            ],
             fakeMusiclist: [
                 {
                     id: '1',
-                    name: 'project1',
+                    name: 'music1',
                     profile: {
                         pictureprofile: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
                         _meta: {
@@ -68,7 +30,7 @@ class HomeMusic extends React.Component {
                 },
                 {
                     id: '2',
-                    name: 'project2',
+                    name: 'music2',
                     profile: {
                         pictureprofile: 'https://images.unsplash.com/photo-1595840635571-5d6abc7d584b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1287&q=80',
                         _meta: {
@@ -78,7 +40,7 @@ class HomeMusic extends React.Component {
                 },
                 {
                     id: '3',
-                    name: 'project3',
+                    name: 'music3',
                     profile: {
                         pictureprofile: 'https://images.unsplash.com/photo-1597361767997-7b0433fe5136?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2215&q=80',
                         _meta: {
@@ -88,7 +50,7 @@ class HomeMusic extends React.Component {
                 },
                 {
                     id: '4',
-                    name: 'project4',
+                    name: 'music4',
                     profile: {
                         pictureprofile: 'https://images.unsplash.com/photo-1516117525866-d85459db7457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
                         _meta: {
@@ -96,61 +58,65 @@ class HomeMusic extends React.Component {
                         }
                     }
                 }
-            ]
+            ],
+            playlistZone: [
+                { code: 1, name: 'Lastest', key: 'lastestPlaylist' },
+                { code: 2, name: 'Favorites', key: 'favorites' },
+                { code: 3, name: 'Workout', key: 'workout' },
+                { code: 4, name: 'Chill', key: 'chill' },
+                { code: 5, name: 'Dance', key: 'dance' },
+                { code: 6, name: 'Sleep', key: 'sleep' },
+            ],
+            categoryZone: [
+                { code: 1, name: 'Rap', key: 'rap' },
+                { code: 2, name: 'Pop', key: 'pop' },
+                { code: 3, name: 'Acoustic', key: 'acoustic' },
+                { code: 4, name: 'Rock', key: 'rock' },
+                { code: 5, name: 'Kpop', key: 'kpop' },
+                { code: 6, name: 'Alternative', key: 'alternative' },
+            ],
+            playlistZoneSelected: 'lastestPlaylist',
+            categoryZoneSelected: 'rap',
+            search: ''
         }
     }
 
+
     componentDidMount() {
-        // this.props.actions.getMusicMenu()
+        this.props.actions.getMusicMenu()
     }
 
-    // to display the header view
-    _headerMusic = () => {
+    // to display the header view of the screen
+    _header = () => {
         return (
             <View style={styles.header_container}>
-
                 {/* search bar */}
-                <View style={{ flex: 1 }}>
-                    <View style={styles.container_search_bar}>
-                        <TextInput
-                            placeholder='Search'
-                            style={styles.search_bar}
-                            placeholderTextColor="#737373"
-                        />
-                        <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faSearch} color={'grey'} size={25} />
-                        </View>
-                    </View>
+                <View style={styles.container_search_bar}>
+                    <TextInput
+                        placeholder='Search'
+                        style={styles.search_bar}
+                        placeholderTextColor="#737373"
+                        value={this.state.search}
+                        blurOnSubmit={true}
+                    />
+                    <FontAwesomeIcon icon={faSearch} color={'grey'} size={21} style={{ opacity: 0.8, position: 'absolute', right: 25 }} />
                 </View>
-
-            </View>
-        )
-    }
-
-    // to display the loading animation
-    _displayLoading() {
-        return (
-            <View style={styles.loading_container}>
-                <ActivityIndicator size='large' color="grey" />
             </View>
         )
     }
 
     // to display the list of the playlist
-    _showPlaylistList = (tubeList) => {
+    _showPlaylistList = () => {
         return (
-            <View style={{ paddingBottom: 10 }}>
-
-                <View style={{ flexDirection: 'row' }}>
-                    <FlatList
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                        style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7, paddingLeft: 19 }}
-                        data={tubeList}
-                        keyExtractor={(item) => item.id.toString()}
-                        renderItem={({ item }) => this._onePlayListRender(item)}
-                    />
-                </View>
+            <View style={{ paddingBottom: 5, height: 180 }}>
+                <FlatList
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    style={{ flexDirection: 'row', flexWrap: 'wrap', paddingLeft: 19 }}
+                    data={this.props.MyMenu.menu.playlitsSuggestion[this.state.playlistZoneSelected]}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({ item }) => this._onePlayListRender(item)}
+                />
             </View>
         )
     }
@@ -160,24 +126,23 @@ class HomeMusic extends React.Component {
 
         return (
             <TouchableOpacity
-                onPress={() => this.props.navigation.navigate('PlaylistPage', { playlistId: '5f7ac5ebbbb5d000314fe647' })}
+                onPress={() => this.props.navigation.navigate('PlaylistPage', { playlistId: playlist._id })}
                 style={styles.onePlaylistContainer}
             >
 
                 {/* Background Image */}
                 <FastImage
                     style={{ width: '100%', height: '100%', borderRadius: 8 }} resizeMode={FastImage.resizeMode.cover}
-                    source={{ uri: playlist.playlistImg, priority: FastImage.priority.normal }}
+                    source={{ uri: playlist.picture, priority: FastImage.priority.normal }}
                 />
 
                 {/* Footer Card */}
-                <View style={{ position: 'absolute', bottom: 0, width: '100%', height: 70, }}>
+                <View style={{ position: 'absolute', bottom: 0, width: '100%', height: 50, }}>
                     <LinearGradient
                         colors={['#fbfbfb00', '#bdc3c72e', '#2c3e50d1']}
                         style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, height: '100%', borderBottomEndRadius: 8, borderBottomStartRadius: 8 }}>
                         <View style={{ paddingLeft: 5 }}>
-                            <Text style={{ color: '#FFFFFF', fontSize: 16, fontWeight: '800', paddingVertical: 2 }}>{playlist.title}</Text>
-                            <Text style={{ color: '#FFFFFF', fontSize: 13, fontWeight: '400', paddingVertical: 2 }}>{playlist.username}</Text>
+                            <Text style={{ color: '#FFFFFF', fontSize: 16, fontWeight: '800', paddingVertical: 2 }}>{playlist.name}</Text>
                         </View>
                     </LinearGradient>
                 </View>
@@ -185,6 +150,28 @@ class HomeMusic extends React.Component {
             </TouchableOpacity>
         )
 
+    }
+
+    // to color the place selected
+    _actifZoneSelected = (key) => {
+        if (key == this.state.playlistZoneSelected) return { color: '#241C50' }
+        else return null
+    }
+
+    // change to actif zone
+    _changePlaylistCategory = (key) => {
+        this.setState({ playlistZoneSelected: key })
+    }
+
+    // to color the place selected
+    _actifCategoryZoneSelected = (key) => {
+        if (key == this.state.categoryZoneSelected) return { color: '#241C50' }
+        else return null
+    }
+
+    // change to actif zone
+    _changeCategoryZone = (key) => {
+        this.setState({ categoryZoneSelected: key })
     }
 
     // to display a playlist row about a category
@@ -198,19 +185,18 @@ class HomeMusic extends React.Component {
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
                         style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7, paddingLeft: 19 }}
-                        data={['Discover', 'My Music', 'Dance', 'Rap', 'Buzz', 'Chart', 'Blabla']}
-                        keyExtractor={(item) => item.toString()}
+                        data={this.state.playlistZone}
+                        keyExtractor={(item) => item.key.toString()}
                         renderItem={({ item }) => (
-                            <TouchableOpacity style={styles.one_hastag}>
-                                <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#acb1c0e3' }}>{item}</Text>
+                            <TouchableOpacity style={styles.one_hastag} onPress={() => this._changePlaylistCategory(item.key)}>
+                                <Text style={[styles.onTitle, this._actifZoneSelected(item.key)]}>{item.name}</Text>
                             </TouchableOpacity>
                         )}
                     />
                 </View>
 
-                {/* Playlist List */}
-                {this._showPlaylistList(this.state.fakePlaylist)}
-
+                {/* Playlist choosed */}
+                { this.state.playlistZoneSelected == 'favorites' ? null : this._showPlaylistList() }
 
             </View>
         )
@@ -232,6 +218,7 @@ class HomeMusic extends React.Component {
 
     // to display the list of the genre
     _chartViews = () => {
+
         return (
             <View style={styles.container_section}>
 
@@ -241,11 +228,11 @@ class HomeMusic extends React.Component {
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
                         style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7, paddingLeft: 19 }}
-                        data={['Vpop', 'Rap', 'Pop', 'Kpop', 'US-UK', 'Vpop2', 'Rap2', 'Pop2', 'Kpop2', 'US-UK2']}
-                        keyExtractor={(item) => item.toString()}
+                        data={this.state.categoryZone}
+                        keyExtractor={(item) => item.key.toString()}
                         renderItem={({ item }) => (
-                            <TouchableOpacity style={styles.one_hastag}>
-                                <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#acb1c0e3' }}>{item}</Text>
+                            <TouchableOpacity style={styles.one_hastag} onPress={() => this._changeCategoryZone(item.key)}>
+                                <Text style={[styles.onTitle, this._actifCategoryZoneSelected(item.key)]}>{item.name}</Text>
                             </TouchableOpacity>
                         )}
                     />
@@ -258,48 +245,67 @@ class HomeMusic extends React.Component {
         )
     }
 
+    // to display the loading animation
+    _displayLoading = () => {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 115 }}>
+                <ActivityIndicator size='large' color="grey" />
+            </View>
+        )
+    }
+
+    // to display my music
+    _myMusicView = () => {
+        return (<View><Text>My music is progressing</Text></View>)
+    }
+
+    _displayContentView = () => {
+        return (<View>
+            {/* categorie playslit */}
+            {this._categorieViews()}
+            {/* chart playslit */}
+            { this.state.playlistZoneSelected == 'favorites' ? this._myMusicView() : this._chartViews() }
+        </View>)
+    }
+
     render() {
         return (
             <ScrollView style={styles.main_container}>
                 {/*  search bar */}
-                {this._headerMusic()}
-                {/* categorie playslit */}
-                {this._categorieViews()}
-                {/* chart playslit */}
-                {this._chartViews()}
+                {this._header()}
+                {/* Body */}
+                {this.props.MyMenu.isLoading ? this._displayLoading() : this._displayContentView()}
             </ScrollView>
         )
     }
+
 }
 
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
-        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 0,
-    },
-    container_section: {
-        backgroundColor: 'white'
+        backgroundColor: '#eef2f4'
     },
     header_container: {
-        flexDirection: 'row',
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10,
+        paddingBottom: 15,
+        paddingHorizontal: 25,
+        backgroundColor: '#f9fafc',
+        borderBottomRightRadius: 25,
+        borderBottomLeftRadius: 25,
         position: 'relative',
-        marginVertical: 5,
-        paddingHorizontal: 15
+        borderWidth: 0.3,
+        borderColor: '#c3c3c36e'
     },
     container_search_bar: {
-        height: 38,
+        height: 45,
         fontSize: 15,
-        paddingLeft: 25,
+        paddingLeft: 15,
         flexDirection: 'row',
-        borderRadius: 18,
-        backgroundColor: '#f2f3f7',
+        borderRadius: 25,
+        backgroundColor: '#edf1f3',
         overflow: 'hidden',
         alignItems: 'center'
-    },
-    search_bar: {
-        fontSize: 15,
-        paddingLeft: 10,
-        flex: 7
     },
     body_container: {
         paddingVertical: 20
@@ -314,7 +320,7 @@ const styles = StyleSheet.create({
     },
     onePlaylistContainer: {
         marginHorizontal: 10,
-        marginVertical: 15,
+        marginVertical: 10,
         height: 155,
         width: 155,
         borderRadius: 8,
@@ -326,6 +332,14 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5
+    },
+    onTitle: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        fontFamily: 'Avenir-Heavy',
+        lineHeight: 41,
+        letterSpacing: 1,
+        color: '#acb1c0e3'
     }
 
 })

@@ -146,8 +146,9 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
-    PublicationFeed: state.PublicationFeed,
-    publicationProfile: state.publicationProfile,
+    FeedPublications: state.FeedPublications,
+    ProfilePublications: state.ProfilePublications,
+    DiscoverPublications: state.DiscoverPublications,
     MyProfile: state.MyProfile
 })
 

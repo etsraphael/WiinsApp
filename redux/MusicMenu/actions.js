@@ -23,7 +23,7 @@ export function getMusicMenu() {
     return async (dispatch) => {
         try {
             dispatch(getMusicMenuStart())
-            const url = 'https://wiins-backend.herokuapp.com/music/menu/playlist'
+            const url = 'https://wiins-backend.herokuapp.com/music/menu/app/playlist'
             const token = await AsyncStorage.getItem('userToken')
 
             return fetch(url, {
@@ -35,7 +35,7 @@ export function getMusicMenu() {
             })
                 .then((response) => response.json())
                 .then( async (response) => {
-                    if (response.status == 201) return dispatch(getMusicMenuSuccess(response.menu))
+                    if (response.status == 200) return dispatch(getMusicMenuSuccess(response.menu))
                     return dispatch(getMusicMenuFail(response.message))
                 })
         } catch (error) {

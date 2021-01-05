@@ -566,7 +566,8 @@
     "Please-upload-the-poster-before": "Пожалуйста, загрузите постер видео перед",
     "T-min-is-1$": "Минимум 1 $",
     "Missing-informations": "Отсутствующая информация",
-    "Account_desactivated": "Аккаунт деактивирован"
+    "Account_desactivated": "Аккаунт деактивирован",
+    "Y-dont-have-a-conversation-yet": "Вы еще не разговаривали."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фото получено",

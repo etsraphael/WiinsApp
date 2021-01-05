@@ -11,7 +11,7 @@ export function getDateTranslated(date) {
       case (DayDiff <= 1): {
         const minDiff = Math.abs((new Date(date).getTime() - new Date().getTime()) / 60000)
         // few secondes
-        if (minDiff <= 1) return 'DATE.few-sec'
+        if (minDiff <= 1) return I18n.t('DATE.few-sec')
         // minutes ago
         if ((minDiff > 1) && (minDiff <= 50) ) {
           return I18n.t('DATE.x-min-ago', { value: Math.round(minDiff) })
@@ -30,7 +30,7 @@ export function getDateTranslated(date) {
 
       // week ago
       case (DayDiff >= 7 && DayDiff < 30): {
-        if (DayDiff) return 'DATE.a-week-ago'
+        if (DayDiff) return I18n.t('DATE.a-week-ago')
         else {
           const countWeek = Math.round(DayDiff / 7)
           return I18n.t('DATE.x-week-ago', { value: countWeek })
@@ -40,13 +40,13 @@ export function getDateTranslated(date) {
       // month ago
       case (DayDiff >= 30 && DayDiff < 360): {
         const countMonth = Math.round(DayDiff / 30)
-        if (countMonth <= 1) return 'DATE.a-month-ago'
+        if (countMonth <= 1) return I18n.t('DATE.a-month-ago')
         else return I18n.t('DATE.x-month-ago', { value: Math.round(countMonth) })
       }
 
       // years ago
       case (DayDiff >= 360): {
-        if (DayDiff < 720) return 'DATE.a-years-ago'
+        if (DayDiff < 720) return I18n.t('DATE.a-years-ago')
         else return I18n.t('DATE.x-years-ago', { value: Math.round(DayDiff) })
       }
 

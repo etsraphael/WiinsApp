@@ -18,7 +18,8 @@ import Video from 'react-native-video'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { getDateTranslated } from '../../services/translation/translation-service'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faTimes, faCommentLines, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
+import { faTimes, faCommentLines, faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
+
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import I18n from '../../i18n/i18n'
 
@@ -30,7 +31,8 @@ class PublicationModal extends React.Component {
             showSuggest: false,
             displayVideo: false,
             background_filter: false,
-            page: 1
+            page: 1,
+            textComment: null
         }
     }
 
@@ -38,7 +40,7 @@ class PublicationModal extends React.Component {
         this.eventListener = DeviceEventEmitter.addListener('toggleSuggest', this.toggleSuggest);
     }
 
-    _loadComment(){
+    _loadComment() {
         this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
         this.setState({ page: 2, background_filter: true })
     }
@@ -78,37 +80,81 @@ class PublicationModal extends React.Component {
         }
     }
 
+    // send the comment
+    sendComment = () => {
+
+        if (!this.state.textComment) return null
+
+        if (this.props.publicationModal.publication.profile) {
+
+            const comment = {
+                tagFriend: [],
+                text: this.state.textComment,
+                baseComment: null,
+                commentProfile: null,
+                publicationId: this.props.publicationModal.publication._id,
+                publicationProfile: this.props.publicationModal.publication.profile._id,
+                space: 'feed-publication'
+            }
+
+            this.props.actions.sendCommentToProfile(comment, this.props.publicationModal.space)
+        }
+
+        if (this.props.publicationModal.publication.page) {
+
+            const comment = {
+                tagFriend: [],
+                text: this.state.textComment,
+                baseComment: null,
+                commentProfile: null,
+                publicationId: this.props.publicationModal.publication._id,
+                publicationProfile: this.props.publicationModal.publication.page._id,
+                space: 'feed-publication'
+            }
+
+            this.props.actions.sendCommentToPage(comment, this.props.publicationModal.space)
+        }
+
+        this.setState({ textComment: null })
+
+    }
+
+    _displayIconLikeColor = () => {
+        if (this.props.publicationModal.publication.like.isLike) return 'red'
+        else return 'white'
+    }
+
     // to select the footer of the view 
     _footer(publication) {
         return (
             <View style={styles.container_footer}>
-
-                {this.state.page == 1 ?
-                    <View style={{ flex: 1, paddingLeft: 25, alignItems: 'flex-end' }}>
-                        <View style={{ flexDirection: 'row', flex: 1, paddingRight: 15, paddingBottom: 15 }}>
-                            <TouchableOpacity style={{ flexDirection: 'row', marginRight: 8 }} onPress={() => this._loadComment()}>
+                <View style={{ flex: 1, flexDirection: 'row', height: 52, paddingHorizontal: 25 }}>
+                    <View style={{ flexDirection: 'row', flex: 7, backgroundColor: '#464646a8', borderRadius: 20 }}>
+                        <TextInput
+                            placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
+                            placeholderTextColor="#FFFFFF"
+                            value={this.state.textComment}
+                            style={{ flex: 9, paddingLeft: 15, color: "#FFFFFF", borderRadius: 17, height: '100%' }}
+                            onChangeText={(val) => this.setState({ textComment: val })}
+                        />
+                        <TouchableOpacity onPress={() => this._likeBtn()}
+                        style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
+                            <FontAwesomeIcon icon={faHeart} color={this._displayIconLikeColor()} size={19} />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ flex: 2, paddingLeft: 25, alignItems: 'center' }}>
+                        <View style={{ flex: 1, flexDirection: 'row' }}>
+                            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }} onPress={() => this._loadComment()}>
                                 <FontAwesomeIcon icon={faCommentLines} color={'white'} size={19} />
                                 <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._likeBtn()}>
-                                <FontAwesomeIcon icon={faHeart} color={'white'} size={19} />
-                                <Text style={{ marginLeft: 7, fontSize: 15, color: 'white' }}>{publication.like.likeNumber}</Text>
+                            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}>
+                                <FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />
+                                <Text style={{ fontSize: 15, color: 'white', paddingLeft: 7 }}>{publication.like.likeNumber}</Text>
                             </TouchableOpacity>
                         </View>
-                    </View> : null}
-
-                <View style={{ flex: 1, flexDirection: 'row', height: 39 }}>
-                    <TextInput
-                        placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
-                        placeholderTextColor="#FFFFFF"
-                        style={{ flex: 9, paddingLeft: 15, color: 'grey', backgroundColor: '#485164', borderRadius: 17, height: '100%' }}
-                    ></TextInput>
-                    <TouchableOpacity
-                        style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={28} />
-                    </TouchableOpacity>
+                    </View>
                 </View>
-
             </View>
         )
     }
@@ -129,6 +175,7 @@ class PublicationModal extends React.Component {
             </View>
         )
     }
+
     // to select the avatar for a page or profile
     _profilePicture(publication) {
 
@@ -158,7 +205,7 @@ class PublicationModal extends React.Component {
                     />
                     <View style={{ justifyContent: 'center' }}>
                         <Text style={{ color: 'white', fontWeight: '600', fontFamily: 'Avenir-Heavy', fontSize: 17 }}>{publication.page.name}</Text>
-                        <Text style={{ color: 'white', fontWeight: '300', fontFamily: 'Avenir-Heavy', fontSize: 15 }}>...date...</Text>
+                        <Text style={{ color: 'white', fontWeight: '300', fontFamily: 'Avenir-Heavy', fontSize: 15 }}>{getDateTranslated(publication.createdAt)}</Text>
                     </View>
                 </TouchableOpacity>
             )
@@ -233,21 +280,13 @@ class PublicationModal extends React.Component {
                 {this._header(publication)}
                 {this._commentContainer()}
 
-
-                {/* Blur Background */}
+                {/* Dark Background */}
                 <FastImage
                     style={{ position: 'absolute', width: '100%', height: '100%' }}
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.cover}
                 />
-
-                {/* Temporaly disabled */} 
-                {/* <BlurView
-                    blurType="light"
-                    blurAmount={15}
-                    reducedTransparencyFallbackColor="white"
-                    style={{ position: 'absolute', width: '100%', height: '100%' }}
-                /> */}
+                <View style={{ position: 'absolute', width: '100%', height: '100%', backgroundColor: '#000000c9' }} />
 
                 {/* Display Img */}
                 <FastImage
@@ -255,6 +294,7 @@ class PublicationModal extends React.Component {
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.contain}
                 />
+
                 {this.state.background_filter ? this._backgroundFilter() : null}
                 {this._footer(publication)}
             </View>
@@ -333,6 +373,7 @@ class PublicationModal extends React.Component {
 
     // to like or dislike publication
     _likeBtn() {
+        
         if (!this.props.publicationModal.publication.like.isLike) {
 
             let like
@@ -340,46 +381,37 @@ class PublicationModal extends React.Component {
             if (this.props.publicationModal.publication.profile) {
                 like = {
                     publicationProfile: this.props.publicationModal.publication.profile._id,
-                    type: 'publication',
-                    publicationId: this.props.publicationModal.publication._id,
+                    type: 'feed-publication',
+                    publicationID: this.props.publicationModal.publication._id,
                     ownerType: 'profile',
                     hastags: this.props.publicationModal.publication.hastags
                 }
             } else {
                 like = {
                     publicationProfile: this.props.publicationModal.publication.page._id,
-                    type: 'publication',
-                    publicationId: this.props.publicationModal.publication._id,
+                    type: 'feed-publication',
+                    publicationID: this.props.publicationModal.publication._id,
                     ownerType: 'page',
                     hastags: this.props.publicationModal.publication.hastags
                 }
             }
 
-            if (this.props.publicationModal.space == 'feed') {
-                return this.props.actions.likePublicationFeed(like)
-            }
 
-            if (this.props.publicationModal.space == 'profile') {
-                return this.props.actions.likePublicationProfile(like)
+            
+            switch (this.props.publicationModal.space) {
+                case 'feed': return this.props.actions.likePublicationFeed(like)
+                case 'profile': return this.props.actions.likePublicationProfile(like)
+                case 'discover': return this.props.actions.likePublicationDiscover(like)
+                default: return null
             }
-
-            if (this.props.publicationModal.space == 'discover') {
-                return this.props.actions.likePublicationDiscover(like)
-            }
-
 
         } else {
 
-            if (this.props.publicationModal.space == 'feed') {
-                return this.props.actions.unlikePublicationFeed(this.props.publicationModal.publication._id)
-            }
-
-            if (this.props.publicationModal.space == 'profile') {
-                return this.props.actions.unlikePublicationProfile(this.props.publicationModal.publication._id)
-            }
-
-            if (this.props.publicationModal.space == 'discover') {
-                return this.props.actions.unlikePublicationDiscover(this.props.publicationModal.publication._id)
+            switch (this.props.publicationModal.space) {
+                case 'feed': return this.props.actions.unlikePublicationFeed(this.props.publicationModal.publication._id)
+                case 'profile': return this.props.actions.unlikePublicationProfile(this.props.publicationModal.publication._id)
+                case 'discover': return this.props.actions.unlikePublicationDiscover(this.props.publicationModal.publication._id)
+                default: return null
             }
 
         }
@@ -465,9 +497,9 @@ const mapStateToProps = state => ({
     MyProfile: state.MyProfile.profile,
     CommentList: state.CommentList,
     SearchList: state.Search,
-    PublicationFeed: state.PublicationFeed,
-    publicationProfile: state.publicationProfile,
-    DiscoverPublication: state.DiscoverPublication
+    FeedPublications: state.FeedPublications,
+    ProfilePublications: state.ProfilePublications,
+    DiscoverPublications: state.DiscoverPublications,
 })
 
 const ActionCreators = Object.assign(
