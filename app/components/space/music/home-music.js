@@ -12,7 +12,6 @@ import OneMusicFav from './one-music-fav'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faTransporterEmpty } from '@fortawesome/pro-light-svg-icons'
 
-
 class HomeMusic extends React.Component {
 
     constructor(props) {
@@ -274,12 +273,25 @@ class HomeMusic extends React.Component {
         }
         else return (
             <View>
+                <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingRight: 15 }}>
+                    <TouchableOpacity>
+                        <LinearGradient
+                            style={{ paddingHorizontal: 15, paddingVertical: 5, borderRadius: 5, overflow: 'hidden' }}
+                            colors={['#7F7FD5', '#86A8E7']}
+                            start={{ x: 0.1, y: 0.09 }}
+                            end={{ x: 0.94, y: 0.95 }}
+                        >
+                            <Text style={{ fontSize: 17, fontWeight: '500', color: 'white' }}>Save in phone</Text>
+                        </LinearGradient>
+                    </TouchableOpacity>
+                </View>
+
                 <FlatList
                     style={{ flex: 1 }}
                     ItemSeparatorComponent={this._renderSeparator}
                     data={this.props.MyMusic.list}
                     keyExtractor={(item) => item._id.toString()}
-                    renderItem={({ item }) => (<OneMusicFav music={item} tracklist={this.props.MyMusic.list}/>)}
+                    renderItem={({ item }) => (<OneMusicFav music={item} tracklist={this.props.MyMusic.list} />)}
                 />
             </View>
         )
