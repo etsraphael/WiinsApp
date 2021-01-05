@@ -1,8 +1,8 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 
-export function getMyFavMusicSuccess(musics) {
-    return { type: ActionTypes.GET_MY_FAV_MUSIC_SUCCESS, payload: musics }
+export async function getMyFavMusicSuccess(payload) {
+    return { type: ActionTypes.GET_MY_FAV_MUSIC_SUCCESS, payload: await verificationMusicCacheFormat(payload) }
 }
 
 export function getMyFavMusicStart() {
@@ -29,7 +29,7 @@ export function getMyMusic() {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 201) return dispatch(getMyFavMusicSuccess(response.playlist))
+                    if (response.status == 201) return dispatch( await getMyFavMusicSuccess(response.playlist))
                     return dispatch(getMyFavMusicFail(response.message))
                 })
         } catch (error) {
