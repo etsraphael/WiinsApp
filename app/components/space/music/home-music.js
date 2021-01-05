@@ -273,7 +273,7 @@ class HomeMusic extends React.Component {
         }
         else return (
             <View>
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingRight: 15 }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingRight: 15, marginBottom: 15 }}>
                     <TouchableOpacity>
                         <LinearGradient
                             style={{ paddingHorizontal: 15, paddingVertical: 5, borderRadius: 5, overflow: 'hidden' }}
