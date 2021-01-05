@@ -81,7 +81,6 @@ class HomeMusic extends React.Component {
         }
     }
 
-
     componentDidMount() {
         this.props.actions.getMusicMenu()
         this.props.actions.getMyMusic()

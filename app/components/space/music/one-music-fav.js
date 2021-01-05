@@ -7,7 +7,7 @@ import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHeart as faHeartEmpty, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
-import { faHeart as faHeartFull } from '@fortawesome/pro-solid-svg-icons'
+import { faHeart as faHeartFull, faArrowDown } from '@fortawesome/pro-solid-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 
 class OneMusicFav extends React.Component {
@@ -27,6 +27,16 @@ class OneMusicFav extends React.Component {
         return this.props.actions.playMusicActions(music, list)
     }
 
+
+    // show color if it's downloaded
+    _showColorDownload = (active) => {
+        if(active) {
+            return { backgroundColor: '#7F7FD5' }
+        } else {
+            return { backgroundColor: '#bbbbbb' }
+        }
+    }
+
     // to display the music view
     _musicView = (music, tracklist) => {
         return (
@@ -40,7 +50,18 @@ class OneMusicFav extends React.Component {
                     />
                     <View style={{ paddingLeft: 15, justifyContent: 'center' }}>
                         <Text style={styles.title_text}>{music.name}</Text>
+
+
+
+                        <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                        <View style={[{borderRadius: 35, justifyContent: 'center', alignItems: 'center', padding: 2, marginRight: 5}, this._showColorDownload(music.inCache)]}>
+                        <FontAwesomeIcon icon={faArrowDown} size={12} color={'white'} />
+
+                        </View>
                         <Text style={styles.username_text}>{music.profile._meta.pseudo}</Text>
+                        </View>
+
+
                     </View>
                 </View>
 
