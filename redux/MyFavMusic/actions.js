@@ -1,7 +1,18 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { verificationMusicCacheFormat } from './../../app/services/cache/cache-music-service'
-import { setMusicInTheCacheActionsPlaylist } from './../PlaylistMusicPage/actions'
+
+export function setMusicInTheCache(url) {
+    return { type: ActionTypes.SET_MUSIC_FAV_IN_CACHE, url }
+}
+
+export function setMusicInTheCacheSuccess(url) {
+    return { type: ActionTypes.SET_MUSIC_FAV_IN_CACHE_SUCCESS, url }
+}
+
+export function setMusicInTheCacheFail(url) {
+    return { type: ActionTypes.SET_MUSIC_FAV_IN_CACHE_FAIL, url }
+}
 
 export async function getMyFavMusicSuccess(payload) {
     return { type: ActionTypes.GET_MY_FAV_MUSIC_SUCCESS, payload: await verificationMusicCacheFormat(payload) }
@@ -9,10 +20,6 @@ export async function getMyFavMusicSuccess(payload) {
 
 export function getMyFavMusicStart() {
     return { type: ActionTypes.GET_MY_FAV_MUSIC }
-}
-
-export function setMusicInTheCache(url) {
-    return { type: ActionTypes.SET_MUSIC_FAV_IN_CACHE, url }
 }
 
 export function getMyFavMusicFail(error) {
@@ -44,9 +51,14 @@ export function getMyMusic() {
     };
 }
 
-export function setMusicInTheCacheActions(url){
-    return (dispatch) => {
-        setMusicInTheCacheActionsPlaylist(url)
-        return dispatch(setMusicInTheCache(url))
-    }
+export function setMusicInTheCacheAction(url) {
+    return async (dispatch) => dispatch(setMusicInTheCache(url))
+}
+
+export function setMusicInTheCacheActionSuccess(url) {
+    return async (dispatch) => dispatch(setMusicInTheCacheSuccess(url))
+}
+
+export function setMusicInTheCacheActionFail(url) {
+    return async (dispatch) => dispatch(setMusicInTheCacheFail(url))
 }

@@ -13,7 +13,8 @@ export async function addRefMusic(url) {
     // check if the ref exist to increment, or create
     const musicFound = musicRefCache.map(x => x.url).indexOf(url)
     if (musicFound == -1) {
-        return addMusicFileInCache(url, musicRefCache)
+        // return addMusicFileInCache(url, musicRefCache) // to change
+        return null
     } else {
         return incrementMusicViewInCache(musicFound, musicRefCache)
     }
@@ -31,7 +32,11 @@ function incrementMusicViewInCache(index, musicRefCache) {
     return AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
 }
 
-async function addMusicFileInCache(url, musicRefCache) {
+async function addMusicFileInCache(url, actions) {
+
+    actions.setMusicInTheCacheSuccess(url)
+
+    return null
 
     // add the ref if the file in the cache doesn't exist, we create it
     const path = RNFetchBlob.fs.dirs.MusicDir + "/" + url.split('/')[3] + '.mp3'
@@ -63,6 +68,7 @@ async function addMusicFileInCache(url, musicRefCache) {
                 views: 1,
                 state: 'failed'
             }
+            // set the store here
             return AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
         })
 }
@@ -149,8 +155,7 @@ export async function downloadFavoritesMusicList(musicList, actions){
 
     // download all the music, and change the cache state in the store
     for(let m of musicToDownload){
-        await addMusicFileInCache(m, actions)
+        await addMusicFileInCache(m.file, actions)
     }
-
 
 }

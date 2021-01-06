@@ -27,7 +27,25 @@ export default MyFavMusicReducer = (state = initialState, action) => {
     case ActionTypes.SET_MUSIC_FAV_IN_CACHE: {
       const musicFound = state.list.map(x => x.file).indexOf(action.url)
       if (musicFound) {
+        state.list[musicFound].inCache = 'progress'
+        return {
+          ...state
+        }
+      } else return { state }
+    }
+    case ActionTypes.SET_MUSIC_FAV_IN_CACHE_SUCCESS: {
+      const musicFound = state.list.map(x => x.file).indexOf(action.url)
+      if (musicFound !== -1) {
         state.list[musicFound].inCache = 'confirmed'
+        return {
+          ...state
+        }
+      } else return { state }
+    }
+    case ActionTypes.SET_MUSIC_FAV_IN_CACHE_FAIL: {
+      const musicFound = state.list.map(x => x.file).indexOf(action.url)
+      if (musicFound) {
+        state.list[musicFound].inCache = 'not'
         return {
           ...state
         }

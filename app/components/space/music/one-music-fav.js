@@ -30,6 +30,7 @@ class OneMusicFav extends React.Component {
 
     // show color if it's downloaded
     _showColorDownload = (inCache) => {
+        console.log(inCache)
         switch (inCache) {
             case 'confirmed': return { backgroundColor: '#7F7FD5' }
             case 'not': return { backgroundColor: '#bbbbbb' }
@@ -167,17 +168,18 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
     MyUser: state.MyUser,
     Player: state.Player,
-    PlaylistPage: state.PlaylistPage
-});
+    PlaylistPage: state.PlaylistPage,
+    MyMusic: state.MyFavMusic
+})
 
 const ActionCreators = Object.assign(
     {},
     MyUserActions,
     PlayerMusicActions
-);
+)
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(ActionCreators, dispatch),
-});
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(OneMusicFav)
