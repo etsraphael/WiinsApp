@@ -23,6 +23,10 @@ export function getMusicPlaylistFail(error) {
     }
 }
 
+export function setMusicInTheCache(url) {
+    return { type: ActionTypes.SET_MUSIC_PLAYLIST_IN_CACHE, url }
+}
+
 export function resetMusicPlaylist() {
     return { type: ActionTypes.RESET_MUSIC_PLAYLIST }
 }
@@ -53,4 +57,8 @@ export function getMusicPlaylist(id) {
             return dispatch(getMusicPlaylistFail(error));
         }
     }
+}
+
+export function setMusicInTheCacheActionsPlaylist(url){
+    return (dispatch) => dispatch(setMusicInTheCache(url))
 }

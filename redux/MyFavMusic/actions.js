@@ -10,6 +10,10 @@ export function getMyFavMusicStart() {
     return { type: ActionTypes.GET_MY_FAV_MUSIC }
 }
 
+export function setMusicInTheCache(url) {
+    return { type: ActionTypes.SET_MUSIC_FAV_IN_CACHE, url }
+}
+
 export function getMyFavMusicFail(error) {
     return { type: ActionTypes.GET_MY_FAV_MUSIC_FAIL, payload: error }
 }
@@ -30,11 +34,18 @@ export function getMyMusic() {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 200) return dispatch( await getMyFavMusicSuccess(response.playlist))
+                    if (response.status == 200) return dispatch(await getMyFavMusicSuccess(response.playlist))
                     return dispatch(getMyFavMusicFail(response.message))
                 })
         } catch (error) {
             return dispatch(getMyFavMusicFail(error));
         }
     };
+}
+
+export function setMusicInTheCacheActions(url){
+    return (dispatch) => {
+        
+        dispatch(setMusicInTheCache(url))
+    }
 }

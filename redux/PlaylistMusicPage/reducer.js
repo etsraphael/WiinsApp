@@ -25,6 +25,15 @@ export default PlaylistPageReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+    case ActionTypes.SET_MUSIC_PLAYLIST_IN_CACHE: {
+      const musicFound = state.playlist.musicList.map(x => x.file).indexOf(action.url)
+      if (musicFound) {
+        state.playlist.musicList[musicFound].inCache = true
+        return {
+          ...state
+        }
+      } else return { state }
+    }
     case ActionTypes.RESET_MUSIC_PLAYLIST: return initialState
     default: return state
   }

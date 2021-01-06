@@ -24,6 +24,15 @@ export default MyFavMusicReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+    case ActionTypes.SET_MUSIC_FAV_IN_CACHE: {
+      const musicFound = state.list.map(x => x.file).indexOf(action.url)
+      if (musicFound) {
+        state.list[musicFound].inCache = true
+        return {
+          ...state
+        }
+      } else return { state }
+    }
     default: return { ...state }
   }
 }
