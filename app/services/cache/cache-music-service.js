@@ -32,11 +32,9 @@ function incrementMusicViewInCache(index, musicRefCache) {
     return AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
 }
 
-async function addMusicFileInCache(url, actions) {
+async function addMusicFileInCache(url, actions, musicRefCache) {
 
-    actions.setMusicInTheCacheSuccess(url)
-
-    return null
+    await actions.setMusicInTheCacheAction(url)
 
     // add the ref if the file in the cache doesn't exist, we create it
     const path = RNFetchBlob.fs.dirs.MusicDir + "/" + url.split('/')[3] + '.mp3'
@@ -49,7 +47,7 @@ async function addMusicFileInCache(url, actions) {
     // add the file in the cache
     RNFetchBlob.config({ path })
         .fetch("GET", url)
-        .then((result) => {
+        .then(async (result) => {
             musicRefCache[indexMusic] = {
                 url,
                 path: result.path(),
@@ -58,9 +56,11 @@ async function addMusicFileInCache(url, actions) {
                 state: 'confirmed'
             }
             // set the store here
+            await actions.setMusicInTheCacheActionSuccess(url)
+            // regist the new file
             return AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
         })
-        .catch(() => {
+        .catch(async () => {
             musicRefCache[indexMusic] = {
                 url,
                 path: result.path(),
@@ -69,6 +69,8 @@ async function addMusicFileInCache(url, actions) {
                 state: 'failed'
             }
             // set the store here
+            await actions.setMusicInTheCacheActionFail(url)
+            // regist the new file
             return AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
         })
 }
@@ -120,12 +122,12 @@ export async function getCacheLinkOrSeverLink(url) {
     // replace the link if it's in the cache
     const musicFound = musicRefCache.find(music => (music.url === url) && (music.state == 'confirmed'))
 
-    if(musicFound) return musicFound.path
+    if (musicFound) return musicFound.path
     else return url
 
 }
 
-export async function verificationMusicCacheFormat(musicList){
+export async function verificationMusicCacheFormat(musicList) {
 
     // get the musicRefCache
     let musicRefCache = await AsyncStorage.getItem('musicRefCache')
@@ -134,10 +136,10 @@ export async function verificationMusicCacheFormat(musicList){
     musicRefCache = JSON.parse(musicRefCache)
 
     // replace the link if it's in the cache
-    for([i, m] of musicList.entries()){
+    for ([i, m] of musicList.entries()) {
         const musicFound = musicRefCache.find(music => (music.url == m.file) && (music.state == 'confirmed'))
 
-        if(musicFound){
+        if (musicFound) {
             musicList[i].file = musicFound.path
             musicList[i].inCache = 'confirmed'
         } else {
@@ -148,14 +150,21 @@ export async function verificationMusicCacheFormat(musicList){
     return musicList
 }
 
-export async function downloadFavoritesMusicList(musicList, actions){
+export async function downloadFavoritesMusicList(musicList, actions) {
 
     // get the musics not downloaded
     let musicToDownload = musicList.filter(x => x.inCache == 'not')
 
+    // check if the cache music cache exist
+    let musicRefCache = await AsyncStorage.getItem('musicRefCache');
+    if (!musicRefCache) await AsyncStorage.setItem('musicRefCache', JSON.stringify([]))
+
+    // pars the json to manipulate it
+    musicRefCache = JSON.parse(musicRefCache)
+
     // download all the music, and change the cache state in the store
-    for(let m of musicToDownload){
-        await addMusicFileInCache(m.file, actions)
+    for (let m of musicToDownload) {
+        await addMusicFileInCache(m.file, actions, musicRefCache)
     }
 
 }

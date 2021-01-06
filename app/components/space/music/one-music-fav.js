@@ -30,10 +30,10 @@ class OneMusicFav extends React.Component {
 
     // show color if it's downloaded
     _showColorDownload = (inCache) => {
-        console.log(inCache)
         switch (inCache) {
             case 'confirmed': return { backgroundColor: '#7F7FD5' }
             case 'not': return { backgroundColor: '#bbbbbb' }
+            case 'progress': return { backgroundColor: 'orange' }
         }
     }
 
