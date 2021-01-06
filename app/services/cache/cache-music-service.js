@@ -1,7 +1,7 @@
 import AsyncStorage from '@react-native-community/async-storage'
 import RNFetchBlob from 'rn-fetch-blob'
 
-export async function addRefMusic(url) {
+export async function addRefMusic(url, actions) {
 
     // check if the cache music cache exist
     let musicRefCache = await AsyncStorage.getItem('musicRefCache');
@@ -13,8 +13,7 @@ export async function addRefMusic(url) {
     // check if the ref exist to increment, or create
     const musicFound = musicRefCache.map(x => x.url).indexOf(url)
     if (musicFound == -1) {
-        // return addMusicFileInCache(url, musicRefCache) // to change
-        return null
+        return addMusicFileInCache(url, actions, musicRefCache)
     } else {
         return incrementMusicViewInCache(musicFound, musicRefCache)
     }
