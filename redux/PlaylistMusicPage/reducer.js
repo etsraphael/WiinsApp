@@ -28,7 +28,7 @@ export default PlaylistPageReducer = (state = initialState, action) => {
     case ActionTypes.SET_MUSIC_PLAYLIST_IN_CACHE: {
       const musicFound = state.playlist.musicList.map(x => x.file).indexOf(action.url)
       if (musicFound) {
-        state.playlist.musicList[musicFound].inCache = true
+        state.playlist.musicList[musicFound].inCache = 'confirmed'
         return {
           ...state
         }

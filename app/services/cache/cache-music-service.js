@@ -133,9 +133,9 @@ export async function verificationMusicCacheFormat(musicList){
 
         if(musicFound){
             musicList[i].file = musicFound.path
-            musicList[i].inCache = true
+            musicList[i].inCache = 'confirmed'
         } else {
-            musicList[i].inCache = false 
+            musicList[i].inCache = 'not'
         }
     }
 
@@ -145,7 +145,7 @@ export async function verificationMusicCacheFormat(musicList){
 export async function downloadFavoritesMusicList(musicList, actions){
 
     // get the musics not downloaded
-    let musicToDownload = musicList.filter(x => x.inCache == false)
+    let musicToDownload = musicList.filter(x => x.inCache == 'not')
 
     // download all the music, and change the cache state in the store
     for(let m of musicToDownload){
