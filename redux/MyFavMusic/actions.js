@@ -2,7 +2,6 @@ import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { verificationMusicCacheFormat } from './../../app/services/cache/cache-music-service'
 
-
 export async function getMyFavMusicSuccess(payload) {
     return { type: ActionTypes.GET_MY_FAV_MUSIC_SUCCESS, payload: await verificationMusicCacheFormat(payload) }
 }

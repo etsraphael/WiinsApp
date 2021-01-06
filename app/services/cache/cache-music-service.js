@@ -52,6 +52,7 @@ async function addMusicFileInCache(url, musicRefCache) {
                 views: 1,
                 state: 'confirmed'
             }
+            // set the store here
             return AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
         })
         .catch(() => {
@@ -147,9 +148,9 @@ export async function downloadFavoritesMusicList(musicList, actions){
     let musicToDownload = musicList.filter(x => x.inCache == false)
 
     // download all the music, and change the cache state in the store
-    console.log(actions)
+    for(let m of musicToDownload){
+        await addMusicFileInCache(m, actions)
+    }
 
 
-
-    alert('download in progress')
 }
