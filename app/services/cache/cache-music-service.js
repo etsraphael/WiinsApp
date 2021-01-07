@@ -151,6 +151,9 @@ export async function verificationMusicCacheFormat(musicList) {
 
 export async function downloadFavoritesMusicList(musicList, actions) {
 
+    // start the download
+    actions.startOfUploadActions()
+
     // get the musics not downloaded
     let musicToDownload = musicList.filter(x => x.inCache == 'not')
 
@@ -165,5 +168,8 @@ export async function downloadFavoritesMusicList(musicList, actions) {
     for (let m of musicToDownload) {
         await addMusicFileInCache(m.file, actions, musicRefCache)
     }
+
+    // end of the download
+    actions.endOfUploadActions()
 
 }

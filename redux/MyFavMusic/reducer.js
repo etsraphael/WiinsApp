@@ -51,6 +51,18 @@ export default MyFavMusicReducer = (state = initialState, action) => {
         }
       } else return { state }
     }
+    case ActionTypes.START_OF_UPLOAD: {
+      return {
+        ...state,
+        uploading: true
+      }
+    }
+    case ActionTypes.END_OF_UPLOAD: {
+      return {
+        ...state,
+        uploading: false
+      }
+    }
     default: return { ...state }
   }
 }

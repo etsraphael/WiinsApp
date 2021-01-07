@@ -2,6 +2,15 @@ import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { verificationMusicCacheFormat } from './../../app/services/cache/cache-music-service'
 
+
+export function startOfUpload() {
+    return { type: ActionTypes.START_OF_UPLOAD }
+}
+
+export function endOfUpload() {
+    return { type: ActionTypes.END_OF_UPLOAD }
+}
+
 export function setMusicInTheCache(url) {
     return { type: ActionTypes.SET_MUSIC_FAV_IN_CACHE, url }
 }
@@ -61,4 +70,12 @@ export function setMusicInTheCacheActionSuccess(url) {
 
 export function setMusicInTheCacheActionFail(url) {
     return async (dispatch) => dispatch(setMusicInTheCacheFail(url))
+}
+
+export function startOfUploadActions() {
+    return async (dispatch) => dispatch(startOfUpload())
+}
+
+export function endOfUploadActions() {
+    return async (dispatch) => dispatch(endOfUpload())
 }

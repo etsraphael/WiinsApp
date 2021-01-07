@@ -27,7 +27,6 @@ class OneMusicFav extends React.Component {
         return this.props.actions.playMusicActions(music, list)
     }
 
-
     // show color if it's downloaded
     _showColorDownload = (inCache) => {
         switch (inCache) {
@@ -112,7 +111,6 @@ class OneMusicFav extends React.Component {
 
         )
     }
-
 
     render() {
 
