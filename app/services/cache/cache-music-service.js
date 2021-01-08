@@ -74,6 +74,53 @@ async function addMusicFileInCache(url, actions, musicRefCache) {
         })
 }
 
+async function addMusicFileInCacheFromPlaylist(url, actions, musicRefCache) {
+
+    await actions.setMusicInTheCacheAction(url)
+
+    // add the ref if the file in the cache doesn't exist, we create it
+    const path = RNFetchBlob.fs.dirs.MusicDir + "/" + url.split('/')[3] + '.mp3'
+    musicRefCache.push({ url: url, path: path, updatedAt: Date.now(), views: 1, state: 'progressing' })
+    await AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
+
+    // get the index of the new object
+    const indexMusic = musicRefCache.map(x => x.url).indexOf(url)
+
+    // add the file in the cache
+    RNFetchBlob.config({ path })
+        .fetch("GET", url)
+        .then(async (result) => {
+            musicRefCache[indexMusic] = {
+                url,
+                path: result.path(),
+                updatedAt: Date.now(),
+                views: 1,
+                state: 'confirmed'
+            }
+            // set the favorite store here 
+            await actions.setMusicInTheCacheActionSuccess(url)
+            // set the playlist store here
+            // to do..
+            // regist the new file
+            return AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
+        })
+        .catch(async () => {
+            musicRefCache[indexMusic] = {
+                url,
+                path: result.path(),
+                updatedAt: Date.now(),
+                views: 1,
+                state: 'failed'
+            }
+            // set the playlist store here
+            await actions.setMusicInTheCacheActionFail(url)
+            // set the playlist store here
+            // to do..
+            // regist the new file
+            return AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
+        })
+}
+
 export async function resetAllRefMusic() {
 
     let musicRefCache = await AsyncStorage.getItem('musicRefCache')
@@ -190,7 +237,7 @@ export async function downloadPlaylistMusicList(musicList, actions) {
 
     // download all the music, and change the cache state in the store
     for (let m of musicToDownload) {
-        await addMusicFileInCache(m.file, actions, musicRefCache)
+        await addMusicFileInCacheFromPlaylist(m.file, actions, musicRefCache)
     }
 
     // end of the download
