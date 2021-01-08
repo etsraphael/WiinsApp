@@ -172,3 +172,28 @@ export async function downloadFavoritesMusicList(musicList, actions) {
     actions.endOfUploadActions()
 
 }
+
+export async function downloadPlaylistMusicList(musicList, actions) {
+
+    // start the download
+    actions.startOfUploadActions()
+
+    // get the musics not downloaded
+    let musicToDownload = musicList.filter(x => x.inCache == 'not')
+
+    // check if the cache music cache exist
+    let musicRefCache = await AsyncStorage.getItem('musicRefCache');
+    if (!musicRefCache) await AsyncStorage.setItem('musicRefCache', JSON.stringify([]))
+
+    // pars the json to manipulate it
+    musicRefCache = JSON.parse(musicRefCache)
+
+    // download all the music, and change the cache state in the store
+    for (let m of musicToDownload) {
+        await addMusicFileInCache(m.file, actions, musicRefCache)
+    }
+
+    // end of the download
+    actions.endOfUploadActions()
+
+}

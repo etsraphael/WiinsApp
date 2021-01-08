@@ -89,7 +89,7 @@ class PlaylistPage extends React.Component {
 
                     {/* Like */}
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={()=> alert('Available soon..')}>
                             <FontAwesomeIcon icon={faHeart} color={'grey'} size={21} />
                         </TouchableOpacity>
                     </View>
@@ -120,11 +120,7 @@ class PlaylistPage extends React.Component {
     // to shuffle and play the music
     _playShuffleMusic = () => {
         const list = [...this.props.PlaylistPage.playlist.musicList]
-        
-       
-
-
-        // this.props.actions.playRandomMusicInPlaylistActions(list)
+        this.props.actions.playRandomMusicInPlaylistActions(list)
     }
 
     // to active the back button

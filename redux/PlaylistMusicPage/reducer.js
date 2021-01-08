@@ -52,6 +52,18 @@ export default PlaylistPageReducer = (state = initialState, action) => {
         }
       } else return { state }
     }
+    case ActionTypes.START_OF_UPLOAD_PLAYLIST: {
+      return {
+        ...state,
+        uploading: true
+      }
+    }
+    case ActionTypes.END_OF_UPLOAD_PLAYLIST: {
+      return {
+        ...state,
+        uploading: false
+      }
+    }
     case ActionTypes.RESET_MUSIC_PLAYLIST: return initialState
     default: return state
   }
