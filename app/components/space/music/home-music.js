@@ -262,6 +262,29 @@ class HomeMusic extends React.Component {
         )
     }
 
+    // display button to save the musics
+    _displayBtnToSaveMusics = () => {
+        
+        if(this.props.MyMusic.list.filter(x => x.inCache == 'not').length == 0 || this.props.MyMusic.uploading) return null
+
+        else {
+            return (<View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingRight: 15, marginBottom: 15 }}>
+            <TouchableOpacity onPress={() => downloadFavoritesMusicList(this.props.MyMusic.list, this.props.actions)}>
+                <LinearGradient
+                    style={{ paddingHorizontal: 15, paddingVertical: 5, borderRadius: 5, overflow: 'hidden' }}
+                    colors={['#7F7FD5', '#86A8E7']}
+                    start={{ x: 0.1, y: 0.09 }}
+                    end={{ x: 0.94, y: 0.95 }}
+                >
+                    <Text style={{ fontSize: 17, fontWeight: '500', color: 'white' }}>Save in phone</Text>
+                </LinearGradient>
+            </TouchableOpacity>
+        </View>)
+        }
+
+        
+    }
+
     // to display my music
     _myMusicView = () => {
 
@@ -275,18 +298,9 @@ class HomeMusic extends React.Component {
         }
         else return (
             <View>
-                <View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingRight: 15, marginBottom: 15 }}>
-                    <TouchableOpacity onPress={() => downloadFavoritesMusicList(this.props.MyMusic.list, this.props.actions)}>
-                        <LinearGradient
-                            style={{ paddingHorizontal: 15, paddingVertical: 5, borderRadius: 5, overflow: 'hidden' }}
-                            colors={['#7F7FD5', '#86A8E7']}
-                            start={{ x: 0.1, y: 0.09 }}
-                            end={{ x: 0.94, y: 0.95 }}
-                        >
-                            <Text style={{ fontSize: 17, fontWeight: '500', color: 'white' }}>Save in phone</Text>
-                        </LinearGradient>
-                    </TouchableOpacity>
-                </View>
+                
+                {/* to display the btn to download */}
+                {this._displayBtnToSaveMusics()}
 
                 <FlatList
                     style={{ flex: 1 }}
