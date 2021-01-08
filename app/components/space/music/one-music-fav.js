@@ -95,7 +95,17 @@ class OneMusicFav extends React.Component {
                         />
                         <View style={{ paddingLeft: 15, justifyContent: 'center' }}>
                             <Text style={[styles.title_text, { color: 'white' }]}>{music.name}</Text>
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            {
+                                music.inCache !== 'progress' ?
+                                    <View style={[{ borderRadius: 35, justifyContent: 'center', alignItems: 'center', padding: 2, marginRight: 5 }, this._showColorDownload(music.inCache)]}>
+                                        <FontAwesomeIcon icon={faArrowDown} size={12} color={'white'} />
+                                    </View>
+                                    :
+                                    <Spinner style={{ marginRight: 5 }} isVisible={true} size={20} type={'Bounce'} color={'#86A8E7'} />
+                            }
                             <Text style={[styles.username_text, { color: 'white' }]}>{music.profile._meta.pseudo}</Text>
+                        </View>
                         </View>
                     </View>
 
