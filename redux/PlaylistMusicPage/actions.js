@@ -75,10 +75,10 @@ export function getMusicPlaylist(id) {
     }
 }
 
-export function startOfUploadActions() {
+export function startOfUploadPlaylistActions() {
     return async (dispatch) => dispatch(startOfUpload())
 }
 
-export function endOfUploadActions() {
+export function endOfUploadPlaylistActions() {
     return async (dispatch) => dispatch(endOfUpload())
 }

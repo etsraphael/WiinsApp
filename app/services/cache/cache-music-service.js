@@ -223,7 +223,7 @@ export async function downloadFavoritesMusicList(musicList, actions) {
 export async function downloadPlaylistMusicList(musicList, actions) {
 
     // start the download
-    actions.startOfUploadActions()
+    actions.startOfUploadPlaylistActions()
 
     // get the musics not downloaded
     let musicToDownload = musicList.filter(x => x.inCache == 'not')
@@ -237,7 +237,7 @@ export async function downloadPlaylistMusicList(musicList, actions) {
 
     // download all the music, and change the cache state in the store
     for (let m of musicToDownload) {
-        await addMusicFileInCacheFromPlaylist(m.file, actions, musicRefCache)
+        // await addMusicFileInCacheFromPlaylist(m.file, actions, musicRefCache) // to do...
     }
 
     // end of the download

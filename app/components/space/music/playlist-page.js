@@ -15,6 +15,9 @@ import { faPlay } from '@fortawesome/pro-solid-svg-icons'
 import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import Spinner from 'react-native-spinkit'
+import { faCloudDownloadAlt } from '@fortawesome/pro-duotone-svg-icons'
+import { downloadPlaylistMusicList } from './../../../services/cache/cache-music-service' 
 
 class PlaylistPage extends React.Component {
 
@@ -36,6 +39,26 @@ class PlaylistPage extends React.Component {
                 <ActivityIndicator size='large' color="grey" />
             </View>
         )
+    }
+
+    _displayUploadIcon = () => {
+
+        // It's uploading
+        if (this.props.PlaylistPage.uploading) {
+            return (<Spinner isVisible={true} size={32} type={'Bounce'} color={'#86A8E7'} />)
+        }
+
+        // If one music is not downloaded
+        if (this.props.PlaylistPage.playlist.musicList.filter(x => x.inCache == 'not').length > 0) {
+            return (
+                <TouchableOpacity onPress={() => downloadPlaylistMusicList(this.props.PlaylistPage.playlist.musicList, this.props.actions)}>
+                    <FontAwesomeIcon icon={faDownload} color={'grey'} size={21} />
+                </TouchableOpacity>
+            )
+        }
+
+        // Already have all this files
+        else return (<FontAwesomeIcon icon={faCloudDownloadAlt} color={'green'} size={29} />)
     }
 
     // to display the playlist header
@@ -89,7 +112,7 @@ class PlaylistPage extends React.Component {
 
                     {/* Like */}
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity onPress={()=> alert('Available soon..')}>
+                        <TouchableOpacity onPress={() => alert('Available soon..')}>
                             <FontAwesomeIcon icon={faHeart} color={'grey'} size={21} />
                         </TouchableOpacity>
                     </View>
@@ -107,9 +130,7 @@ class PlaylistPage extends React.Component {
 
                     {/* Download */}
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity>
-                            <FontAwesomeIcon icon={faDownload} color={'grey'} size={21} />
-                        </TouchableOpacity>
+                        {this._displayUploadIcon()}
                     </View>
                 </View>
 
@@ -142,7 +163,7 @@ class PlaylistPage extends React.Component {
                         music={item}
                         tracklist={this.props.PlaylistPage.playlist.musicList}
                         index={index}
-                />
+                    />
                 )}
             />
         )
