@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHeart as faHeartEmpty, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull, faArrowDown } from '@fortawesome/pro-solid-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
+import Spinner from 'react-native-spinkit'
 
 class OneMusicFav extends React.Component {
 
@@ -50,9 +51,14 @@ class OneMusicFav extends React.Component {
                     <View style={{ paddingLeft: 15, justifyContent: 'center' }}>
                         <Text style={styles.title_text}>{music.name}</Text>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                            <View style={[{ borderRadius: 35, justifyContent: 'center', alignItems: 'center', padding: 2, marginRight: 5 }, this._showColorDownload(music.inCache)]}>
-                                <FontAwesomeIcon icon={faArrowDown} size={12} color={'white'} />
-                            </View>
+                            {
+                                music.inCache !== 'progress' ?
+                                    <View style={[{ borderRadius: 35, justifyContent: 'center', alignItems: 'center', padding: 2, marginRight: 5 }, this._showColorDownload(music.inCache)]}>
+                                        <FontAwesomeIcon icon={faArrowDown} size={12} color={'white'} />
+                                    </View>
+                                    :
+                                    <Spinner style={{ marginRight: 5 }} isVisible={true} size={20} type={'Bounce'} color={'#86A8E7'} />
+                            }
                             <Text style={styles.username_text}>{music.profile._meta.pseudo}</Text>
                         </View>
                     </View>
