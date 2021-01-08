@@ -7,8 +7,9 @@ import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHeart as faHeartEmpty, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
-import { faHeart as faHeartFull } from '@fortawesome/pro-solid-svg-icons'
+import { faHeart as faHeartFull, faArrowDown } from '@fortawesome/pro-solid-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
+import Spinner from 'react-native-spinkit'
 
 class OneMusic extends React.Component {
 
@@ -25,6 +26,15 @@ class OneMusic extends React.Component {
             await this.props.actions.resetPlayerActions()
         }
         return this.props.actions.playMusicActions(music, list)
+    }
+
+    // show color if it's downloaded
+    _showColorDownload = (inCache) => {
+        switch (inCache) {
+            case 'confirmed': return { backgroundColor: '#7F7FD5' }
+            case 'not': return { backgroundColor: '#bbbbbb' }
+            case 'progress': return { backgroundColor: 'orange' }
+        }
     }
 
     // to display the music view
@@ -45,10 +55,19 @@ class OneMusic extends React.Component {
                     />
                     <View style={{ paddingLeft: 15, justifyContent: 'center' }}>
                         <Text style={styles.title_text}>{music.name}</Text>
-                        <Text style={styles.username_text}>{music.profile._meta.pseudo}</Text>
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            {
+                                music.inCache !== 'progress' ?
+                                    <View style={[{ borderRadius: 35, justifyContent: 'center', alignItems: 'center', padding: 2, marginRight: 5 }, this._showColorDownload(music.inCache)]}>
+                                        <FontAwesomeIcon icon={faArrowDown} size={12} color={'white'} />
+                                    </View>
+                                    :
+                                    <Spinner style={{ marginRight: 5 }} isVisible={true} size={20} type={'Bounce'} color={'#86A8E7'} />
+                            }
+                            <Text style={styles.username_text}>{music.profile._meta.pseudo}</Text>
+                        </View>
                     </View>
                 </View>
-
 
                 {/* Option Btn */}
                 <View style={{ flex: 2, flexDirection: 'row' }}>
@@ -85,7 +104,19 @@ class OneMusic extends React.Component {
                         />
                         <View style={{ paddingLeft: 15, justifyContent: 'center' }}>
                             <Text style={[styles.title_text, { color: 'white' }]}>{music.name}</Text>
-                            <Text style={[styles.username_text, { color: 'white' }]}>{music.profile._meta.pseudo}</Text>
+                            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                                    {
+                                        music.inCache !== 'progress' ?
+                                            <View style={[{ borderRadius: 35, justifyContent: 'center', alignItems: 'center', padding: 2, marginRight: 5 }, this._showColorDownload(music.inCache)]}>
+                                                <FontAwesomeIcon icon={faArrowDown} size={12} color={'white'} />
+                                            </View>
+                                            :
+                                            <Spinner style={{ marginRight: 5 }} isVisible={true} size={20} type={'Bounce'} color={'#86A8E7'} />
+                                    }
+                                    <Text style={[styles.username_text, { color: 'white' }]}>{music.profile._meta.pseudo}</Text>
+                                </View>
+                            </View>
                         </View>
                     </View>
 

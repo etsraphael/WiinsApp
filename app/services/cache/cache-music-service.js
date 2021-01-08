@@ -76,7 +76,7 @@ async function addMusicFileInCache(url, actions, musicRefCache) {
 
 async function addMusicFileInCacheFromPlaylist(url, actions, musicRefCache) {
 
-    await actions.setMusicInTheCacheAction(url)
+    // await actions.setMusicInTheCacheAction(url)
     await actions.setMusicPlaylistInTheCacheAction(url)
 
     // add the ref if the file in the cache doesn't exist, we create it
@@ -238,7 +238,7 @@ export async function downloadPlaylistMusicList(musicList, actions) {
 
     // download all the music, and change the cache state in the store
     for (let m of musicToDownload) {
-        await addMusicFileInCacheFromPlaylist(m.file, actions, musicRefCache) // to do...
+        await addMusicFileInCacheFromPlaylist(m.file, actions, musicRefCache)
     }
 
     // end of the download

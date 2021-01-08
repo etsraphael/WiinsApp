@@ -84,13 +84,13 @@ export function endOfUploadPlaylistActions() {
 }
 
 export function setMusicPlaylistInTheCacheAction(url) {
-    return async (dispatch) => dispatch(setMusicInTheCache(url))
+    return async (dispatch) => dispatch(setMusicPlaylistInTheCache(url))
 }
 
 export function setMusicPlaylistInTheCacheActionSuccess(url) {
-    return async (dispatch) => dispatch(setMusicInTheCacheSuccess(url))
+    return async (dispatch) => dispatch(setMusicPlaylistInTheCacheSuccess(url))
 }
 
 export function setMusicPlaylistInTheCacheActionFail(url) {
-    return async (dispatch) => dispatch(setMusicInTheCacheFail(url))
+    return async (dispatch) => dispatch(setMusicPlaylistInTheCacheFail(url))
 }
