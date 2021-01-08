@@ -31,7 +31,7 @@ function incrementMusicViewInCache(index, musicRefCache) {
     return AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
 }
 
-async function addMusicFileInCache(url, actions, musicRefCache) {
+async function addMusicFileInCache(url, actions, musicRefCache, last) {
 
     await actions.setMusicInTheCacheAction(url)
 
@@ -56,6 +56,8 @@ async function addMusicFileInCache(url, actions, musicRefCache) {
             }
             // set the store here
             await actions.setMusicInTheCacheActionSuccess(url)
+            // finish the download
+            if (last) actions.endOfUploadActions()
             // regist the new file
             return AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
         })
@@ -69,12 +71,14 @@ async function addMusicFileInCache(url, actions, musicRefCache) {
             }
             // set the store here
             await actions.setMusicInTheCacheActionFail(url)
+            // finish the download
+            if (last) actions.endOfUploadActions()
             // regist the new file
             return AsyncStorage.setItem('musicRefCache', JSON.stringify(musicRefCache))
         })
 }
 
-async function addMusicFileInCacheFromPlaylist(url, actions, musicRefCache) {
+async function addMusicFileInCacheFromPlaylist(url, actions, musicRefCache, last) {
 
     await actions.setMusicInTheCacheAction(url)
     await actions.setMusicPlaylistInTheCacheAction(url)
@@ -100,6 +104,8 @@ async function addMusicFileInCacheFromPlaylist(url, actions, musicRefCache) {
             }
             // set the favorite store here 
             await actions.setMusicInTheCacheActionSuccess(url)
+            // finish the download
+            if (last) actions.endOfUploadPlaylistActions()
             // set the playlist store here
             await actions.setMusicPlaylistInTheCacheActionSuccess(url)
             // regist the new file
@@ -115,6 +121,8 @@ async function addMusicFileInCacheFromPlaylist(url, actions, musicRefCache) {
             }
             // set the playlist store here
             await actions.setMusicInTheCacheActionFail(url)
+            // finish the download
+            if (last) actions.endOfUploadPlaylistActions()
             // set the playlist store here
             await actions.setMusicPlaylistInTheCacheActionFail(url)
             // regist the new file
@@ -213,11 +221,8 @@ export async function downloadFavoritesMusicList(musicList, actions) {
 
     // download all the music, and change the cache state in the store
     for (let m of musicToDownload) {
-        await addMusicFileInCache(m.file, actions, musicRefCache)
-    }
-
-    // end of the download
-    actions.endOfUploadActions()
+        await addMusicFileInCache(m.file, actions, musicRefCache, i == musicToDownload.length - 1)
+    }    
 
 }
 
@@ -237,11 +242,8 @@ export async function downloadPlaylistMusicList(musicList, actions) {
     musicRefCache = JSON.parse(musicRefCache)
 
     // download all the music, and change the cache state in the store
-    for (let m of musicToDownload) {
-        await addMusicFileInCacheFromPlaylist(m.file, actions, musicRefCache)
+    for (let [i, m] of musicToDownload.entries()) {
+        await addMusicFileInCacheFromPlaylist(m.file, actions, musicRefCache, i == musicToDownload.length - 1)
     }
-
-    // end of the download
-    actions.endOfUploadPlaylistActions()
 
 }
