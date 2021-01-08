@@ -27,7 +27,7 @@ export default PlaylistPageReducer = (state = initialState, action) => {
     }
     case ActionTypes.SET_MUSIC_PLAYLIST_IN_CACHE_SUCCESS: {
       const musicFound = state.playlist.musicList.map(x => x.file).indexOf(action.url)
-      if (musicFound) {
+      if (musicFound !== -1) {
         state.playlist.musicList[musicFound].inCache = 'confirmed'
         return {
           ...state
@@ -36,7 +36,7 @@ export default PlaylistPageReducer = (state = initialState, action) => {
     }
     case ActionTypes.SET_MUSIC_PLAYLIST_IN_CACHE: {
       const musicFound = state.playlist.musicList.map(x => x.file).indexOf(action.url)
-      if (musicFound) {
+      if (musicFound !== -1) {
         state.playlist.musicList[musicFound].inCache = 'pending'
         return {
           ...state
@@ -45,12 +45,14 @@ export default PlaylistPageReducer = (state = initialState, action) => {
     }
     case ActionTypes.SET_MUSIC_PLAYLIST_IN_CACHE_FAIL: {
       const musicFound = state.playlist.musicList.map(x => x.file).indexOf(action.url)
-      if (musicFound) {
+      if (musicFound !== -1) {
         state.playlist.musicList[musicFound].inCache = 'not'
         return {
           ...state
         }
       } else return { state }
+
+
     }
     case ActionTypes.START_OF_UPLOAD_PLAYLIST: {
       return {

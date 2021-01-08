@@ -31,15 +31,15 @@ export function getMusicPlaylistFail(error) {
     }
 }
 
-export function setMusicInTheCache(url) {
+export function setMusicPlaylistInTheCache(url) {
     return { type: ActionTypes.SET_MUSIC_PLAYLIST_IN_CACHE, url }
 }
 
-export function setMusicInTheCacheSuccess(url) {
+export function setMusicPlaylistInTheCacheSuccess(url) {
     return { type: ActionTypes.SET_MUSIC_PLAYLIST_IN_CACHE_SUCCESS, url }
 }
 
-export function setMusicInTheCacheFail(url) {
+export function setMusicPlaylistInTheCacheFail(url) {
     return { type: ActionTypes.SET_MUSIC_PLAYLIST_IN_CACHE_FAIL, url }
 }
 
@@ -81,4 +81,16 @@ export function startOfUploadPlaylistActions() {
 
 export function endOfUploadPlaylistActions() {
     return async (dispatch) => dispatch(endOfUpload())
+}
+
+export function setMusicPlaylistInTheCacheAction(url) {
+    return async (dispatch) => dispatch(setMusicInTheCache(url))
+}
+
+export function setMusicPlaylistInTheCacheActionSuccess(url) {
+    return async (dispatch) => dispatch(setMusicInTheCacheSuccess(url))
+}
+
+export function setMusicPlaylistInTheCacheActionFail(url) {
+    return async (dispatch) => dispatch(setMusicInTheCacheFail(url))
 }
