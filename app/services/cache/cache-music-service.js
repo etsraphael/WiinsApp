@@ -76,7 +76,7 @@ async function addMusicFileInCache(url, actions, musicRefCache) {
 
 async function addMusicFileInCacheFromPlaylist(url, actions, musicRefCache) {
 
-    // await actions.setMusicInTheCacheAction(url)
+    await actions.setMusicInTheCacheAction(url)
     await actions.setMusicPlaylistInTheCacheAction(url)
 
     // add the ref if the file in the cache doesn't exist, we create it

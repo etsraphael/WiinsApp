@@ -33,7 +33,6 @@ class OneMusic extends React.Component {
         switch (inCache) {
             case 'confirmed': return { backgroundColor: '#7F7FD5' }
             case 'not': return { backgroundColor: '#bbbbbb' }
-            case 'progress': return { backgroundColor: 'orange' }
         }
     }
 

@@ -31,7 +31,7 @@ export default MyFavMusicReducer = (state = initialState, action) => {
         return {
           ...state
         }
-      } else return { state }
+      } else return { ...state }
     }
     case ActionTypes.SET_MUSIC_FAV_IN_CACHE_SUCCESS: {
       const musicFound = state.list.map(x => x.file).indexOf(action.url)
@@ -40,7 +40,7 @@ export default MyFavMusicReducer = (state = initialState, action) => {
         return {
           ...state
         }
-      } else return { state }
+      } else return { ...state }
     }
     case ActionTypes.SET_MUSIC_FAV_IN_CACHE_FAIL: {
       const musicFound = state.list.map(x => x.file).indexOf(action.url)
@@ -49,7 +49,7 @@ export default MyFavMusicReducer = (state = initialState, action) => {
         return {
           ...state
         }
-      } else return { state }
+      } else return { ...state }
     }
     case ActionTypes.START_OF_UPLOAD: {
       return {
