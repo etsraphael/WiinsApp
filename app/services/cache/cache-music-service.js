@@ -242,6 +242,6 @@ export async function downloadPlaylistMusicList(musicList, actions) {
     }
 
     // end of the download
-    actions.endOfUploadActions()
+    actions.endOfUploadPlaylistActions()
 
 }
