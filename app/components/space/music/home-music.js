@@ -225,6 +225,8 @@ class HomeMusic extends React.Component {
     // to display the list of the genre
     _chartViews = () => {
 
+        return null // only for the prototype
+
         return (
             <View style={styles.container_section}>
 
