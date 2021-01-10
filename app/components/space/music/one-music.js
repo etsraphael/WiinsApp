@@ -36,6 +36,20 @@ class OneMusic extends React.Component {
         }
     }
 
+    _displayLikeIcon = (liked) => {
+        if (liked) {
+            return (
+                <View onPress={() => alert('dislike in progresion..')} style={{ borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
+                    <FontAwesomeIcon icon={faHeartFull} size={17} color={'red'} />
+                </View>
+            )
+        } else return (
+            <View onPress={() => alert('like in progresion..')} style={{ backgroundColor: '#d9d9d9', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
+                <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
+            </View>
+        )
+    }
+
     // to display the music view
     _musicView = (music, index, tracklist) => {
         return (
@@ -71,9 +85,7 @@ class OneMusic extends React.Component {
                 {/* Option Btn */}
                 <View style={{ flex: 2, flexDirection: 'row' }}>
                     <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={{ backgroundColor: '#d9d9d9', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
-                            <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
-                        </View>
+                        {this._displayLikeIcon(music.isLiked)}
                     </TouchableOpacity>
                     <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faEllipsisH} size={28} color={'#b3b3b3'} />
@@ -205,16 +217,16 @@ const mapStateToProps = state => ({
     MyUser: state.MyUser,
     Player: state.Player,
     PlaylistPage: state.PlaylistPage
-});
+})
 
 const ActionCreators = Object.assign(
     {},
     MyUserActions,
     PlayerMusicActions
-);
+)
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(ActionCreators, dispatch),
-});
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(OneMusic)

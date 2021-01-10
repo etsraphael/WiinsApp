@@ -6,8 +6,8 @@ import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faHeart as faHeartEmpty, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
-import { faHeart as faHeartFull, faArrowDown } from '@fortawesome/pro-solid-svg-icons'
+import { faEllipsisH } from '@fortawesome/pro-light-svg-icons'
+import { faArrowDown } from '@fortawesome/pro-solid-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 import Spinner from 'react-native-spinkit'
 
@@ -65,12 +65,7 @@ class OneMusicFav extends React.Component {
 
 
                 {/* Option Btn */}
-                <View style={{ flex: 2, flexDirection: 'row' }}>
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={{ backgroundColor: '#d9d9d9', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
-                            <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
-                        </View>
-                    </TouchableOpacity>
+                <View style={{ flex: 1, flexDirection: 'row' }}>
                     <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faEllipsisH} size={28} color={'#b3b3b3'} />
                     </TouchableOpacity>
@@ -110,12 +105,7 @@ class OneMusicFav extends React.Component {
 
 
                     {/* Option Btn */}
-                    <View style={{ flex: 2, flexDirection: 'row' }}>
-                        <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <View style={{ backgroundColor: '#dcdcdc3d', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
-                                <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
-                            </View>
-                        </TouchableOpacity>
+                    <View style={{ flex: 1, flexDirection: 'row' }}>
                         <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                             <FontAwesomeIcon icon={faEllipsisH} size={28} color={'white'} />
                         </TouchableOpacity>
