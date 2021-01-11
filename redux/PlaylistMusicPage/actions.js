@@ -65,7 +65,7 @@ export function getMusicPlaylist(id) {
                 .then((response) => response.json())
                 .then(async (response) => {
                     if (response.status == 200) {
-                        return dispatch( await getMusicPlaylistSuccess(response.playlist))
+                        return dispatch(await getMusicPlaylistSuccess(response.playlist))
                     }
                     return dispatch(getMusicPlaylistFail(response.message))
                 })
@@ -93,4 +93,44 @@ export function setMusicPlaylistInTheCacheActionSuccess(url) {
 
 export function setMusicPlaylistInTheCacheActionFail(url) {
     return async (dispatch) => dispatch(setMusicPlaylistInTheCacheFail(url))
+}
+
+export function likeMusic(id) {
+    return { type: ActionTypes.LIKE_MUSIC, id }
+}
+
+export function likeMusicSuccess(id) {
+    return { type: ActionTypes.LIKE_MUSIC_SUCCESS, id }
+}
+
+export function likeMusicFail(id) {
+    return { type: ActionTypes.LIKE_MUSIC_FAIL, id }
+}
+
+export function likeMusicAction(id) {
+    return async (dispatch) => {
+        try {
+
+            dispatch(likeMusic(id))
+            const url = 'https://wiins-backend.herokuapp.com/music/liked/' + id
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) {
+                        return dispatch(likeMusicSuccess(id))
+                    }
+                    return dispatch(likeMusicFail(id))
+                })
+        } catch (error) {
+            return dispatch(getMusicPlaylistFail(error));
+        }
+    }
 }

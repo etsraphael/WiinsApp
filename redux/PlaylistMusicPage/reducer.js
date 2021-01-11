@@ -66,6 +66,15 @@ export default PlaylistPageReducer = (state = initialState, action) => {
         uploading: false
       }
     }
+    case ActionTypes.LIKE_MUSIC_SUCCESS: {
+      const musicFound = state.playlist.musicList.map(x => x._id).indexOf(action.id)
+      if (musicFound !== -1) {
+        state.playlist.musicList[musicFound].isLiked = true
+        return {
+          ...state
+        }
+      } else return { ...state }
+    }
     case ActionTypes.RESET_MUSIC_PLAYLIST: return initialState
     default: return state
   }

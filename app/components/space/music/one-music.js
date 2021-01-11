@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as PlayerMusicActions from '../../../../redux/Player/actions'
+import * as PlaylistPageActions from '../../../../redux/PlaylistMusicPage/actions'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHeart as faHeartEmpty, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
@@ -46,7 +47,7 @@ class OneMusic extends React.Component {
                 </TouchableOpacity>
             )
         } else return (
-            <TouchableOpacity onPress={() => alert('like in progresion..')} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <TouchableOpacity onPress={() => this.props.actions.likeMusicAction(this.props.music._id)} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <View style={{ backgroundColor: '#d9d9d9', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
                     <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
                 </View>
@@ -237,7 +238,8 @@ const mapStateToProps = state => ({
 const ActionCreators = Object.assign(
     {},
     MyUserActions,
-    PlayerMusicActions
+    PlayerMusicActions,
+    PlaylistPageActions
 )
 
 const mapDispatchToProps = dispatch => ({
