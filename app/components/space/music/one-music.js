@@ -11,11 +11,19 @@ import { faHeart as faHeartEmpty, faEllipsisH } from '@fortawesome/pro-light-svg
 import { faHeart as faHeartFull, faArrowDown } from '@fortawesome/pro-solid-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 import Spinner from 'react-native-spinkit'
+import { cacheOneMusic } from './../../../services/cache/cache-music-service'
+import * as MyFavMusicActions from '../../../../redux/MyFavMusic/actions'
 
 class OneMusic extends React.Component {
 
     constructor(props) {
         super(props)
+    }
+
+    // like action
+    _likeAction = async () => {
+        await this.props.actions.likeMusicAction(this.props.music._id, this.props.music)
+        cacheOneMusic(this.props.music, this.props.actions)
     }
 
     // to plauy a music
@@ -47,7 +55,7 @@ class OneMusic extends React.Component {
                 </TouchableOpacity>
             )
         } else return (
-            <TouchableOpacity onPress={() => this.props.actions.likeMusicAction(this.props.music._id, this.props.music)} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <TouchableOpacity onPress={() => this._likeAction()} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <View style={{ backgroundColor: '#d9d9d9', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
                     <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
                 </View>
@@ -58,15 +66,15 @@ class OneMusic extends React.Component {
     _displayLikeIconWhenMusicPlaying = (liked) => {
         if (liked) {
             return (
-                <TouchableOpacity onPress={() => alert('like in progresion..')} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <View onPress={() => alert('dislike in progresion..')} style={{ backgroundColor: '#dadada47', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
+                <TouchableOpacity onPress={() => this.props.actions.dislikeMusicAction(this.props.music._id, this.props.music)} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <View style={{ backgroundColor: '#dadada47', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
                         <FontAwesomeIcon icon={faHeartFull} size={17} color={'#e84747'} />
                     </View>
                 </TouchableOpacity>
             )
         } else return (
-            <TouchableOpacity onPress={() => alert('dislike in progresion..')} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                <View onPress={() => alert('like in progresion..')} style={{ backgroundColor: '#dadada47', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
+            <TouchableOpacity onPress={() => this._likeAction()} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ backgroundColor: '#dadada47', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
                     <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
                 </View>
             </TouchableOpacity>
@@ -240,7 +248,8 @@ const ActionCreators = Object.assign(
     {},
     MyUserActions,
     PlayerMusicActions,
-    PlaylistPageActions
+    PlaylistPageActions,
+    MyFavMusicActions,
 )
 
 const mapDispatchToProps = dispatch => ({
