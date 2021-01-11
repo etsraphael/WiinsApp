@@ -1,7 +1,7 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { verificationMusicCacheFormat } from './../../app/services/cache/cache-music-service'
-import { addMusicAfterLiked } from './../MyFavMusic/actions'
+import { addMusicAfterLiked, pullMusicAfterDisliked } from './../MyFavMusic/actions'
 
 export function startOfUpload() {
     return { type: ActionTypes.START_OF_UPLOAD_PLAYLIST }
@@ -132,7 +132,50 @@ export function likeMusicAction(id, music) {
                     return dispatch(likeMusicFail(id))
                 })
         } catch (error) {
-            return dispatch(getMusicPlaylistFail(error));
+            return dispatch(likeMusic(id));
+        }
+    }
+}
+
+//////////////
+
+export function dislikeMusic(id) {
+    return { type: ActionTypes.DISLIKE_MUSIC, id }
+}
+
+export function dislikeMusicSuccess(id) {
+    return { type: ActionTypes.DISLIKE_MUSIC_SUCCESS, id }
+}
+
+export function dislikeMusicFail(id) {
+    return { type: ActionTypes.DISLIKE_MUSIC_FAIL, id }
+}
+
+export function dislikeMusicAction(id) {
+    return async (dispatch) => {
+        try {
+
+            dispatch(dislikeMusic(id))
+            const url = 'https://wiins-backend.herokuapp.com/music/dislike/' + id
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) { 
+                        dispatch(pullMusicAfterDisliked(id))
+                        return dispatch(dislikeMusicSuccess(id))
+                    }
+                    return dispatch(dislikeMusicFail(id))
+                })
+        } catch (error) {
+            return dispatch(dislikeMusic(id));
         }
     }
 }

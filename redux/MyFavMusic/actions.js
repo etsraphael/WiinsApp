@@ -15,6 +15,10 @@ export function addMusicAfterLiked(music) {
     return { type: ActionTypes.ADD_MUSIC_AFTER_LIKED, music }
 }
 
+export function pullMusicAfterDisliked(id) {
+    return { type: ActionTypes.PULL_MUSIC_AFTER_DISLIKED, id }
+}
+
 export function setMusicInTheCache(url) {
     return { type: ActionTypes.SET_MUSIC_FAV_IN_CACHE, url }
 }

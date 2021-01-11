@@ -40,7 +40,7 @@ class OneMusic extends React.Component {
     _displayLikeIcon = (liked) => {
         if (liked) {
             return (
-                <TouchableOpacity onPress={() => alert('dislike in progresion..')} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <TouchableOpacity onPress={() => this.props.actions.dislikeMusicAction(this.props.music._id, this.props.music)} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <View style={{ borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
                         <FontAwesomeIcon icon={faHeartFull} size={17} color={'red'} />
                     </View>
@@ -232,7 +232,8 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
     MyUser: state.MyUser,
     Player: state.Player,
-    PlaylistPage: state.PlaylistPage
+    PlaylistPage: state.PlaylistPage,
+    MyMusic: state.MyFavMusic
 })
 
 const ActionCreators = Object.assign(
