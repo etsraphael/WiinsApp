@@ -125,7 +125,7 @@ export function likeMusicAction(id, music) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 200) { 
+                    if (response.status == 200) {
                         dispatch(addMusicAfterLiked(music))
                         return dispatch(likeMusicSuccess(id))
                     }
@@ -136,8 +136,6 @@ export function likeMusicAction(id, music) {
         }
     }
 }
-
-//////////////
 
 export function dislikeMusic(id) {
     return { type: ActionTypes.DISLIKE_MUSIC, id }
@@ -168,7 +166,7 @@ export function dislikeMusicAction(id) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 200) { 
+                    if (response.status == 200) {
                         dispatch(pullMusicAfterDisliked(id))
                         return dispatch(dislikeMusicSuccess(id))
                     }
