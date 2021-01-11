@@ -39,14 +39,36 @@ class OneMusic extends React.Component {
     _displayLikeIcon = (liked) => {
         if (liked) {
             return (
-                <View onPress={() => alert('dislike in progresion..')} style={{ borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
-                    <FontAwesomeIcon icon={faHeartFull} size={17} color={'red'} />
-                </View>
+                <TouchableOpacity onPress={() => alert('dislike in progresion..')} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <View style={{ borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
+                        <FontAwesomeIcon icon={faHeartFull} size={17} color={'red'} />
+                    </View>
+                </TouchableOpacity>
             )
         } else return (
-            <View onPress={() => alert('like in progresion..')} style={{ backgroundColor: '#d9d9d9', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
-                <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
-            </View>
+            <TouchableOpacity onPress={() => alert('like in progresion..')} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <View style={{ backgroundColor: '#d9d9d9', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
+                    <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
+                </View>
+            </TouchableOpacity>
+        )
+    }
+
+    _displayLikeIconWhenMusicPlaying = (liked) => {
+        if (liked) {
+            return (
+                <TouchableOpacity onPress={() => alert('like in progresion..')} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <View onPress={() => alert('dislike in progresion..')} style={{ backgroundColor: '#dadada47', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
+                        <FontAwesomeIcon icon={faHeartFull} size={17} color={'#e84747'} />
+                    </View>
+                </TouchableOpacity>
+            )
+        } else return (
+            <TouchableOpacity onPress={() => alert('dislike in progresion..')} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <View onPress={() => alert('like in progresion..')} style={{ backgroundColor: '#dadada47', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
+                    <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
+                </View>
+            </TouchableOpacity>
         )
     }
 
@@ -84,9 +106,7 @@ class OneMusic extends React.Component {
 
                 {/* Option Btn */}
                 <View style={{ flex: 2, flexDirection: 'row' }}>
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        {this._displayLikeIcon(music.isLiked)}
-                    </TouchableOpacity>
+                    {this._displayLikeIcon(music.isLiked)}
                     <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faEllipsisH} size={28} color={'#b3b3b3'} />
                     </TouchableOpacity>
@@ -134,11 +154,7 @@ class OneMusic extends React.Component {
 
                     {/* Option Btn */}
                     <View style={{ flex: 2, flexDirection: 'row' }}>
-                        <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <View style={{ backgroundColor: '#dcdcdc3d', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
-                                <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
-                            </View>
-                        </TouchableOpacity>
+                        {this._displayLikeIconWhenMusicPlaying(music.isLiked)}
                         <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                             <FontAwesomeIcon icon={faEllipsisH} size={28} color={'white'} />
                         </TouchableOpacity>
@@ -149,7 +165,6 @@ class OneMusic extends React.Component {
 
         )
     }
-
 
     render() {
 
