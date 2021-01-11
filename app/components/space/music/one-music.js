@@ -47,7 +47,7 @@ class OneMusic extends React.Component {
                 </TouchableOpacity>
             )
         } else return (
-            <TouchableOpacity onPress={() => this.props.actions.likeMusicAction(this.props.music._id)} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+            <TouchableOpacity onPress={() => this.props.actions.likeMusicAction(this.props.music._id, this.props.music)} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <View style={{ backgroundColor: '#d9d9d9', borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
                     <FontAwesomeIcon icon={faHeartEmpty} size={15} color={'white'} />
                 </View>

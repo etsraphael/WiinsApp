@@ -11,6 +11,10 @@ export function endOfUpload() {
     return { type: ActionTypes.END_OF_UPLOAD }
 }
 
+export function addMusicAfterLiked(music) {
+    return { type: ActionTypes.ADD_MUSIC_AFTER_LIKED, music }
+}
+
 export function setMusicInTheCache(url) {
     return { type: ActionTypes.SET_MUSIC_FAV_IN_CACHE, url }
 }

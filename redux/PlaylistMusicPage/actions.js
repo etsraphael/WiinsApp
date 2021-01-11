@@ -1,6 +1,7 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { verificationMusicCacheFormat } from './../../app/services/cache/cache-music-service'
+import { addMusicAfterLiked } from './../MyFavMusic/actions'
 
 export function startOfUpload() {
     return { type: ActionTypes.START_OF_UPLOAD_PLAYLIST }
@@ -107,7 +108,7 @@ export function likeMusicFail(id) {
     return { type: ActionTypes.LIKE_MUSIC_FAIL, id }
 }
 
-export function likeMusicAction(id) {
+export function likeMusicAction(id, music) {
     return async (dispatch) => {
         try {
 
@@ -124,7 +125,8 @@ export function likeMusicAction(id) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 200) {
+                    if (response.status == 200) { 
+                        dispatch(addMusicAfterLiked(music))
                         return dispatch(likeMusicSuccess(id))
                     }
                     return dispatch(likeMusicFail(id))

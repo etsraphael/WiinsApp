@@ -63,6 +63,13 @@ export default MyFavMusicReducer = (state = initialState, action) => {
         uploading: false
       }
     }
+    case ActionTypes.ADD_MUSIC_AFTER_LIKED : {
+      state.list.push(action.music)
+      return {
+        ...state
+      }
+
+    }
     default: return { ...state }
   }
 }
