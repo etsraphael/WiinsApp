@@ -103,7 +103,6 @@ class OneMusicFav extends React.Component {
                         </View>
                     </View>
 
-
                     {/* Option Btn */}
                     <View style={{ flex: 1, flexDirection: 'row' }}>
                         <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
