@@ -22,6 +22,10 @@ class MiniPlayer extends React.Component {
         }
     }
 
+    _likeMusic = () => {
+        this.props.actions.likeMusicFromPlayerAction(this.props.Player.musicIsPlaying)
+    }
+
     componentDidMount() {
         TrackPlayer.addEventListener('playback-state', (data) => {
         })
@@ -118,11 +122,11 @@ class MiniPlayer extends React.Component {
                             {/* Like Btn */}
                             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
                                 {this.props.Player.musicIsPlaying.isLiked ?
-                                    <TouchableOpacity onPress={() => alert('dislike')} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                    <TouchableOpacity onPress={() => this.props.actions.dislikeMusicFromPlayerAction(this.props.Player.musicIsPlaying.id)} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
                                         <FontAwesomeIcon icon={faHeart} color={'red'} size={17} />
                                     </TouchableOpacity>
                                     :
-                                    <TouchableOpacity onPress={() => alert('like')} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                    <TouchableOpacity onPress={() => this._likeMusic()} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
                                         <FontAwesomeIcon icon={faHeart} color={'grey'} size={17} />
                                     </TouchableOpacity>
                                 }

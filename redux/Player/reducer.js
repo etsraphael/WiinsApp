@@ -48,6 +48,14 @@ export default PlayerReducer = (state = initialState, action) => {
         timer: action.payload
       }
     }
+    case ActionTypes.LIKE_MUSIC_FROM_PLAYER_SUCCESS: {
+      state.musicIsPlaying.isLiked = true
+      return { ...state }
+    }
+    case ActionTypes.DISLIKE_MUSIC_FROM_PLAYER_SUCCESS: {
+      state.musicIsPlaying.isLiked = false
+      return { ...state }
+    }
     default: return state
   }
 }
