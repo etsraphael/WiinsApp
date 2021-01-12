@@ -204,10 +204,13 @@
     "Break-the-rules": "নিয়ম ভঙ্গ",
     "For-You": "তোমার জন্য",
     "Discover": "আবিষ্কার করুন",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "সম্প্রদায়",
+    "Subscribed": "সাবস্ক্রাইব করা হয়েছে",
+    "Go-to-profile": "প্রোফাইলে যান",
+    "Friend": "বন্ধু",
+    "Towards-an-infinite-space": "অসীম স্থানের দিকে",
+    "Hello": "হ্যালো",
+    "Publication": "প্রকাশনা"
   },
   "COUNTRY": {
     "AD": " এ্যান্ডোরা",
@@ -561,7 +564,10 @@
     "You-hv-to-get-t-community": "আপনাকে সম্প্রদায়টি পেতে হবে",
     "Please-choose-cat-and-sub": "বিভাগ এবং উপ বিভাগ নির্বাচন করুন",
     "Please-upload-the-poster-before": "এর আগে ভিডিওর পোস্টার আপলোড করুন",
-    "T-min-is-1$": "সর্বনিম্ন 1 $"
+    "T-min-is-1$": "সর্বনিম্ন 1 $",
+    "Missing-informations": "হারিয়ে যাওয়া তথ্য",
+    "Account_desactivated": "অ্যাকাউন্ট নিষ্ক্রিয়",
+    "Y-dont-have-a-conversation-yet": "আপনার এখনও কোনও কথোপকথন নেই।"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ছবিটি প্রাপ্ত হয়েছে",
@@ -591,7 +597,11 @@
     "Registration": "নিবন্ধন",
     "Sign-up": "নিবন্ধন করুন",
     "accept-tou": " আমি ব্যবহারের শর্তাদি গ্রহণ করি",
-    "click-on-email": "ইমেল লিঙ্ক ক্লিক করুন"
+    "click-on-email": "ইমেল লিঙ্ক ক্লিক করুন",
+    "Create-yr-account": "আপনার একাউন্ট তৈরী করুন",
+    "Creating-yr-account": "আপনার অ্যাকাউন্ট তৈরি করা হচ্ছে",
+    "Login-first-to-continue": "চালিয়ে যাওয়ার জন্য প্রথমে লগইন করুন",
+    "Checking-yr-infos": "আপনার ইনফোগুলি পরীক্ষা করা হচ্ছে"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "সর্বশেষ প্রকল্প",
@@ -632,10 +642,10 @@
     "tag-you-in-playlist": "আপনাকে প্লেলিস্টে ট্যাগ করেছে",
     "you-appear-in-project-of": "আপনি নতুন প্রকল্পে প্রদর্শিত হবে",
     "you-have": "তোমার আছে",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "আপনার যাচাইয়ের অনুরোধ গৃহীত হয়েছিল",
+    "Yr-verification-request-was-refused": "আপনার যাচাইয়ের অনুরোধ প্রত্যাখ্যান করা হয়েছিল",
+    "Yr-certification-request-was-accepted": "আপনার শংসাপত্রের অনুরোধ গৃহীত হয়েছিল",
+    "Yr-certification-request-was-refused": "আপনার শংসাপত্রের অনুরোধ প্রত্যাখ্যান করা হয়েছিল"
   },
   "PAGE": {
     "Name-page": "পৃষ্ঠার নাম",
@@ -860,7 +870,7 @@
       "Upload-yr-password-id-identity-or-driver-license": "আপনার পাসওয়ার্ড, আইডি পরিচয় বা ড্রাইভার লাইসেন্স আপলোড করুন।",
       "Upload-a-photo-holding-t-ID-D": "আজকের তারিখ সহ কাগজের একটি শীটযুক্ত আইডি সম্বলিত একটি ছবি আপলোড করুন এবং এতে \"উইনস\" লিখেছেন।",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "আমি সম্মত হই যে আমার ডেটা আমার অ্যাকাউন্টটি পরীক্ষা করতে ব্যবহৃত হতে পারে।",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "যদি এটি জাতীয় পরিচয়পত্র (কেবল জাতীয় কার্ডের জন্য) থাকে তবে কার্ডটির পিছনের দিকটি আপলোড করতে ভুলবেন না"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "আমার প্রকাশনাগুলি কেবলমাত্র আমার বন্ধুদের দ্বারা দৃশ্যমান",

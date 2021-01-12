@@ -206,8 +206,11 @@
     "Discover": "Découvrir",
     "Community": "Communauté",
     "Subscribed": "Abonné",
-    "Go-to-profile": "",
-    "Friend": "Ami"
+    "Go-to-profile": "Aller au profil",
+    "Friend": "Ami",
+    "Towards-an-infinite-space": "Vers un espace infini",
+    "Hello": "Bonjour",
+    "Publication": "Publication"
   },
   "COUNTRY": {
     "AD": "Andorre",
@@ -561,7 +564,10 @@
     "You-hv-to-get-t-community": "Vous devez obtenir la communauté",
     "Please-choose-cat-and-sub": "Veuillez choisir la catégorie et la sous-catégorie",
     "Please-upload-the-poster-before": "Veuillez télécharger l'affiche de la vidéo avant",
-    "T-min-is-1$": "Le minimum est de 1 $"
+    "T-min-is-1$": "Le minimum est de 1 $",
+    "Missing-informations": "Informations manquantes",
+    "Account_desactivated": "Compte désactivé",
+    "Y-dont-have-a-conversation-yet": "Vous n'avez pas encore de conversation."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "La photo est reçu",
@@ -591,7 +597,11 @@
     "Registration": "Inscription",
     "Sign-up": "S'inscrire",
     "accept-tou": "J'accepte les conditions d'utilisations",
-    "click-on-email": "Veuillez cliquer sur le lien du courriel"
+    "click-on-email": "Veuillez cliquer sur le lien du courriel",
+    "Create-yr-account": "Créez votre compte",
+    "Creating-yr-account": "Création de votre compte",
+    "Login-first-to-continue": "Connectez-vous d'abord pour continuer",
+    "Checking-yr-infos": "Vérifier vos infos"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Derniers projet",
@@ -632,10 +642,10 @@
     "tag-you-in-playlist": "vous a tagué dans un playlist",
     "you-appear-in-project-of": "Vous apparaissez dans le nouveau projet de",
     "you-have": "vous avez",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "Votre demande de vérification a été acceptée",
+    "Yr-verification-request-was-refused": "Votre demande de vérification a été refusée",
+    "Yr-certification-request-was-accepted": "Votre demande de certification a été acceptée",
+    "Yr-certification-request-was-refused": "Votre demande de certification a été refusée"
   },
   "PAGE": {
     "Name-page": "Nom de la page",
@@ -860,7 +870,7 @@
       "Upload-yr-password-id-identity-or-driver-license": "Téléchargez votre mot de passe, votre identifiant ou votre permis de conduire.",
       "Upload-a-photo-holding-t-ID-D": "Téléchargez une photo contenant la pièce d'identité avec une feuille de papier avec la date du jour et l'inscription \"Wiins\" dessus.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "J'accepte que mes données soient utilisées pour vérifier mon compte.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Assurez-vous de télécharger le verso de la carte s'il s'agit d'une carte d'identité nationale (uniquement pour la carte nationale)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Mes publications sont visible uniquement par mes amis",

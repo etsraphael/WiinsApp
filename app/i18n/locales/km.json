@@ -246,10 +246,13 @@
     "views": "ទស្សនៈ",
     "For-You": "សម្រាប់​អ្នក",
     "Discover": "ស្វែងយល់",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "សហគមន៍",
+    "Subscribed": "បានជាវ",
+    "Go-to-profile": "ទៅកាន់ប្រវត្តិរូប",
+    "Friend": "មិត្ត",
+    "Towards-an-infinite-space": "ឆ្ពោះទៅរកចន្លោះគ្មានកំណត់",
+    "Hello": "សួស្តី",
+    "Publication": "ការបោះពុម្ពផ្សាយ"
   },
   "COUNTRY": {
     "AD": "អង់ដូរ៉ា",
@@ -603,7 +606,10 @@
     "y-h-to-delete-yr-page-or-group-before": "អ្នកត្រូវតែលុបទំព័រឬក្រុមរបស់អ្នកពីមុន",
     "y-have-to-be-friend": "អ្នកត្រូវតែជាមិត្តភក្តិ",
     "you-hav-to-upgrad-a-manager-before-leave": "អ្នកត្រូវតែលើកកម្ពស់អ្នកគ្រប់គ្រងមុនពេលចាកចេញពីក្រុម",
-    "T-min-is-1$": "អប្បបរមាគឺ ១ ដុល្លារ"
+    "T-min-is-1$": "អប្បបរមាគឺ ១ ដុល្លារ",
+    "Missing-informations": "បាត់ព័ត៌មាន",
+    "Account_desactivated": "គណនីអសកម្ម",
+    "Y-dont-have-a-conversation-yet": "អ្នកមិនទាន់មានការសន្ទនានៅឡើយទេ។"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "រូបថតត្រូវបានទទួល",
@@ -633,7 +639,11 @@
     "Registration": "ការចុះឈ្មោះ",
     "Sign-up": "ចុះ​ឈ្មោះ",
     "accept-tou": "ខ្ញុំទទួលយកល័ក្ខខ័ណ្ឌនៃការប្រើប្រាស់",
-    "click-on-email": "សូមចុចលើអ៊ីម៉ែលតំណភ្ជាប់"
+    "click-on-email": "សូមចុចលើអ៊ីម៉ែលតំណភ្ជាប់",
+    "Create-yr-account": "បង្កើតគណនីរបស់អ្នក",
+    "Creating-yr-account": "បង្កើតគណនីរបស់អ្នក",
+    "Login-first-to-continue": "ចូលដំបូងដើម្បីបន្ត",
+    "Checking-yr-infos": "ពិនិត្យមើលព័ត៌មានរបស់អ្នក"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "គម្រោងចុងក្រោយ",
@@ -674,10 +684,10 @@
     "tag-you-in-playlist": "ដាក់ស្លាកអ្នកក្នុងបញ្ជីចាក់",
     "you-appear-in-project-of": "អ្នកបង្ហាញនៅក្នុងគម្រោងថ្មីនៃ",
     "you-have": "អ្នក​មាន",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "ការស្នើសុំការផ្ទៀងផ្ទាត់របស់អ្នកត្រូវបានទទួលយក",
+    "Yr-verification-request-was-refused": "សំណើការផ្ទៀងផ្ទាត់របស់អ្នកត្រូវបានបដិសេធ",
+    "Yr-certification-request-was-accepted": "ការស្នើសុំវិញ្ញាបនប័ត្ររបស់អ្នកត្រូវបានទទួលយក",
+    "Yr-certification-request-was-refused": "ការស្នើសុំវិញ្ញាបនប័ត្ររបស់អ្នកត្រូវបានបដិសេធ"
   },
   "PAGE": {
     "Name-page": "ឈ្មោះទំព័រ",
@@ -913,7 +923,7 @@
       "Verified-zone": "តំបន់ដែលបានផ្ទៀងផ្ទាត់",
       "Y-m-complet-t-following-cdt-t-b-certified": "អ្នកត្រូវតែបំពេញលក្ខខណ្ឌដូចខាងក្រោមដើម្បីបញ្ជាក់។",
       "Yr-profil-is-currently-being-checked-D": "ប្រវត្តិរូបរបស់អ្នកកំពុងត្រូវបានត្រួតពិនិត្យ។ យើងនឹងទាក់ទងអ្នកក្នុងរយៈពេល ៤៨ ម៉ោងតាមអ៊ីមែល។",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "ត្រូវប្រាកដថាបញ្ចូលសន្លឹកបៀរខាងក្រោយប្រសិនបើវាជាអត្តសញ្ញាណប័ណ្ណជាតិ (សម្រាប់តែអត្តសញ្ញាណប័ណ្ណ)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "ការបោះពុម្ពផ្សាយរបស់ខ្ញុំអាចមើលឃើញដោយមិត្តភក្តិរបស់ខ្ញុំតែប៉ុណ្ណោះ",

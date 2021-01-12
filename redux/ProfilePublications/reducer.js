@@ -40,6 +40,13 @@ export default PublicationsProfileReducer = (state = initialState, action) => {
         ...state
       }
     }
+    case ActionTypes.UPDATE_COMMENT_PUBLICATIONS_PROFILE_SUCCESS: {
+      const found = state.publications.map(x => x._id).indexOf(action.id)
+      ++state.publications[found].commentNumber
+      return {
+        ...state
+      }
+    }
     case ActionTypes.RESET_PUBLICATIONS: {
       return initialState
     }

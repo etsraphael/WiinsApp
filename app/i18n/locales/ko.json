@@ -204,10 +204,13 @@
     "Break-the-rules": "규칙을 깨라",
     "For-You": "당신을 위해",
     "Discover": "발견하다",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "커뮤니티",
+    "Subscribed": "구독",
+    "Go-to-profile": "프로필로 이동",
+    "Friend": "친구",
+    "Towards-an-infinite-space": "무한한 공간을 향해",
+    "Hello": "여보세요",
+    "Publication": "출판"
   },
   "COUNTRY": {
     "AD": "안도라",
@@ -561,7 +564,10 @@
     "You-hv-to-get-t-community": "커뮤니티를 얻어야합니다",
     "Please-choose-cat-and-sub": "카테고리와 하위 카테고리를 선택하세요",
     "Please-upload-the-poster-before": "동영상 포스터를 먼저 업로드 해주세요.",
-    "T-min-is-1$": "최소 금액은 1 $입니다."
+    "T-min-is-1$": "최소 금액은 1 $입니다.",
+    "Missing-informations": "누락 된 정보",
+    "Account_desactivated": "계정 비활성화",
+    "Y-dont-have-a-conversation-yet": "아직 대화가 없습니다."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "사진이 접수되었습니다",
@@ -591,7 +597,11 @@
     "Registration": "기재",
     "Sign-up": "등록하세요",
     "accept-tou": "이용 약관에 동의합니다.",
-    "click-on-email": "이메일 링크를 클릭하십시오"
+    "click-on-email": "이메일 링크를 클릭하십시오",
+    "Create-yr-account": "계정 생성",
+    "Creating-yr-account": "계정 생성",
+    "Login-first-to-continue": "계속하려면 먼저 로그인하세요.",
+    "Checking-yr-infos": "정보 확인"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "가장 마지막 프로젝트",
@@ -632,10 +642,10 @@
     "tag-you-in-playlist": "재생 목록에서 나를 태그했습니다.",
     "you-appear-in-project-of": "당신은 새로운 프로젝트에 나타납니다",
     "you-have": "당신은 가지고",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "확인 요청이 수락되었습니다.",
+    "Yr-verification-request-was-refused": "확인 요청이 거부되었습니다.",
+    "Yr-certification-request-was-accepted": "인증 요청이 수락되었습니다.",
+    "Yr-certification-request-was-refused": "인증 요청이 거부되었습니다."
   },
   "PAGE": {
     "Name-page": "페이지 이름",
@@ -860,7 +870,7 @@
       "Upload-yr-password-id-identity-or-driver-license": "비밀번호, 신분증 또는 운전 면허증을 업로드하세요.",
       "Upload-a-photo-holding-t-ID-D": "오늘 날짜와 \"Wiins\"가 적힌 종이와 함께 신분증이있는 사진을 업로드하세요.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "내 데이터가 내 계정을 확인하는 데 사용될 수 있음에 동의합니다.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "주민등록증 인 경우 카드 뒷면을 반드시 업로드하세요 (국민 카드 만 해당)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "폭력을 변화를 위한 수단으로 받아들이는 것",

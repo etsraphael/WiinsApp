@@ -25,6 +25,65 @@ export default PlaylistPageReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+    case ActionTypes.SET_MUSIC_PLAYLIST_IN_CACHE_SUCCESS: {
+      const musicFound = state.playlist.musicList.map(x => x.file).indexOf(action.url)
+      if (musicFound !== -1) {
+        state.playlist.musicList[musicFound].inCache = 'confirmed'
+        return {
+          ...state
+        }
+      } else return { ...state }
+    }
+    case ActionTypes.SET_MUSIC_PLAYLIST_IN_CACHE: {
+      const musicFound = state.playlist.musicList.map(x => x.file).indexOf(action.url)
+      if (musicFound !== -1) {
+        state.playlist.musicList[musicFound].inCache = 'progress'
+        return {
+          ...state
+        }
+      } else return { ...state }
+    }
+    case ActionTypes.SET_MUSIC_PLAYLIST_IN_CACHE_FAIL: {
+      const musicFound = state.playlist.musicList.map(x => x.file).indexOf(action.url)
+      if (musicFound !== -1) {
+        state.playlist.musicList[musicFound].inCache = 'not'
+        return {
+          ...state
+        }
+      } else return { ...state }
+
+
+    }
+    case ActionTypes.START_OF_UPLOAD_PLAYLIST: {
+      return {
+        ...state,
+        uploading: true
+      }
+    }
+    case ActionTypes.END_OF_UPLOAD_PLAYLIST: {
+      return {
+        ...state,
+        uploading: false
+      }
+    }
+    case ActionTypes.LIKE_MUSIC_SUCCESS: {
+      const musicFound = state.playlist.musicList.map(x => x._id).indexOf(action.id)
+      if (musicFound !== -1) {
+        state.playlist.musicList[musicFound].isLiked = true
+        return {
+          ...state
+        }
+      } else return { ...state }
+    }
+    case ActionTypes.DISLIKE_MUSIC_SUCCESS: {
+      const musicFound = state.playlist.musicList.map(x => x._id).indexOf(action.id)
+      if (musicFound !== -1) {
+        state.playlist.musicList[musicFound].isLiked = false
+        return {
+          ...state
+        }
+      } else return { ...state }
+    }
     case ActionTypes.RESET_MUSIC_PLAYLIST: return initialState
     default: return state
   }

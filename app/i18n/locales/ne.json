@@ -246,10 +246,13 @@
     "views": "अवलोकन",
     "For-You": "तिम्रो लागि",
     "Discover": "खोज्नुहोस्",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "समुदाय",
+    "Subscribed": "सदस्यता लिइयो",
+    "Go-to-profile": "प्रोफाइलमा जानुहोस्",
+    "Friend": "मित्र",
+    "Towards-an-infinite-space": "एक असीम स्थान तर्फ",
+    "Hello": "नमस्कार",
+    "Publication": "प्रकाशन"
   },
   "COUNTRY": {
     "AD": "अन्डोरा",
@@ -603,7 +606,10 @@
     "y-h-to-delete-yr-page-or-group-before": "तपाईंले आफ्नो पृष्ठहरू वा समूहहरू अघि मेटाउनुपर्नेछ",
     "y-have-to-be-friend": "तपाईं साथी हुनुपर्छ",
     "you-hav-to-upgrad-a-manager-before-leave": "तपाईंले समूह छोड्नु अघि प्रबन्धकलाई प्रमोट गर्नुपर्दछ",
-    "T-min-is-1$": "न्यूनतम १ $ हो"
+    "T-min-is-1$": "न्यूनतम १ $ हो",
+    "Missing-informations": "हराइरहेका सूचनाहरू",
+    "Account_desactivated": "खाता निष्क्रिय गरियो",
+    "Y-dont-have-a-conversation-yet": "तपाईंसँग अहिलेसम्म कुराकानी छैन।"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "फोटो प्राप्त भयो",
@@ -633,7 +639,11 @@
     "Registration": "पञ्जीकरण",
     "Sign-up": "साइन अप",
     "accept-tou": "म प्रयोग सर्त र सर्तहरू स्वीकार गर्दछु",
-    "click-on-email": "कृपया ईमेल लिंकमा क्लिक गर्नुहोस्"
+    "click-on-email": "कृपया ईमेल लिंकमा क्लिक गर्नुहोस्",
+    "Create-yr-account": "तपाईँका खाता बनाउनुहोस्",
+    "Creating-yr-account": "तपाईंको खाता सिर्जना गर्दै",
+    "Login-first-to-continue": "जारी गर्न पहिले लगईन गर्नुहोस्",
+    "Checking-yr-infos": "तपाइँको infos जाँच गर्दै"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "सबैभन्दा पछिल्लो परियोजना",
@@ -674,10 +684,10 @@
     "tag-you-in-playlist": "तपाईंलाई एक प्लेसूचीमा ट्याग गर्नुभयो",
     "you-appear-in-project-of": "तपाइँको नयाँ प्रोजेक्टमा देखा पर्नुहुन्छ",
     "you-have": "तपाईँ सँग छ",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "तपाईंको प्रमाणिकरण अनुरोध स्वीकार गरियो",
+    "Yr-verification-request-was-refused": "तपाईंको प्रमाणिकरण अनुरोध अस्वीकार गरियो",
+    "Yr-certification-request-was-accepted": "तपाईंको प्रमाणीकरण अनुरोध स्वीकार गरियो",
+    "Yr-certification-request-was-refused": "तपाईंको प्रमाणीकरण अनुरोध अस्वीकार गरियो"
   },
   "PAGE": {
     "Name-page": "पृष्ठ नाम",
@@ -913,7 +923,7 @@
       "Verified-zone": "प्रमाणित क्षेत्र",
       "Y-m-complet-t-following-cdt-t-b-certified": "तपाईंले प्रमाणित हुनका लागि निम्न सर्तहरू पूर्ण गर्नुपर्दछ।",
       "Yr-profil-is-currently-being-checked-D": "तपाईंको प्रोफाइल हाल जाँच भइरहेको छ। हामी तपाईंलाई ईमेल द्वारा hours 48 घण्टा भित्र सम्पर्क गर्नेछौं।",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "निश्चित गर्नुहोस् कार्डको पछाडि अपलोड गर्नुहोस् यदि यो राष्ट्रिय परिचय पत्र हो भने (राष्ट्रिय कार्डका लागि मात्र)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "मेरा प्रकाशनहरू मेरो साथीहरू द्वारा मात्र देख्न सकिन्छ",

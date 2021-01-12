@@ -3,6 +3,7 @@ import { Provider } from 'react-redux'
 import { configureStore } from './app/stores/configureStore'
 import { PersistGate } from 'redux-persist/integration/react'
 import MainApp from './app/components/core/main-app'
+import { resetCacheForDev } from './app/services/cache/cache-core-service'
 
 class App extends Component {
 
@@ -17,6 +18,12 @@ class App extends Component {
     }
   }
 
+  componentDidMount = async () => {
+    if (__DEV__) {
+      await resetCacheForDev()
+    }
+  }
+
   onBeforeLift() {
     if (this.store.getState().MyUser.user !== null) {
       this.setState({ auth: true })
@@ -24,12 +31,11 @@ class App extends Component {
   }
 
   render() {
-
     return (
       <>
         <Provider store={this.store}>
           <PersistGate persistor={this.persistor} onBeforeLift={() => this.onBeforeLift()} loading={null}>
-            <MainApp/>
+            <MainApp />
           </PersistGate>
         </Provider>
       </>

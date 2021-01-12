@@ -204,10 +204,13 @@
     "Break-the-rules": "ਨਿਯਮਾਂ ਨੂੰ ਤੋੜੋ",
     "For-You": "ਤੁਹਾਡੇ ਲਈ",
     "Discover": "ਖੋਜ",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "ਕਮਿ Communityਨਿਟੀ",
+    "Subscribed": "ਸਬਸਕ੍ਰਾਈਬ ਕੀਤਾ",
+    "Go-to-profile": "ਪ੍ਰੋਫਾਈਲ 'ਤੇ ਜਾਓ",
+    "Friend": "ਦੋਸਤ",
+    "Towards-an-infinite-space": "ਅਨੰਤ ਜਗ੍ਹਾ ਵੱਲ",
+    "Hello": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ",
+    "Publication": "ਪਬਲੀਕੇਸ਼ਨ"
   },
   "COUNTRY": {
     "AD": " ਅੰਡੋਰਾ",
@@ -561,7 +564,10 @@
     "You-hv-to-get-t-community": "ਤੁਹਾਨੂੰ ਕਮਿ getਨਿਟੀ ਲੈਣਾ ਪਏਗਾ",
     "Please-choose-cat-and-sub": "ਕਿਰਪਾ ਕਰਕੇ ਸ਼੍ਰੇਣੀ ਅਤੇ ਉਪ ਸ਼੍ਰੇਣੀ ਦੀ ਚੋਣ ਕਰੋ",
     "Please-upload-the-poster-before": "ਕਿਰਪਾ ਕਰਕੇ ਪਹਿਲਾਂ ਵੀਡੀਓ ਦਾ ਪੋਸਟਰ ਅਪਲੋਡ ਕਰੋ",
-    "T-min-is-1$": "ਘੱਟੋ ਘੱਟ 1 $ ਹੈ"
+    "T-min-is-1$": "ਘੱਟੋ ਘੱਟ 1 $ ਹੈ",
+    "Missing-informations": "ਗੁੰਮ ਜਾਣਕਾਰੀ",
+    "Account_desactivated": "ਖਾਤਾ ਬੰਦ ਕਰ ਦਿੱਤਾ",
+    "Y-dont-have-a-conversation-yet": "ਤੁਹਾਡੇ ਕੋਲ ਅਜੇ ਗੱਲਬਾਤ ਨਹੀਂ ਹੈ."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ਫੋਟੋ ਮਿਲੀ ਹੈ",
@@ -591,7 +597,11 @@
     "Registration": "ਰਜਿਸਟ੍ਰੇਸ਼ਨ",
     "Sign-up": "ਸਾਇਨ ਅਪ",
     "accept-tou": "ਮੈਂ ਵਰਤੋਂ ਦੀਆਂ ਸ਼ਰਤਾਂ ਅਤੇ ਸ਼ਰਤਾਂ ਨੂੰ ਸਵੀਕਾਰ ਕਰਦਾ ਹਾਂ",
-    "click-on-email": "ਕਿਰਪਾ ਕਰਕੇ ਈਮੇਲ ਲਿੰਕ ਤੇ ਕਲਿੱਕ ਕਰੋ"
+    "click-on-email": "ਕਿਰਪਾ ਕਰਕੇ ਈਮੇਲ ਲਿੰਕ ਤੇ ਕਲਿੱਕ ਕਰੋ",
+    "Create-yr-account": "ਆਪਣਾ ਖਾਤਾ ਬਣਾਓ",
+    "Creating-yr-account": "ਤੁਹਾਡਾ ਖਾਤਾ ਬਣਾਉਣਾ",
+    "Login-first-to-continue": "ਜਾਰੀ ਰੱਖਣ ਲਈ ਪਹਿਲਾਂ ਲੌਗਇਨ ਕਰੋ",
+    "Checking-yr-infos": "ਤੁਹਾਡੇ ਇਨਫੋਸ ਦੀ ਜਾਂਚ ਕਰ ਰਿਹਾ ਹੈ"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "ਤਾਜ਼ਾ ਪ੍ਰੋਜੈਕਟ",
@@ -632,10 +642,10 @@
     "tag-you-in-playlist": "ਤੁਹਾਨੂੰ ਪਲੇਲਿਸਟ ਵਿੱਚ ਟੈਗ ਕੀਤਾ ਹੈ",
     "you-appear-in-project-of": "ਦੇ ਨਵੇਂ ਪ੍ਰੋਜੈਕਟ ਵਿਚ ਤੁਸੀਂ ਦਿਖਾਈ ਦਿੰਦੇ ਹੋ",
     "you-have": "ਤੁਹਾਡੇ ਕੋਲ ਹੈ",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "ਤੁਹਾਡੀ ਤਸਦੀਕ ਬੇਨਤੀ ਸਵੀਕਾਰ ਕਰ ਲਈ ਗਈ ਸੀ",
+    "Yr-verification-request-was-refused": "ਤੁਹਾਡੀ ਤਸਦੀਕ ਬੇਨਤੀ ਨੂੰ ਨਾਮਨਜ਼ੂਰ ਕਰ ਦਿੱਤਾ ਗਿਆ ਸੀ",
+    "Yr-certification-request-was-accepted": "ਤੁਹਾਡੀ ਸਰਟੀਫਿਕੇਟ ਬੇਨਤੀ ਸਵੀਕਾਰ ਕਰ ਲਈ ਗਈ ਸੀ",
+    "Yr-certification-request-was-refused": "ਤੁਹਾਡੀ ਸਰਟੀਫਿਕੇਟ ਬੇਨਤੀ ਅਸਵੀਕਾਰ ਕਰ ਦਿੱਤੀ ਗਈ ਸੀ"
   },
   "PAGE": {
     "Name-page": "ਪੇਜ ਦਾ ਨਾਮ",
@@ -860,7 +870,7 @@
       "Upload-yr-password-id-identity-or-driver-license": "ਆਪਣਾ ਪਾਸਵਰਡ, ਆਈਡੀ ਪਛਾਣ ਜਾਂ ਡਰਾਈਵਰ ਲਾਇਸੈਂਸ ਅਪਲੋਡ ਕਰੋ.",
       "Upload-a-photo-holding-t-ID-D": "ਅੱਜ ਦੀ ਮਿਤੀ ਦੇ ਨਾਲ ਕਾਗਜ਼ ਦੀ ਸ਼ੀਟ ਨਾਲ ਆਈਡੀ ਵਾਲੀ ਫੋਟੋ ਨੂੰ ਅਪਲੋਡ ਕਰੋ ਅਤੇ ਇਸ 'ਤੇ \"ਵਿਨਜ਼\" ਲਿਖਦੇ ਹਨ.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "ਮੈਂ ਸਹਿਮਤ ਹਾਂ ਕਿ ਮੇਰਾ ਡਾਟਾ ਮੇਰੇ ਖਾਤੇ ਦੀ ਜਾਂਚ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾ ਸਕਦਾ ਹੈ.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "ਕਾਰਡ ਦੇ ਪਿਛਲੇ ਪਾਸੇ ਅਪਲੋਡ ਕਰਨਾ ਨਿਸ਼ਚਤ ਕਰੋ ਜੇ ਇਹ ਰਾਸ਼ਟਰੀ ਆਈਡੀ ਕਾਰਡ ਹੈ (ਸਿਰਫ ਰਾਸ਼ਟਰੀ ਕਾਰਡ ਲਈ)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "ਮੇਰੇ ਪ੍ਰਕਾਸ਼ਨ ਸਿਰਫ ਮੇਰੇ ਦੋਸਤਾਂ ਦੁਆਰਾ ਦ੍ਰਿਸ਼ਮਾਨ ਹਨ",

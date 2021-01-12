@@ -204,10 +204,13 @@
     "Break-the-rules": "打破常规",
     "For-You": "为了你",
     "Discover": "发现",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "社区",
+    "Subscribed": "已订阅",
+    "Go-to-profile": "转到个人资料",
+    "Friend": "友人",
+    "Towards-an-infinite-space": "走向无限的空间",
+    "Hello": "你好",
+    "Publication": "出版物"
   },
   "COUNTRY": {
     "AD": "安道尔",
@@ -561,7 +564,10 @@
     "You-hv-to-get-t-community": "你必须得到社区",
     "Please-choose-cat-and-sub": "请选择类别和子类别",
     "Please-upload-the-poster-before": "请先上传视频的海报",
-    "T-min-is-1$": "最低为1 $"
+    "T-min-is-1$": "最低为1 $",
+    "Missing-informations": "缺少信息",
+    "Account_desactivated": "帐户已停用",
+    "Y-dont-have-a-conversation-yet": "您还没有对话。"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "收到照片",
@@ -591,7 +597,11 @@
     "Registration": "注册",
     "Sign-up": "登记",
     "accept-tou": "我接受使用条款和条件",
-    "click-on-email": "请点击电子邮件链接"
+    "click-on-email": "请点击电子邮件链接",
+    "Create-yr-account": "创建您的帐户",
+    "Creating-yr-account": "建立您的帐户",
+    "Login-first-to-continue": "首先登录以继续",
+    "Checking-yr-infos": "检查您的信息"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "最近的项目",
@@ -632,10 +642,10 @@
     "tag-you-in-playlist": "在播放列表中标记了您",
     "you-appear-in-project-of": "您出现在的新项目中",
     "you-have": "你有",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "您的验证请求已被接受",
+    "Yr-verification-request-was-refused": "您的验证请求被拒绝",
+    "Yr-certification-request-was-accepted": "您的认证请求已被接受",
+    "Yr-certification-request-was-refused": "您的认证请求被拒绝"
   },
   "PAGE": {
     "Name-page": "页面名称",
@@ -860,7 +870,7 @@
       "Upload-yr-password-id-identity-or-driver-license": "上传您的密码，ID身份或驾驶执照。",
       "Upload-a-photo-holding-t-ID-D": "上传带有ID的照片和一张带有今天日期的纸，并在上面写上“空白”。",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "我同意我的数据可用于检查我的帐户。",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "如果是身份证，请确保上传卡的背面（仅适用于身份证）"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "接受暴力作为试图改变事物的手段",

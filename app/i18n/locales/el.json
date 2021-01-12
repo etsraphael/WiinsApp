@@ -246,10 +246,13 @@
     "views": "προβολές",
     "For-You": "Για σενα",
     "Discover": "Ανακαλύπτω",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "Κοινότητα",
+    "Subscribed": "Εγγραφή",
+    "Go-to-profile": "Πήγαινε στο προφίλ",
+    "Friend": "Φίλε",
+    "Towards-an-infinite-space": "Προς έναν άπειρο χώρο",
+    "Hello": "Χαίρετε",
+    "Publication": "Δημοσίευση"
   },
   "COUNTRY": {
     "AD": "Ανδόρα",
@@ -603,7 +606,10 @@
     "y-h-to-delete-yr-page-or-group-before": "Πρέπει να διαγράψετε τις σελίδες ή τις ομάδες σας πριν",
     "y-have-to-be-friend": "πρέπει να είσαι φίλος",
     "you-hav-to-upgrad-a-manager-before-leave": "Πρέπει να προωθήσετε έναν διαχειριστή πριν αποχωρήσετε από την ομάδα",
-    "T-min-is-1$": "Το ελάχιστο είναι 1 $"
+    "T-min-is-1$": "Το ελάχιστο είναι 1 $",
+    "Missing-informations": "Λείπουν πληροφορίες",
+    "Account_desactivated": "Ο λογαριασμός απενεργοποιήθηκε",
+    "Y-dont-have-a-conversation-yet": "Δεν έχετε συνομιλία ακόμη."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Η φωτογραφία έχει ληφθεί",
@@ -633,7 +639,11 @@
     "Registration": "Εγγραφή",
     "Sign-up": "Εγγραφείτε",
     "accept-tou": "Αποδέχομαι τους όρους και τις προϋποθέσεις χρήσης",
-    "click-on-email": "Κάντε κλικ στον σύνδεσμο email"
+    "click-on-email": "Κάντε κλικ στον σύνδεσμο email",
+    "Create-yr-account": "Δημιουργήστε το λογαριασμό σας",
+    "Creating-yr-account": "Δημιουργία του λογαριασμού σας",
+    "Login-first-to-continue": "Συνδεθείτε πρώτα για να συνεχίσετε",
+    "Checking-yr-infos": "Έλεγχος των πληροφοριών σας"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Τελευταίο έργο",
@@ -674,10 +684,10 @@
     "tag-you-in-playlist": "σας πρόσθεσαν σε μια λίστα αναπαραγωγής",
     "you-appear-in-project-of": "Εμφανίζεστε στο νέο έργο του",
     "you-have": "έχεις",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "Το αίτημα επαλήθευσής σας έγινε αποδεκτό",
+    "Yr-verification-request-was-refused": "Το αίτημα επαλήθευσής σας απορρίφθηκε",
+    "Yr-certification-request-was-accepted": "Το αίτημα πιστοποίησης έγινε αποδεκτό",
+    "Yr-certification-request-was-refused": "Το αίτημα πιστοποίησης απορρίφθηκε"
   },
   "PAGE": {
     "Name-page": "Όνομα σελίδας",
@@ -913,7 +923,7 @@
       "Verified-zone": "Επαληθευμένη ζώνη",
       "Y-m-complet-t-following-cdt-t-b-certified": "Πρέπει να συμπληρώσετε τις ακόλουθες προϋποθέσεις για πιστοποίηση.",
       "Yr-profil-is-currently-being-checked-D": "Το προφίλ σας ελέγχεται αυτήν τη στιγμή. Θα επικοινωνήσουμε μαζί σας εντός 48 ωρών μέσω email.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Φροντίστε να ανεβάσετε την πίσω πλευρά της κάρτας εάν είναι η εθνική ταυτότητα (μόνο για την εθνική κάρτα)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Οι δημοσιεύσεις μου είναι ορατές μόνο από τους φίλους μου",

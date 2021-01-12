@@ -204,10 +204,13 @@
     "Break-the-rules": "Romper las reglas",
     "For-You": "Para ti",
     "Discover": "Descubrir",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "Comunidad",
+    "Subscribed": "Suscrito",
+    "Go-to-profile": "Ir al perfil",
+    "Friend": "Amigo",
+    "Towards-an-infinite-space": "Hacia un espacio infinito",
+    "Hello": "Hola",
+    "Publication": "Publicación"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -561,7 +564,10 @@
     "You-hv-to-get-t-community": "Tienes que conseguir la comunidad",
     "Please-choose-cat-and-sub": "Elija categoría y subcategoría",
     "Please-upload-the-poster-before": "Sube el póster del video antes",
-    "T-min-is-1$": "El mínimo es 1 $"
+    "T-min-is-1$": "El mínimo es 1 $",
+    "Missing-informations": "Falta información",
+    "Account_desactivated": "Cuenta desactivada",
+    "Y-dont-have-a-conversation-yet": "Aún no tienes una conversación."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "La foto es recibida",
@@ -591,7 +597,11 @@
     "Registration": "Registro",
     "Sign-up": "Únete",
     "accept-tou": "Acepto los términos y condiciones de uso",
-    "click-on-email": "Por favor haga clic en el enlace del correo electrónico"
+    "click-on-email": "Por favor haga clic en el enlace del correo electrónico",
+    "Create-yr-account": "Crea tu cuenta",
+    "Creating-yr-account": "creando tu cuenta",
+    "Login-first-to-continue": "Inicie sesión primero para continuar",
+    "Checking-yr-infos": "Comprobando su información"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Proyecto más reciente",
@@ -632,10 +642,10 @@
     "tag-you-in-playlist": "te etiquetó en una lista de reproducción",
     "you-appear-in-project-of": "Aparece en el nuevo proyecto de",
     "you-have": "tienes",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "Su solicitud de verificación fue aceptada",
+    "Yr-verification-request-was-refused": "Tu solicitud de verificación fue rechazada",
+    "Yr-certification-request-was-accepted": "Se aceptó su solicitud de certificación",
+    "Yr-certification-request-was-refused": "Su solicitud de certificación fue rechazada"
   },
   "PAGE": {
     "Name-page": "Nombre de la página",
@@ -860,7 +870,7 @@
       "Upload-yr-password-id-identity-or-driver-license": "Cargue su contraseña, identidad de identificación o licencia de conducir.",
       "Upload-a-photo-holding-t-ID-D": "Sube una foto con la identificación con una hoja de papel con la fecha de hoy y \"Wiins\" escrito en ella.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "Acepto que mis datos puedan usarse para verificar mi cuenta.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Asegúrese de cargar el reverso de la tarjeta si es una tarjeta de identificación nacional (solo para la tarjeta nacional)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "La aceptación de la violencia como medio para tratar de cambiar las cosas",

@@ -246,10 +246,13 @@
     "views": "utsikt",
     "For-You": "For deg",
     "Discover": "Oppdage",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "Samfunnet",
+    "Subscribed": "Abonnert",
+    "Go-to-profile": "Gå til profil",
+    "Friend": "Venn",
+    "Towards-an-infinite-space": "Mot et uendelig rom",
+    "Hello": "Hallo",
+    "Publication": "Utgivelse"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -603,7 +606,10 @@
     "y-h-to-delete-yr-page-or-group-before": "Du må slette sidene eller gruppene dine før",
     "y-have-to-be-friend": "du må være venner",
     "you-hav-to-upgrad-a-manager-before-leave": "Du må markedsføre en leder før du forlater gruppen",
-    "T-min-is-1$": "Minimum er 1 $"
+    "T-min-is-1$": "Minimum er 1 $",
+    "Missing-informations": "Manglende informasjon",
+    "Account_desactivated": "Konto deaktivert",
+    "Y-dont-have-a-conversation-yet": "Du har ikke en samtale ennå."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Bildet er mottatt",
@@ -633,7 +639,11 @@
     "Registration": "Registrering",
     "Sign-up": "Melde deg på",
     "accept-tou": "Jeg godtar vilkårene og betingelsene for bruk",
-    "click-on-email": "Klikk på e-postkoblingen"
+    "click-on-email": "Klikk på e-postkoblingen",
+    "Create-yr-account": "lag din konto",
+    "Creating-yr-account": "Opprette kontoen din",
+    "Login-first-to-continue": "Logg inn først for å fortsette",
+    "Checking-yr-infos": "Kontrollerer informasjonen din"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Siste prosjekt",
@@ -674,10 +684,10 @@
     "tag-you-in-playlist": "merket deg i en spilleliste",
     "you-appear-in-project-of": "Du vises i det nye prosjektet av",
     "you-have": "du har",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "Bekreftelsesforespørselen din ble godtatt",
+    "Yr-verification-request-was-refused": "Bekreftelsesforespørselen din ble avslått",
+    "Yr-certification-request-was-accepted": "Sertifiseringsforespørselen din ble godtatt",
+    "Yr-certification-request-was-refused": "Sertifiseringsforespørselen din ble avslått"
   },
   "PAGE": {
     "Name-page": "Sidenavn",
@@ -913,7 +923,7 @@
       "Verified-zone": "Bekreftet sone",
       "Y-m-complet-t-following-cdt-t-b-certified": "Du må fullføre følgende betingelser for å bli sertifisert.",
       "Yr-profil-is-currently-being-checked-D": "Profilen din blir nå sjekket. Vi vil kontakte deg innen 48 timer via e-post.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Sørg for å laste opp baksiden av kortet hvis det er et nasjonalt ID-kort (bare for det nasjonale kortet)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Publikasjonene mine er bare synlige av vennene mine",

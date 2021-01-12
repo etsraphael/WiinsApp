@@ -8,6 +8,7 @@ import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPlus } from '@fortawesome/pro-light-svg-icons'
+import I18n from '../../../../i18n/i18n'
 
 class PublicationStoryHeader extends React.Component {
 
@@ -37,18 +38,22 @@ class PublicationStoryHeader extends React.Component {
 
     // to select a story not seen
     _oneStory = (item) => {
-
         return (
-            <View>
+            <View style={{ paddingHorizontal: 5 }}>
                 <LinearGradient
-                    colors={['#3C349B', '#8B45DD']}
+                    colors={['#833ab4', '#fd1d1d', '#fcb045']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 0, y: 1 }}
                     style={styles.border_lineaer}>
                     <FastImage
-                        style={{ borderRadius: 45, width: '100%', aspectRatio: 1, borderWidth: 1, borderColor: 'white' }}
+                        style={{ borderRadius: 23, width: '100%', aspectRatio: 1, borderWidth: 2, borderColor: 'white' }}
                         source={{ uri: item.pictureprofile, priority: FastImage.priority.normal }}
                         resizeMode={FastImage.resizeMode.cover}
                     />
                 </LinearGradient>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingTop: 5 }}>
+                    <Text style={{ fontWeight: '600' }}>{item._meta.pseudo}</Text>
+                </View>
             </View>
         )
     }
@@ -56,16 +61,21 @@ class PublicationStoryHeader extends React.Component {
     // to select a story seen
     _oneStoryDejaVu = (item) => {
         return (
-            <View>
+            <View style={{ paddingHorizontal: 5 }}>
                 <LinearGradient
                     colors={['#F2F2F2', '#DBDBDB', '#EAEAEA']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 0, y: 1 }}
                     style={styles.border_lineaer}>
                     <FastImage
-                        style={{ borderRadius: 45, width: '100%', aspectRatio: 1, borderWidth: 1, borderColor: 'white' }}
+                        style={{ borderRadius: 23, width: '100%', aspectRatio: 1, borderWidth: 2, borderColor: 'white' }}
                         source={{ uri: item.pictureprofile, priority: FastImage.priority.normal }}
                         resizeMode={FastImage.resizeMode.cover}
                     />
                 </LinearGradient>
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingTop: 5 }}>
+                    <Text style={{ fontWeight: '600' }}>{item._meta.pseudo}</Text>
+                </View>
             </View>
         )
     }
@@ -84,24 +94,19 @@ class PublicationStoryHeader extends React.Component {
 
     render = () => {
         return (
-
             <View style={{ paddingVertical: 5 }}>
-
                 <ScrollView style={styles.listStories} horizontal={true} showsHorizontalScrollIndicator={false}>
-
                     {/* Add btn */}
                     <TouchableOpacity onPress={this.props.goToPublication} style={{ paddingHorizontal: 5 }}>
                         <View style={{ backgroundColor: '#e8ebf0', borderColor: '#c6c6c6', borderWidth: 1, borderRadius: 22, width: 55, aspectRatio: 1, justifyContent: 'center', alignItems: 'center' }}>
                             <FontAwesomeIcon icon={faPlus} size={20} color={'black'} />
                         </View>
                         <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingTop: 5 }}>
-                            <Text style={{ fontWeight: '600' }}>Add</Text>
+                            <Text style={{ fontWeight: '600' }}>{I18n.t('CORE.Add')}</Text>
                         </View>
                     </TouchableOpacity>
-
-
                     {/* Stories list  */}
-                    {/* <FlatList
+                    <FlatList
                         horizontal={true}
                         contentContainerStyle={{ alignItems: 'center' }}
                         showsHorizontalScrollIndicator={false}
@@ -113,43 +118,8 @@ class PublicationStoryHeader extends React.Component {
                                 {this._alreaySeen(item.lastStoryId, item.lastStoryView) ? this._oneStory(item) : this._oneStoryDejaVu(item)}
                             </TouchableOpacity>
                         )}
-                    /> */}
-
-
-
-
-                    <FlatList
-                        horizontal={true}
-                        contentContainerStyle={{ alignItems: 'center' }}
-                        showsHorizontalScrollIndicator={false}
-                        style={{ flexDirection: 'row' }}
-                        data={this.state.fakeStories}
-                        keyExtractor={(item) => item.url.toString()}
-                        renderItem={({ index, item }) => (
-                            <View style={{ paddingHorizontal: 5 }}>
-                                <LinearGradient
-                                    colors={['#833ab4', '#fd1d1d', '#fcb045']}
-                                    start={{x: 0, y: 0}}
-                                    end={{x: 0, y: 1}}
-                                    style={styles.border_lineaer}>
-                                    <FastImage
-                                        style={{ borderRadius: 23, width: '100%', aspectRatio: 1, borderWidth: 2, borderColor: 'white' }}
-                                        source={{ uri: item.url, priority: FastImage.priority.normal }}
-                                        resizeMode={FastImage.resizeMode.cover}
-                                    />
-                                </LinearGradient>
-                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingTop: 5 }}>
-                                    <Text style={{ fontWeight: '600' }}>User{index}</Text>
-                                </View>
-                            </View>
-                        )}
                     />
-
-
-
-
                 </ScrollView>
-
             </View>
         )
     }

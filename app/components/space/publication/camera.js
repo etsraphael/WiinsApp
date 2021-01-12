@@ -14,10 +14,11 @@ import { bindActionCreators } from 'redux'
 import { RNCamera } from 'react-native-camera'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
-  faAngleRight, faSync, faPhotoVideo, faTimes, faBolt,
-  faEnvelopeOpenText, faPaperPlane, faUserPlus, faCheckCircle,
-  faClone, faCircle
+  faSync, faPhotoVideo, faTimes, faBolt, faClone,
+  faPaperPlane, faUserPlus, faCheckCircle, faAngleDown
 } from '@fortawesome/pro-light-svg-icons'
+import { faCircle } from '@fortawesome/pro-duotone-svg-icons'
+import { faText } from '@fortawesome/pro-solid-svg-icons'
 import Video from 'react-native-video'
 import LinearGradient from 'react-native-linear-gradient'
 import { listFontPost } from '../../core/data/font-post'
@@ -29,6 +30,7 @@ import PendingPublication from './pending-publication'
 import ImagePicker from 'react-native-image-picker'
 import MyStoryMin from './my-story-min'
 import I18n from '../../../i18n/i18n'
+import CameraView from './camera-view'
 
 class Camera extends React.Component {
 
@@ -40,7 +42,6 @@ class Camera extends React.Component {
       ifStories: true,
       screenMode: 'default',
       secondNumber: 0,
-      zoomInAnim: new Animated.Value(65),
       pictureData: null,
       videoData: null,
       isRecording: false,
@@ -115,7 +116,6 @@ class Camera extends React.Component {
 
     if (!publicationCreated) return null
 
-
     // send story or publication
     if (this.state.ifStories) { this.props.actions.addPublicationStoryInPendingList(publicationCreated) }
     else { this.props.actions.addPublicationInPendingList(publicationCreated) }
@@ -162,46 +162,14 @@ class Camera extends React.Component {
 
   // to enable/disable the flash
   _toggleFlah = () => {
-    if (this.state.flashMode == RNCamera.Constants.FlashMode.on) {
-      this.setState({ flashMode: RNCamera.Constants.FlashMode.off })
-    } else {
-      this.setState({ flashMode: RNCamera.Constants.FlashMode.on })
-    }
+    if (this.state.flashMode == RNCamera.Constants.FlashMode.on) return this.setState({ flashMode: RNCamera.Constants.FlashMode.off })
+    else return this.setState({ flashMode: RNCamera.Constants.FlashMode.on })
   }
 
   // to switch the camera
   _switchCamera = () => {
-    if (this.state.cameraType == RNCamera.Constants.Type.back) {
-      this.setState({ cameraType: RNCamera.Constants.Type.front })
-    }
-    else {
-      this.setState({ cameraType: RNCamera.Constants.Type.back })
-    }
-  }
-
-  // to display the view of the camera
-  _viewCamera = () => {
-
-    return (
-      <RNCamera
-        ref={ref => { this.camera = ref }}
-        style={styles.preview}
-        type={this.state.cameraType}
-        flashMode={this.state.flashMode}
-        androidCameraPermissionOptions={{
-          title: 'Permission to use camera',
-          message: 'We need your permission to use your camera',
-          buttonPositive: 'Ok',
-          buttonNegative: 'Cancel',
-        }}
-        androidRecordAudioPermissionOptions={{
-          title: 'Permission to use audio recording',
-          message: 'We need your permission to use your audio',
-          buttonPositive: 'Ok',
-          buttonNegative: 'Cancel',
-        }}
-      />
-    )
+    if (this.state.cameraType == RNCamera.Constants.Type.back) return this.setState({ cameraType: RNCamera.Constants.Type.front })
+    else return this.setState({ cameraType: RNCamera.Constants.Type.back })
   }
 
   // to choose between a story and a publication
@@ -223,6 +191,7 @@ class Camera extends React.Component {
 
   // to take a picture
   _takePicture = async () => {
+
     if (this.camera) {
       let options
 
@@ -456,12 +425,12 @@ class Camera extends React.Component {
 
   // to display the profile list container
   _listSuggestView = () => {
-    if (this.props.SearchList.list.length > 0) {
+    if (this.props.SearchList.mainlist.length > 0) {
       return (
         <View style={{ top: '13%', position: 'absolute', width: '100%', backgroundColor: 'white', borderRadius: 15, overflow: 'hidden' }}>
           <FlatList
             style={styles.list}
-            data={this.props.SearchList.list}
+            data={this.props.SearchList.mainlist}
             keyExtractor={(item) => item._id.toString()}
             renderItem={({ item }) => (<TagSuggest suggest={item} />)}
           />
@@ -555,25 +524,8 @@ class Camera extends React.Component {
     )
   }
 
-  // to set the zoomIn effect
-  zoomIn = () => {
-    Animated.timing(this.state.zoomInAnim, {
-      toValue: 85,
-      duration: 500
-    }).start()
-  }
-
-  // to set the zoomOut effect
-  zoomOut = () => {
-    Animated.timing(this.state.zoomInAnim, {
-      toValue: 65,
-      duration: 200
-    }).start()
-  }
-
   // to add one more sec of the recording
   addOneSec = () => {
-    this.zoomIn()
     this.interval = setInterval(() => {
       this.setState({ secondNumber: this.state.secondNumber + 0.5 })
       if (this.state.secondNumber == 1) { this._startRecording() }
@@ -594,7 +546,6 @@ class Camera extends React.Component {
     // reset the param
     this.setState({ secondNumber: 0 })
     clearInterval(this.interval)
-    this.zoomOut()
   }
 
   // to go to my stories
@@ -632,7 +583,7 @@ class Camera extends React.Component {
               }
             </TouchableOpacity>
             <TouchableOpacity onPress={() => this.setState({ screenMode: 'PostPublication' })} style={{ paddingVertical: 18, paddingHorizontal: 15 }}>
-              <FontAwesomeIcon icon={faEnvelopeOpenText} color={'white'} size={24} />
+              <FontAwesomeIcon icon={faText} color={'white'} size={24} />
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => this.props.navigation.navigate('PendingPublication')}
@@ -661,13 +612,13 @@ class Camera extends React.Component {
           <View style={{ flex: 3, alignItems: 'center', justifyContent: 'center' }}>
             <TouchableOpacity onPress={() => this._setDuration()}
               style={{ flexDirection: 'row', borderRadius: 25, borderWidth: 1, borderColor: 'white', overflow: 'hidden' }}>
-              <Text style={[styles.text_toggle, this._choiceDurationStyle(1)]}>Story</Text>
-              <Text style={[styles.text_toggle, this._choiceDurationStyle(2)]}>Publication</Text>
+              <Text style={[styles.text_toggle, this._choiceDurationStyle(1)]}>{I18n.t('CORE.Story')}</Text>
+              <Text style={[styles.text_toggle, this._choiceDurationStyle(2)]}>{I18n.t('CORE.Publication')}</Text>
             </TouchableOpacity>
           </View>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <TouchableOpacity onPress={() => this.props.screenProps.getBack()}>
-              <FontAwesomeIcon icon={faAngleRight} color={'white'} size={39} />
+              <FontAwesomeIcon icon={faAngleDown} color={'white'} size={39} />
             </TouchableOpacity>
           </View>
         </View>
@@ -695,10 +646,10 @@ class Camera extends React.Component {
         <View style={{ flex: 3 }}></View>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
           <TouchableWithoutFeedback onPressIn={this.addOneSec} onPressOut={this.stopInterval}>
-            <Animated.View 
-            style={{height: this.state.zoomInAnim, aspectRatio: 1, justifyContent: 'center', alignItems: 'center'}}>
-              <FontAwesomeIcon icon={faCircle} color={'white'} width={'100%'} height={'100%'} />
-            </Animated.View>
+            <View
+              style={{ height: 65, aspectRatio: 1, justifyContent: 'center', alignItems: 'center' }}>
+              <FontAwesomeIcon icon={faCircle} color={'white'} size={75} />
+            </View>
           </TouchableWithoutFeedback>
         </View>
         <View style={{ flex: 2 }}>{this._showDefaultBtnFooter()}</View>
@@ -764,10 +715,14 @@ class Camera extends React.Component {
   }
 
   render() {
-
     return (
       <View style={{ flex: 1 }}>
-        {this._viewCamera()}
+        <CameraView
+          cameraType={this.state.cameraType}
+          flashMode={this.state.flashMode}
+          refCamera={ref => this.camera = ref}
+        />
+        {/* Body */}
         {this._screen()}
         {this._alertMessageView()}
       </View>
@@ -777,18 +732,6 @@ class Camera extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  main_container: {
-    flex: 1,
-    backgroundColor: 'white',
-    margin: 0
-  },
-  preview: {
-    position: 'absolute',
-    bottom: 0,
-    top: 0,
-    left: 0,
-    right: 0,
-  },
   selected_duration: {
     backgroundColor: 'white',
     color: 'grey',

@@ -204,10 +204,13 @@
     "Break-the-rules": "Нарушать правила",
     "For-You": "Для тебя",
     "Discover": "Обнаружить",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "Сообщество",
+    "Subscribed": "Подписан",
+    "Go-to-profile": "Перейти в профиль",
+    "Friend": "Друг",
+    "Towards-an-infinite-space": "К бесконечному пространству",
+    "Hello": "Здравствуйте",
+    "Publication": "Публикация"
   },
   "COUNTRY": {
     "AD": "Андорра",
@@ -561,7 +564,10 @@
     "You-hv-to-get-t-community": "Вы должны получить сообщество",
     "Please-choose-cat-and-sub": "Пожалуйста, выберите категорию и подкатегорию",
     "Please-upload-the-poster-before": "Пожалуйста, загрузите постер видео перед",
-    "T-min-is-1$": "Минимум 1 $"
+    "T-min-is-1$": "Минимум 1 $",
+    "Missing-informations": "Отсутствующая информация",
+    "Account_desactivated": "Аккаунт деактивирован",
+    "Y-dont-have-a-conversation-yet": "Вы еще не разговаривали."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фото получено",
@@ -591,7 +597,11 @@
     "Registration": "Постановка на учет",
     "Sign-up": "Регистрация",
     "accept-tou": "Я принимаю условия использования",
-    "click-on-email": "Пожалуйста, нажмите на ссылку электронной почты"
+    "click-on-email": "Пожалуйста, нажмите на ссылку электронной почты",
+    "Create-yr-account": "Создать учетную запись",
+    "Creating-yr-account": "Создание учетной записи",
+    "Login-first-to-continue": "Войдите сначала, чтобы продолжить",
+    "Checking-yr-infos": "Проверка вашей информации"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Последний проект",
@@ -632,10 +642,10 @@
     "tag-you-in-playlist": "отметил вас в плейлисте",
     "you-appear-in-project-of": "Вы появляетесь в новом проекте",
     "you-have": "у тебя есть",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "Ваш запрос на подтверждение принят",
+    "Yr-verification-request-was-refused": "Ваш запрос на подтверждение был отклонен",
+    "Yr-certification-request-was-accepted": "Ваш запрос на сертификацию принят",
+    "Yr-certification-request-was-refused": "Ваш запрос на сертификацию был отклонен"
   },
   "PAGE": {
     "Name-page": "Название страницы",
@@ -860,7 +870,7 @@
       "Upload-yr-password-id-identity-or-driver-license": "Загрузите свой пароль, удостоверение личности или водительские права.",
       "Upload-a-photo-holding-t-ID-D": "Загрузите фотографию с удостоверением личности с листом бумаги с сегодняшней датой и надписью «Wiins».",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "Я согласен с тем, что мои данные могут быть использованы для проверки моей учетной записи.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Не забудьте загрузить обратную сторону карты, если это национальная идентификационная карта (только для национальной карты)."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Принятие насилия как средства, пытаясь изменить ситуацию",

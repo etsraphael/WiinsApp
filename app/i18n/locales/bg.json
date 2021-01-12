@@ -246,10 +246,13 @@
     "views": "мнения",
     "For-You": "За теб",
     "Discover": "Открийте",
-    "Community": "",
-    "Subscribed": "",
-    "Go-to-profile": "",
-    "Friend": ""
+    "Community": "Общност",
+    "Subscribed": "Абонирани",
+    "Go-to-profile": "Отидете в профила",
+    "Friend": "Приятел",
+    "Towards-an-infinite-space": "Към безкрайно пространство",
+    "Hello": "Здравейте",
+    "Publication": "Публикация"
   },
   "COUNTRY": {
     "AD": "Андора",
@@ -603,7 +606,10 @@
     "y-h-to-delete-yr-page-or-group-before": "Трябва да изтриете страниците или групите си преди това",
     "y-have-to-be-friend": "трябва да сте приятели",
     "you-hav-to-upgrad-a-manager-before-leave": "Трябва да повишите мениджър, преди да напуснете групата",
-    "T-min-is-1$": "Минимумът е 1 $"
+    "T-min-is-1$": "Минимумът е 1 $",
+    "Missing-informations": "Липсваща информация",
+    "Account_desactivated": "Деактивиран акаунт",
+    "Y-dont-have-a-conversation-yet": "Все още нямате разговор."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Снимката е получена",
@@ -633,7 +639,11 @@
     "Registration": "Регистрация",
     "Sign-up": "Регистрирай се",
     "accept-tou": "Приемам условията за ползване",
-    "click-on-email": "Моля, кликнете върху връзката по имейл"
+    "click-on-email": "Моля, кликнете върху връзката по имейл",
+    "Create-yr-account": "Създайте си акаунт",
+    "Creating-yr-account": "Създаване на акаунт",
+    "Login-first-to-continue": "Влезте първо, за да продължите",
+    "Checking-yr-infos": "Проверка на вашата информация"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Последен проект",
@@ -674,10 +684,10 @@
     "tag-you-in-playlist": "ви маркира в плейлист",
     "you-appear-in-project-of": "Появявате се в новия проект на",
     "you-have": "ти имаш",
-    "Yr-verification-request-was-accepted": "",
-    "Yr-verification-request-was-refused": "",
-    "Yr-certification-request-was-accepted": "",
-    "Yr-certification-request-was-refused": ""
+    "Yr-verification-request-was-accepted": "Вашата заявка за потвърждение бе приета",
+    "Yr-verification-request-was-refused": "Вашата заявка за потвърждение бе отказана",
+    "Yr-certification-request-was-accepted": "Вашата заявка за сертифициране бе приета",
+    "Yr-certification-request-was-refused": "Заявката ви за сертифициране бе отказана"
   },
   "PAGE": {
     "Name-page": "Име на страницата",
@@ -913,7 +923,7 @@
       "Verified-zone": "Проверена зона",
       "Y-m-complet-t-following-cdt-t-b-certified": "Трябва да изпълните следните условия, за да бъдете сертифицирани.",
       "Yr-profil-is-currently-being-checked-D": "Понастоящем вашият профил се проверява. Ще се свържем с вас в рамките на 48 часа по имейл.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": ""
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Не забравяйте да качите задната страна на картата, ако това е националната лична карта (само за националната карта)"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Публикациите ми се виждат само от приятелите ми",

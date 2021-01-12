@@ -14,7 +14,7 @@ export function getStoriesStart() {
 }
 
 export function getStoriesFail(payload) {
-    return {  type: ActionTypes.GET_STORIES_FAIL,  payload }
+    return { type: ActionTypes.GET_STORIES_FAIL, payload }
 }
 
 export function getStackSuccess(payload, index) {
@@ -30,7 +30,7 @@ export function getStackStart() {
 }
 
 export function getStackFail(payload) {
-    return {  type: ActionTypes.GET_STACK_FAIL,  payload }
+    return { type: ActionTypes.GET_STACK_FAIL, payload }
 }
 
 export function resetStack() {
@@ -38,7 +38,7 @@ export function resetStack() {
 }
 
 export function resetPublication() {
-    return { type: ActionTypes.RESET_STORIES  }
+    return { type: ActionTypes.RESET_STORIES }
 }
 
 export function getStoriesActions(page) {
@@ -46,19 +46,19 @@ export function getStoriesActions(page) {
         try {
 
             dispatch(getStoriesStart())
-            if(page == 1) dispatch(resetPublication())
-            const token = await AsyncStorage .getItem('userToken')
+            if (page == 1) dispatch(resetPublication())
+            const token = await AsyncStorage.getItem('userToken')
             const url = `https://wiins-backend.herokuapp.com/stories/followerAndFriend/8/${page}`
 
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 }
             })
                 .then((response) => response.json())
-                .then( async (response) => {
+                .then(async (response) => {
                     if (response.status == 200) return dispatch(getStoriesSuccess(response.results))
                     return dispatch(getStoriesFail(response))
                 })
@@ -77,12 +77,12 @@ export function getStackActions(id, index) {
         try {
 
             dispatch(getStackStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = `https://wiins-backend.herokuapp.com/stories/getstorystackbyid/${id}`
 
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 }
@@ -102,17 +102,14 @@ export function moveToPreviousActions() {
 
 export function storySeenActions(profileId, storyId) {
     return async (dispatch) => {
-
         dispatch(storySeen(profileId, storyId))
-
         try {
-
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = `https://wiins-backend.herokuapp.com/stories/addViewOnStory/${storyId}`
 
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 }
