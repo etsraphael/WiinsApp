@@ -133,9 +133,8 @@ export function playRandomMusicInPlaylistActions(payload) {
             await TrackPlayer.reset()
 
             let tracklist = payload
-
             for(let [i, music] of tracklist.entries()){
-                
+
                 tracklist[i] = {
                     id: music._id,
                     url: music.file,
