@@ -108,7 +108,8 @@ export function playMusicActions(music, payload) {
                     title: music.name,
                     artist: music.profile._meta.pseudo,
                     artwork: music.imgUrl,
-                    profile: music.profile
+                    profile: music.profile,
+                    isLiked: music.isLiked
                 }
             }
 
@@ -141,7 +142,8 @@ export function playRandomMusicInPlaylistActions(payload) {
                     title: music.name,
                     artist: music.profile._meta.pseudo,
                     artwork: music.imgUrl,
-                    profile: music.profile
+                    profile: music.profile,
+                    isLiked: music.isLiked
                 }
 
             }

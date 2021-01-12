@@ -74,7 +74,6 @@ class MiniPlayer extends React.Component {
 
     // to select the music modal view
     _modalView = () => {
-
         return (
             <Modal
                 onSwipeComplete={() => this._closeModalMusic()}
@@ -118,9 +117,15 @@ class MiniPlayer extends React.Component {
 
                             {/* Like Btn */}
                             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
-                                <TouchableOpacity style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
-                                    <FontAwesomeIcon icon={faHeart} color={'red'} size={17} />
-                                </TouchableOpacity>
+                                {this.props.Player.musicIsPlaying.isLiked ?
+                                    <TouchableOpacity onPress={() => alert('dislike')} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                        <FontAwesomeIcon icon={faHeart} color={'red'} size={17} />
+                                    </TouchableOpacity>
+                                    :
+                                    <TouchableOpacity onPress={() => alert('like')} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                        <FontAwesomeIcon icon={faHeart} color={'grey'} size={17} />
+                                    </TouchableOpacity>
+                                }
                             </View>
 
                             {/* Description */}
@@ -140,7 +145,6 @@ class MiniPlayer extends React.Component {
 
                     </View>
 
-
                     {/* Control */}
                     <View style={{ flexDirection: 'row', marginTop: 15, paddingHorizontal: 15 }}>
 
@@ -149,8 +153,8 @@ class MiniPlayer extends React.Component {
                         </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity onPress={() => this._playPreviousMusic()}>
-                            <FontAwesomeIcon icon={faStepBackward} color={'#0066cc'} size={28} />
+                            <TouchableOpacity onPress={() => this._playPreviousMusic()}>
+                                <FontAwesomeIcon icon={faStepBackward} color={'#0066cc'} size={28} />
                             </TouchableOpacity>
                         </View>
 
@@ -162,7 +166,7 @@ class MiniPlayer extends React.Component {
                                         <FontAwesomeIcon icon={faPause} size={25} color={'white'} />
                                     </LinearGradient>
                                 </TouchableOpacity>
-                                : 
+                                :
                                 <TouchableOpacity onPress={() => this._continueMusic()}>
                                     <LinearGradient colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
                                         style={{ borderRadius: 50, padding: 15 }}>
@@ -173,8 +177,8 @@ class MiniPlayer extends React.Component {
                         </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity onPress={() => this._playNextMusic()}>
-                            <FontAwesomeIcon icon={faStepForward} color={'#0066cc'} size={28} />
+                            <TouchableOpacity onPress={() => this._playNextMusic()}>
+                                <FontAwesomeIcon icon={faStepForward} color={'#0066cc'} size={28} />
                             </TouchableOpacity>
                         </View>
 
