@@ -102,7 +102,7 @@ export function playMusicActions(music, payload) {
 
             let tracklist = payload
 
-            for(let [i, music] of tracklist.entries()){  
+            for (let [i, music] of tracklist.entries()) {
                 tracklist[i] = {
                     id: music._id,
                     url: music.file,
@@ -135,7 +135,7 @@ export function playRandomMusicInPlaylistActions(payload) {
             await TrackPlayer.reset()
 
             let tracklist = payload
-            for(let [i, music] of tracklist.entries()){
+            for (let [i, music] of tracklist.entries()) {
 
                 tracklist[i] = {
                     id: music._id,
@@ -198,11 +198,23 @@ export function likeMusicFromPlayerFail(id) {
     return { type: ActionTypes.LIKE_MUSIC_FROM_PLAYER_FAIL, id }
 }
 
+export function dislikeMusicFromPlayer(id) {
+    return { type: ActionTypes.DISLIKE_MUSIC_FROM_PLAYER, id }
+}
+
+export function dislikeMusicFromPlayerSuccess(id) {
+    return { type: ActionTypes.DISLIKE_MUSIC_FROM_PLAYER_SUCCESS, id }
+}
+
+export function dislikeMusicFromPlayerFail(id) {
+    return { type: ActionTypes.DISLIKE_MUSIC_FROM_PLAYER_FAIL, id }
+}
+
 export function likeMusicFromPlayerAction(music) {
     return async (dispatch) => {
         try {
 
-            if(!music) return null
+            if (!music) return null
 
             dispatch(likeMusicFromPlayer(music.id))
             const url = 'https://wiins-backend.herokuapp.com/music/liked/' + music.id
@@ -218,7 +230,13 @@ export function likeMusicFromPlayerAction(music) {
                 .then((response) => response.json())
                 .then(async (response) => {
                     if (response.status == 200) {
+
+                        // update the music in the playlist
+                        // to do..
+
+                        // add the music in the favorite playlist
                         // dispatch(addMusicAfterLiked(music))
+
                         return dispatch(likeMusicFromPlayerSuccess(music.id))
                     }
                     return dispatch(likeMusicFromPlayerFail(music.id))
@@ -230,17 +248,6 @@ export function likeMusicFromPlayerAction(music) {
     }
 }
 
-export function dislikeMusicFromPlayer(id) {
-    return { type: ActionTypes.DISLIKE_MUSIC_FROM_PLAYER, id }
-}
-
-export function dislikeMusicFromPlayerSuccess(id) {
-    return { type: ActionTypes.DISLIKE_MUSIC_FROM_PLAYER_SUCCESS, id }
-}
-
-export function dislikeMusicFromPlayerFail(id) {
-    return { type: ActionTypes.DISLIKE_MUSIC_FROM_PLAYER_FAIL, id }
-}
 
 export function dislikeMusicFromPlayerAction(id) {
     return async (dispatch) => {
@@ -260,7 +267,13 @@ export function dislikeMusicFromPlayerAction(id) {
                 .then((response) => response.json())
                 .then(async (response) => {
                     if (response.status == 200) {
+
+                        // update the music in the playlist
+                        // to do..
+
+                        // add the music in the favorite playlist
                         // dispatch(pullMusicAfterDisliked(id))
+
                         return dispatch(dislikeMusicFromPlayerSuccess(id))
                     }
                     return dispatch(dislikeMusicFromPlayerFail(id))
