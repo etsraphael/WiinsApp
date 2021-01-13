@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StatusBar, StyleSheet, View } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as SearchActions from '../../../../redux/SearchBar/actions'
@@ -15,6 +15,7 @@ class MainFeed extends React.Component {
     render() {
         return (
             <View style={styles.feed_container}>
+                <StatusBar backgroundColor="#eef2f4" barStyle="dark-content" />
                 <FeedNavigation />
             </View>
         )
@@ -22,7 +23,9 @@ class MainFeed extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    feed_container: { flex: 1 }
+    feed_container: { 
+        flex: 1,
+    }
 })
 
 const mapStateToProps = state => ({
