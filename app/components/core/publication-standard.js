@@ -415,7 +415,6 @@ class PublicationStandard extends React.Component {
 
     _showCardHeader = (publication) => {
         const { page, profile, createdAt } = publication;
-        console.log(publication)
         const pictureprofile = profile ? profile.pictureprofile : page.pictureprofile;
         const name = profile ? profile._meta.pseudo : page.name;
         const onImageAction = () => profile ? this._goToProfile(publication.profile._id) : this._goToPage(publication.page._id);
