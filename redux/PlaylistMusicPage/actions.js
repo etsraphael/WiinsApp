@@ -100,6 +100,10 @@ export function likeMusic(id) {
     return { type: ActionTypes.LIKE_MUSIC, id }
 }
 
+export function likeMusicFromPlayer(id) {
+    return { type: ActionTypes.LIKE_MUSIC_FROM_PLAYER, id }
+}
+
 export function likeMusicSuccess(id) {
     return { type: ActionTypes.LIKE_MUSIC_SUCCESS, id }
 }
@@ -174,6 +178,34 @@ export function dislikeMusicAction(id) {
                 })
         } catch (error) {
             return dispatch(dislikeMusic(id));
+        }
+    }
+}
+
+export function likeMusicFromThePlayerAction(id) {
+    return async (dispatch) => {
+        try {
+
+            dispatch(likeMusic(id))
+            const url = 'https://wiins-backend.herokuapp.com/music/liked/' + id
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) {
+                        return dispatch(likeMusicSuccess(id))
+                    }
+                    return dispatch(likeMusicFail(id))
+                })
+        } catch (error) {
+            return dispatch(likeMusic(id));
         }
     }
 }

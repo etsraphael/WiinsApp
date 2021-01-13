@@ -1,6 +1,7 @@
 import * as ActionTypes from './constants'
 import TrackPlayer from 'react-native-track-player'
 import AsyncStorage from '@react-native-community/async-storage'
+import { likeMusicFromThePlayerAction } from './../PlaylistMusicPage/actions'
 
 export function continueMusic() {
     return { type: ActionTypes.CONTINUE_MUSIC }
@@ -232,7 +233,7 @@ export function likeMusicFromPlayerAction(music) {
                     if (response.status == 200) {
 
                         // update the music in the playlist
-                        // to do..
+                        dispatch(likeMusicFromThePlayerAction(music.id))
 
                         // add the music in the favorite playlist
                         // dispatch(addMusicAfterLiked(music))
