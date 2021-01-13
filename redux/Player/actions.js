@@ -1,5 +1,6 @@
 import * as ActionTypes from './constants'
 import TrackPlayer from 'react-native-track-player'
+import AsyncStorage from '@react-native-community/async-storage'
 
 export function continueMusic() {
     return { type: ActionTypes.CONTINUE_MUSIC }
@@ -101,14 +102,15 @@ export function playMusicActions(music, payload) {
 
             let tracklist = payload
 
-            for(let [i, music] of tracklist.entries()){  
+            for (let [i, music] of tracklist.entries()) {
                 tracklist[i] = {
                     id: music._id,
                     url: music.file,
                     title: music.name,
                     artist: music.profile._meta.pseudo,
                     artwork: music.imgUrl,
-                    profile: music.profile
+                    profile: music.profile,
+                    isLiked: music.isLiked
                 }
             }
 
@@ -133,16 +135,16 @@ export function playRandomMusicInPlaylistActions(payload) {
             await TrackPlayer.reset()
 
             let tracklist = payload
+            for (let [i, music] of tracklist.entries()) {
 
-            for(let [i, music] of tracklist.entries()){
-                
                 tracklist[i] = {
                     id: music._id,
                     url: music.file,
                     title: music.name,
                     artist: music.profile._meta.pseudo,
                     artwork: music.imgUrl,
-                    profile: music.profile
+                    profile: music.profile,
+                    isLiked: music.isLiked
                 }
 
             }
@@ -181,5 +183,103 @@ export function previousMusicActions() {
     return async (dispatch) => {
         await TrackPlayer.skipToPrevious()
         return dispatch(previousMusic())
+    }
+}
+
+export function likeMusicFromPlayer(id) {
+    return { type: ActionTypes.LIKE_MUSIC_FROM_PLAYER, id }
+}
+
+export function likeMusicFromPlayerSuccess(id) {
+    return { type: ActionTypes.LIKE_MUSIC_FROM_PLAYER_SUCCESS, id }
+}
+
+export function likeMusicFromPlayerFail(id) {
+    return { type: ActionTypes.LIKE_MUSIC_FROM_PLAYER_FAIL, id }
+}
+
+export function dislikeMusicFromPlayer(id) {
+    return { type: ActionTypes.DISLIKE_MUSIC_FROM_PLAYER, id }
+}
+
+export function dislikeMusicFromPlayerSuccess(id) {
+    return { type: ActionTypes.DISLIKE_MUSIC_FROM_PLAYER_SUCCESS, id }
+}
+
+export function dislikeMusicFromPlayerFail(id) {
+    return { type: ActionTypes.DISLIKE_MUSIC_FROM_PLAYER_FAIL, id }
+}
+
+export function likeMusicFromPlayerAction(music) {
+    return async (dispatch) => {
+        try {
+
+            if (!music) return null
+
+            dispatch(likeMusicFromPlayer(music.id))
+            const url = 'https://wiins-backend.herokuapp.com/music/liked/' + music.id
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) {
+
+                        // update the music in the playlist
+                        // to do..
+
+                        // add the music in the favorite playlist
+                        // dispatch(addMusicAfterLiked(music))
+
+                        return dispatch(likeMusicFromPlayerSuccess(music.id))
+                    }
+                    return dispatch(likeMusicFromPlayerFail(music.id))
+                })
+        } catch (error) {
+            console.log(error)
+            return dispatch(likeMusicFromPlayer(music.id));
+        }
+    }
+}
+
+
+export function dislikeMusicFromPlayerAction(id) {
+    return async (dispatch) => {
+        try {
+
+            dispatch(dislikeMusicFromPlayer(id))
+            const url = 'https://wiins-backend.herokuapp.com/music/dislike/' + id
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) {
+
+                        // update the music in the playlist
+                        // to do..
+
+                        // add the music in the favorite playlist
+                        // dispatch(pullMusicAfterDisliked(id))
+
+                        return dispatch(dislikeMusicFromPlayerSuccess(id))
+                    }
+                    return dispatch(dislikeMusicFromPlayerFail(id))
+                })
+        } catch (error) {
+            return dispatch(dislikeMusicFromPlayer(id));
+        }
     }
 }

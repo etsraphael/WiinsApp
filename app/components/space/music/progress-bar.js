@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { StyleSheet, Text, View, Slider } from 'react-native'
+import { StyleSheet, Text, View } from 'react-native'
 import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import TrackPlayer, { ProgressComponent } from 'react-native-track-player';
+import Slider from '@react-native-community/slider';
 
 class ProgressBar extends ProgressComponent {
 
@@ -26,9 +27,9 @@ class ProgressBar extends ProgressComponent {
                         style={{ flex: 4, marginHorizontal: 15 }}
                         maximumValue={this.props.Player.timer.duration}
                         minimumValue={0}
-                        minimumTrackTintColor="grey"
-                        maximumTrackTintColor="#f6f8fa"
-                        thumbTintColor="#f6f8fa"
+                        minimumTrackTintColor="#c52603"
+                        maximumTrackTintColor="#c5c6c8"
+                        thumbTintColor="#c52603"
                         value={this.props.Player.timer.position}
                         onSlidingComplete={this.props.seek}
                         onValueChange={(value) => this._playMusicAt(value)}

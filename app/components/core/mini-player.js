@@ -8,7 +8,9 @@ import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
 import TrackPlayer from 'react-native-track-player'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
-import { faStepForward, faStepBackward, faPlay, faMusic, faPause, faStop } from '@fortawesome/pro-light-svg-icons'
+import { faMusic, faAngleDown, faRepeat } from '@fortawesome/pro-light-svg-icons'
+import { faHeart, faPause, faUserPlus, faStepBackward, faStepForward, faRandom, faPlay } from '@fortawesome/pro-solid-svg-icons'
+
 import ProgressBar from '../space/music/progress-bar'
 
 class MiniPlayer extends React.Component {
@@ -18,6 +20,10 @@ class MiniPlayer extends React.Component {
         this.state = {
             modal: false
         }
+    }
+
+    _likeMusic = () => {
+        this.props.actions.likeMusicFromPlayerAction(this.props.Player.musicIsPlaying)
     }
 
     componentDidMount() {
@@ -60,7 +66,7 @@ class MiniPlayer extends React.Component {
 
     // to play the previous music
     _playPreviousMusic = () => {
-        if (this.props.Player.trackList.map(x => x.id).indexOf(this.props.Player.musicIsPlaying.id) !== 0){
+        if (this.props.Player.trackList.map(x => x.id).indexOf(this.props.Player.musicIsPlaying.id) !== 0) {
             this.props.actions.previousMusicActions()
         }
     }
@@ -72,7 +78,6 @@ class MiniPlayer extends React.Component {
 
     // to select the music modal view
     _modalView = () => {
-
         return (
             <Modal
                 onSwipeComplete={() => this._closeModalMusic()}
@@ -86,43 +91,17 @@ class MiniPlayer extends React.Component {
             >
                 <View style={{ flex: 1, backgroundColor: 'white' }}>
 
-                    {/* Closing Modal */}
-                    <View style={{ position: 'absolute', top: 0, width: '100%', alignItems: 'center', zIndex: 1 }}>
-                        <TouchableOpacity
-                            onPress={() => this._closeModalMusic()}
-                            style={{ backgroundColor: '#cecece', height: 5, width: 70, marginTop: 5, borderRadius: 50 }}
-                        />
+                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => this._closeModalMusic()} style={{ paddingLeft: 20, paddingTop: 25 }} >
+                            <FontAwesomeIcon icon={faAngleDown} color={'grey'} size={32} />
+                        </TouchableOpacity>
                     </View>
 
-                    {/* Header */}
-                    <View style={{ flex: 1, flexDirection: 'row', paddingVertical: 15, paddingHorizontal: 45, justifyContent: 'center', alignItems: 'center' }}>
-                        <LinearGradient
-                            colors={['#fcb045', '#fd1d1d', '#833ab4']}
-                            style={{ width: 55, height: 55, borderRadius: 55, overflow: 'hidden', justifyContent: 'center', alignItems: 'center', padding: 2 }}>
+                    {/* Music Image */}
+                    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={{ shadowColor: "#000", width: 250, height: 250, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5, borderRadius: 25 }}>
                             <FastImage
-                                style={{ width: '100%', aspectRatio: 1, borderRadius: 55 }}
-                                source={{
-                                    uri: this.props.Player.musicIsPlaying.profile.pictureprofile,
-                                    priority: FastImage.priority.normal,
-                                }}
-                                resizeMode={FastImage.resizeMode.cover}
-                            />
-                        </LinearGradient>
-                        <View style={{ justifyContent: 'center', paddingLeft: 15 }}>
-                            <Text style={{ color: '#4d4d4d', fontSize: 18, marginBottom: 4 }}>{this.props.Player.musicIsPlaying.artist}</Text>
-                            <TouchableOpacity style={{ flexWrap: 'wrap' }}>
-                                <View style={{ backgroundColor: 'white', paddingHorizontal: 15, paddingVertical: 5, borderRadius: 5, borderWidth: 0.5, borderColor: '#a6a6a6' }}>
-                                    <Text style={{ color: '#a6a6a6' }}>Subscribed</Text>
-                                </View>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-
-                    {/* Picture */}
-                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={styles.container_img_project}>
-                            <FastImage
-                                style={{ backgroundColor: 'white', flex: 1, borderRadius: 8 }}
+                                style={{ width: '100%', height: '100%', borderRadius: 25, overflow: 'hidden' }}
                                 source={{
                                     uri: this.props.Player.musicIsPlaying.artwork,
                                     priority: FastImage.priority.normal,
@@ -132,49 +111,85 @@ class MiniPlayer extends React.Component {
                         </View>
                     </View>
 
-                    {/* Control */}
-                    <View style={{ flex: 3 }}>
-                        <View>
-                            <View style={{ alignItems: 'center' }}>
-                                <Text style={{ fontSize: 22, color: 'grey', marginVertical: 15 }}>{this.props.Player.musicIsPlaying.title}</Text>
-                            </View>
-                        </View>
-                        <ProgressBar/>
-                        <View>
-                            <View style={{ paddingHorizontal: 25, flexDirection: 'row', marginVertical: 15 }}>
-                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                                    <TouchableOpacity onPress={()=> this._playPreviousMusic()}>
-                                        <FontAwesomeIcon icon={faStepBackward} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                    <View style={{ marginVertical: 75 }}>
+
+                        {/* Progress Bar */}
+                        <ProgressBar />
+
+                        {/* Artist and title */}
+                        <View style={{ flexDirection: 'row' }}>
+
+                            {/* Like Btn */}
+                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
+                                {this.props.Player.musicIsPlaying.isLiked ?
+                                    <TouchableOpacity onPress={() => this.props.actions.dislikeMusicFromPlayerAction(this.props.Player.musicIsPlaying.id)} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                        <FontAwesomeIcon icon={faHeart} color={'red'} size={17} />
                                     </TouchableOpacity>
-                                </View>
-                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                                    {this.props.Player.isPlayling ?
-                                        <TouchableOpacity style={{ paddingLeft: 5 }} onPress={() => this._pause()}>
-                                            <FontAwesomeIcon icon={faPause} color={'grey'} size={37} style={{ opacity: 0.9 }} />
-                                        </TouchableOpacity>
-                                        :
-                                        <TouchableOpacity style={{ paddingLeft: 5 }} onPress={() => this._continueMusic()}>
-                                            <FontAwesomeIcon icon={faPlay} color={'grey'} size={37} style={{ opacity: 0.9 }} />
-                                        </TouchableOpacity>
-                                    }
-                                </View>
-                                <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-                                    <TouchableOpacity onPress={() => this._playNextMusic()}>
-                                        <FontAwesomeIcon icon={faStepForward} color={'grey'} size={25} style={{ opacity: 0.8 }} />
+                                    :
+                                    <TouchableOpacity onPress={() => this._likeMusic()} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                        <FontAwesomeIcon icon={faHeart} color={'grey'} size={17} />
                                     </TouchableOpacity>
-                                </View>
+                                }
                             </View>
+
+                            {/* Description */}
+                            <View style={{ flex: 2, alignItems: 'center' }}>
+                                <Text style={{ fontSize: 22, color: '#15141E', marginVertical: 3, fontWeight: '700' }}>{this.props.Player.musicIsPlaying.title}</Text>
+                                <Text style={{ color: '#8B8F92', fontSize: 16, marginBottom: 4 }}>{this.props.Player.musicIsPlaying.artist}</Text>
+                            </View>
+
+                            {/* Follow Btn */}
+                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
+                                <TouchableOpacity style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                    <FontAwesomeIcon icon={faUserPlus} color={'#0066cc'} size={19} />
+                                </TouchableOpacity>
+                            </View>
+
                         </View>
+
                     </View>
 
-                    {/* Footer */}
-                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
-                        <TouchableOpacity
-                            onPress={() => this._stopThePlayer()}
-                            style={{ flexDirection: 'row', paddingHorizontal: 15, paddingVertical: 9, alignItems: 'center', marginLeft: 25, borderRadius: 25, borderColor: '#dcdcdc', borderWidth: 1, paddingVertical: 0, height: 35 }}>
-                            <FontAwesomeIcon icon={faStop} color={'#afafaf'} size={15} />
-                            <Text style={{ paddingHorizontal: 5, color: 'grey' }}>Stop</Text>
-                        </TouchableOpacity>
+                    {/* Control */}
+                    <View style={{ flexDirection: 'row', marginTop: 15, paddingHorizontal: 15 }}>
+
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faRepeat} color={'#0066cc'} size={25} />
+                        </View>
+
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <TouchableOpacity onPress={() => this._playPreviousMusic()}>
+                                <FontAwesomeIcon icon={faStepBackward} color={'#0066cc'} size={28} />
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                            {this.props.Player.isPlayling ?
+                                <TouchableOpacity onPress={() => this._pause()}>
+                                    <LinearGradient colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
+                                        style={{ borderRadius: 50, padding: 15 }}>
+                                        <FontAwesomeIcon icon={faPause} size={25} color={'white'} />
+                                    </LinearGradient>
+                                </TouchableOpacity>
+                                :
+                                <TouchableOpacity onPress={() => this._continueMusic()}>
+                                    <LinearGradient colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
+                                        style={{ borderRadius: 50, padding: 15 }}>
+                                        <FontAwesomeIcon style={{ left: 3 }} icon={faPlay} size={25} color={'white'} />
+                                    </LinearGradient>
+                                </TouchableOpacity>
+                            }
+                        </View>
+
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <TouchableOpacity onPress={() => this._playNextMusic()}>
+                                <FontAwesomeIcon icon={faStepForward} color={'#0066cc'} size={28} />
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faRandom} color={'#0066cc'} size={25} />
+                        </View>
+
                     </View>
 
                 </View>
@@ -187,9 +202,7 @@ class MiniPlayer extends React.Component {
         return (
             <View style={styles.container}>
                 <TouchableOpacity onPress={() => this._openModalMusic()}>
-                    <LinearGradient colors={['#8A2387', '#E94057', '#F27121']}
-                        start={{ x: 0, y: 1 }}
-                        end={{ x: 1, y: 0 }}
+                    <LinearGradient colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
                         style={styles.container_logo}>
                         <FontAwesomeIcon style={{ left: 4 }} icon={faMusic} size={20} color={'white'} />
                     </LinearGradient>
@@ -215,10 +228,11 @@ const styles = StyleSheet.create({
     },
     container_modal: {
         flex: 1,
-        marginHorizontal: 8,
-        marginTop: '30%',
+        marginHorizontal: 0,
+        marginBottom: 0,
+        marginTop: '40%',
         overflow: 'hidden',
-        borderRadius: 25
+        borderTopRightRadius: 65
     },
     container_img_project: {
         borderRadius: 8,

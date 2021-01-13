@@ -2,15 +2,16 @@ import React from 'react'
 import { StyleSheet, View, Text, TextInput, FlatList, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import OnePlaylistMin from './one-playlist-min'
 import * as MusicMenuActions from '../../../../redux/MusicMenu/actions'
+import * as MyFavMusicActions from '../../../../redux/MyFavMusic/actions'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import OneMusic from './one-music'
+import OneMusicFav from './one-music-fav'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faSearch } from '@fortawesome/pro-light-svg-icons'
-
+import { faSearch, faTransporterEmpty } from '@fortawesome/pro-light-svg-icons'
+import { downloadFavoritesMusicList } from './../../../services/cache/cache-music-service'
 
 class HomeMusic extends React.Component {
 
@@ -60,12 +61,12 @@ class HomeMusic extends React.Component {
                 }
             ],
             playlistZone: [
-                { code: 1, name: 'Lastest', key: 'lastestPlaylist' },
+                { code: 1, name: 'Latest', key: 'lastestPlaylist' },
                 { code: 2, name: 'Favorites', key: 'favorites' },
-                { code: 3, name: 'Workout', key: 'workout' },
-                { code: 4, name: 'Chill', key: 'chill' },
-                { code: 5, name: 'Dance', key: 'dance' },
-                { code: 6, name: 'Sleep', key: 'sleep' },
+                // { code: 3, name: 'Workout', key: 'workout' },
+                // { code: 4, name: 'Chill', key: 'chill' },
+                // { code: 5, name: 'Dance', key: 'dance' },
+                // { code: 6, name: 'Sleep', key: 'sleep' },
             ],
             categoryZone: [
                 { code: 1, name: 'Rap', key: 'rap' },
@@ -81,9 +82,9 @@ class HomeMusic extends React.Component {
         }
     }
 
-
     componentDidMount() {
         this.props.actions.getMusicMenu()
+        this.props.actions.getMyMusic()
     }
 
     // to display the header view of the screen
@@ -196,10 +197,14 @@ class HomeMusic extends React.Component {
                 </View>
 
                 {/* Playlist choosed */}
-                { this.state.playlistZoneSelected == 'favorites' ? null : this._showPlaylistList() }
+                { this.state.playlistZoneSelected == 'favorites' ? null : this._showPlaylistList()}
 
             </View>
         )
+    }
+
+    _renderSeparator = () => {
+        return (<View style={{ height: 2, width: '100%', backgroundColor: '#e6e6e6' }} />)
     }
 
     // to display the music list
@@ -207,7 +212,8 @@ class HomeMusic extends React.Component {
         return (
             <View>
                 <FlatList
-                    style={{ paddingHorizontal: 15 }}
+                    style={{ flex: 1 }}
+                    ItemSeparatorComponent={this._renderSeparator}
                     data={this.state.fakeMusiclist}
                     keyExtractor={(item) => item.id.toString()}
                     renderItem={({ item, index }) => (<OneMusic music={item} tracklist={this.state.fakeMusiclist} index={index} />)}
@@ -218,6 +224,8 @@ class HomeMusic extends React.Component {
 
     // to display the list of the genre
     _chartViews = () => {
+
+        return null // only for the prototype
 
         return (
             <View style={styles.container_section}>
@@ -254,9 +262,55 @@ class HomeMusic extends React.Component {
         )
     }
 
+    // display button to save the musics
+    _displayBtnToSaveMusics = () => {
+
+        if (this.props.MyMusic.list.filter(x => x.inCache == 'not').length == 0 || this.props.MyMusic.uploading) return null
+
+        else {
+            return (<View style={{ flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', paddingRight: 15, marginBottom: 15 }}>
+                <TouchableOpacity onPress={() => downloadFavoritesMusicList(this.props.MyMusic.list, this.props.actions)}>
+                    <LinearGradient
+                        style={{ paddingHorizontal: 15, paddingVertical: 5, borderRadius: 5, overflow: 'hidden' }}
+                        colors={['#7F7FD5', '#86A8E7']}
+                        start={{ x: 0.1, y: 0.09 }}
+                        end={{ x: 0.94, y: 0.95 }}
+                    >
+                        <Text style={{ fontSize: 17, fontWeight: '500', color: 'white' }}>Save in phone</Text>
+                    </LinearGradient>
+                </TouchableOpacity>
+            </View>)
+        }
+
+
+    }
+
     // to display my music
     _myMusicView = () => {
-        return (<View><Text>My music is progressing</Text></View>)
+
+        if (this.props.MyMusic.list.length == 0) {
+            return (
+                <View style={{ justifyContent: 'center', alignItems: 'center', height: '100%' }}>
+                    <FontAwesomeIcon icon={faTransporterEmpty} color={'#c7c7c79c'} size={121} />
+                    <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#acb1c0e3', marginTop: 45 }}>No music liked yet</Text>
+                </View>
+            )
+        }
+        else return (
+            <View>
+
+                {/* to display the btn to download */}
+                {this._displayBtnToSaveMusics()}
+
+                <FlatList
+                    style={{ flex: 1 }}
+                    ItemSeparatorComponent={this._renderSeparator}
+                    data={this.props.MyMusic.list}
+                    keyExtractor={(item) => item._id.toString()}
+                    renderItem={({ item }) => (<OneMusicFav music={item} tracklist={this.props.MyMusic.list} />)}
+                />
+            </View>
+        )
     }
 
     _displayContentView = () => {
@@ -264,7 +318,7 @@ class HomeMusic extends React.Component {
             {/* categorie playslit */}
             {this._categorieViews()}
             {/* chart playslit */}
-            { this.state.playlistZoneSelected == 'favorites' ? this._myMusicView() : this._chartViews() }
+            { this.state.playlistZoneSelected == 'favorites' ? this._myMusicView() : this._chartViews()}
         </View>)
     }
 
@@ -346,12 +400,14 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     MyProfile: state.MyProfile,
-    MyMenu: state.MusicMenu
+    MyMenu: state.MusicMenu,
+    MyMusic: state.MyFavMusic
 })
 
 const ActionCreators = Object.assign(
     {},
-    MusicMenuActions
+    MusicMenuActions,
+    MyFavMusicActions,
 )
 
 const mapDispatchToProps = dispatch => ({
