@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, FlatList, TouchableOpacity, ActivityIndicator, LayoutAnimation } from 'react-native'
+import { StyleSheet, View, Text, TextInput, FlatList, TouchableOpacity, ActivityIndicator, LayoutAnimation, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as TopHastagActions from '../../../../redux/TopHastag/actions'
@@ -180,25 +180,61 @@ class Discover extends React.Component {
 
     // select the publication list
     _publicationFeed = () => {
+
+        const mapPublication = (items) => (
+            items.map((item, index) => (
+                <PublicationStandard key={`pub-item-${index}-01`} isLastElem={items.length - 1 === index} index={index} navigation={this.props.navigation} publication={item} space={'feed'} />
+            ))
+        )
+
+
+
+
         return (
-            <FlatList
-                onScroll={this._onScroll}
-                style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}
-                data={this.props.DiscoverPublications.publications}
-                renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'discover'} />}
-                keyExtractor={item => item.id}
-            />
+            // <FlatList
+            //     onScroll={this._onScroll}
+            //     style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}
+            //     data={this.props.DiscoverPublications.publications}
+            //     renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'discover'} />}
+            //     keyExtractor={item => item.id}
+            // />
+
+
+
+                <View style={{flex: 1, borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden'}}>
+                <View style={{ flexDirection: 'row' }}>
+                    <View style={{ flex: 1 }}>
+                        { 
+                            mapPublication(
+                                this.props.DiscoverPublications.publications.filter((_, index) => (
+                                index % 2 !== 0
+                                )
+                            ))
+                        }
+                    </View>
+                    <View style={{ flex: 1 }}>
+                        {
+                            mapPublication(
+                                this.props.DiscoverPublications.publications.filter((_, index) => (
+                                index % 2 === 0
+                                )
+                            ))
+                        }
+                    </View>
+                </View>
+                </View>
         )
     }
 
     // to select the discover view
     _displayDiscoverView = () => {
         return (
-            <View>
-                {this._hastagView()}
+            <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }} showsVerticalScrollIndicator={false} >
+            {this._hastagView()}
+
                 {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
-            </View>
-        )
+            </ScrollView>
+            )
     }
 
     // display the suggestion menu
