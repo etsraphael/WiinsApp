@@ -183,7 +183,7 @@ class Discover extends React.Component {
 
         const mapPublication = (items) => (
             items.map((item, index) => (
-                <CardNewFeedMasonry key={`pub-item-${index}-01`} isLastElem={items.length - 1 === index} index={index} navigation={this.props.navigation} publication={item} space={'feed'} />
+                <CardNewFeedMasonry key={`pub-item-${index}-01`} isLastElem={items.length - 1 === index} index={index} navigation={this.props.navigation} publication={item} space={'discover'} />
             ))
         )
 
