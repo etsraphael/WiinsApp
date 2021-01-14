@@ -34,7 +34,7 @@ class CardNewFeedMasonry extends React.Component {
     }
 
     // to select the post publication view
-    _renderPost(publication) {
+    _showPostPublication(publication) {
 
         let background
         let orientation
@@ -74,16 +74,16 @@ class CardNewFeedMasonry extends React.Component {
 
         return (
             <TouchableOpacity
-                style={{ height: 400 }}
+                onLayout={(event) => { this.setState({ textHeight: 0 })  }}
                 onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
             >
-                <LinearGradient colors={background} start={orientation[0]} end={orientation[1]} style={{ flex: 1, justifyContent: 'center' }}>
+                <LinearGradient colors={background} start={orientation[0]} end={orientation[1]} style={{ height: publication.text.trim().length * 2.7 , justifyContent: 'center' }}>
                     <Text style={{
                         paddingBottom: 10,
                         paddingHorizontal: 15,
                         lineHeight: 25,
                         fontWeight: '400',
-                        fontSize: 25,
+                        fontSize: 20,
                         fontFamily: 'Gill Sans',
                         textAlign: 'center',
                         margin: 10,
@@ -97,62 +97,8 @@ class CardNewFeedMasonry extends React.Component {
         )
     }
 
-    // to select the picture publication view
-    _renderPicture(publication) {
-
-        return (
-            <TouchableOpacity
-                style={styles.container_type}
-                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
-            >
-
-                <FastImage
-                    style={{ flex: 1, width: '100%', minHeight: 300 }}
-                    source={{ uri: publication.file, priority: FastImage.priority.normal }}
-                    resizeMode={FastImage.resizeMode.cover}
-                    onLoad={this.onImageLoaded}
-                />
-
-            </TouchableOpacity>
-        )
-    }
-
-    // to select the video publication view
-    _renderVideo(publication) {
-
-        return (
-            <TouchableOpacity style={styles.container_type}
-                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
-            >
-                <FastImage
-                    style={{ flex: 1, width: '100%', height: this.state.imageHeight }}
-                    source={{ uri: publication.poster, priority: FastImage.priority.normal }}
-                    resizeMode={FastImage.resizeMode.cover}
-                    onLoad={this.onImageLoaded}
-                />
-                <View style={{
-                    position: 'absolute', bottom: 0, top: 0, left: 0, right: 0,
-                    justifyContent: 'center', alignItems: 'center'
-                }}>
-                    <FontAwesomeIcon icon={faPlay} color={'white'} size={37} style={{ opacity: 0.9 }} />
-                </View>
-
-            </TouchableOpacity>
-        )
-    }
-
-    // to select the publication type
-    _showTypePublication(publication) {
-        switch (publication.type) {
-            case 'PostPublication': return this._renderPost(publication);
-            case 'PicturePublication': return this._renderPicture(publication);
-            case 'VideoPublication': return this._renderVideo(publication);
-            default: return null
-        }
-    }
-
     // to show post publication
-    _showPostPublication = (publication) => {
+    _showTextPublication = (publication) => {
         return (
             <View onLayout={(event) => { this.setState({ textHeight: event.nativeEvent.layout.height }) }}>
                 {
@@ -180,7 +126,7 @@ class CardNewFeedMasonry extends React.Component {
                         />
                     }
                 </TouchableOpacity>
-                { this._showPostPublication(publication)}
+                { this._showTextPublication(publication)}
             </>
         )
     }
@@ -208,7 +154,7 @@ class CardNewFeedMasonry extends React.Component {
                         </TouchableWithoutFeedback>
                     </View>
                 </TouchableOpacity>
-                { this._showPostPublication(publication)}
+                { this._showTextPublication(publication)}
             </>
         )
     }
@@ -360,9 +306,9 @@ class CardNewFeedMasonry extends React.Component {
 
         return (
             <View style={styles.card(isLastElem, this.state.imageHeight, this.state.textHeight)}>
-                { this._showCardHeader(publication)}
-                { this._showCardPublication(publication)}
-                { this._showCardFooter(publication)}
+                { this._showCardHeader(publication) }
+                { this._showCardPublication(publication) }
+                { this._showCardFooter(publication) }
             </View>
         )
     }
@@ -409,7 +355,7 @@ const styles = StyleSheet.create({
         position: 'relative'
     },
     cardPostText: {
-        padding: 10
+        padding: 10,
     },
     footerStyle: {
         height: 60,
