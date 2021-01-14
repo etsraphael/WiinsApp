@@ -6,7 +6,6 @@ import * as TopHastagActions from '../../../../redux/TopHastag/actions'
 import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublications/actions'
 import * as SearchBarActions from '../../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
-import PublicationStandard from '../../core/publication-standard'
 import CardNewFeedMasonry from './../../core/card/card-new-feed-masonry'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -188,20 +187,7 @@ class Discover extends React.Component {
             ))
         )
 
-
-
-
         return (
-            // <FlatList
-            //     onScroll={this._onScroll}
-            //     style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}
-            //     data={this.props.DiscoverPublications.publications}
-            //     renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'discover'} />}
-            //     keyExtractor={item => item.id}
-            // />
-
-
-
             <View style={{ flex: 1, borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}>
                 <View style={{ flexDirection: 'row' }}>
                     <View style={{ flex: 1 }}>
