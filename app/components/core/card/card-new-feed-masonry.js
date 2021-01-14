@@ -332,7 +332,7 @@ class CardNewFeedMasonry extends React.Component {
         }
         return (
             <View onLayout={(event) => this.setState({ cardWidth: event.nativeEvent.layout.width })}>
-                { publicationBox}
+                { publicationBox }
             </View>
         )
     }

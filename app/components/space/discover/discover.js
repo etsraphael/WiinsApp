@@ -193,19 +193,15 @@ class Discover extends React.Component {
                     <View style={{ flex: 1 }}>
                         {
                             mapPublication(
-                                this.props.DiscoverPublications.publications.filter((_, index) => (
-                                    index % 2 !== 0
-                                )
-                                ))
+                                this.props.DiscoverPublications.publications.filter((_, index) => (index % 2 !== 0))
+                            )
                         }
                     </View>
                     <View style={{ flex: 1 }}>
                         {
                             mapPublication(
-                                this.props.DiscoverPublications.publications.filter((_, index) => (
-                                    index % 2 === 0
-                                )
-                                ))
+                                this.props.DiscoverPublications.publications.filter((_, index) => (index % 2 === 0))
+                            )
                         }
                     </View>
                 </View>
