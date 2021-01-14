@@ -13,7 +13,6 @@ import StantardSuggest from '../../core/stantard-suggest'
 import PublicationModal from '../../core/publication-modal'
 import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
-import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
 import CardNewFeed from './../../core/card/card-new-feed'
@@ -24,17 +23,17 @@ const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
         contentSize.height - paddingToBottom;
 }
 
-const Box = ({ 
-    children, 
-    flexDirection="column", 
+const Box = ({
+    children,
+    flexDirection = "column",
     // flex=1,
-    backgroundColor="transparent",
-    alignItems="flex-start",
-    justifyContent="flex-start"
+    backgroundColor = "transparent",
+    alignItems = "flex-start",
+    justifyContent = "flex-start"
 }) => {
     return (
         <View style={{ justifyContent, alignItems, flexDirection, backgroundColor }}>
-            { children }
+            { children}
         </View>
     )
 }
@@ -155,12 +154,6 @@ class Feed extends React.Component {
     }
 
     _publicationList = () => {
-        const mapPublication = (items) => (
-            items.map((item, index) => (
-                <PublicationStandard key={`pub-item-${index}-01`} isLastElem={items.length - 1 === index} index={index} navigation={this.props.navigation} publication={item} space={'feed'} />
-            ))
-        )
-
         if (!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0) {
             return (
                 <FlatList
@@ -171,15 +164,13 @@ class Feed extends React.Component {
                     ItemSeparatorComponent={FeedSeparator}
                 />
             )
-        } else {
-            return null
-        }
+        } else return null
     }
 
     // to display the list of the publications
-    _displayPublicationFeed = () => { 
+    _displayPublicationFeed = () => {
         return (
-            <View style={{ flex: 1, overflow: 'hidden' }}> 
+            <View style={{ flex: 1, overflow: 'hidden' }}>
                 <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }} showsVerticalScrollIndicator={false} >
                     <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
                     {this._publicationList()}

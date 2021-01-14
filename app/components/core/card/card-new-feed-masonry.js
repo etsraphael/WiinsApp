@@ -8,34 +8,43 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlay, faComment } from '@fortawesome/pro-light-svg-icons'
+import { faPlay, faComment, faHeart } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { getDateTranslated } from '../../../services/translation/translation-service'
 
 class CardNewFeedMasonry extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            imageHeight: 200
+            imageHeight: 200,
+            cardWidth: 0,
+            textHeight: 0,
         }
     }
 
     // to set the size of the picture
     onImageLoaded = (event) => {
 
-        const ratio = ((event.nativeEvent.width / event.nativeEvent.height) * 100)
+        // const ratio = ((event.nativeEvent.width / event.nativeEvent.height) * 100)
 
-        switch (true) {
-            case ratio <= 70: return this.setState({ imageHeight: ratio * 9 });
-            case ratio <= 85: return this.setState({ imageHeight: ratio * 7.5 });
-            case ratio <= 100: return this.setState({ imageHeight: ratio * 5 });
-            case ratio <= 115: return this.setState({ imageHeight: ratio * 3 });
-            case ratio <= 130: return this.setState({ imageHeight: ratio * 2.5 });
-            case ratio <= 155: return this.setState({ imageHeight: ratio * 1.8 });
-            case ratio <= 180: return this.setState({ imageHeight: ratio * 1.3 });
-            case ratio > 180: return this.setState({ imageHeight: ratio * 0.8 });
-        }
+        // switch (true) {
+        //     case ratio <= 70: return this.setState({ imageHeight: ratio * 9 });
+        //     case ratio <= 85: return this.setState({ imageHeight: ratio * 7.5 });
+        //     case ratio <= 100: return this.setState({ imageHeight: ratio * 5 });
+        //     case ratio <= 115: return this.setState({ imageHeight: ratio * 3 });
+        //     case ratio <= 130: return this.setState({ imageHeight: ratio * 2.5 });
+        //     case ratio <= 155: return this.setState({ imageHeight: ratio * 1.8 });
+        //     case ratio <= 180: return this.setState({ imageHeight: ratio * 1.3 });
+        //     case ratio > 180: return this.setState({ imageHeight: ratio * 0.8 });
+        // }
+
+        const { width, height } = event.nativeEvent;
+        const ratio = this.state.cardWidth / width;
+        const ratioHeight = height * ratio;
+        this.setState({ imageHeight: ratioHeight >= 200 ? ratioHeight : 200 });
 
     }
 
@@ -113,7 +122,7 @@ class CardNewFeedMasonry extends React.Component {
             >
 
                 <FastImage
-                    style={{ flex: 1, width: '100%', height: 400 }}
+                    style={{ flex: 1, width: '100%', minHeight: 300 }}
                     source={{ uri: publication.file, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.cover}
                     onLoad={this.onImageLoaded}
@@ -157,6 +166,70 @@ class CardNewFeedMasonry extends React.Component {
         }
     }
 
+    // to show post publication
+    _showPostPublication = (publication) => {
+        return (
+        <View onLayout={(event) => {
+            this.setState({ textHeight: event.nativeEvent.layout.height })
+        }}>
+            { 
+                publication.text.trim().length > 0 && <View style={styles.cardPostText}>
+                    <Text>{ publication.text }</Text>
+                </View>
+            }
+        </View>)
+    }
+
+    // to show picture publication
+    _showPicturePublication = (publication) => {
+        return (
+            <>
+                <TouchableOpacity 
+                style={styles.cardPostPicture} 
+                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                >
+                    {
+                        this.state.cardWidth > 0 && <FastImage
+                            style={{ width: '100%', minHeight: 200, height: this.state.imageHeight }}
+                            source={{ uri: publication.file, priority: FastImage.priority.normal }}
+                            resizeMode={FastImage.resizeMode.cover}
+                            onLoad={this.onImageLoaded}
+                        />
+                    }
+                </TouchableOpacity>
+                { this._showPostPublication(publication) }
+            </>
+        )
+    }
+
+    // to show video publication
+    _showVideoPublication = (publication) => {
+        return (
+            <>
+                <TouchableOpacity 
+                style={styles.cardPostPicture} 
+                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                >
+                    {
+                        this.state.cardWidth > 0 && <FastImage
+                            style={{ width: '100%', minHeight: 200, height: this.state.imageHeight }}
+                            source={{ uri: publication.poster, priority: FastImage.priority.normal }}
+                            resizeMode={FastImage.resizeMode.cover}
+                            onLoad={this.onImageLoaded}
+                        />
+                    }
+
+                    <View style={{ ...StyleSheet.absoluteFillObject, justifyContent: 'center', alignItems: 'center', zIndex: 10 }}>
+                        <TouchableWithoutFeedback style={{ height: 40, width: 40, borderRadius: 20, borderWidth: 1, borderColor: '#4e4e4e', borderStyle: 'solid', justifyContent: 'center', alignItems: 'center', backgroundColor: '#FFFFFFa1' }}>
+                            <FontAwesomeIcon icon={faPlay} size={15} color="#4e4e4e" />
+                        </TouchableWithoutFeedback>
+                    </View>
+                </TouchableOpacity>
+                { this._showPostPublication(publication) }
+            </>
+        )
+    }
+
     // to navigate to a profile
     _goToProfile = (profileId) => {
         if (this.props.space == 'profile') return null
@@ -169,74 +242,10 @@ class CardNewFeedMasonry extends React.Component {
         return this.props.navigation.navigate('Page', { pageId })
     }
 
-    // to select the header card
-    _showHeader(publication) {
-
-        if (publication.profile) {
-            return (
-                <View style={styles.header_container}>
-
-                    <LinearGradient
-                        colors={['#00000099', '#0000005c', '#4e4e4e00']}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 0, y: 1 }}
-                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25 }}>
-                        <TouchableOpacity onPress={() => this._goToProfile(publication.profile._id)}>
-                            <FastImage
-                                style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
-                                source={{
-                                    uri: publication.profile.pictureprofile,
-                                    priority: FastImage.priority.normal,
-                                }}
-                                resizeMode={FastImage.resizeMode.cover}
-                            />
-                        </TouchableOpacity>
-                        <View style={styles.header_info}>
-                            <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.profile._meta.pseudo}</Text>
-                        </View>
-                    </LinearGradient>
-
-                </View>
-            )
-        }
-
-        if (publication.page) {
-            return (
-                <View style={styles.header_container}>
-                    <LinearGradient
-                        colors={['#00000099', '#0000005c', '#4e4e4e00']}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 0, y: 1 }}
-                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25 }}>
-                        <TouchableOpacity onPress={() => this._goToPage(publication.page._id)}>
-                            <FastImage
-                                style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
-                                source={{
-                                    uri: publication.page.pictureprofile,
-                                    priority: FastImage.priority.normal,
-                                }}
-                                resizeMode={FastImage.resizeMode.cover}
-                            />
-                        </TouchableOpacity>
-                        <View style={styles.header_info}>
-                            <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.page.name}</Text>
-                        </View>
-                    </LinearGradient>
-                    <View style={{ height: '100%', flex: 2 }}>
-                    </View>
-                </View>
-            )
-        }
-
-
-
-
-    }
-
     // to select like icon
     _displayIconLike() {
         if (!this.props.publication.like.isLike) {
-            return (<FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />)
+            return (<FontAwesomeIcon icon={faHeartEmpty} color={'#1D1D26'} size={19} />)
         }
         else {
             return (<FontAwesomeIcon icon={faHeartFull} color={'red'} size={19} />)
@@ -294,8 +303,67 @@ class CardNewFeedMasonry extends React.Component {
         }
     }
 
+    // to select the header card
+    /* _showHeader(publication) {
+        if (publication.profile) {
+            return (
+                <View style={styles.header_container}>
+
+                    <LinearGradient
+                        colors={['#00000099', '#0000005c', '#4e4e4e00']}
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 0, y: 1 }}
+                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25 }}>
+                        <TouchableOpacity onPress={() => this._goToProfile(publication.profile._id)}>
+                            <FastImage
+                                style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
+                                source={{
+                                    uri: publication.profile.pictureprofile,
+                                    priority: FastImage.priority.normal,
+                                }}
+                                resizeMode={FastImage.resizeMode.cover}
+                            />
+                        </TouchableOpacity>
+                        <View style={styles.header_info}>
+                            <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.profile._meta.pseudo}</Text>
+                        </View>
+                    </LinearGradient>
+
+                </View>
+            )
+        }
+
+        if (publication.page) {
+            return (
+                <View style={styles.header_container}>
+                    <LinearGradient
+                        colors={['#00000099', '#0000005c', '#4e4e4e00']}
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 0, y: 1 }}
+                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25 }}>
+                        <TouchableOpacity onPress={() => this._goToPage(publication.page._id)}>
+                            <FastImage
+                                style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
+                                source={{
+                                    uri: publication.page.pictureprofile,
+                                    priority: FastImage.priority.normal,
+                                }}
+                                resizeMode={FastImage.resizeMode.cover}
+                            />
+                        </TouchableOpacity>
+                        <View style={styles.header_info}>
+                            <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.page.name}</Text>
+                        </View>
+                    </LinearGradient>
+                    <View style={{ height: '100%', flex: 2 }}>
+                    </View>
+                </View>
+            )
+        }
+    } */
+
     // to select the footer card
-    _showFooter(publication) {
+    /* _showFooter(publication) {
         return (
             <View style={styles.container_footer}>
                 <LinearGradient
@@ -304,7 +372,7 @@ class CardNewFeedMasonry extends React.Component {
                     end={{ x: 0, y: 0 }}
                     style={{ flexDirection: 'row', flex: 1, alignItems: 'center', paddingHorizontal: 25 }}
                 >
-                    {/*  Stat Container */}
+                    // Stat Container}
                     <View style={{ flex: 1 }}>
                         <View style={{ flexDirection: 'row', flex: 1, paddingTop: 18 }}>
                             <TouchableOpacity
@@ -333,7 +401,7 @@ class CardNewFeedMasonry extends React.Component {
                 </LinearGradient>
             </View>
         )
-    }
+    } */
 
     // move the card to the top
     cardMoveOn = (index) => {
@@ -345,15 +413,79 @@ class CardNewFeedMasonry extends React.Component {
         }
     }
 
-    render() {
-        const { publication } = this.props
-        const { index } = this.props
+    _showCardHeader = (publication) => {
+        const { page, profile, createdAt } = publication;
+        const pictureprofile = profile ? profile.pictureprofile : page.pictureprofile;
+        const name = profile ? profile._meta.pseudo : page.name;
+        const onImageAction = () => profile ? this._goToProfile(publication.profile._id) : this._goToPage(publication.page._id);
 
         return (
-            <View style={[styles.card, this.cardMoveOn(index)]}>
-                {this._showTypePublication(publication)}
+            <View style={styles.headerStyle}>
+                <TouchableOpacity onPress={onImageAction}>
+                    <FastImage
+                        style={styles.cardProfileImage}
+                        source={{
+                            uri: pictureprofile,
+                            priority: FastImage.priority.normal,
+                        }}
+                        resizeMode={FastImage.resizeMode.cover}
+                    />
+                </TouchableOpacity>
+                <View style={{ flex: 1 }}>
+                    <Text style={{ color: '#3F3F3F', fontSize: 13, textTransform: 'capitalize' }}>{ name }</Text>
+                    <Text style={{ color: '#4E586E', fontSize: 13 }}>{ getDateTranslated(createdAt) }</Text>
+                </View>
+            </View>
+        )
+    }
+
+    _showCardPublication = (publication) => {
+        const { type } = publication;
+        let publicationBox;
+        switch(type) {
+            case 'PostPublication': publicationBox = this._showPostPublication(publication); break;
+            case 'VideoPublication': publicationBox = this._showVideoPublication(publication); break;
+            case 'PicturePublication': publicationBox = this._showPicturePublication(publication); break;
+            default: publicationBox = null; break;
+        }
+        return (
+            <View onLayout={(event) => this.setState({ cardWidth: event.nativeEvent.layout.width })}>
+                { publicationBox }
+            </View>
+        )
+    }
+
+    _showCardFooter = (publication) => {
+        const { like, commentNumber } =publication; 
+         return (
+            <View style={styles.footerStyle}>
+                <TouchableOpacity onPress={() => this._likePublication()} style={{ flexDirection: 'row' }}>
+                    { this._displayIconLike() }
+                    <Text style={{ marginLeft: 10 }}>{ like.likeNumber }</Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                    onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                    style={{ flexDirection: 'row' }}>
+                    <FontAwesomeIcon icon={faComment} size={20} />
+                    <Text style={{ marginLeft: 10 }}>{ commentNumber }</Text>
+                </TouchableOpacity>
+            </View>
+         )
+    }
+
+    render() {
+        const { publication, isLastElem } = this.props;
+
+        return (
+            <View style={styles.card(isLastElem, this.state.imageHeight, this.state.textHeight)}>
+                {/* {this._showTypePublication(publication)}
                 {this._showHeader(publication)}
-                {this._showFooter(publication)}
+                {this._showFooter(publication)} */}
+
+                { this._showCardHeader(publication) }
+                { this._showCardPublication(publication) }
+                { this._showCardFooter(publication) }
+
             </View>
         )
     }
@@ -361,12 +493,58 @@ class CardNewFeedMasonry extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    card: {
+    card: (isLastElem, imageHeight=200, textHeight=0) => ({
         flex: 1,
-        borderTopLeftRadius: 35,
-        borderTopRightRadius: 35,
+        height: imageHeight + 120 + textHeight,
+        maxHeight: imageHeight + 120 + textHeight,
         overflow: 'hidden',
+        margin: 4,
+        marginBottom: isLastElem ? 60 : 4,
+        borderRadius: 8,
+        backgroundColor: "white",
+        shadowColor: "black",
+        shadowOffset: {
+            width: 0,
+            height: 10,
+        },
+        shadowOpacity: 1,
+        shadowRadius: 20,
+        elevation: 10
+    }),
+    headerStyle: {
+        height: 60,
+        flexDirection: 'row',
+        paddingHorizontal: 10,
+        paddingVertical: 15,
+        alignItems: 'center',
+        flexWrap: 'nowrap'
     },
+    cardProfileImage: {
+        width: 30,
+        height: 30,
+        borderRadius: 15,
+        resizeMode: 'cover',
+        marginRight: 7
+    },
+    cardPostPicture: {
+        width: '100%',
+        backgroundColor: 'grey',
+        position: 'relative'
+    },
+    cardPostText: {
+        padding: 10
+    },
+    footerStyle: {
+        height: 60,
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: 10,
+        paddingVertical: 15,
+        alignItems: 'center'
+    },
+
+
+
     container_type: {
         overflow: 'hidden',
         flex: 4

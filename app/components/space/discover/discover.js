@@ -7,6 +7,7 @@ import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublicati
 import * as SearchBarActions from '../../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStandard from '../../core/publication-standard'
+import CardNewFeedMasonry from './../../core/card/card-new-feed-masonry'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faTimes } from '@fortawesome/pro-light-svg-icons'
@@ -79,13 +80,13 @@ class Discover extends React.Component {
     _displayOptionSearchBar = () => {
         if (this.state.search.length <= 2) {
             return (
-                <TouchableOpacity style={{position: 'absolute', right: 25, justifyContent: 'center', alignItems: 'center'}}>
+                <TouchableOpacity style={{ position: 'absolute', right: 25, justifyContent: 'center', alignItems: 'center' }}>
                     <FontAwesomeIcon icon={faSearch} color={'grey'} size={21} style={{ opacity: 0.8 }} />
                 </TouchableOpacity>
             )
         } else {
             return (
-                <TouchableOpacity onPress={() => this.setState({search: ''})} style={{position: 'absolute', right: 25, justifyContent: 'center', alignItems: 'center'}}>
+                <TouchableOpacity onPress={() => this.setState({ search: '' })} style={{ position: 'absolute', right: 25, justifyContent: 'center', alignItems: 'center' }}>
                     <FontAwesomeIcon icon={faTimes} color={'grey'} size={21} style={{ opacity: 0.8 }} />
                 </TouchableOpacity>
             )
@@ -183,7 +184,7 @@ class Discover extends React.Component {
 
         const mapPublication = (items) => (
             items.map((item, index) => (
-                <PublicationStandard key={`pub-item-${index}-01`} isLastElem={items.length - 1 === index} index={index} navigation={this.props.navigation} publication={item} space={'feed'} />
+                <CardNewFeedMasonry key={`pub-item-${index}-01`} isLastElem={items.length - 1 === index} index={index} navigation={this.props.navigation} publication={item} space={'feed'} />
             ))
         )
 
@@ -201,28 +202,28 @@ class Discover extends React.Component {
 
 
 
-                <View style={{flex: 1, borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden'}}>
+            <View style={{ flex: 1, borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}>
                 <View style={{ flexDirection: 'row' }}>
                     <View style={{ flex: 1 }}>
-                        { 
+                        {
                             mapPublication(
                                 this.props.DiscoverPublications.publications.filter((_, index) => (
-                                index % 2 !== 0
+                                    index % 2 !== 0
                                 )
-                            ))
+                                ))
                         }
                     </View>
                     <View style={{ flex: 1 }}>
                         {
                             mapPublication(
                                 this.props.DiscoverPublications.publications.filter((_, index) => (
-                                index % 2 === 0
+                                    index % 2 === 0
                                 )
-                            ))
+                                ))
                         }
                     </View>
                 </View>
-                </View>
+            </View>
         )
     }
 
@@ -230,11 +231,10 @@ class Discover extends React.Component {
     _displayDiscoverView = () => {
         return (
             <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }} showsVerticalScrollIndicator={false} >
-            {this._hastagView()}
-
+                {this._hastagView()}
                 {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
             </ScrollView>
-            )
+        )
     }
 
     // display the suggestion menu
