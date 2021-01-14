@@ -1,26 +1,40 @@
 import React from 'react'
 import {
     StyleSheet, View, FlatList, TouchableOpacity,
-    LayoutAnimation, Image, LogBox, DeviceEventEmitter, ScrollView
+    LayoutAnimation, Image, LogBox, DeviceEventEmitter, ScrollView, SafeAreaView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as SearchActions from '../../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
-import PublicationStandard from '../../core/publication-standard'
 import PublicationStoryHeader from './stories/publication-story-header'
 import StantardSuggest from '../../core/stantard-suggest'
 import PublicationModal from '../../core/publication-modal'
 import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
-import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
+import CardNewFeed from './../../core/card/card-new-feed'
 
 const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
     const paddingToBottom = 20;
     return layoutMeasurement.height + contentOffset.y >=
         contentSize.height - paddingToBottom;
+}
+
+const Box = ({
+    children,
+    flexDirection = "column",
+    // flex=1,
+    backgroundColor = "transparent",
+    alignItems = "flex-start",
+    justifyContent = "flex-start"
+}) => {
+    return (
+        <View style={{ justifyContent, alignItems, flexDirection, backgroundColor }}>
+            { children}
+        </View>
+    )
 }
 
 class Feed extends React.Component {
@@ -142,23 +156,21 @@ class Feed extends React.Component {
         if (!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0) {
             return (
                 <FlatList
-
                     onScrollBeginDrag={this._onScroll}
                     data={this.props.FeedPublications.publications}
-                    renderItem={({ item, index }) => <PublicationStandard index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
+                    renderItem={({ item, index }) => <CardNewFeed index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
                     keyExtractor={(item) => item._id.toString()}
+                    ItemSeparatorComponent={FeedSeparator}
                 />
             )
-        } else {
-            return null
-        }
+        } else return null
     }
 
     // to display the list of the publications
     _displayPublicationFeed = () => {
         return (
-            <View style={{ flex: 1, borderTopLeftRadius: 35, borderTopRightRadius: 35, overflow: 'hidden' }}>
-                <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }}>
+            <View style={{ flex: 1, overflow: 'hidden' }}>
+                <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }} showsVerticalScrollIndicator={false} >
                     <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
                     {this._publicationList()}
                 </ScrollView>
@@ -192,18 +204,20 @@ class Feed extends React.Component {
 
     render = () => {
         return (
-            <View style={styles.feed_container}>
+            <SafeAreaView style={{ flex: 1 }}>
+                <View style={styles.feed_container}>
 
-                {/* Header */}
-                {this._header()}
-                {this.state.search.length == 0 ? this._displayPublicationFeed() : this._suggestionSearch()}
+                    {/* Header */}
+                    {this._header()}
+                    {this.state.search.length == 0 ? this._displayPublicationFeed() : this._suggestionSearch()}
 
-                {/* Modal */}
-                {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
-                {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} /> : null}
-                {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
+                    {/* Modal */}
+                    {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
+                    {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} /> : null}
+                    {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
 
-            </View>
+                </View>
+            </SafeAreaView>
         )
     }
 
@@ -212,7 +226,7 @@ class Feed extends React.Component {
 const styles = StyleSheet.create({
     feed_container: {
         flex: 1,
-        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 5 : 0
+        backgroundColor: '#eef2f4'
     },
     header_container: {
         position: 'relative',
@@ -232,6 +246,12 @@ const styles = StyleSheet.create({
         paddingTop: 5
     }
 })
+
+const FeedSeparator = () => {
+    return (
+        <View></View>
+    )
+}
 
 const mapStateToProps = state => ({
     FeedPublications: state.FeedPublications,
