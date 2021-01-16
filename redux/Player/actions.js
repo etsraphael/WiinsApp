@@ -1,8 +1,8 @@
 import * as ActionTypes from './constants'
 import TrackPlayer from 'react-native-track-player'
 import AsyncStorage from '@react-native-community/async-storage'
-import { likeMusicSuccess } from './../PlaylistMusicPage/actions'
-import { addMusicAfterLiked } from './../MyFavMusic/actions'
+import { likeMusicSuccess, dislikeMusicSuccess } from './../PlaylistMusicPage/actions'
+import { addMusicAfterLiked, pullMusicAfterDisliked } from './../MyFavMusic/actions'
 
 export function continueMusic() {
     return { type: ActionTypes.CONTINUE_MUSIC }
@@ -254,7 +254,7 @@ export function likeMusicFromPlayerAction(music) {
 export function dislikeMusicFromPlayerAction(id) {
     return async (dispatch) => {
         try {
-
+            
             dispatch(dislikeMusicFromPlayer(id))
             const url = 'https://wiins-backend.herokuapp.com/music/dislike/' + id
             const token = await AsyncStorage.getItem('userToken')
@@ -271,17 +271,18 @@ export function dislikeMusicFromPlayerAction(id) {
                     if (response.status == 200) {
 
                         // update the music in the playlist
-                        // to do..
+                        dispatch(dislikeMusicSuccess(id))
 
                         // add the music in the favorite playlist
-                        // dispatch(pullMusicAfterDisliked(id))
+                        dispatch(pullMusicAfterDisliked(id))
 
                         return dispatch(dislikeMusicFromPlayerSuccess(id))
                     }
                     return dispatch(dislikeMusicFromPlayerFail(id))
                 })
         } catch (error) {
-            return dispatch(dislikeMusicFromPlayer(id));
+            console.log(error)
+            return dispatch(dislikeMusicFromPlayer(id))
         }
     }
 }
