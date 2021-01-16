@@ -49,7 +49,7 @@ class PlaylistPage extends React.Component {
         }
 
         // If one music is not downloaded
-        if (this.props.PlaylistPage.playlist.musicList.filter(x => x.inCache == 'not').length > 0) {
+        if (!!this.props.PlaylistPage.playlist.musicList && this.props.PlaylistPage.playlist.musicList.filter(x => x.inCache == 'not').length > 0) {
             return (
                 <TouchableOpacity onPress={() => downloadPlaylistMusicList(this.props.PlaylistPage.playlist.musicList, this.props.actions)}>
                     <FontAwesomeIcon icon={faDownload} color={'grey'} size={21} />
