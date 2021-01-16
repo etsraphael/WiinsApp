@@ -8,8 +8,8 @@ import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
 import TrackPlayer from 'react-native-track-player'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
-import { faMusic, faAngleDown, faRepeat } from '@fortawesome/pro-light-svg-icons'
 import * as PlaylistPageActions from '../../../redux/PlaylistMusicPage/actions'
+import { faMusic, faAngleDown, faRepeat } from '@fortawesome/pro-light-svg-icons'
 import { faHeart, faPause, faUserPlus, faStepBackward, faStepForward, faRandom, faPlay } from '@fortawesome/pro-solid-svg-icons'
 
 import ProgressBar from '../space/music/progress-bar'
@@ -26,7 +26,6 @@ class MiniPlayer extends React.Component {
     _likeMusic = async () => {
         // send the request
         await this.props.actions.likeMusicFromPlayerAction(this.props.Player.musicIsPlaying.music)
-        // save in the cache
     }
 
     componentDidMount() {
