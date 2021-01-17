@@ -20,7 +20,7 @@ class App extends Component {
 
   componentDidMount = async () => {
     if (__DEV__) {
-      // await resetCacheForDev()
+      await resetCacheForDev()
     }
   }
 
