@@ -281,7 +281,6 @@ export function dislikeMusicFromPlayerAction(id) {
                     return dispatch(dislikeMusicFromPlayerFail(id))
                 })
         } catch (error) {
-            console.log(error)
             return dispatch(dislikeMusicFromPlayer(id))
         }
     }
