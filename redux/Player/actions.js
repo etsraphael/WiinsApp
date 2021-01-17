@@ -285,3 +285,36 @@ export function dislikeMusicFromPlayerAction(id) {
         }
     }
 }
+
+export function followArtist(id) {
+    return { type: ActionTypes.FOLLOW_ARTIST, id }
+}
+
+export function followArtistSuccess() {
+    return { type: ActionTypes.FOLLOW_ARTIST_SUCCESS }
+}
+
+export function followArtistFail(id) {
+    return { type: ActionTypes.FOLLOW_ARTIST_FAIL, id }
+}
+
+export function followArtistActions(id){
+    return async (dispatch) => {
+
+
+        // dispatch(followArtist())
+
+        dispatch(followArtistSuccess())
+
+
+        try {
+
+        } catch(error){
+            dispatch(followArtistFail(error))
+        }
+
+
+
+
+    }
+}

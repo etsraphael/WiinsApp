@@ -78,6 +78,26 @@ class MiniPlayer extends React.Component {
         this.props.actions.continuePlayerActions()
     }
 
+    // to show relation icon
+    _displayRelationIcon = () => {
+        console.log(this.props.Player.musicIsPlaying.music.profile.relation)
+        switch (true) {
+            case (this.props.Player.musicIsPlaying.music.profile.relation == 'friend' || this.props.Player.musicIsPlaying.music.profile.relation == 'following'):
+                return (
+                    <TouchableOpacity style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                        <FontAwesomeIcon icon={faUserPlus} color={'#0066cc'} size={19} />
+                    </TouchableOpacity>
+                )
+            case (this.props.Player.musicIsPlaying.music.profile == this.props.MyUser.user.profile): return null
+            default:
+                return (
+                    <TouchableOpacity onPress={() => this.props.actions.followArtistActions(this.props.Player.musicIsPlaying.music._id)} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                        <FontAwesomeIcon icon={faUserPlus} color={'grey'} size={19} />
+                    </TouchableOpacity>
+                )
+        }
+    }
+
     // to select the music modal view
     _modalView = () => {
         return (
@@ -142,9 +162,7 @@ class MiniPlayer extends React.Component {
 
                             {/* Follow Btn */}
                             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-                                <TouchableOpacity style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
-                                    <FontAwesomeIcon icon={faUserPlus} color={'#0066cc'} size={19} />
-                                </TouchableOpacity>
+                                {this._displayRelationIcon()}
                             </View>
 
                         </View>

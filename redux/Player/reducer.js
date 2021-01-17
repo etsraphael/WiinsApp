@@ -56,6 +56,21 @@ export default PlayerReducer = (state = initialState, action) => {
       state.musicIsPlaying.isLiked = false
       return { ...state }
     }
-    default: return state
+    case ActionTypes.FOLLOW_ARTIST_SUCCESS: {
+      return { 
+        ...state,
+        musicIsPlaying: {
+          ...state.musicIsPlaying,
+          music: {
+            ...state.musicIsPlaying.music,
+            profile : {
+              ...state.musicIsPlaying.music.profile,
+              relation: 'following'
+            }
+          }
+        }
+      }
+    }
+    default: return { ...state }
   }
 }
