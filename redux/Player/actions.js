@@ -298,23 +298,27 @@ export function followArtistFail(id) {
     return { type: ActionTypes.FOLLOW_ARTIST_FAIL, id }
 }
 
-export function followArtistActions(id){
+export function followArtistActions(musicId, profileId){
     return async (dispatch) => {
-
-
-        // dispatch(followArtist())
-
-        dispatch(followArtistSuccess())
-
-
         try {
+            dispatch(followArtist())
+
+            const token = await AsyncStorage.getItem('userToken')
+            return fetch('https://wiins-backend.herokuapp.com/profile/follow/' + profileId, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then(response => {
+                    if (response.status == 200) return dispatch(followArtistSuccess())
+                    dispatch(followArtistFail(response.status))
+                })
 
         } catch(error){
             dispatch(followArtistFail(error))
         }
-
-
-
-
     }
 }

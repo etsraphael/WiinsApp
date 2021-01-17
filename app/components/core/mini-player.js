@@ -80,7 +80,6 @@ class MiniPlayer extends React.Component {
 
     // to show relation icon
     _displayRelationIcon = () => {
-        console.log(this.props.Player.musicIsPlaying.music.profile.relation)
         switch (true) {
             case (this.props.Player.musicIsPlaying.music.profile.relation == 'friend' || this.props.Player.musicIsPlaying.music.profile.relation == 'following'):
                 return (
@@ -91,7 +90,8 @@ class MiniPlayer extends React.Component {
             case (this.props.Player.musicIsPlaying.music.profile == this.props.MyUser.user.profile): return null
             default:
                 return (
-                    <TouchableOpacity onPress={() => this.props.actions.followArtistActions(this.props.Player.musicIsPlaying.music._id)} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                    <TouchableOpacity onPress={() => this.props.actions.followArtistActions(this.props.Player.musicIsPlaying.music._id, this.props.Player.musicIsPlaying.music.profile._id)}
+                     style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
                         <FontAwesomeIcon icon={faUserPlus} color={'grey'} size={19} />
                     </TouchableOpacity>
                 )
