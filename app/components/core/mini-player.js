@@ -30,6 +30,7 @@ class MiniPlayer extends React.Component {
 
     componentDidMount() {
         TrackPlayer.addEventListener('playback-state', (data) => {
+            return null
         })
     }
 

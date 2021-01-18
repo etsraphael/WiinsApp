@@ -250,7 +250,6 @@ export function likeMusicFromPlayerAction(music) {
     }
 }
 
-
 export function dislikeMusicFromPlayerAction(id) {
     return async (dispatch) => {
         try {
@@ -321,4 +320,26 @@ export function followArtistActions(musicId, profileId){
             dispatch(followArtistFail(error))
         }
     }
+}
+
+// controls 
+
+export function controlRepeatOneMusic() {
+    return { type: ActionTypes.CONTROL_REPEAT_ONE_MUSIC }
+}
+
+export function controlRepeatOnePlaylist() {
+    return { type: ActionTypes.CONTROL_REPEAT_ONE_PLAYLIST }
+}
+
+export function controlRepeatDeactivated() {
+    return { type: ActionTypes.CONTROL_REPEAT_DEACTIVATED }
+}
+
+export function shuffleMusics(){
+    return { type: ActionTypes.SHUFFLE_MUSIC }
+}
+
+export function unShuffleMusics(){
+    return { type: ActionTypes.UNSHUFFLE_MUSIC }
 }
