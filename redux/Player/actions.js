@@ -322,8 +322,6 @@ export function followArtistActions(musicId, profileId){
     }
 }
 
-// controls 
-
 export function controlRepeatOneMusic() {
     return { type: ActionTypes.CONTROL_REPEAT_ONE_MUSIC }
 }
@@ -342,4 +340,16 @@ export function shuffleMusics(){
 
 export function unShuffleMusics(){
     return { type: ActionTypes.UNSHUFFLE_MUSIC }
+}
+
+export function controlRepeatOneMusicAction() {
+    return (dispatch) => dispatch(controlRepeatOneMusic())
+}
+
+export function controlRepeatOnePlaylistAction() {
+    return (dispatch) => dispatch(controlRepeatOnePlaylist())
+}
+
+export function controlRepeatDeactivatedAction() {
+    return (dispatch) => dispatch(controlRepeatDeactivated())
 }
