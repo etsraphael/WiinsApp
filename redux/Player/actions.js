@@ -72,8 +72,9 @@ export function progessTimerActions(position, duration) {
     return (dispatch, props) => {
 
         // control the loops
-        if ( ((Math.round(duration) - Math.round(position)) < 1 ) && props().Player.repeatMode == 'music') {
-            console.log('repeat the music here')
+        if ( ((Math.round(duration) - Math.round(position)) < 0.5 ) && props().Player.repeatMode == 'music') {
+            TrackPlayer.seekTo(0)
+            return null
         }
 
         if (position <= 0) return null
