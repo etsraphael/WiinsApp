@@ -350,7 +350,25 @@ export function unShuffleMusics() {
 }
 
 export function shuffleMusicsAction() {
-    return (dispatch) => dispatch(shuffleMusics())
+    return async (dispatch) => {
+
+        // get the old queue
+        let musicQueue = await TrackPlayer.getQueue()
+
+        // reset the queue
+        await TrackPlayer.removeUpcomingTracks()
+
+        // shake the queue
+        musicList = musicQueue
+        .map((a) => ({ sort: Math.random(), value: a }))
+        .sort((a, b) => a.sort - b.sort)
+        .map((a) => a.value)
+
+        // update the queue
+        await TrackPlayer.add(musicList)
+        
+        return dispatch(shuffleMusics())
+    }
 }
 
 export function unshuffleMusicsAction() {
