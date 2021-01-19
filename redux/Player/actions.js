@@ -372,7 +372,26 @@ export function shuffleMusicsAction() {
 }
 
 export function unshuffleMusicsAction() {
-    return (dispatch) => dispatch(unShuffleMusics())
+    return async (dispatch, props) => {
+
+
+        // get the old queue
+        let musicQueue = await TrackPlayer.getQueue() 
+
+        // reset the queue
+        await TrackPlayer.removeUpcomingTracks()
+
+        // get the rest of the music
+        const newList = []
+        for(let music of props().Player.trackList){
+            if(musicQueue.map(x => x.id).indexOf(music._id) !== 1) newList.push(music)
+        }
+
+        // update the queue
+        await TrackPlayer.add(newList)
+
+        return dispatch(unShuffleMusics())
+    }
 }
 
 export function controlRepeatOneMusicAction() {
