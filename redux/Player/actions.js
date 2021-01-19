@@ -349,6 +349,14 @@ export function unShuffleMusics() {
     return { type: ActionTypes.UNSHUFFLE_MUSIC }
 }
 
+export function shuffleMusicsAction() {
+    return (dispatch) => dispatch(shuffleMusics())
+}
+
+export function unshuffleMusicsAction() {
+    return (dispatch) => dispatch(unShuffleMusics())
+}
+
 export function controlRepeatOneMusicAction() {
     return (dispatch) => dispatch(controlRepeatOneMusic())
 }

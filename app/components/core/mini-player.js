@@ -81,7 +81,7 @@ class MiniPlayer extends React.Component {
                     </TouchableOpacity>
                 )
             }
-            case 'playlist':{
+            case 'playlist': {
                 return (
                     <TouchableOpacity onPress={() => this.props.actions.controlRepeatOneMusicAction()}>
                         <FontAwesomeIcon icon={faRepeat} color={'#0066cc'} size={25} />
@@ -95,8 +95,22 @@ class MiniPlayer extends React.Component {
                     </TouchableOpacity>
                 )
             }
-            
+
         }
+    }
+
+    _displayShuffleBtn = () => {
+        if (this.props.Player.random) {
+            return (
+                <TouchableOpacity onPress={() => this.props.actions.unshuffleMusicsAction()}>
+                    <FontAwesomeIcon icon={faRandom} color={'#0066cc'} size={25} />
+                </TouchableOpacity>
+            )
+        } else return (
+            <TouchableOpacity onPress={() => this.props.actions.shuffleMusicsAction()}>
+                <FontAwesomeIcon icon={faRandom} color={'grey'} size={25} />
+            </TouchableOpacity>
+        )
     }
 
     // to show relation icon
@@ -112,7 +126,7 @@ class MiniPlayer extends React.Component {
             default:
                 return (
                     <TouchableOpacity onPress={() => this.props.actions.followArtistActions(this.props.Player.musicIsPlaying.music._id, this.props.Player.musicIsPlaying.music.profile._id)}
-                     style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                        style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
                         <FontAwesomeIcon icon={faUserPlus} color={'grey'} size={19} />
                     </TouchableOpacity>
                 )
@@ -228,7 +242,7 @@ class MiniPlayer extends React.Component {
                         </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faRandom} color={'#0066cc'} size={25} />
+                            {this._displayShuffleBtn()}
                         </View>
 
                     </View>

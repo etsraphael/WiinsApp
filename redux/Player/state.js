@@ -6,6 +6,7 @@ export const initialState = {
     error: null,
     displayMiniPlayer: false,
     repeatMode: 'none',
+    random: false,
     timer: {
         start: '00:00',
         end: '00:00',

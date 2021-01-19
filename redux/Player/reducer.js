@@ -89,6 +89,18 @@ export default PlayerReducer = (state = initialState, action) => {
         repeatMode: 'playlist'
       }
     }
+    case ActionTypes.SHUFFLE_MUSIC: {
+      return {
+        ...state,
+        random: true,
+      }
+    }
+    case ActionTypes.UNSHUFFLE_MUSIC: {
+      return {
+        ...state,
+        random: false,
+      }
+    }
     default: return { ...state }
   }
 }
