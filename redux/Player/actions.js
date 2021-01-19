@@ -147,7 +147,8 @@ export function playRandomMusicInPlaylistActions(payload) {
                     artist: music.profile._meta.pseudo,
                     artwork: music.imgUrl,
                     profile: music.profile,
-                    isLiked: music.isLiked
+                    isLiked: music.isLiked,
+                    music: music
                 }
 
             }

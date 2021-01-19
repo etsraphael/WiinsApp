@@ -29,9 +29,25 @@ class MiniPlayer extends React.Component {
     }
 
     componentDidMount() {
-        TrackPlayer.addEventListener('playback-state', (data) => {
-            return null
-        })
+
+
+
+        // TrackPlayer.addEventListener('playback-state', (data) => {
+        //     console.log(data)
+        //     return null
+        // })
+
+
+        // TrackPlayer.getState().then(state => {console.log(state)});
+
+
+
+        // TrackPlayer.addEventListener('remote-next', (data) => {
+        //     console.log('remote-next')
+        //     console.log(data)
+        //     return null
+        // })
+  
     }
 
     // to pause the music
