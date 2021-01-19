@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import LinearGradient from 'react-native-linear-gradient'
 import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
-import TrackPlayer from 'react-native-track-player'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
 import * as PlaylistPageActions from '../../../redux/PlaylistMusicPage/actions'
 import { faMusic, faAngleDown, faRepeat } from '@fortawesome/pro-light-svg-icons'
@@ -26,28 +25,6 @@ class MiniPlayer extends React.Component {
     _likeMusic = async () => {
         // send the request
         await this.props.actions.likeMusicFromPlayerAction(this.props.Player.musicIsPlaying.music)
-    }
-
-    componentDidMount() {
-
-
-
-        // TrackPlayer.addEventListener('playback-state', (data) => {
-        //     console.log(data)
-        //     return null
-        // })
-
-
-        // TrackPlayer.getState().then(state => {console.log(state)});
-
-
-
-        // TrackPlayer.addEventListener('remote-next', (data) => {
-        //     console.log('remote-next')
-        //     console.log(data)
-        //     return null
-        // })
-  
     }
 
     // to pause the music
