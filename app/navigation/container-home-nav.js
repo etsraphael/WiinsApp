@@ -28,7 +28,7 @@ class ContainerHomeNav extends React.Component {
     componentDidMount = async () => {
         this.props.actions.getMyProfile()
         this.props.actions.resetPlayerActions()
-        this.musicProgress = listenerMusic(this.props.actions, this.props.Player.repeatMode)
+        this.musicProgress = listenerMusic(this.props.actions)
     }
 
     componentWillUnmount = async () => {

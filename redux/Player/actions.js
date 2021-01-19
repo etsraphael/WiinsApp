@@ -68,16 +68,12 @@ export function stopPlayer() {
     return { type: ActionTypes.STOP_PLAYER }
 }
 
-export function progessTimerActions(position, duration, loopMode) {
-    return (dispatch) => {
+export function progessTimerActions(position, duration) {
+    return (dispatch, props) => {
 
-        // if it's the end, next music
-        if ((Math.round(duration) - Math.round(position)) < 1) {
-            switch (loopMode) {
-                case 'playlist': break;
-                case 'music': break;
-                default: break;
-            }
+        // control the loops
+        if ( ((Math.round(duration) - Math.round(position)) < 1 ) && props().Player.repeatMode == 'music') {
+            console.log('repeat the music here')
         }
 
         if (position <= 0) return null
