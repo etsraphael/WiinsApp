@@ -28,7 +28,7 @@ class ContainerHomeNav extends React.Component {
     componentDidMount = async () => {
         this.props.actions.getMyProfile()
         this.props.actions.resetPlayerActions()
-        this.musicProgress = listenerMusic(this.props.actions)
+        this.musicProgress = listenerMusic(this.props.actions, this.props.Player.repeatMode)
     }
 
     componentWillUnmount = async () => {
@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
     MyProfile: state.MyProfile,
     MyUser: state.MyUser,
+    Player: state.Player,
 })
 
 const ActionCreators = Object.assign(

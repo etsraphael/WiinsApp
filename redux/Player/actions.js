@@ -68,8 +68,17 @@ export function stopPlayer() {
     return { type: ActionTypes.STOP_PLAYER }
 }
 
-export function progessTimerActions(position, duration) {
+export function progessTimerActions(position, duration, loopMode) {
     return (dispatch) => {
+
+        // if it's the end, next music
+        if ((Math.round(duration) - Math.round(position)) < 1) {
+            switch (loopMode) {
+                case 'playlist': break;
+                case 'music': break;
+                default: break;
+            }
+        }
 
         if (position <= 0) return null
         const minutes = Math.floor(position / 60)
@@ -254,7 +263,7 @@ export function likeMusicFromPlayerAction(music) {
 export function dislikeMusicFromPlayerAction(id) {
     return async (dispatch) => {
         try {
-            
+
             dispatch(dislikeMusicFromPlayer(id))
             const url = 'https://wiins-backend.herokuapp.com/music/dislike/' + id
             const token = await AsyncStorage.getItem('userToken')
@@ -298,7 +307,7 @@ export function followArtistFail(id) {
     return { type: ActionTypes.FOLLOW_ARTIST_FAIL, id }
 }
 
-export function followArtistActions(musicId, profileId){
+export function followArtistActions(musicId, profileId) {
     return async (dispatch) => {
         try {
             dispatch(followArtist())
@@ -317,7 +326,7 @@ export function followArtistActions(musicId, profileId){
                     dispatch(followArtistFail(response.status))
                 })
 
-        } catch(error){
+        } catch (error) {
             dispatch(followArtistFail(error))
         }
     }
@@ -335,11 +344,11 @@ export function controlRepeatDeactivated() {
     return { type: ActionTypes.CONTROL_REPEAT_DEACTIVATED }
 }
 
-export function shuffleMusics(){
+export function shuffleMusics() {
     return { type: ActionTypes.SHUFFLE_MUSIC }
 }
 
-export function unShuffleMusics(){
+export function unShuffleMusics() {
     return { type: ActionTypes.UNSHUFFLE_MUSIC }
 }
 

@@ -83,7 +83,7 @@ export default PlayerReducer = (state = initialState, action) => {
         repeatMode: 'music'
       }
     }
-    case ActionTypes.CONTROL_REPEAT_ONE_MUSIC: {
+    case ActionTypes.CONTROL_REPEAT_ONE_PLAYLIST: {
       return {
         ...state,
         repeatMode: 'playlist'

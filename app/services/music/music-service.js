@@ -1,7 +1,7 @@
 import TrackPlayer from 'react-native-track-player';
 
 // to list the music is playing
-export function listenerMusic (actions) {
+export function listenerMusic (actions, loopMode) {
 
     return TrackPlayer.addEventListener('playback-state', async (data) => {
 
@@ -9,7 +9,7 @@ export function listenerMusic (actions) {
 
         switch (data.state) {
             case 'ready':{ 
-                progress = timer(actions)
+                progress = timer(actions, loopMode)
                 break
             }
             case 'idle':
