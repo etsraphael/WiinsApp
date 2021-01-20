@@ -1,5 +1,8 @@
 import * as ActionTypes from './constants'
 import TrackPlayer from 'react-native-track-player'
+import AsyncStorage from '@react-native-community/async-storage'
+import { likeMusicSuccess, dislikeMusicSuccess } from './../PlaylistMusicPage/actions'
+import { addMusicAfterLiked, pullMusicAfterDisliked } from './../MyFavMusic/actions'
 
 export function continueMusic() {
     return { type: ActionTypes.CONTINUE_MUSIC }
@@ -66,7 +69,13 @@ export function stopPlayer() {
 }
 
 export function progessTimerActions(position, duration) {
-    return (dispatch) => {
+    return (dispatch, props) => {
+
+        // control the loops
+        if ( ((Math.round(duration) - Math.round(position)) < 0.5 ) && props().Player.repeatMode == 'music') {
+            TrackPlayer.seekTo(0)
+            return null
+        }
 
         if (position <= 0) return null
         const minutes = Math.floor(position / 60)
@@ -101,14 +110,16 @@ export function playMusicActions(music, payload) {
 
             let tracklist = payload
 
-            for(let [i, music] of tracklist.entries()){  
+            for (let [i, music] of tracklist.entries()) {
                 tracklist[i] = {
                     id: music._id,
                     url: music.file,
                     title: music.name,
                     artist: music.profile._meta.pseudo,
                     artwork: music.imgUrl,
-                    profile: music.profile
+                    profile: music.profile,
+                    isLiked: music.isLiked,
+                    music: music
                 }
             }
 
@@ -133,7 +144,7 @@ export function playRandomMusicInPlaylistActions(payload) {
             await TrackPlayer.reset()
 
             let tracklist = payload
-            for(let [i, music] of tracklist.entries()){
+            for (let [i, music] of tracklist.entries()) {
 
                 tracklist[i] = {
                     id: music._id,
@@ -141,7 +152,9 @@ export function playRandomMusicInPlaylistActions(payload) {
                     title: music.name,
                     artist: music.profile._meta.pseudo,
                     artwork: music.imgUrl,
-                    profile: music.profile
+                    profile: music.profile,
+                    isLiked: music.isLiked,
+                    music: music
                 }
 
             }
@@ -181,4 +194,214 @@ export function previousMusicActions() {
         await TrackPlayer.skipToPrevious()
         return dispatch(previousMusic())
     }
+}
+
+export function likeMusicFromPlayer(id) {
+    return { type: ActionTypes.LIKE_MUSIC_FROM_PLAYER, id }
+}
+
+export function likeMusicFromPlayerSuccess(id) {
+    return { type: ActionTypes.LIKE_MUSIC_FROM_PLAYER_SUCCESS, id }
+}
+
+export function likeMusicFromPlayerFail(id) {
+    return { type: ActionTypes.LIKE_MUSIC_FROM_PLAYER_FAIL, id }
+}
+
+export function dislikeMusicFromPlayer(id) {
+    return { type: ActionTypes.DISLIKE_MUSIC_FROM_PLAYER, id }
+}
+
+export function dislikeMusicFromPlayerSuccess(id) {
+    return { type: ActionTypes.DISLIKE_MUSIC_FROM_PLAYER_SUCCESS, id }
+}
+
+export function dislikeMusicFromPlayerFail(id) {
+    return { type: ActionTypes.DISLIKE_MUSIC_FROM_PLAYER_FAIL, id }
+}
+
+export function likeMusicFromPlayerAction(music) {
+    return async (dispatch) => {
+        try {
+
+            if (!music) return null
+
+            dispatch(likeMusicFromPlayer(music._id))
+            const url = 'https://wiins-backend.herokuapp.com/music/liked/' + music._id
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) {
+
+                        // update the music in the playlist
+                        dispatch(likeMusicSuccess(music._id))
+
+                        // add the music in the favorite playlist
+                        dispatch(addMusicAfterLiked(music))
+
+                        return dispatch(likeMusicFromPlayerSuccess(music._id))
+                    }
+                    return dispatch(likeMusicFromPlayerFail(music._id))
+                })
+        } catch (error) {
+            return dispatch(likeMusicFromPlayerFail(music._id))
+        }
+    }
+}
+
+export function dislikeMusicFromPlayerAction(id) {
+    return async (dispatch) => {
+        try {
+
+            dispatch(dislikeMusicFromPlayer(id))
+            const url = 'https://wiins-backend.herokuapp.com/music/dislike/' + id
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) {
+
+                        // update the music in the playlist
+                        dispatch(dislikeMusicSuccess(id))
+
+                        // add the music in the favorite playlist
+                        dispatch(pullMusicAfterDisliked(id))
+
+                        return dispatch(dislikeMusicFromPlayerSuccess(id))
+                    }
+                    return dispatch(dislikeMusicFromPlayerFail(id))
+                })
+        } catch (error) {
+            return dispatch(dislikeMusicFromPlayer(id))
+        }
+    }
+}
+
+export function followArtist(id) {
+    return { type: ActionTypes.FOLLOW_ARTIST, id }
+}
+
+export function followArtistSuccess() {
+    return { type: ActionTypes.FOLLOW_ARTIST_SUCCESS }
+}
+
+export function followArtistFail(id) {
+    return { type: ActionTypes.FOLLOW_ARTIST_FAIL, id }
+}
+
+export function followArtistActions(musicId, profileId) {
+    return async (dispatch) => {
+        try {
+            dispatch(followArtist())
+
+            const token = await AsyncStorage.getItem('userToken')
+            return fetch('https://wiins-backend.herokuapp.com/profile/follow/' + profileId, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then(response => {
+                    if (response.status == 200) return dispatch(followArtistSuccess())
+                    dispatch(followArtistFail(response.status))
+                })
+
+        } catch (error) {
+            dispatch(followArtistFail(error))
+        }
+    }
+}
+
+export function controlRepeatOneMusic() {
+    return { type: ActionTypes.CONTROL_REPEAT_ONE_MUSIC }
+}
+
+export function controlRepeatOnePlaylist() {
+    return { type: ActionTypes.CONTROL_REPEAT_ONE_PLAYLIST }
+}
+
+export function controlRepeatDeactivated() {
+    return { type: ActionTypes.CONTROL_REPEAT_DEACTIVATED }
+}
+
+export function shuffleMusics() {
+    return { type: ActionTypes.SHUFFLE_MUSIC }
+}
+
+export function unShuffleMusics() {
+    return { type: ActionTypes.UNSHUFFLE_MUSIC }
+}
+
+export function shuffleMusicsAction() {
+    return async (dispatch) => {
+
+        // get the old queue
+        let musicQueue = await TrackPlayer.getQueue()
+
+        // reset the queue
+        await TrackPlayer.removeUpcomingTracks()
+
+        // shake the queue
+        musicList = musicQueue
+        .map((a) => ({ sort: Math.random(), value: a }))
+        .sort((a, b) => a.sort - b.sort)
+        .map((a) => a.value)
+
+        // update the queue
+        await TrackPlayer.add(musicList)
+        
+        return dispatch(shuffleMusics())
+    }
+}
+
+export function unshuffleMusicsAction() {
+    return async (dispatch, props) => {
+
+
+        // get the old queue
+        let musicQueue = await TrackPlayer.getQueue() 
+
+        // reset the queue
+        await TrackPlayer.removeUpcomingTracks()
+
+        // get the rest of the music
+        const newList = []
+        for(let music of props().Player.trackList){
+            if(musicQueue.map(x => x.id).indexOf(music._id) !== 1) newList.push(music)
+        }
+
+        // update the queue
+        await TrackPlayer.add(newList)
+
+        return dispatch(unShuffleMusics())
+    }
+}
+
+export function controlRepeatOneMusicAction() {
+    return (dispatch) => dispatch(controlRepeatOneMusic())
+}
+
+export function controlRepeatOnePlaylistAction() {
+    return (dispatch) => dispatch(controlRepeatOnePlaylist())
+}
+
+export function controlRepeatDeactivatedAction() {
+    return (dispatch) => dispatch(controlRepeatDeactivated())
 }

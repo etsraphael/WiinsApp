@@ -100,6 +100,10 @@ export function likeMusic(id) {
     return { type: ActionTypes.LIKE_MUSIC, id }
 }
 
+export function likeMusicFromPlayer(id) {
+    return { type: ActionTypes.LIKE_MUSIC_FROM_PLAYER, id }
+}
+
 export function likeMusicSuccess(id) {
     return { type: ActionTypes.LIKE_MUSIC_SUCCESS, id }
 }

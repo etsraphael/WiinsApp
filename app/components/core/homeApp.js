@@ -2,7 +2,6 @@ import React from 'react'
 import { StyleSheet, View, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import { listenerMusic } from '../../services/music/music-service'
 import * as PlayerMusicActions from './../../../redux/Player/actions'
 import * as MyProfileActions from './../../../redux/MyProfile/actions'
 
@@ -14,17 +13,11 @@ class HomeApp extends React.Component {
             show: false,
             selection: 'MainFeed'
         }
-        this.musicProgress = null
     }
 
     componentDidMount = async () => {
         this.props.actions.getMyProfile()
         this.props.actions.resetPlayerActions()
-        this.musicProgress = listenerMusic(this.props.actions)
-    }
-
-    componentWillUnmount = async () => {
-        this.musicProgress.remove()
     }
 
     UNSAFE_componentWillReceiveProps(newProps) {

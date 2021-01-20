@@ -67,22 +67,28 @@ export default PlaylistPageReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.LIKE_MUSIC_SUCCESS: {
-      const musicFound = state.playlist.musicList.map(x => x._id).indexOf(action.id)
-      if (musicFound !== -1) {
-        state.playlist.musicList[musicFound].isLiked = true
-        return {
-          ...state
+      const newMusicList = state.playlist.musicList.map(x =>
+        x._id === action.id ? { ...x, isLiked: true } : x
+      )
+      return {
+        ...state,
+        playlist: {
+          ...state.playlist,
+          musicList: newMusicList
         }
-      } else return { ...state }
+      }
     }
     case ActionTypes.DISLIKE_MUSIC_SUCCESS: {
-      const musicFound = state.playlist.musicList.map(x => x._id).indexOf(action.id)
-      if (musicFound !== -1) {
-        state.playlist.musicList[musicFound].isLiked = false
-        return {
-          ...state
+      const newMusicList = state.playlist.musicList.map(x =>
+        x._id === action.id ? { ...x, isLiked: false } : x
+      )
+      return {
+        ...state,
+        playlist: {
+          ...state.playlist,
+          musicList: newMusicList
         }
-      } else return { ...state }
+      }
     }
     case ActionTypes.RESET_MUSIC_PLAYLIST: return initialState
     default: return state

@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import PublicationStandard from '../../core/publication-standard'
 import { FlatList } from 'react-native'
+import CardNewFeed from './../../core/card/card-new-feed'
 
 class ProfilePublication extends React.Component {
 
@@ -25,7 +25,7 @@ class ProfilePublication extends React.Component {
     render() {
         return (<FlatList
             data={this.props.ProfilePublications.publications}
-            renderItem={({ item, index }) => <PublicationStandard index={index} publication={item} navigation={this.props.navigation} space={'profile'} />}
+            renderItem={({ item, index }) => <CardNewFeed index={index} publication={item} navigation={this.props.navigation} space={'profile'} />}
             keyExtractor={item => item.id}
         />)
     }

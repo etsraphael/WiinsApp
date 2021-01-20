@@ -126,6 +126,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
     MyProfile: state.MyProfile,
     MyUser: state.MyUser,
+    Player: state.Player,
 })
 
 const ActionCreators = Object.assign(

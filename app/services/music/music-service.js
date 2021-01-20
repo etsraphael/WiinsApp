@@ -4,6 +4,7 @@ import TrackPlayer from 'react-native-track-player';
 export function listenerMusic (actions) {
 
     return TrackPlayer.addEventListener('playback-state', async (data) => {
+
         let progress = null
 
         switch (data.state) {

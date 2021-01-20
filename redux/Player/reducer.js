@@ -48,6 +48,59 @@ export default PlayerReducer = (state = initialState, action) => {
         timer: action.payload
       }
     }
-    default: return state
+    case ActionTypes.LIKE_MUSIC_FROM_PLAYER_SUCCESS: {
+      state.musicIsPlaying.isLiked = true
+      return { ...state }
+    }
+    case ActionTypes.DISLIKE_MUSIC_FROM_PLAYER_SUCCESS: {
+      state.musicIsPlaying.isLiked = false
+      return { ...state }
+    }
+    case ActionTypes.FOLLOW_ARTIST_SUCCESS: {
+      return { 
+        ...state,
+        musicIsPlaying: {
+          ...state.musicIsPlaying,
+          music: {
+            ...state.musicIsPlaying.music,
+            profile : {
+              ...state.musicIsPlaying.music.profile,
+              relation: 'following'
+            }
+          }
+        }
+      }
+    }
+    case ActionTypes.CONTROL_REPEAT_DEACTIVATED: {
+      return {
+        ...state,
+        repeatMode: 'none'
+      }
+    }
+    case ActionTypes.CONTROL_REPEAT_ONE_MUSIC: {
+      return {
+        ...state,
+        repeatMode: 'music'
+      }
+    }
+    case ActionTypes.CONTROL_REPEAT_ONE_PLAYLIST: {
+      return {
+        ...state,
+        repeatMode: 'playlist'
+      }
+    }
+    case ActionTypes.SHUFFLE_MUSIC: {
+      return {
+        ...state,
+        random: true,
+      }
+    }
+    case ActionTypes.UNSHUFFLE_MUSIC: {
+      return {
+        ...state,
+        random: false,
+      }
+    }
+    default: return { ...state }
   }
 }

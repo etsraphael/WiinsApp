@@ -6,10 +6,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import LinearGradient from 'react-native-linear-gradient'
 import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
-import TrackPlayer from 'react-native-track-player'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
+import * as PlaylistPageActions from '../../../redux/PlaylistMusicPage/actions'
 import { faMusic, faAngleDown, faRepeat } from '@fortawesome/pro-light-svg-icons'
-import { faHeart, faPause, faUserPlus, faStepBackward, faStepForward, faRandom, faPlay } from '@fortawesome/pro-solid-svg-icons'
+import { faHeart, faPause, faUserPlus, faStepBackward, faStepForward, faRandom, faPlay, faRepeat1Alt } from '@fortawesome/pro-solid-svg-icons'
 
 import ProgressBar from '../space/music/progress-bar'
 
@@ -22,9 +22,9 @@ class MiniPlayer extends React.Component {
         }
     }
 
-    componentDidMount() {
-        TrackPlayer.addEventListener('playback-state', (data) => {
-        })
+    _likeMusic = async () => {
+        // send the request
+        await this.props.actions.likeMusicFromPlayerAction(this.props.Player.musicIsPlaying.music)
     }
 
     // to pause the music
@@ -72,9 +72,69 @@ class MiniPlayer extends React.Component {
         this.props.actions.continuePlayerActions()
     }
 
+    _displayRepeatIcon = () => {
+        switch (this.props.Player.repeatMode) {
+            case 'none': {
+                return (
+                    <TouchableOpacity onPress={() => this.props.actions.controlRepeatOnePlaylistAction()}>
+                        <FontAwesomeIcon icon={faRepeat} color={'grey'} size={25} />
+                    </TouchableOpacity>
+                )
+            }
+            case 'playlist': {
+                return (
+                    <TouchableOpacity onPress={() => this.props.actions.controlRepeatOneMusicAction()}>
+                        <FontAwesomeIcon icon={faRepeat} color={'#0066cc'} size={25} />
+                    </TouchableOpacity>
+                )
+            }
+            case 'music': {
+                return (
+                    <TouchableOpacity onPress={() => this.props.actions.controlRepeatDeactivatedAction()}>
+                        <FontAwesomeIcon icon={faRepeat1Alt} color={'#0066cc'} size={25} />
+                    </TouchableOpacity>
+                )
+            }
+
+        }
+    }
+
+    _displayShuffleBtn = () => {
+        if (this.props.Player.random) {
+            return (
+                <TouchableOpacity onPress={() => this.props.actions.unshuffleMusicsAction()}>
+                    <FontAwesomeIcon icon={faRandom} color={'#0066cc'} size={25} />
+                </TouchableOpacity>
+            )
+        } else return (
+            <TouchableOpacity onPress={() => this.props.actions.shuffleMusicsAction()}>
+                <FontAwesomeIcon icon={faRandom} color={'grey'} size={25} />
+            </TouchableOpacity>
+        )
+    }
+
+    // to show relation icon
+    _displayRelationIcon = () => {
+        switch (true) {
+            case (this.props.Player.musicIsPlaying.music.profile.relation == 'friend' || this.props.Player.musicIsPlaying.music.profile.relation == 'following'):
+                return (
+                    <TouchableOpacity style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                        <FontAwesomeIcon icon={faUserPlus} color={'#0066cc'} size={19} />
+                    </TouchableOpacity>
+                )
+            case (this.props.Player.musicIsPlaying.music.profile == this.props.MyUser.user.profile): return null
+            default:
+                return (
+                    <TouchableOpacity onPress={() => this.props.actions.followArtistActions(this.props.Player.musicIsPlaying.music._id, this.props.Player.musicIsPlaying.music.profile._id)}
+                        style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                        <FontAwesomeIcon icon={faUserPlus} color={'grey'} size={19} />
+                    </TouchableOpacity>
+                )
+        }
+    }
+
     // to select the music modal view
     _modalView = () => {
-
         return (
             <Modal
                 onSwipeComplete={() => this._closeModalMusic()}
@@ -118,9 +178,15 @@ class MiniPlayer extends React.Component {
 
                             {/* Like Btn */}
                             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
-                                <TouchableOpacity style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
-                                    <FontAwesomeIcon icon={faHeart} color={'red'} size={17} />
-                                </TouchableOpacity>
+                                {this.props.Player.musicIsPlaying.isLiked ?
+                                    <TouchableOpacity onPress={() => this.props.actions.dislikeMusicFromPlayerAction(this.props.Player.musicIsPlaying.id)} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                        <FontAwesomeIcon icon={faHeart} color={'red'} size={17} />
+                                    </TouchableOpacity>
+                                    :
+                                    <TouchableOpacity onPress={() => this._likeMusic()} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                        <FontAwesomeIcon icon={faHeart} color={'grey'} size={17} />
+                                    </TouchableOpacity>
+                                }
                             </View>
 
                             {/* Description */}
@@ -131,26 +197,23 @@ class MiniPlayer extends React.Component {
 
                             {/* Follow Btn */}
                             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-                                <TouchableOpacity style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
-                                    <FontAwesomeIcon icon={faUserPlus} color={'#0066cc'} size={19} />
-                                </TouchableOpacity>
+                                {this._displayRelationIcon()}
                             </View>
 
                         </View>
 
                     </View>
 
-
                     {/* Control */}
                     <View style={{ flexDirection: 'row', marginTop: 15, paddingHorizontal: 15 }}>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faRepeat} color={'#0066cc'} size={25} />
+                            {this._displayRepeatIcon()}
                         </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity onPress={() => this._playPreviousMusic()}>
-                            <FontAwesomeIcon icon={faStepBackward} color={'#0066cc'} size={28} />
+                            <TouchableOpacity onPress={() => this._playPreviousMusic()}>
+                                <FontAwesomeIcon icon={faStepBackward} color={'#0066cc'} size={28} />
                             </TouchableOpacity>
                         </View>
 
@@ -162,7 +225,7 @@ class MiniPlayer extends React.Component {
                                         <FontAwesomeIcon icon={faPause} size={25} color={'white'} />
                                     </LinearGradient>
                                 </TouchableOpacity>
-                                : 
+                                :
                                 <TouchableOpacity onPress={() => this._continueMusic()}>
                                     <LinearGradient colors={['#4C71DA', '#2AABD1']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
                                         style={{ borderRadius: 50, padding: 15 }}>
@@ -173,13 +236,13 @@ class MiniPlayer extends React.Component {
                         </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity onPress={() => this._playNextMusic()}>
-                            <FontAwesomeIcon icon={faStepForward} color={'#0066cc'} size={28} />
+                            <TouchableOpacity onPress={() => this._playNextMusic()}>
+                                <FontAwesomeIcon icon={faStepForward} color={'#0066cc'} size={28} />
                             </TouchableOpacity>
                         </View>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faRandom} color={'#0066cc'} size={25} />
+                            {this._displayShuffleBtn()}
                         </View>
 
                     </View>
@@ -244,12 +307,14 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     MyUser: state.MyUser,
-    Player: state.Player
+    Player: state.Player,
+    PlaylistPage: state.PlaylistPage
 })
 
 const ActionCreators = Object.assign(
     {},
-    PlayerMusicActions
+    PlayerMusicActions,
+    PlaylistPageActions,
 )
 
 const mapDispatchToProps = dispatch => ({
