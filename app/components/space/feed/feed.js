@@ -22,21 +22,6 @@ const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
         contentSize.height - paddingToBottom;
 }
 
-const Box = ({
-    children,
-    flexDirection = "column",
-    // flex=1,
-    backgroundColor = "transparent",
-    alignItems = "flex-start",
-    justifyContent = "flex-start"
-}) => {
-    return (
-        <View style={{ justifyContent, alignItems, flexDirection, backgroundColor }}>
-            { children}
-        </View>
-    )
-}
-
 class Feed extends React.Component {
 
     constructor(props) {
@@ -44,8 +29,11 @@ class Feed extends React.Component {
         this.state = {
             isHeaderVisible: true,
             search: '',
+
             pagePublication: 1,
             isRefreshing: false,
+            isLoadingMore: false,
+
             modal: false,
             PublicationModal: null,
             publicationMode: false,
@@ -156,9 +144,11 @@ class Feed extends React.Component {
         if (!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0) {
             return (
                 <FlatList
+                    onRefresh={this._refreshRequest}
+                    refreshing={this.state.isRefreshing}
                     onScrollBeginDrag={this._onScroll}
                     data={this.props.FeedPublications.publications}
-                    renderItem={({ item, index }) => <CardNewFeed index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
+                    renderItem={({ item, index }) => <CardNewFeed index={index} isLastElem={this.props.FeedPublications.publications.length - 1 === index} navigation={this.props.navigation} publication={item} space={'feed'} />}
                     keyExtractor={(item) => item._id.toString()}
                     ItemSeparatorComponent={FeedSeparator}
                 />
@@ -167,7 +157,7 @@ class Feed extends React.Component {
     }
 
     // to display the list of the publications
-    _displayPublicationFeed = () => {
+    _displayPublicationFeed = () => { //borderTopLeftRadius: 35, borderTopRightRadius: 35
         return (
             <View style={{ flex: 1, overflow: 'hidden' }}>
                 <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }} showsVerticalScrollIndicator={false} >
