@@ -214,9 +214,9 @@ class HomeMusic extends React.Component {
                 <FlatList
                     style={{ flex: 1 }}
                     ItemSeparatorComponent={this._renderSeparator}
-                    data={this.state.fakeMusiclist}
-                    keyExtractor={(item) => item.id.toString()}
-                    renderItem={({ item, index }) => (<OneMusic music={item} tracklist={this.state.fakeMusiclist} index={index} />)}
+                    data={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]}
+                    keyExtractor={(item) => item._id.toString()}
+                    renderItem={({ item, index }) => (<OneMusic music={item} tracklist={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]} index={index} />)}
                 />
             </View>
         )
@@ -224,8 +224,6 @@ class HomeMusic extends React.Component {
 
     // to display the list of the genre
     _chartViews = () => {
-
-        return null // only for the prototype
 
         return (
             <View style={styles.container_section}>
