@@ -137,49 +137,50 @@ class PublicationModal extends React.Component {
     _footer(publication) {
         return (
             <View style={styles.container_footer}>
-                <View style={{ flex: 1, flexDirection: 'row', height: 52, paddingHorizontal: 25 }}>
+                <View style={{ flex: 1, flexDirection: 'row', height: 'auto', paddingHorizontal: 25 }}>
                     <View style={{ flexDirection: 'row', flex: 7, backgroundColor: '#464646a8', borderRadius: 20 }}>
                         <TextInput
                             placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
                             placeholderTextColor="#FFFFFF"
                             value={this.state.textComment}
-                            style={{ flex: 9, paddingLeft: 15, color: "#FFFFFF", borderRadius: 17, height: '100%' }}
+                            style={{ flex: 9, padding: 15, paddingTop: 20, color: "#FFFFFF", borderRadius: 17, height: '100%', minHeight: 55, fontSize: 16 }}
                             onChangeText={(val) => this._writteComment(val)}
                             onSubmitEditing={() => this.sendComment()}
+                            multiline={true}
+                            numberOfLines={10}
                         />
 
 
-                        {this.state.textComment.length > 10 ? 
-                        <TouchableOpacity onPress={() => this.sendComment()}
-                        style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
-                            <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={19} />
-                        </TouchableOpacity>
-                        : 
-                        <TouchableOpacity onPress={() => this._likeBtn()}
-                        style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
-                            <FontAwesomeIcon icon={faHeart} color={this._displayIconLikeColor()} size={19} />
-                        </TouchableOpacity>
+                        {this.state.textComment.length > 10 ?
+                            <TouchableOpacity onPress={() => this.sendComment()}
+                                style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
+                                <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={19} />
+                            </TouchableOpacity>
+                            :
+                            <TouchableOpacity onPress={() => this._likeBtn()}
+                                style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
+                                <FontAwesomeIcon icon={faHeart} color={this._displayIconLikeColor()} size={19} />
+                            </TouchableOpacity>
                         }
 
-
-                        
-
-
-
-
                     </View>
-                    <View style={{ flex: 2, paddingLeft: 25, alignItems: 'center' }}>
-                        <View style={{ flex: 1, flexDirection: 'row' }}>
-                            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }} onPress={() => this._loadComment()}>
-                                <FontAwesomeIcon icon={faCommentLines} color={'white'} size={19} />
-                                <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}>
-                                <FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />
-                                <Text style={{ fontSize: 15, color: 'white', paddingLeft: 7 }}>{publication.like.likeNumber}</Text>
-                            </TouchableOpacity>
+
+
+                    {this.state.textComment.length > 20 ? null :
+                        <View style={{ flex: 2, paddingLeft: 25, alignItems: 'center' }}>
+                            <View style={{ flex: 1, flexDirection: 'row' }}>
+                                <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }} onPress={() => this._loadComment()}>
+                                    <FontAwesomeIcon icon={faCommentLines} color={'white'} size={19} />
+                                    <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}>
+                                    <FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />
+                                    <Text style={{ fontSize: 15, color: 'white', paddingLeft: 7 }}>{publication.like.likeNumber}</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
-                    </View>
+                    }
+
                 </View>
             </View>
         )
@@ -399,7 +400,7 @@ class PublicationModal extends React.Component {
 
     // to like or dislike publication
     _likeBtn() {
-        
+
         if (!this.props.publicationModal.publication.like.isLike) {
 
             let like
@@ -423,7 +424,7 @@ class PublicationModal extends React.Component {
             }
 
 
-            
+
             switch (this.props.publicationModal.space) {
                 case 'feed': return this.props.actions.likePublicationFeed(like)
                 case 'profile': return this.props.actions.likePublicationProfile(like)
@@ -451,16 +452,12 @@ class PublicationModal extends React.Component {
                     isVisible={true}
                     transparent={true}
                     // propagateSwipe={true}
-                    animationIn={'zoomIn'}
+                    animationIn={'bounceInUp'}
                     animationOut={'zoomOut'}
                     animationInTiming={500}
                     style={{ backgroundColor: 'white', flex: 1, margin: 0, borderRadius: 15, overflow: 'hidden' }}
                     swipeDirection='down'
                     swipeThreshold={50}
-                    // onSwipeMove={() => setTimeout(() => { DeviceEventEmitter.emit('toggleModal') }, 1000)}
-
-
-
                 >
 
                     <KeyboardAvoidingView
