@@ -18,8 +18,7 @@ import Video from 'react-native-video'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { getDateTranslated } from '../../services/translation/translation-service'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faTimes, faCommentLines, faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
-
+import { faTimes, faCommentLines, faHeart as faHeartEmpty, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import I18n from '../../i18n/i18n'
 
@@ -32,7 +31,7 @@ class PublicationModal extends React.Component {
             displayVideo: false,
             background_filter: false,
             page: 1,
-            textComment: null
+            textComment: ''
         }
     }
 
@@ -83,6 +82,9 @@ class PublicationModal extends React.Component {
     // send the comment
     sendComment = () => {
 
+
+        alert('send')
+
         if (!this.state.textComment) return null
 
         if (this.props.publicationModal.publication.profile) {
@@ -119,6 +121,10 @@ class PublicationModal extends React.Component {
 
     }
 
+    _writteComment = (val) => {
+        this.setState({ textComment: val })
+    }
+
     _displayIconLikeColor = () => {
         if (this.props.publicationModal.publication.like.isLike) return 'red'
         else return 'white'
@@ -135,12 +141,29 @@ class PublicationModal extends React.Component {
                             placeholderTextColor="#FFFFFF"
                             value={this.state.textComment}
                             style={{ flex: 9, paddingLeft: 15, color: "#FFFFFF", borderRadius: 17, height: '100%' }}
-                            onChangeText={(val) => this.setState({ textComment: val })}
+                            onChangeText={(val) => this._writteComment(val)}
+                            onSubmitEditing={() => this.sendComment()}
                         />
+
+
+                        {this.state.textComment.length > 10 ? 
+                        <TouchableOpacity onPress={() => this.sendComment()}
+                        style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
+                            <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={19} />
+                        </TouchableOpacity>
+                        : 
                         <TouchableOpacity onPress={() => this._likeBtn()}
                         style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
                             <FontAwesomeIcon icon={faHeart} color={this._displayIconLikeColor()} size={19} />
                         </TouchableOpacity>
+                        }
+
+
+                        
+
+
+
+
                     </View>
                     <View style={{ flex: 2, paddingLeft: 25, alignItems: 'center' }}>
                         <View style={{ flex: 1, flexDirection: 'row' }}>
