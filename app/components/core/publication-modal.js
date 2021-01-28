@@ -85,6 +85,9 @@ class PublicationModal extends React.Component {
 
         alert('send')
 
+
+        return null
+
         if (!this.state.textComment) return null
 
         if (this.props.publicationModal.publication.profile) {
@@ -117,7 +120,7 @@ class PublicationModal extends React.Component {
             this.props.actions.sendCommentToPage(comment, this.props.publicationModal.space)
         }
 
-        this.setState({ textComment: null })
+        this.setState({ textComment: '' })
 
     }
 
@@ -447,12 +450,19 @@ class PublicationModal extends React.Component {
                     onSwipeComplete={() => DeviceEventEmitter.emit('toggleModal')}
                     isVisible={true}
                     transparent={true}
-                    propagateSwipe={true}
+                    // propagateSwipe={true}
                     animationIn={'zoomIn'}
                     animationOut={'zoomOut'}
                     animationInTiming={500}
-                    style={{ backgroundColor: 'white', flex: 1, margin: 0 }}
+                    style={{ backgroundColor: 'white', flex: 1, margin: 0, borderRadius: 15, overflow: 'hidden' }}
+                    swipeDirection='down'
+                    swipeThreshold={50}
+                    // onSwipeMove={() => setTimeout(() => { DeviceEventEmitter.emit('toggleModal') }, 1000)}
+
+
+
                 >
+
                     <KeyboardAvoidingView
                         behavior={Platform.OS === "ios" ? "padding" : null}
                         keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
