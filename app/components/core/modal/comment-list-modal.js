@@ -3,8 +3,9 @@ import { StyleSheet, View, Text, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
-import * as SearchActions from '../../../redux/SearchBar/actions'
-import * as CommentListActions from '../../../redux/CommentList/actions'
+import * as SearchActions from '../../../../redux/SearchBar/actions'
+import * as CommentListActions from '../../../../redux/CommentList/actions'
+import Modal from 'react-native-modal'
 
 class CommentListModal extends React.Component {
 
@@ -52,20 +53,28 @@ class CommentListModal extends React.Component {
     }
 
     render() {
+
         return (
             <Modal
-                    onSwipeComplete={() => DeviceEventEmitter.emit('toggleModal')}
+                    onSwipeComplete={() => this.props.closeModal()}
                     isVisible={true}
                     transparent={true}
                     propagateSwipe={true}
                     animationIn={'bounceInUp'}
                     animationOut={'zoomOut'}
                     animationInTiming={500}
-                    style={{ backgroundColor: 'white', flex: 1, margin: 0, borderRadius: 15, overflow: 'hidden' }}
+                    style={{ backgroundColor: 'white', flex: 1, margin: 0, borderRadius: 15, overflow: 'hidden',marginTop: '40%' }}
                     swipeDirection='down'
                     swipeThreshold={50}
                 >
-                <FlatList
+
+
+                <View style={{flex: 1, backgroundColor: 'red'}}></View>
+
+
+
+
+                {/* <FlatList
                     inverted
                     showsVerticalScrollIndicator={false}
                     ListFooterComponent={this._loadMoreBtn}
@@ -73,7 +82,7 @@ class CommentListModal extends React.Component {
                     data={this.props.CommentList.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
                     keyExtractor={(item) => item._id.toString()}
                     renderItem={({ item }) => (this._oneComment(item))}
-                />
+                /> */}
             </Modal>
         )
     }

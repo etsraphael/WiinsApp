@@ -21,6 +21,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faTimes, faCommentLines, faHeart as faHeartEmpty, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import I18n from '../../../i18n/i18n'
+import CommentListModal from './comment-list-modal'
 
 class PublicationModal extends React.Component {
 
@@ -31,7 +32,9 @@ class PublicationModal extends React.Component {
             displayVideo: false,
             background_filter: false,
             page: 1,
-            textComment: ''
+            textComment: '',
+            commentVisible: false,
+            swipDirection: 'down'
         }
     }
 
@@ -41,12 +44,23 @@ class PublicationModal extends React.Component {
 
     _toggleComment() {
 
-        if(this.state.page == 2){
-            this.setState({ page: 1, background_filter: false })
+
+
+        if(this.state.commentVisible == true){
+            this.setState({commentVisible: false, swipDirection: 'down'})
+
         } else {
-            this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
-            this.setState({ page: 2, background_filter: true })
+            this.setState({commentVisible: true, swipDirection: null})
         }
+
+        
+
+        // if(this.state.page == 2){
+        //     this.setState({ page: 1, background_filter: false })
+        // } else {
+        //     this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
+        //     this.setState({ page: 2, background_filter: true })
+        // }
     }
 
     componentWillUnmount() {
@@ -452,16 +466,21 @@ class PublicationModal extends React.Component {
     render() {
         return (
             <View>
+
+
+                
+
+
                 <Modal
                     onSwipeComplete={() => DeviceEventEmitter.emit('toggleModal')}
                     isVisible={true}
                     transparent={true}
-                    // propagateSwipe={true}
+                    propagateSwipe={true}
                     animationIn={'bounceInUp'}
                     animationOut={'zoomOut'}
                     animationInTiming={500}
                     style={{ backgroundColor: 'white', flex: 1, margin: 0, borderRadius: 15, overflow: 'hidden' }}
-                    swipeDirection='down'
+                    swipeDirection={this.state.swipDirection}
                     swipeThreshold={50}
                 >
 
@@ -472,7 +491,14 @@ class PublicationModal extends React.Component {
                     >
                         {this._showTypePublication(this.props.publicationModal.publication)}
                     </KeyboardAvoidingView>
+
+
+                    {this.state.commentVisible ?  <CommentListModal closeModal={() => this._toggleComment()}></CommentListModal> : null}
+
+
                 </Modal>
+
+
             </View>
         )
     }
