@@ -83,6 +83,10 @@ class CommentListModal extends React.Component {
                     keyExtractor={(item) => item._id.toString()}
                     renderItem={({ item }) => (this._oneComment(item))}
                 /> */}
+
+
+
+                
             </Modal>
         )
     }

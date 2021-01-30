@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, DeviceEventEmitter } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
@@ -75,7 +75,7 @@ class CardNewFeedMasonry extends React.Component {
         return (
             <TouchableOpacity
                 onLayout={(event) => { this.setState({ textHeight: 0 })  }}
-                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >
                 <LinearGradient colors={background} start={orientation[0]} end={orientation[1]} style={{ height: publication.text.trim().length * 2.7 , justifyContent: 'center' }}>
                     <Text style={{
@@ -115,7 +115,7 @@ class CardNewFeedMasonry extends React.Component {
             <>
                 <TouchableOpacity
                     style={styles.cardPostPicture}
-                    onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                    onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
                 >
                     {
                         this.state.cardWidth > 0 && <FastImage
@@ -137,7 +137,7 @@ class CardNewFeedMasonry extends React.Component {
             <>
                 <TouchableOpacity
                     style={styles.cardPostPicture}
-                    onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                    onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
                 >
                     {
                         this.state.cardWidth > 0 && <FastImage
@@ -292,7 +292,7 @@ class CardNewFeedMasonry extends React.Component {
                     <Text style={{ marginLeft: 10 }}>{like.likeNumber}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                    onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
                     style={{ flexDirection: 'row' }}>
                     <FontAwesomeIcon icon={faComment} size={20} />
                     <Text style={{ marginLeft: 10 }}>{commentNumber}</Text>
