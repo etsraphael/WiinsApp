@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    StyleSheet, View, Text, DeviceEventEmitter, TouchableOpacity, Image,
+    StyleSheet, View, Text, TouchableOpacity, Image,
     ActivityIndicator, KeyboardAvoidingView, Platform, FlatList, Keyboard, TextInput
 } from 'react-native'
 import { connect } from 'react-redux'
@@ -18,8 +18,8 @@ import Video from 'react-native-video'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faTimes, faCommentLines, faHeart as faHeartEmpty, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faCommentLines, faHeart as faHeartEmpty, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
+import { faHeart, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import I18n from '../../../i18n/i18n'
 import CommentListModal from './comment-list-modal'
 
@@ -38,10 +38,6 @@ class PublicationModal extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.eventListener = DeviceEventEmitter.addListener('toggleSuggest', this.toggleSuggest);
-    }
-
     _toggleComment = () => {
         if(this.state.commentVisible == true){
             this.setState({commentVisible: false, swipDirection: 'down'})
@@ -54,7 +50,6 @@ class PublicationModal extends React.Component {
 
     componentWillUnmount() {
         this.props.actions.resetComment()
-        this.eventListener.remove()
         Keyboard.dismiss()
     }
 
@@ -67,13 +62,13 @@ class PublicationModal extends React.Component {
     _goToProfile = (profileId) => {
         if (profileId !== this.props.MyProfile._id) this.props.publicationModal.navigation.navigate('Profile', { profileId })
         else this.props.navigation.navigate('MyProfile')
-        DeviceEventEmitter.emit('toggleModal')
+        this.props.toggleModal()
     }
 
     // to navigate to a page
     _goToPage = (pageId) => {
         this.props.publicationModal.navigation.navigate('Page', { pageId })
-        DeviceEventEmitter.emit('toggleModal')
+        this.props.toggleModal()
     }
 
     // to select the comment views
@@ -197,8 +192,8 @@ class PublicationModal extends React.Component {
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
                     <TouchableOpacity style={{ height: 35, width: 35, borderRadius: 35, backgroundColor: '#00000036', justifyContent: 'center', alignItems: 'center' }}
-                        onPress={() => DeviceEventEmitter.emit('toggleModal')}>
-                        <FontAwesomeIcon icon={faTimes} color={'white'} size={19} />
+                        onPress={() => this.props.toggleModal()}>
+                        <FontAwesomeIcon icon={faAngleDown} color={'white'} size={22} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -456,7 +451,7 @@ class PublicationModal extends React.Component {
                     transparent={true}
                     propagateSwipe={true}
                     animationIn={'bounceInUp'}
-                    animationOut={'zoomOut'}
+                    animationOut={'bounceOutDown'}
                     animationInTiming={500}
                     style={{ backgroundColor: 'white', flex: 1, margin: 0, borderRadius: 15, overflow: 'hidden' }}
                     swipeDirection={this.state.swipDirection}
