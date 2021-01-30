@@ -450,12 +450,7 @@ class PublicationModal extends React.Component {
         return (
             <View>
 
-
-                
-
-
                 <Modal
-                    // onSwipeComplete={() => DeviceEventEmitter.emit('toggleModal')}
                     onSwipeComplete={() => this.props.toggleModal()}
                     isVisible={true}
                     transparent={true}
