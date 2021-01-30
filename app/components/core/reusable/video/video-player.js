@@ -62,13 +62,13 @@ class VideoPlayer extends React.Component {
             return null;
         }
 
-        console.log("overlay", this.state.overlay)
-        // if (this.state.overlay) {
-        //     this.setState({ overlay: false })
-        // } else {
-        //     this.setState({ overlay: true })
-        //     this.scheduleCloseOverlay()
-        // }
+        // console.log("overlay", this.state.overlay)
+        if (this.state.overlay) {
+            this.setState({ overlay: false })
+        } else {
+            this.setState({ overlay: true })
+            // this.scheduleCloseOverlay()
+        }
     }
     scheduleCloseOverlay = () => {
         this.overlayTimer ? clearTimeout(this.overlayTimer) : null

@@ -42,25 +42,14 @@ class PublicationModal extends React.Component {
         this.eventListener = DeviceEventEmitter.addListener('toggleSuggest', this.toggleSuggest);
     }
 
-    _toggleComment() {
-
-
-
+    _toggleComment = () => {
         if(this.state.commentVisible == true){
             this.setState({commentVisible: false, swipDirection: 'down'})
 
         } else {
+            this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
             this.setState({commentVisible: true, swipDirection: null})
         }
-
-        
-
-        // if(this.state.page == 2){
-        //     this.setState({ page: 1, background_filter: false })
-        // } else {
-        //     this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
-        //     this.setState({ page: 2, background_filter: true })
-        // }
     }
 
     componentWillUnmount() {
@@ -100,12 +89,6 @@ class PublicationModal extends React.Component {
 
     // send the comment
     sendComment = () => {
-
-
-        alert('send')
-
-
-        return null
 
         if (!this.state.textComment) return null
 
@@ -467,12 +450,8 @@ class PublicationModal extends React.Component {
         return (
             <View>
 
-
-                
-
-
                 <Modal
-                    onSwipeComplete={() => DeviceEventEmitter.emit('toggleModal')}
+                    onSwipeComplete={() => this.props.toggleModal()}
                     isVisible={true}
                     transparent={true}
                     propagateSwipe={true}

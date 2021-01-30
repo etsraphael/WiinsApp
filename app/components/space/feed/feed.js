@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     StyleSheet, View, FlatList, TouchableOpacity,
-    LayoutAnimation, Image, LogBox, DeviceEventEmitter, ScrollView, SafeAreaView
+    LayoutAnimation, Image, LogBox, ScrollView, SafeAreaView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
@@ -43,23 +43,15 @@ class Feed extends React.Component {
         }
         _listViewOffset = 0
 
-        LogBox.ignoreLogs([
-            'VirtualizedLists should never be nested', // TODO: Remove when fixed
-        ])
     }
 
     UNSAFE_componentWillMount() {
         this._getPublicationList()
         this.props.actions.resetPublication()
-        this.eventListener = DeviceEventEmitter.addListener('toggleModal', this.toggleModal);
-    }
-
-    componentWillUnmount() {
-        this.eventListener.remove();
     }
 
     // to display the modal view
-    toggleModal = (event) => {
+    _toggleModal = (event) => {
         this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
@@ -148,7 +140,19 @@ class Feed extends React.Component {
                     refreshing={this.state.isRefreshing}
                     onScrollBeginDrag={this._onScroll}
                     data={this.props.FeedPublications.publications}
+<<<<<<< HEAD
                     renderItem={({ item, index }) => <CardNewFeed index={index} isLastElem={this.props.FeedPublications.publications.length - 1 === index} navigation={this.props.navigation} publication={item} space={'feed'} />}
+=======
+                    renderItem={({ item, index }) =>
+                        <CardNewFeed
+                            index={index}
+                            navigation={this.props.navigation}
+                            publication={item}
+                            space={'feed'}
+                            toggleModal={(event) => this._toggleModal(event)}
+                        />
+                    }
+>>>>>>> f5d004bbc287d89fcbe90744679a233d13692f1b
                     keyExtractor={(item) => item._id.toString()}
                     ItemSeparatorComponent={FeedSeparator}
                 />
@@ -203,7 +207,7 @@ class Feed extends React.Component {
 
                     {/* Modal */}
                     {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
-                    {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} /> : null}
+                    {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
                     {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
 
                 </View>

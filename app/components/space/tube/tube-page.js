@@ -237,8 +237,6 @@ class TubePage extends React.Component {
     render() {
         return (
             <View style={styles.main_container}>
-
-
                 {this.props.TubePage.isLoading ? null :
                     <View style={{ flex: 1 }}>
                         {/* Header */}

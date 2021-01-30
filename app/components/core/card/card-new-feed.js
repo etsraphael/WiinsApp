@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, DeviceEventEmitter } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
@@ -82,7 +82,7 @@ class CardNewFeed extends React.Component {
         return (
             <TouchableWithoutFeedback // TouchableOpacity
                 style={{ height: 400 }}
-                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >
                 <LinearGradient colors={background} start={orientation[0]} end={orientation[1]} style={{ flex: 1, justifyContent: 'center' }}>
                     <Text style={{
@@ -110,7 +110,7 @@ class CardNewFeed extends React.Component {
         return (
             <TouchableWithoutFeedback // TouchableOpacity
             style={styles.container_type} 
-            onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+            onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >
 
                 <FastImage
@@ -129,7 +129,7 @@ class CardNewFeed extends React.Component {
 
         return (
             <TouchableOpacity style={styles.container_type}
-                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >
                 <FastImage
                     style={{ flex: 1, width: '100%', height: this.state.imageHeight }}
@@ -320,7 +320,7 @@ class CardNewFeed extends React.Component {
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity
-                                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
                                 style={{ flex: 1 }}
                             >
                                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 35 }}>
