@@ -41,52 +41,31 @@ class CommentListModal extends React.Component {
         )
     }
 
-    // to load more comment
-    _loadMoreBtn = () => {
-        return (
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
-                <View style={{ flexDirection: 'row', backgroundColor: '#00000066', flexWrap: 'wrap', marginVertical: 5, borderRadius: 35, padding: 5 }}>
-                    <View style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <View style={{ paddingLeft: 10, paddingRight: 15 }}>
-                            <Text style={{ color: '#FFFFFF', fontWeight: '400' }}>Load more..</Text>
-                        </View>
-                    </View>
-                </View>
-            </View>
-        )
-    }
-
     render() {
 
         return (
             <Modal
-                    onSwipeComplete={() => this.props.closeModal()}
-                    onBackdropPress={() => this.props.closeModal()}
-                    isVisible={true}
-                    transparent={true}
-                    propagateSwipe={true}
-                    animationIn={'bounceInUp'}
-                    animationOut={'zoomOut'}
-                    animationInTiming={500}
-                    style={{ backgroundColor: '#fffffff2', flex: 1, margin: 0, borderRadius: 35, overflow: 'hidden',marginTop: '40%' }}
-                    swipeDirection='down'
-                    swipeThreshold={50}
-                >
+                onSwipeComplete={() => this.props.closeModal()}
+                onBackdropPress={() => this.props.closeModal()}
+                isVisible={true}
+                transparent={true}
+                propagateSwipe={true}
+                animationIn={'bounceInUp'}
+                animationOut={'zoomOut'}
+                animationInTiming={500}
+                style={{ backgroundColor: '#fffffff2', flex: 1, margin: 0, borderRadius: 35, overflow: 'hidden', marginTop: '40%' }}
+                swipeDirection='down'
+                swipeThreshold={50}
+            >
+                <View style={{ flex: 1 }}>
+                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', marginTop: 15, paddingBottom: 15, borderBottomWidth: 0.5, borderColor: '#cccccc' }}>
+                        <FontAwesomeIcon style={{ marginHorizontal: 15 }} icon={faComments} size={25} color="blue" />
+                        <Text style={{ color: '#1E2022', fontWeight: '400', fontSize: 20, fontFamily: 'Gill Sans', }}>{I18n.t('CORE.Comment')}</Text>
+                    </View>
 
-
-                <View style={{flex: 1}}>
-
-
-                <View style={{flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', marginTop: 15, paddingBottom: 15, borderBottomWidth: 0.5, borderColor: '#cccccc'}}>
-                    <FontAwesomeIcon style={{marginHorizontal: 15}} icon={faComments} size={25} color="blue"/>
-                    <Text style={{ color: '#1E2022', fontWeight: '400', fontSize: 20, fontFamily: 'Gill Sans',}}>{I18n.t('CORE.Comment')}</Text>
-                </View>
-
-
+                    
                 <FlatList
-                    inverted={true}
                     showsVerticalScrollIndicator={false}
-                    ListFooterComponent={this._loadMoreBtn}
                     data={this.props.CommentList.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
                     keyExtractor={(item) => item._id.toString()}
                     renderItem={({ item }) => this._oneComment(item)}
@@ -94,34 +73,22 @@ class CommentListModal extends React.Component {
 
 
 
-
-{/* 
-                <FlatList
-                    style={{backgroundColor: 'red'}}
-                    inverted={true}
+                    
+                {/* <FlatList
                     showsVerticalScrollIndicator={false}
                     data={[1,2,3,4,5,6,7,8]}
                     keyExtractor={(item) => item.toString()}
-                    renderItem={({ item }) => {
+                    renderItem={({ item }) => 
                         <View style={{flexDirection: 'row', marginHorizontal: 15, backgroundColor: 'red', height: 50}}>
-                            <Text>{item}</Text>
+                            <Text style={{color: 'black'}}>sldkfsdofnksdi</Text>
                         </View>
-                    }}
+                    }
                 /> */}
 
 
 
-                
+
                 </View>
-
-
-
-
-                
-
-
-
-
             </Modal>
         )
     }
