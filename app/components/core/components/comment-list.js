@@ -14,6 +14,8 @@ class CommentList extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+        }
     }
 
     // to get the view one comment
@@ -32,33 +34,42 @@ class CommentList extends React.Component {
                     <View style={{ justifyContent: 'center', paddingTop: 5 }}>
                         <View style={{ paddingLeft: 10 }}>
                             <Text style={{ color: '#1E2022', fontWeight: '600' }}>{comment.idProfil._meta.pseudo}</Text>
-                            <Text style={{ color: '#77838F', lineHeight: 18, paddingTop: 5}}>{comment.text} sdlkvsdof sdflsdf jsdlfksj dflksdjflsdkfjsdl fsdflksdjfsldfnskg sfgj dfgkjdfg nkdfgnfdgd nfgdfk gjdfn <Text style={{paddingLeft: 5, color: '#7055E8', fontWeight: '600'}}>{i18n.t('CORE.answer')}</Text></Text>
-                            <View style={{flexDirection: 'row', alignItems: 'center', paddingVertical: 5}}>
-                                <FontAwesomeIcon style={{marginRight: 5}} icon={faReply} transform={{ rotate: 180 }} color={'#784BEA'} size={15} />
+                            <Text style={{ color: '#77838F', lineHeight: 18, paddingTop: 5 }}>{comment.text} sdlkvsdof sdflsdf jsdlfksj dflksdjflsdkfjsdl fsdflksdjfsldfnskg sfgj dfgkjdfg nkdfgnfdgd nfgdfk gjdfn <Text style={{ paddingLeft: 5, color: '#7055E8', fontWeight: '600' }}>{i18n.t('CORE.answer')}</Text></Text>
+                            <View style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 5 }}>
+                                <FontAwesomeIcon style={{ marginRight: 5 }} icon={faReply} transform={{ rotate: 180 }} color={'#784BEA'} size={15} />
                                 <Text>8 responses </Text>
                             </View>
                         </View>
                     </View>
                 </View>
                 <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 15 }}>
-                    <TouchableOpacity style={{flexDirection: 'row'}}>
+                    <TouchableOpacity style={{ flexDirection: 'row' }}>
                         <FontAwesomeIcon icon={faHeart} color={'#784BEA'} size={17} />
-                        <Text style={{marginHorizontal: 5, color: '#77838F'}}>12</Text>
+                        <Text style={{ marginHorizontal: 5, color: '#77838F' }}>12</Text>
                     </TouchableOpacity>
                 </View>
             </View>
         )
     }
 
+    _onScroll = (e) => {
+        if (e.nativeEvent.contentOffset.y <= 0) {
+            this.props.activePropagateSwipe()
+        } else {
+            this.props.inactivePropagateSwipe()
+        }
+    }
+
     render() {
         return (
-                <FlatList
-                    style={{flex: 1}}
-                    showsVerticalScrollIndicator={false}
-                    data={[...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)),...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)),...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)),...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt))]}
-                    keyExtractor={(item) => item._id.toString()}
-                    renderItem={({ item }) => this._oneComment(item) }
-                />
+            <FlatList
+                style={{ flex: 1 }}
+                onScroll={this._onScroll}
+                showsVerticalScrollIndicator={false}
+                data={[...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt))]}
+                keyExtractor={(item) => item._id.toString()}
+                renderItem={({ item }) => this._oneComment(item)}
+            />
         )
     }
 }

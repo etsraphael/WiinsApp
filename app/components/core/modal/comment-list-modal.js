@@ -17,6 +17,14 @@ class CommentListModal extends React.Component {
         super(props)
     }
 
+    __activePropagateSwipe = () => {
+        return this.props._activePropagateSwipe()
+    }
+
+    __inactivePropagateSwipe = () => {
+        return this.props._inactivePropagateSwipe()
+    }
+
     render() {
 
         return (
@@ -41,9 +49,15 @@ class CommentListModal extends React.Component {
                     </View>
 
                     {/* Body and footer */}
-                    <SafeAreaView style={{height: '80%', overflow: 'hidden'}}>
-                        <CommentList commentList={this.props.CommentList.commentList} />
+                    <SafeAreaView style={{ height: '80%', overflow: 'hidden' }}>
+                        <CommentList
+                            commentList={this.props.CommentList.commentList}
+                            activePropagateSwipe={this.__activePropagateSwipe}
+                            inactivePropagateSwipe={this.__inactivePropagateSwipe}
+                        />
                     </SafeAreaView>
+
+                    <View style={{ height: '20%', backgroundColor: '#cdcdcd' }} />
 
                 </View>
             </Modal>

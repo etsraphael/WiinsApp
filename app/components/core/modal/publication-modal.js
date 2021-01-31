@@ -34,8 +34,17 @@ class PublicationModal extends React.Component {
             page: 1,
             textComment: '',
             commentVisible: false,
-            swipDirection: 'down'
+            swipDirection: 'down',
+            propagateSwipe: false
         }
+    }
+
+    _activePropagateSwipe = () => {
+        this.setState({ propagateSwipe: true })
+    }
+
+    _inactivePropagateSwipe = () => {
+        this.setState({ propagateSwipe: false })
     }
 
     _toggleComment = () => {
@@ -449,7 +458,7 @@ class PublicationModal extends React.Component {
                     onSwipeComplete={() => this.props.toggleModal()}
                     isVisible={true}
                     transparent={true}
-                    propagateSwipe={false}
+                    propagateSwipe={this.state.propagateSwipe}
                     animationIn={'bounceInUp'}
                     animationOut={'bounceOutDown'}
                     animationInTiming={500}
@@ -467,7 +476,13 @@ class PublicationModal extends React.Component {
                     </KeyboardAvoidingView>
 
 
-                    {this.state.commentVisible ?  <CommentListModal closeModal={() => this._toggleComment()}></CommentListModal> : null}
+                    {this.state.commentVisible ?  
+                    <CommentListModal 
+                    closeModal={() => this._toggleComment()}
+                    _activePropagateSwipe={this._activePropagateSwipe}
+                    _inactivePropagateSwipe={this._inactivePropagateSwipe}
+                    />
+                    : null}
 
 
                 </Modal>
