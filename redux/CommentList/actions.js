@@ -13,6 +13,18 @@ export function updateCommentStat(publicationId, space) {
     }
 }
 
+export function getResponseStart() {
+    return { type: ActionTypes.GET_REPONSE_LIST }
+}
+
+export function getResponseSuccess(id) {
+    return { type: ActionTypes.GET_REPONSE_LIST_SUCCESS, id }
+}
+
+export function getResponseFail(error) {
+    return { type: ActionTypes.GET_REPONSE_LISTT_FAIL, payload: error }
+}
+
 export function likeCommentSuccess(id) {
     return { type: ActionTypes.LIKE_COMMENT_SUCCESS, id }
 }
@@ -64,7 +76,6 @@ export function sendCommentSuccess(response) {
 export function sendCommentFail(error) {
     return { type: ActionTypes.SEND_COMMENT_FAIL, payload: error }
 }
-
 
 export function likeCommentPublication(like) {
     return async (dispatch) => {
@@ -247,6 +258,31 @@ export function getCommentListPublication(id, page) {
                 })
         } catch (error) {
             return dispatch(getCommentListFail(error));
+        }
+    };
+}
+
+export function getResponseByIdAndPage(id, page){
+    return async (dispatch) => {
+        try {
+            dispatch(getResponseStart())
+            const url = 'https://wiins-backend.herokuapp.com/comments/response/' + id
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) return dispatch(getResponseSuccess(response.results))
+                    return dispatch(getResponseFail(response.message))
+                })
+        } catch (error) {
+            return dispatch(getResponseFail(error));
         }
     };
 }
