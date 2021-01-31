@@ -449,7 +449,7 @@ class PublicationModal extends React.Component {
                     onSwipeComplete={() => this.props.toggleModal()}
                     isVisible={true}
                     transparent={true}
-                    propagateSwipe={true}
+                    propagateSwipe={false}
                     animationIn={'bounceInUp'}
                     animationOut={'bounceOutDown'}
                     animationInTiming={500}
