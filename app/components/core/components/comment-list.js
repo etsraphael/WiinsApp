@@ -19,7 +19,7 @@ class CommentList extends React.Component {
     // to get the view one comment
     _oneComment(comment) {
         return (
-            <View style={{ flexDirection: 'row', paddingHorizontal: 15, paddingTop: 10 }}>
+            <View style={{ flexDirection: 'row', paddingHorizontal: 15, paddingTop: 10, position: 'relative' }}>
                 <View style={{ flex: 1 }}>
                     <View style={styles.container_avatar_comment}>
                         <FastImage
@@ -52,14 +52,13 @@ class CommentList extends React.Component {
 
     render() {
         return (
-            <ScrollView style={{flex: 1}}>
                 <FlatList
+                    style={{flex: 1}}
                     showsVerticalScrollIndicator={false}
-                    data={[...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt))]}
+                    data={[...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)),...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)),...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)),...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt)), ...this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt))]}
                     keyExtractor={(item) => item._id.toString()}
                     renderItem={({ item }) => this._oneComment(item) }
                 />
-            </ScrollView>
         )
     }
 }

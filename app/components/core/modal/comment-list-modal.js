@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, SafeAreaView } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as SearchActions from '../../../../redux/SearchBar/actions'
@@ -25,7 +25,7 @@ class CommentListModal extends React.Component {
                 onBackdropPress={() => this.props.closeModal()}
                 isVisible={true}
                 transparent={true}
-                propagateSwipe={true}
+                propagateSwipe={false}
                 animationIn={'bounceInUp'}
                 animationOut={'zoomOut'}
                 animationInTiming={500}
@@ -41,11 +41,19 @@ class CommentListModal extends React.Component {
                     </View>
 
                     {/* Body and footer */}
-                    <CommentList commentList={this.props.CommentList.commentList}/>
+                    <SafeAreaView style={{height: '80%', overflow: 'hidden'}}>
+                        <CommentList commentList={this.props.CommentList.commentList} />
+                    </SafeAreaView>
+
                 </View>
             </Modal>
         )
     }
+
+
+
+
+
 }
 
 const styles = StyleSheet.create({
