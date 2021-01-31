@@ -48,12 +48,12 @@ class PublicationModal extends React.Component {
     }
 
     _toggleComment = () => {
-        if(this.state.commentVisible == true){
-            this.setState({commentVisible: false, swipDirection: 'down'})
+        if (this.state.commentVisible == true) {
+            this.setState({ commentVisible: false, swipDirection: 'down' })
 
         } else {
             this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
-            this.setState({commentVisible: true, swipDirection: null})
+            this.setState({ commentVisible: true, swipDirection: null })
         }
     }
 
@@ -476,13 +476,13 @@ class PublicationModal extends React.Component {
                     </KeyboardAvoidingView>
 
 
-                    {this.state.commentVisible ?  
-                    <CommentListModal 
-                    closeModal={() => this._toggleComment()}
-                    _activePropagateSwipe={this._activePropagateSwipe}
-                    _inactivePropagateSwipe={this._inactivePropagateSwipe}
-                    />
-                    : null}
+                    {this.state.commentVisible ?
+                        <CommentListModal
+                            closeModal={() => this._toggleComment()}
+                            _activePropagateSwipe={this._activePropagateSwipe}
+                            _inactivePropagateSwipe={this._inactivePropagateSwipe}
+                        />
+                        : null}
 
 
                 </Modal>
