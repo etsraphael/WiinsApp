@@ -19,44 +19,82 @@ class CommentList extends React.Component {
     }
 
     _heartColor = (liked) => {
-        if(liked) return '#784BEA'
+        if (liked) return '#784BEA'
         else return '#77838F'
-    } 
+    }
 
-    // to get the view one comment
     _oneComment(comment) {
         return (
-            <View style={{ flexDirection: 'row', paddingHorizontal: 15, paddingTop: 10, position: 'relative' }}>
-                <View style={{ flex: 1 }}>
-                    <View style={styles.container_avatar_comment}>
-                        <FastImage
-                            style={{ width: 45, height: 45, borderRadius: 45 }} resizeMode={FastImage.resizeMode.cover}
-                            source={{ uri: comment.idProfil.pictureprofile, priority: FastImage.priority.normal }}
-                        />
+            <View>
+                <View style={{ flexDirection: 'row', paddingHorizontal: 15, paddingTop: 10, position: 'relative' }}>
+                    <View style={{ flex: 1 }}>
+                        <View style={styles.container_avatar_comment}>
+                            <FastImage
+                                style={{ width: 45, height: 45, borderRadius: 45 }} resizeMode={FastImage.resizeMode.cover}
+                                source={{ uri: comment.idProfil.pictureprofile, priority: FastImage.priority.normal }}
+                            />
+                        </View>
+                    </View>
+                    <View style={{ flex: 5 }}>
+                        <View style={{ justifyContent: 'center', paddingTop: 5 }}>
+                            <View style={{ paddingLeft: 10 }}>
+                                <Text style={{ color: '#1E2022', fontWeight: '600' }}>{comment.idProfil._meta.pseudo}</Text>
+                                <Text style={{ color: '#77838F', lineHeight: 18, paddingTop: 5 }}>{comment.text} <Text style={{ paddingLeft: 5, color: '#7055E8', fontWeight: '600' }}>{i18n.t('CORE.answer')}</Text></Text>
+                                {comment.response > 0 ?
+                                    <View style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 5 }}>
+                                        <FontAwesomeIcon style={{ marginRight: 5 }} icon={faReply} transform={{ rotate: 180 }} color={'#784BEA'} size={15} />
+                                        <Text>{comment.response} responses </Text>
+                                    </View>
+                                    : null}
+                            </View>
+                        </View>
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 15 }}>
+                        <TouchableOpacity style={{ flexDirection: 'row' }}>
+                            <FontAwesomeIcon icon={faHeart} color={this._heartColor(comment.liked)} size={17} />
+                            {comment.like > 0 ? <Text style={{ marginHorizontal: 5, color: '#77838F' }}>{comment.like}</Text> : null}
+                        </TouchableOpacity>
                     </View>
                 </View>
-                <View style={{ flex: 5 }}>
-                    <View style={{ justifyContent: 'center', paddingTop: 5 }}>
-                        <View style={{ paddingLeft: 10 }}>
-                            <Text style={{ color: '#1E2022', fontWeight: '600' }}>{comment.idProfil._meta.pseudo}</Text>
-                            <Text style={{ color: '#77838F', lineHeight: 18, paddingTop: 5 }}>{comment.text} <Text style={{ paddingLeft: 5, color: '#7055E8', fontWeight: '600' }}>{i18n.t('CORE.answer')}</Text></Text>
-                            {comment.response > 0 ?
-                            <View style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 5 }}>
-                                <FontAwesomeIcon style={{ marginRight: 5 }} icon={faReply} transform={{ rotate: 180 }} color={'#784BEA'} size={15} />
-                                 <Text>{comment.response} responses </Text>
+                {this._oneResponse(comment)}
+            </View>
+        )
+    }
+
+    _oneResponse(comment) {
+        return (
+            <View style={{ flexDirection: 'row' }}>
+                <View style={{ flex: 1 }} />
+                <View style={{ flex: 6, flexDirection: 'row', paddingHorizontal: 15, paddingTop: 10 }}>
+                    <View style={{ flex: 1 }}>
+                        <View style={styles.container_avatar_comment}>
+                            <FastImage
+                                style={{ width: 35, height: 35, borderRadius: 35 }} resizeMode={FastImage.resizeMode.cover}
+                                source={{ uri: comment.idProfil.pictureprofile, priority: FastImage.priority.normal }}
+                            />
+                        </View>
+                    </View>
+                    <View style={{ flex: 5 }}>
+                        <View style={{ justifyContent: 'center', paddingTop: 5 }}>
+                            <View style={{ paddingLeft: 10 }}>
+                                <Text style={{ color: '#1E2022', fontWeight: '600' }}>{comment.idProfil._meta.pseudo}</Text>
+                                <Text style={{ color: '#77838F', lineHeight: 18, paddingTop: 5 }}>{comment.text}</Text>
                             </View>
-                            : null}
                         </View>
                     </View>
                 </View>
                 <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 15 }}>
-                    <TouchableOpacity style={{ flexDirection: 'row' }}>
-                        <FontAwesomeIcon icon={faHeart} color={this._heartColor(comment.liked)} size={17} />
-                        {comment.like > 0 ? <Text style={{ marginHorizontal: 5, color: '#77838F' }}>{comment.like}</Text> : null}
-                    </TouchableOpacity>
+                        <TouchableOpacity style={{ flexDirection: 'row' }}>
+                            <FontAwesomeIcon icon={faHeart} color={this._heartColor(comment.liked)} size={17} />
+                            {comment.like > 0 ? <Text style={{ marginHorizontal: 5, color: '#77838F' }}>{comment.like}</Text> : null}
+                        </TouchableOpacity>
+                    </View>
                 </View>
-            </View>
         )
+    }
+
+    _responseList = (comment) => {
+        return null
     }
 
     _onScroll = (e) => {
