@@ -23,6 +23,20 @@ class CommentList extends React.Component {
         else return '#77838F'
     }
 
+    _likeComment = (comment) => {
+        if (!comment.liked) {
+            const newComment = {
+                commentID: comment._id,
+                ownerType: 'profile',
+                publicationID: comment.publicationId,
+                publicationProfile: comment.idProfil._id,
+                type: 'base'
+            }
+            this.props.actions.likeCommentPublication(newComment)
+        }
+        else this.props.actions.unlikeCommentPublication(comment._id)
+    }
+
     _oneComment(comment) {
         return (
             <View>
@@ -50,7 +64,7 @@ class CommentList extends React.Component {
                         </View>
                     </View>
                     <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 15 }}>
-                        <TouchableOpacity style={{ flexDirection: 'row' }}>
+                        <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._likeComment(comment)}>
                             <FontAwesomeIcon icon={faHeart} color={this._heartColor(comment.liked)} size={17} />
                             {comment.like > 0 ? <Text style={{ marginHorizontal: 5, color: '#77838F' }}>{comment.like}</Text> : null}
                         </TouchableOpacity>
