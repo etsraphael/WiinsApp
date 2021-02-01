@@ -46,6 +46,17 @@ export default CommentListReducer = (state = initialState, action) => {
         ...state
       }
     }
+    case ActionTypes.GET_REPONSE_LIST_SUCCESS: {
+      const found = state.commentList.map(x => x._id).indexOf(action.id)
+      if(!state.commentList[found].responseList) {
+        state.commentList[found].responseList = action.results
+      } else {
+        state.commentList[found].responseList.concat(action.results)
+      }
+      return {
+        ...state
+      }
+    }
     case ActionTypes.RESET_COMMENT_LIST  : return initialState
     default: return state
   }

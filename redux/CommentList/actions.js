@@ -17,8 +17,8 @@ export function getResponseStart() {
     return { type: ActionTypes.GET_REPONSE_LIST }
 }
 
-export function getResponseSuccess(id) {
-    return { type: ActionTypes.GET_REPONSE_LIST_SUCCESS, id }
+export function getResponseSuccess(id, results) {
+    return { type: ActionTypes.GET_REPONSE_LIST_SUCCESS, id, results }
 }
 
 export function getResponseFail(error) {
@@ -278,7 +278,7 @@ export function getResponseByIdAndPage(id, page){
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 200) return dispatch(getResponseSuccess(response.results))
+                    if (response.status == 200) return dispatch(getResponseSuccess(id, response.results))
                     return dispatch(getResponseFail(response.message))
                 })
         } catch (error) {

@@ -40,7 +40,7 @@ class CommentList extends React.Component {
                             <View style={{ paddingLeft: 10 }}>
                                 <Text style={{ color: '#1E2022', fontWeight: '600' }}>{comment.idProfil._meta.pseudo}</Text>
                                 <Text style={{ color: '#77838F', lineHeight: 18, paddingTop: 5 }}>{comment.text} <Text style={{ paddingLeft: 5, color: '#7055E8', fontWeight: '600' }}>{i18n.t('CORE.answer')}</Text></Text>
-                                {comment.response > 0 ?
+                                {comment.response > 0 && !comment.responseList ?
                                     <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 5 }} onPress={() => this.props.actions.getResponseByIdAndPage(comment._id)}>
                                         <FontAwesomeIcon style={{ marginRight: 5 }} icon={faReply} transform={{ rotate: 180 }} color={'#784BEA'} size={15} />
                                         <Text>{comment.response} responses </Text>
@@ -56,7 +56,7 @@ class CommentList extends React.Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-                {this._oneResponse(comment)}
+                { !!comment.responseList && comment.responseList.length > 0 ? this._responseList(comment.responseList) : null }
             </View>
         )
     }
@@ -70,14 +70,14 @@ class CommentList extends React.Component {
                         <View style={styles.container_avatar_comment}>
                             <FastImage
                                 style={{ width: 35, height: 35, borderRadius: 35 }} resizeMode={FastImage.resizeMode.cover}
-                                source={{ uri: comment.idProfil.pictureprofile, priority: FastImage.priority.normal }}
+                                source={{ uri: comment.commentProfile.pictureprofile, priority: FastImage.priority.normal }}
                             />
                         </View>
                     </View>
                     <View style={{ flex: 5 }}>
                         <View style={{ justifyContent: 'center', paddingTop: 5 }}>
                             <View style={{ paddingLeft: 10 }}>
-                                <Text style={{ color: '#1E2022', fontWeight: '600' }}>{comment.idProfil._meta.pseudo}</Text>
+                                <Text style={{ color: '#1E2022', fontWeight: '600' }}>{comment.commentProfile._meta.pseudo}</Text>
                                 <Text style={{ color: '#77838F', lineHeight: 18, paddingTop: 5 }}>{comment.text}</Text>
                             </View>
                         </View>
@@ -93,8 +93,14 @@ class CommentList extends React.Component {
         )
     }
 
-    _responseList = (comment) => {
-        return null
+    _responseList = (response) => {
+        return (<FlatList
+            style={{ flex: 1 }}
+            showsVerticalScrollIndicator={false}
+            data={response.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
+            keyExtractor={(item) => item._id.toString()}
+            renderItem={({ item }) => this._oneResponse(item)}
+        />)
     }
 
     _onScroll = (e) => {
