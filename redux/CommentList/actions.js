@@ -4,6 +4,30 @@ import { UPDATE_COMMENT_PUBLICATIONS_FEED_SUCCESS } from './../FeedPublications/
 import { UPDATE_COMMENT_PUBLICATIONS_PROFILE_SUCCESS } from './../ProfilePublications/constants'
 import AsyncStorage from '@react-native-community/async-storage'
 
+export function likeReponseSuccess(id) {
+    return { type: ActionTypes.LIKE_RESPONSE_SUCCESS, id }
+}
+
+export function likeReponseStart() {
+    return { type: ActionTypes.LIKE_RESPONSE }
+}
+
+export function likeReponseFail(error) {
+    return { type: ActionTypes.LIKE_RESPONSE_FAIL, payload: error }
+}
+
+export function unlikeReponseSuccess(id) {
+    return { type: ActionTypes.UNLIKE_RESPONSE_SUCCESS, id }
+}
+
+export function unlikeReponseStart() {
+    return { type: ActionTypes.UNLIKE_RESPONSE }
+}
+
+export function unlikeReponseFail(error) {
+    return { type: ActionTypes.UNLIKE_RESPONSE_FAIL, payload: error }
+}
+
 export function updateCommentStat(publicationId, space) {
     switch (space) {
         case 'feed': return { type: UPDATE_COMMENT_PUBLICATIONS_FEED_SUCCESS, id: publicationId }
@@ -127,6 +151,63 @@ export function unlikeCommentPublication(id) {
         }
     }
 }
+
+export function likeResponsePublication(like) {
+    return async (dispatch) => {
+        try {
+            dispatch(likeReponseStart())
+            const url = 'https://wiins-backend.herokuapp.com/likes/comment'
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify(like)
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 201) return dispatch(likeReponseSuccess(response.id))
+                    return dispatch(likeReponseFail(response))
+                })
+        } catch (error) {
+            console.log(error)
+            return dispatch(likeReponseFail(error))
+        }
+    }
+}
+
+export function unlikeResponsePublication(id) {
+    return async (dispatch) => {
+        try {
+            dispatch(unlikeReponseStart())
+            const url = 'https://wiins-backend.herokuapp.com/likes/comment/' + id
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 201) return dispatch(unlikeReponseSuccess(id))
+                    return dispatch(unlikeReponseFail(response))
+                })
+        } catch (error) {
+            console.log(error)
+            return dispatch(unlikeReponseFail(error))
+        }
+    }
+}
+
+
+
+/////
 
 export function sendCommentToPage(comment, space) {
     return async (dispatch) => {

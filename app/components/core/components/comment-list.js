@@ -37,7 +37,21 @@ class CommentList extends React.Component {
         else this.props.actions.unlikeCommentPublication(comment._id)
     }
 
-    _oneComment(comment) {
+    _likeResponse = (comment) => {
+        if (!comment.liked) {
+            const newComment = {
+                commentID: comment._id,
+                ownerType: 'profile',
+                publicationID: comment.publicationId,
+                publicationProfile: comment.idProfil._id,
+                type: 'base'
+            }
+            this.props.actions.likeResponsePublication(newComment)
+        }
+        else this.props.actions.unlikeResponsePublication(comment._id)
+    }
+
+    _oneComment = (comment) => {
         return (
             <View>
                 <View style={{ flexDirection: 'row', paddingHorizontal: 15, paddingTop: 10, position: 'relative' }}>
@@ -75,7 +89,7 @@ class CommentList extends React.Component {
         )
     }
 
-    _oneResponse(comment) {
+    _oneResponse = (comment) => {
         return (
             <View style={{ flexDirection: 'row' }}>
                 <View style={{ flex: 1 }} />
@@ -98,7 +112,7 @@ class CommentList extends React.Component {
                     </View>
                 </View>
                 <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 15 }}>
-                        <TouchableOpacity style={{ flexDirection: 'row' }}>
+                        <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._likeResponse(comment)}>
                             <FontAwesomeIcon icon={faHeart} color={this._heartColor(comment.liked)} size={17} />
                             {comment.like > 0 ? <Text style={{ marginHorizontal: 5, color: '#77838F' }}>{comment.like}</Text> : null}
                         </TouchableOpacity>
