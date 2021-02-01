@@ -65,9 +65,9 @@ class CommentList extends React.Component {
                     </View>
                     <View style={{ flex: 5 }}>
                         <View style={{ justifyContent: 'center', paddingTop: 5 }}>
-                            <View style={{ paddingLeft: 10 }}>
+                            <View style={{ paddingLeft: 10, position: 'relative' }}>
                                 <Text style={{ color: '#1E2022', fontWeight: '600' }}>{comment.idProfil._meta.pseudo}</Text>
-                                <Text style={{ color: '#77838F', lineHeight: 18, paddingTop: 5 }}>{comment.text} <Text style={{ paddingLeft: 5, color: '#7055E8', fontWeight: '600' }}>{i18n.t('CORE.answer')}</Text></Text>
+                                <Text style={{ color: '#77838F', lineHeight: 18, paddingTop: 5 }}>{comment.text} <TouchableOpacity onPress={() => this.props.responseUser(comment)}><Text style={{ paddingLeft: 5, color: '#7055E8', fontWeight: '600' }}>({i18n.t('CORE.answer')})</Text></TouchableOpacity></Text>
                                 {comment.response > 0 && !comment.responseList ?
                                     <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 5 }} onPress={() => this.props.actions.getResponseByIdAndPage(comment._id)}>
                                         <FontAwesomeIcon style={{ marginRight: 5 }} icon={faReply} transform={{ rotate: 180 }} color={'#784BEA'} size={15} />
