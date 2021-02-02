@@ -12,7 +12,7 @@ class SettingLedger extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.main_container}>
                 <Text> Setting Ledger </Text>
             </View>
         )

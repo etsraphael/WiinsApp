@@ -12,7 +12,7 @@ class SettingPassword extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.main_container}>
                 <Text> Setting Password </Text>
             </View>
         )

@@ -12,7 +12,7 @@ class SettingCertification extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.main_container}>
                 <Text> Setting Certification </Text>
             </View>
         )

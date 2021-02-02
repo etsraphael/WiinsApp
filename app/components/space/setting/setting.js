@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import * as MyUserActions from './../../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft, faKey, faUser, faLanguage, faEllipsisH, faWallet, faCertificate, faSignOut } from '@fortawesome/pro-light-svg-icons'
+import { faArrowLeft, faKey, faUser, faEllipsisH, faWallet, faCertificate, faSignOut } from '@fortawesome/pro-light-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
 
@@ -56,9 +56,8 @@ class Setting extends React.Component {
     _renderBody = () => {
         return (
             <View style={{ flex: 1, padding: 15 }}>
-
                 <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity onPress={() => alert('on progress..')}
+                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingProfile')}
                         style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} />
@@ -67,7 +66,7 @@ class Setting extends React.Component {
                             <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Profile</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingPassword')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} />
                         </View>
@@ -75,7 +74,7 @@ class Setting extends React.Component {
                             <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Password</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingLedger')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} />
                         </View>
@@ -85,7 +84,7 @@ class Setting extends React.Component {
                     </TouchableOpacity>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingCertification')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} />
                         </View>
@@ -93,7 +92,7 @@ class Setting extends React.Component {
                             <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Certification</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingOther')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} />
                         </View>
@@ -115,7 +114,6 @@ class Setting extends React.Component {
     }
 
     render() {
-
         return (
             <View style={styles.container}>
                 <ScrollView style={{ height: '100%' }}>

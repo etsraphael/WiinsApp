@@ -7,6 +7,11 @@ import Page from '../components/space/page/page'
 import MyProfile from '../components/space/profile/my-profile'
 import Sign from '../components/sign/sign'
 import Setting from '../components/space/setting/setting'
+import SettingProfile from '../components/space/setting/setting-profile'
+import SettingLedger from '../components/space/setting/setting-ledger'
+import SettingOther from '../components/space/setting/setting-other'
+import SettingPassword from '../components/space/setting/setting-password'
+import SettingCertification from '../components/space/setting/setting-certification'
 
 const FeedRoute = createStackNavigator(
     { Feed: { screen: Feed } },
@@ -14,7 +19,14 @@ const FeedRoute = createStackNavigator(
 )
 
 const SettingRoute = createStackNavigator(
-    { Setting: { screen: ({ navigation }) => <Setting screenProps={{ rootNavigation: navigation }} /> } },
+    { 
+        Setting: { screen: ({ navigation }) => <Setting screenProps={{ rootNavigation: navigation }} /> }, 
+        SettingProfile: { screen: ({ navigation }) => <SettingProfile screenProps={{ rootNavigation: navigation }} /> },
+        SettingLedger: { screen: ({ navigation }) => <SettingLedger screenProps={{ rootNavigation: navigation }} /> }, 
+        SettingOther: { screen: ({ navigation }) => <SettingOther screenProps={{ rootNavigation: navigation }} /> }, 
+        SettingPassword: { screen: ({ navigation }) => <SettingPassword screenProps={{ rootNavigation: navigation }} /> }, 
+        SettingCertification: { screen: ({ navigation }) => <SettingCertification screenProps={{ rootNavigation: navigation }} /> }, 
+    },
     { headerMode: 'none', initialRouteName: 'Setting' }
 )
 

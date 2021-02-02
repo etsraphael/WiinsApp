@@ -12,7 +12,7 @@ class SettingProfile extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <View style={styles.main_container}>
                 <Text> Setting Profile </Text>
             </View>
         )
@@ -30,15 +30,15 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
     MyUser: state.MyUser,
     MyProfile: state.MyProfile
-});
+})
 
 const ActionCreators = Object.assign(
     {},
     MyUserActions,
-);
+)
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(ActionCreators, dispatch),
-});
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingProfile)
