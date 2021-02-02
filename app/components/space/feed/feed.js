@@ -118,6 +118,7 @@ class Feed extends React.Component {
             <View style={styles.header_container}>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
                     <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('Setting')}
                         style={{ justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faCog} size={24} color={'#aeaeae'} />
                     </TouchableOpacity>
