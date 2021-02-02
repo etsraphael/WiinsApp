@@ -85,7 +85,6 @@ class Setting extends React.Component {
                     </TouchableOpacity>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
-                    
                     <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} />
