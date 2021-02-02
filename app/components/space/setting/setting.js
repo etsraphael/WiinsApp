@@ -6,11 +6,18 @@ import { bindActionCreators } from 'redux'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft, faKey, faUser, faLanguage, faEllipsisH, faWallet, faCertificate, faSignOut } from '@fortawesome/pro-light-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
+import AsyncStorage from '@react-native-community/async-storage'
 
 class Setting extends React.Component {
 
     constructor(props) {
         super(props)
+    }
+
+    // to logout the user
+    _logOut = async () => {
+        await AsyncStorage.removeItem('userToken')
+        this.props.actions.logOut()
     }
 
     // to display the header of the profile
@@ -51,7 +58,8 @@ class Setting extends React.Component {
             <View style={{ flex: 1, padding: 15 }}>
 
                 <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => alert('on progress..')}
+                        style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} />
                         </View>
@@ -59,7 +67,7 @@ class Setting extends React.Component {
                             <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Profile</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} />
                         </View>
@@ -67,7 +75,7 @@ class Setting extends React.Component {
                             <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Password</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faLanguage} color={'#808080a3'} size={30} />
                         </View>
@@ -77,7 +85,7 @@ class Setting extends React.Component {
                     </TouchableOpacity>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} />
                         </View>
@@ -85,7 +93,7 @@ class Setting extends React.Component {
                             <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Ledger</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} />
                         </View>
@@ -93,7 +101,7 @@ class Setting extends React.Component {
                             <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Certification</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} />
                         </View>
@@ -103,7 +111,7 @@ class Setting extends React.Component {
                     </TouchableOpacity>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
+                    <TouchableOpacity onPress={() => this._logOut()} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faSignOut} color={'#808080a3'} size={30} />
                         </View>
@@ -133,23 +141,21 @@ class Setting extends React.Component {
 
 const styles = StyleSheet.create({
     main_container: {
-        flex: 1,
+        flex: 1
     },
     onCard: {
         backgroundColor: 'white',
+        borderWidth: 0,
         borderRadius: 9,
         padding: 35,
-        justifyContent: 'center',
-        alignItems: 'center',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
             height: 2,
         },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-
-        elevation: 5,
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+        elevation: 4,
     }
 })
 
@@ -160,7 +166,7 @@ const mapStateToProps = state => ({
 
 const ActionCreators = Object.assign(
     {},
-    MyUserActions
+    MyUserActions,
 );
 
 const mapDispatchToProps = dispatch => ({
