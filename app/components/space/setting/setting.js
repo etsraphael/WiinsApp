@@ -77,22 +77,15 @@ class Setting extends React.Component {
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
-                            <FontAwesomeIcon icon={faLanguage} color={'#808080a3'} size={30} />
-                        </View>
-                        <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Language</Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} />
                         </View>
                         <View style={{ paddingTop: 8 }}>
                             <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Ledger</Text>
                         </View>
                     </TouchableOpacity>
+                </View>
+                <View style={{ flexDirection: 'row' }}>
+                    
                     <TouchableOpacity onPress={() => alert('on progress..')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} />
@@ -109,8 +102,6 @@ class Setting extends React.Component {
                             <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Others</Text>
                         </View>
                     </TouchableOpacity>
-                </View>
-                <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity onPress={() => this._logOut()} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
                         <View style={styles.onCard}>
                             <FontAwesomeIcon icon={faSignOut} color={'#808080a3'} size={30} />
@@ -119,8 +110,6 @@ class Setting extends React.Component {
                             <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Log Out</Text>
                         </View>
                     </TouchableOpacity>
-                    <View style={{ flex: 1 }} />
-                    <View style={{ flex: 1 }} />
                 </View>
             </View>
         )
