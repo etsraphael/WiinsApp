@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView, StatusBar } from 'react-native'
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView, StatusBar, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
@@ -17,12 +17,6 @@ class HomeTube extends React.Component {
         this.state = {
             categorySelected: 'trending'
         }
-    }
-
-    /* For testing purpose */
-    testValue = {
-        a: 'https://i.pinimg.com/236x/c7/a1/b8/c7a1b863aeba4b9a409b61ad7201924b.jpg',
-        b: 'https://i.pinimg.com/236x/e1/20/a8/e120a8628766f705cfd017ecf9ef00ea.jpg'
     }
 
     UNSAFE_componentWillMount = () => {
@@ -89,9 +83,6 @@ class HomeTube extends React.Component {
     }
 
     // to display one tube
-    /*
-    TODO: Change render value on real api data
-    */
     _oneTubeRender = (item, isLarge = false, isLastIndex) => {
         return (
             <TouchableOpacity
@@ -175,19 +166,34 @@ class HomeTube extends React.Component {
         )
     }
 
+    // to select the loading of the contents
+    _bodyRender = () => {
+        if (this.props.TubeMenu.isLoading) {
+            return (
+                <View style={{ height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+                    <ActivityIndicator style={{ marginTop: 35 }} size='large' color="#595959" />
+                </View>
+            )
+        } else {
+            return (<View>
+                {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending', { fontWeight: 'bold' }, true)}
+                {/* {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Recommended For You')} */}
+
+                {/* {this._categorieViews()} */}
+                {/* {this._tubeListBySection(this.props.TubeMenu.following, 'Following')}
+                    {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending')}
+                    {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Suggestion')} */}
+            </View>)
+        }
+    }
+
     render() {
         return (
             <>
                 <StatusBar backgroundColor="white" barStyle="dark-content" />
                 <ScrollView style={styles.main_container}>
                     {this._header()}
-                    {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending', { fontWeight: 'bold' }, true)}
-                    {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Recommended For You')}
-
-                    {/* {this._categorieViews()} */}
-                    {this._tubeListBySection(this.props.TubeMenu.following, 'Following')}
-                    {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending')}
-                    {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Suggestion')}
+                    {this._bodyRender()}
                 </ScrollView>
             </>
         )
