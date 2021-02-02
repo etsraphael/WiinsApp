@@ -171,7 +171,7 @@ class Feed extends React.Component {
     _displayPublicationFeed = () => {
         return (
             <View style={{ flex: 1, overflow: 'hidden' }}>
-                <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }} showsVerticalScrollIndicator={false} >
+                <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white' }} showsVerticalScrollIndicator={false} >
                     <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
                     {this._publicationList()}
                 </ScrollView>
