@@ -132,8 +132,8 @@ android {
         applicationId "com.wiins"
         minSdkVersion 24
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 7
-        versionName "7"
+        versionCode 8
+        versionName "8"
         multiDexEnabled true
         missingDimensionStrategy 'react-native-camera', 'general'
     }
