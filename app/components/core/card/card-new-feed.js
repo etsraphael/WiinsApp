@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPlay, faComment } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 
 class CardNewFeed extends React.Component {
 
@@ -79,7 +80,7 @@ class CardNewFeed extends React.Component {
         }
 
         return (
-            <TouchableOpacity
+            <TouchableWithoutFeedback // TouchableOpacity
                 style={{ height: 400 }}
                 onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >
@@ -99,7 +100,7 @@ class CardNewFeed extends React.Component {
                         {publication.text}
                     </Text>
                 </LinearGradient>
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
         )
     }
 
@@ -107,7 +108,7 @@ class CardNewFeed extends React.Component {
     _renderPicture(publication) {
 
         return (
-            <TouchableOpacity 
+            <TouchableWithoutFeedback // TouchableOpacity
             style={styles.container_type} 
             onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >
@@ -119,7 +120,7 @@ class CardNewFeed extends React.Component {
                     onLoad={this.onImageLoaded}
                 />
 
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
         )
     }
 
