@@ -113,13 +113,8 @@ class CardNewFeedMasonry extends React.Component {
 
         return (
             <TouchableOpacity
-<<<<<<< HEAD
-                style={{ height: 400 }}
-                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
-=======
                 onLayout={(event) => { this.setState({ textHeight: 0 })  }}
                 onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
->>>>>>> f5d004bbc287d89fcbe90744679a233d13692f1b
             >
                 <LinearGradient colors={background} start={orientation[0]} end={orientation[1]} style={{ flex: 1, justifyContent: 'center' }}>
                     <Text style={{
@@ -227,7 +222,7 @@ class CardNewFeedMasonry extends React.Component {
             return (
                 <>
                     {
-                        publication.text.trim().length > 0 && <View style={styles.cardPostText}>
+                        (publication.text && publication.text.trim().length > 0) && <View style={styles.cardPostText}>
                             <Text>{publication.text}</Text>
                         </View>
                     }

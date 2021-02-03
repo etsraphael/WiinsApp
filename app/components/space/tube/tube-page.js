@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
-import CommentList from '../../core/comment-list'
+import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faAngleDown, faPaperPlane, faPause, faPlay, faThumbsUp } from '@fortawesome/pro-light-svg-icons'
@@ -104,7 +104,7 @@ class TubePage extends React.Component {
                         <FontAwesomeIcon icon={faAngleDown} color={'white'} size={32} />
                     </TouchableOpacity>
                 </View>
-                <CommentList type={'tube'} />
+                {/* <CommentList type={'tube'} /> */}
                 <View style={{ flexDirection: 'row', height: 39, marginBottom: 15 }}>
                     <TextInput
                         placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}

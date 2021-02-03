@@ -140,9 +140,6 @@ class Feed extends React.Component {
                     refreshing={this.state.isRefreshing}
                     onScrollBeginDrag={this._onScroll}
                     data={this.props.FeedPublications.publications}
-<<<<<<< HEAD
-                    renderItem={({ item, index }) => <CardNewFeed index={index} isLastElem={this.props.FeedPublications.publications.length - 1 === index} navigation={this.props.navigation} publication={item} space={'feed'} />}
-=======
                     renderItem={({ item, index }) =>
                         <CardNewFeed
                             index={index}
@@ -152,7 +149,6 @@ class Feed extends React.Component {
                             toggleModal={(event) => this._toggleModal(event)}
                         />
                     }
->>>>>>> f5d004bbc287d89fcbe90744679a233d13692f1b
                     keyExtractor={(item) => item._id.toString()}
                     ItemSeparatorComponent={FeedSeparator}
                 />

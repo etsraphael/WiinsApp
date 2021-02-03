@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    StyleSheet, View, Text, DeviceEventEmitter, TouchableOpacity, Image,
+    StyleSheet, View, Text, TouchableOpacity, Image,
     ActivityIndicator, KeyboardAvoidingView, Platform, FlatList, Keyboard, TextInput
 } from 'react-native'
 import { connect } from 'react-redux'
@@ -9,7 +9,6 @@ import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import * as CommentListActions from '../../../../redux/CommentList/actions'
-import CommentList from '../comment-list'
 import TagSuggest from '../tag-suggest'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
@@ -18,8 +17,8 @@ import Video from 'react-native-video'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faTimes, faCommentLines, faHeart as faHeartEmpty, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
+import { faCommentLines, faHeart as faHeartEmpty, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
+import { faHeart, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import I18n from '../../../i18n/i18n'
 import CommentListModal from './comment-list-modal'
 
@@ -34,27 +33,31 @@ class PublicationModal extends React.Component {
             page: 1,
             textComment: '',
             commentVisible: false,
-            swipDirection: 'down'
+            swipDirection: 'down',
+            propagateSwipe: false
         }
     }
 
-    componentDidMount() {
-        this.eventListener = DeviceEventEmitter.addListener('toggleSuggest', this.toggleSuggest);
+    _activePropagateSwipe = () => {
+        this.setState({ propagateSwipe: true })
+    }
+
+    _inactivePropagateSwipe = () => {
+        this.setState({ propagateSwipe: false })
     }
 
     _toggleComment = () => {
-        if(this.state.commentVisible == true){
-            this.setState({commentVisible: false, swipDirection: 'down'})
+        if (this.state.commentVisible == true) {
+            this.setState({ commentVisible: false, swipDirection: 'down' })
 
         } else {
             this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
-            this.setState({commentVisible: true, swipDirection: null})
+            this.setState({ commentVisible: true, swipDirection: null })
         }
     }
 
     componentWillUnmount() {
         this.props.actions.resetComment()
-        this.eventListener.remove()
         Keyboard.dismiss()
     }
 
@@ -67,13 +70,13 @@ class PublicationModal extends React.Component {
     _goToProfile = (profileId) => {
         if (profileId !== this.props.MyProfile._id) this.props.publicationModal.navigation.navigate('Profile', { profileId })
         else this.props.navigation.navigate('MyProfile')
-        DeviceEventEmitter.emit('toggleModal')
+        this.props.toggleModal()
     }
 
     // to navigate to a page
     _goToPage = (pageId) => {
         this.props.publicationModal.navigation.navigate('Page', { pageId })
-        DeviceEventEmitter.emit('toggleModal')
+        this.props.toggleModal()
     }
 
     // to select the comment views
@@ -197,8 +200,8 @@ class PublicationModal extends React.Component {
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
                     <TouchableOpacity style={{ height: 35, width: 35, borderRadius: 35, backgroundColor: '#00000036', justifyContent: 'center', alignItems: 'center' }}
-                        onPress={() => DeviceEventEmitter.emit('toggleModal')}>
-                        <FontAwesomeIcon icon={faTimes} color={'white'} size={19} />
+                        onPress={() => this.props.toggleModal()}>
+                        <FontAwesomeIcon icon={faAngleDown} color={'white'} size={22} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -454,9 +457,9 @@ class PublicationModal extends React.Component {
                     onSwipeComplete={() => this.props.toggleModal()}
                     isVisible={true}
                     transparent={true}
-                    propagateSwipe={true}
+                    propagateSwipe={this.state.propagateSwipe}
                     animationIn={'bounceInUp'}
-                    animationOut={'zoomOut'}
+                    animationOut={'bounceOutDown'}
                     animationInTiming={500}
                     style={{ backgroundColor: 'white', flex: 1, margin: 0, borderRadius: 15, overflow: 'hidden' }}
                     swipeDirection={this.state.swipDirection}
@@ -472,7 +475,13 @@ class PublicationModal extends React.Component {
                     </KeyboardAvoidingView>
 
 
-                    {this.state.commentVisible ?  <CommentListModal closeModal={() => this._toggleComment()}></CommentListModal> : null}
+                    {this.state.commentVisible ?
+                        <CommentListModal
+                            closeModal={() => this._toggleComment()}
+                            _activePropagateSwipe={this._activePropagateSwipe}
+                            _inactivePropagateSwipe={this._inactivePropagateSwipe}
+                        />
+                        : null}
 
 
                 </Modal>

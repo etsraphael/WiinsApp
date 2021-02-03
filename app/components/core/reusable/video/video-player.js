@@ -45,7 +45,7 @@ class VideoPlayer extends React.Component {
         if (this.state.videoReady) {
             this.setState((prevState) => ({ paused: !prevState.paused }))
         }
-        // this.scheduleCloseOverlay();
+        this.scheduleCloseOverlay();
     }
     onVideoLoad = ({ duration }) => this.setState({ duration });
     onVideoProgress = ({ currentTime }) => this.setState({ currentTime });
@@ -58,16 +58,17 @@ class VideoPlayer extends React.Component {
         this.scheduleCloseOverlay();
     }
     onClickOnVideo = () => {
+        console.log("overlay", this.state.overlay)
         if (!this.state.videoReady) {
             return null;
         }
 
-        // console.log("overlay", this.state.overlay)
         if (this.state.overlay) {
             this.setState({ overlay: false })
+            this.overlayTimer ? clearTimeout(this.overlayTimer) : null
         } else {
             this.setState({ overlay: true })
-            // this.scheduleCloseOverlay()
+            this.scheduleCloseOverlay()
         }
     }
     scheduleCloseOverlay = () => {
@@ -91,35 +92,34 @@ class VideoPlayer extends React.Component {
     _renderOverlay = () => {
         const { paused, duration, currentTime, overlay } = this.state;
         return (
-            <TouchableWithoutFeedback style={{ ...styles.fillParent, display: overlay ? 'flex' : 'none' }} onPress={this.onClickOnVideo}>
-                <LinearGradient
-                start={{ x: 0, y: 0 }}
-                end={{ x: 0, y: 1 }}
-                colors={['transparent', '#000000a0']}
-                style={{ ...styles.overlay, justifyContent: 'center', alignItems: 'center' }}
-                >
+            <TouchableWithoutFeedback style={{ ...styles.fillParent }} onPress={this.onClickOnVideo}>
+                {this.state.overlay ? (
+                    <LinearGradient
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 0, y: 1 }}
+                    colors={['transparent', '#000000a0']}
+                    style={{ ...styles.overlay, justifyContent: 'center', alignItems: 'center' }}
+                    >
 
-                    {/* The absolute fill view for toggling overlay */}
-                    <TouchableWithoutFeedback style={{ ...styles.overlay, zIndex: 0 }} onPress={this.onClickOnVideo} />
+                        {/* The Play and Pause centered button */}
+                        <TouchableOpacity onPress={this.playPauseVideo} style={{ width: 50, height: 50, borderRadius: 30, justifyContent: 'center', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={paused ? faPlay : faPause} color={"#FFFFFF"} size={25} />
+                        </TouchableOpacity>
 
-                    {/* The Play and Pause centered button */}
-                    <TouchableOpacity onPress={this.playPauseVideo} style={{ width: 50, height: 50, borderRadius: 30, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={paused ? faPlay : faPause} color={"#FFFFFF"} size={25} />
-                    </TouchableOpacity>
-
-                    {/* The Slider Section */}
-                    <View style={{ position: 'absolute', left: 0, bottom: 0, right: 0, flexDirection: 'row', paddingVertical: 15, paddingHorizontal: 10 }}>
-                        <Text style={{ color: 'white', maxWidth: 40 }}>{ this.getTime(currentTime) }</Text>
-                        <View style={{ flex: 1, marginHorizontal: 10 }}>
-                        <Slider
-                            minimumTrackTintColor="#307ecc"
-                            maximumTrackTintColor="#000000"
-                            value={currentTime / duration}
-                            onValueChange={this.onSliderSeek} />
+                        {/* The Slider Section */}
+                        <View style={{ position: 'absolute', left: 0, bottom: 0, right: 0, flexDirection: 'row', paddingVertical: 15, paddingHorizontal: 10 }}>
+                            <Text style={{ color: 'white', maxWidth: 40 }}>{ this.getTime(currentTime) }</Text>
+                            <View style={{ flex: 1, marginHorizontal: 10 }}>
+                            <Slider
+                                minimumTrackTintColor="#307ecc"
+                                maximumTrackTintColor="#000000"
+                                value={currentTime / duration}
+                                onValueChange={this.onSliderSeek} />
+                            </View>
+                            <Text style={{ color: 'white', maxWidth: 40 }}>{ this.getTime(duration) }</Text>
                         </View>
-                        <Text style={{ color: 'white', maxWidth: 40 }}>{ this.getTime(duration) }</Text>
-                    </View>
-                </LinearGradient>
+                    </LinearGradient>) : null
+                }
             </TouchableWithoutFeedback>
         );
     }
@@ -146,6 +146,7 @@ class VideoPlayer extends React.Component {
                 />
                 
                 <View style={styles.overlay}>
+                    {/* The absolute fill view for toggling overlay */}
                     { this.state.videoReady ? this._renderOverlay() : this._renderPoster() }
                 </View>
             </View>
