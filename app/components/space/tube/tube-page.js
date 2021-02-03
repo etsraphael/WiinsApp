@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faAngleDown, faPaperPlane, faThumbsUp } from '@fortawesome/pro-light-svg-icons'
+import { faAngleDown, faPaperPlane, faThumbsUp, faHeart } from '@fortawesome/pro-light-svg-icons'
 import * as TubePageActions from '../../../../redux/TubePage/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 import VideoPlayer from '../../core/reusable/video/video-player'
@@ -51,7 +51,7 @@ class TubePage extends React.Component {
 
                 {/* Profile */}
                 <View style={{ height: 70, flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15 }}>
-                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                    <View style={{ flex: 8, flexDirection: 'row', alignItems: 'center' }}>
                         <View style={{ marginEnd: 15 }}>
                             <FastImage
                                 style={{ width: 45, height: 45, borderRadius: 45, borderWidth: 2, borderColor: '#df0ddf' }}
@@ -59,14 +59,14 @@ class TubePage extends React.Component {
                                 source={{ uri: this.props.TubePage.tube.profile.pictureprofile, priority: FastImage.priority.normal }}
                             />
                         </View>
-                        <View style={{ }}>
+                        <View style={{}}>
                             <Text style={{ fontWeight: 'bold', fontFamily: 'Avenir-Heavy' }}>{this.props.TubePage.tube.name}</Text>
                             <Text>{getDateTranslated(this.props.TubePage.tube.createdAt)} </Text>
                         </View>
                     </View>
-                    <View>
-                        <FontAwesomeIcon icon={faThumbsUp} size={20} color="#77838F" />
-                        <Text style={{ color: "#77838F", marginTop: 5 }}>{ this.props.TubePage.tube.totalLike }</Text>
+                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faHeart} size={20} color="#77838F" />
+                        <Text style={{ color: "#77838F", marginLeft: 10, fontSize: 15 }}>{this.props.TubePage.tube.totalLike}</Text>
                     </View>
                 </View>
             </View>
@@ -98,7 +98,7 @@ class TubePage extends React.Component {
         )
     }
 
-    _playNextSection = (tubeList=this.testValue, title, line) => {
+    _playNextSection = (tubeList = this.testValue, title, line) => {
 
         if (!tubeList || tubeList.length == 0) return null
 
@@ -106,11 +106,11 @@ class TubePage extends React.Component {
             <View style={styles.container_section}>
 
                 {/* Header */}
-                <View style={{ paddingHorizontal: 25, paddingTop: 15}}>
-                    <View style={{flexWrap: 'wrap'}}>
+                <View style={{ paddingHorizontal: 25, paddingTop: 15 }}>
+                    <View style={{ flexWrap: 'wrap' }}>
                         <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', paddingHorizontal: 5 }}>{title}</Text>
                         <View>
-                            <LinearGradient colors={['#31B3D8', '#784BEA']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={{ height: 3, width: '100%' }}/>
+                            <LinearGradient colors={['#31B3D8', '#784BEA']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={{ height: 3, width: '100%', borderRadius: 35 }} />
                         </View>
                     </View>
                 </View>
@@ -142,7 +142,7 @@ class TubePage extends React.Component {
     }
 
     // to display some tube by section
-    _tubeListBySection = (tubeList=this.testValue, title, line) => {
+    _tubeListBySection = (tubeList = this.testValue, title, line) => {
 
         if (!tubeList || tubeList.length == 0) return null
 
@@ -151,10 +151,10 @@ class TubePage extends React.Component {
 
                 {/* Header */}
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 25, paddingTop: 15, alignItems: 'center' }}>
-                    <View style={{flexWrap: 'wrap'}}>
+                    <View style={{ flexWrap: 'wrap' }}>
                         <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', paddingHorizontal: 5 }}>{title}</Text>
                         <View>
-                            <LinearGradient colors={['#31B3D8', '#784BEA']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={{ height: 3, width: '100%' }}/>
+                            <LinearGradient colors={['#31B3D8', '#784BEA']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={{ height: 3, width: '100%' }} />
                         </View>
                     </View>
                     <View>
