@@ -16,6 +16,21 @@ export function likeTubePageFail(error) {
     }
 }
 
+export function dislikeTubePageSuccess() {
+    return { type: ActionTypes.DISLIKE_TUBE_PAGE_SUCCESS }
+}
+
+export function dislikeTubePageStart() {
+    return { type: ActionTypes.DISLIKE_TUBE_PAGE }
+}
+
+export function dislikeTubePageFail(error) {
+    return {
+        type: ActionTypes.DISLIKE_TUBE_PAGE_FAIL,
+        payload: error,
+    }
+}
+
 export function getTubePageSuccess(payload) {
     return { type: ActionTypes.GET_TUBE_PAGE_SUCCESS, payload }
 }
@@ -67,7 +82,7 @@ export function likeTubePageActions(id) {
             dispatch(likeTubePageStart())
             const token = await AsyncStorage.getItem('userToken')
 
-            return fetch(`https://wiins-backend.herokuapp.com/tube/app/video/${id}`, {
+            return fetch(`https://wiins-backend.herokuapp.com/tube/like/${id}`, {
                 method: 'GET',
                 headers: { 
                     Accept: 'application/json', 'Content-Type': 'application/json',
@@ -81,6 +96,31 @@ export function likeTubePageActions(id) {
                 })
         } catch (error) {
             return dispatch(likeTubePageFail(error));
+        }
+    }
+}
+
+export function dislikeTubePageActions(id) {
+
+    return async (dispatch) => {
+        try {
+            dispatch(dislikeTubePageStart())
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(`https://wiins-backend.herokuapp.com/tube/dislike/${id}`, {
+                method: 'GET',
+                headers: { 
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+            .then((response) => response.json())
+            .then( async (response) => {
+                    if (response.status == 201) return dispatch(dislikeTubePageSuccess(response.page))
+                    return dispatch(dislikeTubePageFail(response.message))
+                })
+        } catch (error) {
+            return dispatch(dislikeTubePageFail(error));
         }
     }
 }
