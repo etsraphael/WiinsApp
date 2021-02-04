@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faAngleDown, faPaperPlane, faHeart, faShare, faDownload, faSave } from '@fortawesome/pro-light-svg-icons'
+import { faAngleDown, faPaperPlane, faHeart, faShare, faDownload, faSave, faCommentLines } from '@fortawesome/pro-light-svg-icons'
 import { faCircle } from '@fortawesome/pro-solid-svg-icons'
 import * as TubePageActions from '../../../../redux/TubePage/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
@@ -43,69 +43,73 @@ class TubePage extends React.Component {
 
     _subHeader = () => {
         return (
-        <View>
+            <View>
 
-            {/* Title */}
-            <View style={{ paddingHorizontal: 25, paddingTop: 10 }}>
+                {/* Title */}
+                <View style={{ paddingHorizontal: 25, paddingTop: 10 }}>
                     <Text style={{ fontWeight: 'bold', fontFamily: 'Avenir-Heavy', fontSize: 19, paddingBottom: 10 }}>{this.props.TubePage.tube.name}</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Text>4.7K Views</Text>
                         <FontAwesomeIcon style={{ marginHorizontal: 5 }} icon={faCircle} size={2} color="#77838F" />
                         <Text>{getDateTranslated(this.props.TubePage.tube.createdAt)}</Text>
                     </View>
-            </View>
-
-            {/* Buttons */}
-            <View style={{ flexDirection: 'row', marginVertical: 15 }}>
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
-                        <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Download</Text>
-                    </TouchableOpacity>
                 </View>
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faSave} size={20} color="#77838F" />
-                        <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Save</Text>
-                    </TouchableOpacity>
+
+                {/* Buttons */}
+                <View style={{ flexDirection: 'row', marginVertical: 15 }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
+                            <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Download</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faShare} size={20} color="#77838F" />
+                            <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Share</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faCommentLines} size={20} color="#77838F" />
+                            <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Comment</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <FontAwesomeIcon icon={faHeart} size={20} color="#77838F" />
+                            <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{this.props.TubePage.tube.totalLike}</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faShare} size={20} color="#77838F" />
-                        <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Share</Text>
-                    </TouchableOpacity>
+
+                <View style={{ height: 1, width: '100%', backgroundColor: '#e7ebed' }} />
+
+                {/* Profile */}
+                <View style={{ flexDirection: 'row', alignItems: 'center', padding: 15 }}>
+                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                        <FastImage
+                            style={{ width: 45, height: 45, borderRadius: 45 }}
+                            resizeMode={FastImage.resizeMode.cover}
+                            source={{ uri: this.props.TubePage.tube.profile.pictureprofile, priority: FastImage.priority.normal }}
+                        />
+                    </View>
+                    <View style={{ flex: 9, paddingLeft: 15 }}>
+                        <Text style={{ fontWeight: 'bold', fontFamily: 'Avenir-Heavy' }}>{this.props.TubePage.tube.profile._meta.pseudo}</Text>
+                        <Text>Community: 4.5k</Text>
+                    </View>
+
+                    <View style={{flex: 5}}>
+                        <TouchableOpacity style={{marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
+                            <Text>Subscribed</Text>
+                        </TouchableOpacity>
+                    </View>
+
                 </View>
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faHeart} size={20} color="#77838F" />
-                        <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{this.props.TubePage.tube.totalLike}</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
 
-            <View style={{height: 1, width: '100%', backgroundColor: '#e7ebed'}}/>
+                <View style={{ height: 1, width: '100%', backgroundColor: '#e7ebed' }} />
 
-            {/* Profile */}
-            <View style={{ flexDirection: 'row', alignItems: 'center', padding: 15 }}>
-                <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                    <FastImage
-                        style={{ width: 45, height: 45, borderRadius: 45 }}
-                        resizeMode={FastImage.resizeMode.cover}
-                        source={{ uri: this.props.TubePage.tube.profile.pictureprofile, priority: FastImage.priority.normal }}
-                    />
-                </View>
-                <View style={{flex: 9}}>
-                    <Text style={{ fontWeight: 'bold', fontFamily: 'Avenir-Heavy' }}>{this.props.TubePage.tube.profile._meta.pseudo}</Text>
-                    <Text>Community: 4.5k</Text>
-                </View>
-            </View>
-
-            <View style={{height: 1, width: '100%', backgroundColor: '#e7ebed'}}/>
-
-
-
-
-        </View>)
+            </View>)
     }
 
     // to display the header view
@@ -241,7 +245,6 @@ class TubePage extends React.Component {
     _showTubeList = (tubeList) => {
         return (
             <View style={{ paddingBottom: 10 }}>
-
                 <View style={{ flexDirection: 'row' }}>
                     <FlatList
                         horizontal={true}
@@ -325,7 +328,7 @@ const ActionCreators = Object.assign(
     {},
     MyUserActions,
     TubePageActions
-);
+)
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(ActionCreators, dispatch),
