@@ -29,6 +29,12 @@ export default TubePageReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+    case ActionTypes.LIKE_TUBE_PAGE: {
+      return { ...state }
+    }
+    case ActionTypes.LIKE_TUBE_PAGE_SUCCESS: {
+      return { ...state }
+    }
     case ActionTypes.RESET_TUBE_PAGE: return initialState
     default: return state
   }

@@ -292,7 +292,7 @@ const styles = StyleSheet.create({
         width: 160
     },
     oneTubeImage: {
-        borderRadius: 14,
+        borderRadius: 5,
         height: 110,
         width: '100%',
         backgroundColor: 'white',
