@@ -8,7 +8,7 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlay, faComment, faHeart } from '@fortawesome/pro-light-svg-icons'
+import { faPlay, faComment } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
@@ -142,7 +142,7 @@ class CardNewFeedMasonry extends React.Component {
         return (
             <TouchableOpacity
                 style={styles.container_type}
-                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >
 
                 <FastImage
@@ -161,8 +161,7 @@ class CardNewFeedMasonry extends React.Component {
 
         return (
             <TouchableOpacity style={styles.container_type}
-                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
-            >
+            onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}>
                 <FastImage
                     style={{ flex: 1, width: '100%', height: this.state.imageHeight }}
                     source={{ uri: publication.poster, priority: FastImage.priority.normal }}
@@ -192,13 +191,15 @@ class CardNewFeedMasonry extends React.Component {
 
     // to show post publication
     _showPostPublication = (publication) => {
+
+
         const textContainer = () => {
             if (publication.background != undefined && publication.type === 'PostPublication') {
                 const { background, orientation } = this._getPostPublicationBackground(publication.background)
                 return (
                     <TouchableOpacity
                         style={{ minHeight: 200, maxHeight: 400 }}
-                        onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                        onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
                     >
                         <LinearGradient colors={background} start={orientation[0]} end={orientation[1]} style={{ flex: 1, justifyContent: 'center' }}>
                             <Text style={{
@@ -218,16 +219,7 @@ class CardNewFeedMasonry extends React.Component {
                         </LinearGradient>
                     </TouchableOpacity>
                 )
-            }
-            return (
-                <>
-                    {
-                        (publication.text && publication.text.trim().length > 0) && <View style={styles.cardPostText}>
-                            <Text>{publication.text}</Text>
-                        </View>
-                    }
-                </>
-            )
+            } 
         }
         return (
             <View onLayout={(event) => { this.setState({ textHeight: event.nativeEvent.layout.height }) }}>
