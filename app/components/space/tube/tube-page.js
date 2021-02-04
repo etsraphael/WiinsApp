@@ -49,8 +49,9 @@ class TubePage extends React.Component {
                 <View style={{ paddingHorizontal: 25, paddingTop: 10 }}>
                     <Text style={{ fontWeight: 'bold', fontFamily: 'Avenir-Heavy', fontSize: 19, paddingBottom: 10 }}>{this.props.TubePage.tube.name}</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        <Text>4.7K Views</Text>
-                        <FontAwesomeIcon style={{ marginHorizontal: 5 }} icon={faCircle} size={2} color="#77838F" />
+                        {/* for the next update */}
+                        {/* <Text>4.7K Views</Text>
+                        <FontAwesomeIcon style={{ marginHorizontal: 5 }} icon={faCircle} size={2} color="#77838F" /> */}
                         <Text>{getDateTranslated(this.props.TubePage.tube.createdAt)}</Text>
                     </View>
                 </View>
@@ -95,13 +96,13 @@ class TubePage extends React.Component {
                         />
                     </View>
                     <View style={{ flex: 9, paddingLeft: 15 }}>
-                        <Text style={{ fontWeight: 'bold', fontFamily: 'Avenir-Heavy' }}>{this.props.TubePage.tube.profile._meta.pseudo}</Text>
+                        <Text style={{ fontWeight: 'bold', fontFamily: 'Avenir-Heavy', fontSize: 19 }}>{this.props.TubePage.tube.profile._meta.pseudo}</Text>
                         <Text>Community: 4.5k</Text>
                     </View>
 
-                    <View style={{flex: 5}}>
+                    <View style={{flex: 5, alignItems: 'center'}}>
                         <TouchableOpacity style={{marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
-                            <Text>Subscribed</Text>
+                            <Text style={{fontSize: 15}}>Subscribed</Text>
                         </TouchableOpacity>
                     </View>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView, StatusBar, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
@@ -175,7 +175,7 @@ class HomeTube extends React.Component {
                 </View>
             )
         } else {
-            return (<View>
+            return (<ScrollView>
                 {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending', { fontWeight: 'bold' }, true)}
                 {/* {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Recommended For You')} */}
 
@@ -183,19 +183,16 @@ class HomeTube extends React.Component {
                 {/* {this._tubeListBySection(this.props.TubeMenu.following, 'Following')}
                     {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending')}
                     {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Suggestion')} */}
-            </View>)
+            </ScrollView>)
         }
     }
 
     render() {
         return (
-            <>
-                <StatusBar backgroundColor="white" barStyle="dark-content" />
-                <ScrollView style={styles.main_container}>
-                    {this._header()}
-                    {this._bodyRender()}
-                </ScrollView>
-            </>
+            <View style={styles.main_container}>
+                {this._header()}
+                {this._bodyRender()}
+            </View>
         )
     }
 }

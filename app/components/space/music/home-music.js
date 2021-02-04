@@ -18,48 +18,6 @@ class HomeMusic extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            fakeMusiclist: [
-                {
-                    id: '1',
-                    name: 'music1',
-                    profile: {
-                        pictureprofile: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
-                        _meta: {
-                            pseudo: 'jake_27'
-                        }
-                    }
-                },
-                {
-                    id: '2',
-                    name: 'music2',
-                    profile: {
-                        pictureprofile: 'https://images.unsplash.com/photo-1595840635571-5d6abc7d584b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1287&q=80',
-                        _meta: {
-                            pseudo: 'sarah_few'
-                        }
-                    }
-                },
-                {
-                    id: '3',
-                    name: 'music3',
-                    profile: {
-                        pictureprofile: 'https://images.unsplash.com/photo-1597361767997-7b0433fe5136?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2215&q=80',
-                        _meta: {
-                            pseudo: 'rafael_salei'
-                        }
-                    }
-                },
-                {
-                    id: '4',
-                    name: 'music4',
-                    profile: {
-                        pictureprofile: 'https://images.unsplash.com/photo-1516117525866-d85459db7457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
-                        _meta: {
-                            pseudo: 'tony_eve'
-                        }
-                    }
-                }
-            ],
             playlistZone: [
                 { code: 1, name: 'Latest', key: 'lastestPlaylist' },
                 { code: 2, name: 'Favorites', key: 'favorites' },
@@ -312,22 +270,22 @@ class HomeMusic extends React.Component {
     }
 
     _displayContentView = () => {
-        return (<View>
+        return (<ScrollView>
             {/* categorie playslit */}
             {this._categorieViews()}
             {/* chart playslit */}
             { this.state.playlistZoneSelected == 'favorites' ? this._myMusicView() : this._chartViews()}
-        </View>)
+        </ScrollView>)
     }
 
     render() {
         return (
-            <ScrollView style={styles.main_container}>
+            <View style={styles.main_container}>
                 {/*  search bar */}
                 {this._header()}
                 {/* Body */}
                 {this.props.MyMenu.isLoading ? this._displayLoading() : this._displayContentView()}
-            </ScrollView>
+            </View>
         )
     }
 
