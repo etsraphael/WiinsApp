@@ -12,6 +12,8 @@ import * as TubePageActions from '../../../../redux/TubePage/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 import VideoPlayer from '../../core/reusable/video/video-player'
 import LinearGradient from 'react-native-linear-gradient'
+import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
+import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 
 class TubePage extends React.Component {
 
@@ -33,6 +35,20 @@ class TubePage extends React.Component {
 
     UNSAFE_componentWillMount = () => {
         this.uploadPageTube(this.props.screenProps.rootNavigation.state.params.tubeId)
+    }
+
+    _likeTube = () => {
+        if (!this.props.TubePage.tube.isLiked) { this.props.actions.likeTubePageActions(this.props.TubePage.tube._id) }
+        else { this.props.actions.dislikeTubePageActions(this.props.TubePage.tube._id) }
+    }
+
+    _displayIconLike = () => {
+        if (!this.props.TubePage.tube.isLiked) {
+            return (<FontAwesomeIcon icon={faHeartEmpty} color={'#77838F'} size={20} />)
+        }
+        else {
+            return (<FontAwesomeIcon icon={faHeartFull} color={'red'} size={20} />)
+        }
     }
 
     // to upload the page of the tube
@@ -77,8 +93,8 @@ class TubePage extends React.Component {
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={faHeart} size={20} color="#77838F" />
+                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => this._likeTube()}>
+                            {this._displayIconLike()}
                             <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{this.props.TubePage.tube.totalLike}</Text>
                         </TouchableOpacity>
                     </View>
@@ -100,9 +116,9 @@ class TubePage extends React.Component {
                         <Text>Community: 4.5k</Text>
                     </View>
 
-                    <View style={{flex: 5, alignItems: 'center'}}>
-                        <TouchableOpacity style={{marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
-                            <Text style={{fontSize: 15}}>Subscribed</Text>
+                    <View style={{ flex: 5, alignItems: 'center' }}>
+                        <TouchableOpacity style={{ marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
+                            <Text style={{ fontSize: 15 }}>Subscribed</Text>
                         </TouchableOpacity>
                     </View>
 

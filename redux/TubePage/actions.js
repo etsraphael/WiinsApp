@@ -91,10 +91,11 @@ export function likeTubePageActions(id) {
             })
             .then((response) => response.json())
             .then( async (response) => {
-                    if (response.status == 201) return dispatch(likeTubePageSuccess(response.page))
-                    return dispatch(likeTubePageFail(response.message))
+                    if (response.status == 201) return dispatch(likeTubePageSuccess())
+                    return dispatch(likeTubePageFail())
                 })
         } catch (error) {
+            console.log(error)
             return dispatch(likeTubePageFail(error));
         }
     }
@@ -116,10 +117,11 @@ export function dislikeTubePageActions(id) {
             })
             .then((response) => response.json())
             .then( async (response) => {
-                    if (response.status == 201) return dispatch(dislikeTubePageSuccess(response.page))
-                    return dispatch(dislikeTubePageFail(response.message))
+                    if (response.status == 201) return dispatch(dislikeTubePageSuccess())
+                    return dispatch(dislikeTubePageFail())
                 })
         } catch (error) {
+            console.log(error)
             return dispatch(dislikeTubePageFail(error));
         }
     }
