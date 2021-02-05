@@ -1,12 +1,12 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, ScrollView, TextInput } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, FlatList, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
+import * as CommentListActions from '../../../../redux/CommentList/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
-import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faAngleDown, faPaperPlane, faHeart, faShare, faDownload, faSave, faCommentLines } from '@fortawesome/pro-light-svg-icons'
+import { faShare, faDownload, faCommentLines } from '@fortawesome/pro-light-svg-icons'
 import { faCircle } from '@fortawesome/pro-solid-svg-icons'
 import * as TubePageActions from '../../../../redux/TubePage/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
@@ -14,13 +14,15 @@ import VideoPlayer from '../../core/reusable/video/video-player'
 import LinearGradient from 'react-native-linear-gradient'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
+import CommentListModal from './../../core/modal/comment-list-modal'
+
 
 class TubePage extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            commentView: false,
+            commentVisible: false,
             videoReady: false
         }
     }
@@ -32,6 +34,16 @@ class TubePage extends React.Component {
         { id: "", tube: { posterLink: "https://images.unsplash.com/photo-1512552288940-3a300922a275?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8dmFjYXRpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", profile: { _meta: { pseudo: "Beautify locations to spend your vacation" }, pictureprofile: "" } } },
         { id: "", tube: { posterLink: "https://images.unsplash.com/photo-1528277342758-f1d7613953a2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fGFmcmljYXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", profile: { _meta: { pseudo: "AFRICA the world wonder" }, pictureprofile: "" } } }
     ]
+
+    _toggleComment = () => {
+        if (this.state.commentVisible == true) {
+            this.setState({ commentVisible: false })
+
+        } else {
+            // this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
+            this.setState({ commentVisible: true })
+        }
+    }
 
     UNSAFE_componentWillMount = () => {
         this.uploadPageTube(this.props.screenProps.rootNavigation.state.params.tubeId)
@@ -86,8 +98,8 @@ class TubePage extends React.Component {
                             <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Share</Text>
                         </TouchableOpacity>
                     </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
+                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => this._toggleComment()}>
                             <FontAwesomeIcon icon={faCommentLines} size={20} color="#77838F" />
                             <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Comment</Text>
                         </TouchableOpacity>
@@ -134,31 +146,6 @@ class TubePage extends React.Component {
         return (<View style={styles.videoSection}>
             <VideoPlayer src={this.props.TubePage.tube.videoLink} posterSrc={this.props.TubePage.tube.posterLink} />
         </View>)
-    }
-
-    // to display the comment view
-    _commentView = () => {
-        return (
-            <View style={{ position: 'absolute', backgroundColor: '#00000082', height: '100%', width: '100%', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 15 : 0, paddingHorizontal: 15 }}>
-                <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
-                    <TouchableOpacity onPress={() => this.setState({ commentView: false })}>
-                        <FontAwesomeIcon icon={faAngleDown} color={'white'} size={32} />
-                    </TouchableOpacity>
-                </View>
-                {/* <CommentList type={'tube'} /> */}
-                <View style={{ flexDirection: 'row', height: 39, marginBottom: 15 }}>
-                    <TextInput
-                        placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
-                        placeholderTextColor="#FFFFFF"
-                        style={{ flex: 9, paddingLeft: 15, color: 'grey', backgroundColor: '#485164', borderRadius: 17, height: '100%' }}
-                    ></TextInput>
-                    <TouchableOpacity
-                        style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={28} />
-                    </TouchableOpacity>
-                </View>
-            </View>
-        )
     }
 
     _playNextSection = (tubeList = this.testValue, title, line) => {
@@ -286,7 +273,13 @@ class TubePage extends React.Component {
                         {/* Body */}
                         {this._suggestionTubeRender()}
                         {/* Comment */}
-                        {this.state.commentView ? this._commentView() : null}
+                        {this.state.commentVisible ?
+                        <CommentListModal
+                            closeModal={() => this._toggleComment()}
+                            _activePropagateSwipe={this._activePropagateSwipe}
+                            _inactivePropagateSwipe={this._inactivePropagateSwipe}
+                        />
+                        : null}
                     </View>
                 }
             </View>
@@ -344,7 +337,8 @@ const mapStateToProps = state => ({
 const ActionCreators = Object.assign(
     {},
     MyUserActions,
-    TubePageActions
+    TubePageActions,
+    CommentListActions
 )
 
 const mapDispatchToProps = dispatch => ({
