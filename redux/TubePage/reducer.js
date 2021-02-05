@@ -53,6 +53,10 @@ export default TubePageReducer = (state = initialState, action) => {
       state.tube.relation = 'following'
       return { ...state }
     }
+    case ActionTypes.FOLLOW_IN_TUBE_PAGE_FAIL: {
+      state.tube.relation = 'no-relation'
+      return { ...state }
+    }
     case ActionTypes.RESET_TUBE_PAGE: return initialState
     default: return state
   }

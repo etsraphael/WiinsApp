@@ -140,15 +140,14 @@ export function dislikeTubePageActions(id) {
     }
 }
 
-export function followInTubePageActions(id) {
+export function followInTubePageActions(profileId) {
 
     return async (dispatch) => {
         try {
-            console.log(id)
-            return dispatch(followInTubePageStart())
+            dispatch(followInTubePageStart())
             const token = await AsyncStorage.getItem('userToken')
 
-            return fetch(`https://wiins-backend.herokuapp.com/tube/dislike/${id}`, {
+            return fetch('https://wiins-backend.herokuapp.com/profile/follow/' + profileId, {
                 method: 'GET',
                 headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
