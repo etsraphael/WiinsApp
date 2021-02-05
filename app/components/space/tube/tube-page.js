@@ -66,7 +66,7 @@ class TubePage extends React.Component {
                     <Text style={{ fontWeight: 'bold', fontFamily: 'Avenir-Heavy', fontSize: 19, paddingBottom: 10 }}>{this.props.TubePage.tube.name}</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         {/* for the next update */}
-                        {/* <Text>4.7K Views</Text>
+                        {/* <Text>{this.props.TubePage.tube.totalView} Views</Text>
                         <FontAwesomeIcon style={{ marginHorizontal: 5 }} icon={faCircle} size={2} color="#77838F" /> */}
                         <Text>{getDateTranslated(this.props.TubePage.tube.createdAt)}</Text>
                     </View>
