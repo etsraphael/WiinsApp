@@ -63,10 +63,29 @@ class TubePage extends React.Component {
         }
     }
 
-    // to upload the page of the tube
     uploadPageTube = (id) => {
         this.setState({ videoReady: false })
         this.props.actions.getTubePageActions(id)
+    }
+
+    _displayBtnSubscribe = (relation) => {
+        switch (relation) {
+            case 'friend': return (
+                <TouchableOpacity style={{ marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
+                    <Text style={{ fontSize: 15 }}>Friend</Text>
+                </TouchableOpacity>
+            )
+            case 'following': return (
+                <TouchableOpacity style={{ marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
+                    <Text style={{ fontSize: 15 }}>Subscribed</Text>
+                </TouchableOpacity>
+            )
+            default: return (
+                <TouchableOpacity style={{ marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
+                    <Text style={{ fontSize: 15 }}>Follow</Text>
+                </TouchableOpacity>
+            )
+        }
     }
 
     _subHeader = () => {
@@ -127,11 +146,8 @@ class TubePage extends React.Component {
                         <Text style={{ fontWeight: 'bold', fontFamily: 'Avenir-Heavy', fontSize: 19 }}>{this.props.TubePage.tube.profile._meta.pseudo}</Text>
                         <Text>Community: 4.5k</Text>
                     </View>
-
                     <View style={{ flex: 5, alignItems: 'center' }}>
-                        <TouchableOpacity style={{ marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
-                            <Text style={{ fontSize: 15 }}>Subscribed</Text>
-                        </TouchableOpacity>
+                        {this._displayBtnSubscribe(this.props.TubePage.tube.relation)}
                     </View>
 
                 </View>
@@ -274,12 +290,12 @@ class TubePage extends React.Component {
                         {this._suggestionTubeRender()}
                         {/* Comment */}
                         {this.state.commentVisible ?
-                        <CommentListModal
-                            closeModal={() => this._toggleComment()}
-                            _activePropagateSwipe={this._activePropagateSwipe}
-                            _inactivePropagateSwipe={this._inactivePropagateSwipe}
-                        />
-                        : null}
+                            <CommentListModal
+                                closeModal={() => this._toggleComment()}
+                                _activePropagateSwipe={this._activePropagateSwipe}
+                                _inactivePropagateSwipe={this._inactivePropagateSwipe}
+                            />
+                            : null}
                     </View>
                 }
             </View>
