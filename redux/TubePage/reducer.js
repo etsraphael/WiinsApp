@@ -49,6 +49,10 @@ export default TubePageReducer = (state = initialState, action) => {
       state.tube.totalLike += 1
       return { ...state }
     }
+    case ActionTypes.FOLLOW_IN_TUBE_PAGE: {
+      state.tube.relation = 'following'
+      return { ...state }
+    }
     case ActionTypes.RESET_TUBE_PAGE: return initialState
     default: return state
   }

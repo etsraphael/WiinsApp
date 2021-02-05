@@ -81,7 +81,8 @@ class TubePage extends React.Component {
                 </TouchableOpacity>
             )
             default: return (
-                <TouchableOpacity style={{ marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
+                <TouchableOpacity onPress={() => this.props.actions.followInTubePageActions(this.props.TubePage.tube.profile._id)}
+                style={{ marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
                     <Text style={{ fontSize: 15 }}>Follow</Text>
                 </TouchableOpacity>
             )
@@ -149,7 +150,6 @@ class TubePage extends React.Component {
                     <View style={{ flex: 5, alignItems: 'center' }}>
                         {this._displayBtnSubscribe(this.props.TubePage.tube.relation)}
                     </View>
-
                 </View>
 
                 <View style={{ height: 1, width: '100%', backgroundColor: '#e7ebed' }} />

@@ -1,6 +1,21 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 
+export function followInTubePageStart() {
+    return { type: ActionTypes.FOLLOW_IN_TUBE_PAGE }
+}
+
+export function followInPageSuccess() {
+    return { type: ActionTypes.FOLLOW_IN_TUBE_PAGE_SUCCESS }
+}
+
+export function followInPageFail(error) {
+    return {
+        type: ActionTypes.FOLLOW_IN_TUBE_PAGE_FAIL,
+        payload: error,
+    }
+}
+
 export function likeTubePageSuccess() {
     return { type: ActionTypes.LIKE_TUBE_PAGE_SUCCESS }
 }
@@ -59,13 +74,13 @@ export function getTubePageActions(id) {
 
             return fetch(`https://wiins-backend.herokuapp.com/tube/app/video/${id}`, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 }
             })
-            .then((response) => response.json())
-            .then( async (response) => {
+                .then((response) => response.json())
+                .then(async (response) => {
                     if (response.status == 201) return dispatch(getTubePageSuccess(response.page))
                     return dispatch(getTubePageFail(response.message))
                 })
@@ -84,18 +99,17 @@ export function likeTubePageActions(id) {
 
             return fetch(`https://wiins-backend.herokuapp.com/tube/like/${id}`, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 }
             })
-            .then((response) => response.json())
-            .then( async (response) => {
+                .then((response) => response.json())
+                .then(async (response) => {
                     if (response.status == 201) return dispatch(likeTubePageSuccess())
                     return dispatch(likeTubePageFail())
                 })
         } catch (error) {
-            console.log(error)
             return dispatch(likeTubePageFail(error));
         }
     }
@@ -110,19 +124,44 @@ export function dislikeTubePageActions(id) {
 
             return fetch(`https://wiins-backend.herokuapp.com/tube/dislike/${id}`, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 }
             })
-            .then((response) => response.json())
-            .then( async (response) => {
+                .then((response) => response.json())
+                .then(async (response) => {
                     if (response.status == 201) return dispatch(dislikeTubePageSuccess())
                     return dispatch(dislikeTubePageFail())
                 })
         } catch (error) {
-            console.log(error)
             return dispatch(dislikeTubePageFail(error));
+        }
+    }
+}
+
+export function followInTubePageActions(id) {
+
+    return async (dispatch) => {
+        try {
+            console.log(id)
+            return dispatch(followInTubePageStart())
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(`https://wiins-backend.herokuapp.com/tube/dislike/${id}`, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 201) return dispatch(followInTubePageSuccess())
+                    return dispatch(followInTubePageFail())
+                })
+        } catch (error) {
+            return dispatch(followInTubePageFail(error));
         }
     }
 }
