@@ -1,6 +1,36 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 
+export function downloadTubeStart() {
+    return { type: ActionTypes.DOWNLOAD_TUBE }
+}
+
+export function downloadTubeSuccess() {
+    return { type: ActionTypes.DOWNLOAD_TUBE_SUCCESS }
+}
+
+export function downloadTubeFail(error) {
+    return {
+        type: ActionTypes.DOWNLOAD_TUBE_FAIL,
+        payload: error,
+    }
+}
+
+export function deleteDownloadedTubeStart() {
+    return { type: ActionTypes.DELETE_DOWNLOADED_TUBE }
+}
+
+export function deleteDownloadedTubeSuccess() {
+    return { type: ActionTypes.DELETE_DOWNLOADED_TUBE_SUCCESS }
+}
+
+export function deleteDownloadedTubeFail(error) {
+    return {
+        type: ActionTypes.DELETE_DOWNLOADED_TUBE_FAIL,
+        payload: error,
+    }
+}
+
 export function followInTubePageStart() {
     return { type: ActionTypes.FOLLOW_IN_TUBE_PAGE }
 }
