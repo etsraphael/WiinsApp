@@ -107,7 +107,7 @@ class TubePage extends React.Component {
                 {/* Buttons */}
                 <View style={{ flexDirection: 'row', marginVertical: 15 }}>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => cacheOneTube()}>
+                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => cacheOneTube(this.props.TubePage.tube, this.props.actions)}>
                             <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
                             <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Download</Text>
                         </TouchableOpacity>
