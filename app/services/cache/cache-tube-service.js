@@ -3,6 +3,10 @@ import RNFetchBlob from 'rn-fetch-blob'
 
 export async function cacheOneTube(tube, actions) {
 
+    alert('oh')
+
+    return null
+
     if(!tube.file) return null
 
     // check if the cache tube cache exist

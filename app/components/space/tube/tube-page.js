@@ -15,7 +15,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import CommentListModal from './../../core/modal/comment-list-modal'
-
+import { cacheOneTube } from './../../../services/cache/cache-tube-service'
 
 class TubePage extends React.Component {
 
@@ -107,7 +107,7 @@ class TubePage extends React.Component {
                 {/* Buttons */}
                 <View style={{ flexDirection: 'row', marginVertical: 15 }}>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => cacheOneTube()}>
                             <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
                             <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Download</Text>
                         </TouchableOpacity>
