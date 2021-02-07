@@ -200,7 +200,6 @@ export function followInTubePageActions(profileId) {
     }
 }
 
-
 export function downloadTubeStartActions() {
     return (dispatch) => dispatch(downloadTubeStart())
 }

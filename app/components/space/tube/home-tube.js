@@ -288,7 +288,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     MyUser: state.MyUser,
-    TubeMenu: state.TubeMenu
+    TubeMenu: state.TubeMenu,
+    TubePage: state.TubePage
 })
 
 const ActionCreators = Object.assign(

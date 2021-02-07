@@ -64,10 +64,9 @@ export default TubePageReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.DOWNLOAD_TUBE_PROGRESS: {
-      console.log(action.payload)
       return {
-        progressDownload: action.payload,
-        ...state
+        ...state,
+        progressDownload: action.payload
       }
     }
     case ActionTypes.RESET_TUBE_PAGE: return initialState

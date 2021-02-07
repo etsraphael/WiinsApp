@@ -26,20 +26,25 @@ export async function cacheOneTube(tube, actions) {
     // add the file in the cache
     RNFetchBlob.config({ path })
         .fetch("GET", tube.videoLink)
-        .progress(async (received, total) => {
-            await actions.downloadTubeProgressActions(Math.round(received / total * 100))
+        .progress((received, total) => {
+            actions.downloadTubeProgressActions(Math.round(received / total * 100))
         })
         .then(async (result) => {
+
             tubeRefCache[indextube] = {
                 url: tube.videoLink,
                 path: result.path(),
                 updatedAt: Date.now(),
                 state: 'confirmed'
-            }(
+            }
+
+            console.log('done')
+            console.log(tubeRefCache[indextube])
+
             // set the store
-            await actions.addTubeInCacheSuccessActions(tube))
+            // await actions.addTubeInCacheSuccessActions(tube)
             // regist the new file
-            return AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
+            // return AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
         })
         .catch(async () => {
             tubeRefCache[indextube] = {

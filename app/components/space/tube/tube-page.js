@@ -82,7 +82,7 @@ class TubePage extends React.Component {
             )
             default: return (
                 <TouchableOpacity onPress={() => this.props.actions.followInTubePageActions(this.props.TubePage.tube.profile._id)}
-                style={{ marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
+                    style={{ marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
                     <Text style={{ fontSize: 15 }}>Follow</Text>
                 </TouchableOpacity>
             )
@@ -104,13 +104,22 @@ class TubePage extends React.Component {
                     </View>
                 </View>
 
+                {console.log(this.props.TubePage.progressDownload)}
+
                 {/* Buttons */}
                 <View style={{ flexDirection: 'row', marginVertical: 15 }}>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => cacheOneTube(this.props.TubePage.tube, this.props.actions)}>
-                            <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
-                            <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Download</Text>
-                        </TouchableOpacity>
+                        {this.props.TubePage.progressDownload > 0.1 ?
+                            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                                <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
+                                <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{this.props.TubePage.progressDownload} %</Text>
+                            </View>
+                            :
+                            <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => cacheOneTube(this.props.TubePage.tube, this.props.actions)}>
+                                <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
+                                <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Download</Text>
+                            </TouchableOpacity>
+                        }
                     </View>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
