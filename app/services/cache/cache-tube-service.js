@@ -13,7 +13,8 @@ export async function cacheOneTube(tube, actions) {
     tubeRefCache = JSON.parse(tubeRefCache)
 
     // add the ref if the file in the cache doesn't exist, we create it
-    const path = RNFetchBlob.fs.dirs.tubeDir + "/" + tube.videoLink.split('/')[3] + '.mp4'
+    const path = RNFetchBlob.fs.dirs.MovieDir + "/" + tube.videoLink.split('/')[3] + '.mp4'
+
     tubeRefCache.push({ url: tube.videoLink, path: path, updatedAt: Date.now(), views: 1, state: 'progressing' })
     await AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
 
@@ -30,21 +31,16 @@ export async function cacheOneTube(tube, actions) {
             actions.downloadTubeProgressActions(Math.round(received / total * 100))
         })
         .then(async (result) => {
-
             tubeRefCache[indextube] = {
                 url: tube.videoLink,
                 path: result.path(),
                 updatedAt: Date.now(),
                 state: 'confirmed'
             }
-
-            console.log('done')
-            console.log(tubeRefCache[indextube])
-
             // set the store
-            // await actions.addTubeInCacheSuccessActions(tube)
+            await actions.addTubeInCacheSuccessActions(tube)
             // regist the new file
-            // return AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
+            return AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
         })
         .catch(async () => {
             tubeRefCache[indextube] = {
@@ -58,5 +54,21 @@ export async function cacheOneTube(tube, actions) {
             // regist the new file
             return AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
         })
+
+}
+
+export async function getCacheLinkOrSeverLink(url) {
+
+    // get the tubeRefCache
+    let tubeRefCache = await AsyncStorage.getItem('tubeRefCache')
+
+    // pars the json to manipulate it
+    tubeRefCache = JSON.parse(tubeRefCache)
+
+    // replace the link if it's in the cache
+    const tubeFound = tubeRefCache.find(tube => (tube.url === url) && (tube.state == 'confirmed'))
+
+    if (tubeFound) return true
+    else return false
 
 }

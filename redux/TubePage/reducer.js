@@ -59,14 +59,20 @@ export default TubePageReducer = (state = initialState, action) => {
     }
     case ActionTypes.DOWNLOAD_TUBE: {
       return {
-        progressDownload: 0.1,
-        ...state
+        ...state,
+        progressDownload: 0.1
       }
     }
     case ActionTypes.DOWNLOAD_TUBE_PROGRESS: {
       return {
         ...state,
         progressDownload: action.payload
+      }
+    }
+    case ActionTypes.DOWNLOAD_TUBE_SUCCESS: {
+      return {
+        ...state,
+        progressDownload: 0
       }
     }
     case ActionTypes.RESET_TUBE_PAGE: return initialState

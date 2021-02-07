@@ -15,7 +15,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import CommentListModal from './../../core/modal/comment-list-modal'
-import { cacheOneTube } from './../../../services/cache/cache-tube-service'
+import { cacheOneTube, getCacheLinkOrSeverLink } from './../../../services/cache/cache-tube-service'
 
 class TubePage extends React.Component {
 
@@ -89,6 +89,35 @@ class TubePage extends React.Component {
         }
     }
 
+    _displayBtnDownload = () => {
+        switch (true) {
+            case getCacheLinkOrSeverLink(this.props.TubePage.tube.videoLink): {
+                return (
+                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => cacheOneTube(this.props.TubePage.tube, this.props.actions)}>
+                        <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
+                        <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Downloaded</Text>
+                    </TouchableOpacity>
+                )
+            }
+            case this.props.TubePage.progressDownload > 0.1: {
+                return (
+                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => cacheOneTube(this.props.TubePage.tube, this.props.actions)}>
+                        <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
+                        <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{this.props.TubePage.progressDownload} %</Text>
+                    </TouchableOpacity>
+                )
+            }
+            default: {
+                return (
+                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => cacheOneTube(this.props.TubePage.tube, this.props.actions)}>
+                        <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
+                        <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Download</Text>
+                    </TouchableOpacity>
+                )
+            }
+        }
+    }
+
     _subHeader = () => {
         return (
             <View>
@@ -104,22 +133,10 @@ class TubePage extends React.Component {
                     </View>
                 </View>
 
-                {console.log(this.props.TubePage.progressDownload)}
-
                 {/* Buttons */}
                 <View style={{ flexDirection: 'row', marginVertical: 15 }}>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        {this.props.TubePage.progressDownload > 0.1 ?
-                            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
-                                <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{this.props.TubePage.progressDownload} %</Text>
-                            </View>
-                            :
-                            <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => cacheOneTube(this.props.TubePage.tube, this.props.actions)}>
-                                <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
-                                <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Download</Text>
-                            </TouchableOpacity>
-                        }
+                        {this._displayBtnDownload()}
                     </View>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
