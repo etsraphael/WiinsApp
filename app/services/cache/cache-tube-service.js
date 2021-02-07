@@ -21,13 +21,13 @@ export async function cacheOneTube(tube, actions) {
     const indextube = tubeRefCache.map(x => x.url).indexOf(tube.videoLink)
 
     // pending animation everywhere
-    // await actions.addTubeInCacheActions(tube)
+    await actions.downloadTubeStartActions()
 
     // add the file in the cache
     RNFetchBlob.config({ path })
         .fetch("GET", tube.videoLink)
-        .progress((received, total) => {
-            console.log('progress', Math.round(received / total * 100) + '%')
+        .progress(async (received, total) => {
+            await actions.downloadTubeProgressActions(Math.round(received / total * 100))
         })
         .then(async (result) => {
             tubeRefCache[indextube] = {
@@ -35,9 +35,9 @@ export async function cacheOneTube(tube, actions) {
                 path: result.path(),
                 updatedAt: Date.now(),
                 state: 'confirmed'
-            }
-            // set the playlist store here
-            // await actions.settubePlaylistInTheCacheActionSuccess(tube.videoLink)
+            }(
+            // set the store
+            await actions.addTubeInCacheSuccessActions(tube))
             // regist the new file
             return AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
         })
@@ -48,8 +48,8 @@ export async function cacheOneTube(tube, actions) {
                 updatedAt: Date.now(),
                 state: 'failed'
             }
-            // set the playlist store here
-            // await actions.settubePlaylistInTheCacheActionFail(tube.videoLink)
+            // set the store
+            await actions.addTubeInCacheFailedActions(tube)
             // regist the new file
             return AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
         })

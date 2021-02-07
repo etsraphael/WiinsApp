@@ -26,6 +26,12 @@ export default TubeMenuReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+    case ActionTypes.ADD_TUBE_IN_CACHE : {
+      return {
+        ...state,
+        downloaded: state.downloaded.concat(payload.tube)
+      }
+    }
     case ActionTypes.RESET_TUBE_MENU: return initialState
     default: return state
   }

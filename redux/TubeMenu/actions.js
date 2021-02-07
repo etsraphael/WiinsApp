@@ -1,6 +1,10 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 
+export function addTubeInCache(tube) {
+    return { type: ActionTypes.ADD_TUBE_IN_CACHE, payload: tube }
+}
+
 export function getTubeMenuSuccess(menu) {
     return { 
         type: ActionTypes.GET_TUBE_MENU_SUCCESS,

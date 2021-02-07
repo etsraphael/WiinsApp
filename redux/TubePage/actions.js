@@ -1,10 +1,10 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
+import { addTubeInCache } from './../TubeMenu/actions'
 
-export function addTubeInCache(tube) {
-    return { type: ActionTypes.ADD_TUBE_IN_CACHE, payload: tube }
+export function downloadTubeProgress(progress) {
+    return { type: ActionTypes.DOWNLOAD_TUBE_PROGRESS, payload: progress }
 }
-
 
 export function downloadTubeStart() {
     return { type: ActionTypes.DOWNLOAD_TUBE }
@@ -201,6 +201,21 @@ export function followInTubePageActions(profileId) {
 }
 
 
-export function addTubeInCacheActions(tube) {
-    return (dispatch) => dispatch(addTubeInCache(tube))
+export function downloadTubeStartActions() {
+    return (dispatch) => dispatch(downloadTubeStart())
+}
+
+export function downloadTubeProgressActions(progress) {
+    return (dispatch) => dispatch(downloadTubeProgress(progress))
+}
+
+export function addTubeInCacheSuccessActions(tube) {
+    return (dispatch) => {
+        dispatch(downloadTubeSuccess())
+        dispatch(addTubeInCache(tube))
+    }
+}
+
+export function addTubeInCacheFailedActions() {
+    return (dispatch) => { dispatch(downloadTubeFail()) }
 }
