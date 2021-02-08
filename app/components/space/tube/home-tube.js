@@ -15,7 +15,8 @@ class HomeTube extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            categorySelected: 'trending'
+            categorySelected: 'trending',
+            fakeArray: [{ "mutualContent": { "musics": [], "tubes": [] }, "totalView": 0, "totalLike": 3, "otherUsers": [], "_id": "5f7af194dcf8e40031e91470", "name": "Compo", "videoLink": "https://eps-file-tube.s3.eu-west-3.amazonaws.com/627fe34b-a832-4894-8a9c-6e135e269417", "posterLink": "https://eps-tube-poster.s3.eu-west-3.amazonaws.com/fb9ce7e2-1e97-4007-bbff-9192031746fd", "duration": 31, "profile": { "follow": { "friend": true, "following": false, "viewer": false }, "communityTotal": 1000, "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/07f56635-e983-4c0a-8bf6-c767bdcaf648", "_id": "5f79bf25fb16250031531109", "_meta": { "pseudo": "levin" } }, "createdAt": "2020-10-05T10:12:36.717Z", "updatedAt": "2021-02-05T01:41:44.055Z", "__v": 0, "relation": "friend", "isLiked": true, "inCache": false }]
         }
     }
 
@@ -141,7 +142,7 @@ class HomeTube extends React.Component {
 
     // to display the tubelist by section
     _tubeListBySection = (tubeList, title, titleStyle = {}, isLarge = false) => {
-        if (tubeList === undefined || tubeList === null || tubeList.length == 0) tubeList = [{}, {}, {}] //return null
+        if (tubeList === undefined || tubeList === null || tubeList.length == 0) return null
 
         return (
             <View style={styles.container_section}>
@@ -166,6 +167,74 @@ class HomeTube extends React.Component {
         )
     }
 
+    _oneTubeDownloadedRender = (tube, isLarge = false, isLastIndex) => {
+
+        return (
+            <TouchableOpacity
+                onPress={() => alert('open the page downloading in progress.. ')}
+                style={styles.oneTubeContainer(isLarge, isLastIndex)}
+            >
+
+                {/* Background Image */}
+                <FastImage
+                    style={{ width: '100%', height: '100%', borderRadius: 8 }} resizeMode={FastImage.resizeMode.cover}
+                    source={{ uri: tube ? tube.posterLink : this.testValue.a, priority: FastImage.priority.normal }} // Subject to change
+                />
+
+                {/* Footer Card */}
+                <View style={{ position: 'absolute', bottom: 0, width: '100%', height: 70, }}>
+                    <LinearGradient
+                        colors={['#fbfbfb00', '#bdc3c72e', '#2c3e50d1']}
+                        style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, height: '100%', borderBottomEndRadius: 8, borderBottomStartRadius: 8 }}>
+                        <FastImage
+                            style={{ width: 45, height: 45, borderRadius: 45, borderWidth: 2, borderColor: '#FF2D55' }} resizeMode={FastImage.resizeMode.cover}
+                            source={{ uri: tube ? tube.profile.pictureprofile : this.testValue.b, priority: FastImage.priority.normal }} // Subject to change
+                        />
+                        <View style={{ paddingLeft: 10 }}>
+                            <Text style={{ color: '#FFFFFF', fontSize: 14, fontWeight: '800' }}>{tube ? tube.profile._meta.pseudo : 'a'}</Text>
+                        </View>
+                    </LinearGradient>
+
+                </View>
+            </TouchableOpacity>
+        )
+
+    }
+
+    _tubeListDownloaded = (tubeList) => {
+        if (tubeList === undefined || tubeList === null || tubeList.length == 0) return null
+
+        return (
+            <View style={styles.container_section}>
+
+                {/* Header */}
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 25, paddingTop: 15, alignItems: 'center' }}>
+                    <View>
+                        <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', fontWeight: 'bold' }}>Downloaded</Text>
+                    </View>
+                    <View>
+                        <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>See All</Text>
+                    </View>
+                </View>
+
+                {/* Video List */}
+                <View style={{ paddingBottom: 10 }}>
+                    <View style={{ flexDirection: 'row' }}>
+                        <FlatList
+                            horizontal={true}
+                            showsHorizontalScrollIndicator={false}
+                            style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7, paddingHorizontal: 19 }}
+                            data={tubeList}
+                            keyExtractor={(item, index) => `tube-item-${index}`} // item.id.toString()
+                            renderItem={({ item, index }) => this._oneTubeDownloadedRender(item, true, index === tubeList.length - 1)}
+                        />
+                    </View>
+                </View>
+
+            </View>
+        )
+    }
+
     // to select the loading of the contents
     _bodyRender = () => {
         if (this.props.TubeMenu.isLoading) {
@@ -177,12 +246,15 @@ class HomeTube extends React.Component {
         } else {
             return (<ScrollView>
                 {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending', { fontWeight: 'bold' }, true)}
-                {/* {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Recommended For You')} */}
+
+                {/* {this._tubeListBySection(this.state.fakeArray, 'Downloaded', { fontWeight: 'bold' }, true)} */}
 
                 {/* {this._categorieViews()} */}
                 {/* {this._tubeListBySection(this.props.TubeMenu.following, 'Following')}
                     {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending')}
                     {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Suggestion')} */}
+
+                {this._tubeListDownloaded(this.props.TubeMenu.downloaded, 'Downloaded', { fontWeight: 'bold' }, true)}
             </ScrollView>)
         }
     }

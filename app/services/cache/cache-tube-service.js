@@ -3,7 +3,7 @@ import RNFetchBlob from 'rn-fetch-blob'
 
 export async function cacheOneTube(tube, actions) {
 
-    if(!tube.videoLink) return null
+    if (!tube.videoLink) return null
 
     // check if the cache tube cache exist
     let tubeRefCache = await AsyncStorage.getItem('tubeRefCache');
@@ -40,13 +40,11 @@ export async function cacheOneTube(tube, actions) {
             }
 
             // set the store
-            await actions.addTubeInCacheSuccessActions(tube)
+            await actions.addTubeInCacheSuccessActions({ ...tube, videoLink: result.path() })
             // regist the new file
-            await AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
-
-            console.log(await AsyncStorage.getItem('tubeRefCache'))
+            return AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
         })
-        .catch(async (error) => {
+        .catch(async () => {
 
             tubeRefCache[indextube] = {
                 url: tube.videoLink,
@@ -65,7 +63,7 @@ export async function cacheOneTube(tube, actions) {
 export async function getCacheLinkOrSeverLinkForTube(url) {
 
     // verification
-    if(!url) return null 
+    if (!url) return null
 
     // get the tubeRefCache
     let tubeRefCache = await AsyncStorage.getItem('tubeRefCache')

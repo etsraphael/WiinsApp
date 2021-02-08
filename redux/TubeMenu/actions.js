@@ -6,7 +6,7 @@ export function addTubeInCache(tube) {
 }
 
 export function getTubeMenuSuccess(menu) {
-    return { 
+    return {
         type: ActionTypes.GET_TUBE_MENU_SUCCESS,
         payload: menu
     }
@@ -38,13 +38,13 @@ export function getTubeMenuActions() {
 
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 }
             })
                 .then((response) => response.json())
-                .then( async (response) => {
+                .then(async (response) => {
                     if (response.status == 201) return dispatch(getTubeMenuSuccess(response.menu))
                     return dispatch(getTubeMenuFail(response.message))
                 })

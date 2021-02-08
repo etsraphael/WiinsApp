@@ -1,7 +1,7 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
-import { addTubeInCache } from './../TubeMenu/actions'
 import { getCacheLinkOrSeverLinkForTube } from './../../app/services/cache/cache-tube-service'
+import { addTubeInCache } from './../TubeMenu/actions'
 
 export function downloadTubeProgress(progress) {
     return { type: ActionTypes.DOWNLOAD_TUBE_PROGRESS, payload: progress }
@@ -86,14 +86,8 @@ export async function getTubePageSuccess(payload) {
 
     const foundInCache = await getCacheLinkOrSeverLinkForTube(payload.tube.videoLink)
 
-    if(foundInCache){
-        payload.tube.inCache = true
-    }else {
-        payload.tube.inCache = false
-    }
-
-
-
+    if(foundInCache){ payload.tube.inCache = true }
+    else { payload.tube.inCache = false }
 
     return { type: ActionTypes.GET_TUBE_PAGE_SUCCESS, payload }
 }
@@ -214,7 +208,9 @@ export function followInTubePageActions(profileId) {
 }
 
 export function downloadTubeStartActions() {
-    return (dispatch) => dispatch(downloadTubeStart())
+    return (dispatch) => {
+        dispatch(downloadTubeStart())
+    }
 }
 
 export function downloadTubeProgressActions(progress) {
@@ -224,7 +220,7 @@ export function downloadTubeProgressActions(progress) {
 export function addTubeInCacheSuccessActions(tube) {
     return (dispatch) => {
         dispatch(downloadTubeSuccess())
-        // dispatch(addTubeInCache(tube))
+        dispatch(addTubeInCache(tube))
     }
 }
 
