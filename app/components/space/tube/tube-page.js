@@ -15,8 +15,9 @@ import LinearGradient from 'react-native-linear-gradient'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import CommentListModal from './../../core/modal/comment-list-modal'
-import { cacheOneTube, getCacheLinkOrSeverLinkForTube } from './../../../services/cache/cache-tube-service'
-import Clipboard from '@react-native-community/clipboard';
+import { cacheOneTube } from './../../../services/cache/cache-tube-service'
+import Clipboard from '@react-native-community/clipboard'
+import Snackbar from 'react-native-snackbar';
 
 class TubePage extends React.Component {
 
@@ -36,8 +37,9 @@ class TubePage extends React.Component {
         { id: "", tube: { posterLink: "https://images.unsplash.com/photo-1528277342758-f1d7613953a2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fGFmcmljYXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", profile: { _meta: { pseudo: "AFRICA the world wonder" }, pictureprofile: "" } } }
     ]
 
-    _copyToClipboard = async () => {
-        Clipboard.setString('hello world');
+    _copyToClipboard = () => {
+        Clipboard.setString(`https://www.wiins.io/SpaceTube/watching-video/${this.props.TubePage.tube._id}`)
+        return Snackbar.show({ text: 'Url Copied', duration: Snackbar.LENGTH_LONG })
     }
 
     _toggleComment = () => {
