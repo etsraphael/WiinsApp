@@ -51,7 +51,7 @@ class VideoPlayer extends React.Component {
     onVideoProgress = ({ currentTime }) => this.setState({ currentTime });
     onVideoEnd = () => {
         this.setState({ paused: true });
-        this.video.seek(0);
+        // this.video.seek(0);
     }
     onSliderSeek = (slide) => {
         this.player.seek(slide * this.state.duration);

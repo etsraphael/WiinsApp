@@ -31,18 +31,23 @@ export async function cacheOneTube(tube, actions) {
             actions.downloadTubeProgressActions(Math.round(received / total * 100))
         })
         .then(async (result) => {
+
             tubeRefCache[indextube] = {
                 url: tube.videoLink,
                 path: result.path(),
                 updatedAt: Date.now(),
                 state: 'confirmed'
             }
+
             // set the store
             await actions.addTubeInCacheSuccessActions(tube)
             // regist the new file
-            return AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
+            await AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
+
+            console.log(await AsyncStorage.getItem('tubeRefCache'))
         })
-        .catch(async () => {
+        .catch(async (error) => {
+
             tubeRefCache[indextube] = {
                 url: tube.videoLink,
                 path: result.path(),
@@ -57,7 +62,10 @@ export async function cacheOneTube(tube, actions) {
 
 }
 
-export async function getCacheLinkOrSeverLink(url) {
+export async function getCacheLinkOrSeverLinkForTube(url) {
+
+    // verification
+    if(!url) return null 
 
     // get the tubeRefCache
     let tubeRefCache = await AsyncStorage.getItem('tubeRefCache')
@@ -71,4 +79,39 @@ export async function getCacheLinkOrSeverLink(url) {
     if (tubeFound) return true
     else return false
 
+}
+
+export async function resetAllRefTube() {
+
+    let tubeRefCache = await AsyncStorage.getItem('tubeRefCache')
+    if (!tubeRefCache) return AsyncStorage.setItem('tubeRefCache', JSON.stringify([]))
+    else {
+
+        // pars the json to manipulate it
+        tubeRefCache = JSON.parse(tubeRefCache)
+
+        // delete each musics
+        for (let tube of tubeRefCache) {
+            await resetRefTubeByUrl(tube.url)
+        }
+
+    }
+
+}
+
+export async function resetRefTubeByUrl(url) {
+    return RNFetchBlob.fs.unlink(RNFetchBlob.fs.dirs.MovieDir + "/" + url.split('/')[3] + '.mp4')
+        .then(async () => {
+
+            // get the tube ref
+            let tubeRefCache = await AsyncStorage.getItem('tubeRefCache')
+
+            // pars the json to manipulate it
+            tubeRefCache = JSON.parse(tubeRefCache)
+
+            // delete the ref 
+            tubeRefCache = tubeRefCache.filter(tube => tube.url !== url)
+
+            return AsyncStorage.setItem('tubeRefCache', JSON.stringify(tubeRefCache))
+        })
 }

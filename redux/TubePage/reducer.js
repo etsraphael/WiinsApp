@@ -18,6 +18,7 @@ export default TubePageReducer = (state = initialState, action) => {
         tube: action.payload.tube,
         tubesFollower: action.payload.Follower,
         tubesSuggestions: action.payload.relatedVideo,
+        progressDownload: 0,
         isLoading: false,
         error: null,
       }
@@ -72,7 +73,11 @@ export default TubePageReducer = (state = initialState, action) => {
     case ActionTypes.DOWNLOAD_TUBE_SUCCESS: {
       return {
         ...state,
-        progressDownload: 0
+        progressDownload: 0,
+        tube: {
+          ...state.tube,
+          inCache: true
+        }
       }
     }
     case ActionTypes.RESET_TUBE_PAGE: return initialState
