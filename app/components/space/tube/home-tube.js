@@ -15,8 +15,7 @@ class HomeTube extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            categorySelected: 'trending',
-            fakeArray: [{ "mutualContent": { "musics": [], "tubes": [] }, "totalView": 0, "totalLike": 3, "otherUsers": [], "_id": "5f7af194dcf8e40031e91470", "name": "Compo", "videoLink": "https://eps-file-tube.s3.eu-west-3.amazonaws.com/627fe34b-a832-4894-8a9c-6e135e269417", "posterLink": "https://eps-tube-poster.s3.eu-west-3.amazonaws.com/fb9ce7e2-1e97-4007-bbff-9192031746fd", "duration": 31, "profile": { "follow": { "friend": true, "following": false, "viewer": false }, "communityTotal": 1000, "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/07f56635-e983-4c0a-8bf6-c767bdcaf648", "_id": "5f79bf25fb16250031531109", "_meta": { "pseudo": "levin" } }, "createdAt": "2020-10-05T10:12:36.717Z", "updatedAt": "2021-02-05T01:41:44.055Z", "__v": 0, "relation": "friend", "isLiked": true, "inCache": false }]
+            categorySelected: 'trending'
         }
     }
 
@@ -246,8 +245,6 @@ class HomeTube extends React.Component {
         } else {
             return (<ScrollView>
                 {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending', { fontWeight: 'bold' }, true)}
-
-                {/* {this._tubeListBySection(this.state.fakeArray, 'Downloaded', { fontWeight: 'bold' }, true)} */}
 
                 {/* {this._categorieViews()} */}
                 {/* {this._tubeListBySection(this.props.TubeMenu.following, 'Following')}

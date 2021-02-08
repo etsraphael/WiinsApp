@@ -6,7 +6,7 @@ import * as CommentListActions from '../../../../redux/CommentList/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faShare, faDownload, faCommentLines } from '@fortawesome/pro-light-svg-icons'
+import { faShare, faDownload, faCommentLines, faCheck } from '@fortawesome/pro-light-svg-icons'
 import { faCircle } from '@fortawesome/pro-solid-svg-icons'
 import * as TubePageActions from '../../../../redux/TubePage/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
@@ -94,8 +94,8 @@ class TubePage extends React.Component {
         switch (true) {
             case this.props.TubePage.tube.inCache: {
                 return (
-                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => cacheOneTube(this.props.TubePage.tube, this.props.actions)}>
-                        <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
+                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faCheck} size={20} color="#77838F" />
                         <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Downloaded</Text>
                     </TouchableOpacity>
                 )
