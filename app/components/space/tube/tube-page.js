@@ -17,7 +17,8 @@ import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import CommentListModal from './../../core/modal/comment-list-modal'
 import { cacheOneTube } from './../../../services/cache/cache-tube-service'
 import Clipboard from '@react-native-community/clipboard'
-import Snackbar from 'react-native-snackbar';
+import Snackbar from 'react-native-snackbar'
+import I18n from '../../../i18n/i18n'
 
 class TubePage extends React.Component {
 
@@ -39,7 +40,7 @@ class TubePage extends React.Component {
 
     _copyToClipboard = () => {
         Clipboard.setString(`https://www.wiins.io/SpaceTube/watching-video/${this.props.TubePage.tube._id}`)
-        return Snackbar.show({ text: 'Url Copied', duration: Snackbar.LENGTH_LONG })
+        return Snackbar.show({ text: I18n.t('CORE.Url-Copied'), duration: Snackbar.LENGTH_LONG })
     }
 
     _toggleComment = () => {
@@ -97,13 +98,12 @@ class TubePage extends React.Component {
     }
 
     _displayBtnDownload = () => {
-
         switch (true) {
             case this.props.TubePage.tube.inCache: {
                 return (
                     <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faCheck} size={20} color="#77838F" />
-                        <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Downloaded</Text>
+                        <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{I18n.t('CORE.Downloaded')}</Text>
                     </TouchableOpacity>
                 )
             }
@@ -119,7 +119,7 @@ class TubePage extends React.Component {
                 return (
                     <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => cacheOneTube(this.props.TubePage.tube, this.props.actions)}>
                         <FontAwesomeIcon icon={faDownload} size={20} color="#77838F" />
-                        <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Download</Text>
+                        <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{I18n.t('CORE.Download')}</Text>
                     </TouchableOpacity>
                 )
             }
@@ -149,13 +149,13 @@ class TubePage extends React.Component {
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => this._copyToClipboard()}>
                             <FontAwesomeIcon icon={faShare} size={20} color="#77838F" />
-                            <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Share</Text>
+                            <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{I18n.t('CORE.Share')}</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
                         <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => this._toggleComment()}>
                             <FontAwesomeIcon icon={faCommentLines} size={20} color="#77838F" />
-                            <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>Comment</Text>
+                            <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{I18n.t('CORE.Comment')}</Text>
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -179,7 +179,7 @@ class TubePage extends React.Component {
                     </View>
                     <View style={{ flex: 9, paddingLeft: 15 }}>
                         <Text style={{ fontWeight: 'bold', fontFamily: 'Avenir-Heavy', fontSize: 19 }}>{this.props.TubePage.tube.profile._meta.pseudo}</Text>
-                        <Text>Community: 4.5k</Text>
+                        <Text>{I18n.t('CORE.Community')}: 4.5k</Text>
                     </View>
                     <View style={{ flex: 5, alignItems: 'center' }}>
                         {this._displayBtnSubscribe(this.props.TubePage.tube.relation)}
