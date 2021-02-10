@@ -231,11 +231,9 @@ const dateStyle = StyleSheet.create({
         borderRadius: 5
     },
     placeholderText: {
-        // color: 'white',
         fontSize: 20,
     },
     dateText: {
-        // color: 'white',
         fontSize: 20,
     }
 })

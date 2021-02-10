@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft, faKey, faUser, faEllipsisH, faWallet, faCertificate, faSignOut } from '@fortawesome/pro-light-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
+import I18n from '../../../i18n/i18n'
 
 class Setting extends React.Component {
 
@@ -44,7 +45,7 @@ class Setting extends React.Component {
                     {/* Profile picture and name */}
                     <View style={{ position: 'absolute', top: 130, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
                         <View style={{ flex: 1, paddingHorizontal: 35, justifyContent: 'center' }}>
-                            <Text style={{ fontSize: 28, color: 'white', fontFamily: 'Avenir-Heavy' }}>Setting</Text>
+                            <Text style={{ fontSize: 28, color: 'white', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Setting')}</Text>
                         </View>
                     </View>
                 </View>
@@ -63,7 +64,7 @@ class Setting extends React.Component {
                             <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} />
                         </View>
                         <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Profile</Text>
+                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Profile')}</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingPassword')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
@@ -71,7 +72,7 @@ class Setting extends React.Component {
                             <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} />
                         </View>
                         <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Password</Text>
+                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Password')}</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingLedger')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
@@ -79,7 +80,7 @@ class Setting extends React.Component {
                             <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} />
                         </View>
                         <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Ledger</Text>
+                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Ledger')}</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -89,7 +90,7 @@ class Setting extends React.Component {
                             <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} />
                         </View>
                         <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Certification</Text>
+                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Certification')}</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingOther')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
@@ -97,7 +98,7 @@ class Setting extends React.Component {
                             <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} />
                         </View>
                         <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Others</Text>
+                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Others')}</Text>
                         </View>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => this._logOut()} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
@@ -105,7 +106,7 @@ class Setting extends React.Component {
                             <FontAwesomeIcon icon={faSignOut} color={'#808080a3'} size={30} />
                         </View>
                         <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>Log Out</Text>
+                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{I18n.t('NAVBAR.Logout')}</Text>
                         </View>
                     </TouchableOpacity>
                 </View>

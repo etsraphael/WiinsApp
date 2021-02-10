@@ -30,7 +30,7 @@ class HomeTube extends React.Component {
                 {/* search bar */}
                 <View style={styles.container_search_bar}>
                     <TextInput
-                        placeholder='Search'
+                        placeholder={I18n.t('CORE.Search')}
                         style={styles.search_bar}
                         placeholderTextColor="#737373"
                         value={this.state.search}
@@ -93,7 +93,7 @@ class HomeTube extends React.Component {
                 {/* Background Image */}
                 <FastImage
                     style={{ width: '100%', height: '100%', borderRadius: 8 }} resizeMode={FastImage.resizeMode.cover}
-                    source={{ uri: item.tube ? item.tube.posterLink : this.testValue.a, priority: FastImage.priority.normal }} // Subject to change
+                    source={{ uri: item.tube ? item.tube.posterLink : this.testValue.a, priority: FastImage.priority.normal }}
                 />
 
                 {/* Footer Card */}
@@ -103,7 +103,7 @@ class HomeTube extends React.Component {
                         style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, height: '100%', borderBottomEndRadius: 8, borderBottomStartRadius: 8 }}>
                         <FastImage
                             style={{ width: 45, height: 45, borderRadius: 45, borderWidth: 2, borderColor: '#FF2D55' }} resizeMode={FastImage.resizeMode.cover}
-                            source={{ uri: item.tube ? item.tube.profile.pictureprofile : this.testValue.b, priority: FastImage.priority.normal }} // Subject to change
+                            source={{ uri: item.tube ? item.tube.profile.pictureprofile : this.testValue.b, priority: FastImage.priority.normal }}
                         />
                         <View style={{ paddingLeft: 10 }}>
                             <Text style={{ color: '#FFFFFF', fontSize: 14, fontWeight: '800' }}>{item.tube ? item.tube.profile._meta.pseudo : 'a'}</Text>
@@ -152,7 +152,7 @@ class HomeTube extends React.Component {
                         <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', ...titleStyle }}>{title}</Text>
                     </View>
                     <View>
-                        <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>See All</Text>
+                        <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>{I18n.t('CORE.Show-more')}</Text>
                     </View>
                 </View>
 
@@ -177,7 +177,7 @@ class HomeTube extends React.Component {
                 {/* Background Image */}
                 <FastImage
                     style={{ width: '100%', height: '100%', borderRadius: 8 }} resizeMode={FastImage.resizeMode.cover}
-                    source={{ uri: tube ? tube.posterLink : this.testValue.a, priority: FastImage.priority.normal }} // Subject to change
+                    source={{ uri: tube ? tube.posterLink : this.testValue.a, priority: FastImage.priority.normal }}
                 />
 
                 {/* Footer Card */}
@@ -209,10 +209,10 @@ class HomeTube extends React.Component {
                 {/* Header */}
                 <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 25, paddingTop: 15, alignItems: 'center' }}>
                     <View>
-                        <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', fontWeight: 'bold' }}>Downloaded</Text>
+                        <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', fontWeight: 'bold' }}>{I18n.t('CORE.Downloaded')}</Text>
                     </View>
                     <View>
-                        <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>See All</Text>
+                        <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>{I18n.t('CORE.Show-more')}</Text>
                     </View>
                 </View>
 
@@ -244,14 +244,14 @@ class HomeTube extends React.Component {
             )
         } else {
             return (<ScrollView>
-                {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending', { fontWeight: 'bold' }, true)}
+                {this._tubeListBySection(this.props.TubeMenu.trending, I18n.t('TUBE.Categorie.Trending'), { fontWeight: 'bold' }, true)}
 
                 {/* {this._categorieViews()} */}
                 {/* {this._tubeListBySection(this.props.TubeMenu.following, 'Following')}
                     {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending')}
                     {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Suggestion')} */}
 
-                {this._tubeListDownloaded(this.props.TubeMenu.downloaded, 'Downloaded', { fontWeight: 'bold' }, true)}
+                {this._tubeListDownloaded(this.props.TubeMenu.downloaded, I18n.t('CORE.Downloaded'), { fontWeight: 'bold' }, true)}
             </ScrollView>)
         }
     }

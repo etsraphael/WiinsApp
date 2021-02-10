@@ -253,10 +253,11 @@
     "Towards-an-infinite-space": "Προς έναν άπειρο χώρο",
     "Hello": "Χαίρετε",
     "Publication": "Δημοσίευση",
-    "Share": "Μερίδιο",
-    "Url-Copied": "Αντιγράφηκε η διεύθυνση URL",
     "Download": "Κατεβάστε",
-    "Downloaded": "Έγινε λήψη"
+    "Downloaded": "Έγινε λήψη",
+    "Save-in-phone": "Αποθήκευση στο τηλέφωνο",
+    "Share": "Μερίδιο",
+    "Url-Copied": "Η διεύθυνση URL αντιγράφηκε"
   },
   "COUNTRY": {
     "AD": "Ανδόρα",

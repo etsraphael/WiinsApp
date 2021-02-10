@@ -31,11 +31,11 @@ class TubePage extends React.Component {
     }
 
     testValue = [
-        { id: "", tube: { posterLink: "https://i.pinimg.com/236x/c7/a1/b8/c7a1b863aeba4b9a409b61ad7201924b.jpg", profile: { _meta: { pseudo: "Best locations to visit in LONDON" }, pictureprofile: "" } } },
-        { id: "", tube: { posterLink: "https://images.unsplash.com/photo-1612286350087-116a6b734781?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80", profile: { _meta: { pseudo: "VLOG - Our trip tp NEWYORK!" }, pictureprofile: "" } } },
-        { id: "", tube: { posterLink: "https://images.unsplash.com/photo-1610939978022-8f73236f5953?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80", profile: { _meta: { pseudo: "Most Commonly visited places" }, pictureprofile: "" } } },
-        { id: "", tube: { posterLink: "https://images.unsplash.com/photo-1512552288940-3a300922a275?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8dmFjYXRpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", profile: { _meta: { pseudo: "Beautify locations to spend your vacation" }, pictureprofile: "" } } },
-        { id: "", tube: { posterLink: "https://images.unsplash.com/photo-1528277342758-f1d7613953a2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fGFmcmljYXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", profile: { _meta: { pseudo: "AFRICA the world wonder" }, pictureprofile: "" } } }
+        { id: "sdlfijsdfoij", tube: { posterLink: "https://i.pinimg.com/236x/c7/a1/b8/c7a1b863aeba4b9a409b61ad7201924b.jpg", profile: { _meta: { pseudo: "Best locations to visit in LONDON" }, pictureprofile: "" } } },
+        { id: "sdfkjndsfbjkn", tube: { posterLink: "https://images.unsplash.com/photo-1612286350087-116a6b734781?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80", profile: { _meta: { pseudo: "VLOG - Our trip tp NEWYORK!" }, pictureprofile: "" } } },
+        { id: "sfijfgbgnvelfg", tube: { posterLink: "https://images.unsplash.com/photo-1610939978022-8f73236f5953?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80", profile: { _meta: { pseudo: "Most Commonly visited places" }, pictureprofile: "" } } },
+        { id: "fgpiojfgoifegh", tube: { posterLink: "https://images.unsplash.com/photo-1512552288940-3a300922a275?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8dmFjYXRpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", profile: { _meta: { pseudo: "Beautify locations to spend your vacation" }, pictureprofile: "" } } },
+        { id: "egiojergoefgi", tube: { posterLink: "https://images.unsplash.com/photo-1528277342758-f1d7613953a2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fGFmcmljYXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", profile: { _meta: { pseudo: "AFRICA the world wonder" }, pictureprofile: "" } } }
     ]
 
     _copyToClipboard = () => {
@@ -80,18 +80,18 @@ class TubePage extends React.Component {
         switch (relation) {
             case 'friend': return (
                 <TouchableOpacity style={{ marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
-                    <Text style={{ fontSize: 15 }}>Friend</Text>
+                    <Text style={{ fontSize: 15 }}>{I18n.t('CORE.Friend')}</Text>
                 </TouchableOpacity>
             )
             case 'following': return (
                 <TouchableOpacity style={{ marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
-                    <Text style={{ fontSize: 15 }}>Subscribed</Text>
+                    <Text style={{ fontSize: 15 }}>{I18n.t('CORE.Subscribed')}</Text>
                 </TouchableOpacity>
             )
             default: return (
                 <TouchableOpacity onPress={() => this.props.actions.followInTubePageActions(this.props.TubePage.tube.profile._id)}
                     style={{ marginHorizontal: 5, marginVertical: 5, backgroundColor: '#e8e8e882', justifyContent: 'center', alignItems: 'center', borderRadius: 5, padding: 10 }}>
-                    <Text style={{ fontSize: 15 }}>Follow</Text>
+                    <Text style={{ fontSize: 15 }}>{I18n.t('CORE.Follow')}</Text>
                 </TouchableOpacity>
             )
         }
@@ -134,9 +134,8 @@ class TubePage extends React.Component {
                 <View style={{ paddingHorizontal: 25, paddingTop: 10 }}>
                     <Text style={{ fontWeight: 'bold', fontFamily: 'Avenir-Heavy', fontSize: 19, paddingBottom: 10 }}>{this.props.TubePage.tube.name}</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                        {/* for the next update */}
-                        {/* <Text>{this.props.TubePage.tube.totalView} Views</Text>
-                        <FontAwesomeIcon style={{ marginHorizontal: 5 }} icon={faCircle} size={2} color="#77838F" /> */}
+                        <Text>{this.props.TubePage.tube.totalView} {I18n.t('CORE.views')}</Text>
+                        <FontAwesomeIcon style={{ marginHorizontal: 5 }} icon={faCircle} size={2} color="#77838F" />
                         <Text>{getDateTranslated(this.props.TubePage.tube.createdAt)}</Text>
                     </View>
                 </View>
@@ -179,7 +178,7 @@ class TubePage extends React.Component {
                     </View>
                     <View style={{ flex: 9, paddingLeft: 15 }}>
                         <Text style={{ fontWeight: 'bold', fontFamily: 'Avenir-Heavy', fontSize: 19 }}>{this.props.TubePage.tube.profile._meta.pseudo}</Text>
-                        <Text>{I18n.t('CORE.Community')}: 4.5k</Text>
+                        <Text>{I18n.t('CORE.Community')}: {this.props.TubePage.tube.profile.communityTotal}</Text>
                     </View>
                     <View style={{ flex: 5, alignItems: 'center' }}>
                         {this._displayBtnSubscribe(this.props.TubePage.tube.relation)}
@@ -259,7 +258,7 @@ class TubePage extends React.Component {
                         </View>
                     </View>
                     <View>
-                        <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>See All</Text>
+                        <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>{I18n.t('CORE.Show-more')}</Text>
                     </View>
                 </View>
 

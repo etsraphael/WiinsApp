@@ -12,6 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faTimes } from '@fortawesome/pro-light-svg-icons'
 import SuggestionDiscover from './suggestion-discover'
 import PublicationModal from '../../core/modal/publication-modal'
+import I18n from '../../../i18n/i18n'
 
 class Discover extends React.Component {
 
@@ -107,7 +108,7 @@ class Discover extends React.Component {
                 {/* search bar */}
                 <View style={styles.container_search_bar}>
                     <TextInput
-                        placeholder='Search'
+                        placeholder={I18n.t('CORE.Search')}
                         style={styles.search_bar}
                         placeholderTextColor="#737373"
                         onChangeText={(val) => this.searchSuggest(val)}

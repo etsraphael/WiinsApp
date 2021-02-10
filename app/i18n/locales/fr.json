@@ -211,10 +211,11 @@
     "Towards-an-infinite-space": "Vers un espace infini",
     "Hello": "Bonjour",
     "Publication": "Publication",
-    "Share": "Partager",
-    "Url-Copied": "URL copiée",
     "Download": "Télécharger",
-    "Downloaded": "Téléchargé"
+    "Downloaded": "Téléchargé",
+    "Save-in-phone": "Enregistrer dans le téléphone",
+    "Share": "Partager",
+    "Url-Copied": "URL copiée"
   },
   "COUNTRY": {
     "AD": "Andorre",

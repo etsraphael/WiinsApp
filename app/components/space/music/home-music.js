@@ -12,6 +12,7 @@ import OneMusicFav from './one-music-fav'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faTransporterEmpty } from '@fortawesome/pro-light-svg-icons'
 import { downloadFavoritesMusicList } from './../../../services/cache/cache-music-service'
+import I18n from '../../../i18n/i18n'
 
 class HomeMusic extends React.Component {
 
@@ -52,7 +53,7 @@ class HomeMusic extends React.Component {
                 {/* search bar */}
                 <View style={styles.container_search_bar}>
                     <TextInput
-                        placeholder='Search'
+                        placeholder={I18n.t('CORE.Search')}
                         style={styles.search_bar}
                         placeholderTextColor="#737373"
                         value={this.state.search}
@@ -232,7 +233,7 @@ class HomeMusic extends React.Component {
                         start={{ x: 0.1, y: 0.09 }}
                         end={{ x: 0.94, y: 0.95 }}
                     >
-                        <Text style={{ fontSize: 17, fontWeight: '500', color: 'white' }}>Save in phone</Text>
+                        <Text style={{ fontSize: 17, fontWeight: '500', color: 'white' }}>{I18n.t('CORE.Save-in-phone')}</Text>
                     </LinearGradient>
                 </TouchableOpacity>
             </View>)

@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     StyleSheet, View, FlatList, TouchableOpacity,
-    LayoutAnimation, Image, LogBox, ScrollView, SafeAreaView
+    LayoutAnimation, Image, ScrollView, SafeAreaView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
@@ -29,11 +29,9 @@ class Feed extends React.Component {
         this.state = {
             isHeaderVisible: true,
             search: '',
-
             pagePublication: 1,
             isRefreshing: false,
             isLoadingMore: false,
-
             modal: false,
             PublicationModal: null,
             publicationMode: false,
