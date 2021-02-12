@@ -29,15 +29,7 @@ class TubePage extends React.Component {
             videoReady: false
         }
     }
-
-    testValue = [
-        { id: "sdlfijsdfoij", tube: { posterLink: "https://i.pinimg.com/236x/c7/a1/b8/c7a1b863aeba4b9a409b61ad7201924b.jpg", profile: { _meta: { pseudo: "Best locations to visit in LONDON" }, pictureprofile: "" } } },
-        { id: "sdfkjndsfbjkn", tube: { posterLink: "https://images.unsplash.com/photo-1612286350087-116a6b734781?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2250&q=80", profile: { _meta: { pseudo: "VLOG - Our trip tp NEWYORK!" }, pictureprofile: "" } } },
-        { id: "sfijfgbgnvelfg", tube: { posterLink: "https://images.unsplash.com/photo-1610939978022-8f73236f5953?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=934&q=80", profile: { _meta: { pseudo: "Most Commonly visited places" }, pictureprofile: "" } } },
-        { id: "fgpiojfgoifegh", tube: { posterLink: "https://images.unsplash.com/photo-1512552288940-3a300922a275?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8dmFjYXRpb258ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", profile: { _meta: { pseudo: "Beautify locations to spend your vacation" }, pictureprofile: "" } } },
-        { id: "egiojergoefgi", tube: { posterLink: "https://images.unsplash.com/photo-1528277342758-f1d7613953a2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fGFmcmljYXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60", profile: { _meta: { pseudo: "AFRICA the world wonder" }, pictureprofile: "" } } }
-    ]
-
+    
     _copyToClipboard = () => {
         Clipboard.setString(`https://www.wiins.io/SpaceTube/watching-video/${this.props.TubePage.tube._id}`)
         return Snackbar.show({ text: I18n.t('CORE.Url-Copied'), duration: Snackbar.LENGTH_LONG })
@@ -197,7 +189,7 @@ class TubePage extends React.Component {
         </View>)
     }
 
-    _playNextSection = (tubeList = this.testValue, title, line) => {
+    _playNextSection = (tubeList, title, line) => {
 
         if (!tubeList || tubeList.length == 0) return null
 
@@ -230,7 +222,7 @@ class TubePage extends React.Component {
             <ScrollView style={{ height: '100%', marginBottom: 50 }}>
                 {this._subHeader()}
                 {/* Others videos */}
-                {this._playNextSection(this.props.TubePage.tubesFollower, 'Play next', { value: this.props.TubePage.tube.profile._meta.pseudo }, true)}
+                {this._playNextSection(this.props.TubePage.tubesFollowingUser, 'Play next', { value: this.props.TubePage.tube.profile._meta.pseudo }, true)}
                 {this._tubeListBySection(this.props.TubePage.tubesSuggestions, 'Suggestion', false)}
             </ScrollView>
         )
@@ -242,7 +234,7 @@ class TubePage extends React.Component {
     }
 
     // to display some tube by section
-    _tubeListBySection = (tubeList = this.testValue, title, line) => {
+    _tubeListBySection = (tubeList, title, line) => {
 
         if (!tubeList || tubeList.length == 0) return null
 

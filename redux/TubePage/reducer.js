@@ -16,7 +16,7 @@ export default TubePageReducer = (state = initialState, action) => {
       return {
         ...state,
         tube: action.payload.tube,
-        tubesFollower: action.payload.Follower,
+        tubesFollowingUser: action.payload.followingUser,
         tubesSuggestions: action.payload.relatedVideo,
         progressDownload: 0,
         isLoading: false,

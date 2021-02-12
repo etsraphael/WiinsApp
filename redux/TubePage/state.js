@@ -1,6 +1,6 @@
 export const initialState = {
     tube: null,
-    tubesFollower: [],
+    tubesFollowingUser: [],
     tubesSuggestions: [],
     comment: [],
     isLoading: false,
