@@ -1,7 +1,7 @@
 import React from 'react'
 import {
-    StyleSheet, View, FlatList, TouchableOpacity,
-    LayoutAnimation, Image, ScrollView, SafeAreaView
+    StyleSheet, View, FlatList, TouchableOpacity, Image,
+    ScrollView, SafeAreaView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
@@ -15,12 +15,6 @@ import StoriesTrend from './stories/stories-trend'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
 import CardNewFeed from './../../core/card/card-new-feed'
-
-const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
-    const paddingToBottom = 20;
-    return layoutMeasurement.height + contentOffset.y >=
-        contentSize.height - paddingToBottom;
-}
 
 class Feed extends React.Component {
 
@@ -60,34 +54,6 @@ class Feed extends React.Component {
             this.setState({ pagePublication: this.state.pagePublication + 1 })
         }
 
-    }
-
-    // to add some event during the scrolling
-    _onScroll = (event) => {
-
-        const CustomLayoutLinear = {
-            duration: 100,
-            create: { type: LayoutAnimation.Types.linear, property: LayoutAnimation.Properties.opacity },
-            update: { type: LayoutAnimation.Types.linear, property: LayoutAnimation.Properties.opacity },
-            delete: { type: LayoutAnimation.Types.linear, property: LayoutAnimation.Properties.opacity }
-        }
-        // Check if the user is scrolling up or down by confronting the new scroll position with your own one
-        const currentOffset = event.nativeEvent.contentOffset.y
-        const direction = (currentOffset > 0 && currentOffset > this._listViewOffset)
-            ? 'down'
-            : 'up'
-        // If the user is scrolling down (and the action-button is still visible) hide it
-        const isHeaderVisible = direction === 'up'
-        if (isHeaderVisible !== this.state.isHeaderVisible) {
-            LayoutAnimation.configureNext(CustomLayoutLinear)
-            this.setState({ isHeaderVisible })
-        }
-        // Update your scroll position
-        this._listViewOffset = currentOffset
-
-        // load new publication
-        // if (isCloseToBottom(event.nativeEvent)) this._getPublicationList()
-        if (isCloseToBottom(event.nativeEvent)) alert('oh')
     }
 
     // to set the searching bar
@@ -155,7 +121,7 @@ class Feed extends React.Component {
     }
 
     // to display the list of the publications
-    _displayPublicationFeed = () => { //borderTopLeftRadius: 35, borderTopRightRadius: 35
+    _displayPublicationFeed = () => { 
         return (
             <View style={{ flex: 1, overflow: 'hidden' }}>
                 <ScrollView
