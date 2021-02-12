@@ -55,7 +55,6 @@ class Feed extends React.Component {
 
     // to load the next page of the publication
     _getPublicationList = () => {
-
         if (!this.props.FeedPublications.isLoading) {
             this.props.actions.getByMode(this.state.pagePublication, 'FollowerAndFriend')
             this.setState({ pagePublication: this.state.pagePublication + 1 })
@@ -87,7 +86,8 @@ class Feed extends React.Component {
         this._listViewOffset = currentOffset
 
         // load new publication
-        if (isCloseToBottom(event.nativeEvent)) this._getPublicationList()
+        // if (isCloseToBottom(event.nativeEvent)) this._getPublicationList()
+        if (isCloseToBottom(event.nativeEvent)) alert('oh')
     }
 
     // to set the searching bar
@@ -131,25 +131,24 @@ class Feed extends React.Component {
         this.props.actions.getByMode(1, 'FollowerAndFriend')
     }
 
+    _cardRender = (item, index) => {
+        return (<CardNewFeed
+            index={index}
+            navigation={this.props.navigation}
+            publication={item}
+            space={'feed'}
+            toggleModal={(event) => this._toggleModal(event)}
+        />)
+    }
+
     _publicationList = () => {
         if (!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0) {
             return (
                 <FlatList
-                    onRefresh={this._refreshRequest}
-                    refreshing={this.state.isRefreshing}
-                    onScrollBeginDrag={this._onScroll}
+                    style={{ flex: 1 }}
                     data={this.props.FeedPublications.publications}
-                    renderItem={({ item, index }) =>
-                        <CardNewFeed
-                            index={index}
-                            navigation={this.props.navigation}
-                            publication={item}
-                            space={'feed'}
-                            toggleModal={(event) => this._toggleModal(event)}
-                        />
-                    }
+                    renderItem={({ item, index }) => this._cardRender(item, index)}
                     keyExtractor={(item) => item._id.toString()}
-                    ItemSeparatorComponent={FeedSeparator}
                 />
             )
         } else return null
@@ -159,7 +158,12 @@ class Feed extends React.Component {
     _displayPublicationFeed = () => { //borderTopLeftRadius: 35, borderTopRightRadius: 35
         return (
             <View style={{ flex: 1, overflow: 'hidden' }}>
-                <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white' }} showsVerticalScrollIndicator={false} >
+                <ScrollView
+                    scrollEventThrottle={5}
+                    style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white' }}
+                    showsVerticalScrollIndicator={false}
+                    onMomentumScrollEnd={() => this._getPublicationList()}
+                >
                     <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
                     {this._publicationList()}
                 </ScrollView>
