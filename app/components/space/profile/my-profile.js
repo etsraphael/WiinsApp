@@ -23,7 +23,7 @@ class MyProfile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.actions.getByMode(1, 'myfeedpublication')
+        this.props.actions.getByModeProfile(1, 'myfeedpublication')
     }
 
     // to set the dropdowns actions

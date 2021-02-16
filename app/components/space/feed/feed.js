@@ -50,7 +50,7 @@ class Feed extends React.Component {
     // to load the next page of the publication
     _getPublicationList = () => {
         if (!this.props.FeedPublications.isLoading) {
-            this.props.actions.getByMode(this.state.pagePublication, 'FollowerAndFriend')
+            this.props.actions.getByModeFeed(this.state.pagePublication, 'FollowerAndFriend')
             this.setState({ pagePublication: this.state.pagePublication + 1 })
         }
 
@@ -94,7 +94,7 @@ class Feed extends React.Component {
         this.setState({ isRefreshing: true, pagePublication: 1 })
         this.props.actions.resetPublicationActions()
         setTimeout(() => { this.setState({ isRefreshing: false }) }, 1000);
-        this.props.actions.getByMode(1, 'FollowerAndFriend')
+        this.props.actions.getByModeFeed(1, 'FollowerAndFriend')
     }
 
     _cardRender = (item, index) => {

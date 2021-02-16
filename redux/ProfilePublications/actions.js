@@ -49,7 +49,7 @@ export function unlikePublicationFail(error) {
     return { type: ActionTypes.UNLIKE_PUBLICATIONS_PROFILE_FAIL, payload: error }
 }
 
-export function getByMode(page, mode) {
+export function getByModeProfile(page, mode) {
 
     return async (dispatch) => {
         try {

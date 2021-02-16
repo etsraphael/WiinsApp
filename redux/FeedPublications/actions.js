@@ -61,7 +61,7 @@ export function resetPublication() {
     }
 }
 
-export function getByMode(page, mode) {
+export function getByModeFeed(page, mode) {
 
     return async (dispatch) => {
         try {

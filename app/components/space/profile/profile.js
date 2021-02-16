@@ -25,21 +25,21 @@ class Profile extends React.Component {
     }
 
     componentWillUnmount() {
-        this.props.actions.getByMode(1, 'FollowerAndFriend')
+        this.props.actions.getByModeProfile(1, 'FollowerAndFriend')
     }
 
     // to show the publications feed
     _getPublicationList = () => {
         if (!this.props.ProfilePublications.isLoading) {
             this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true })
-            this.props.actions.getByMode(++this.state.pagePublication, 'profile/' + this.props.screenProps.rootNavigation.state.params.profileId)
+            this.props.actions.getByModeProfile(++this.state.pagePublication, 'profile/' + this.props.screenProps.rootNavigation.state.params.profileId)
             setTimeout(() => this.setState({ publicationLoading: false }), 3000);
         }
     }
 
     componentDidMount() {
         this.props.actions.getProfile(this.props.screenProps.rootNavigation.state.params.profileId)
-        this.props.actions.getByMode(1, 'profile/' + this.props.screenProps.rootNavigation.state.params.profileId)
+        this.props.actions.getByModeProfile(1, 'profile/' + this.props.screenProps.rootNavigation.state.params.profileId)
     }
 
     // to display the relation button

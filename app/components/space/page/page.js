@@ -24,19 +24,19 @@ class Page extends React.Component {
 
     // to show the publications feed
     _getPublicationList = () => {
-        // if (!this.props.ProfilePublications.isLoading) {
-        //     this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true })
-        //     this.props.actions.getByMode(++this.state.pagePublication, 'page/' + this.props.navigation.state.params.pageId)
-        //     setTimeout(() => this.setState({ publicationLoading: false }), 3000);
-        // }
+        if (!this.props.ProfilePublications.isLoading) {
+            this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true })
+            this.props.actions.getByModeProfile(++this.state.pagePublication, 'page/' + this.props.navigation.state.params.pageId)
+            setTimeout(() => this.setState({ publicationLoading: false }), 3000);
+        }
     }
 
     componentWillUnmount(){
-        this.props.actions.getByMode(1, 'FollowerAndFriend')
+        this.props.actions.getByModeProfile(1, 'FollowerAndFriend')
     }
 
     componentDidMount() {
-        this.props.actions.getByMode(1, 'page/' + this.props.navigation.state.params.pageId)
+        this.props.actions.getByModeProfile(1, 'page/' + this.props.navigation.state.params.pageId)
         this.props.actions.getPage(this.props.navigation.state.params.pageId)
     }
 
