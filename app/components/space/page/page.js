@@ -26,7 +26,7 @@ class Page extends React.Component {
     _getPublicationList = () => {
         if (!this.props.ProfilePublications.isLoading) {
             this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true })
-            this.props.actions.getByModeProfile(++this.state.pagePublication, 'page/' + this.props.navigation.state.params.pageId)
+            this.props.actions.getByModeProfile(this.state.pagePublication, 'page/' + this.props.navigation.state.params.pageId)
             setTimeout(() => this.setState({ publicationLoading: false }), 3000);
         }
     }

@@ -53,7 +53,6 @@ export function getByModeProfile(page, mode) {
 
     return async (dispatch) => {
         try {
-
             if (page == 1) dispatch(resetPublication())
             dispatch(getPublicationsStart())
             const token = await AsyncStorage.getItem('userToken')
