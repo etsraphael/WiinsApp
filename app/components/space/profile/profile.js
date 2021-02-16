@@ -18,12 +18,23 @@ class Profile extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            space: 'feed'
+            space: 'feed',
+            pagePublication: 1,
+            publicationLoading: false
         }
     }
 
     componentWillUnmount() {
         this.props.actions.getByMode(1, 'FollowerAndFriend')
+    }
+
+    // to show the publications feed
+    _getPublicationList = () => {
+        if (!this.props.ProfilePublications.isLoading) {
+            this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true })
+            this.props.actions.getByMode(++this.state.pagePublication, 'profile/' + this.props.screenProps.rootNavigation.state.params.profileId)
+            setTimeout(() => this.setState({ publicationLoading: false }), 3000);
+        }
     }
 
     componentDidMount() {
@@ -108,26 +119,26 @@ class Profile extends React.Component {
     // to display the relation btn
     _displayRelationBtn = () => {
         return (
-        <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-        {this.props.Profile.profile.relation == 'friend' ? null :
-            <LinearGradient
-                start={{ x: 0, y: 1 }}
-                end={{ x: 1, y: 0 }}
-                colors={['#f12711', '#f5af19']}
-                style={{ borderRadius: 25, position: 'relative' }}
-            >
-                {this._displayBtnFollow()}
-            </LinearGradient>
-        }
-        <LinearGradient
-            start={{ x: 0, y: 1 }}
-            end={{ x: 1, y: 0 }}
-            colors={['#3C349B', '#8E46DF']}
-            style={{ borderRadius: 25, position: 'relative' }}
-        >
-            {this._displayBtnFriend()}
-        </LinearGradient>
-    </View>
+            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
+                {this.props.Profile.profile.relation == 'friend' ? null :
+                    <LinearGradient
+                        start={{ x: 0, y: 1 }}
+                        end={{ x: 1, y: 0 }}
+                        colors={['#f12711', '#f5af19']}
+                        style={{ borderRadius: 25, position: 'relative' }}
+                    >
+                        {this._displayBtnFollow()}
+                    </LinearGradient>
+                }
+                <LinearGradient
+                    start={{ x: 0, y: 1 }}
+                    end={{ x: 1, y: 0 }}
+                    colors={['#3C349B', '#8E46DF']}
+                    style={{ borderRadius: 25, position: 'relative' }}
+                >
+                    {this._displayBtnFriend()}
+                </LinearGradient>
+            </View>
         )
     }
 
@@ -281,7 +292,9 @@ class Profile extends React.Component {
 
         return (
             <View style={styles.container}>
-                <ScrollView>
+                <ScrollView
+                    scrollEventThrottle={5}
+                    onMomentumScrollEnd={() => this._getPublicationList()}>
                     {this.props.Profile.isLoading ? this._displayLoading() : null}
                     {this.props.Profile.profile !== null ? this._displayPage() : null}
                 </ScrollView>
@@ -311,7 +324,8 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
-    Profile: state.Profile
+    Profile: state.Profile,
+    ProfilePublications: state.ProfilePublications
 })
 
 const ActionCreators = Object.assign(
