@@ -206,12 +206,6 @@ const styles = StyleSheet.create({
     }
 })
 
-const FeedSeparator = () => {
-    return (
-        <View></View>
-    )
-}
-
 const mapStateToProps = state => ({
     FeedPublications: state.FeedPublications,
     MyUser: state.MyUser,
