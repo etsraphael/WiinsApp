@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
+import { getDateTranslated } from '../../../services/translation/translation-service'
+
 
 class OneRoomMin extends React.Component {
 
@@ -63,7 +65,7 @@ class OneRoomMin extends React.Component {
                     {this._renderLastMessage()}
                 </View>
                 <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
-                    <Text style={{ fontFamily: 'Avenir-Heavy', fontSize: 16, fontWeight: '400' }}>2:30 pm</Text>
+                    <Text style={{ fontFamily: 'Avenir-Heavy', fontSize: 12, fontWeight: '400' }}>{getDateTranslated(this.props.room.updatedAt)}</Text>
                     {room.roomOption.participants[0].notification > 0 ? this._renderBadgeNotif(room.roomOption.participants[0].notification) : this._renderDate()}
                 </View>
             </TouchableOpacity>
