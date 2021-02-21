@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "667703011150",
+    "project_id": "wiins-app",
+    "storage_bucket": "wiins-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667703011150:android:f9fb96f8eeaacd167b201f",
+        "android_client_info": {
+          "package_name": "com.wiins"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "667703011150-tbvb7kculion1jo1kvp5oemv2ppocnqd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACLURXH0FP4lPLQa-uCfoKWWrLknQS2sg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "667703011150-tbvb7kculion1jo1kvp5oemv2ppocnqd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
