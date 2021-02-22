@@ -21,6 +21,7 @@
 		BE873F1A5E6FB573FEA4F1BA /* libPods-Wiins-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4771F42554E4BB8ABD295054 /* libPods-Wiins-tvOSTests.a */; };
 		C6E35E7D6B79DFA5B532F67E /* libPods-Wiins-WiinsTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F53BC9F1867CF2E92BC40626 /* libPods-Wiins-WiinsTests.a */; };
 		E906A5F42542BE5A00953105 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = E906A5F32542BE5A00953105 /* File.swift */; };
+		E9157E0B25E342D9006B5052 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E9157E0A25E342D9006B5052 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +67,7 @@
 		E580C567E7AF7DAFB4AD5EA7 /* Pods-Wiins-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wiins-tvOS.release.xcconfig"; path = "Target Support Files/Pods-Wiins-tvOS/Pods-Wiins-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		E906A5DC2542BC1D00953105 /* Wiins-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wiins-Bridging-Header.h"; sourceTree = "<group>"; };
 		E906A5F32542BE5A00953105 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
+		E9157E0A25E342D9006B5052 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EB87817D569854E3D88DA019 /* Pods-Wiins-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Wiins-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-Wiins-tvOSTests/Pods-Wiins-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
@@ -162,6 +164,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				E9157E0A25E342D9006B5052 /* GoogleService-Info.plist */,
 				E906A5F32542BE5A00953105 /* File.swift */,
 				13B07FAE1A68108700A75B9A /* Wiins */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -352,6 +355,7 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				E9157E0B25E342D9006B5052 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
