@@ -5,9 +5,8 @@ import { PersistGate } from 'redux-persist/integration/react'
 import MainApp from './app/components/core/main-app'
 import { resetCacheForDev } from './app/services/cache/cache-core-service'
 import messaging from '@react-native-firebase/messaging'
-import { Platform } from 'react-native';
-import analytics from '@react-native-firebase/analytics';
-
+import { Platform } from 'react-native'
+import { configureNotification } from './app/services/notification/notification-service'
 
 class App extends Component {
 
@@ -31,6 +30,8 @@ class App extends Component {
     if(Platform.OS == 'ios'){
       await this.requestUserPermissionForIos()
     }
+
+    // configureNotification()
 
   }
 
