@@ -6,6 +6,8 @@ import MainApp from './app/components/core/main-app'
 import { resetCacheForDev } from './app/services/cache/cache-core-service'
 import messaging from '@react-native-firebase/messaging'
 import { Platform } from 'react-native';
+import analytics from '@react-native-firebase/analytics';
+
 
 class App extends Component {
 
