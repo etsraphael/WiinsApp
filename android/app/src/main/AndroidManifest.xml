@@ -18,22 +18,7 @@
         <action android:name="android.intent.action.DOWNLOAD_COMPLETE"/>
       </intent-filter>
     </activity>
-    <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
-
-    <!-- [START fcm_default_channel] -->
-    <meta-data 
-    android:name="com.google.firebase.messaging.default_notification_channel_id" 
-    android:value="default_notification_channel_id" />
-    <!-- [END fcm_default_channel] -->
-
-    <!-- [START firebase_service] -->
-    <service android:name=".java.MyFirebaseMessagingService" android:exported="false">
-      <intent-filter>
-        <action android:name="com.google.firebase.MESSAGING_EVENT" />
-      </intent-filter>
-    </service>
-    <!-- [END firebase_service] -->
-    
+    <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />    
   </application>
 
 </manifest>

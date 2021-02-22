@@ -4,6 +4,8 @@ import { configureStore } from './app/stores/configureStore'
 import { PersistGate } from 'redux-persist/integration/react'
 import MainApp from './app/components/core/main-app'
 import { resetCacheForDev } from './app/services/cache/cache-core-service'
+import messaging from '@react-native-firebase/messaging'
+import { Platform } from 'react-native';
 
 class App extends Component {
 
@@ -19,8 +21,24 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
+
     if (__DEV__) {
       await resetCacheForDev()
+    }
+
+    if(Platform.OS == 'ios'){
+      await this.requestUserPermissionForIos()
+    }
+
+  }
+
+  requestUserPermissionForIos = async () => {
+    const authStatus = await messaging().requestPermission();
+    const enabled =
+      authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+      authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+      if (enabled) {
+      console.log('Authorization status:', authStatus);
     }
   }
 
