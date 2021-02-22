@@ -334,12 +334,12 @@ PODS:
     - React-Core
   - react-native-camera/RN (3.40.0):
     - React-Core
-  - react-native-ffmpeg/https-lts (0.5.0):
+  - react-native-ffmpeg/https-lts (0.5.1):
     - mobile-ffmpeg-https (= 4.4.LTS)
     - React
   - react-native-image-picker (2.4.0):
     - React
-  - react-native-image-resizer (1.4.1):
+  - react-native-image-resizer (1.4.3):
     - React-Core
   - react-native-safe-area-context (3.1.9):
     - React-Core
@@ -349,11 +349,11 @@ PODS:
     - React
   - react-native-track-player (1.2.3):
     - React
-  - react-native-video (5.1.0-alpha8):
-    - React
-    - react-native-video/Video (= 5.1.0-alpha8)
-  - react-native-video/Video (5.1.0-alpha8):
-    - React
+  - react-native-video (5.1.1):
+    - React-Core
+    - react-native-video/Video (= 5.1.1)
+  - react-native-video/Video (5.1.1):
+    - React-Core
   - React-RCTActionSheet (0.63.4):
     - React-Core/RCTActionSheetHeaders (= 0.63.4)
   - React-RCTAnimation (0.63.4):
@@ -424,7 +424,7 @@ PODS:
     - React
   - RNCPushNotificationIOS (1.8.0):
     - React-Core
-  - RNDateTimePicker (3.0.8):
+  - RNDateTimePicker (3.0.9):
     - React-Core
   - RNFastImage (8.3.4):
     - React-Core
@@ -443,13 +443,13 @@ PODS:
     - RNFBApp
   - RNFS (2.16.6):
     - React
-  - RNGestureHandler (1.9.0):
+  - RNGestureHandler (1.10.1):
     - React-Core
-  - RNLocalize (2.0.1):
+  - RNLocalize (2.0.2):
     - React-Core
-  - RNScreens (2.16.1):
+  - RNScreens (2.17.1):
     - React-Core
-  - RNSnackbar (2.2.4):
+  - RNSnackbar (2.3.2):
     - React-Core
   - RNSound (0.11.0):
     - React
@@ -726,14 +726,14 @@ SPEC CHECKSUMS:
   React-jsiexecutor: 93bd528844ad21dc07aab1c67cb10abae6df6949
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
   react-native-camera: 35854c4f764a4a6cf61c1c3525888b92f0fe4b31
-  react-native-ffmpeg: 7c64ba2e41eeb06144ad77f17e62ecbbc29ae3c0
+  react-native-ffmpeg: 9fbe53d5afd6f35978804756f58238cf9340d1d8
   react-native-image-picker: 4e63090db19a528e36c0cc07d1423c8c0cb4c4ef
-  react-native-image-resizer: 354b09df56858289f386dfbd804e318155c14c8f
+  react-native-image-resizer: 5dfbf934fe5788c11ed06ebbcdb6e6fb6beec20c
   react-native-safe-area-context: b6e0e284002381d2ff29fa4fff42b4d8282e3c94
   react-native-slider: e99fc201cefe81270fc9d81714a7a0f5e566b168
   react-native-spinkit: da294fd828216ad211fe36a5c14c1e09f09e62db
   react-native-track-player: 28b96dd6404dea3eee80e67b74507679235a8dfb
-  react-native-video: dbb8df4f0bbdf80de6797c90fcad8bc12b19401d
+  react-native-video: 0bb76b6d6b77da3009611586c7dbf817b947f30e
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0
@@ -749,16 +749,16 @@ SPEC CHECKSUMS:
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
   RNCPushNotificationIOS: 61a7c72bd1ebad3568025957d001e0f0e7b32191
-  RNDateTimePicker: 8eba76de1afd556bc00c874f4d0c0616e30e32f1
+  RNDateTimePicker: 8a51a2216c307769e69ef827293d59549ab1ca23
   RNFastImage: d4870d58f5936111c56218dbd7fcfc18e65b58ff
   RNFBAnalytics: 90d32a12ca53f8cd6246030b7f1c12615c148f1f
   RNFBApp: 97b618641633d6d23187a9d0537c3893482c483f
   RNFBMessaging: 9eae1103b79d94c6baa5bc43dabc9aba49dfb9da
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
-  RNGestureHandler: 9b7e605a741412e20e13c512738a31bd1611759b
-  RNLocalize: 41026b7c14878f1a1b381bc79f668f1fbf841adb
-  RNScreens: 45c457af3d2ee9e08fc01e70da87e653d46b1198
-  RNSnackbar: 86092381dba7a0ed9fbd7acdb82ebbd5bfd26372
+  RNGestureHandler: 5e58135436aacc1c5d29b75547d3d2b9430d052c
+  RNLocalize: 43f6c30d8e19ad92282ae434d310fb463b31f419
+  RNScreens: b6c9607e6fe47c1b6e2f1910d2acd46dd7ecea3a
+  RNSnackbar: 2f790a7b5b685e9d3525968990ba3f82354b064c
   RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
