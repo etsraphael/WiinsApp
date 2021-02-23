@@ -41,7 +41,7 @@ class TubeListPage extends React.Component {
     _oneTubeRender = (item) => {
         return (
             <TouchableOpacity
-                onPress={() => this.uploadPageTube(item.tube._id)}
+            onPress={() => this.props.screenProps.rootNavigation.navigate('TubePage', { tubeId: item.tube._id })}
                 style={styles.oneTubeContainer}
             >
 
@@ -62,7 +62,7 @@ class TubeListPage extends React.Component {
     // to displau the tube list
     _showTubeList = (tubeList) => {
         return (
-            <View style={{ paddingBottom: 10 }}>
+            <View style={{marginBottom: 50}}>
                     <FlatList
                         showsHorizontalScrollIndicator={false}
                         style={{ }}
@@ -78,7 +78,7 @@ class TubeListPage extends React.Component {
         return (
             <View style={styles.main_container}>
                 {this.props.TubeMenu.isLoading ? null :
-                    <ScrollView style={{ flex: 1, marginBottom: 50 }}>
+                    <ScrollView style={{ flex: 1 }}>
                         {/* Header */}
                         {this._showHeader()}
 
@@ -95,8 +95,9 @@ class TubeListPage extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
-        backgroundColor: 'white',
+        backgroundColor: '#eef2f4',
         paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10,
+
     },
     oneTubeContainer: {
         width: '100%'
