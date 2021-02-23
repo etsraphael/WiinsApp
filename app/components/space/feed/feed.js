@@ -124,7 +124,7 @@ class Feed extends React.Component {
     _displayPublicationFeed = () => { 
         return (
             <View style={{ flex: 1, overflow: 'hidden' }}>
-                <ScrollView
+                <SafeAreaView
                     scrollEventThrottle={5}
                     style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white' }}
                     showsVerticalScrollIndicator={false}
@@ -132,7 +132,7 @@ class Feed extends React.Component {
                 >
                     <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
                     {this._publicationList()}
-                </ScrollView>
+                </SafeAreaView>
             </View>
         )
     }
