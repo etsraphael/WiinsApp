@@ -25,13 +25,13 @@ class App extends Component {
 
     if (__DEV__) {
       await resetCacheForDev()
+    } else {
+      configureNotification()
     }
 
     if(Platform.OS == 'ios'){
       await this.requestUserPermissionForIos()
     }
-
-    // configureNotification()
 
   }
 
