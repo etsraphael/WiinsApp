@@ -18,7 +18,7 @@ class TubeListPage extends React.Component {
 
     _showHeader = () => {
         return (
-            <View style={{ height: 50, width: '100%', flexDirection: 'row', paddingHorizontal: 25 }}>
+            <View style={{ height: 50, width: '100%', flexDirection: 'row', paddingHorizontal: 25, marginBottom: 10 }}>
                 {/* Back Btn */}
                 <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.goBack(null)}
                     style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 10 }}>
@@ -33,16 +33,6 @@ class TubeListPage extends React.Component {
                         </View>
                     </View>
                 </View>
-            </View>
-        )
-    }
-
-    // to display some tube by section
-    _tubeListBySection = (tubeList) => {
-        return (
-            <View style={styles.container_section}>
-                {/* Video List */}
-                {this._showTubeList(tubeList)}
             </View>
         )
     }
@@ -73,15 +63,13 @@ class TubeListPage extends React.Component {
     _showTubeList = (tubeList) => {
         return (
             <View style={{ paddingBottom: 10 }}>
-                <View style={{ flexDirection: 'row' }}>
                     <FlatList
                         showsHorizontalScrollIndicator={false}
-                        style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7, paddingLeft: 19 }}
+                        style={{ }}
                         data={tubeList}
                         keyExtractor={(item, index) => `${item.id.toString()}-${index}`}
                         renderItem={({ item }) => this._oneTubeRender(item)}
                     />
-                </View>
             </View>
         )
     }
@@ -95,7 +83,8 @@ class TubeListPage extends React.Component {
                         {this._showHeader()}
 
                         {/* Body */}
-                        {this._tubeListBySection(this.props.TubeMenu.trending, 'Suggestion', false)}
+
+                        {this._showTubeList(this.props.TubeMenu.trending)}
                     </ScrollView>
                 }
             </View>
@@ -109,27 +98,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10,
     },
-    container_section: {
-        backgroundColor: 'white'
-    },
     oneTubeContainer: {
-        marginHorizontal: 10,
-        marginVertical: 15,
-        width: 160
+        width: '100%'
     },
     oneTubeImage: {
-        borderRadius: 5,
-        height: 110,
-        width: '100%',
-        backgroundColor: 'white',
-        shadowColor: "#000",
-        shadowOffset: {
-            width: 0,
-            height: 1,
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 2,
+        height: 210,
+        width: '100%'
     },
     greyText: {
         color: '#77838F',
