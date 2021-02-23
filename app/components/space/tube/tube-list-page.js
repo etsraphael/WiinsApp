@@ -21,45 +21,28 @@ class TubeListPage extends React.Component {
             <View style={{ height: 50, width: '100%', flexDirection: 'row', paddingHorizontal: 25 }}>
                 {/* Back Btn */}
                 <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.goBack(null)}
-                    style={{ justifyContent: 'center', alignItems: 'center' }}>
-                    <FontAwesomeIcon icon={faArrowLeft} color={'grey'} size={30} />
+                    style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 10 }}>
+                    <FontAwesomeIcon icon={faArrowLeft} color={'grey'} size={25} />
                 </TouchableOpacity>
-            </View>
-        )
-    }
 
-    // to display a separator line
-    _lineSeparator = () => {
-        return (<View style={{ height: 5, backgroundColor: '#f3f3f6' }} />)
-    }
-
-    // to display some tube by section
-    _tubeListBySection = (tubeList, title, line) => {
-
-        if (!tubeList || tubeList.length == 0) return null
-
-        return (
-            <View style={styles.container_section}>
-
-                {/* Header */}
-                <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 25, paddingTop: 15, alignItems: 'center' }}>
+                <View style={{ flexDirection: 'row', paddingHorizontal: 25, paddingTop: 15 }}>
                     <View style={{ flexWrap: 'wrap' }}>
-                        <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', paddingHorizontal: 5 }}>{title}</Text>
+                        <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', paddingHorizontal: 5 }}>Title</Text>
                         <View>
                             <LinearGradient colors={['#31B3D8', '#784BEA']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={{ height: 3, width: '100%' }} />
                         </View>
                     </View>
-                    <View>
-                        <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>{I18n.t('CORE.Show-more')}</Text>
-                    </View>
                 </View>
+            </View>
+        )
+    }
 
+    // to display some tube by section
+    _tubeListBySection = (tubeList) => {
+        return (
+            <View style={styles.container_section}>
                 {/* Video List */}
                 {this._showTubeList(tubeList)}
-
-                {/* Line Separator */}
-                {line ? this._lineSeparator() : null}
-
             </View>
         )
     }
@@ -92,7 +75,6 @@ class TubeListPage extends React.Component {
             <View style={{ paddingBottom: 10 }}>
                 <View style={{ flexDirection: 'row' }}>
                     <FlatList
-                        horizontal={true}
                         showsHorizontalScrollIndicator={false}
                         style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7, paddingLeft: 19 }}
                         data={tubeList}
