@@ -151,9 +151,10 @@ class HomeTube extends React.Component {
                     <View>
                         <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', ...titleStyle }}>{title}</Text>
                     </View>
-                    <View>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('TubeListPage', { tubeTitle: title })}>
                         <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>{I18n.t('CORE.Show-more')}</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 {/* Video List */}
