@@ -110,28 +110,32 @@ class Feed extends React.Component {
     _publicationList = () => {
         if (!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0) {
             return (
-                <FlatList
-                    style={{ flex: 1 }}
-                    data={this.props.FeedPublications.publications}
-                    renderItem={({ item, index }) => this._cardRender(item, index)}
-                    keyExtractor={(item) => item._id.toString()}
-                />
+                <SafeAreaView>
+                    <FlatList
+                        style={{ flex: 1 }}
+                        data={this.props.FeedPublications.publications}
+                        renderItem={({ item, index }) => this._cardRender(item, index)}
+                        keyExtractor={(item) => item._id.toString()}
+                    />
+                </SafeAreaView>
             )
         } else return null
     }
 
     // to display the list of the publications
-    _displayPublicationFeed = () => { 
+    _displayPublicationFeed = () => {
         return (
             <View style={{ flex: 1, overflow: 'hidden' }}>
-                <SafeAreaView
-                    scrollEventThrottle={5}
-                    style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white' }}
-                    showsVerticalScrollIndicator={false}
-                    onMomentumScrollEnd={() => this._getPublicationList()}
-                >
-                    <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
-                    {this._publicationList()}
+                <SafeAreaView>
+                    <ScrollView
+                        scrollEventThrottle={5}
+                        style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white' }}
+                        showsVerticalScrollIndicator={false}
+                        onMomentumScrollEnd={() => this._getPublicationList()}
+                    >
+                        <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
+                        {this._publicationList()}
+                    </ScrollView>
                 </SafeAreaView>
             </View>
         )
@@ -140,12 +144,14 @@ class Feed extends React.Component {
     // to display the suggestion list
     _suggestionSearch = () => {
         return (
-            <FlatList
-                style={styles.list}
-                data={this.props.SearchList.list}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => (<StantardSuggest suggest={item} navigation={this.props.navigation} />)}
-            />
+            <SafeAreaView>
+                <FlatList
+                    style={styles.list}
+                    data={this.props.SearchList.list}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({ item }) => (<StantardSuggest suggest={item} navigation={this.props.navigation} />)}
+                />
+            </SafeAreaView>
         )
     }
 

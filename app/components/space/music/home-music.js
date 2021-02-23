@@ -271,12 +271,14 @@ class HomeMusic extends React.Component {
     }
 
     _displayContentView = () => {
-        return (<ScrollView>
+        return (
+        <ScrollView>
             {/* categorie playslit */}
             {this._categorieViews()}
             {/* chart playslit */}
             { this.state.playlistZoneSelected == 'favorites' ? this._myMusicView() : this._chartViews()}
-        </ScrollView>)
+        </ScrollView>
+        )
     }
 
     render() {
