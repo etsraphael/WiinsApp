@@ -108,7 +108,7 @@ class Feed extends React.Component {
 
     _publicationList = () => {
             return (
-                <SafeAreaView style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white', flex: 1 }}>
+                <SafeAreaView style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white', flex: 1, overflow: 'hidden ' }}>
                     <VirtualizedList
                         showsVerticalScrollIndicator={false}
                         ListHeaderComponent={<PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} /> }
@@ -130,15 +130,7 @@ class Feed extends React.Component {
         return (
             <View style={{ flex: 1, overflow: 'hidden' }}>
                 <SafeAreaView style={{ flex: 1 }}>
-                    {/* <ScrollView
-                        scrollEventThrottle={5}
-                        style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white' }}
-                        showsVerticalScrollIndicator={false}
-                        onMomentumScrollEnd={() => this._getPublicationList()}
-                    > */}
-                        {/* <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} /> */}
-                        {this._publicationList()}
-                    {/* </ScrollView> */}
+                    {this._publicationList()}
                 </SafeAreaView>
             </View>
         )
