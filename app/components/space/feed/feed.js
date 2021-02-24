@@ -107,20 +107,22 @@ class Feed extends React.Component {
     }
 
     _publicationList = () => {
-        if (!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length > 0) {
             return (
-                <SafeAreaView style={{ flex: 1 }}>
+                <SafeAreaView style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white', flex: 1 }}>
                     <VirtualizedList
+                        showsVerticalScrollIndicator={false}
+                        ListHeaderComponent={<PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} /> }
                         style={{ flex: 1 }}
                         data={this.props.FeedPublications.publications}
                         renderItem={({ item, index }) => this._cardRender(item[index], index)}
-                        keyExtractor={(item) => item._id}
+                        keyExtractor={(item, index ) => item[index].id}
                         getItemCount={() => this.props.FeedPublications.publications.length}
                         getItem={(data) => data}
+                        scrollEventThrottle={5}
+                        onMomentumScrollEnd={() => this._getPublicationList()}
                     />
                 </SafeAreaView>
             )
-        } else return null
     }
 
     // to display the list of the publications
@@ -128,15 +130,15 @@ class Feed extends React.Component {
         return (
             <View style={{ flex: 1, overflow: 'hidden' }}>
                 <SafeAreaView style={{ flex: 1 }}>
-                    <ScrollView
+                    {/* <ScrollView
                         scrollEventThrottle={5}
                         style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white' }}
                         showsVerticalScrollIndicator={false}
                         onMomentumScrollEnd={() => this._getPublicationList()}
-                    >
-                        <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
+                    > */}
+                        {/* <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} /> */}
                         {this._publicationList()}
-                    </ScrollView>
+                    {/* </ScrollView> */}
                 </SafeAreaView>
             </View>
         )
