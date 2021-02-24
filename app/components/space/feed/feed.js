@@ -38,8 +38,8 @@ class Feed extends React.Component {
     }
 
     UNSAFE_componentWillMount() {
-        this._getPublicationList()
         this.props.actions.resetPublication()
+        this._getPublicationList()
     }
 
     // to display the modal view
@@ -107,22 +107,22 @@ class Feed extends React.Component {
     }
 
     _publicationList = () => {
-            return (
-                <SafeAreaView style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white', flex: 1, overflow: 'hidden' }}>
-                    <VirtualizedList
-                        showsVerticalScrollIndicator={false}
-                        ListHeaderComponent={<PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} /> }
-                        style={{ flex: 1 }}
-                        data={this.props.FeedPublications.publications}
-                        renderItem={({ item, index }) => this._cardRender(item[index], index)}
-                        keyExtractor={(item, index ) => item[index].id}
-                        getItemCount={() => this.props.FeedPublications.publications.length}
-                        getItem={(data) => data}
-                        scrollEventThrottle={5}
-                        onMomentumScrollEnd={() => this._getPublicationList()}
-                    />
-                </SafeAreaView>
-            )
+        return (
+            <SafeAreaView style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white', flex: 1, overflow: 'hidden' }}>
+                <VirtualizedList
+                    showsVerticalScrollIndicator={false}
+                    ListHeaderComponent={<PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />}
+                    style={{ flex: 1 }}
+                    data={this.props.FeedPublications.publications}
+                    renderItem={({ item, index }) => this._cardRender(item[index], index)}
+                    keyExtractor={(item, index) => item[index].id}
+                    getItemCount={() => this.props.FeedPublications.publications.length}
+                    getItem={(data) => data}
+                    scrollEventThrottle={5}
+                    onMomentumScrollEnd={() => this._getPublicationList()}
+                />
+            </SafeAreaView>
+        )
     }
 
     // to display the list of the publications
@@ -163,6 +163,7 @@ class Feed extends React.Component {
     }
 
     render = () => {
+
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <View style={styles.feed_container}>
