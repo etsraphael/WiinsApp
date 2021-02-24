@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     StyleSheet, View, FlatList, TouchableOpacity, Image,
-    ScrollView, SafeAreaView
+    ScrollView, SafeAreaView, VirtualizedList
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
@@ -53,7 +53,6 @@ class Feed extends React.Component {
             this.props.actions.getByModeFeed(this.state.pagePublication, 'FollowerAndFriend')
             this.setState({ pagePublication: this.state.pagePublication + 1 })
         }
-
     }
 
     // to set the searching bar
@@ -108,14 +107,16 @@ class Feed extends React.Component {
     }
 
     _publicationList = () => {
-        if (!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0) {
+        if (!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length > 0) {
             return (
-                <SafeAreaView>
-                    <FlatList
+                <SafeAreaView style={{ flex: 1 }}>
+                    <VirtualizedList
                         style={{ flex: 1 }}
                         data={this.props.FeedPublications.publications}
-                        renderItem={({ item, index }) => this._cardRender(item, index)}
-                        keyExtractor={(item) => item._id.toString()}
+                        renderItem={({ item, index }) => this._cardRender(item[index], index)}
+                        keyExtractor={(item) => item._id}
+                        getItemCount={() => this.props.FeedPublications.publications.length}
+                        getItem={(data) => data}
                     />
                 </SafeAreaView>
             )
@@ -126,7 +127,7 @@ class Feed extends React.Component {
     _displayPublicationFeed = () => {
         return (
             <View style={{ flex: 1, overflow: 'hidden' }}>
-                <SafeAreaView>
+                <SafeAreaView style={{ flex: 1 }}>
                     <ScrollView
                         scrollEventThrottle={5}
                         style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white' }}
@@ -144,7 +145,7 @@ class Feed extends React.Component {
     // to display the suggestion list
     _suggestionSearch = () => {
         return (
-            <SafeAreaView>
+            <SafeAreaView style={{ flex: 1 }}>
                 <FlatList
                     style={styles.list}
                     data={this.props.SearchList.list}

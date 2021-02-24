@@ -236,6 +236,7 @@ class CardNewFeed extends React.Component {
 
     // to select like icon
     _displayIconLike() {
+
         if (!this.props.publication.like.isLike) {
             return (<FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />)
         }
@@ -346,7 +347,7 @@ class CardNewFeed extends React.Component {
         }
     }
 
-    render() {
+    render() {        
         const { publication } = this.props
         const { index } = this.props
 
