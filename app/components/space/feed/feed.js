@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-    StyleSheet, View, FlatList, TouchableOpacity, Image,
-    ScrollView, SafeAreaView, VirtualizedList
-} from 'react-native'
+import {  StyleSheet, View, FlatList, TouchableOpacity, Image, SafeAreaView, VirtualizedList } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as SearchActions from '../../../../redux/SearchBar/actions'
@@ -38,7 +35,7 @@ class Feed extends React.Component {
     }
 
     UNSAFE_componentWillMount() {
-        this.props.actions.resetPublication()
+        this.props.actions.resetPublicationActions()
         this._getPublicationList()
     }
 
@@ -163,7 +160,6 @@ class Feed extends React.Component {
     }
 
     render = () => {
-
         return (
             <SafeAreaView style={{ flex: 1 }}>
                 <View style={styles.feed_container}>

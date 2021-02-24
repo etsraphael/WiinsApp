@@ -27,7 +27,7 @@ export function getPublicationsStart() {
 export function getPublicationsFail(error) {
     return {
         type: ActionTypes.GET_PUBLICATIONS_FAIL,
-        payload: error,
+        payload: error
     }
 }
 
@@ -56,16 +56,15 @@ export function unlikePublicationFail(error) {
 }
 
 export function resetPublication() {
-    return {
-        type: ActionTypes.RESET_PUBLICATIONS
-    }
+    return { type: ActionTypes.RESET_PUBLICATIONS }
 }
 
 export function getByModeFeed(page, mode) {
 
+
+    
     return async (dispatch) => {
         try {
-
             if(page == 1) dispatch(resetPublication())
             dispatch(getPublicationsStart())
             const token = await AsyncStorage .getItem('userToken')
@@ -142,7 +141,7 @@ export function unlikePublicationFeed(id) {
 }
 
 export function resetPublicationActions() {
-    return async (dispatch) => dispatch(resetPublication())
+    return (dispatch) => dispatch(resetPublication())
 }
 
 export function addPublication(publication) {

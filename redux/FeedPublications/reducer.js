@@ -45,7 +45,7 @@ export default PublicationsReducer = (state = initialState, action) => {
       ++state.publications[found].commentNumber
       return {
         ...state
-      }  
+      }
     }
     case ActionTypes.ADD_PUBLICATIONS_FEED_SUCCESS: {
       return {
@@ -54,8 +54,8 @@ export default PublicationsReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.RESET_PUBLICATIONS: {
-      return initialState
+      return { ...initialState }
     }
-    default: return state
+    default: return { ...state }
   }
 }
