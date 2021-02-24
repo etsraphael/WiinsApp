@@ -145,7 +145,7 @@ class PublicationModal extends React.Component {
                 <View style={{ flex: 1, flexDirection: 'row', height: 'auto', paddingHorizontal: 25 }}>
                     <View style={{ flexDirection: 'row', flex: 7, backgroundColor: '#464646a8', borderRadius: 20 }}>
                         <TextInput
-                            placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
+                            placeholder={I18n.t('PLACEHOLDER.Your-Comment')}
                             placeholderTextColor="#FFFFFF"
                             value={this.state.textComment}
                             style={{ flex: 9, padding: 15, paddingTop: 20, color: "#FFFFFF", borderRadius: 17, height: '100%', minHeight: 55, fontSize: 16 }}
@@ -461,7 +461,7 @@ class PublicationModal extends React.Component {
                     animationIn={'bounceInUp'}
                     animationOut={'bounceOutDown'}
                     animationInTiming={500}
-                    style={{ backgroundColor: 'white', flex: 1, margin: 0, borderRadius: 15, overflow: 'hidden' }}
+                    style={{ backgroundColor: 'white', flex: 1, margin: 0, overflow: 'hidden' }}
                     swipeDirection={this.state.swipDirection}
                     swipeThreshold={50}
                 >
