@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, FlatList, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, Text, TextInput, FlatList, ScrollView, TouchableOpacity, ActivityIndicator, SafeAreaView, VirtualizedList } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as MusicMenuActions from '../../../../redux/MusicMenu/actions'
@@ -168,17 +168,23 @@ class HomeMusic extends React.Component {
 
     // to display the music list
     _showMusicList = () => {
-        return (
-            <View>
-                <FlatList
-                    style={{ flex: 1 }}
-                    ItemSeparatorComponent={this._renderSeparator}
-                    data={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]}
-                    keyExtractor={(item) => item._id.toString()}
-                    renderItem={({ item, index }) => (<OneMusic music={item} tracklist={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]} index={index} />)}
-                />
-            </View>
-        )
+
+        if(!!this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]){
+            return (
+                <SafeAreaView style={{ flex: 1 }}>
+                    <VirtualizedList
+                        style={{ flex: 1 }}
+                        ItemSeparatorComponent={this._renderSeparator}
+                        data={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]}
+                        keyExtractor={(item, index) => item[index].id}
+                        renderItem={({ item, index }) => (<OneMusic music={item[index]} tracklist={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]} index={index} />)}
+                        getItemCount={() => this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected].length}
+                        getItem={(data) => data}
+                    />
+                </SafeAreaView>
+            )
+        }
+        
     }
 
     // to display the list of the genre
@@ -272,12 +278,14 @@ class HomeMusic extends React.Component {
 
     _displayContentView = () => {
         return (
-        <ScrollView>
-            {/* categorie playslit */}
-            {this._categorieViews()}
-            {/* chart playslit */}
-            { this.state.playlistZoneSelected == 'favorites' ? this._myMusicView() : this._chartViews()}
-        </ScrollView>
+            <SafeAreaView style={{ flex: 1 }}>
+                <ScrollView style={{ flex: 1 }}>
+                    {/* categorie playslit */}
+                    {this._categorieViews()}
+                    {/* chart playslit */}
+                    {this.state.playlistZoneSelected == 'favorites' ? this._myMusicView() : this._chartViews()}
+                </ScrollView>
+            </SafeAreaView>
         )
     }
 
