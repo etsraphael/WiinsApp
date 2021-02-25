@@ -350,6 +350,7 @@ class PublicationModal extends React.Component {
                 <Video
                     onReadyForDisplay={() => this.setState({ displayVideo: true })}
                     source={{ uri: publication.file }}
+                    resizeMode={"contain"}
                     repeat={true}
                     minLoadRetryCount={5}
                     volume={0.1}
