@@ -12,6 +12,7 @@ import SettingLedger from '../components/space/setting/setting-ledger'
 import SettingOther from '../components/space/setting/setting-other'
 import SettingPassword from '../components/space/setting/setting-password'
 import SettingCertification from '../components/space/setting/setting-certification'
+import SettingPrivacy from '../components/space/setting/setting-privacy'
 
 const FeedRoute = createStackNavigator(
     { Feed: { screen: Feed } },
@@ -25,7 +26,8 @@ const SettingRoute = createStackNavigator(
         SettingLedger: { screen: ({ navigation }) => <SettingLedger screenProps={{ rootNavigation: navigation }} /> }, 
         SettingOther: { screen: ({ navigation }) => <SettingOther screenProps={{ rootNavigation: navigation }} /> }, 
         SettingPassword: { screen: ({ navigation }) => <SettingPassword screenProps={{ rootNavigation: navigation }} /> }, 
-        SettingCertification: { screen: ({ navigation }) => <SettingCertification screenProps={{ rootNavigation: navigation }} /> }, 
+        SettingCertification: { screen: ({ navigation }) => <SettingCertification screenProps={{ rootNavigation: navigation }} /> },
+        SettingPrivacy: { screen: ({ navigation }) => <SettingPrivacy screenProps={{ rootNavigation: navigation }} /> },
     },
     { headerMode: 'none', initialRouteName: 'Setting' }
 )

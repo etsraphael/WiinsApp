@@ -61,6 +61,7 @@ class Setting extends React.Component {
             case 'SettingLedger': return this.props.screenProps.rootNavigation.navigate('SettingLedger')
             case 'SettingCertification': return this.props.screenProps.rootNavigation.navigate('SettingCertification')
             case 'SettingOther': return this.props.screenProps.rootNavigation.navigate('SettingOther')
+            case 'SettingPrivacy': return this.props.screenProps.rootNavigation.navigate('SettingPrivacy')
             case 'Logout': return this._logOut()
         }
     }
@@ -74,7 +75,7 @@ class Setting extends React.Component {
             { title: I18n.t('CORE.Ledger'), code: 'SettingLedger', icon: <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} /> },
             { title: I18n.t('CORE.Certification'), code: 'SettingCertification', icon: <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} /> },
             { title: I18n.t('CORE.Others'), code: 'SettingOther', icon: <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} /> },
-            { title: 'Privacy', code: 'SettingOther', icon: <FontAwesomeIcon icon={faUserShield} color={'#808080a3'} size={30} /> },
+            { title: 'Privacy', code: 'SettingPrivacy', icon: <FontAwesomeIcon icon={faUserShield} color={'#808080a3'} size={30} /> },
             { title: I18n.t('NAVBAR.Logout'), code: 'Logout', icon: <FontAwesomeIcon icon={faSignOut} color={'#808080a3'} size={30} /> }
         ]
 
