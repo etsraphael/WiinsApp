@@ -12,6 +12,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from "moment";
+import CheckBox from '@react-native-community/checkbox';
 
 class SignUp extends React.Component {
 
@@ -23,7 +24,8 @@ class SignUp extends React.Component {
             birthDate: null,
             password: null,
             registration_success: false,
-            showDatePicker: false
+            showDatePicker: false,
+            conditionAccepted: false
         }
     }
 
@@ -98,7 +100,7 @@ class SignUp extends React.Component {
     // to make sure the user is more than 18 years old
     _getMaxDate = () => {
         let date = new Date()
-        date.setFullYear( date.getFullYear() - 18 )
+        date.setFullYear(date.getFullYear() - 18)
         return Number(date.getTime())
     }
 
@@ -139,18 +141,44 @@ class SignUp extends React.Component {
 
                     {this.state.showDatePicker && (
                         <DateTimePicker
-                        style={{flex: 1}}
-                        maximumDate={this._getMaxDate()}
-                        testID="dateTimePicker"
-                        value={new Date()}
-                        mode={'date'}
-                        is24Hour={true}
-                        display="default"
-                        onChange={(val) => this.setState({ birthDate: moment(new Date(val.nativeEvent.timestamp)).format("DD-MM-YYYY"), showDatePicker: false })}
-                    /> 
+                            style={{ flex: 1 }}
+                            maximumDate={this._getMaxDate()}
+                            testID="dateTimePicker"
+                            value={new Date()}
+                            mode={'date'}
+                            is24Hour={true}
+                            display="default"
+                            onChange={(val) => this.setState({ birthDate: moment(new Date(val.nativeEvent.timestamp)).format("DD-MM-YYYY"), showDatePicker: false })}
+                        />
                     )}
 
                 </View>
+
+
+
+                <View style={{ flexDirection: 'row', marginVertical: 25 }}>
+
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <CheckBox
+                            style={{ width: 20, height: 20 }}
+                            disabled={false}
+                            boxType={'square'}
+                            lineWidth={1}
+                            value={this.state.conditionAccepted}
+                            onValueChange={(newValue) => this.setState({ conditionAccepted: newValue })}
+                        />
+                    </View>
+
+                    <View style={{ flex: 7, justifyContent: 'center', paddingHorizontal: 25 }}>
+                        <Text>
+                        I accept the terms and conditions of use 
+                        <Text style={{ color: '#960CF8' }} onPress={() => alert('oh')}> (click here to read it)</Text>
+                        </Text>
+                    </View>
+                </View>
+
+
+
                 <View style={{ marginTop: 40 }}>
                     <TouchableOpacity onPress={() => this._register()} style={styles.btn_log} underlayColor='#fff'>
                         <LinearGradient
@@ -163,6 +191,7 @@ class SignUp extends React.Component {
                         </LinearGradient>
                     </TouchableOpacity>
                 </View>
+
             </View>
         )
     }
@@ -181,7 +210,7 @@ class SignUp extends React.Component {
                         <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 31, marginTop: 56 }}>
                             <View style={styles.brand_container}>
                                 <Text style={{ color: '#960CF8', fontSize: 32 }}>{I18n.t('CORE.Hello')}</Text>
-                                <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? I18n.t('LOGIN-REGISTRER.Create-yr-account')  : I18n.t('LOGIN-REGISTRER.Creating-yr-account')}</Text>
+                                <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? I18n.t('LOGIN-REGISTRER.Create-yr-account') : I18n.t('LOGIN-REGISTRER.Creating-yr-account')}</Text>
                             </View>
                             <View style={{ flex: 4, width: '100%', marginTop: 56 }}>
                                 {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
