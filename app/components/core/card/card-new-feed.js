@@ -12,6 +12,7 @@ import { faPlay, faComment } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons'
 
 class CardNewFeed extends React.Component {
 
@@ -109,8 +110,8 @@ class CardNewFeed extends React.Component {
 
         return (
             <TouchableWithoutFeedback // TouchableOpacity
-            style={styles.container_type} 
-            onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
+                style={styles.container_type}
+                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >
 
                 <FastImage
@@ -176,13 +177,13 @@ class CardNewFeed extends React.Component {
         if (publication.profile) {
             return (
                 <View style={styles.header_container}>
-
                     <LinearGradient
                         colors={['#00000099', '#0000005c', '#4e4e4e00']}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 0, y: 1 }}
-                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25 }}>
-                        <TouchableOpacity onPress={() => this._goToProfile(publication.profile._id)}>
+                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25, width: '100%' }}
+                    >
+                        <TouchableOpacity onPress={() => this._goToProfile(publication.profile._id)} style={{ flexDirection: 'row', flex: 9 }}>
                             <FastImage
                                 style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
                                 source={{
@@ -191,12 +192,16 @@ class CardNewFeed extends React.Component {
                                 }}
                                 resizeMode={FastImage.resizeMode.cover}
                             />
+                            <View style={styles.header_info}>
+                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.profile._meta.pseudo}</Text>
+                            </View>
                         </TouchableOpacity>
-                        <View style={styles.header_info}>
-                            <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.profile._meta.pseudo}</Text>
+                        <View style={{ flex: 1 }}>
+                            <TouchableOpacity onPress={() => alert('progressing..')}>
+                                <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={19} />
+                            </TouchableOpacity>
                         </View>
                     </LinearGradient>
-
                 </View>
             )
         }
@@ -208,8 +213,11 @@ class CardNewFeed extends React.Component {
                         colors={['#00000099', '#0000005c', '#4e4e4e00']}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 0, y: 1 }}
-                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25 }}>
-                        <TouchableOpacity onPress={() => this._goToPage(publication.page._id)}>
+                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25, width: '100%' }}
+                    >
+
+
+                        <TouchableOpacity onPress={() => this._goToPage(publication.page._id)} style={{ flexDirection: 'row', flex: 9 }}>
                             <FastImage
                                 style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
                                 source={{
@@ -218,13 +226,20 @@ class CardNewFeed extends React.Component {
                                 }}
                                 resizeMode={FastImage.resizeMode.cover}
                             />
+                            <View style={styles.header_info}>
+                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.page.name}</Text>
+                            </View>
                         </TouchableOpacity>
-                        <View style={styles.header_info}>
-                            <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.page.name}</Text>
+
+
+                        <View style={{ flex: 1 }}>
+                            <TouchableOpacity onPress={() => alert('progressing..')}>
+                                <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={19} />
+                            </TouchableOpacity>
                         </View>
+
                     </LinearGradient>
-                    <View style={{ height: '100%', flex: 2 }}>
-                    </View>
+
                 </View>
             )
         }
@@ -313,7 +328,7 @@ class CardNewFeed extends React.Component {
                                 onPress={() => this._likePublication()}
                                 style={{ flex: 1 }}
                             >
-                                <View 
+                                <View
                                     style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 18, height: 35 }}
                                 >
                                     {this._displayIconLike()}
@@ -347,7 +362,7 @@ class CardNewFeed extends React.Component {
         }
     }
 
-    render() {        
+    render() {
         const { publication } = this.props
         const { index } = this.props
 
@@ -377,7 +392,9 @@ const styles = StyleSheet.create({
         position: 'absolute',
         height: 65,
         width: '100%',
-        zIndex: 1
+        zIndex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
     header_info: {
         justifyContent: 'center'
