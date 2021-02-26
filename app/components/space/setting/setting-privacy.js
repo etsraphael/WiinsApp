@@ -1,12 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, FlatList } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, FlatList, Linking } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import I18n from '../../../i18n/i18n'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft, faKey, faUser, faEllipsisH, faWallet, faCertificate, faSignOut, faUserShield } from '@fortawesome/pro-duotone-svg-icons'
 import { faAngleRight } from '@fortawesome/pro-light-svg-icons'
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 class SettingPrivacy extends React.Component {
 
@@ -14,11 +13,18 @@ class SettingPrivacy extends React.Component {
         super(props)
     }
 
+    _actionSelected = (code) => {
+        switch (code) {
+            case 'Our-Plateform': return Linking.openURL('https://www.wiins.io/term-of-use')
+            case 'EULA': return Linking.openURL('https://www.apple.com/legal/internet-services/itunes/dev/stdeula/')
+        }
+    }
+
     render() {
 
         const listSetting = [
-            { title: 'Our platform', code: 'SettingProfile' },
-            { title: 'EULA', code: 'SettingPassword' },
+            { title: 'Our platform', code: 'Our-Plateform' },
+            { title: 'EULA', code: 'EULA' },
         ]
 
         return (
@@ -30,7 +36,7 @@ class SettingPrivacy extends React.Component {
                         keyExtractor={(item) => item.code.toString()}
                         ItemSeparatorComponent={() => <View style={{ height: 0.5, backgroundColor: '#c0c0c0' }} />}
                         renderItem={({ item }) =>
-                            <TouchableOpacity style={{ flexDirection: 'row', paddingVertical: 15 }}>
+                            <TouchableOpacity style={{ flexDirection: 'row', paddingVertical: 15 }} onPress={() => this._actionSelected(item.code)}>
                                 <View style={{ flex: 6, justifyContent: 'center' }}>
                                     <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{item.title}</Text>
                                 </View>
@@ -48,7 +54,8 @@ class SettingPrivacy extends React.Component {
 
 const styles = StyleSheet.create({
     main_container: {
-        flex: 1
+        flex: 1,
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 
     }
 })
 
