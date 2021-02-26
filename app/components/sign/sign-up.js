@@ -13,6 +13,7 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from "moment";
 import CheckBox from '@react-native-community/checkbox';
+import i18n from '../../i18n/i18n'
 
 class SignUp extends React.Component {
 
@@ -47,6 +48,11 @@ class SignUp extends React.Component {
 
     // to send the registration
     _register = () => {
+
+        if(!this.state.conditionAccepted){
+            return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
+        }
+
         if (!this._verificationTrue()) return null
         else {
             const deviceLanguage = Platform.OS === 'ios' ? NativeModules.SettingsManager.settings.AppleLocale ||
@@ -108,7 +114,7 @@ class SignUp extends React.Component {
     _displayInput() {
 
         return (
-            <View>
+            <View style={{marginBottom: 70}}>
                 <View>
                     <Text style={styles.inputLabel}>{I18n.t('PROFILE.Pseudo')}</Text>
                     <TextInput
@@ -160,7 +166,7 @@ class SignUp extends React.Component {
 
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <CheckBox
-                            style={{ width: 20, height: 20 }}
+                            style={{ width: 20, height: 20, marginTop: 5 }}
                             disabled={false}
                             boxType={'square'}
                             lineWidth={1}
@@ -169,17 +175,15 @@ class SignUp extends React.Component {
                         />
                     </View>
 
-                    <View style={{ flex: 7, justifyContent: 'center', paddingHorizontal: 25 }}>
+                    <View style={{ flex: 7, paddingLeft: 15 }}>
                         <Text>
-                        I accept the terms and conditions of use 
-                        <Text style={{ color: '#960CF8' }} onPress={() => alert('oh')}> (click here to read it)</Text>
+                        {i18n.t('LOGIN-REGISTRER.accept-tou')}
+                        <Text style={{ color: '#960CF8' }} onPress={() => this.props.navigation.navigate('SettingPrivacy')}> (click here to read it)</Text>
                         </Text>
                     </View>
                 </View>
 
-
-
-                <View style={{ marginTop: 40 }}>
+                <View style={{ marginTop: 5 }}>
                     <TouchableOpacity onPress={() => this._register()} style={styles.btn_log} underlayColor='#fff'>
                         <LinearGradient
                             colors={['#35D1FE', '#960CF8']}
@@ -198,7 +202,7 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <View style={{ flex: 1, backgroundColor: 'white', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
+            <ScrollView style={{ flex: 1, backgroundColor: 'white', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
                 <StatusBar barStyle="dark-content" hidden={false} backgroundColor="transparent" translucent={true} />
                 <View style={styles.actionBarStyle}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
@@ -233,7 +237,7 @@ class SignUp extends React.Component {
                             </View>
                         )
                 }
-            </View>
+            </ScrollView>
         )
     }
 }
