@@ -1,10 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from './../../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft, faKey, faUser, faEllipsisH, faWallet, faCertificate, faSignOut } from '@fortawesome/pro-light-svg-icons'
+import { faArrowLeft, faKey, faUser, faEllipsisH, faWallet, faCertificate, faSignOut, faUserShield } from '@fortawesome/pro-duotone-svg-icons'
+import { faAngleRight } from '@fortawesome/pro-light-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
 import I18n from '../../../i18n/i18n'
@@ -53,63 +54,51 @@ class Setting extends React.Component {
         )
     }
 
+    _actionSelected = (code) => {
+        switch (code) {
+            case 'SettingProfile': return this.props.screenProps.rootNavigation.navigate('SettingProfile')
+            case 'SettingPassword': return this.props.screenProps.rootNavigation.navigate('SettingPassword')
+            case 'SettingLedger': return this.props.screenProps.rootNavigation.navigate('SettingLedger')
+            case 'SettingCertification': return this.props.screenProps.rootNavigation.navigate('SettingCertification')
+            case 'SettingOther': return this.props.screenProps.rootNavigation.navigate('SettingOther')
+            case 'Logout': return this._logOut()
+        }
+    }
+
     // icons setting
     _renderBody = () => {
+
+        const listSetting = [
+            { title: I18n.t('CORE.Profile'), code: 'SettingProfile', icon: <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} /> },
+            { title: I18n.t('CORE.Password'), code: 'SettingPassword', icon: <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} /> },
+            { title: I18n.t('CORE.Ledger'), code: 'SettingLedger', icon: <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} /> },
+            { title: I18n.t('CORE.Certification'), code: 'SettingCertification', icon: <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} /> },
+            { title: I18n.t('CORE.Others'), code: 'SettingOther', icon: <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} /> },
+            { title: 'Privacy', code: 'SettingOther', icon: <FontAwesomeIcon icon={faUserShield} color={'#808080a3'} size={30} /> },
+            { title: I18n.t('NAVBAR.Logout'), code: 'Logout', icon: <FontAwesomeIcon icon={faSignOut} color={'#808080a3'} size={30} /> }
+        ]
+
         return (
             <View style={{ flex: 1, padding: 15 }}>
-                <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingProfile')}
-                        style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={styles.onCard}>
-                            <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} />
-                        </View>
-                        <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Profile')}</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingPassword')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={styles.onCard}>
-                            <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} />
-                        </View>
-                        <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Password')}</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingLedger')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={styles.onCard}>
-                            <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} />
-                        </View>
-                        <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Ledger')}</Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
-                <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingCertification')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={styles.onCard}>
-                            <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} />
-                        </View>
-                        <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Certification')}</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.navigate('SettingOther')} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={styles.onCard}>
-                            <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} />
-                        </View>
-                        <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Others')}</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => this._logOut()} style={{ flex: 1, padding: 15, justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={styles.onCard}>
-                            <FontAwesomeIcon icon={faSignOut} color={'#808080a3'} size={30} />
-                        </View>
-                        <View style={{ paddingTop: 8 }}>
-                            <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{I18n.t('NAVBAR.Logout')}</Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
+                <FlatList
+                    style={{ flex: 1, paddingBottom: 45 }}
+                    data={listSetting}
+                    keyExtractor={(item) => item.code.toString()}
+                    ItemSeparatorComponent={() => <View style={{ height: 0.5, backgroundColor: '#c0c0c0' }} />}
+                    renderItem={({ item }) =>
+                        <TouchableOpacity style={{ flexDirection: 'row', paddingVertical: 15 }} onPress={() => this._actionSelected(item.code)}>
+                            <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                                {item.icon}
+                            </View>
+                            <View style={{ flex: 6, justifyContent: 'center' }}>
+                                <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{item.title}</Text>
+                            </View>
+                            <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                                <FontAwesomeIcon icon={faAngleRight} color={'#808080a3'} size={30} />
+                            </View>
+                        </TouchableOpacity>
+                    }
+                />
             </View>
         )
     }
