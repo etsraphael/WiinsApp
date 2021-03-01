@@ -451,6 +451,9 @@ PODS:
     - React-Core
   - RNScreens (2.17.1):
     - React-Core
+  - RNSentry (2.2.1):
+    - React-Core
+    - Sentry (= 6.1.4)
   - RNSnackbar (2.3.2):
     - React-Core
   - RNSound (0.11.0):
@@ -466,6 +469,9 @@ PODS:
   - SDWebImageWebPCoder (0.6.1):
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.7)
+  - Sentry (6.1.4):
+    - Sentry/Core (= 6.1.4)
+  - Sentry/Core (6.1.4)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -542,6 +548,7 @@ DEPENDENCIES:
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNLocalize (from `../node_modules/react-native-localize`)
   - RNScreens (from `../node_modules/react-native-screens`)
+  - "RNSentry (from `../node_modules/@sentry/react-native`)"
   - RNSnackbar (from `../node_modules/react-native-snackbar`)
   - RNSound (from `../node_modules/react-native-sound`)
   - RNSVG (from `../node_modules/react-native-svg`)
@@ -576,6 +583,7 @@ SPEC REPOS:
     - PromisesObjC
     - SDWebImage
     - SDWebImageWebPCoder
+    - Sentry
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -679,6 +687,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-localize"
   RNScreens:
     :path: "../node_modules/react-native-screens"
+  RNSentry:
+    :path: "../node_modules/@sentry/react-native"
   RNSnackbar:
     :path: "../node_modules/react-native-snackbar"
   RNSound:
@@ -764,11 +774,13 @@ SPEC CHECKSUMS:
   RNGestureHandler: 5e58135436aacc1c5d29b75547d3d2b9430d052c
   RNLocalize: 43f6c30d8e19ad92282ae434d310fb463b31f419
   RNScreens: b6c9607e6fe47c1b6e2f1910d2acd46dd7ecea3a
+  RNSentry: 7104cdfc1072ccb86015d9c8f210d81ae76806c1
   RNSnackbar: 2f790a7b5b685e9d3525968990ba3f82354b064c
   RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
   SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
+  Sentry: 9d055e2de30a77685e86b219acf02e59b82091fc
   Yoga: 4bd86afe9883422a7c4028c00e34790f560923d6
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 

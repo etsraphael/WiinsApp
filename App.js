@@ -7,6 +7,7 @@ import { resetCacheForDev } from './app/services/cache/cache-core-service'
 import messaging from '@react-native-firebase/messaging'
 import { Platform } from 'react-native'
 import { configureNotification } from './app/services/notification/notification-service'
+import { initSentry } from './app/services/error/error-service'
 
 class App extends Component {
 
@@ -27,6 +28,7 @@ class App extends Component {
       await resetCacheForDev()
     } else {
       configureNotification()
+      initSentry()
     }
 
     if(Platform.OS == 'ios'){
