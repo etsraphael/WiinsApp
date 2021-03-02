@@ -9,6 +9,7 @@ import StantardSuggest from '../../core/stantard-suggest'
 import PublicationModal from '../../core/modal/publication-modal'
 import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
+import OptionPublicationModal from './../../core/modal/option-publication-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
 import CardNewFeed from './../../core/card/card-new-feed'
@@ -28,7 +29,9 @@ class Feed extends React.Component {
             publicationMode: false,
             publicationModeExist: false,
             storysModal: false,
-            storysModalExist: false
+            storysModalExist: false,
+            reportModal: false,
+            reportModalExist: false
         }
         _listViewOffset = 0
 
@@ -95,6 +98,7 @@ class Feed extends React.Component {
 
     _cardRender = (item, index) => {
         return (<CardNewFeed
+            toggleReportModal={this._toggleReportModal}
             index={index}
             navigation={this.props.navigation}
             publication={item}
@@ -159,6 +163,12 @@ class Feed extends React.Component {
         setTimeout(() => this.setState({ storysModalExist: !this.state.storysModalExist }), 100)
     }
 
+    _toggleReportModal = () => {
+        this.setState({ reportModal: !this.state.reportModal })
+        setTimeout(() => this.setState({ reportModalExist: !this.state.reportModalExist }), 100)
+    }
+
+
     render = () => {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -172,6 +182,7 @@ class Feed extends React.Component {
                     {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
                     {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
                     {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
+                    {this.state.reportModal ? <OptionPublicationModal toggleReportModal={this._toggleReportModal} isVisible={this.state.reportModal} /> : null}
 
                 </View>
             </SafeAreaView>

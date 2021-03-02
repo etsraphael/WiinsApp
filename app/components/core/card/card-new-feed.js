@@ -197,7 +197,7 @@ class CardNewFeed extends React.Component {
                             </View>
                         </TouchableOpacity>
                         <View style={{ flex: 1 }}>
-                            <TouchableOpacity onPress={() => alert('progressing..')}>
+                            <TouchableOpacity onPress={() => this.props.toggleReportModal()}>
                                 <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={19} />
                             </TouchableOpacity>
                         </View>
