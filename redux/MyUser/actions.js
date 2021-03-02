@@ -1,5 +1,6 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage';
+import { sendError } from './../../app/services/error/error-service'
 
 export function loginSuccess(user) {
     return {
@@ -59,6 +60,7 @@ export function login(email, password) {
                     return dispatch(loginFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(loginFail(error))
         }
     }
@@ -79,6 +81,7 @@ export function register(user, userDetail) {
                     else return dispatch(registerSuccess(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(loginFail(error))
         }
     }

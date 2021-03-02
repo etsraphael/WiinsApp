@@ -1,5 +1,6 @@
-import { GET_MY_PROFILE, GET_MY_PROFILE_SUCCESS, GET_MY_PROFILE_FAIL } from './constants';
-import AsyncStorage from '@react-native-community/async-storage';
+import { GET_MY_PROFILE, GET_MY_PROFILE_SUCCESS, GET_MY_PROFILE_FAIL } from './constants'
+import AsyncStorage from '@react-native-community/async-storage'
+import { sendError } from './../../app/services/error/error-service'
 
 export function getMyProfileSuccess(profile) {
     return {
@@ -39,6 +40,7 @@ export function getMyProfile() {
                     return dispatch(getMyProfileFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getMyProfileFail(error));
         }
     };

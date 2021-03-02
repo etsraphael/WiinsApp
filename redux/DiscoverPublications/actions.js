@@ -1,5 +1,6 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
+import { sendError } from './../../app/services/error/error-service'
 
 export function getPublicationsSuccess(publications) {
     return {
@@ -70,6 +71,7 @@ export function getByName(page, name) {
                     return dispatch(getPublicationsFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getPublicationsFail(error));
         }
     };
@@ -96,6 +98,7 @@ export function getTrend(page) {
                     return dispatch(getPublicationsFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getPublicationsFail(error));
         }
     }
@@ -121,6 +124,7 @@ export function likePublicationDiscover(like) {
                     return dispatch(likePublicationFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(likePublicationFail(error));
         }
     }
@@ -145,6 +149,7 @@ export function unlikePublicationDiscover(id) {
                     return dispatch(unlikePublicationFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(unlikePublicationFail(error))
         }
     }

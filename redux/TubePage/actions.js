@@ -2,6 +2,7 @@ import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { getCacheLinkOrSeverLinkForTube } from './../../app/services/cache/cache-tube-service'
 import { addTubeInCache } from './../TubeMenu/actions'
+import { sendError } from './../../app/services/error/error-service'
 
 export function downloadTubeProgress(progress) {
     return { type: ActionTypes.DOWNLOAD_TUBE_PROGRESS, payload: progress }
@@ -127,6 +128,7 @@ export function getTubePageActions(id) {
                     return dispatch(getTubePageFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getTubePageFail(error));
         }
     }
@@ -152,6 +154,7 @@ export function likeTubePageActions(id) {
                     return dispatch(likeTubePageFail())
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(likeTubePageFail(error));
         }
     }
@@ -177,6 +180,7 @@ export function dislikeTubePageActions(id) {
                     return dispatch(dislikeTubePageFail())
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(dislikeTubePageFail(error));
         }
     }
@@ -202,6 +206,7 @@ export function followInTubePageActions(profileId) {
                     return dispatch(followInTubePageFail())
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(followInTubePageFail(error));
         }
     }

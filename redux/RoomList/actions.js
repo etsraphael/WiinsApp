@@ -1,5 +1,6 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage';
+import { sendError } from './../../app/services/error/error-service'
 
 export function getRoomListSuccess(rooms) {
     return { type: ActionTypes.GET_ROOM_LIST_SUCCESS, payload: rooms }
@@ -37,6 +38,7 @@ export function getRoom(page) {
                     return dispatch(getRoomListFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getRoomListFail(error))
         }
     }

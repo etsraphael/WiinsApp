@@ -2,6 +2,7 @@ import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { verificationMusicCacheFormat } from './../../app/services/cache/cache-music-service'
 import { addMusicAfterLiked, pullMusicAfterDisliked } from './../MyFavMusic/actions'
+import { sendError } from './../../app/services/error/error-service'
 
 export function startOfUpload() {
     return { type: ActionTypes.START_OF_UPLOAD_PLAYLIST }
@@ -71,6 +72,7 @@ export function getMusicPlaylist(id) {
                     return dispatch(getMusicPlaylistFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getMusicPlaylistFail(error));
         }
     }
@@ -136,6 +138,7 @@ export function likeMusicAction(id, music) {
                     return dispatch(likeMusicFail(id))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(likeMusic(id));
         }
     }
@@ -177,6 +180,7 @@ export function dislikeMusicAction(id) {
                     return dispatch(dislikeMusicFail(id))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(dislikeMusic(id));
         }
     }

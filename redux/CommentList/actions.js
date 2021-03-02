@@ -3,6 +3,7 @@ import { UPDATE_COMMENT_PUBLICATIONS_DISCOVER_SUCCESS } from './../DiscoverPubli
 import { UPDATE_COMMENT_PUBLICATIONS_FEED_SUCCESS } from './../FeedPublications/constants'
 import { UPDATE_COMMENT_PUBLICATIONS_PROFILE_SUCCESS } from './../ProfilePublications/constants'
 import AsyncStorage from '@react-native-community/async-storage'
+import { sendError } from './../../app/services/error/error-service'
 
 export function likeReponseSuccess(id) {
     return { type: ActionTypes.LIKE_RESPONSE_SUCCESS, id }
@@ -122,6 +123,7 @@ export function likeCommentPublication(like) {
                     return dispatch(likeCommentFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(likeCommentFail(error))
         }
     }
@@ -147,6 +149,7 @@ export function unlikeCommentPublication(id) {
                     return dispatch(unlikeCommentFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(unlikeCommentFail(error))
         }
     }
@@ -173,7 +176,7 @@ export function likeResponsePublication(like) {
                     return dispatch(likeReponseFail(response))
                 })
         } catch (error) {
-            console.log(error)
+            sendError(error)
             return dispatch(likeReponseFail(error))
         }
     }
@@ -199,15 +202,11 @@ export function unlikeResponsePublication(id) {
                     return dispatch(unlikeReponseFail(response))
                 })
         } catch (error) {
-            console.log(error)
+            sendError(error)
             return dispatch(unlikeReponseFail(error))
         }
     }
 }
-
-
-
-/////
 
 export function sendCommentToPage(comment, space) {
     return async (dispatch) => {
@@ -233,6 +232,7 @@ export function sendCommentToPage(comment, space) {
                     return dispatch(sendCommentFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(sendCommentFail(error))
         }
     }
@@ -259,6 +259,7 @@ export function sendCommentToPlaylist(comment) {
                     return dispatch(sendCommentFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(sendCommentFail(error))
         }
     }
@@ -288,6 +289,7 @@ export function sendCommentToProfile(comment, space) {
                     return dispatch(sendCommentFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(sendCommentFail(error))
         }
     }
@@ -313,6 +315,7 @@ export function getCommentListPlaylist(id, page) {
                     return dispatch(getCommentListFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getCommentListFail(error));
         }
     };
@@ -338,6 +341,7 @@ export function getCommentListPublication(id, page) {
                     return dispatch(getCommentListFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getCommentListFail(error));
         }
     };
@@ -363,6 +367,7 @@ export function getResponseByIdAndPage(id, page){
                     return dispatch(getResponseFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getResponseFail(error));
         }
     };

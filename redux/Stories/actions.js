@@ -1,5 +1,6 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
+import { sendError } from './../../app/services/error/error-service'
 
 export function storySeen(profileId, storyId) {
     return { type: ActionTypes.STORY_SEEN, profileId, storyId }
@@ -63,6 +64,7 @@ export function getStoriesActions(page) {
                     return dispatch(getStoriesFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getStoriesFail(error));
         }
     };
@@ -92,7 +94,10 @@ export function getStackActions(id, index) {
                     if (response.status == 200) return dispatch(getStackSuccess(response.stack, index))
                     return dispatch(getStackFail(response))
                 })
-        } catch (error) { return dispatch(getStackFail(error)) }
+        } catch (error) { 
+            sendError(error)
+            return dispatch(getStackFail(error)) 
+        }
     }
 }
 
@@ -114,7 +119,10 @@ export function storySeenActions(profileId, storyId) {
                     'Authorization': 'Bearer ' + token,
                 }
             })
-        } catch (error) { return null }
+        } catch (error) { 
+            sendError(error)
+            return null
+        }
 
     }
 }

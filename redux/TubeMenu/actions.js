@@ -1,5 +1,6 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
+import { sendError } from './../../app/services/error/error-service'
 
 export function addTubeInCache(tube) {
     return { type: ActionTypes.ADD_TUBE_IN_CACHE, payload: tube }
@@ -49,6 +50,7 @@ export function getTubeMenuActions() {
                     return dispatch(getTubeMenuFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getTubeMenuFail(error));
         }
     };

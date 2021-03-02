@@ -1,7 +1,7 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { verificationMusicCacheFormat } from './../../app/services/cache/cache-music-service'
-
+import { sendError } from './../../app/services/error/error-service'
 
 export async function getMusicMenuSuccess(menu, rapList) {
     return { 
@@ -42,6 +42,7 @@ export function getMusicMenu() {
                     return dispatch(getMusicMenuFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getMusicMenuFail(error));
         }
     };

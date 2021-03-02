@@ -1,5 +1,6 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage';
+import { sendError } from './../../app/services/error/error-service'
 
 export function getRoomByIdSuccess(room) {
     return { type: ActionTypes.GET_ROOM_BY_ID_SUCCESS, payload: room }
@@ -57,6 +58,7 @@ export function getRoomById(id, page, nBMessage) {
                     return dispatch(getRoomByIdFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getRoomByIdFail(error))
         }
     }
@@ -82,6 +84,7 @@ export function sendMessage(message, idRoom) {
                     return dispatch(sendMessageFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(sendMessageFail(error))
         }
     }
@@ -107,6 +110,7 @@ export function getMessageByPage(id, page, nBMessage) {
                     return dispatch(getRoomByIdFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getRoomByIdFail(error))
         }
     }

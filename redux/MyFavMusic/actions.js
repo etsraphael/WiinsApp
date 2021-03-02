@@ -1,7 +1,7 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { verificationMusicCacheFormat } from './../../app/services/cache/cache-music-service'
-
+import { sendError } from './../../app/services/error/error-service'
 
 export function startOfUpload() {
     return { type: ActionTypes.START_OF_UPLOAD }
@@ -63,6 +63,7 @@ export function getMyMusic() {
                     return dispatch(getMyFavMusicFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getMyFavMusicFail(error));
         }
     };
