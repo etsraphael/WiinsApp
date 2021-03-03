@@ -6,6 +6,7 @@ import Modal from 'react-native-modal'
 import I18n from '../../../i18n/i18n'
 import { faCheckCircle } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { sendReport } from './../../../services/report/report-service'
 
 const optionsList = [
     { code: 'reportPublication', title: 'Report Publication', color: 'red' },
@@ -141,6 +142,22 @@ class OptionPublicationModal extends React.Component {
         )
     }
 
+    _sentReportWithCategory = (categorySelected) => {
+
+        const report = {
+            type: 'feed-publication',
+            id: this.props.publicationId,
+            categorie: categorySelected
+        }
+
+        console.log(report)
+
+
+        return null
+
+        return sendReport(report).then(() => this.setState({ menu: 'reportPublicationSent' }))
+    }
+
     _reportPublicationView = () => {
         return (
             <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
@@ -172,7 +189,7 @@ class OptionPublicationModal extends React.Component {
                     renderItem={({ item }) =>
                         <TouchableOpacity
                             style={styles.container_item_menu}
-                            onPress={() => this.setState({ menu: 'reportPublicationSent' })}
+                            onPress={() => this._sentReportWithCategory(item.number)}
                         >
                             <Text style={{ color: item.color }}>{I18n.t(item.type)}</Text>
                         </TouchableOpacity>
@@ -183,6 +200,8 @@ class OptionPublicationModal extends React.Component {
             </View>
         )
     }
+
+
 
     _blockUserView = () => {
         return (
@@ -207,17 +226,17 @@ class OptionPublicationModal extends React.Component {
                 </View>
 
                 {this._separatorItem()}
-                <TouchableOpacity 
-                onPress={() => this.props.toggleReportModal()}
-                style={styles.container_item_menu}
+                <TouchableOpacity
+                    onPress={() => this.props.toggleReportModal()}
+                    style={styles.container_item_menu}
                 >
                     <Text>{I18n.t('CORE.No')}</Text>
                 </TouchableOpacity>
 
                 {this._separatorItem()}
-                <TouchableOpacity 
-                style={styles.container_item_menu}
-                onPress={() => this.setState({menu: 'blockUserSent'})}
+                <TouchableOpacity
+                    style={styles.container_item_menu}
+                    onPress={() => this.setState({ menu: 'blockUserSent' })}
                 >
                     <Text>{I18n.t('CORE.Yes')}</Text>
                 </TouchableOpacity>
@@ -233,7 +252,7 @@ class OptionPublicationModal extends React.Component {
                     <FontAwesomeIcon icon={faCheckCircle} color={'#33cc33'} secondaryColor={'#f2f2f2'} size={75} />
                 </View>
                 {this._separatorItem()}
-                <View style={{paddingHorizontal: 15, paddingVertical: 10, marginBottom: 30}}>
+                <View style={{ paddingHorizontal: 15, paddingVertical: 10, marginBottom: 30 }}>
                     <Text>{I18n.t('VALIDATION.T-content-has-been-reported')}</Text>
                 </View>
             </View>
@@ -247,11 +266,12 @@ class OptionPublicationModal extends React.Component {
                     <FontAwesomeIcon icon={faCheckCircle} color={'#33cc33'} secondaryColor={'#f2f2f2'} size={75} />
                 </View>
                 {this._separatorItem()}
-                <View style={{paddingHorizontal: 15, paddingVertical: 10, marginBottom: 30}}>
+                <View style={{ paddingHorizontal: 15, paddingVertical: 10, marginBottom: 30 }}>
                     <Text>{I18n.t('VALIDATION.T-user-has-been-blocked-D')}</Text>
                 </View>
             </View>
-        )    }
+        )
+    }
 
     _displaySection = () => {
         switch (this.state.menu) {
@@ -282,8 +302,6 @@ class OptionPublicationModal extends React.Component {
                         {this._displaySection()}
                     </View>
                 </Modal>
-
-
             </View>
         )
     }
