@@ -1047,7 +1047,7 @@
     "A-y-s-to-block-t-user": "Bu kullanıcıyı engelleyeceğinizden emin misiniz?",
     "Y-a-abt-t-block-t-user-D": "Bu kullanıcıyı engellemek üzeresiniz. Artık onun içeriğini ve bu kullanıcıyı da izleyemezsiniz. Bu kısıtlamayı yalnızca siz kaldırabilirsiniz.",
     "T-content-has-been-reported": "Bu içerik bildirildi. Moderatörlerimiz incelemek için 24 saat sonra göz atacak. Topluluğun kurallarına uymaması halinde bir yaptırım uygulanacaktır.",
-    "T-user-has-been-blocked-D": "Bu kullanıcı hesabınızdan engellendi. Aucun contenu des ce profili sera visible avec votre compte.",
+    "T-user-has-been-blocked-D": "Bu kullanıcı hesabınızdan engellendi. Bu profilin hiçbir içeriği hesabınızda görünmeyecek.",
     "W-is-t-reason-to-report-t-post": "Bu gönderiyi bildirmenin nedeni nedir?",
     "W-is-t-reason-to-report-t-post-D": "Raporunuz anonimdir. Lütfen moratorlara yardımcı olacak bir kategori seçin"
   },

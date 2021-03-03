@@ -1047,7 +1047,7 @@
     "A-y-s-to-block-t-user": "Oletko varmasti estänyt tämän käyttäjän?",
     "Y-a-abt-t-block-t-user-D": "Olet estämässä tätä käyttäjää. Et voi enää katsoa hänen sisältöään ja tätä käyttäjää. Vain sinä pystyt poistamaan tämän rajoituksen.",
     "T-content-has-been-reported": "Tästä sisällöstä on raportoitu. Moderaattorimme tarkistavat sen 24 tunnin viiveellä. Seuraamusta sovelletaan, jos se ei noudata yhteisön sääntöjä.",
-    "T-user-has-been-blocked-D": "Tämä käyttäjä on estetty tililtäsi. Aucun contenu de ce -profiiliseerumit näkyvät avec votre compte.",
+    "T-user-has-been-blocked-D": "Tämä käyttäjä on estetty tililtäsi. Mikään tämän profiilin sisältö ei ole näkyvissä tililläsi.",
     "W-is-t-reason-to-report-t-post": "Mikä on syy ilmoittaa tästä viestistä?",
     "W-is-t-reason-to-report-t-post-D": "Raporttisi on tuntematon. Valitse vain luokka, joka auttaa moratoreja"
   },

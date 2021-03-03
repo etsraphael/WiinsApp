@@ -1047,7 +1047,7 @@
     "A-y-s-to-block-t-user": "Jeste li sigurni da ste blokirali ovog korisnika?",
     "Y-a-abt-t-block-t-user-D": "Spremate se blokirati ovog korisnika. Više ne biste mogli gledati njegov sadržaj i ovog korisnika. Samo biste vi mogli ukloniti ovo ograničenje.",
     "T-content-has-been-reported": "Ovaj je sadržaj prijavljen. Naši će ih moderatori pogledati u odgodi od 24 sata kako bi ga pregledali. Primijenit će se sankcija ako se time ne poštuju pravila zajednice.",
-    "T-user-has-been-blocked-D": "Ovaj je korisnik blokiran s vašeg računa. Aucun contenu de ce profil sera vidljiv u blizini.",
+    "T-user-has-been-blocked-D": "Ovaj je korisnik blokiran s vašeg računa. Na vašem računu neće biti vidljiv sadržaj ovog profila.",
     "W-is-t-reason-to-report-t-post": "Koji je razlog da prijavim ovaj post?",
     "W-is-t-reason-to-report-t-post-D": "Vaša prijava je anonimna. Odaberite samo kategoriju koja će pomoći moratorima"
   },

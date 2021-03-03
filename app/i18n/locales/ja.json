@@ -990,7 +990,7 @@
     "A-y-s-to-block-t-user": "このユーザーをブロックしてもよろしいですか？",
     "Y-a-abt-t-block-t-user-D": "このユーザーをブロックしようとしています。彼のコンテンツとこのユーザーも見ることができなくなります。この制限を解除できるのはあなただけです。",
     "T-content-has-been-reported": "このコンテンツは報告されています。モデレーターは24時間遅れて確認します。これがコミュニティの規則を尊重しない場合、制裁が適用されます。",
-    "T-user-has-been-blocked-D": "このユーザーはあなたのアカウントからブロックされています。 Aucun contenu de ce profile seravisible avec votrecompte。",
+    "T-user-has-been-blocked-D": "このユーザーはあなたのアカウントからブロックされています。このプロファイルのコンテンツは、アカウントに表示されません。",
     "W-is-t-reason-to-report-t-post": "この投稿を報告する理由は何ですか？",
     "W-is-t-reason-to-report-t-post-D": "あなたの報告は匿名です。モレーターを助けるためにカテゴリーだけを選んでください"
   },
