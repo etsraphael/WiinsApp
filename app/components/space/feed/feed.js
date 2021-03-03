@@ -31,7 +31,8 @@ class Feed extends React.Component {
             storysModal: false,
             storysModalExist: false,
             reportModal: false,
-            reportModalExist: false
+            reportModalExist: false,
+            reportPublicationId: null
         }
         _listViewOffset = 0
 
@@ -98,7 +99,7 @@ class Feed extends React.Component {
 
     _cardRender = (item, index) => {
         return (<CardNewFeed
-            toggleReportModal={this._toggleReportModal}
+            toggleReportModal={() => this._toggleReportModal(item._id)}
             index={index}
             navigation={this.props.navigation}
             publication={item}
@@ -163,8 +164,8 @@ class Feed extends React.Component {
         setTimeout(() => this.setState({ storysModalExist: !this.state.storysModalExist }), 100)
     }
 
-    _toggleReportModal = () => {
-        this.setState({ reportModal: !this.state.reportModal })
+    _toggleReportModal = (id) => {
+        this.setState({ reportModal: !this.state.reportModal, reportPublicationId: id })
         setTimeout(() => this.setState({ reportModalExist: !this.state.reportModalExist }), 100)
     }
 
@@ -182,7 +183,7 @@ class Feed extends React.Component {
                     {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
                     {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
                     {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
-                    {this.state.reportModal ? <OptionPublicationModal toggleReportModal={this._toggleReportModal} isVisible={this.state.reportModal} /> : null}
+                    {this.state.reportModal ? <OptionPublicationModal toggleReportModal={(event) => this._toggleReportModal(event)} isVisible={this.state.reportModal} publicationId={this.state.reportPublicationId}/> : null}
 
                 </View>
             </SafeAreaView>

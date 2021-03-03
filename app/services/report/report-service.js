@@ -27,13 +27,10 @@ async function sendFeedReport(report) {
                 Accept: 'application/json', 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + token,
             },
-            body: JSON.stringify({report})
+            body: JSON.stringify({ report })
         })
             .then((response) => response.json())
-            .then((response) => { 
-                console.log(response)
-                return true
-            })
+            .then(() => { return true })
     } catch (error) {
         return sendError(error)
     }

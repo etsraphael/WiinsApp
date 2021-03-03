@@ -150,11 +150,6 @@ class OptionPublicationModal extends React.Component {
             categorie: categorySelected
         }
 
-        console.log(report)
-
-
-        return null
-
         return sendReport(report).then(() => this.setState({ menu: 'reportPublicationSent' }))
     }
 
@@ -200,8 +195,6 @@ class OptionPublicationModal extends React.Component {
             </View>
         )
     }
-
-
 
     _blockUserView = () => {
         return (
