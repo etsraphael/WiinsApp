@@ -70,11 +70,11 @@ class Setting extends React.Component {
     _renderBody = () => {
 
         const listSetting = [
-            { title: I18n.t('CORE.Profile'), code: 'SettingProfile', icon: <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('CORE.Password'), code: 'SettingPassword', icon: <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('CORE.Ledger'), code: 'SettingLedger', icon: <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('CORE.Certification'), code: 'SettingCertification', icon: <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('CORE.Others'), code: 'SettingOther', icon: <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} /> },
+            // { title: I18n.t('CORE.Profile'), code: 'SettingProfile', icon: <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} /> },
+            // { title: I18n.t('CORE.Password'), code: 'SettingPassword', icon: <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} /> },
+            // { title: I18n.t('CORE.Ledger'), code: 'SettingLedger', icon: <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} /> },
+            // { title: I18n.t('CORE.Certification'), code: 'SettingCertification', icon: <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} /> },
+            // { title: I18n.t('CORE.Others'), code: 'SettingOther', icon: <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} /> },
             { title: 'Privacy', code: 'SettingPrivacy', icon: <FontAwesomeIcon icon={faUserShield} color={'#808080a3'} size={30} /> },
             { title: I18n.t('NAVBAR.Logout'), code: 'Logout', icon: <FontAwesomeIcon icon={faSignOut} color={'#808080a3'} size={30} /> }
         ]
