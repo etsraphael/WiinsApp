@@ -3,6 +3,7 @@ import TrackPlayer from 'react-native-track-player'
 import AsyncStorage from '@react-native-community/async-storage'
 import { likeMusicSuccess, dislikeMusicSuccess } from './../PlaylistMusicPage/actions'
 import { addMusicAfterLiked, pullMusicAfterDisliked } from './../MyFavMusic/actions'
+import { sendError } from './../../app/services/error/error-service'
 
 export function continueMusic() {
     return { type: ActionTypes.CONTINUE_MUSIC }
@@ -131,7 +132,10 @@ export function playMusicActions(music, payload) {
 
             return dispatch(playMusic(tracklist[tracklist.map(x => x.id).indexOf(music._id)], tracklist))
 
-        } catch (error) { return null }
+        } catch (error) { 
+            sendError(error)
+            return null
+        }
     }
 }
 
@@ -178,7 +182,10 @@ export function playRandomMusicInPlaylistActions(payload) {
             })
 
             return dispatch(playMusic(firstMusic, musicListFormat))
-        } catch (error) { return null }
+        } catch (error) { 
+            sendError(error)
+            return null
+        }
     }
 }
 
@@ -252,6 +259,7 @@ export function likeMusicFromPlayerAction(music) {
                     return dispatch(likeMusicFromPlayerFail(music._id))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(likeMusicFromPlayerFail(music._id))
         }
     }
@@ -287,6 +295,7 @@ export function dislikeMusicFromPlayerAction(id) {
                     return dispatch(dislikeMusicFromPlayerFail(id))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(dislikeMusicFromPlayer(id))
         }
     }
@@ -324,6 +333,7 @@ export function followArtistActions(musicId, profileId) {
                 })
 
         } catch (error) {
+            sendError(error)
             dispatch(followArtistFail(error))
         }
     }

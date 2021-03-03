@@ -2,6 +2,7 @@ import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { uploadImageFile, uploadVideoFile, getFileNameUploaded } from '../../app/services/upload/upload'
 import { v4 as uuidv4 } from 'uuid';
+import { sendError } from './../../app/services/error/error-service'
 
 export function addPublication(payload) {
     return { type: ActionTypes.ADD_PUBLICATIONS_PENDING, payload }
@@ -33,6 +34,7 @@ export function addPublicationInPendingList(publication) {
             await dispatch(addPublication(publication))
             return dispatch(sendPublication(publication))
         } catch (error) {
+            sendError(error)
             return dispatch(addPublicationFail(error));
         }
     }
@@ -44,6 +46,7 @@ export function addPublicationStoryInPendingList(publication) {
             await dispatch(addPublication(publication))
             return dispatch(sendStoryPublication(publication))
         } catch (error) {
+            sendError(error)
             return dispatch(addPublicationFail(error));
         }
     }

@@ -14,18 +14,29 @@ class Page extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            space: 'feed'
+            space: 'feed',
+            pagePublication: 1,
+            publicationLoading: false
         }
 
         LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
     }
 
+    // to show the publications feed
+    _getPublicationList = () => {
+        if (!this.props.ProfilePublications.isLoading) {
+            this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true })
+            this.props.actions.getByModeProfile(this.state.pagePublication, 'page/' + this.props.navigation.state.params.pageId)
+            setTimeout(() => this.setState({ publicationLoading: false }), 3000);
+        }
+    }
+
     componentWillUnmount(){
-        this.props.actions.getByMode(1, 'FollowerAndFriend')
+        this.props.actions.getByModeProfile(1, 'FollowerAndFriend')
     }
 
     componentDidMount() {
-        this.props.actions.getByMode(1, 'page/' + this.props.navigation.state.params.pageId)
+        this.props.actions.getByModeProfile(1, 'page/' + this.props.navigation.state.params.pageId)
         this.props.actions.getPage(this.props.navigation.state.params.pageId)
     }
 
@@ -132,7 +143,7 @@ class Page extends React.Component {
     _renderBody = () => {
 
         return (
-            <View style={styles.body_container}>
+            <View style={styles.container}>
                 <ProfilePublication />
             </View>
         )
@@ -142,7 +153,9 @@ class Page extends React.Component {
 
         return (
             <View style={styles.container}>
-                <ScrollView>
+                <ScrollView
+                    scrollEventThrottle={5}
+                    onMomentumScrollEnd={() => this._getPublicationList()}>
                     {this.props.Page.isLoading ? this._displayLoading() : null}
                     {this.props.Page.page !== null ? this._displayPage() : null}
                 </ScrollView>
@@ -196,6 +209,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
+    ProfilePublications: state.ProfilePublications,
     Profile: state.Profile,
     Page: state.Page
 })

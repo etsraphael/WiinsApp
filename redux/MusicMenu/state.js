@@ -5,7 +5,10 @@ export const initialState = {
             followingUsersPlaylist: []
         },
         stylesSuggestion: {
-            rap: []
+            rap: [],
+            pop: [],
+            kPop: [],
+            dance: []
         }
     },
     isLoading: false,

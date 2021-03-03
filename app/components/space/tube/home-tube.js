@@ -1,13 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView, StatusBar } from 'react-native'
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlus, faSearch } from '@fortawesome/pro-light-svg-icons'
 import { TubesCategories } from './../../core/data/tubes'
 import * as TubeMenuActions from '../../../../redux/TubeMenu/actions'
 import I18n from '../../../i18n/i18n'
@@ -21,12 +19,6 @@ class HomeTube extends React.Component {
         }
     }
 
-    /* For testing purpose */
-    testValue = {
-        a: 'https://i.pinimg.com/236x/c7/a1/b8/c7a1b863aeba4b9a409b61ad7201924b.jpg',
-        b: 'https://i.pinimg.com/236x/e1/20/a8/e120a8628766f705cfd017ecf9ef00ea.jpg'
-    }
-
     UNSAFE_componentWillMount = () => {
         this.props.actions.getTubeMenuActions()
     }
@@ -38,7 +30,7 @@ class HomeTube extends React.Component {
                 {/* search bar */}
                 <View style={styles.container_search_bar}>
                     <TextInput
-                        placeholder='Search'
+                        placeholder={I18n.t('CORE.Search')}
                         style={styles.search_bar}
                         placeholderTextColor="#737373"
                         value={this.state.search}
@@ -91,9 +83,6 @@ class HomeTube extends React.Component {
     }
 
     // to display one tube
-    /*
-    TODO: Change render value on real api data
-    */
     _oneTubeRender = (item, isLarge = false, isLastIndex) => {
         return (
             <TouchableOpacity
@@ -104,7 +93,7 @@ class HomeTube extends React.Component {
                 {/* Background Image */}
                 <FastImage
                     style={{ width: '100%', height: '100%', borderRadius: 8 }} resizeMode={FastImage.resizeMode.cover}
-                    source={{ uri: item.tube ? item.tube.posterLink : this.testValue.a, priority: FastImage.priority.normal }} // Subject to change
+                    source={{ uri: item.tube ? item.tube.posterLink : this.testValue.a, priority: FastImage.priority.normal }}
                 />
 
                 {/* Footer Card */}
@@ -114,7 +103,7 @@ class HomeTube extends React.Component {
                         style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, height: '100%', borderBottomEndRadius: 8, borderBottomStartRadius: 8 }}>
                         <FastImage
                             style={{ width: 45, height: 45, borderRadius: 45, borderWidth: 2, borderColor: '#FF2D55' }} resizeMode={FastImage.resizeMode.cover}
-                            source={{ uri: item.tube ? item.tube.profile.pictureprofile : this.testValue.b, priority: FastImage.priority.normal }} // Subject to change
+                            source={{ uri: item.tube ? item.tube.profile.pictureprofile : this.testValue.b, priority: FastImage.priority.normal }}
                         />
                         <View style={{ paddingLeft: 10 }}>
                             <Text style={{ color: '#FFFFFF', fontSize: 14, fontWeight: '800' }}>{item.tube ? item.tube.profile._meta.pseudo : 'a'}</Text>
@@ -152,7 +141,7 @@ class HomeTube extends React.Component {
 
     // to display the tubelist by section
     _tubeListBySection = (tubeList, title, titleStyle = {}, isLarge = false) => {
-        if (tubeList === undefined || tubeList === null || tubeList.length == 0) tubeList = [{}, {}, {}] //return null
+        if (tubeList === undefined || tubeList === null || tubeList.length == 0) return null
 
         return (
             <View style={styles.container_section}>
@@ -162,9 +151,10 @@ class HomeTube extends React.Component {
                     <View>
                         <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', ...titleStyle }}>{title}</Text>
                     </View>
-                    <View>
-                        <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>See All</Text>
-                    </View>
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('TubeListPage', { tubeTitle: title })}>
+                        <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>{I18n.t('CORE.Show-more')}</Text>
+                    </TouchableOpacity>
                 </View>
 
                 {/* Video List */}
@@ -177,21 +167,102 @@ class HomeTube extends React.Component {
         )
     }
 
+    _oneTubeDownloadedRender = (tube, isLarge = false, isLastIndex) => {
+
+        return (
+            <TouchableOpacity
+                onPress={() => alert('open the page downloading in progress.. ')}
+                style={styles.oneTubeContainer(isLarge, isLastIndex)}
+            >
+
+                {/* Background Image */}
+                <FastImage
+                    style={{ width: '100%', height: '100%', borderRadius: 8 }} resizeMode={FastImage.resizeMode.cover}
+                    source={{ uri: tube ? tube.posterLink : this.testValue.a, priority: FastImage.priority.normal }}
+                />
+
+                {/* Footer Card */}
+                <View style={{ position: 'absolute', bottom: 0, width: '100%', height: 70, }}>
+                    <LinearGradient
+                        colors={['#fbfbfb00', '#bdc3c72e', '#2c3e50d1']}
+                        style={{ flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, height: '100%', borderBottomEndRadius: 8, borderBottomStartRadius: 8 }}>
+                        <FastImage
+                            style={{ width: 45, height: 45, borderRadius: 45, borderWidth: 2, borderColor: '#FF2D55' }} resizeMode={FastImage.resizeMode.cover}
+                            source={{ uri: tube ? tube.profile.pictureprofile : this.testValue.b, priority: FastImage.priority.normal }} // Subject to change
+                        />
+                        <View style={{ paddingLeft: 10 }}>
+                            <Text style={{ color: '#FFFFFF', fontSize: 14, fontWeight: '800' }}>{tube ? tube.profile._meta.pseudo : 'a'}</Text>
+                        </View>
+                    </LinearGradient>
+
+                </View>
+            </TouchableOpacity>
+        )
+
+    }
+
+    _tubeListDownloaded = (tubeList) => {
+        if (tubeList === undefined || tubeList === null || tubeList.length == 0) return null
+
+        return (
+            <View style={styles.container_section}>
+
+                {/* Header */}
+                <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 25, paddingTop: 15, alignItems: 'center' }}>
+                    <View>
+                        <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', fontWeight: 'bold' }}>{I18n.t('CORE.Downloaded')}</Text>
+                    </View>
+                    <View>
+                        <Text style={{ fontWeight: '400', fontSize: 15, fontFamily: 'Avenir-Heavy', color: '#FF2D55' }}>{I18n.t('CORE.Show-more')}</Text>
+                    </View>
+                </View>
+
+                {/* Video List */}
+                <View style={{ paddingBottom: 10 }}>
+                    <View style={{ flexDirection: 'row' }}>
+                        <FlatList
+                            horizontal={true}
+                            showsHorizontalScrollIndicator={false}
+                            style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7, paddingHorizontal: 19 }}
+                            data={tubeList}
+                            keyExtractor={(item, index) => `tube-item-${index}`} // item.id.toString()
+                            renderItem={({ item, index }) => this._oneTubeDownloadedRender(item, true, index === tubeList.length - 1)}
+                        />
+                    </View>
+                </View>
+
+            </View>
+        )
+    }
+
+    // to select the loading of the contents
+    _bodyRender = () => {
+        if (this.props.TubeMenu.isLoading) {
+            return (
+                <View style={{ height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+                    <ActivityIndicator style={{ marginTop: 35 }} size='large' color="#595959" />
+                </View>
+            )
+        } else {
+            return (<ScrollView>
+                {this._tubeListBySection(this.props.TubeMenu.trending, I18n.t('TUBE.Categorie.Trending'), { fontWeight: 'bold' }, true)}
+
+                {/* {this._categorieViews()} */}
+                {/* {this._tubeListBySection(this.props.TubeMenu.following, 'Following')}
+                    {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending')}
+                    {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Suggestion')} */}
+
+                {this._tubeListDownloaded(this.props.TubeMenu.downloaded, I18n.t('CORE.Downloaded'), { fontWeight: 'bold' }, true)}
+            </ScrollView>)
+        }
+    }
+
     render() {
         return (
-            <>
-                <StatusBar backgroundColor="white" barStyle="dark-content" />
-                <ScrollView style={styles.main_container}>
-                    {this._header()}
-                    {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending', { fontWeight: 'bold' }, true)}
-                    {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Recommended For You')}
-
-                    {/* {this._categorieViews()} */}
-                    {this._tubeListBySection(this.props.TubeMenu.following, 'Following')}
-                    {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending')}
-                    {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Suggestion')}
-                </ScrollView>
-            </>
+            <View style={styles.main_container}>
+                {this._header()}
+                {this._bodyRender()}
+            </View>
         )
     }
 }
@@ -287,7 +358,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     MyUser: state.MyUser,
-    TubeMenu: state.TubeMenu
+    TubeMenu: state.TubeMenu,
+    TubePage: state.TubePage
 })
 
 const ActionCreators = Object.assign(

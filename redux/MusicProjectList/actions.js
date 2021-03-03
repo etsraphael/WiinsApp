@@ -1,5 +1,6 @@
-import { GET_LIST_PUBLICATIONS_MUSIC, GET_LIST_PUBLICATIONS_MUSIC_SUCCESS, GET_LIST_PUBLICATIONS_MUSIC_FAIL, RESET_PUBLICATIONS_MUSIC} from './constants';
-import AsyncStorage from '@react-native-community/async-storage';
+import { GET_LIST_PUBLICATIONS_MUSIC, GET_LIST_PUBLICATIONS_MUSIC_SUCCESS, GET_LIST_PUBLICATIONS_MUSIC_FAIL, RESET_PUBLICATIONS_MUSIC } from './constants'
+import AsyncStorage from '@react-native-community/async-storage'
+import { sendError } from './../../app/services/error/error-service'
 
 export function getmusicProjectListSuccess(publication) {
     return {
@@ -28,26 +29,27 @@ export function resetmusicProjectList() {
 export function getMymusicProjectList(page) {
     return async (dispatch) => {
         try {
-            if(page == 1) dispatch(resetmusicProjectList())
+            if (page == 1) dispatch(resetmusicProjectList())
             dispatch(getmusicProjectListStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/music/mymusicProject'
 
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 }
             })
                 .then((response) => response.json())
-                .then( async (response) => {
+                .then(async (response) => {
                     if (response.status == 200) {
                         return dispatch(getmusicProjectListSuccess(response.results))
                     }
                     return dispatch(getmusicProjectListFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getmusicProjectListFail(error));
         }
     };
@@ -56,26 +58,27 @@ export function getMymusicProjectList(page) {
 export function getmusicProjectListByProfile(page, id) {
     return async (dispatch) => {
         try {
-            if(page == 1) dispatch(resetmusicProjectList())
+            if (page == 1) dispatch(resetmusicProjectList())
             dispatch(getmusicProjectListStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/music/profile/' + id
 
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 }
             })
                 .then((response) => response.json())
-                .then( async (response) => {
+                .then(async (response) => {
                     if (response.status == 200) {
                         return dispatch(getmusicProjectListSuccess(response.results))
                     }
                     return dispatch(getmusicProjectListFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getmusicProjectListFail(error));
         }
     };

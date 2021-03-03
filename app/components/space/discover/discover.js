@@ -11,6 +11,8 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faTimes } from '@fortawesome/pro-light-svg-icons'
 import SuggestionDiscover from './suggestion-discover'
+import PublicationModal from '../../core/modal/publication-modal'
+import I18n from '../../../i18n/i18n'
 
 class Discover extends React.Component {
 
@@ -23,8 +25,15 @@ class Discover extends React.Component {
             publicationLoading: false,
             hastagSelected: 'trend',
             isRefreshing: false,
-            actifCategory: 'All categories'
+            actifCategory: 'All categories',
+            modal: false,
+            PublicationModal: null
         }
+    }
+
+    // to display the modal view
+    _toggleModal = (event) => {
+        this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
     componentDidMount() {
@@ -99,7 +108,7 @@ class Discover extends React.Component {
                 {/* search bar */}
                 <View style={styles.container_search_bar}>
                     <TextInput
-                        placeholder='Search'
+                        placeholder={I18n.t('CORE.Search')}
                         style={styles.search_bar}
                         placeholderTextColor="#737373"
                         onChangeText={(val) => this.searchSuggest(val)}
@@ -183,7 +192,7 @@ class Discover extends React.Component {
 
         const mapPublication = (items) => (
             items.map((item, index) => (
-                <CardNewFeedMasonry key={`pub-item-${index}-01`} isLastElem={items.length - 1 === index} index={index} navigation={this.props.navigation} publication={item} space={'discover'} />
+                <CardNewFeedMasonry key={`pub-item-${index}-01`} isLastElem={items.length - 1 === index} index={index} navigation={this.props.navigation} publication={item} space={'discover'} toggleModal={(event) => this._toggleModal(event)} />
             ))
         )
 
@@ -230,6 +239,8 @@ class Discover extends React.Component {
                 {this._header()}
                 {this.state.search.length <= 2 ? this._displayDiscoverView() : null}
                 {this.state.search.length > 2 ? this._displaySuggestionView() : null}
+
+                {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
             </View>
         );
     }

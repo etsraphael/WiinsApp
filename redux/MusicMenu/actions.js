@@ -1,9 +1,12 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
+import { verificationMusicCacheFormat } from './../../app/services/cache/cache-music-service'
+import { sendError } from './../../app/services/error/error-service'
 
-export function getMusicMenuSuccess(menu) {
+export async function getMusicMenuSuccess(menu, rapList) {
     return { 
         type: ActionTypes.GET_MUSIC_MENU_SUCCESS,
+        rap: await verificationMusicCacheFormat(rapList),
         payload: menu
     }
 }
@@ -35,10 +38,11 @@ export function getMusicMenu() {
             })
                 .then((response) => response.json())
                 .then( async (response) => {
-                    if (response.status == 200) return dispatch(getMusicMenuSuccess(response.menu))
+                    if (response.status == 200) return dispatch(await getMusicMenuSuccess(response.menu, response.menu.stylesSuggestion.rap))
                     return dispatch(getMusicMenuFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getMusicMenuFail(error));
         }
     };

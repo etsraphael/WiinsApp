@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, FlatList, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native'
+import { StyleSheet, View, Text, TextInput, FlatList, ScrollView, TouchableOpacity, ActivityIndicator, SafeAreaView, VirtualizedList } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as MusicMenuActions from '../../../../redux/MusicMenu/actions'
@@ -12,54 +12,13 @@ import OneMusicFav from './one-music-fav'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faTransporterEmpty } from '@fortawesome/pro-light-svg-icons'
 import { downloadFavoritesMusicList } from './../../../services/cache/cache-music-service'
+import I18n from '../../../i18n/i18n'
 
 class HomeMusic extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            fakeMusiclist: [
-                {
-                    id: '1',
-                    name: 'music1',
-                    profile: {
-                        pictureprofile: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80',
-                        _meta: {
-                            pseudo: 'jake_27'
-                        }
-                    }
-                },
-                {
-                    id: '2',
-                    name: 'music2',
-                    profile: {
-                        pictureprofile: 'https://images.unsplash.com/photo-1595840635571-5d6abc7d584b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1287&q=80',
-                        _meta: {
-                            pseudo: 'sarah_few'
-                        }
-                    }
-                },
-                {
-                    id: '3',
-                    name: 'music3',
-                    profile: {
-                        pictureprofile: 'https://images.unsplash.com/photo-1597361767997-7b0433fe5136?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2215&q=80',
-                        _meta: {
-                            pseudo: 'rafael_salei'
-                        }
-                    }
-                },
-                {
-                    id: '4',
-                    name: 'music4',
-                    profile: {
-                        pictureprofile: 'https://images.unsplash.com/photo-1516117525866-d85459db7457?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80',
-                        _meta: {
-                            pseudo: 'tony_eve'
-                        }
-                    }
-                }
-            ],
             playlistZone: [
                 { code: 1, name: 'Latest', key: 'lastestPlaylist' },
                 { code: 2, name: 'Favorites', key: 'favorites' },
@@ -94,7 +53,7 @@ class HomeMusic extends React.Component {
                 {/* search bar */}
                 <View style={styles.container_search_bar}>
                     <TextInput
-                        placeholder='Search'
+                        placeholder={I18n.t('CORE.Search')}
                         style={styles.search_bar}
                         placeholderTextColor="#737373"
                         value={this.state.search}
@@ -209,23 +168,27 @@ class HomeMusic extends React.Component {
 
     // to display the music list
     _showMusicList = () => {
-        return (
-            <View>
-                <FlatList
-                    style={{ flex: 1 }}
-                    ItemSeparatorComponent={this._renderSeparator}
-                    data={this.state.fakeMusiclist}
-                    keyExtractor={(item) => item.id.toString()}
-                    renderItem={({ item, index }) => (<OneMusic music={item} tracklist={this.state.fakeMusiclist} index={index} />)}
-                />
-            </View>
-        )
+
+        if(!!this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]){
+            return (
+                <SafeAreaView style={{ flex: 1 }}>
+                    <VirtualizedList
+                        style={{ flex: 1 }}
+                        ItemSeparatorComponent={this._renderSeparator}
+                        data={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]}
+                        keyExtractor={(item, index) => item[index].id}
+                        renderItem={({ item, index }) => (<OneMusic music={item[index]} tracklist={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]} index={index} />)}
+                        getItemCount={() => this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected].length}
+                        getItem={(data) => data}
+                    />
+                </SafeAreaView>
+            )
+        }
+        
     }
 
     // to display the list of the genre
     _chartViews = () => {
-
-        return null // only for the prototype
 
         return (
             <View style={styles.container_section}>
@@ -276,7 +239,7 @@ class HomeMusic extends React.Component {
                         start={{ x: 0.1, y: 0.09 }}
                         end={{ x: 0.94, y: 0.95 }}
                     >
-                        <Text style={{ fontSize: 17, fontWeight: '500', color: 'white' }}>Save in phone</Text>
+                        <Text style={{ fontSize: 17, fontWeight: '500', color: 'white' }}>{I18n.t('CORE.Save-in-phone')}</Text>
                     </LinearGradient>
                 </TouchableOpacity>
             </View>)
@@ -314,22 +277,26 @@ class HomeMusic extends React.Component {
     }
 
     _displayContentView = () => {
-        return (<View>
-            {/* categorie playslit */}
-            {this._categorieViews()}
-            {/* chart playslit */}
-            { this.state.playlistZoneSelected == 'favorites' ? this._myMusicView() : this._chartViews()}
-        </View>)
+        return (
+            <SafeAreaView style={{ flex: 1 }}>
+                <ScrollView style={{ flex: 1 }}>
+                    {/* categorie playslit */}
+                    {this._categorieViews()}
+                    {/* chart playslit */}
+                    {this.state.playlistZoneSelected == 'favorites' ? this._myMusicView() : this._chartViews()}
+                </ScrollView>
+            </SafeAreaView>
+        )
     }
 
     render() {
         return (
-            <ScrollView style={styles.main_container}>
+            <View style={styles.main_container}>
                 {/*  search bar */}
                 {this._header()}
                 {/* Body */}
                 {this.props.MyMenu.isLoading ? this._displayLoading() : this._displayContentView()}
-            </ScrollView>
+            </View>
         )
     }
 

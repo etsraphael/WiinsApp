@@ -12,6 +12,7 @@ export const initialState = {
     music: [],
     following: [],
     suggestions: [],
+    downloaded: [],
     isLoading: false,
     error: null,
 }

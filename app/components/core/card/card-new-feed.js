@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, DeviceEventEmitter } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPlay, faComment } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
+import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
+import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons'
 
 class CardNewFeed extends React.Component {
 
@@ -79,9 +81,9 @@ class CardNewFeed extends React.Component {
         }
 
         return (
-            <TouchableOpacity
+            <TouchableWithoutFeedback // TouchableOpacity
                 style={{ height: 400 }}
-                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >
                 <LinearGradient colors={background} start={orientation[0]} end={orientation[1]} style={{ flex: 1, justifyContent: 'center' }}>
                     <Text style={{
@@ -99,7 +101,7 @@ class CardNewFeed extends React.Component {
                         {publication.text}
                     </Text>
                 </LinearGradient>
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
         )
     }
 
@@ -107,9 +109,9 @@ class CardNewFeed extends React.Component {
     _renderPicture(publication) {
 
         return (
-            <TouchableOpacity 
-            style={styles.container_type} 
-            onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+            <TouchableWithoutFeedback // TouchableOpacity
+                style={styles.container_type}
+                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >
 
                 <FastImage
@@ -119,7 +121,7 @@ class CardNewFeed extends React.Component {
                     onLoad={this.onImageLoaded}
                 />
 
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
         )
     }
 
@@ -128,7 +130,7 @@ class CardNewFeed extends React.Component {
 
         return (
             <TouchableOpacity style={styles.container_type}
-                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >
                 <FastImage
                     style={{ flex: 1, width: '100%', height: this.state.imageHeight }}
@@ -175,13 +177,13 @@ class CardNewFeed extends React.Component {
         if (publication.profile) {
             return (
                 <View style={styles.header_container}>
-
                     <LinearGradient
                         colors={['#00000099', '#0000005c', '#4e4e4e00']}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 0, y: 1 }}
-                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25 }}>
-                        <TouchableOpacity onPress={() => this._goToProfile(publication.profile._id)}>
+                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25, width: '100%' }}
+                    >
+                        <TouchableOpacity onPress={() => this._goToProfile(publication.profile._id)} style={{ flexDirection: 'row', flex: 9 }}>
                             <FastImage
                                 style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
                                 source={{
@@ -190,12 +192,16 @@ class CardNewFeed extends React.Component {
                                 }}
                                 resizeMode={FastImage.resizeMode.cover}
                             />
+                            <View style={styles.header_info}>
+                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.profile._meta.pseudo}</Text>
+                            </View>
                         </TouchableOpacity>
-                        <View style={styles.header_info}>
-                            <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.profile._meta.pseudo}</Text>
+                        <View style={{ flex: 1 }}>
+                            <TouchableOpacity onPress={() => this.props.toggleReportModal()}>
+                                <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={19} />
+                            </TouchableOpacity>
                         </View>
                     </LinearGradient>
-
                 </View>
             )
         }
@@ -207,8 +213,11 @@ class CardNewFeed extends React.Component {
                         colors={['#00000099', '#0000005c', '#4e4e4e00']}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 0, y: 1 }}
-                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25 }}>
-                        <TouchableOpacity onPress={() => this._goToPage(publication.page._id)}>
+                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25, width: '100%' }}
+                    >
+
+
+                        <TouchableOpacity onPress={() => this._goToPage(publication.page._id)} style={{ flexDirection: 'row', flex: 9 }}>
                             <FastImage
                                 style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
                                 source={{
@@ -217,13 +226,20 @@ class CardNewFeed extends React.Component {
                                 }}
                                 resizeMode={FastImage.resizeMode.cover}
                             />
+                            <View style={styles.header_info}>
+                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.page.name}</Text>
+                            </View>
                         </TouchableOpacity>
-                        <View style={styles.header_info}>
-                            <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.page.name}</Text>
+
+
+                        <View style={{ flex: 1 }}>
+                            <TouchableOpacity onPress={() => alert('progressing..')}>
+                                <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={19} />
+                            </TouchableOpacity>
                         </View>
+
                     </LinearGradient>
-                    <View style={{ height: '100%', flex: 2 }}>
-                    </View>
+
                 </View>
             )
         }
@@ -235,6 +251,7 @@ class CardNewFeed extends React.Component {
 
     // to select like icon
     _displayIconLike() {
+
         if (!this.props.publication.like.isLike) {
             return (<FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />)
         }
@@ -311,7 +328,7 @@ class CardNewFeed extends React.Component {
                                 onPress={() => this._likePublication()}
                                 style={{ flex: 1 }}
                             >
-                                <View 
+                                <View
                                     style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 18, height: 35 }}
                                 >
                                     {this._displayIconLike()}
@@ -319,7 +336,7 @@ class CardNewFeed extends React.Component {
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity
-                                onPress={() => DeviceEventEmitter.emit('toggleModal', { publication, navigation: this.props.navigation, space: this.props.space })}
+                                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
                                 style={{ flex: 1 }}
                             >
                                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 35 }}>
@@ -375,7 +392,9 @@ const styles = StyleSheet.create({
         position: 'absolute',
         height: 65,
         width: '100%',
-        zIndex: 1
+        zIndex: 1,
+        flexDirection: 'row',
+        justifyContent: 'space-around'
     },
     header_info: {
         justifyContent: 'center'

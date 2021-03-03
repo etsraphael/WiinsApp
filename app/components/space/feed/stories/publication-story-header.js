@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, TouchableOpacity, ScrollView, Text } from 'react-native'
+import { StyleSheet, View, FlatList, TouchableOpacity, ScrollView, Text, SafeAreaView } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../../redux/FeedPublications/actions'
 import * as StoriesActions from '../../../../../redux/Stories/actions'
@@ -94,7 +94,7 @@ class PublicationStoryHeader extends React.Component {
 
     render = () => {
         return (
-            <View style={{ paddingVertical: 5 }}>
+            <SafeAreaView style={{ paddingVertical: 5 }}>
                 <ScrollView style={styles.listStories} horizontal={true} showsHorizontalScrollIndicator={false}>
                     {/* Add btn */}
                     <TouchableOpacity onPress={this.props.goToPublication} style={{ paddingHorizontal: 5 }}>
@@ -106,21 +106,22 @@ class PublicationStoryHeader extends React.Component {
                         </View>
                     </TouchableOpacity>
                     {/* Stories list  */}
-                    <FlatList
-                        horizontal={true}
-                        contentContainerStyle={{ alignItems: 'center' }}
-                        showsHorizontalScrollIndicator={false}
-                        style={{ flexDirection: 'row' }}
-                        data={this.props.Stories.stories}
-                        keyExtractor={(item) => item._id.toString()}
-                        renderItem={({ index, item }) => (
-                            <TouchableOpacity onPress={() => this._playStories(item._id, index)}>
-                                {this._alreaySeen(item.lastStoryId, item.lastStoryView) ? this._oneStory(item) : this._oneStoryDejaVu(item)}
-                            </TouchableOpacity>
-                        )}
-                    />
+                    {this.props.Stories.stories.length > 0 ?
+                        <FlatList
+                            horizontal={true}
+                            contentContainerStyle={{ alignItems: 'center' }}
+                            showsHorizontalScrollIndicator={false}
+                            style={{ flexDirection: 'row' }}
+                            data={this.props.Stories.stories}
+                            keyExtractor={(item) => item._id.toString()}
+                            renderItem={({ index, item }) => (
+                                <TouchableOpacity onPress={() => this._playStories(item._id, index)}>
+                                    {this._alreaySeen(item.lastStoryId, item.lastStoryView) ? this._oneStory(item) : this._oneStoryDejaVu(item)}
+                                </TouchableOpacity>
+                            )}
+                        /> : null}
                 </ScrollView>
-            </View>
+            </SafeAreaView>
         )
     }
 

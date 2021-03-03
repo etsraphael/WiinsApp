@@ -12,7 +12,13 @@ export default MusicMenuReducer = (state = initialState, action) => {
     case ActionTypes.GET_MUSIC_MENU_SUCCESS: {
       return {
         ...state,
-        menu: action.payload,
+        menu: {
+          ...action.payload,
+          stylesSuggestion: {
+            ...state.menu.stylesSuggestion,
+            rap: action.rap
+          }
+        },
         isLoading: false,
         error: null,
       }

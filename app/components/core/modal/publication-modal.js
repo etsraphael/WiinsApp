@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    StyleSheet, View, Text, DeviceEventEmitter, TouchableOpacity, Image,
+    StyleSheet, View, Text, TouchableOpacity, Image,
     ActivityIndicator, KeyboardAvoidingView, Platform, FlatList, Keyboard, TextInput
 } from 'react-native'
 import { connect } from 'react-redux'
@@ -8,20 +8,19 @@ import { bindActionCreators } from 'redux'
 import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
-import * as CommentListActions from '../../../redux/CommentList/actions'
-import CommentList from './comment-list'
-import TagSuggest from './tag-suggest'
-import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
-import * as ProfilePublicationActions from '../../../redux/ProfilePublications/actions'
-import * as DiscoverPublicationActions from '../../../redux/DiscoverPublications/actions'
+import TagSuggest from '../tag-suggest'
+import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
+import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
+import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublications/actions'
+import * as CommentListActions from '../../../../redux/CommentList/actions'
 import Video from 'react-native-video'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import { getDateTranslated } from '../../services/translation/translation-service'
+import { getDateTranslated } from '../../../services/translation/translation-service'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faTimes, faCommentLines, faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
-
-import { faHeart } from '@fortawesome/free-solid-svg-icons'
-import I18n from '../../i18n/i18n'
+import { faCommentLines, faHeart as faHeartEmpty, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
+import { faHeart, faAngleDown } from '@fortawesome/free-solid-svg-icons'
+import I18n from '../../../i18n/i18n'
+import CommentListModal from './comment-list-modal'
 
 class PublicationModal extends React.Component {
 
@@ -32,22 +31,33 @@ class PublicationModal extends React.Component {
             displayVideo: false,
             background_filter: false,
             page: 1,
-            textComment: null
+            textComment: '',
+            commentVisible: false,
+            swipDirection: 'down',
+            propagateSwipe: false
         }
     }
 
-    componentDidMount() {
-        this.eventListener = DeviceEventEmitter.addListener('toggleSuggest', this.toggleSuggest);
+    _activePropagateSwipe = () => {
+        this.setState({ propagateSwipe: true })
     }
 
-    _loadComment() {
-        this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
-        this.setState({ page: 2, background_filter: true })
+    _inactivePropagateSwipe = () => {
+        this.setState({ propagateSwipe: false })
+    }
+
+    _toggleComment = () => {
+        if (this.state.commentVisible == true) {
+            this.setState({ commentVisible: false, swipDirection: 'down' })
+
+        } else {
+            this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
+            this.setState({ commentVisible: true, swipDirection: null })
+        }
     }
 
     componentWillUnmount() {
         this.props.actions.resetComment()
-        this.eventListener.remove()
         Keyboard.dismiss()
     }
 
@@ -60,13 +70,13 @@ class PublicationModal extends React.Component {
     _goToProfile = (profileId) => {
         if (profileId !== this.props.MyProfile._id) this.props.publicationModal.navigation.navigate('Profile', { profileId })
         else this.props.navigation.navigate('MyProfile')
-        DeviceEventEmitter.emit('toggleModal')
+        this.props.toggleModal()
     }
 
     // to navigate to a page
     _goToPage = (pageId) => {
         this.props.publicationModal.navigation.navigate('Page', { pageId })
-        DeviceEventEmitter.emit('toggleModal')
+        this.props.toggleModal()
     }
 
     // to select the comment views
@@ -115,8 +125,12 @@ class PublicationModal extends React.Component {
             this.props.actions.sendCommentToPage(comment, this.props.publicationModal.space)
         }
 
-        this.setState({ textComment: null })
+        this.setState({ textComment: '' })
 
+    }
+
+    _writteComment = (val) => {
+        this.setState({ textComment: val })
     }
 
     _displayIconLikeColor = () => {
@@ -128,32 +142,50 @@ class PublicationModal extends React.Component {
     _footer(publication) {
         return (
             <View style={styles.container_footer}>
-                <View style={{ flex: 1, flexDirection: 'row', height: 52, paddingHorizontal: 25 }}>
+                <View style={{ flex: 1, flexDirection: 'row', height: 'auto', paddingHorizontal: 25 }}>
                     <View style={{ flexDirection: 'row', flex: 7, backgroundColor: '#464646a8', borderRadius: 20 }}>
                         <TextInput
-                            placeholder={I18n.t('FEED-PUBLICATION.Write-a-comment')}
+                            placeholder={I18n.t('PLACEHOLDER.Your-Comment')}
                             placeholderTextColor="#FFFFFF"
                             value={this.state.textComment}
-                            style={{ flex: 9, paddingLeft: 15, color: "#FFFFFF", borderRadius: 17, height: '100%' }}
-                            onChangeText={(val) => this.setState({ textComment: val })}
+                            style={{ flex: 9, padding: 15, paddingTop: 20, color: "#FFFFFF", borderRadius: 17, height: '100%', minHeight: 55, fontSize: 16 }}
+                            onChangeText={(val) => this._writteComment(val)}
+                            onSubmitEditing={() => this.sendComment()}
+                            multiline={true}
+                            numberOfLines={10}
                         />
-                        <TouchableOpacity onPress={() => this._likeBtn()}
-                        style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
-                            <FontAwesomeIcon icon={faHeart} color={this._displayIconLikeColor()} size={19} />
-                        </TouchableOpacity>
+
+
+                        {this.state.textComment.length > 10 ?
+                            <TouchableOpacity onPress={() => this.sendComment()}
+                                style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
+                                <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={19} />
+                            </TouchableOpacity>
+                            :
+                            <TouchableOpacity onPress={() => this._likeBtn()}
+                                style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
+                                <FontAwesomeIcon icon={faHeart} color={this._displayIconLikeColor()} size={19} />
+                            </TouchableOpacity>
+                        }
+
                     </View>
-                    <View style={{ flex: 2, paddingLeft: 25, alignItems: 'center' }}>
-                        <View style={{ flex: 1, flexDirection: 'row' }}>
-                            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }} onPress={() => this._loadComment()}>
-                                <FontAwesomeIcon icon={faCommentLines} color={'white'} size={19} />
-                                <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}>
-                                <FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />
-                                <Text style={{ fontSize: 15, color: 'white', paddingLeft: 7 }}>{publication.like.likeNumber}</Text>
-                            </TouchableOpacity>
+
+
+                    {this.state.textComment.length > 20 ? null :
+                        <View style={{ flex: 2, paddingLeft: 25, alignItems: 'center' }}>
+                            <View style={{ flex: 1, flexDirection: 'row' }}>
+                                <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }} onPress={() => this._toggleComment()}>
+                                    <FontAwesomeIcon icon={faCommentLines} color={'white'} size={19} />
+                                    <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}>
+                                    <FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />
+                                    <Text style={{ fontSize: 15, color: 'white', paddingLeft: 7 }}>{publication.like.likeNumber}</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
-                    </View>
+                    }
+
                 </View>
             </View>
         )
@@ -168,8 +200,8 @@ class PublicationModal extends React.Component {
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
                     <TouchableOpacity style={{ height: 35, width: 35, borderRadius: 35, backgroundColor: '#00000036', justifyContent: 'center', alignItems: 'center' }}
-                        onPress={() => DeviceEventEmitter.emit('toggleModal')}>
-                        <FontAwesomeIcon icon={faTimes} color={'white'} size={19} />
+                        onPress={() => this.props.toggleModal()}>
+                        <FontAwesomeIcon icon={faAngleDown} color={'white'} size={22} />
                     </TouchableOpacity>
                 </View>
             </View>
@@ -318,6 +350,7 @@ class PublicationModal extends React.Component {
                 <Video
                     onReadyForDisplay={() => this.setState({ displayVideo: true })}
                     source={{ uri: publication.file }}
+                    resizeMode={"contain"}
                     repeat={true}
                     minLoadRetryCount={5}
                     volume={0.1}
@@ -373,7 +406,7 @@ class PublicationModal extends React.Component {
 
     // to like or dislike publication
     _likeBtn() {
-        
+
         if (!this.props.publicationModal.publication.like.isLike) {
 
             let like
@@ -397,7 +430,7 @@ class PublicationModal extends React.Component {
             }
 
 
-            
+
             switch (this.props.publicationModal.space) {
                 case 'feed': return this.props.actions.likePublicationFeed(like)
                 case 'profile': return this.props.actions.likePublicationProfile(like)
@@ -420,16 +453,20 @@ class PublicationModal extends React.Component {
     render() {
         return (
             <View>
+
                 <Modal
-                    onSwipeComplete={() => DeviceEventEmitter.emit('toggleModal')}
+                    onSwipeComplete={() => this.props.toggleModal()}
                     isVisible={true}
                     transparent={true}
-                    propagateSwipe={true}
-                    animationIn={'zoomIn'}
-                    animationOut={'zoomOut'}
+                    propagateSwipe={this.state.propagateSwipe}
+                    animationIn={'bounceInUp'}
+                    animationOut={'bounceOutDown'}
                     animationInTiming={500}
-                    style={{ backgroundColor: 'white', flex: 1, margin: 0 }}
+                    style={{ backgroundColor: 'white', flex: 1, margin: 0, overflow: 'hidden' }}
+                    swipeDirection={this.state.swipDirection}
+                    swipeThreshold={50}
                 >
+
                     <KeyboardAvoidingView
                         behavior={Platform.OS === "ios" ? "padding" : null}
                         keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
@@ -437,7 +474,20 @@ class PublicationModal extends React.Component {
                     >
                         {this._showTypePublication(this.props.publicationModal.publication)}
                     </KeyboardAvoidingView>
+
+
+                    {this.state.commentVisible ?
+                        <CommentListModal
+                            closeModal={() => this._toggleComment()}
+                            _activePropagateSwipe={this._activePropagateSwipe}
+                            _inactivePropagateSwipe={this._inactivePropagateSwipe}
+                        />
+                        : null}
+
+
                 </Modal>
+
+
             </View>
         )
     }

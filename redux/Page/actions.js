@@ -1,5 +1,6 @@
 import * as ActionTypes from './constants';
 import AsyncStorage from '@react-native-community/async-storage';
+import { sendError } from './../../app/services/error/error-service'
 
 export function getPageSuccess(page) {
     return {
@@ -73,6 +74,7 @@ export function getPage(id) {
                     return dispatch(getPageFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getPageFail(error));
         }
     };
@@ -96,6 +98,7 @@ export function followPage(id) {
                     return dispatch(followFail(response.error))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(followFail(error))
         }
     }
@@ -120,6 +123,7 @@ export function unfollowPage(id) {
                     return dispatch(unfollowFail(response.error))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(unfollowFail(error))
         }
     };

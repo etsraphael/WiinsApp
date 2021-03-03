@@ -1,16 +1,9 @@
 export const initialState = {
     tube: null,
-    tubesFollower: [],
+    tubesFollowingUser: [],
     tubesSuggestions: [],
     comment: [],
     isLoading: false,
+    progressDownload: 0,
     error: null,
 }
-
-
-
-
-
-
-
-

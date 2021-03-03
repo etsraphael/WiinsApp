@@ -1,5 +1,6 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage';
+import { sendError } from './../../app/services/error/error-service'
 
 export function searchSuccess(publication) {
     return { type: ActionTypes.SEARCH_SUCCESS, payload: publication }
@@ -53,6 +54,7 @@ export function discoverSearch(name) {
                     return dispatch(searchFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(searchFail(error));
         }
     };
@@ -82,6 +84,7 @@ export function discoverSearchWithCategory(name, category) {
                     return dispatch(searchFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(searchFail(error));
         }
     }
@@ -108,6 +111,7 @@ export function friendsearch(name) {
                     return dispatch(searchFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(searchFail(error));
         }
     };

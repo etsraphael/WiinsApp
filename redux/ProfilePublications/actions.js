@@ -1,5 +1,6 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage';
+import { sendError } from './../../app/services/error/error-service'
 
 export function getPublicationsSuccess(publication) {
     return {
@@ -49,11 +50,10 @@ export function unlikePublicationFail(error) {
     return { type: ActionTypes.UNLIKE_PUBLICATIONS_PROFILE_FAIL, payload: error }
 }
 
-export function getByMode(page, mode) {
+export function getByModeProfile(page, mode) {
 
     return async (dispatch) => {
         try {
-
             if (page == 1) dispatch(resetPublication())
             dispatch(getPublicationsStart())
             const token = await AsyncStorage.getItem('userToken')
@@ -74,6 +74,7 @@ export function getByMode(page, mode) {
                     return dispatch(getPublicationsFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getPublicationsFail(error));
         }
     };
@@ -99,6 +100,7 @@ export function likePublicationProfile(like) {
                     return dispatch(likePublicationFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(likePublicationFail(error));
         }
     };
@@ -123,6 +125,7 @@ export function unlikePublicationProfile(id) {
                     return dispatch(unlikePublicationFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(unlikePublicationFail(error))
         }
     };

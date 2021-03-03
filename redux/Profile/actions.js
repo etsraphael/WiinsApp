@@ -1,7 +1,6 @@
 import * as ActionTypes from './constants';
 import AsyncStorage from '@react-native-community/async-storage';
-
-// actions
+import { sendError } from './../../app/services/error/error-service'
 
 export function getProfileSuccess(profile) {
     return {
@@ -127,6 +126,7 @@ export function getProfile(id) {
                     return dispatch(getProfileFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getProfileFail(error));
         }
     };
@@ -150,6 +150,7 @@ export function askFriend(id) {
                     return dispatch(askFriendFail(response.error))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(askFriendFail(error))
         }
     };
@@ -174,6 +175,7 @@ export function cancelFriendRequest(id) {
                 })
 
         } catch (error) {
+            sendError(error)
             return dispatch(cancelFriendRequestFail(error))
         }
     };
@@ -197,6 +199,7 @@ export function follow(id) {
                     return dispatch(followFail(response.error))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(followFail(error))
         }
     }
@@ -220,6 +223,7 @@ export function unfollow(id) {
                     return dispatch(unfollowFail(response.error))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(unfollowFail(error))
         }
     };
@@ -243,6 +247,7 @@ export function confirmFriendRequest(id) {
                     return dispatch(followFail(response.error))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(confirmFriendFail(error))
         }
     };

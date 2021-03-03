@@ -3,6 +3,31 @@ import { UPDATE_COMMENT_PUBLICATIONS_DISCOVER_SUCCESS } from './../DiscoverPubli
 import { UPDATE_COMMENT_PUBLICATIONS_FEED_SUCCESS } from './../FeedPublications/constants'
 import { UPDATE_COMMENT_PUBLICATIONS_PROFILE_SUCCESS } from './../ProfilePublications/constants'
 import AsyncStorage from '@react-native-community/async-storage'
+import { sendError } from './../../app/services/error/error-service'
+
+export function likeReponseSuccess(id) {
+    return { type: ActionTypes.LIKE_RESPONSE_SUCCESS, id }
+}
+
+export function likeReponseStart() {
+    return { type: ActionTypes.LIKE_RESPONSE }
+}
+
+export function likeReponseFail(error) {
+    return { type: ActionTypes.LIKE_RESPONSE_FAIL, payload: error }
+}
+
+export function unlikeReponseSuccess(id) {
+    return { type: ActionTypes.UNLIKE_RESPONSE_SUCCESS, id }
+}
+
+export function unlikeReponseStart() {
+    return { type: ActionTypes.UNLIKE_RESPONSE }
+}
+
+export function unlikeReponseFail(error) {
+    return { type: ActionTypes.UNLIKE_RESPONSE_FAIL, payload: error }
+}
 
 export function updateCommentStat(publicationId, space) {
     switch (space) {
@@ -11,6 +36,18 @@ export function updateCommentStat(publicationId, space) {
         case 'discover': return { type: UPDATE_COMMENT_PUBLICATIONS_DISCOVER_SUCCESS, id: publicationId }
         default: return null
     }
+}
+
+export function getResponseStart() {
+    return { type: ActionTypes.GET_REPONSE_LIST }
+}
+
+export function getResponseSuccess(id, results) {
+    return { type: ActionTypes.GET_REPONSE_LIST_SUCCESS, id, results }
+}
+
+export function getResponseFail(error) {
+    return { type: ActionTypes.GET_REPONSE_LISTT_FAIL, payload: error }
 }
 
 export function likeCommentSuccess(id) {
@@ -65,7 +102,6 @@ export function sendCommentFail(error) {
     return { type: ActionTypes.SEND_COMMENT_FAIL, payload: error }
 }
 
-
 export function likeCommentPublication(like) {
     return async (dispatch) => {
         try {
@@ -87,6 +123,7 @@ export function likeCommentPublication(like) {
                     return dispatch(likeCommentFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(likeCommentFail(error))
         }
     }
@@ -112,7 +149,61 @@ export function unlikeCommentPublication(id) {
                     return dispatch(unlikeCommentFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(unlikeCommentFail(error))
+        }
+    }
+}
+
+export function likeResponsePublication(like) {
+    return async (dispatch) => {
+        try {
+            dispatch(likeReponseStart())
+            const url = 'https://wiins-backend.herokuapp.com/likes/comment'
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify(like)
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 201) return dispatch(likeReponseSuccess(response.id))
+                    return dispatch(likeReponseFail(response))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(likeReponseFail(error))
+        }
+    }
+}
+
+export function unlikeResponsePublication(id) {
+    return async (dispatch) => {
+        try {
+            dispatch(unlikeReponseStart())
+            const url = 'https://wiins-backend.herokuapp.com/likes/comment/' + id
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 201) return dispatch(unlikeReponseSuccess(id))
+                    return dispatch(unlikeReponseFail(response))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(unlikeReponseFail(error))
         }
     }
 }
@@ -141,6 +232,7 @@ export function sendCommentToPage(comment, space) {
                     return dispatch(sendCommentFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(sendCommentFail(error))
         }
     }
@@ -167,6 +259,7 @@ export function sendCommentToPlaylist(comment) {
                     return dispatch(sendCommentFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(sendCommentFail(error))
         }
     }
@@ -196,6 +289,7 @@ export function sendCommentToProfile(comment, space) {
                     return dispatch(sendCommentFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(sendCommentFail(error))
         }
     }
@@ -221,6 +315,7 @@ export function getCommentListPlaylist(id, page) {
                     return dispatch(getCommentListFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getCommentListFail(error));
         }
     };
@@ -246,7 +341,34 @@ export function getCommentListPublication(id, page) {
                     return dispatch(getCommentListFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getCommentListFail(error));
+        }
+    };
+}
+
+export function getResponseByIdAndPage(id, page){
+    return async (dispatch) => {
+        try {
+            dispatch(getResponseStart())
+            const url = 'https://wiins-backend.herokuapp.com/comments/response/' + id
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) return dispatch(getResponseSuccess(id, response.results))
+                    return dispatch(getResponseFail(response.message))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(getResponseFail(error));
         }
     };
 }

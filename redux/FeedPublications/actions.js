@@ -1,5 +1,6 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
+import { sendError } from './../../app/services/error/error-service'
 
 export function addPublicationStart() {
     return { type: ActionTypes.ADD_PUBLICATIONS_FEED }
@@ -27,7 +28,7 @@ export function getPublicationsStart() {
 export function getPublicationsFail(error) {
     return {
         type: ActionTypes.GET_PUBLICATIONS_FAIL,
-        payload: error,
+        payload: error
     }
 }
 
@@ -56,16 +57,15 @@ export function unlikePublicationFail(error) {
 }
 
 export function resetPublication() {
-    return {
-        type: ActionTypes.RESET_PUBLICATIONS
-    }
+    return { type: ActionTypes.RESET_PUBLICATIONS }
 }
 
-export function getByMode(page, mode) {
+export function getByModeFeed(page, mode) {
 
+
+    
     return async (dispatch) => {
         try {
-
             if(page == 1) dispatch(resetPublication())
             dispatch(getPublicationsStart())
             const token = await AsyncStorage .getItem('userToken')
@@ -86,6 +86,7 @@ export function getByMode(page, mode) {
                     else return dispatch(getPublicationsFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getPublicationsFail(error));
         }
     };
@@ -111,6 +112,7 @@ export function likePublicationFeed(like) {
                     return dispatch(likePublicationFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(likePublicationFail(error));
         }
     };
@@ -136,13 +138,14 @@ export function unlikePublicationFeed(id) {
                     return dispatch(unlikePublicationFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(unlikePublicationFail(error))
         }
     };
 }
 
 export function resetPublicationActions() {
-    return async (dispatch) => dispatch(resetPublication())
+    return (dispatch) => dispatch(resetPublication())
 }
 
 export function addPublication(publication) {
@@ -172,6 +175,7 @@ export function addPublication(publication) {
 
         
         } catch (error) {
+            sendError(error)
             return dispatch(addPublicationFail(error));
         }
     }

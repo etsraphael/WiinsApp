@@ -1,8 +1,7 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import Snackbar from 'react-native-snackbar';
-
-// actions
+import { sendError } from './../../app/services/error/error-service'
 
 export function getMyStorySuccess(payload) {
     return { type: ActionTypes.GET_MY_STORY_SUCCESS, payload }
@@ -28,11 +27,8 @@ export function deleteStoryByIdStart() {
 
 export function deleteStoryByIdFail(payload) {
     Snackbar.show({ text: 'Deletion error', duration: Snackbar.LENGTH_LONG })
-
     return {  type: ActionTypes.DELETE_STORY_BY_ID_FAIL,  payload }
 }
-
-// effects
 
 export function getMyStoryActions() {
     return async (dispatch) => {
@@ -54,6 +50,7 @@ export function getMyStoryActions() {
                     return dispatch(getMyStoryFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getMyStoryFail(error));
         }
     };
@@ -80,6 +77,7 @@ export function deleteStoryByIdActions(id) {
                     return dispatch(deleteStoryByIdFail(response))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(deleteStoryByIdFail(error));
         }
     };

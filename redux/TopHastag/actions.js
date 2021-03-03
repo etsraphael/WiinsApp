@@ -1,5 +1,6 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
+import { sendError } from './../../app/services/error/error-service'
 
 export function getTopHastagSuccess(results) {
     return { 
@@ -39,6 +40,7 @@ export function getTopHastag() {
                     return dispatch(getTopHastagFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getTopHastagFail(error));
         }
     }

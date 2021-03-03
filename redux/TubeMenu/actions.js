@@ -1,8 +1,13 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
+import { sendError } from './../../app/services/error/error-service'
+
+export function addTubeInCache(tube) {
+    return { type: ActionTypes.ADD_TUBE_IN_CACHE, payload: tube }
+}
 
 export function getTubeMenuSuccess(menu) {
-    return { 
+    return {
         type: ActionTypes.GET_TUBE_MENU_SUCCESS,
         payload: menu
     }
@@ -34,17 +39,18 @@ export function getTubeMenuActions() {
 
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 }
             })
                 .then((response) => response.json())
-                .then( async (response) => {
+                .then(async (response) => {
                     if (response.status == 201) return dispatch(getTubeMenuSuccess(response.menu))
                     return dispatch(getTubeMenuFail(response.message))
                 })
         } catch (error) {
+            sendError(error)
             return dispatch(getTubeMenuFail(error));
         }
     };

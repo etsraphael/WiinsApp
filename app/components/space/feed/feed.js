@@ -1,41 +1,18 @@
 import React from 'react'
-import {
-    StyleSheet, View, FlatList, TouchableOpacity,
-    LayoutAnimation, Image, LogBox, DeviceEventEmitter, ScrollView, SafeAreaView
-} from 'react-native'
+import { StyleSheet, View, FlatList, TouchableOpacity, Image, SafeAreaView, VirtualizedList } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as SearchActions from '../../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStoryHeader from './stories/publication-story-header'
 import StantardSuggest from '../../core/stantard-suggest'
-import PublicationModal from '../../core/publication-modal'
+import PublicationModal from '../../core/modal/publication-modal'
 import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
+import OptionPublicationModal from './../../core/modal/option-publication-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
 import CardNewFeed from './../../core/card/card-new-feed'
-
-const isCloseToBottom = ({ layoutMeasurement, contentOffset, contentSize }) => {
-    const paddingToBottom = 20;
-    return layoutMeasurement.height + contentOffset.y >=
-        contentSize.height - paddingToBottom;
-}
-
-const Box = ({
-    children,
-    flexDirection = "column",
-    // flex=1,
-    backgroundColor = "transparent",
-    alignItems = "flex-start",
-    justifyContent = "flex-start"
-}) => {
-    return (
-        <View style={{ justifyContent, alignItems, flexDirection, backgroundColor }}>
-            { children}
-        </View>
-    )
-}
 
 class Feed extends React.Component {
 
@@ -46,70 +23,37 @@ class Feed extends React.Component {
             search: '',
             pagePublication: 1,
             isRefreshing: false,
+            isLoadingMore: false,
             modal: false,
             PublicationModal: null,
             publicationMode: false,
             publicationModeExist: false,
             storysModal: false,
-            storysModalExist: false
+            storysModalExist: false,
+            reportModal: false,
+            reportModalExist: false,
+            reportPublicationId: null
         }
         _listViewOffset = 0
 
-        LogBox.ignoreLogs([
-            'VirtualizedLists should never be nested', // TODO: Remove when fixed
-        ])
     }
 
     UNSAFE_componentWillMount() {
+        this.props.actions.resetPublicationActions()
         this._getPublicationList()
-        this.props.actions.resetPublication()
-        this.eventListener = DeviceEventEmitter.addListener('toggleModal', this.toggleModal);
-    }
-
-    componentWillUnmount() {
-        this.eventListener.remove();
     }
 
     // to display the modal view
-    toggleModal = (event) => {
+    _toggleModal = (event) => {
         this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
     // to load the next page of the publication
     _getPublicationList = () => {
-
         if (!this.props.FeedPublications.isLoading) {
-            this.props.actions.getByMode(this.state.pagePublication, 'FollowerAndFriend')
+            this.props.actions.getByModeFeed(this.state.pagePublication, 'FollowerAndFriend')
             this.setState({ pagePublication: this.state.pagePublication + 1 })
         }
-
-    }
-
-    // to add some event during the scrolling
-    _onScroll = (event) => {
-
-        const CustomLayoutLinear = {
-            duration: 100,
-            create: { type: LayoutAnimation.Types.linear, property: LayoutAnimation.Properties.opacity },
-            update: { type: LayoutAnimation.Types.linear, property: LayoutAnimation.Properties.opacity },
-            delete: { type: LayoutAnimation.Types.linear, property: LayoutAnimation.Properties.opacity }
-        }
-        // Check if the user is scrolling up or down by confronting the new scroll position with your own one
-        const currentOffset = event.nativeEvent.contentOffset.y
-        const direction = (currentOffset > 0 && currentOffset > this._listViewOffset)
-            ? 'down'
-            : 'up'
-        // If the user is scrolling down (and the action-button is still visible) hide it
-        const isHeaderVisible = direction === 'up'
-        if (isHeaderVisible !== this.state.isHeaderVisible) {
-            LayoutAnimation.configureNext(CustomLayoutLinear)
-            this.setState({ isHeaderVisible })
-        }
-        // Update your scroll position
-        this._listViewOffset = currentOffset
-
-        // load new publication
-        if (isCloseToBottom(event.nativeEvent)) this._getPublicationList()
     }
 
     // to set the searching bar
@@ -126,6 +70,7 @@ class Feed extends React.Component {
             <View style={styles.header_container}>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
                     <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate('Setting')}
                         style={{ justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faCog} size={24} color={'#aeaeae'} />
                     </TouchableOpacity>
@@ -149,31 +94,46 @@ class Feed extends React.Component {
         this.setState({ isRefreshing: true, pagePublication: 1 })
         this.props.actions.resetPublicationActions()
         setTimeout(() => { this.setState({ isRefreshing: false }) }, 1000);
-        this.props.actions.getByMode(1, 'FollowerAndFriend')
+        this.props.actions.getByModeFeed(1, 'FollowerAndFriend')
+    }
+
+    _cardRender = (item, index) => {
+        return (<CardNewFeed
+            toggleReportModal={() => this._toggleReportModal(item._id)}
+            index={index}
+            navigation={this.props.navigation}
+            publication={item}
+            space={'feed'}
+            toggleModal={(event) => this._toggleModal(event)}
+        />)
     }
 
     _publicationList = () => {
-        if (!!this.props.FeedPublications.publications && this.props.FeedPublications.publications.length !== 0) {
-            return (
-                <FlatList
-                    onScrollBeginDrag={this._onScroll}
+        return (
+            <SafeAreaView style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white', flex: 1, overflow: 'hidden' }}>
+                <VirtualizedList
+                    showsVerticalScrollIndicator={false}
+                    ListHeaderComponent={<PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />}
+                    style={{ flex: 1 }}
                     data={this.props.FeedPublications.publications}
-                    renderItem={({ item, index }) => <CardNewFeed index={index} navigation={this.props.navigation} publication={item} space={'feed'} />}
-                    keyExtractor={(item) => item._id.toString()}
-                    ItemSeparatorComponent={FeedSeparator}
+                    renderItem={({ item, index }) => this._cardRender(item[index], index)}
+                    keyExtractor={(item, index) => item[index].id}
+                    getItemCount={() => this.props.FeedPublications.publications.length}
+                    getItem={(data) => data}
+                    scrollEventThrottle={5}
+                    onMomentumScrollEnd={() => this._getPublicationList()}
                 />
-            )
-        } else return null
+            </SafeAreaView>
+        )
     }
 
     // to display the list of the publications
     _displayPublicationFeed = () => {
         return (
             <View style={{ flex: 1, overflow: 'hidden' }}>
-                <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }} showsVerticalScrollIndicator={false} >
-                    <PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />
+                <SafeAreaView style={{ flex: 1 }}>
                     {this._publicationList()}
-                </ScrollView>
+                </SafeAreaView>
             </View>
         )
     }
@@ -181,12 +141,14 @@ class Feed extends React.Component {
     // to display the suggestion list
     _suggestionSearch = () => {
         return (
-            <FlatList
-                style={styles.list}
-                data={this.props.SearchList.list}
-                keyExtractor={(item) => item.id.toString()}
-                renderItem={({ item }) => (<StantardSuggest suggest={item} navigation={this.props.navigation} />)}
-            />
+            <SafeAreaView style={{ flex: 1 }}>
+                <FlatList
+                    style={styles.list}
+                    data={this.props.SearchList.list}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({ item }) => (<StantardSuggest suggest={item} navigation={this.props.navigation} />)}
+                />
+            </SafeAreaView>
         )
     }
 
@@ -202,6 +164,12 @@ class Feed extends React.Component {
         setTimeout(() => this.setState({ storysModalExist: !this.state.storysModalExist }), 100)
     }
 
+    _toggleReportModal = (id) => {
+        this.setState({ reportModal: !this.state.reportModal, reportPublicationId: id })
+        setTimeout(() => this.setState({ reportModalExist: !this.state.reportModalExist }), 100)
+    }
+
+
     render = () => {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -213,8 +181,9 @@ class Feed extends React.Component {
 
                     {/* Modal */}
                     {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
-                    {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} /> : null}
+                    {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
                     {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
+                    {this.state.reportModal ? <OptionPublicationModal toggleReportModal={(event) => this._toggleReportModal(event)} isVisible={this.state.reportModal} publicationId={this.state.reportPublicationId}/> : null}
 
                 </View>
             </SafeAreaView>
@@ -246,12 +215,6 @@ const styles = StyleSheet.create({
         paddingTop: 5
     }
 })
-
-const FeedSeparator = () => {
-    return (
-        <View></View>
-    )
-}
 
 const mapStateToProps = state => ({
     FeedPublications: state.FeedPublications,

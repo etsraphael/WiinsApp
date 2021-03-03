@@ -12,6 +12,8 @@ import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from "moment";
+import CheckBox from '@react-native-community/checkbox';
+import i18n from '../../i18n/i18n'
 
 class SignUp extends React.Component {
 
@@ -23,7 +25,8 @@ class SignUp extends React.Component {
             birthDate: null,
             password: null,
             registration_success: false,
-            showDatePicker: false
+            showDatePicker: false,
+            conditionAccepted: false
         }
     }
 
@@ -45,6 +48,11 @@ class SignUp extends React.Component {
 
     // to send the registration
     _register = () => {
+
+        if(!this.state.conditionAccepted){
+            return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
+        }
+
         if (!this._verificationTrue()) return null
         else {
             const deviceLanguage = Platform.OS === 'ios' ? NativeModules.SettingsManager.settings.AppleLocale ||
@@ -98,7 +106,7 @@ class SignUp extends React.Component {
     // to make sure the user is more than 18 years old
     _getMaxDate = () => {
         let date = new Date()
-        date.setFullYear( date.getFullYear() - 18 )
+        date.setFullYear(date.getFullYear() - 18)
         return Number(date.getTime())
     }
 
@@ -106,7 +114,7 @@ class SignUp extends React.Component {
     _displayInput() {
 
         return (
-            <View>
+            <View style={{marginBottom: 70}}>
                 <View>
                     <Text style={styles.inputLabel}>{I18n.t('PROFILE.Pseudo')}</Text>
                     <TextInput
@@ -139,19 +147,43 @@ class SignUp extends React.Component {
 
                     {this.state.showDatePicker && (
                         <DateTimePicker
-                        style={{flex: 1}}
-                        maximumDate={this._getMaxDate()}
-                        testID="dateTimePicker"
-                        value={new Date()}
-                        mode={'date'}
-                        is24Hour={true}
-                        display="default"
-                        onChange={(val) => this.setState({ birthDate: moment(new Date(val.nativeEvent.timestamp)).format("DD-MM-YYYY"), showDatePicker: false })}
-                    /> 
+                            style={{ flex: 1 }}
+                            maximumDate={this._getMaxDate()}
+                            testID="dateTimePicker"
+                            value={new Date()}
+                            mode={'date'}
+                            is24Hour={true}
+                            display="default"
+                            onChange={(val) => this.setState({ birthDate: moment(new Date(val.nativeEvent.timestamp)).format("DD-MM-YYYY"), showDatePicker: false })}
+                        />
                     )}
 
                 </View>
-                <View style={{ marginTop: 40 }}>
+
+
+
+                <View style={{ flexDirection: 'row', marginVertical: 25 }}>
+
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <CheckBox
+                            style={{ width: 20, height: 20, marginTop: 5 }}
+                            disabled={false}
+                            boxType={'square'}
+                            lineWidth={1}
+                            value={this.state.conditionAccepted}
+                            onValueChange={(newValue) => this.setState({ conditionAccepted: newValue })}
+                        />
+                    </View>
+
+                    <View style={{ flex: 7, paddingLeft: 15 }}>
+                        <Text>
+                        {i18n.t('LOGIN-REGISTRER.accept-tou')}
+                        <Text style={{ color: '#960CF8' }} onPress={() => this.props.navigation.navigate('SettingPrivacy')}> (click here to read it)</Text>
+                        </Text>
+                    </View>
+                </View>
+
+                <View style={{ marginTop: 5 }}>
                     <TouchableOpacity onPress={() => this._register()} style={styles.btn_log} underlayColor='#fff'>
                         <LinearGradient
                             colors={['#35D1FE', '#960CF8']}
@@ -163,13 +195,14 @@ class SignUp extends React.Component {
                         </LinearGradient>
                     </TouchableOpacity>
                 </View>
+
             </View>
         )
     }
 
     render() {
         return (
-            <View style={{ flex: 1, backgroundColor: 'white', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
+            <ScrollView style={{ flex: 1, backgroundColor: 'white', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
                 <StatusBar barStyle="dark-content" hidden={false} backgroundColor="transparent" translucent={true} />
                 <View style={styles.actionBarStyle}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
@@ -181,7 +214,7 @@ class SignUp extends React.Component {
                         <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 31, marginTop: 56 }}>
                             <View style={styles.brand_container}>
                                 <Text style={{ color: '#960CF8', fontSize: 32 }}>{I18n.t('CORE.Hello')}</Text>
-                                <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? I18n.t('LOGIN-REGISTRER.Create-yr-account')  : I18n.t('LOGIN-REGISTRER.Creating-yr-account')}</Text>
+                                <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? I18n.t('LOGIN-REGISTRER.Create-yr-account') : I18n.t('LOGIN-REGISTRER.Creating-yr-account')}</Text>
                             </View>
                             <View style={{ flex: 4, width: '100%', marginTop: 56 }}>
                                 {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
@@ -204,7 +237,7 @@ class SignUp extends React.Component {
                             </View>
                         )
                 }
-            </View>
+            </ScrollView>
         )
     }
 }
@@ -231,11 +264,9 @@ const dateStyle = StyleSheet.create({
         borderRadius: 5
     },
     placeholderText: {
-        // color: 'white',
         fontSize: 20,
     },
     dateText: {
-        // color: 'white',
         fontSize: 20,
     }
 })

@@ -83,7 +83,7 @@ class Camera extends React.Component {
           this.setState({ screenMode: 'default' })
           setTimeout(() => {
             this.props.actions.resetPublicationActions()
-            this.props.actions.getByMode(1, 'FollowerAndFriend')
+            this.props.actions.getByModeFeed(1, 'FollowerAndFriend')
           }, 1000)
         }
       }
