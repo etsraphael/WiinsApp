@@ -215,7 +215,10 @@
     "Url-Copied": "Lਰੱਲ ਦੀ ਨਕਲ ਕੀਤੀ ਗਈ",
     "Download": "ਡਾ .ਨਲੋਡ",
     "Downloaded": "ਡਾ .ਨਲੋਡ ਕੀਤਾ",
-    "Save-in-phone": "ਫੋਨ ਵਿੱਚ ਸੇਵ ਕਰੋ"
+    "Save-in-phone": "ਫੋਨ ਵਿੱਚ ਸੇਵ ਕਰੋ",
+    "No": "ਨਹੀਂ",
+    "Yes": "ਹਾਂ",
+    "Block-t-user": "ਇਸ ਉਪਭੋਗਤਾ ਨੂੰ ਬਲੌਕ ਕਰੋ"
   },
   "COUNTRY": {
     "AD": " ਅੰਡੋਰਾ",
@@ -572,7 +575,10 @@
     "T-min-is-1$": "ਘੱਟੋ ਘੱਟ 1 $ ਹੈ",
     "Missing-informations": "ਗੁੰਮ ਜਾਣਕਾਰੀ",
     "Account_desactivated": "ਖਾਤਾ ਬੰਦ ਕਰ ਦਿੱਤਾ",
-    "Y-dont-have-a-conversation-yet": "ਤੁਹਾਡੇ ਕੋਲ ਅਜੇ ਗੱਲਬਾਤ ਨਹੀਂ ਹੈ."
+    "Y-dont-have-a-conversation-yet": "ਤੁਹਾਡੇ ਕੋਲ ਅਜੇ ਗੱਲਬਾਤ ਨਹੀਂ ਹੈ.",
+    "Date-cannot-be-in-the-past": "ਰੀਲੀਜ਼ ਦੀ ਤਾਰੀਖ ਅਤੀਤ ਵਿੱਚ ਨਹੀਂ ਹੋ ਸਕਦੀ",
+    "You-cannot-add-yourself": "ਤੁਸੀਂ ਆਪਣੇ ਆਪ ਨੂੰ ਸ਼ਾਮਲ ਨਹੀਂ ਕਰ ਸਕਦੇ",
+    "T-content-does-not-exist-anymore": "ਇਹ ਸਮਗਰੀ ਹੁਣ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ਫੋਟੋ ਮਿਲੀ ਹੈ",
@@ -979,7 +985,14 @@
     "T-administration-w-verify-t-content-asap": "ਪ੍ਰਸ਼ਾਸਨ ਜਿੰਨੀ ਜਲਦੀ ਹੋ ਸਕੇ ਪ੍ਰਮਾਣਿਤ ਕਰੇਗਾ",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "ਇਹ ਸਾਰਾ ਪ੍ਰੋਜੈਕਟ ਮਿਟਾਏ ਜਾਣ ਦਾ ਕਾਰਨ ਬਣੇਗਾ, ਕੀ ਤੁਹਾਨੂੰ ਯਕੀਨ ਹੈ?",
     "T-operation-is-irreversible": "ਇਹ ਕਾਰਵਾਈ ਅਪ੍ਰਤੱਖ ਹੈ",
-    "this-user-will-be-": "ਇਹ ਉਪਭੋਗਤਾ ਹੁਣ ਹੋਵੇਗਾ"
+    "this-user-will-be-": "ਇਹ ਉਪਭੋਗਤਾ ਹੁਣ ਹੋਵੇਗਾ",
+    "A-y-s-to-unfollow-t-profile": "ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਇਸ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਅਨਫੂਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ?",
+    "A-y-s-to-block-t-user": "ਕੀ ਤੁਸੀਂ ਨਿਸ਼ਚਤ ਰੂਪ ਤੋਂ ਇਸ ਉਪਭੋਗਤਾ ਨੂੰ ਬਲੌਕ ਕਰਨਾ ਹੈ?",
+    "Y-a-abt-t-block-t-user-D": "ਤੁਸੀਂ ਇਸ ਉਪਭੋਗਤਾ ਨੂੰ ਰੋਕਣ ਜਾ ਰਹੇ ਹੋ. ਤੁਸੀਂ ਹੁਣ ਉਸਦੀ ਸਮਗਰੀ ਅਤੇ ਇਹ ਉਪਭੋਗਤਾ ਵੀ ਨਹੀਂ ਵੇਖ ਸਕੋਗੇ. ਸਿਰਫ ਤੁਸੀਂ ਇਸ ਪਾਬੰਦੀ ਨੂੰ ਹਟਾਉਣ ਦੇ ਯੋਗ ਹੋਵੋਗੇ.",
+    "T-content-has-been-reported": "ਇਸ ਸਮਗਰੀ ਦੀ ਰਿਪੋਰਟ ਕੀਤੀ ਗਈ ਹੈ. ਸਾਡੇ ਸੰਚਾਲਕ ਇਸ ਦੀ ਸਮੀਖਿਆ ਕਰਨ ਲਈ 24 ਘੰਟਿਆਂ ਦੀ ਦੇਰੀ ਤੇ ਨਜ਼ਰ ਮਾਰਨਗੇ. ਇੱਕ ਮਨਜੂਰੀ ਲਾਗੂ ਕੀਤੀ ਜਾਏਗੀ ਜੇ ਇਹ ਕਮਿ communityਨਿਟੀ ਦੇ ਨਿਯਮਾਂ ਦਾ ਸਤਿਕਾਰ ਨਹੀਂ ਕਰਦਾ.",
+    "T-user-has-been-blocked-D": "ਇਹ ਉਪਭੋਗਤਾ ਤੁਹਾਡੇ ਖਾਤੇ ਤੋਂ ਬਲੌਕ ਕੀਤਾ ਗਿਆ ਹੈ. Aucun contenu de ce ਪ੍ਰੋਫਾਈਲ sera ਦਿਸਦੀ avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "ਇਸ ਪੋਸਟ ਨੂੰ ਰਿਪੋਰਟ ਕਰਨ ਦਾ ਕੀ ਕਾਰਨ ਹੈ?",
+    "W-is-t-reason-to-report-t-post-D": "ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਅਗਿਆਤ ਹੈ ਕਿਰਪਾ ਕਰਕੇ ਮੋਟਰਾਂ ਦੀ ਮਦਦ ਲਈ ਸਿਰਫ ਇੱਕ ਸ਼੍ਰੇਣੀ ਚੁਣੋ"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "ਚੇਤਾਵਨੀ. ਇਹ ਸੁਨਿਸ਼ਚਿਤ ਕਰੋ ਕਿ ਤੁਹਾਡਾ ਸਹੀ ਪਤਾ ਹੈ"

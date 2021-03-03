@@ -257,7 +257,10 @@
     "Url-Copied": "URL kopioitu",
     "Download": "ladata",
     "Downloaded": "Ladattu",
-    "Save-in-phone": "Tallenna puhelimeen"
+    "Save-in-phone": "Tallenna puhelimeen",
+    "No": "Ei",
+    "Yes": "Joo",
+    "Block-t-user": "Estä tämä käyttäjä"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -614,7 +617,10 @@
     "y-h-to-accept-the-tou": "Sinun on hyväksyttävä käyttöehdot",
     "y-h-to-delete-yr-page-or-group-before": "Sivut tai ryhmät on poistettava ennen",
     "y-have-to-be-friend": "sinun täytyy olla ystäviä",
-    "you-hav-to-upgrad-a-manager-before-leave": "Sinun on ylennettävä johtaja ennen ryhmästä poistumista"
+    "you-hav-to-upgrad-a-manager-before-leave": "Sinun on ylennettävä johtaja ennen ryhmästä poistumista",
+    "Date-cannot-be-in-the-past": "Julkaisupäivä ei voi olla menneisyydessä",
+    "You-cannot-add-yourself": "Et voi lisätä itseäsi",
+    "T-content-does-not-exist-anymore": "Tätä sisältöä ei ole enää olemassa"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Kuva on vastaanotettu",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Hallinto tarkistaa sisällön mahdollisimman pian",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Tämä aiheuttaa koko projektin poistamisen, oletko varma?",
     "T-operation-is-irreversible": "Tämä toiminto on peruuttamaton",
-    "this-user-will-be-": "Tämä käyttäjä on nyt"
+    "this-user-will-be-": "Tämä käyttäjä on nyt",
+    "A-y-s-to-unfollow-t-profile": "Oletko varma, että lopetat tämän profiilin seuraamisen?",
+    "A-y-s-to-block-t-user": "Oletko varmasti estänyt tämän käyttäjän?",
+    "Y-a-abt-t-block-t-user-D": "Olet estämässä tätä käyttäjää. Et voi enää katsoa hänen sisältöään ja tätä käyttäjää. Vain sinä pystyt poistamaan tämän rajoituksen.",
+    "T-content-has-been-reported": "Tästä sisällöstä on raportoitu. Moderaattorimme tarkistavat sen 24 tunnin viiveellä. Seuraamusta sovelletaan, jos se ei noudata yhteisön sääntöjä.",
+    "T-user-has-been-blocked-D": "Tämä käyttäjä on estetty tililtäsi. Aucun contenu de ce -profiiliseerumit näkyvät avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "Mikä on syy ilmoittaa tästä viestistä?",
+    "W-is-t-reason-to-report-t-post-D": "Raporttisi on tuntematon. Valitse vain luokka, joka auttaa moratoreja"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Varoitus. Varmista, että sinulla on oikea osoite"

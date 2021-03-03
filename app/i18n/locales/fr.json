@@ -215,7 +215,10 @@
     "Downloaded": "Téléchargé",
     "Save-in-phone": "Enregistrer dans le téléphone",
     "Share": "Partager",
-    "Url-Copied": "URL copiée"
+    "Url-Copied": "URL copiée",
+    "No": "Non",
+    "Yes": "Oui",
+    "Block-t-user": "Bloquer cet utilisateur"
   },
   "COUNTRY": {
     "AD": "Andorre",
@@ -572,7 +575,10 @@
     "T-min-is-1$": "Le minimum est de 1 $",
     "Missing-informations": "Informations manquantes",
     "Account_desactivated": "Compte désactivé",
-    "Y-dont-have-a-conversation-yet": "Vous n'avez pas encore de conversation."
+    "Y-dont-have-a-conversation-yet": "Vous n'avez pas encore de conversation.",
+    "Date-cannot-be-in-the-past": "La date de sortie ne peut pas être dans le passé",
+    "You-cannot-add-yourself": "Vous ne pouvez pas vous ajouter",
+    "T-content-does-not-exist-anymore": "Ce contenu n'existe plus"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "La photo est reçu",
@@ -979,7 +985,14 @@
     "T-administration-w-verify-t-content-asap": "L'administration vérifira sont contenue dès que possible",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Cela entrainera la suppression entier du projet, êtes vous sûre ?",
     "T-operation-is-irreversible": "Cette opération est irréversible",
-    "this-user-will-be-": "Cette utilisateur sera désormais "
+    "this-user-will-be-": "Cette utilisateur sera désormais ",
+    "A-y-s-to-unfollow-t-profile": "Êtes-vous sûr de ne plus suivre ce profil?",
+    "A-y-s-to-block-t-user": "Êtes-vous sûr de bloquer cet utilisateur?",
+    "Y-a-abt-t-block-t-user-D": "Vous êtes sur le point de bloquer cet utilisateur. Vous ne pourrez plus regarder son contenu et cet utilisateur aussi. Vous seul pourrez supprimer cette restriction.",
+    "T-content-has-been-reported": "Ce contenu a été signalé. Nos modérateurs jetteront un œil dans un délai de 24 heures pour l'examiner. Une sanction sera appliquée si cela ne respecte pas les règles de la communauté.",
+    "T-user-has-been-blocked-D": "Cet utilisateur a été bloqué de votre compte. Aucun contenu de ce profile sera visible avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "Quelle est la raison de signaler ce message?",
+    "W-is-t-reason-to-report-t-post-D": "Votre rapport est anonyme. Veuillez choisir juste une catégorie pour aider les morateurs"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Attention. Assurez vous d'avoir la bonne adresse"

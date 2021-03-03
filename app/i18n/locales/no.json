@@ -257,7 +257,10 @@
     "Url-Copied": "URL ble kopiert",
     "Download": "nedlasting",
     "Downloaded": "Lastet ned",
-    "Save-in-phone": "Lagre i telefonen"
+    "Save-in-phone": "Lagre i telefonen",
+    "No": "Nei",
+    "Yes": "Ja",
+    "Block-t-user": "Blokker denne brukeren"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -614,7 +617,10 @@
     "T-min-is-1$": "Minimum er 1 $",
     "Missing-informations": "Manglende informasjon",
     "Account_desactivated": "Konto deaktivert",
-    "Y-dont-have-a-conversation-yet": "Du har ikke en samtale ennå."
+    "Y-dont-have-a-conversation-yet": "Du har ikke en samtale ennå.",
+    "Date-cannot-be-in-the-past": "Utgivelsesdatoen kan ikke være tidligere",
+    "You-cannot-add-yourself": "Du kan ikke legge deg til",
+    "T-content-does-not-exist-anymore": "Dette innholdet eksisterer ikke lenger"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Bildet er mottatt",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Administrasjonen vil bekrefte innholdet så snart som mulig",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Dette vil føre til at hele prosjektet blir slettet, er du sikker?",
     "T-operation-is-irreversible": "Denne operasjonen er irreversibel",
-    "this-user-will-be-": "Denne brukeren vil nå være"
+    "this-user-will-be-": "Denne brukeren vil nå være",
+    "A-y-s-to-unfollow-t-profile": "Er du sikker på å følge med på denne profien?",
+    "A-y-s-to-block-t-user": "Er du sikker på å blokkere denne brukeren?",
+    "Y-a-abt-t-block-t-user-D": "Du er i ferd med å blokkere denne brukeren. Du vil ikke lenger kunne se innholdet hans og denne brukeren også. Bare du vil være i stand til å fjerne denne begrensningen.",
+    "T-content-has-been-reported": "Dette innholdet er rapportert. Moderatorene våre tar en titt i løpet av 24 timer for å gjennomgå det. En sanksjon vil bli brukt hvis dette ikke respekterer samfunnets regler.",
+    "T-user-has-been-blocked-D": "Denne brukeren er blokkert fra kontoen din. Aucun contenu de ce profile sera synlig avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "Hva er grunnen til å rapportere dette innlegget?",
+    "W-is-t-reason-to-report-t-post-D": "Rapporten din er anonym. Velg bare en kategori for å hjelpe moratorene"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Advarsel. Forsikre deg om at du har riktig adresse"

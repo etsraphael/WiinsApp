@@ -257,7 +257,10 @@
     "Url-Copied": "Slóð afrituð",
     "Download": "Sækja",
     "Downloaded": "Sótt",
-    "Save-in-phone": "Vista í símanum"
+    "Save-in-phone": "Vista í símanum",
+    "No": "Nei",
+    "Yes": "Já",
+    "Block-t-user": "Loka á þennan notanda"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -614,7 +617,10 @@
     "T-min-is-1$": "Lágmarkið er 1 $",
     "Missing-informations": "Upplýsingar vantar",
     "Account_desactivated": "Reikningur óvirkur",
-    "Y-dont-have-a-conversation-yet": "Þú átt ekki samtal ennþá."
+    "Y-dont-have-a-conversation-yet": "Þú átt ekki samtal ennþá.",
+    "Date-cannot-be-in-the-past": "Útgáfudagur getur ekki verið í fortíðinni",
+    "You-cannot-add-yourself": "Þú getur ekki bætt þér við",
+    "T-content-does-not-exist-anymore": "Þetta innihald er ekki til lengur"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Ljósmyndin er móttekin",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Stjórnun staðfestir efni eins fljótt og auðið er",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Þetta veldur því að verkefninu öllu er eytt, ertu viss?",
     "T-operation-is-irreversible": "Þessi aðgerð er óafturkræf",
-    "this-user-will-be-": "Þessi notandi verður núna"
+    "this-user-will-be-": "Þessi notandi verður núna",
+    "A-y-s-to-unfollow-t-profile": "Ertu viss um að fylgja þessu profi eftir?",
+    "A-y-s-to-block-t-user": "Ertu viss um að loka á þennan notanda?",
+    "Y-a-abt-t-block-t-user-D": "Þú ert að fara að loka á þennan notanda. Þú myndir ekki lengur geta horft á efni hans og þennan notanda líka. Aðeins þú gætir fjarlægt þessa takmörkun.",
+    "T-content-has-been-reported": "Greint hefur verið frá þessu efni. Stjórnendur okkar munu líta við í 24 tíma fresti til að fara yfir það. Viðurlögum verður beitt ef þetta virðir ekki reglur samfélagsins.",
+    "T-user-has-been-blocked-D": "Þessum notanda hefur verið lokað á reikninginn þinn. Aucun contenu de ce prófíl sera sýnilegt afec votre compte.",
+    "W-is-t-reason-to-report-t-post": "Hver er ástæða þess að tilkynna þessa færslu?",
+    "W-is-t-reason-to-report-t-post-D": "Skýrsla þín er nafnlaus. Vinsamlegast veldu bara flokk til að hjálpa skaðræðismönnunum"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Viðvörun. Gakktu úr skugga um að þú hafir rétt heimilisfang"

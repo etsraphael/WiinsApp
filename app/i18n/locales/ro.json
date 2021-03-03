@@ -257,7 +257,10 @@
     "Url-Copied": "Adresa URL a fost copiată",
     "Download": "Descarca",
     "Downloaded": "Descărcat",
-    "Save-in-phone": "Salvați în telefon"
+    "Save-in-phone": "Salvați în telefon",
+    "No": "Nu",
+    "Yes": "da",
+    "Block-t-user": "Blochează acest utilizator"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -614,7 +617,10 @@
     "T-min-is-1$": "Minimul este de 1 $",
     "Missing-informations": "Informații lipsă",
     "Account_desactivated": "Contul este dezactivat",
-    "Y-dont-have-a-conversation-yet": "Nu aveți încă o conversație."
+    "Y-dont-have-a-conversation-yet": "Nu aveți încă o conversație.",
+    "Date-cannot-be-in-the-past": "Data lansării nu poate fi trecută",
+    "You-cannot-add-yourself": "Nu te poți adăuga singur",
+    "T-content-does-not-exist-anymore": "Acest conținut nu mai există"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotografia este primită",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Administrația va verifica conținutul cât mai curând posibil",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Acest lucru va face ca întregul proiect să fie șters, sunteți sigur?",
     "T-operation-is-irreversible": "Această operațiune este ireversibilă",
-    "this-user-will-be-": "Acest utilizator va fi acum"
+    "this-user-will-be-": "Acest utilizator va fi acum",
+    "A-y-s-to-unfollow-t-profile": "Sunteți sigur că anulați urmărirea acestui profil?",
+    "A-y-s-to-block-t-user": "Sigur blocați acest utilizator?",
+    "Y-a-abt-t-block-t-user-D": "Ești pe cale să blochezi acest utilizator. Nu veți mai putea urmări conținutul său și acest utilizator. Doar dvs. veți putea elimina această restricție.",
+    "T-content-has-been-reported": "Acest conținut a fost raportat. Moderatorii noștri vor arunca o privire într-o întârziere de 24 de ore pentru a o examina. Se va aplica o sancțiune dacă aceasta nu respectă regulile comunității.",
+    "T-user-has-been-blocked-D": "Acest utilizator a fost blocat din contul dvs. Niciun conținut de acest profil va fi vizibil cu contul dvs.",
+    "W-is-t-reason-to-report-t-post": "Care este motivul pentru a raporta această postare?",
+    "W-is-t-reason-to-report-t-post-D": "Raportul dvs. este anonim. Vă rugăm să alegeți doar o categorie pentru a ajuta moratorii"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Avertizare. Asigurați-vă că aveți adresa corectă"

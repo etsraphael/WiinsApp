@@ -215,7 +215,10 @@
     "Url-Copied": "URL이 복사되었습니다.",
     "Download": "다운로드",
     "Downloaded": "다운로드 됨",
-    "Save-in-phone": "전화에 저장"
+    "Save-in-phone": "전화에 저장",
+    "No": "아니",
+    "Yes": "예",
+    "Block-t-user": "이 사용자 차단"
   },
   "COUNTRY": {
     "AD": "안도라",
@@ -572,7 +575,10 @@
     "T-min-is-1$": "최소 금액은 1 $입니다.",
     "Missing-informations": "누락 된 정보",
     "Account_desactivated": "계정 비활성화",
-    "Y-dont-have-a-conversation-yet": "아직 대화가 없습니다."
+    "Y-dont-have-a-conversation-yet": "아직 대화가 없습니다.",
+    "Date-cannot-be-in-the-past": "출시일은 과거 일 수 없습니다.",
+    "You-cannot-add-yourself": "자신을 추가 할 수 없습니다.",
+    "T-content-does-not-exist-anymore": "이 콘텐츠는 더 이상 존재하지 않습니다."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "사진이 접수되었습니다",
@@ -979,7 +985,14 @@
     "T-administration-w-verify-t-content-asap": "행정부는 가능한 한 빨리 포함되어 있는지 확인합니다.",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "이렇게 하면 전체 프로젝트가 삭제됩니다.",
     "T-operation-is-irreversible": "이 작업은 되돌릴 수 없습니다.",
-    "this-user-will-be-": "이 사용자는 이제"
+    "this-user-will-be-": "이 사용자는 이제",
+    "A-y-s-to-unfollow-t-profile": "이 프로필을 언 팔로우 하시겠습니까?",
+    "A-y-s-to-block-t-user": "이 사용자를 차단 하시겠습니까?",
+    "Y-a-abt-t-block-t-user-D": "이 사용자를 차단하려고합니다. 더 이상 그의 콘텐츠와이 사용자도 볼 수 없습니다. 이 제한은 귀하 만 제거 할 수 있습니다.",
+    "T-content-has-been-reported": "이 콘텐츠는 신고되었습니다. 중재자는 검토를 위해 24 시간 후에 검토 할 것입니다. 커뮤니티 규칙을 준수하지 않는 경우 제재가 적용됩니다.",
+    "T-user-has-been-blocked-D": "이 사용자는 귀하의 계정에서 차단되었습니다. Aucun contenu de ce profile sera visible avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "이 게시물을 신고하는 이유는 무엇입니까?",
+    "W-is-t-reason-to-report-t-post-D": "귀하의 신고는 익명으로 처리됩니다. morators를 돕기 위해 카테고리를 선택하십시오"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "경고. 올바른 주소가 있는지 확인"

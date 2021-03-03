@@ -257,7 +257,10 @@
     "Url-Copied": "URL nukopijuotas",
     "Download": "parsisiųsti",
     "Downloaded": "Atsisiųsta",
-    "Save-in-phone": "Išsaugokite telefone"
+    "Save-in-phone": "Išsaugokite telefone",
+    "No": "Ne",
+    "Yes": "Taip",
+    "Block-t-user": "Blokuoti šį vartotoją"
   },
   "COUNTRY": {
     "AD": "Andora",
@@ -614,7 +617,10 @@
     "T-min-is-1$": "Minimalus dydis yra 1 $",
     "Missing-informations": "Trūksta informacijos",
     "Account_desactivated": "Paskyra atjungta",
-    "Y-dont-have-a-conversation-yet": "Jūs dar neturite pokalbio."
+    "Y-dont-have-a-conversation-yet": "Jūs dar neturite pokalbio.",
+    "Date-cannot-be-in-the-past": "Išleidimo data negali būti praeityje",
+    "You-cannot-add-yourself": "Jūs negalite pridėti savęs",
+    "T-content-does-not-exist-anymore": "Šio turinio nebėra"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Nuotrauka gauta",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Administracija patikrins turinį kuo greičiau",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Dėl to visas projektas bus ištrintas, ar tikrai?",
     "T-operation-is-irreversible": "Ši operacija yra negrįžtama",
-    "this-user-will-be-": "Šis vartotojas dabar bus"
+    "this-user-will-be-": "Šis vartotojas dabar bus",
+    "A-y-s-to-unfollow-t-profile": "Ar tikrai nebenorite sekti šio profi?",
+    "A-y-s-to-block-t-user": "Ar tikrai užblokavote šį naudotoją?",
+    "Y-a-abt-t-block-t-user-D": "Ketinate blokuoti šį vartotoją. Nebegalėsite žiūrėti jo turinio ir šio vartotojo. Šį apribojimą galėsite pašalinti tik jūs.",
+    "T-content-has-been-reported": "Pranešta apie šį turinį. Mūsų moderatoriai peržiūrės per 24 valandas. Jei nebus paisoma bendruomenės taisyklių, bus taikoma sankcija.",
+    "T-user-has-been-blocked-D": "Šis vartotojas buvo užblokuotas jūsų paskyroje. „Aucun contenu de ce“ profilio serumas matomas.",
+    "W-is-t-reason-to-report-t-post": "Kokia priežastis pranešti apie šį įrašą?",
+    "W-is-t-reason-to-report-t-post-D": "Jūsų pranešimas yra anonimas. Pasirinkite tik kategoriją, kad padėtų moratoriams"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Įspėjimas. Įsitikinkite, kad turite teisingą adresą"

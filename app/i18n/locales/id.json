@@ -257,7 +257,10 @@
     "Url-Copied": "Url disalin",
     "Download": "Unduh",
     "Downloaded": "Telah diunduh",
-    "Save-in-phone": "Simpan di telepon"
+    "Save-in-phone": "Simpan di telepon",
+    "No": "Tidak",
+    "Yes": "Iya",
+    "Block-t-user": "Cekal pengguna ini"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -614,7 +617,10 @@
     "y-h-to-accept-the-tou": "Anda harus menerima syarat dan ketentuan penggunaan",
     "y-h-to-delete-yr-page-or-group-before": "Anda harus menghapus halaman atau grup Anda sebelumnya",
     "y-have-to-be-friend": "kamu harus berteman",
-    "you-hav-to-upgrad-a-manager-before-leave": "Anda harus mempromosikan seorang manajer sebelum keluar dari grup"
+    "you-hav-to-upgrad-a-manager-before-leave": "Anda harus mempromosikan seorang manajer sebelum keluar dari grup",
+    "Date-cannot-be-in-the-past": "Tanggal rilis tidak boleh di masa lalu",
+    "You-cannot-add-yourself": "Anda tidak dapat menambahkan diri Anda sendiri",
+    "T-content-does-not-exist-anymore": "Konten ini sudah tidak ada"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Foto sudah diterima",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Administrasi akan memverifikasi konten secepat mungkin",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Ini akan menyebabkan seluruh proyek dihapus, apakah Anda yakin?",
     "T-operation-is-irreversible": "Operasi ini tidak dapat diubah",
-    "this-user-will-be-": "Pengguna ini sekarang akan menjadi"
+    "this-user-will-be-": "Pengguna ini sekarang akan menjadi",
+    "A-y-s-to-unfollow-t-profile": "Yakin ingin berhenti mengikuti profil ini?",
+    "A-y-s-to-block-t-user": "Apakah Anda yakin akan memblokir pengguna ini?",
+    "Y-a-abt-t-block-t-user-D": "Anda akan memblokir pengguna ini. Anda tidak dapat lagi menonton kontennya dan pengguna ini juga. Hanya Anda yang dapat menghapus batasan ini.",
+    "T-content-has-been-reported": "Konten ini telah dilaporkan. Moderator kami akan memeriksa dalam 24 jam penundaan untuk memeriksanya. Sanksi akan diberikan jika tidak menghormati aturan masyarakat.",
+    "T-user-has-been-blocked-D": "Pengguna ini telah diblokir dari akun Anda. Profil Aucun contenu de ce sera terlihat avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "Apa alasan untuk melaporkan posting ini?",
+    "W-is-t-reason-to-report-t-post-D": "Laporan Anda bersifat anonim. Silakan pilih hanya satu kategori untuk membantu para morator"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Peringatan. Pastikan Anda memiliki alamat yang benar"

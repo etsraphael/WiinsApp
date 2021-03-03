@@ -156,10 +156,10 @@ class OptionPublicationModal extends React.Component {
                 {/* Message */}
                 <View style={{ paddingVertical: 15, paddingHorizontal: 20 }}>
                     <View style={{ paddingBottom: 5 }}>
-                        <Text style={{ fontSize: 15, fontWeight: '700' }}>Why are you reported this post ?</Text>
+                        <Text style={{ fontSize: 15, fontWeight: '700' }}>{I18n.t('VALIDATION.W-is-t-reason-to-report-t-post')}</Text>
                     </View>
                     <View>
-                        <Text>sdfkjsnd fsdnf kdsjfndsj fndsfkj nsdfsldknfosdfnawgjpagdsfi;bgdfs godf dfpbmdgb okdfmbpdfb ndfobfd bdfbndf bojdfnb dfkjbdfbjdfngdksf jgnfdsm gdsfgn</Text>
+                        <Text>{I18n.t('VALIDATION.W-is-t-reason-to-report-t-post-D')}</Text>
                     </View>
                 </View>
 
@@ -190,7 +190,7 @@ class OptionPublicationModal extends React.Component {
 
                 {/* Header */}
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingVertical: 15 }}>
-                    <Text style={{ fontSize: 15, fontWeight: '700' }}>Block an user</Text>
+                    <Text style={{ fontSize: 15, fontWeight: '700' }}>{I18n.t('CORE.Block-t-user')}</Text>
                 </View>
 
                 {/* Separator */}
@@ -199,21 +199,27 @@ class OptionPublicationModal extends React.Component {
                 {/* Message */}
                 <View style={{ paddingVertical: 15, paddingHorizontal: 20 }}>
                     <View style={{ paddingBottom: 5 }}>
-                        <Text style={{ fontSize: 15, fontWeight: '700' }}>Are you sure to block this user ?</Text>
+                        <Text style={{ fontSize: 15, fontWeight: '700' }}>{I18n.t('VALIDATION.A-y-s-to-block-t-user')}</Text>
                     </View>
                     <View>
-                        <Text>sdfkjsnd fsdnf kdsjfndsj fndsfkj nsdfsldknfosdfnawgjpagdsfi;bgdfs godf dfpbmdgb okdfmbpdfb ndfobfd bdfbndf bojdfnb dfkjbdfbjdfngdksf jgnfdsm gdsfgn</Text>
+                        <Text>{I18n.t('VALIDATION.Y-a-abt-t-block-t-user-D')}</Text>
                     </View>
                 </View>
 
                 {this._separatorItem()}
-                <TouchableOpacity style={styles.container_item_menu}>
-                    <Text>No</Text>
+                <TouchableOpacity 
+                onPress={() => this.props.toggleReportModal()}
+                style={styles.container_item_menu}
+                >
+                    <Text>{I18n.t('CORE.No')}</Text>
                 </TouchableOpacity>
 
                 {this._separatorItem()}
-                <TouchableOpacity style={styles.container_item_menu}>
-                    <Text>Yes</Text>
+                <TouchableOpacity 
+                style={styles.container_item_menu}
+                onPress={() => this.setState({menu: 'blockUserSent'})}
+                >
+                    <Text>{I18n.t('CORE.Yes')}</Text>
                 </TouchableOpacity>
 
             </View>
@@ -228,15 +234,24 @@ class OptionPublicationModal extends React.Component {
                 </View>
                 {this._separatorItem()}
                 <View style={{paddingHorizontal: 15, paddingVertical: 10, marginBottom: 30}}>
-                    <Text>sdfkjsnd fsdnf kdsjfndsj fndsfkj nsdfsldknfosdfnawgjpagdsfi;bgdfs godf dfpbmdgb okdfmbpdfb ndfobfd bdfbndf bojdfnb dfkjbdfbjdfngdksf jgnfdsm gdsfgn</Text>
+                    <Text>{I18n.t('VALIDATION.T-content-has-been-reported')}</Text>
                 </View>
             </View>
         )
     }
 
     _blockUserSentView = () => {
-        return null
-    }
+        return (
+            <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingVertical: 35 }}>
+                    <FontAwesomeIcon icon={faCheckCircle} color={'#33cc33'} secondaryColor={'#f2f2f2'} size={75} />
+                </View>
+                {this._separatorItem()}
+                <View style={{paddingHorizontal: 15, paddingVertical: 10, marginBottom: 30}}>
+                    <Text>{I18n.t('VALIDATION.T-user-has-been-blocked-D')}</Text>
+                </View>
+            </View>
+        )    }
 
     _displaySection = () => {
         switch (this.state.menu) {

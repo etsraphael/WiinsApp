@@ -215,7 +215,10 @@
     "Url-Copied": "Url की प्रतिलिपि बनाई गई",
     "Download": "डाउनलोड",
     "Downloaded": "डाउनलोड किया गया",
-    "Save-in-phone": "फोन में सेव करें"
+    "Save-in-phone": "फोन में सेव करें",
+    "No": "नहीं न",
+    "Yes": "हाँ",
+    "Block-t-user": "इस उपयोगकर्ता को ब्लॉक करें"
   },
   "COUNTRY": {
     "AD": "एंडोरा",
@@ -572,7 +575,10 @@
     "T-min-is-1$": "न्यूनतम 1 $ है",
     "Missing-informations": "गुम होने का संकेत",
     "Account_desactivated": "खाता निरस्त",
-    "Y-dont-have-a-conversation-yet": "आपके पास अभी तक कोई वार्तालाप नहीं है।"
+    "Y-dont-have-a-conversation-yet": "आपके पास अभी तक कोई वार्तालाप नहीं है।",
+    "Date-cannot-be-in-the-past": "रिलीज की तारीख अतीत में नहीं हो सकती",
+    "You-cannot-add-yourself": "आप खुद को नहीं जोड़ सकते",
+    "T-content-does-not-exist-anymore": "यह सामग्री अब मौजूद नहीं है"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "फोटो प्राप्त हुआ",
@@ -979,7 +985,14 @@
     "T-administration-w-verify-t-content-asap": "प्रशासन सत्यापित करेगा जितनी जल्दी हो सके समाहित कर रहे है",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "यह पूरी परियोजना को हटा दिया जा करने के लिए कारण होगा, क्या आपको यकीन है?",
     "T-operation-is-irreversible": "यह ऑपरेशन अपरिवर्तनीय है",
-    "this-user-will-be-": "यह उपयोगकर्ता अब होगा"
+    "this-user-will-be-": "यह उपयोगकर्ता अब होगा",
+    "A-y-s-to-unfollow-t-profile": "क्या आप इस मुनाफाखोरी को कम करना चाहते हैं?",
+    "A-y-s-to-block-t-user": "क्या आप इस उपयोगकर्ता को रोकना चाहते हैं?",
+    "Y-a-abt-t-block-t-user-D": "आप इस उपयोगकर्ता को ब्लॉक करने वाले हैं। अब आप उसकी सामग्री और इस उपयोगकर्ता को भी नहीं देख पाएंगे। केवल आप इस प्रतिबंध को हटा पाएंगे।",
+    "T-content-has-been-reported": "यह सामग्री बताई गई है। हमारे मॉडरेटर इसकी समीक्षा के लिए 24 घंटे की देरी में एक नज़र डालेंगे। यदि यह समुदाय के नियमों का सम्मान नहीं करता है तो एक अनुमोदन लागू किया जाएगा।",
+    "T-user-has-been-blocked-D": "यह उपयोगकर्ता आपके खाते से अवरोधित कर दिया गया है। Aucun contenu de Ce प्रोफाइल सीरा दिखाई avec votre compte।",
+    "W-is-t-reason-to-report-t-post": "इस पोस्ट की रिपोर्ट करने का क्या कारण है?",
+    "W-is-t-reason-to-report-t-post-D": "आपकी रिपोर्ट गुमनाम है। कृपया नैतिकतावादियों की मदद के लिए एक श्रेणी चुनें"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "चेतावनी. सुनिश्चित करें कि आपके पास सही पता है"

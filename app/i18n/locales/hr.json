@@ -257,7 +257,10 @@
     "Url-Copied": "URL kopiran",
     "Download": "preuzimanje datoteka",
     "Downloaded": "Preuzeto",
-    "Save-in-phone": "Spremi u telefon"
+    "Save-in-phone": "Spremi u telefon",
+    "No": "Ne",
+    "Yes": "Da",
+    "Block-t-user": "Blokiraj ovog korisnika"
   },
   "COUNTRY": {
     "AD": "Andora",
@@ -614,7 +617,10 @@
     "y-h-to-accept-the-tou": "Morate prihvatiti uvjete i odredbe korištenja",
     "y-h-to-delete-yr-page-or-group-before": "Morate prethodno izbrisati svoje stranice ili grupe",
     "y-have-to-be-friend": "sigurno ste prijatelji",
-    "you-hav-to-upgrad-a-manager-before-leave": "Prije napuštanja grupe morate unaprijediti menadžera"
+    "you-hav-to-upgrad-a-manager-before-leave": "Prije napuštanja grupe morate unaprijediti menadžera",
+    "Date-cannot-be-in-the-past": "Datum izdavanja ne može biti u prošlosti",
+    "You-cannot-add-yourself": "Ne možete se dodati",
+    "T-content-does-not-exist-anymore": "Ovaj sadržaj više ne postoji"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotografija je primljena",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Administracija će provjeriti sadržaj što je prije moguće",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "To će uzrokovati brisanje cijelog projekta, jeste li sigurni?",
     "T-operation-is-irreversible": "Ova operacija je nepovratna",
-    "this-user-will-be-": "Ovaj će korisnik sada biti"
+    "this-user-will-be-": "Ovaj će korisnik sada biti",
+    "A-y-s-to-unfollow-t-profile": "Jeste li sigurni da želite prekinuti praćenje ovog profila?",
+    "A-y-s-to-block-t-user": "Jeste li sigurni da ste blokirali ovog korisnika?",
+    "Y-a-abt-t-block-t-user-D": "Spremate se blokirati ovog korisnika. Više ne biste mogli gledati njegov sadržaj i ovog korisnika. Samo biste vi mogli ukloniti ovo ograničenje.",
+    "T-content-has-been-reported": "Ovaj je sadržaj prijavljen. Naši će ih moderatori pogledati u odgodi od 24 sata kako bi ga pregledali. Primijenit će se sankcija ako se time ne poštuju pravila zajednice.",
+    "T-user-has-been-blocked-D": "Ovaj je korisnik blokiran s vašeg računa. Aucun contenu de ce profil sera vidljiv u blizini.",
+    "W-is-t-reason-to-report-t-post": "Koji je razlog da prijavim ovaj post?",
+    "W-is-t-reason-to-report-t-post-D": "Vaša prijava je anonimna. Odaberite samo kategoriju koja će pomoći moratorima"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Upozorenje. Provjerite imate li pravu adresu"

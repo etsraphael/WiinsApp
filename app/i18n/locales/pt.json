@@ -215,7 +215,10 @@
     "Url-Copied": "Url copiado",
     "Download": "Baixar",
     "Downloaded": "Baixado",
-    "Save-in-phone": "Salvar no telefone"
+    "Save-in-phone": "Salvar no telefone",
+    "No": "Não",
+    "Yes": "sim",
+    "Block-t-user": "Bloqueie esse usuário"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -572,7 +575,10 @@
     "T-min-is-1$": "O mínimo é 1 $",
     "Missing-informations": "Informações ausentes",
     "Account_desactivated": "Conta desativada",
-    "Y-dont-have-a-conversation-yet": "Você ainda não tem uma conversa."
+    "Y-dont-have-a-conversation-yet": "Você ainda não tem uma conversa.",
+    "Date-cannot-be-in-the-past": "A data de lançamento não pode estar no passado",
+    "You-cannot-add-yourself": "Você não pode se adicionar",
+    "T-content-does-not-exist-anymore": "Este conteúdo não existe mais"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "A foto é recebida",
@@ -979,7 +985,14 @@
     "T-administration-w-verify-t-content-asap": "Administração verificará que estão contidos o mais rápido possível",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Isso fará com que todo o projeto seja excluído, tem certeza?",
     "T-operation-is-irreversible": "Esta operação é irreversível",
-    "this-user-will-be-": "Este usuário agora será"
+    "this-user-will-be-": "Este usuário agora será",
+    "A-y-s-to-unfollow-t-profile": "Tem certeza de que deseja parar de seguir este perfil?",
+    "A-y-s-to-block-t-user": "Tem certeza que deseja bloquear este usuário?",
+    "Y-a-abt-t-block-t-user-D": "Você está prestes a bloquear este usuário. Você não seria mais capaz de assistir ao conteúdo dele e a este usuário também. Só você seria capaz de remover essa restrição.",
+    "T-content-has-been-reported": "Este conteúdo foi denunciado. Nossos moderadores darão uma olhada em 24 horas para revisá-lo. Uma sanção será aplicada se isso não respeitar as regras da comunidade.",
+    "T-user-has-been-blocked-D": "Este usuário foi bloqueado em sua conta. Aucun contenu de ce profile SERA visible avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "Qual é a razão para denunciar esta postagem?",
+    "W-is-t-reason-to-report-t-post-D": "Seu relatório é anônimo. Por favor, escolha apenas uma categoria para ajudar os moradores"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Aviso. Certifique-se de que você tem o endereço certo"

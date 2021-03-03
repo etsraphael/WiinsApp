@@ -257,7 +257,10 @@
     "Url-Copied": "Url kopiatu da",
     "Download": "Deskargatu",
     "Downloaded": "Deskargatuta",
-    "Save-in-phone": "Gorde telefonoan"
+    "Save-in-phone": "Gorde telefonoan",
+    "No": "Ez",
+    "Yes": "Bai",
+    "Block-t-user": "Blokeatu erabiltzaile hau"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -614,7 +617,10 @@
     "T-min-is-1$": "Gutxienekoa 1 $ da",
     "Missing-informations": "Informazioa falta da",
     "Account_desactivated": "Kontua desaktibatuta",
-    "Y-dont-have-a-conversation-yet": "Oraindik ez duzu elkarrizketarik."
+    "Y-dont-have-a-conversation-yet": "Oraindik ez duzu elkarrizketarik.",
+    "Date-cannot-be-in-the-past": "Argitaratze data ezin da iraganean egon",
+    "You-cannot-add-yourself": "Ezin duzu zeure burua gehitu",
+    "T-content-does-not-exist-anymore": "Eduki hau ez da existitzen"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Argazkia jaso da",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Administrazioak edukia ahalik eta lasterren egiaztatuko du",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Horrek proiektu osoa ezabatuko du, ziur?",
     "T-operation-is-irreversible": "Eragiketa hau itzulezina da",
-    "this-user-will-be-": "Erabiltzaile hau izango da orain"
+    "this-user-will-be-": "Erabiltzaile hau izango da orain",
+    "A-y-s-to-unfollow-t-profile": "Ziur zaude profie honi jarraipena egingo diozula?",
+    "A-y-s-to-block-t-user": "Ziur zaude erabiltzaile hau blokeatuko duzula?",
+    "Y-a-abt-t-block-t-user-D": "Erabiltzailea blokeatzera zoaz. Aurrerantzean ezingo zenuke bere edukia eta erabiltzaile hau ere ikusi. Zuk bakarrik izango zenuke murrizketa hau kentzeko gai.",
+    "T-content-has-been-reported": "Eduki honen berri eman da. Gure moderatzaileek 24 orduko atzerapenarekin begiratuko dute berrikusteko. Zigor bat aplikatuko da horrek komunitatearen arauak errespetatzen ez baditu.",
+    "T-user-has-been-blocked-D": "Erabiltzaile hau zure kontutik blokeatu da. Aucun contenu de ce profile sera visible avec votre account.",
+    "W-is-t-reason-to-report-t-post": "Zein da mezu honen berri emateko arrazoia?",
+    "W-is-t-reason-to-report-t-post-D": "Zure txostena anonimoa da. Mesedez, aukeratu kategoria bat moratorrei laguntzeko"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Abisua. Ziurtatu helbide egokia duzula"

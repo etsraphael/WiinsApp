@@ -215,7 +215,10 @@
     "Url-Copied": "تم نسخ عنوان URL",
     "Download": "تحميل",
     "Downloaded": "تم التنزيل",
-    "Save-in-phone": "حفظ في الهاتف"
+    "Save-in-phone": "حفظ في الهاتف",
+    "No": "لا",
+    "Yes": "نعم",
+    "Block-t-user": "منع هذا المستخدم"
   },
   "COUNTRY": {
     "AD": "اندورا",
@@ -572,7 +575,10 @@
     "T-min-is-1$": "الحد الأدنى هو 1 دولار",
     "Missing-informations": "المعلومات المفقودة",
     "Account_desactivated": "تم إلغاء تنشيط الحساب",
-    "Y-dont-have-a-conversation-yet": "ليس لديك محادثة حتى الآن."
+    "Y-dont-have-a-conversation-yet": "ليس لديك محادثة حتى الآن.",
+    "Date-cannot-be-in-the-past": "لا يمكن أن يكون تاريخ الإصدار في الماضي",
+    "You-cannot-add-yourself": "لا يمكنك إضافة نفسك",
+    "T-content-does-not-exist-anymore": "هذا المحتوى غير موجود بعد الآن"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "تم استلام الصورة",
@@ -979,7 +985,14 @@
     "T-administration-w-verify-t-content-asap": "ستقوم الإدارة بالتحقق من احتوائها في أقرب وقت ممكن",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "سيؤدي هذا إلى حذف المشروع بأكمله، هل أنت متأكد ؟",
     "T-operation-is-irreversible": "هذه العملية لا رجعة فيها",
-    "this-user-will-be-": "سيكون هذا المستخدم الآن"
+    "this-user-will-be-": "سيكون هذا المستخدم الآن",
+    "A-y-s-to-unfollow-t-profile": "هل أنت متأكد من إلغاء متابعة هذا المحترف؟",
+    "A-y-s-to-block-t-user": "هل أنت متأكد من منع هذا المستخدم؟",
+    "Y-a-abt-t-block-t-user-D": "أنت على وشك منع هذا المستخدم. لن تتمكن بعد الآن من مشاهدة محتواه وهذا المستخدم أيضًا. أنت فقط ستكون قادرًا على إزالة هذا القيد.",
+    "T-content-has-been-reported": "تم الإبلاغ عن هذا المحتوى. سيقوم المشرفون لدينا بإلقاء نظرة خلال 24 ساعة تأخير لمراجعتها. سيتم تطبيق عقوبة إذا كان هذا لا يحترم قواعد المجتمع.",
+    "T-user-has-been-blocked-D": "تم حظر هذا المستخدم من حسابك. Aucun contenu de ce profile sera visual avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "ما هو سبب الإبلاغ عن هذا المنشور؟",
+    "W-is-t-reason-to-report-t-post-D": "تقريرك مجهول. الرجاء اختيار فئة فقط لمساعدة الوقف"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "تحذير. تأكد من أن لديك العنوان الصحيح"

@@ -257,7 +257,10 @@
     "Url-Copied": "Copïodd Url",
     "Download": "Dadlwythwch",
     "Downloaded": "Dadlwythwyd",
-    "Save-in-phone": "Cadw mewn ffôn"
+    "Save-in-phone": "Cadw mewn ffôn",
+    "No": "Na",
+    "Yes": "Ydw",
+    "Block-t-user": "Blociwch y defnyddiwr hwn"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -614,7 +617,10 @@
     "y-h-to-accept-the-tou": "Rhaid i chi dderbyn y telerau ac amodau defnyddio",
     "y-h-to-delete-yr-page-or-group-before": "Rhaid i chi ddileu eich tudalennau neu grwpiau o'r blaen",
     "y-have-to-be-friend": "rhaid i chi fod yn ffrindiau",
-    "you-hav-to-upgrad-a-manager-before-leave": "Rhaid i chi hyrwyddo rheolwr cyn gadael y grŵp"
+    "you-hav-to-upgrad-a-manager-before-leave": "Rhaid i chi hyrwyddo rheolwr cyn gadael y grŵp",
+    "Date-cannot-be-in-the-past": "Ni all y dyddiad rhyddhau fod yn y gorffennol",
+    "You-cannot-add-yourself": "Ni allwch ychwanegu eich hun",
+    "T-content-does-not-exist-anymore": "Nid yw'r cynnwys hwn yn bodoli mwyach"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Derbynnir y llun",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Bydd gweinyddiaeth yn gwirio cynnwys cyn gynted â phosibl",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Bydd hyn yn achosi i'r prosiect cyfan gael ei ddileu, a ydych chi'n siŵr?",
     "T-operation-is-irreversible": "Mae'r gweithrediad hwn yn anghildroadwy",
-    "this-user-will-be-": "Bydd y defnyddiwr hwn nawr"
+    "this-user-will-be-": "Bydd y defnyddiwr hwn nawr",
+    "A-y-s-to-unfollow-t-profile": "A ydych yn sicr o ddadorchuddio'r profie hwn?",
+    "A-y-s-to-block-t-user": "Ydych chi'n sicr o rwystro'r defnyddiwr hwn?",
+    "Y-a-abt-t-block-t-user-D": "Rydych chi ar fin blocio'r defnyddiwr hwn. Ni fyddech bellach yn gallu gwylio ei gynnwys a'r defnyddiwr hwn hefyd. Dim ond chi fyddai'n gallu dileu'r cyfyngiad hwn.",
+    "T-content-has-been-reported": "Adroddwyd ar y cynnwys hwn. Bydd ein cymedrolwyr yn edrych mewn oedi o 24 awr i'w adolygu. Rhoddir cosb os nad yw hyn yn parchu rheolau'r gymuned.",
+    "T-user-has-been-blocked-D": "Mae'r defnyddiwr hwn wedi'i rwystro o'ch cyfrif. Proffil Aucun contenu de ce sera gweladwy avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "Beth yw'r rheswm i riportio'r swydd hon?",
+    "W-is-t-reason-to-report-t-post-D": "Mae eich adroddiad yn anhysbys. Dewiswch gategori yn unig i helpu'r morators"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Rhybudd. Sicrhewch fod gennych y cyfeiriad cywir"

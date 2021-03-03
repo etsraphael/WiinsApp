@@ -257,7 +257,10 @@
     "Url-Copied": "URL ko'chirildi",
     "Download": "Yuklash",
     "Downloaded": "Yuklandi",
-    "Save-in-phone": "Telefonda saqlang"
+    "Save-in-phone": "Telefonda saqlang",
+    "No": "Yo'q",
+    "Yes": "Ha",
+    "Block-t-user": "Ushbu foydalanuvchini bloklash"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -614,7 +617,10 @@
     "y-h-to-accept-the-tou": "Siz foydalanish shartlarini qabul qilishingiz kerak",
     "y-h-to-delete-yr-page-or-group-before": "Oldin siz sahifalaringizni yoki guruhlaringizni o'chirishingiz kerak",
     "y-have-to-be-friend": "siz do'st bo'lishingiz kerak",
-    "you-hav-to-upgrad-a-manager-before-leave": "Guruhdan chiqishdan oldin menejerni lavozimga ko'tarishingiz kerak"
+    "you-hav-to-upgrad-a-manager-before-leave": "Guruhdan chiqishdan oldin menejerni lavozimga ko'tarishingiz kerak",
+    "Date-cannot-be-in-the-past": "Chiqarish sanasi o'tmishda bo'lishi mumkin emas",
+    "You-cannot-add-yourself": "Siz o'zingizni qo'sha olmaysiz",
+    "T-content-does-not-exist-anymore": "Ushbu tarkib endi mavjud emas"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Surat qabul qilindi",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Ma'muriyat qisqa vaqt ichida tarkibni tekshiradi",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Bu butun loyihani o'chirilishiga olib keladi, aminmisiz?",
     "T-operation-is-irreversible": "Ushbu operatsiyani qaytarib bo'lmaydi",
-    "this-user-will-be-": "Ushbu foydalanuvchi endi bo'ladi"
+    "this-user-will-be-": "Ushbu foydalanuvchi endi bo'ladi",
+    "A-y-s-to-unfollow-t-profile": "Ushbu profilni bekor qilishingizga ishonchingiz komilmi?",
+    "A-y-s-to-block-t-user": "Ushbu foydalanuvchini bloklaganingizga ishonchingiz komilmi?",
+    "Y-a-abt-t-block-t-user-D": "Siz ushbu foydalanuvchini bloklamoqchisiz. Siz endi uning tarkibini va ushbu foydalanuvchini ham tomosha qila olmaysiz. Ushbu cheklovni faqat siz olib tashlay olasiz.",
+    "T-content-has-been-reported": "Ushbu tarkib haqida xabar berilgan. Moderatorlarimiz uni ko'rib chiqish uchun 24 soat kechiktirishni ko'rib chiqadilar. Agar bu jamiyat qoidalariga rioya qilmasa, sanktsiya qo'llaniladi.",
+    "T-user-has-been-blocked-D": "Ushbu foydalanuvchi sizning hisobingizdan bloklangan. Aucun contenu de ce profil sera ko'rinadigan avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "Ushbu xabar haqida xabar berishning sababi nima?",
+    "W-is-t-reason-to-report-t-post-D": "Sizning hisobotingiz noma'lum. Iltimos, moratatorlarga yordam berish uchun faqat bitta toifani tanlang"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Ogohlantirish. To'g'ri manzilga ega ekanligingizga ishonch hosil qiling"

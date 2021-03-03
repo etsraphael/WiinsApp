@@ -215,7 +215,10 @@
     "Url-Copied": "网址已复制",
     "Download": "下载",
     "Downloaded": "已下载",
-    "Save-in-phone": "储存在手机中"
+    "Save-in-phone": "储存在手机中",
+    "No": "不",
+    "Yes": "是的",
+    "Block-t-user": "阻止此用户"
   },
   "COUNTRY": {
     "AD": "安道尔",
@@ -572,7 +575,10 @@
     "T-min-is-1$": "最低为1 $",
     "Missing-informations": "缺少信息",
     "Account_desactivated": "帐户已停用",
-    "Y-dont-have-a-conversation-yet": "您还没有对话。"
+    "Y-dont-have-a-conversation-yet": "您还没有对话。",
+    "Date-cannot-be-in-the-past": "发布日期不能是过去的日期",
+    "You-cannot-add-yourself": "您无法添加自己",
+    "T-content-does-not-exist-anymore": "该内容已不存在"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "收到照片",
@@ -979,7 +985,14 @@
     "T-administration-w-verify-t-content-asap": "管理将尽快验证是否包含",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "这将导致整个项目被删除，你确定吗？",
     "T-operation-is-irreversible": "此操作是不可逆的",
-    "this-user-will-be-": "此用户现在将成为"
+    "this-user-will-be-": "此用户现在将成为",
+    "A-y-s-to-unfollow-t-profile": "您确定要取消关注此教授吗？",
+    "A-y-s-to-block-t-user": "您确定要阻止此用户吗？",
+    "Y-a-abt-t-block-t-user-D": "您将要阻止此用户。您将无法再查看他的内容和该用户。只有您才能删除此限制。",
+    "T-content-has-been-reported": "此内容已被举报。我们的主持人将在24小时内进行审核。如果不遵守社区规则，将采取制裁措施。",
+    "T-user-has-been-blocked-D": "该用户已被阻止使用您的帐户。 Aucun contenu de ce配置文件的血清可见avec votre compte。",
+    "W-is-t-reason-to-report-t-post": "举报此帖子的原因是什么？",
+    "W-is-t-reason-to-report-t-post-D": "您的报告是匿名的。请选择一个类别以帮助the旋者"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "警告。确保您拥有正确的地址"

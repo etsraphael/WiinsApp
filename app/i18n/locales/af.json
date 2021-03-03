@@ -257,7 +257,10 @@
     "Url-Copied": "URL gekopieer",
     "Download": "Aflaai",
     "Downloaded": "Aflaai",
-    "Save-in-phone": "Stoor in telefoon"
+    "Save-in-phone": "Stoor in telefoon",
+    "No": "Geen",
+    "Yes": "Ja",
+    "Block-t-user": "Blokkeer hierdie gebruiker"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -614,7 +617,10 @@
     "T-min-is-1$": "Die minimum is 1 $",
     "Missing-informations": "Ontbrekende inligting",
     "Account_desactivated": "Rekening gedeaktiveer",
-    "Y-dont-have-a-conversation-yet": "U het nog nie 'n gesprek nie."
+    "Y-dont-have-a-conversation-yet": "U het nog nie 'n gesprek nie.",
+    "Date-cannot-be-in-the-past": "Die vrystellingsdatum kan nie in die verlede wees nie",
+    "You-cannot-add-yourself": "U kan nie uself byvoeg nie",
+    "T-content-does-not-exist-anymore": "Hierdie inhoud bestaan nie meer nie"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Die foto word ontvang",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Administrasie sal die inhoud so gou as moontlik verifieer",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Dit sal daartoe lei dat die hele projek verwyder word, is u seker?",
     "T-operation-is-irreversible": "Hierdie bewerking is onomkeerbaar",
-    "this-user-will-be-": "Hierdie gebruiker sal nou wees"
+    "this-user-will-be-": "Hierdie gebruiker sal nou wees",
+    "A-y-s-to-unfollow-t-profile": "Is u seker dat u hierdie profie sal volg?",
+    "A-y-s-to-block-t-user": "Is u seker dat u hierdie gebruiker sal blokkeer?",
+    "Y-a-abt-t-block-t-user-D": "U is op die punt om hierdie gebruiker te blokkeer. U sou nie meer na sy inhoud en na hierdie gebruiker kon kyk nie. Net u sou hierdie beperking kon verwyder.",
+    "T-content-has-been-reported": "Hierdie inhoud is gerapporteer. Ons moderators sal binne 24 uur vertraging kyk om dit te hersien. 'N Sanksie sal toegepas word as dit nie die reëls van die gemeenskap respekteer nie.",
+    "T-user-has-been-blocked-D": "Hierdie gebruiker is van u rekening geblokkeer. Aucun contenu de ce profiel sera sigbaar avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "Wat is die rede om hierdie berig te rapporteer?",
+    "W-is-t-reason-to-report-t-post-D": "U verslag is anoniem. Kies slegs 'n kategorie om die morators te help"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Waarskuwing. Maak seker dat u die regte adres het"

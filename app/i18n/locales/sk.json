@@ -257,7 +257,10 @@
     "Url-Copied": "Adresa URL bola skopírovaná",
     "Download": "Stiahnuť ▼",
     "Downloaded": "Stiahnuté",
-    "Save-in-phone": "Uložiť do telefónu"
+    "Save-in-phone": "Uložiť do telefónu",
+    "No": "Nie",
+    "Yes": "Áno",
+    "Block-t-user": "Blokovať tohto používateľa"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -614,7 +617,10 @@
     "T-min-is-1$": "Minimum je 1 $",
     "Missing-informations": "Chýbajúce informácie",
     "Account_desactivated": "Účet bol deaktivovaný",
-    "Y-dont-have-a-conversation-yet": "Zatiaľ nemáte konverzáciu."
+    "Y-dont-have-a-conversation-yet": "Zatiaľ nemáte konverzáciu.",
+    "Date-cannot-be-in-the-past": "Dátum vydania nemôže byť v minulosti",
+    "You-cannot-add-yourself": "Nemôžete pridať seba",
+    "T-content-does-not-exist-anymore": "Tento obsah už neexistuje"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotka je prijatá",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Správa overí obsah čo najskôr",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "To spôsobí odstránenie celého projektu, ste si istí?",
     "T-operation-is-irreversible": "Táto operácia je nezvratná",
-    "this-user-will-be-": "Týmto používateľom teraz bude"
+    "this-user-will-be-": "Týmto používateľom teraz bude",
+    "A-y-s-to-unfollow-t-profile": "Naozaj chcete prestať sledovať túto profi?",
+    "A-y-s-to-block-t-user": "Naozaj chcete tohto používateľa zablokovať?",
+    "Y-a-abt-t-block-t-user-D": "Chystáte sa zablokovať tohto používateľa. Už by ste nemohli sledovať jeho obsah a ani tohto používateľa. Iba vy by ste mohli odstrániť toto obmedzenie.",
+    "T-content-has-been-reported": "Tento obsah bol nahlásený. Naši moderátori to skontrolujú do 24 hodín oneskorenia. Ak to nebude v súlade s pravidlami komunity, bude uložená sankcia.",
+    "T-user-has-been-blocked-D": "Tento používateľ bol blokovaný z vášho účtu. Aucun contenu de ce profile sera visible avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "Aký je dôvod nahlásiť tento príspevok?",
+    "W-is-t-reason-to-report-t-post-D": "Vaše hlásenie je anonymné. Vyberte si iba kategóriu, ktorá pomôže moratátorom"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Výstraha. Uistite sa, že máte správnu adresu"

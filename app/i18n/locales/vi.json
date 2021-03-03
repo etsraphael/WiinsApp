@@ -257,7 +257,10 @@
     "Url-Copied": "Đã sao chép url",
     "Download": "Tải xuống",
     "Downloaded": "Đã tải xuống",
-    "Save-in-phone": "Lưu trong điện thoại"
+    "Save-in-phone": "Lưu trong điện thoại",
+    "No": "Không",
+    "Yes": "Đúng",
+    "Block-t-user": "Chặn người dùng này"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -614,7 +617,10 @@
     "y-h-to-accept-the-tou": "Bạn phải chấp nhận các điều khoản và điều kiện sử dụng",
     "y-h-to-delete-yr-page-or-group-before": "Bạn phải xóa các trang hoặc nhóm của mình trước khi",
     "y-have-to-be-friend": "bạn phải là bạn",
-    "you-hav-to-upgrad-a-manager-before-leave": "Bạn phải thăng chức một người quản lý trước khi rời nhóm"
+    "you-hav-to-upgrad-a-manager-before-leave": "Bạn phải thăng chức một người quản lý trước khi rời nhóm",
+    "Date-cannot-be-in-the-past": "Ngày phát hành không được trong quá khứ",
+    "You-cannot-add-yourself": "Bạn không thể thêm chính mình",
+    "T-content-does-not-exist-anymore": "Nội dung này không tồn tại nữa"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Ảnh được nhận",
@@ -1036,7 +1042,14 @@
     "T-administration-w-verify-t-content-asap": "Ban quản trị sẽ xác minh nội dung trong thời gian sớm nhất",
     "T-ll-cause-t-entire-project-to-be-deleted-a-y-s": "Điều này sẽ khiến toàn bộ dự án bị xóa, bạn có chắc chắn không?",
     "T-operation-is-irreversible": "Thao tác này không thể đảo ngược",
-    "this-user-will-be-": "Người dùng này bây giờ sẽ là"
+    "this-user-will-be-": "Người dùng này bây giờ sẽ là",
+    "A-y-s-to-unfollow-t-profile": "Bạn có chắc chắn bỏ theo dõi hồ sơ này không?",
+    "A-y-s-to-block-t-user": "Bạn có chắc chắn chặn người dùng này không?",
+    "Y-a-abt-t-block-t-user-D": "Bạn sắp chặn người dùng này. Bạn sẽ không thể xem nội dung của anh ấy và người dùng này nữa. Chỉ bạn mới có thể xóa hạn chế này.",
+    "T-content-has-been-reported": "Nội dung này đã được báo cáo. Người kiểm duyệt của chúng tôi sẽ xem xét trong vòng 24 giờ để xem xét nó. Một hình phạt sẽ được áp dụng nếu điều này không tôn trọng các quy tắc của cộng đồng.",
+    "T-user-has-been-blocked-D": "Người dùng này đã bị chặn khỏi tài khoản của bạn. Aucun contenu de ce hồ sơ sera hiển thị avec votre compte.",
+    "W-is-t-reason-to-report-t-post": "Lý do để báo cáo bài đăng này là gì?",
+    "W-is-t-reason-to-report-t-post-D": "Báo cáo của bạn là ẩn danh. Vui lòng chỉ chọn một danh mục để giúp người động viên"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Cảnh báo. Đảm bảo rằng bạn có đúng địa chỉ"
