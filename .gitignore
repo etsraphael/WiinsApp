@@ -30,8 +30,8 @@ local.properties
 *.iml
 android/app/release
 android/app/debug
-android/app/java_pid19281.hprof
-android/app/java_pid19868.hprof
+android/java_pid19281.hprof
+android/java_pid19868.hprof
 
 # node.js
 #
