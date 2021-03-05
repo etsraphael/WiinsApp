@@ -143,8 +143,10 @@ class HomeMessenger extends React.Component {
 
     // to go to a room
     _openARoom = (room) => {
-        this.setState({ oneRoomModal: true, roomSelected: room })
-        this.props.actions.getRoomById(room._id, 1, null)
+        if(!!room._id){
+            this.setState({ oneRoomModal: true, roomSelected: room })
+            this.props.actions.getRoomById(room._id, 1, null)
+        }
     }
 
     // to display the list of the room

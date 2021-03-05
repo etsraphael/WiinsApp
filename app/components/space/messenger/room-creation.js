@@ -1,15 +1,13 @@
 import React from 'react'
 import {
-    StyleSheet, View, Text, FlatList, ActivityIndicator, TextInput,
+    StyleSheet, View, Text, TextInput,
     TouchableOpacity, KeyboardAvoidingView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../../redux/MyUser/actions'
 import * as RoomActions from '../../../../redux/OneRoom/actions'
 import { bindActionCreators } from 'redux'
-import FastImage from 'react-native-fast-image'
-import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import { faAngleLeft, faEllipsisH, faPaperPlane, faUser } from '@fortawesome/pro-light-svg-icons'
+import { faPaperPlane, faUser } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 
 class RoomCreation extends React.Component {

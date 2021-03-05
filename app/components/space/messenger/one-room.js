@@ -107,8 +107,9 @@ class OneRoom extends React.Component {
             (this.props.Room.room.nbMessage > this.props.Room.room.message.length) &&
             !this.props.Room.isLoading
         ) {
+            console.log(this.props.navigation)
             this.props.actions.getMessageByPage(
-                this.props.navigation.state.params.roomId, ++this.state.page,
+                this.props.roomSelected._id, ++this.state.page,
                 this.props.Room.room.nbMessage
             )
         }
@@ -136,7 +137,7 @@ class OneRoom extends React.Component {
             response_server: false,
             type: 'text'
         }
-        this.props.actions.sendMessage(message, this.props.navigation.state.params.roomId)
+        this.props.actions.sendMessage(message, this.props.roomSelected._id)
         this.setState({ textInput: '' })
     }
 
