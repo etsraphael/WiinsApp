@@ -29,7 +29,7 @@ class TubePage extends React.Component {
             videoReady: false
         }
     }
-    
+
     _copyToClipboard = () => {
         Clipboard.setString(`https://www.wiins.io/SpaceTube/watching-video/${this.props.TubePage.tube._id}`)
         return Snackbar.show({ text: I18n.t('CORE.Url-Copied'), duration: Snackbar.LENGTH_LONG })
@@ -184,9 +184,13 @@ class TubePage extends React.Component {
 
     // to display the header view
     _headerRender = () => {
-        return (<View style={styles.videoSection}>
-            <VideoPlayer src={this.props.TubePage.tube.videoLink} posterSrc={this.props.TubePage.tube.posterLink} />
-        </View>)
+        if (this.props.TubePage.tube !== null) {
+            return (
+                <View style={styles.videoSection}>
+                    <VideoPlayer src={this.props.TubePage.tube.videoLink} posterSrc={this.props.TubePage.tube.posterLink} />
+                </View>
+            )
+        }
     }
 
     _playNextSection = (tubeList, title, line) => {
@@ -304,25 +308,34 @@ class TubePage extends React.Component {
         )
     }
 
+    _loadingAnimation = () => {
+        return null
+    }
+
+    _pageRender = () => {
+        return (
+            <View style={{ flex: 1 }}>
+
+                {/* Header */}
+                {this._headerRender()}
+                {/* Body */}
+                {this._suggestionTubeRender()}
+                {/* Comment */}
+                {this.state.commentVisible ?
+                    <CommentListModal
+                        closeModal={() => this._toggleComment()}
+                        _activePropagateSwipe={this._activePropagateSwipe}
+                        _inactivePropagateSwipe={this._inactivePropagateSwipe}
+                    />
+                    : null}
+            </View>
+        )
+    }
+
     render() {
         return (
             <View style={styles.main_container}>
-                {this.props.TubePage.isLoading ? null :
-                    <View style={{ flex: 1 }}>
-                        {/* Header */}
-                        {this._headerRender()}
-                        {/* Body */}
-                        {this._suggestionTubeRender()}
-                        {/* Comment */}
-                        {this.state.commentVisible ?
-                            <CommentListModal
-                                closeModal={() => this._toggleComment()}
-                                _activePropagateSwipe={this._activePropagateSwipe}
-                                _inactivePropagateSwipe={this._inactivePropagateSwipe}
-                            />
-                            : null}
-                    </View>
-                }
+                {this.props.TubePage.isLoading || !this.props.TubePage.tube ? this._loadingAnimation() : this._pageRender() }
             </View>
         )
     }
