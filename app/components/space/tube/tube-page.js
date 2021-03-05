@@ -184,13 +184,11 @@ class TubePage extends React.Component {
 
     // to display the header view
     _headerRender = () => {
-        if (this.props.TubePage.tube !== null) {
-            return (
-                <View style={styles.videoSection}>
-                    <VideoPlayer src={this.props.TubePage.tube.videoLink} posterSrc={this.props.TubePage.tube.posterLink} />
-                </View>
-            )
-        }
+        return (
+            <View style={styles.videoSection}>
+                <VideoPlayer src={this.props.TubePage.tube.videoLink} posterSrc={this.props.TubePage.tube.posterLink} />
+            </View>
+        )
     }
 
     _playNextSection = (tubeList, title, line) => {
