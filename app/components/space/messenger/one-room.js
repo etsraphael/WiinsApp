@@ -107,7 +107,6 @@ class OneRoom extends React.Component {
             (this.props.Room.room.nbMessage > this.props.Room.room.message.length) &&
             !this.props.Room.isLoading
         ) {
-            console.log(this.props.navigation)
             this.props.actions.getMessageByPage(
                 this.props.roomSelected._id, ++this.state.page,
                 this.props.Room.room.nbMessage
