@@ -4,9 +4,12 @@ import { verificationMusicCacheFormat } from './../../app/services/cache/cache-m
 import { sendError } from './../../app/services/error/error-service'
 
 export async function getMusicMenuSuccess(menu, rapList) {
+
+    const defaultPlaylist = await verificationMusicCacheFormat(rapList)
+
     return { 
         type: ActionTypes.GET_MUSIC_MENU_SUCCESS,
-        rap: await verificationMusicCacheFormat(rapList),
+        rap: defaultPlaylist,
         payload: menu
     }
 }
