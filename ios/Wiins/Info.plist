@@ -38,15 +38,15 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Enable Wiins to access your camera to upload your photos and save ones you&apos;ve taken with the app</string>
+	<string>Enable Wiins to access your camera to upload your photos and save ones you've taken with the app</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Enable Wiins to access your microphone to record the song during a video</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Enable Wiins to access your camera roll to upload your photos and save ones you&apos;ve taken with the app</string>
+	<string>Enable Wiins to access your camera roll to upload your photos and save ones you've taken with the app</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Enable Wiins to access your camera roll to upload your photos and save ones you&apos;ve taken with the app</string>
+	<string>Enable Wiins to access your camera roll to upload your photos and save ones you've taken with the app</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
