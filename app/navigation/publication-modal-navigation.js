@@ -1,12 +1,13 @@
-// import React from 'react'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createAppContainer } from 'react-navigation'
 import CardModal from './../components/core/card/card-modal'
 import CommentPage from './../components/core/reusable/comment/comment-page'
 
 const MainRoute = createStackNavigator(
-    { CardModal: { screen: CardModal } },
-    { Comments: { screen: CommentPage } },
+    { 
+        CardModal: { screen: CardModal },
+        Comments: { screen: CommentPage }
+    },
     { headerMode: 'none', initialRouteName: 'CardModal' }
 )
 

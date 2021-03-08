@@ -3,15 +3,11 @@ import { StyleSheet, View, FlatList, TouchableOpacity, Image, SafeAreaView, Virt
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 import * as SearchActions from '../../../redux/SearchBar/actions'
+import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStoryHeader from './stories/publication-story-header'
 import StantardSuggest from '../../core/stantard-suggest'
-import PublicationModal from '../../core/modal/publication-modal'
-
-
 import PublicationModalContainer from '../../core/modal/publication-modal-container'
-
-
 import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
@@ -50,6 +46,15 @@ class Feed extends React.Component {
 
     // to display the modal view
     _toggleModal = (event) => {
+
+
+
+        if(!!event){
+            this.props.actions.putPublicationInModalActions(event.publication)
+        } else {
+            this.props.actions.resetPublicationInModalActions()
+        }
+
         this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
@@ -238,7 +243,8 @@ const mapStateToProps = state => ({
 const ActionCreators = Object.assign(
     {},
     PublicationFeedActions,
-    SearchActions
+    SearchActions,
+    PublicationInModalActions
 )
 
 const mapDispatchToProps = dispatch => ({

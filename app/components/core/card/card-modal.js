@@ -51,7 +51,7 @@ class CardModal extends React.Component {
             this.setState({ commentVisible: false, swipDirection: 'down' })
 
         } else {
-            this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
+            this.props.actions.getCommentListPublication(this.props.PublicationsInModal.publication.id, 1)
             this.setState({ commentVisible: true, swipDirection: null })
         }
     }
@@ -68,14 +68,14 @@ class CardModal extends React.Component {
 
     // to navigate to a profile
     _goToProfile = (profileId) => {
-        if (profileId !== this.props.MyProfile._id) this.props.publicationModal.navigation.navigate('Profile', { profileId })
+        if (profileId !== this.props.MyProfile._id) this.props.PublicationsInModal.navigation.navigate('Profile', { profileId })
         else this.props.navigation.navigate('MyProfile')
         this.props.toggleModal()
     }
 
     // to navigate to a page
     _goToPage = (pageId) => {
-        this.props.publicationModal.navigation.navigate('Page', { pageId })
+        this.props.PublicationsInModal.navigation.navigate('Page', { pageId })
         this.props.toggleModal()
     }
 
@@ -84,7 +84,7 @@ class CardModal extends React.Component {
         if (this.state.page == 2) {
             return (
                 <View style={{ flex: 1, position: 'absolute', width: '100%', height: '70%', zIndex: 1, top: '19%', paddingHorizontal: 19 }}>
-                    <CommentList type={'publication'} publication={this.props.publicationModal.publication} />
+                    <CommentList type={'publication'} publication={this.props.PublicationsInModal.publication} />
                 </View>
             )
         }
@@ -95,34 +95,34 @@ class CardModal extends React.Component {
 
         if (!this.state.textComment) return null
 
-        if (this.props.publicationModal.publication.profile) {
+        if (this.props.PublicationsInModal.publication.profile) {
 
             const comment = {
                 tagFriend: [],
                 text: this.state.textComment,
                 baseComment: null,
                 commentProfile: null,
-                publicationId: this.props.publicationModal.publication._id,
-                publicationProfile: this.props.publicationModal.publication.profile._id,
+                publicationId: this.props.PublicationsInModal.publication._id,
+                publicationProfile: this.props.PublicationsInModal.publication.profile._id,
                 space: 'feed-publication'
             }
 
-            this.props.actions.sendCommentToProfile(comment, this.props.publicationModal.space)
+            this.props.actions.sendCommentToProfile(comment, this.props.PublicationsInModal.space)
         }
 
-        if (this.props.publicationModal.publication.page) {
+        if (this.props.PublicationsInModal.publication.page) {
 
             const comment = {
                 tagFriend: [],
                 text: this.state.textComment,
                 baseComment: null,
                 commentProfile: null,
-                publicationId: this.props.publicationModal.publication._id,
-                publicationProfile: this.props.publicationModal.publication.page._id,
+                publicationId: this.props.PublicationsInModal.publication._id,
+                publicationProfile: this.props.PublicationsInModal.publication.page._id,
                 space: 'feed-publication'
             }
 
-            this.props.actions.sendCommentToPage(comment, this.props.publicationModal.space)
+            this.props.actions.sendCommentToPage(comment, this.props.PublicationsInModal.space)
         }
 
         this.setState({ textComment: '' })
@@ -134,7 +134,7 @@ class CardModal extends React.Component {
     }
 
     _displayIconLikeColor = () => {
-        if (this.props.publicationModal.publication.like.isLike) return 'red'
+        if (this.props.PublicationsInModal.publication.like.isLike) return 'red'
         else return 'white'
     }
 
@@ -307,10 +307,12 @@ class CardModal extends React.Component {
 
     // to select the publication picture view
     _renderPicture(publication) {
+
+
         return (
             <View style={{ flex: 1 }}>
                 {this._header(publication)}
-                {this._commentContainer()}
+                {/* {this._commentContainer()} */}
 
                 {/* Dark Background */}
                 <FastImage
@@ -373,11 +375,11 @@ class CardModal extends React.Component {
     }
 
     // to select the type of the publication
-    _showTypePublication(publication) {
-        switch (publication.type) {
-            case 'PostPublication': return this._renderPost(publication)
-            case 'PicturePublication': return this._renderPicture(publication)
-            case 'VideoPublication': return this._renderVideo(publication)
+    _showTypePublication() {
+        switch (this.props.PublicationsInModal.publication.type) {
+            case 'PostPublication': return this._renderPost(this.props.PublicationsInModal.publication)
+            case 'PicturePublication': return this._renderPicture(this.props.PublicationsInModal.publication)
+            case 'VideoPublication': return this._renderVideo(this.props.PublicationsInModal.publication)
         }
     }
 
@@ -407,31 +409,31 @@ class CardModal extends React.Component {
     // to like or dislike publication
     _likeBtn() {
 
-        if (!this.props.publicationModal.publication.like.isLike) {
+        if (!this.props.PublicationsInModal.publication.like.isLike) {
 
             let like
 
-            if (this.props.publicationModal.publication.profile) {
+            if (this.props.PublicationsInModal.publication.profile) {
                 like = {
-                    publicationProfile: this.props.publicationModal.publication.profile._id,
+                    publicationProfile: this.props.PublicationsInModal.publication.profile._id,
                     type: 'feed-publication',
-                    publicationID: this.props.publicationModal.publication._id,
+                    publicationID: this.props.PublicationsInModal.publication._id,
                     ownerType: 'profile',
-                    hastags: this.props.publicationModal.publication.hastags
+                    hastags: this.props.PublicationsInModal.publication.hastags
                 }
             } else {
                 like = {
-                    publicationProfile: this.props.publicationModal.publication.page._id,
+                    publicationProfile: this.props.PublicationsInModal.publication.page._id,
                     type: 'feed-publication',
-                    publicationID: this.props.publicationModal.publication._id,
+                    publicationID: this.props.PublicationsInModal.publication._id,
                     ownerType: 'page',
-                    hastags: this.props.publicationModal.publication.hastags
+                    hastags: this.props.PublicationsInModal.publication.hastags
                 }
             }
 
 
 
-            switch (this.props.publicationModal.space) {
+            switch (this.props.PublicationsInModal.space) {
                 case 'feed': return this.props.actions.likePublicationFeed(like)
                 case 'profile': return this.props.actions.likePublicationProfile(like)
                 case 'discover': return this.props.actions.likePublicationDiscover(like)
@@ -440,10 +442,10 @@ class CardModal extends React.Component {
 
         } else {
 
-            switch (this.props.publicationModal.space) {
-                case 'feed': return this.props.actions.unlikePublicationFeed(this.props.publicationModal.publication._id)
-                case 'profile': return this.props.actions.unlikePublicationProfile(this.props.publicationModal.publication._id)
-                case 'discover': return this.props.actions.unlikePublicationDiscover(this.props.publicationModal.publication._id)
+            switch (this.props.PublicationsInModal.space) {
+                case 'feed': return this.props.actions.unlikePublicationFeed(this.props.PublicationsInModal.publication._id)
+                case 'profile': return this.props.actions.unlikePublicationProfile(this.props.PublicationsInModal.publication._id)
+                case 'discover': return this.props.actions.unlikePublicationDiscover(this.props.PublicationsInModal.publication._id)
                 default: return null
             }
 
@@ -454,25 +456,13 @@ class CardModal extends React.Component {
         return (
             <View>
 
-                <Modal
-                    onSwipeComplete={() => this.props.toggleModal()}
-                    isVisible={true}
-                    transparent={true}
-                    propagateSwipe={this.state.propagateSwipe}
-                    animationIn={'bounceInUp'}
-                    animationOut={'bounceOutDown'}
-                    animationInTiming={500}
-                    style={{ backgroundColor: 'white', flex: 1, margin: 0, overflow: 'hidden' }}
-                    swipeDirection={this.state.swipDirection}
-                    swipeThreshold={50}
-                >
 
                     <KeyboardAvoidingView
                         behavior={Platform.OS === "ios" ? "padding" : null}
                         keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
                         style={{ flex: 1 }}
                     >
-                        {this._showTypePublication(this.props.publicationModal.publication)}
+                        {this._showTypePublication(this.props.PublicationsInModal.publication)}
                     </KeyboardAvoidingView>
 
 
@@ -483,9 +473,6 @@ class CardModal extends React.Component {
                             _inactivePropagateSwipe={this._inactivePropagateSwipe}
                         />
                         : null}
-
-
-                </Modal>
 
 
             </View>
@@ -550,6 +537,7 @@ const mapStateToProps = state => ({
     FeedPublications: state.FeedPublications,
     ProfilePublications: state.ProfilePublications,
     DiscoverPublications: state.DiscoverPublications,
+    PublicationsInModal: state.PublicationsInModal
 })
 
 const ActionCreators = Object.assign(

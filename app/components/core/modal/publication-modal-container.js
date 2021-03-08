@@ -466,10 +466,7 @@ class PublicationModalContainer extends React.Component {
                     swipeDirection={this.state.swipDirection}
                     swipeThreshold={50}
                 >
-
                     <PublicationModalNavigation/>
-
-
                 </Modal>
             </View>
         )
@@ -533,6 +530,7 @@ const mapStateToProps = state => ({
     FeedPublications: state.FeedPublications,
     ProfilePublications: state.ProfilePublications,
     DiscoverPublications: state.DiscoverPublications,
+    PublicationsInModal: state.PublicationsInModal
 })
 
 const ActionCreators = Object.assign(

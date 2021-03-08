@@ -109,7 +109,7 @@ class CardNewFeed extends React.Component {
     _renderPicture(publication) {
 
         return (
-            <TouchableWithoutFeedback // TouchableOpacity
+            <TouchableWithoutFeedback
                 style={styles.container_type}
                 onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >

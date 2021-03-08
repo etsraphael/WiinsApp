@@ -11,10 +11,10 @@ export function resetPublicationInModal() {
     return { type: ActionTypes.RESET_PUBLICATIONS_IN_MODAL }
 }
 
-export function putPublicationInModal(publication) {
+export function putPublicationInModalActions(publication) {
     return (dispatch) => dispatch(putPublicationInModal(publication))
 }
 
-export function resetPublicationInModal() {
+export function resetPublicationInModalActions() {
     return (dispatch) => dispatch(resetPublicationInModal())
 }
