@@ -14,10 +14,10 @@ const AfterSign = createStackNavigator(
 )
 
 const MainNavigation = createStackNavigator(
-    { 
+    {
         Auth: BeforeSign,
         App: AfterSign
-     },
+    },
     { headerMode: 'none', initialRouteName: 'Auth' }
 )
 
