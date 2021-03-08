@@ -1,14 +1,14 @@
 import React from 'react'
 import { StyleSheet, View, FlatList, TouchableOpacity, ScrollView, Text, SafeAreaView } from 'react-native'
 import { connect } from 'react-redux'
-import * as PublicationFeedActions from '../../../../../redux/FeedPublications/actions'
-import * as StoriesActions from '../../../../../redux/Stories/actions'
+import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
+import * as StoriesActions from '../../../../redux/Stories/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faPlus } from '@fortawesome/pro-light-svg-icons'
-import I18n from '../../../../i18n/i18n'
+import I18n from '../../../../../assets/i18n/i18n'
 
 class PublicationStoryHeader extends React.Component {
 

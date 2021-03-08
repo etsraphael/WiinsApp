@@ -1,19 +1,18 @@
 import React from 'react'
 import { StyleSheet, View, TextInput, Text, TouchableOpacity, ActivityIndicator, ScrollView, StatusBar, Button } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../redux/MyUser/actions'
+import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { Platform, NativeModules } from 'react-native'
 import { faLongArrowLeft, faCheckCircle } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Snackbar from 'react-native-snackbar'
-import I18n from '../../i18n/i18n'
 import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from "moment";
 import CheckBox from '@react-native-community/checkbox';
-import i18n from '../../i18n/i18n'
+import i18n from './../../../assets/i18n/i18n'
 
 class SignUp extends React.Component {
 

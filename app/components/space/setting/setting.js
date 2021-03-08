@@ -1,14 +1,14 @@
 import React from 'react'
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity, FlatList } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from './../../../../redux/MyUser/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft, faKey, faUser, faEllipsisH, faWallet, faCertificate, faSignOut, faUserShield } from '@fortawesome/pro-duotone-svg-icons'
 import { faAngleRight } from '@fortawesome/pro-light-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
-import I18n from '../../../i18n/i18n'
+import I18n from '../../../../assets/i18n/i18n'
 
 class Setting extends React.Component {
 

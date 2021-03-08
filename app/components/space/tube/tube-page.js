@@ -1,14 +1,15 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, FlatList, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
-import * as CommentListActions from '../../../../redux/CommentList/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
+
+import * as CommentListActions from '../../../redux/CommentList/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faShare, faDownload, faCommentLines, faCheck } from '@fortawesome/pro-light-svg-icons'
 import { faCircle } from '@fortawesome/pro-solid-svg-icons'
-import * as TubePageActions from '../../../../redux/TubePage/actions'
+import * as TubePageActions from '../../../redux/TubePage/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 import VideoPlayer from '../../core/reusable/video/video-player'
 import LinearGradient from 'react-native-linear-gradient'
@@ -18,7 +19,7 @@ import CommentListModal from './../../core/modal/comment-list-modal'
 import { cacheOneTube } from './../../../services/cache/cache-tube-service'
 import Clipboard from '@react-native-community/clipboard'
 import Snackbar from 'react-native-snackbar'
-import I18n from '../../../i18n/i18n'
+import I18n from '../../../../assets/i18n/i18n'
 
 class TubePage extends React.Component {
 

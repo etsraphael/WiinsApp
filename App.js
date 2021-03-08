@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Provider } from 'react-redux'
-import { configureStore } from './app/stores/configureStore'
+import { configureStore } from './app/redux/configureStore'
 import { PersistGate } from 'redux-persist/integration/react'
 import MainApp from './app/components/core/main-app'
 import { resetCacheForDev } from './app/services/cache/cache-core-service'

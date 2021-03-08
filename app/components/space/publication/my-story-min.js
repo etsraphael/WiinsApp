@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, View, Text } from 'react-native'
 import { connect } from 'react-redux'
-import * as PendingPubicationsActions from '../../../../redux/PendingPublications/actions'
+import * as PendingPubicationsActions from '../../../redux/PendingPublications/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'

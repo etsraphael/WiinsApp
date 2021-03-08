@@ -1,7 +1,8 @@
 import React from 'react'
 import { StyleSheet, View, Text, FlatList } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
+
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import OneMusic from './one-music'

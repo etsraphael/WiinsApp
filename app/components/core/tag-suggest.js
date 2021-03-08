@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, DeviceEventEmitter } from 'react-native'
-import * as SearchActions from '../../../redux/SearchBar/actions'
+import * as SearchActions from '../../redux/SearchBar/actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'

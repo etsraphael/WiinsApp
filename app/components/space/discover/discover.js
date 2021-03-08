@@ -1,10 +1,10 @@
 import React from 'react'
 import { StyleSheet, View, Text, TextInput, FlatList, TouchableOpacity, ActivityIndicator, LayoutAnimation, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
-import * as TopHastagActions from '../../../../redux/TopHastag/actions'
-import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublications/actions'
-import * as SearchBarActions from '../../../../redux/SearchBar/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
+import * as TopHastagActions from '../../../redux/TopHastag/actions'
+import * as DiscoverPublicationActions from '../../../redux/DiscoverPublications/actions'
+import * as SearchBarActions from '../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import CardNewFeedMasonry from './../../core/card/card-new-feed-masonry'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
@@ -12,7 +12,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faTimes } from '@fortawesome/pro-light-svg-icons'
 import SuggestionDiscover from './suggestion-discover'
 import PublicationModal from '../../core/modal/publication-modal'
-import I18n from '../../../i18n/i18n'
+import I18n from './../../../../assets/i18n/i18n'
 
 class Discover extends React.Component {
 

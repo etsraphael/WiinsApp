@@ -3,12 +3,12 @@ import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
-import * as SearchActions from '../../../../../redux/SearchBar/actions'
-import * as CommentListActions from '../../../../../redux/CommentList/actions'
+import * as SearchActions from '../../../../redux/SearchBar/actions'
+import * as CommentListActions from '../../../../redux/CommentList/actions'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHeart } from '@fortawesome/pro-solid-svg-icons'
 import { faReply } from '@fortawesome/pro-duotone-svg-icons'
-import i18n from '../../../../i18n/i18n'
+import i18n from '../../../../../assets/i18n/i18n'
 
 class CommentPage extends React.Component {
 

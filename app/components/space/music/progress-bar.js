@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { StyleSheet, Text, View } from 'react-native'
-import * as PlayerMusicActions from '../../../../redux/Player/actions'
+import * as PlayerMusicActions from '../../../redux/Player/actions'
 import TrackPlayer, { ProgressComponent } from 'react-native-track-player';
 import Slider from '@react-native-community/slider';
 

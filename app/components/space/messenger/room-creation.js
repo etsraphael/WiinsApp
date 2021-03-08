@@ -4,8 +4,9 @@ import {
     TouchableOpacity, KeyboardAvoidingView
 } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
-import * as RoomActions from '../../../../redux/OneRoom/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
+
+import * as RoomActions from '../../../redux/OneRoom/actions'
 import { bindActionCreators } from 'redux'
 import { faPaperPlane, faUser } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'

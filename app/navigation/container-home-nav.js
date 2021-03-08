@@ -1,7 +1,8 @@
 import React from 'react'
 import { StyleSheet, View, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyProfileActions from './../../redux/MyProfile/actions'
+import * as MyProfileActions from './../redux/MyProfile/actions'
+import * as PlayerMusicActions from '../redux/Player/actions'
 import { bindActionCreators } from 'redux'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -10,7 +11,6 @@ import MainDiscover from './../components/space/discover/main-discover'
 import MainMessenger from './../components/space/messenger/main-messenger'
 import MainMusic from './../components/space/music/main-music'
 import MainTube from './../components/space/tube/main-tube'
-import * as PlayerMusicActions from '../../redux/Player/actions'
 import { listenerMusic } from '../services/music/music-service'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHomeLg, faMusic, faCommentsAlt, faTv, faCompass } from '@fortawesome/pro-light-svg-icons'

@@ -3,9 +3,9 @@ import { StyleSheet, View, ActivityIndicator, TouchableOpacity, Text, ScrollView
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
-import * as PageActions from '../../../../redux/Page/actions'
-import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
-import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
+import * as PageActions from '../../../redux/Page/actions'
+import * as ProfilePublicationActions from '../../../redux/ProfilePublications/actions'
+import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 import LinearGradient from 'react-native-linear-gradient'
 import ProfilePublication from './../profile/profile-publication'
 

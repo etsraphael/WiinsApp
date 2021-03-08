@@ -1,15 +1,10 @@
 import React from 'react'
-import {
-    StyleSheet,
-    View,
-    KeyboardAvoidingView,
-} from 'react-native';
+import { StyleSheet, View, KeyboardAvoidingView, } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../redux/MyUser/actions'
+import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { Platform } from 'react-native'
-import SignNaviation from '../../navigation/sign-naviation';
-
+import SignNaviation from '../../navigation/sign-naviation'
 
 class Sign extends React.Component {
 
@@ -31,8 +26,8 @@ class Sign extends React.Component {
 
 const styles = StyleSheet.create({
     main_container: {
-        flex: 1,
-    },
+        flex: 1
+    }
 })
 
 const mapStateToProps = state => ({

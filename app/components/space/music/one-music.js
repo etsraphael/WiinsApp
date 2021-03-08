@@ -2,9 +2,10 @@ import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
-import * as PlayerMusicActions from '../../../../redux/Player/actions'
-import * as PlaylistPageActions from '../../../../redux/PlaylistMusicPage/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
+
+import * as PlayerMusicActions from '../../../redux/Player/actions'
+import * as PlaylistPageActions from '../../../redux/PlaylistMusicPage/actions'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHeart as faHeartEmpty, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
@@ -12,7 +13,7 @@ import { faHeart as faHeartFull, faArrowDown } from '@fortawesome/pro-solid-svg-
 import LinearGradient from 'react-native-linear-gradient'
 import Spinner from 'react-native-spinkit'
 import { cacheOneMusic } from './../../../services/cache/cache-music-service'
-import * as MyFavMusicActions from '../../../../redux/MyFavMusic/actions'
+import * as MyFavMusicActions from '../../../redux/MyFavMusic/actions'
 
 class OneMusic extends React.Component {
 
