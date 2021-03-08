@@ -130,20 +130,15 @@ class CommentPage extends React.Component {
     }
 
     render() {
+
         return (
-
-            <View style={{flex: 1, backgroundColor: 'red'}}></View>
-
-
-
-
-            // <FlatList
-            //     style={{ flex: 1 }}
-            //     showsVerticalScrollIndicator={false}
-            //     data={this.props.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
-            //     keyExtractor={(item) => item._id.toString()}
-            //     renderItem={({ item }) => this._oneComment(item)}
-            // />
+            <FlatList
+                style={{ flex: 1, paddingTop: 20 }}
+                showsVerticalScrollIndicator={false}
+                data={this.props.CommentList.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
+                keyExtractor={(item) => item._id.toString()}
+                renderItem={({ item }) => this._oneComment(item)}
+            />
         )
     }
 }

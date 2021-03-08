@@ -336,7 +336,7 @@ export function getCommentListPublication(id, page) {
                 }
             })
                 .then((response) => response.json())
-                .then(async (response) => {
+                .then((response) => {
                     if (response.status == 200) return dispatch(getCommentListSuccess(response.results))
                     return dispatch(getCommentListFail(response.message))
                 })
