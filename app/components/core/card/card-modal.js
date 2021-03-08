@@ -28,7 +28,6 @@ class CardModal extends React.Component {
             showSuggest: false,
             displayVideo: false,
             background_filter: false,
-            page: 1,
             textComment: '',
             swipDirection: 'down',
             propagateSwipe: false
@@ -70,17 +69,6 @@ class CardModal extends React.Component {
     _goToPage = (pageId) => {
         this.props.PublicationsInModal.navigation.navigate('Page', { pageId })
         this.props.toggleModal()
-    }
-
-    // to select the comment views
-    _commentContainer = () => {
-        if (this.state.page == 2) {
-            return (
-                <View style={{ flex: 1, position: 'absolute', width: '100%', height: '70%', zIndex: 1, top: '19%', paddingHorizontal: 19 }}>
-                    <CommentList type={'publication'} publication={this.props.PublicationsInModal.publication} />
-                </View>
-            )
-        }
     }
 
     // send the comment
@@ -285,7 +273,6 @@ class CardModal extends React.Component {
         return (
             <View style={{ flex: 1 }}>
                 {this._header(publication)}
-                {this._commentContainer()}
                 <LinearGradient colors={background} start={orientation[0]} end={orientation[1]}
                     style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <Text style={styles.textPost}>{publication.text}</Text>
@@ -305,8 +292,6 @@ class CardModal extends React.Component {
         return (
             <View style={{ flex: 1 }}>
                 {this._header(publication)}
-                {/* {this._commentContainer()} */}
-
                 {/* Dark Background */}
                 <FastImage
                     style={{ position: 'absolute', width: '100%', height: '100%' }}
@@ -333,8 +318,6 @@ class CardModal extends React.Component {
         return (
             <View style={{ flex: 1 }}>
                 {this._header(publication)}
-                {this._commentContainer()}
-
                 <Image
                     style={{ position: 'absolute', width: '100%', height: '100%' }}
                     source={{ uri: publication.poster }}

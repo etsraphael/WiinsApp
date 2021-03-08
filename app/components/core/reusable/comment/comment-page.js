@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHeart } from '@fortawesome/pro-solid-svg-icons'
 import { faReply } from '@fortawesome/pro-duotone-svg-icons'
 import i18n from '../../../../../assets/i18n/i18n'
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import { faAngleLeft } from '@fortawesome/pro-light-svg-icons'
 
 class CommentPage extends React.Component {
 
@@ -82,7 +84,7 @@ class CommentPage extends React.Component {
                         </TouchableOpacity>
                     </View>
                 </View>
-                { !!comment.responseList && comment.responseList.length > 0 ? this._responseList(comment.responseList) : null }
+                { !!comment.responseList && comment.responseList.length > 0 ? this._responseList(comment.responseList) : null}
             </View>
         )
     }
@@ -110,12 +112,12 @@ class CommentPage extends React.Component {
                     </View>
                 </View>
                 <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 15 }}>
-                        <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._likeResponse(comment)}>
-                            <FontAwesomeIcon icon={faHeart} color={this._heartColor(comment.liked)} size={17} />
-                            {comment.like > 0 ? <Text style={{ marginHorizontal: 5, color: '#77838F' }}>{comment.like}</Text> : null}
-                        </TouchableOpacity>
-                    </View>
+                    <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this._likeResponse(comment)}>
+                        <FontAwesomeIcon icon={faHeart} color={this._heartColor(comment.liked)} size={17} />
+                        {comment.like > 0 ? <Text style={{ marginHorizontal: 5, color: '#77838F' }}>{comment.like}</Text> : null}
+                    </TouchableOpacity>
                 </View>
+            </View>
         )
     }
 
@@ -132,23 +134,71 @@ class CommentPage extends React.Component {
     render() {
 
         return (
-            <FlatList
-                style={{ flex: 1, paddingTop: 20 }}
-                showsVerticalScrollIndicator={false}
-                data={this.props.CommentList.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
-                keyExtractor={(item) => item._id.toString()}
-                renderItem={({ item }) => this._oneComment(item)}
-            />
+            <View style={styles.main_container}>
+                <View style={styles.container_header}>
+
+
+                    <View style={{ flex: 1, height: '100%', justifyContent: 'center' }}>
+                        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+                            <FontAwesomeIcon icon={faAngleLeft} color={'black'} size={25} />
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <Text style={{ fontSize: 19 }}>Comments</Text>
+                    </View>
+                    <View style={{ flex: 1 }} />
+
+
+                </View>
+
+
+
+
+                <FlatList
+                    style={{ flex: 1, paddingTop: 20 }}
+                    showsVerticalScrollIndicator={false}
+                    data={this.props.CommentList.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
+                    keyExtractor={(item) => item._id.toString()}
+                    renderItem={({ item }) => this._oneComment(item)}
+                />
+
+
+                <View style={{ height: 45, width: '100%', backgroundColor: 'green' }}>
+
+                </View>
+
+            </View>
+
+
+
+
+
+
+
         )
     }
 }
 
 const styles = StyleSheet.create({
+
+    main_container: {
+        flex: 1,
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10
+    },
     container_avatar_comment: {
         justifyContent: 'center',
         alignItems: 'center',
         width: 46,
         height: 46
+    },
+    container_header: {
+        height: 55,
+        width: '100%',
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingHorizontal: 15,
+        borderColor: 'grey',
+        borderBottomWidth: 0.3,
     }
 })
 
