@@ -5,7 +5,6 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import TagSuggest from '../tag-suggest'
@@ -20,7 +19,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCommentLines, faHeart as faHeartEmpty, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
 import { faHeart, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import I18n from '../../../../assets/i18n/i18n'
-// import CommentListModal from './comment-list-modal'
 
 class CardModal extends React.Component {
 
@@ -32,7 +30,6 @@ class CardModal extends React.Component {
             background_filter: false,
             page: 1,
             textComment: '',
-            commentVisible: false,
             swipDirection: 'down',
             propagateSwipe: false
         }
@@ -47,13 +44,9 @@ class CardModal extends React.Component {
     }
 
     _toggleComment = () => {
-        if (this.state.commentVisible == true) {
-            this.setState({ commentVisible: false, swipDirection: 'down' })
-
-        } else {
-            this.props.actions.getCommentListPublication(this.props.PublicationsInModal.publication.id, 1)
-            this.setState({ commentVisible: true, swipDirection: null })
-        }
+        this.props.actions.getCommentListPublication(this.props.PublicationsInModal.publication.id, 1)
+        this.props.navigation.navigate('Comments')
+        // this.setState({ swipDirection: null })
     }
 
     componentWillUnmount() {
@@ -454,27 +447,14 @@ class CardModal extends React.Component {
 
     render() {
         return (
-            <View style={{flex: 1}}>
-
-
-                    <KeyboardAvoidingView
-                        behavior={Platform.OS === "ios" ? "padding" : null}
-                        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
-                        style={{ flex: 1 }}
-                    >
-                        {this._showTypePublication(this.props.PublicationsInModal.publication)}
-                    </KeyboardAvoidingView>
-
-
-                    {this.state.commentVisible ?
-                        <CommentListModal
-                            closeModal={() => this._toggleComment()}
-                            _activePropagateSwipe={this._activePropagateSwipe}
-                            _inactivePropagateSwipe={this._inactivePropagateSwipe}
-                        />
-                        : null}
-
-
+            <View style={{ flex: 1 }}>
+                <KeyboardAvoidingView
+                    behavior={Platform.OS === "ios" ? "padding" : null}
+                    keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
+                    style={{ flex: 1 }}
+                >
+                    {this._showTypePublication(this.props.PublicationsInModal.publication)}
+                </KeyboardAvoidingView>
             </View>
         )
     }
