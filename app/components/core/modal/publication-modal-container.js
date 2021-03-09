@@ -20,7 +20,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faCommentLines, faHeart as faHeartEmpty, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
 import { faHeart, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import I18n from '../../../../assets/i18n/i18n'
-import CommentListModal from './comment-list-modal'
 import PublicationModalNavigation from '../../../navigation/publication-modal-navigation'
 
 class PublicationModalContainer extends React.Component {
