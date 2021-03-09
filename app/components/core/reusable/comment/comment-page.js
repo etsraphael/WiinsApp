@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, FlatList, TouchableOpacity, TextInput } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
@@ -10,12 +10,15 @@ import { faHeart } from '@fortawesome/pro-solid-svg-icons'
 import { faReply } from '@fortawesome/pro-duotone-svg-icons'
 import i18n from '../../../../../assets/i18n/i18n'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import { faAngleLeft } from '@fortawesome/pro-light-svg-icons'
+import { faAngleLeft, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
 
 class CommentPage extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            textComment: ''
+        }
     }
 
     _heartColor = (liked) => {
@@ -67,9 +70,18 @@ class CommentPage extends React.Component {
                         <View style={{ justifyContent: 'center', paddingTop: 5 }}>
                             <View style={{ paddingLeft: 10, position: 'relative' }}>
                                 <Text style={{ color: '#1E2022', fontWeight: '600' }}>{comment.idProfil._meta.pseudo}</Text>
-                                <Text style={{ color: '#77838F', lineHeight: 18, paddingTop: 5 }}>{comment.text} <TouchableOpacity onPress={() => this.props.responseUser(comment)}><Text style={{ paddingLeft: 5, color: '#7055E8', fontWeight: '600' }}>({i18n.t('CORE.answer')})</Text></TouchableOpacity></Text>
+                                <Text style={{ color: '#77838F', lineHeight: 18, paddingTop: 5 }}>
+                                    <Text>{comment.text}</Text>
+                                    <Text
+                                        style={{ marginLeft: 15, color: '#7055E8', fontWeight: '600' }}
+                                        onPress={() => this.props.responseUser(comment)}
+                                    >
+                                        ({i18n.t('CORE.answer')})
+                                    </Text>
+                                </Text>
                                 {comment.response > 0 && !comment.responseList ?
-                                    <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 5 }} onPress={() => this.props.actions.getResponseByIdAndPage(comment._id)}>
+                                    <TouchableOpacity
+                                        style={{ flexDirection: 'row', alignItems: 'center', paddingVertical: 5 }} onPress={() => this.props.actions.getResponseByIdAndPage(comment._id)}>
                                         <FontAwesomeIcon style={{ marginRight: 5 }} icon={faReply} transform={{ rotate: 180 }} color={'#784BEA'} size={15} />
                                         <Text>{comment.response} responses </Text>
                                     </TouchableOpacity>
@@ -131,50 +143,63 @@ class CommentPage extends React.Component {
         />)
     }
 
-    render() {
-
+    _headerRender = () => {
         return (
-            <View style={styles.main_container}>
-                <View style={styles.container_header}>
-
-
-                    <View style={{ flex: 1, height: '100%', justifyContent: 'center' }}>
-                        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                            <FontAwesomeIcon icon={faAngleLeft} color={'black'} size={25} />
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 19 }}>Comments</Text>
-                    </View>
-                    <View style={{ flex: 1 }} />
-
-
+            <View style={styles.container_header}>
+                <View style={{ flex: 1, height: '100%', justifyContent: 'center' }}>
+                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+                        <FontAwesomeIcon icon={faAngleLeft} color={'black'} size={25} />
+                    </TouchableOpacity>
                 </View>
+                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 19 }}>{i18n.t('CORE.Comment')}</Text>
+                </View>
+                <View style={{ flex: 1 }} />
+            </View>
+        )
+    }
 
+    _bodyRender = () => {
+        return (<FlatList
+            style={{ flex: 1, paddingTop: 20 }}
+            showsVerticalScrollIndicator={false}
+            data={this.props.CommentList.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
+            keyExtractor={(item) => item._id.toString()}
+            renderItem={({ item }) => this._oneComment(item)}
+        />)
+    }
 
+    _footerRender = () => {
+        return (
+            <View style={{ flexDirection: 'row', borderRadius: 15, marginVertical: 15, marginHorizontal: 20, backgroundColor: '#E8E8E8', height: 'auto' }}>
 
-
-                <FlatList
-                    style={{ flex: 1, paddingTop: 20 }}
-                    showsVerticalScrollIndicator={false}
-                    data={this.props.CommentList.commentList.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
-                    keyExtractor={(item) => item._id.toString()}
-                    renderItem={({ item }) => this._oneComment(item)}
+                <TextInput
+                    placeholder={i18n.t('FEED-PUBLICATION.Write-a-comment')}
+                    placeholderTextColor="black"
+                    value={this.state.textComment}
+                    style={{ flex: 9, padding: 15, paddingTop: 20, color: "black", height: '100%', minHeight: 55, fontSize: 16 }}
+                    onChangeText={(val) => this.setState({ textComment: val })}
+                    onSubmitEditing={() => null}
+                    multiline={true}
+                    numberOfLines={10}
                 />
 
-
-                <View style={{ height: 45, width: '100%', backgroundColor: 'green' }}>
-
-                </View>
+                <TouchableOpacity onPress={() => null}
+                    style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
+                    <FontAwesomeIcon icon={faPaperPlane} color={'black'} size={19} />
+                </TouchableOpacity>
 
             </View>
+        )
+    }
 
-
-
-
-
-
-
+    render() {
+        return (
+            <View style={styles.main_container}>
+                {this._headerRender()}
+                {this._bodyRender()}
+                {this._footerRender()}
+            </View>
         )
     }
 }
@@ -197,7 +222,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: 15,
-        borderColor: 'grey',
+        borderColor: '#b3b3b3',
         borderBottomWidth: 0.3,
     }
 })
