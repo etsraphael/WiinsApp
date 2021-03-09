@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, FlatList, TouchableOpacity, TextInput } from 'react-native'
+import { StyleSheet, View, Text, FlatList, TouchableOpacity, TextInput, KeyboardAvoidingView } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
@@ -17,7 +17,8 @@ class CommentPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            textComment: ''
+            textComment: '',
+            baseComment: null
         }
     }
 
@@ -71,10 +72,10 @@ class CommentPage extends React.Component {
                             <View style={{ paddingLeft: 10, position: 'relative' }}>
                                 <Text style={{ color: '#1E2022', fontWeight: '600' }}>{comment.idProfil._meta.pseudo}</Text>
                                 <Text style={{ color: '#77838F', lineHeight: 18, paddingTop: 5 }}>
-                                    <Text>{comment.text}</Text>
+                                    <Text>{comment.text} </Text>
                                     <Text
                                         style={{ marginLeft: 15, color: '#7055E8', fontWeight: '600' }}
-                                        onPress={() => this.props.responseUser(comment)}
+                                        onPress={() => this.setState({baseComment: comment})}
                                     >
                                         ({i18n.t('CORE.answer')})
                                     </Text>
@@ -171,25 +172,36 @@ class CommentPage extends React.Component {
 
     _footerRender = () => {
         return (
-            <View style={{ flexDirection: 'row', borderRadius: 15, marginVertical: 15, marginHorizontal: 20, backgroundColor: '#E8E8E8', height: 'auto' }}>
+            <View>
+                {!!this.state.baseComment ?
+                    <TouchableOpacity
+                        onPress={() => this.setState({ baseComment: null })}
+                        style={{ position: 'absolute', top: -32, paddingVertical: 5, paddingHorizontal: 15, borderTopRightRadius: 20, borderColor: '#d1d1d16b', borderWidth: 1, flexDirection: 'row', alignItems: 'center' }}>
+                        <FontAwesomeIcon style={{ marginRight: 5 }} icon={faReply} transform={{ rotate: 180 }} color={'#784BEA'} size={15} />
+                        <Text style={{ fontSize: 17, color: '#1E2022' }}>{this.state.baseComment.idProfil._meta.pseudo}<Text style={{ color: '#7055E8', fontWeight: '600' }}> Cancel</Text> </Text>
+                    </TouchableOpacity>
+                    : null}
 
-                <TextInput
-                    placeholder={i18n.t('FEED-PUBLICATION.Write-a-comment')}
-                    placeholderTextColor="black"
-                    value={this.state.textComment}
-                    style={{ flex: 9, padding: 15, paddingTop: 20, color: "black", height: '100%', minHeight: 55, fontSize: 16 }}
-                    onChangeText={(val) => this.setState({ textComment: val })}
-                    onSubmitEditing={() => null}
-                    multiline={true}
-                    numberOfLines={10}
-                />
+                <View style={{ flexDirection: 'row', borderRadius: 15, marginVertical: 15, marginHorizontal: 20, backgroundColor: '#E8E8E8', height: 'auto' }}>
+                    <TextInput
+                        placeholder={i18n.t('FEED-PUBLICATION.Write-a-comment')}
+                        placeholderTextColor="black"
+                        value={this.state.textComment}
+                        style={{ flex: 9, padding: 15, paddingTop: 20, color: "black", height: '100%', minHeight: 55, fontSize: 16 }}
+                        onChangeText={(val) => this.setState({ textComment: val })}
+                        onSubmitEditing={() => null}
+                        multiline={true}
+                        numberOfLines={10}
+                    />
 
-                <TouchableOpacity onPress={() => null}
-                    style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
-                    <FontAwesomeIcon icon={faPaperPlane} color={'black'} size={19} />
-                </TouchableOpacity>
-
+                    <TouchableOpacity onPress={() => null}
+                        style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
+                        <FontAwesomeIcon icon={faPaperPlane} color={'black'} size={19} />
+                    </TouchableOpacity>
+                </View>
             </View>
+
+
         )
     }
 
@@ -197,8 +209,15 @@ class CommentPage extends React.Component {
         return (
             <View style={styles.main_container}>
                 {this._headerRender()}
+                <KeyboardAvoidingView
+                        behavior={Platform.OS === "ios" ? "padding" : null}
+                        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
+                        style={{ flex: 1 }}
+                    >
+
                 {this._bodyRender()}
                 {this._footerRender()}
+                </KeyboardAvoidingView>
             </View>
         )
     }
@@ -208,7 +227,7 @@ const styles = StyleSheet.create({
 
     main_container: {
         flex: 1,
-        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0
     },
     container_avatar_comment: {
         justifyContent: 'center',
