@@ -46,15 +46,8 @@ class Feed extends React.Component {
 
     // to display the modal view
     _toggleModal = (event) => {
-
-
-
-        if(!!event){
-            this.props.actions.putPublicationInModalActions(event.publication)
-        } else {
-            this.props.actions.resetPublicationInModalActions()
-        }
-
+        if(!!event){ this.props.actions.putPublicationInModalActions(event.publication) }
+        else { this.props.actions.resetPublicationInModalActions() }
         this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
@@ -191,13 +184,7 @@ class Feed extends React.Component {
 
                     {/* Modal */}
                     {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
-                    {/* {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null} */}
-
                     {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
-
-                    
-
-
                     {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
                     {this.state.reportModal ? <OptionPublicationModal toggleReportModal={(event) => this._toggleReportModal(event)} isVisible={this.state.reportModal} publicationId={this.state.reportPublicationId}/> : null}
 
