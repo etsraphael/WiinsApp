@@ -271,7 +271,6 @@ class Profile extends React.Component {
 
     // to display the principale view 
     _renderBody = () => {
-
         return (
             <View style={styles.body_container}>
                 {/* ActifSpace */}
