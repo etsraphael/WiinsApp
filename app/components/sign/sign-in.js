@@ -1,5 +1,9 @@
 import React from 'react'
-import { StyleSheet, View, TextInput, Text, TouchableOpacity, Keyboard, ActivityIndicator, StatusBar, Platform } from 'react-native'
+import {
+    StyleSheet, View, TextInput, Text, TouchableOpacity,
+    Keyboard, ActivityIndicator, StatusBar, Platform,
+    KeyboardAvoidingView, ScrollView
+} from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
@@ -76,11 +80,11 @@ class SignIn extends React.Component {
                 <View style={{ marginTop: 25 }}>
                     <TouchableOpacity style={styles.btn_log} onPress={() => this._login()} underlayColor='#fff'>
                         <LinearGradient
-                        colors={[ '#35D1FE', '#960CF8' ]}
-                        locations={[0, 1]}
-                        start={{ x: 0.1, y: 0.09 }}
-                        end={{ x: 0.94, y: 0.95 }}
-                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            colors={['#35D1FE', '#960CF8']}
+                            locations={[0, 1]}
+                            start={{ x: 0.1, y: 0.09 }}
+                            end={{ x: 0.94, y: 0.95 }}
+                            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                             <Text style={styles.loginText}>{I18n.t('LOGIN-REGISTRER.Login')}</Text>
                         </LinearGradient>
                     </TouchableOpacity>
@@ -91,23 +95,33 @@ class SignIn extends React.Component {
 
     render() {
         return (
-            <>
-            <StatusBar barStyle="dark-content" hidden = {false} backgroundColor = "transparent" translucent = {true}/>
-            <View style={styles.actionBarStyle}>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
-                    <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />  
-                </TouchableOpacity>
-            </View>
-            <View style={{ flex: 1, width: '100%', padding: 31, paddingTop: 50, backgroundColor: 'white' }}>
-                <View style={styles.brand_container}>
-                    <Text style={{ color: '#960CF8', fontSize: 32 }}>{I18n.t('CORE.Hello')}</Text>
-                    <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? I18n.t('LOGIN-REGISTRER.Login-first-to-continue') : I18n.t('LOGIN-REGISTRER.Checking-yr-infos')}</Text>
+            <View style={{flex: 1, backgroundColor: 'white' }}>
+                <StatusBar barStyle="dark-content" hidden={false} backgroundColor="transparent" translucent={true} />
+                <View style={styles.actionBarStyle}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
+                        <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.card_container}>
-                    {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
-                </View>
+
+
+                <KeyboardAvoidingView
+                    behavior={Platform.OS === "ios" ? "padding" : null}
+                    keyboardVerticalOffset={0}
+                    style={{ width: '100%', padding: 31, paddingTop: 50, flex: 1 }}
+                >
+
+                    <ScrollView showsVerticalScrollIndicator={false}>
+                        <View style={styles.brand_container}>
+                            <Text style={{ color: '#960CF8', fontSize: 32 }}>{I18n.t('CORE.Hello')}</Text>
+                            <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? I18n.t('LOGIN-REGISTRER.Login-first-to-continue') : I18n.t('LOGIN-REGISTRER.Checking-yr-infos')}</Text>
+                        </View>
+                        <View style={styles.card_container}>
+                            {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
+                        </View>
+                    </ScrollView>
+
+                </KeyboardAvoidingView>
             </View>
-            </>
         )
     }
 }
@@ -178,14 +192,14 @@ const styles = StyleSheet.create({
     inputLabel: {
         color: '#ABABAB',
     },
-    actionBarStyle: { 
-        flexDirection: 'row', 
-        paddingTop: StatusBar.currentHeight, 
-        paddingHorizontal: 31, 
+    actionBarStyle: {
+        flexDirection: 'row',
+        paddingTop: StatusBar.currentHeight,
+        paddingHorizontal: 31,
         backgroundColor: "white",
-        height: 60 + StatusBar.currentHeight, 
+        height: 60 + StatusBar.currentHeight,
         alignItems: 'center',
-        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10
     }
 })
 

@@ -1,5 +1,8 @@
 import React from 'react'
-import { StyleSheet, View, TextInput, Text, TouchableOpacity, ActivityIndicator, ScrollView, StatusBar, Button } from 'react-native'
+import {
+    StyleSheet, View, TextInput, Text, TouchableOpacity,
+    ActivityIndicator, ScrollView, StatusBar, KeyboardAvoidingView
+} from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
@@ -35,10 +38,10 @@ class SignUp extends React.Component {
                 switch (newProps.MyUser.message) {
                     case 'success': return this.setState({ registration_success: true })
                     case 'pseudo_already_exist': {
-                        return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Pseudo-already-exist'), duration: Snackbar.LENGTH_LONG })
+                        return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Pseudo-already-exist'), duration: Snackbar.LENGTH_LONG })
                     }
                     case 'email_already_exist': {
-                        return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Email_already_exist'), duration: Snackbar.LENGTH_LONG })
+                        return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Email_already_exist'), duration: Snackbar.LENGTH_LONG })
                     }
                 }
             }
@@ -48,8 +51,8 @@ class SignUp extends React.Component {
     // to send the registration
     _register = () => {
 
-        if(!this.state.conditionAccepted){
-            return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
+        if (!this.state.conditionAccepted) {
+            return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
         }
 
         if (!this._verificationTrue()) return null
@@ -67,26 +70,26 @@ class SignUp extends React.Component {
 
         // null value
         if (!this.state.email || !this.state.pseudo || !this.state.birthDate || !this.state.password) {
-            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Missing-informations'), duration: Snackbar.LENGTH_LONG })
+            Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Missing-informations'), duration: Snackbar.LENGTH_LONG })
             return false
         }
 
         // email validation
         const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (reg.test(this.state.email) === false) {
-            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Email-invalid'), duration: Snackbar.LENGTH_LONG })
+            Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Email-invalid'), duration: Snackbar.LENGTH_LONG })
             return false
         }
 
         // password validation
         if (this.state.password.length <= 4) {
-            Snackbar.show({ text: I18n.t('SETTING.password.Error-min-5-char'), duration: Snackbar.LENGTH_LONG })
+            Snackbar.show({ text: i18n.t('SETTING.password.Error-min-5-char'), duration: Snackbar.LENGTH_LONG })
             return false
         }
 
         // pseudo validation
         if (this.state.pseudo.length <= 4) {
-            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Your-username-must-have-at-least-4-char'), duration: Snackbar.LENGTH_LONG })
+            Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Your-username-must-have-at-least-4-char'), duration: Snackbar.LENGTH_LONG })
             return false
         }
 
@@ -113,16 +116,16 @@ class SignUp extends React.Component {
     _displayInput() {
 
         return (
-            <View style={{marginBottom: 70}}>
+            <View style={{ marginBottom: 70 }}>
                 <View>
-                    <Text style={styles.inputLabel}>{I18n.t('PROFILE.Pseudo')}</Text>
+                    <Text style={styles.inputLabel}>{i18n.t('PROFILE.Pseudo')}</Text>
                     <TextInput
                         style={styles.input_container}
                         onChangeText={(val) => this.setState({ pseudo: val })}
                     />
                 </View>
                 <View>
-                    <Text style={styles.inputLabel}>{I18n.t('PROFILE.Email')}</Text>
+                    <Text style={styles.inputLabel}>{i18n.t('PROFILE.Email')}</Text>
                     <TextInput
                         autoCompleteType={'email'}
                         style={styles.input_container}
@@ -130,7 +133,7 @@ class SignUp extends React.Component {
                     />
                 </View>
                 <View>
-                    <Text style={styles.inputLabel}>{I18n.t('CORE.Password')}</Text>
+                    <Text style={styles.inputLabel}>{i18n.t('CORE.Password')}</Text>
                     <TextInput
                         style={styles.input_container}
                         secureTextEntry={true}
@@ -138,7 +141,7 @@ class SignUp extends React.Component {
                     />
                 </View>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Text style={styles.inputLabel}>{I18n.t('PROFILE.BirthDate')}</Text>
+                    <Text style={styles.inputLabel}>{i18n.t('PROFILE.BirthDate')}</Text>
 
                     <TouchableOpacity style={dateStyle.containerDatePicker} onPress={() => this.setState({ showDatePicker: true })}>
                         <Text>{this.state.birthDate}</Text>
@@ -176,8 +179,8 @@ class SignUp extends React.Component {
 
                     <View style={{ flex: 7, paddingLeft: 15 }}>
                         <Text>
-                        {i18n.t('LOGIN-REGISTRER.accept-tou')}
-                        <Text style={{ color: '#960CF8' }} onPress={() => this.props.navigation.navigate('SettingPrivacy')}> (click here to read it)</Text>
+                            {i18n.t('LOGIN-REGISTRER.accept-tou')}
+                            <Text style={{ color: '#960CF8' }} onPress={() => this.props.navigation.navigate('SettingPrivacy')}> (click here to read it)</Text>
                         </Text>
                     </View>
                 </View>
@@ -190,7 +193,7 @@ class SignUp extends React.Component {
                             start={{ x: 0.1, y: 0.09 }}
                             end={{ x: 0.94, y: 0.95 }}
                             style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={styles.loginText}>{I18n.t('LOGIN-REGISTRER.Registration')}</Text>
+                            <Text style={styles.loginText}>{i18n.t('LOGIN-REGISTRER.Registration')}</Text>
                         </LinearGradient>
                     </TouchableOpacity>
                 </View>
@@ -210,31 +213,36 @@ class SignUp extends React.Component {
                 </View>
                 {
                     !this.state.registration_success ? (
-                        <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 31, marginTop: 56 }}>
-                            <View style={styles.brand_container}>
-                                <Text style={{ color: '#960CF8', fontSize: 32 }}>{I18n.t('CORE.Hello')}</Text>
-                                <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? I18n.t('LOGIN-REGISTRER.Create-yr-account') : I18n.t('LOGIN-REGISTRER.Creating-yr-account')}</Text>
-                            </View>
-                            <View style={{ flex: 4, width: '100%', marginTop: 56 }}>
-                                {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
-                            </View>
-                        </ScrollView>
-                    ) : (
-                            <View style={{ width: '100%', paddingHorizontal: 45, justifyContent: 'center', alignItems: 'center' }}>
-                                <View style={{ flexDirection: 'row', marginBottom: 15 }}>
-                                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                                        <FontAwesomeIcon icon={faCheckCircle} color={'white'} size={25} />
-                                    </View>
-                                    <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
-                                        <Text style={{ fontSize: 18, color: 'white' }}>{I18n.t('LOGIN-REGISTRER.click-on-email')}</Text>
-                                    </View>
+                        <KeyboardAvoidingView
+                            behavior={Platform.OS === "ios" ? "padding" : null}
+                            keyboardVerticalOffset={0}
+                        >
+                            <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 31, marginTop: 56 }}>
+                                <View style={styles.brand_container}>
+                                    <Text style={{ color: '#960CF8', fontSize: 32 }}>{i18n.t('CORE.Hello')}</Text>
+                                    <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? i18n.t('LOGIN-REGISTRER.Create-yr-account') : i18n.t('LOGIN-REGISTRER.Creating-yr-account')}</Text>
                                 </View>
-                                <View style={{ backgroundColor: 'white', marginVertical: 25, height: 1, width: '80%' }}></View>
-                                <TouchableOpacity onPress={() => this.props.view('login')} style={styles.btn_back}>
-                                    <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}>{I18n.t('LOGIN-REGISTRER.Login')}</Text>
-                                </TouchableOpacity>
+                                <View style={{ flex: 4, width: '100%', marginTop: 56 }}>
+                                    {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
+                                </View>
+                            </ScrollView>
+                        </KeyboardAvoidingView>
+                    ) : (
+                        <View style={{ width: '100%', paddingHorizontal: 45, justifyContent: 'center', alignItems: 'center' }}>
+                            <View style={{ flexDirection: 'row', marginBottom: 15 }}>
+                                <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                                    <FontAwesomeIcon icon={faCheckCircle} color={'white'} size={25} />
+                                </View>
+                                <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
+                                    <Text style={{ fontSize: 18, color: 'white' }}>{i18n.t('LOGIN-REGISTRER.click-on-email')}</Text>
+                                </View>
                             </View>
-                        )
+                            <View style={{ backgroundColor: 'white', marginVertical: 25, height: 1, width: '80%' }}></View>
+                            <TouchableOpacity onPress={() => this.props.view('login')} style={styles.btn_back}>
+                                <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}>{i18n.t('LOGIN-REGISTRER.Login')}</Text>
+                            </TouchableOpacity>
+                        </View>
+                    )
                 }
             </ScrollView>
         )
