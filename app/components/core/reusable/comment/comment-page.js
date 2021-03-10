@@ -19,7 +19,8 @@ class CommentPage extends React.Component {
         super(props)
         this.state = {
             textComment: '',
-            baseComment: null
+            baseComment: null,
+            tagSearching: ''
         }
     }
 
@@ -184,6 +185,14 @@ class CommentPage extends React.Component {
         />)
     }
 
+    _tagListener = (val) => {
+
+        if(val == '@'){
+            alert('searching started')
+        }
+    
+    }
+
     _footerRender = () => {
         return (
             <View>
@@ -203,6 +212,7 @@ class CommentPage extends React.Component {
                         value={this.state.textComment}
                         style={styles.comment_input}
                         onChangeText={(val) => this.setState({ textComment: val })}
+                        onKeyPress={(event)=> this._tagListener(event.nativeEvent.key)}
                         onSubmitEditing={() => null}
                         multiline={true}
                         numberOfLines={10}
