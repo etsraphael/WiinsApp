@@ -11,6 +11,7 @@ import { faReply } from '@fortawesome/pro-duotone-svg-icons'
 import i18n from '../../../../../assets/i18n/i18n'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { faAngleLeft, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
+import TagSuggest from './../suggest/tag-suggest'
 
 class CommentPage extends React.Component {
 
@@ -25,6 +26,19 @@ class CommentPage extends React.Component {
     _heartColor = (liked) => {
         if (liked) return '#784BEA'
         else return '#77838F'
+    }
+
+    _renderSuggest() {
+        return (
+            <View style={styles.container_suggestions}>
+                <FlatList
+                    style={{margin: 15, borderRadius: 15, backgroundColor: '#acacac1a'}}
+                    data={this.props.SearchList.tag}
+                    keyExtractor={(item) => item._id.toString()}
+                    renderItem={({ item }) => (<TagSuggest suggest={item} />)}
+                />
+            </View>
+        )
     }
 
     _likeComment = (comment) => {
@@ -215,6 +229,7 @@ class CommentPage extends React.Component {
                         style={{ flex: 1 }}
                     >
                 {this._bodyRender()}
+                {this.props.SearchList.tag.length > 0 ? this._renderSuggest() : null}
                 {this._footerRender()}
                 </KeyboardAvoidingView>
             </View>
@@ -270,12 +285,21 @@ const styles = StyleSheet.create({
         height: '100%',
         minHeight: 55,
         fontSize: 16
+    },
+    container_suggestions: {
+        flex: 2,
+        top: 0,
+        position: 'absolute',
+        width: '100%',
+        borderTopWidth: 1,
+        borderColor: '#e6e6e6'
     }
 })
 
 const mapStateToProps = state => ({
     MyProfile: state.MyProfile,
-    CommentList: state.CommentList
+    CommentList: state.CommentList,
+    SearchList: state.Search
 })
 
 const ActionCreators = Object.assign(
