@@ -4,6 +4,7 @@ import { createAppContainer } from 'react-navigation'
 import HomeTube from '../components/space/tube/home-tube'
 import TubePage from '../components/space/tube/tube-page'
 import TubeListPage from '../components/space/tube/tube-list-page'
+import CommentPage from './../components/core/reusable/comment/comment-page'
 
 const HomeTubeRoute = createStackNavigator(
     { HomeTube: { screen: HomeTube } },
@@ -11,7 +12,10 @@ const HomeTubeRoute = createStackNavigator(
 )
 
 const TubePageRoute = createStackNavigator(
-    { TubePage: { screen: ({ navigation }) => <TubePage screenProps={{ rootNavigation: navigation }}/> } },
+    { 
+        TubePage: { screen: ({ navigation }) => <TubePage screenProps={{ rootNavigation: navigation }}/> },
+        Comments: { screen: CommentPage }
+    },
     { headerMode: 'none', initialRouteName: 'TubePage' }
 )
 

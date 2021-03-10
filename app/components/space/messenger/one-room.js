@@ -4,8 +4,8 @@ import {
     TouchableOpacity, KeyboardAvoidingView
 } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
-import * as RoomActions from '../../../../redux/OneRoom/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
+import * as RoomActions from '../../../redux/OneRoom/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
@@ -108,7 +108,7 @@ class OneRoom extends React.Component {
             !this.props.Room.isLoading
         ) {
             this.props.actions.getMessageByPage(
-                this.props.navigation.state.params.roomId, ++this.state.page,
+                this.props.roomSelected._id, ++this.state.page,
                 this.props.Room.room.nbMessage
             )
         }
@@ -136,7 +136,7 @@ class OneRoom extends React.Component {
             response_server: false,
             type: 'text'
         }
-        this.props.actions.sendMessage(message, this.props.navigation.state.params.roomId)
+        this.props.actions.sendMessage(message, this.props.roomSelected._id)
         this.setState({ textInput: '' })
     }
 

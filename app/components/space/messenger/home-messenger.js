@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, View, FlatList, ActivityIndicator, TouchableOpacity, Text } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
-import * as RoomsListActions from '../../../../redux/RoomList/actions'
-import * as SearchActions from '../../../../redux/SearchBar/actions'
+import * as MyUserActions from './../../../redux/MyUser/actions'
+import * as RoomsListActions from '../../../redux/RoomList/actions'
+import * as SearchActions from '../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import { faPlus } from '@fortawesome/pro-light-svg-icons'
 import OneRoomMin from './one-room-min'
@@ -12,10 +12,10 @@ import { faComments } from '@fortawesome/pro-duotone-svg-icons'
 import RoomCreation from './room-creation'
 import LinearGradient from 'react-native-linear-gradient'
 import Modal from 'react-native-modal'
-import * as RoomActions from '../../../../redux/OneRoom/actions'
+import * as RoomActions from '../../../redux/OneRoom/actions'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import I18n from '../../../i18n/i18n'
+import I18n from '../../../../assets/i18n/i18n'
 
 class HomeMessenger extends React.Component {
 
@@ -143,8 +143,10 @@ class HomeMessenger extends React.Component {
 
     // to go to a room
     _openARoom = (room) => {
-        this.setState({ oneRoomModal: true, roomSelected: room })
-        this.props.actions.getRoomById(room._id, 1, null)
+        if(!!room._id){
+            this.setState({ oneRoomModal: true, roomSelected: room })
+            this.props.actions.getRoomById(room._id, 1, null)
+        }
     }
 
     // to display the list of the room

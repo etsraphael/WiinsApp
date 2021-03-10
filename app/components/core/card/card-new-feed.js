@@ -1,9 +1,9 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
-import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
-import * as DiscoverdPublicationActions from '../../../../redux/DiscoverPublications/actions'
+import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
+import * as ProfilePublicationActions from '../../../redux/ProfilePublications/actions'
+import * as DiscoverdPublicationActions from '../../../redux/DiscoverPublications/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
@@ -109,7 +109,7 @@ class CardNewFeed extends React.Component {
     _renderPicture(publication) {
 
         return (
-            <TouchableWithoutFeedback // TouchableOpacity
+            <TouchableWithoutFeedback
                 style={styles.container_type}
                 onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >

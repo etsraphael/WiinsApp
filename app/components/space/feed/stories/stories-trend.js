@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet, View, FlatList, TouchableOpacity, ActivityIndicator, Text } from 'react-native'
 import { connect } from 'react-redux'
-import * as PublicationFeedActions from '../../../../../redux/FeedPublications/actions'
-import * as StoriesActions from '../../../../../redux/Stories/actions'
+import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
+import * as StoriesActions from '../../../../redux/Stories/actions'
 import { bindActionCreators } from 'redux'
 import Modal from 'react-native-modal'
 import FastImage from 'react-native-fast-image'
@@ -11,6 +11,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faTimes } from '@fortawesome/pro-light-svg-icons'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import Video from 'react-native-video'
+import { getDateTranslated } from '../../../../services/translation/translation-service'
+
 
 class StoriesTrend extends React.Component {
 
@@ -106,10 +108,10 @@ class StoriesTrend extends React.Component {
                                 priority: FastImage.priority.normal,
                             }} resizeMode={FastImage.resizeMode.cover}
                         />
+                        {}
                         <View style={{ justifyContent: 'center', paddingLeft: 15 }}>
                             <Text style={{ color: 'white', fontSize: 19 }}>{this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.profile._meta.pseudo}</Text>
-                            <Text style={{ color: 'white' }}>{this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.dateLastViews}</Text>
-
+                            <Text style={{ color: 'white' }}>{getDateTranslated(this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.publicationList[this.state.indexProgress].publication.createdAt)}</Text>
                         </View>
                     </View>
                     <TouchableOpacity style={{ justifyContent: 'center', textAlign: 'right', paddingVertical: 5, paddingHorizontal: 15 }} onPress={() => this.props.goBack()}>

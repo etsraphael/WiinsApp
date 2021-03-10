@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
+import * as MyUserActions from './../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import TubeNavigation from '../../../navigation/tube-navigation'
 

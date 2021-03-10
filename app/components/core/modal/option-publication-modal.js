@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity, FlatList } from 'react-native
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Modal from 'react-native-modal'
-import I18n from '../../../i18n/i18n'
+import I18n from '../../../../assets/i18n/i18n'
 import { faCheckCircle } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { sendReport } from './../../../services/report/report-service'

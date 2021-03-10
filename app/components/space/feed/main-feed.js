@@ -1,8 +1,8 @@
 import React from 'react'
 import { StatusBar, StyleSheet, View } from 'react-native'
 import { connect } from 'react-redux'
-import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
-import * as SearchActions from '../../../../redux/SearchBar/actions'
+import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
+import * as SearchActions from '../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import FeedNavigation from '../../../navigation/feed-navigation'
 

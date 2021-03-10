@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar } from 'react-native'
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
-import I18n from '../../i18n/i18n'
+import I18n from '../../../assets/i18n/i18n'
 
 class OnBoarding extends React.Component {
 

@@ -3,15 +3,17 @@ import { StyleSheet, View, ActivityIndicator, TouchableOpacity, Text, ScrollView
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
-import * as ProfileActions from '../../../../redux/Profile/actions'
-import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
-import * as MusicProjectListActions from '../../../../redux/MusicProjectList/actions'
-import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
+import * as ProfileActions from '../../../redux/Profile/actions'
+import * as ProfilePublicationActions from '../../../redux/ProfilePublications/actions'
+import * as MusicProjectListActions from '../../../redux/MusicProjectList/actions'
+import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
+import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
 import LinearGradient from 'react-native-linear-gradient'
 import ProfilePublication from './profile-publication'
 import ProfileMusic from './profile-music'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faNewspaper, faMusic, faVideo, faUserPlus, faArrowLeft, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
+import PublicationModalContainer from './../../core/modal/publication-modal-container'
 
 class Profile extends React.Component {
 
@@ -20,7 +22,8 @@ class Profile extends React.Component {
         this.state = {
             space: 'feed',
             pagePublication: 1,
-            publicationLoading: false
+            publicationLoading: false,
+            modal: false
         }
     }
 
@@ -268,7 +271,6 @@ class Profile extends React.Component {
 
     // to display the principale view 
     _renderBody = () => {
-
         return (
             <View style={styles.body_container}>
                 {/* ActifSpace */}
@@ -277,10 +279,17 @@ class Profile extends React.Component {
         )
     }
 
+    // to display the modal view
+    _toggleModal = (event) => {
+        if (!!event) { this.props.actions.putPublicationInModalActions(event.publication) }
+        else { this.props.actions.resetPublicationInModalActions() }
+        this.setState({ modal: !this.state.modal, PublicationModal: event })
+    }
+
     // to display the contents of the profile
     _listContent = () => {
         switch (this.state.space) {
-            case 'feed': return (<ProfilePublication />)
+            case 'feed': return (<ProfilePublication toggleModal={(event) => this._toggleModal(event)} />)
             case 'music': {
                 this.props.actions.getmusicProjectListByProfile(1, this.props.screenProps.rootNavigation.state.params.profileId)
                 return (<ProfileMusic />)
@@ -298,6 +307,9 @@ class Profile extends React.Component {
                     {this.props.Profile.isLoading ? this._displayLoading() : null}
                     {this.props.Profile.profile !== null ? this._displayPage() : null}
                 </ScrollView>
+
+                {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
+
             </View>
         )
     }
@@ -333,7 +345,8 @@ const ActionCreators = Object.assign(
     ProfileActions,
     PublicationFeedActions,
     ProfilePublicationActions,
-    MusicProjectListActions
+    MusicProjectListActions,
+    PublicationInModalActions
 )
 
 const mapDispatchToProps = dispatch => ({

@@ -10,6 +10,16 @@ class ProfilePublication extends React.Component {
         super(props)
     }
 
+    _cardRender = (item, index) => {
+        return (
+            <CardNewFeed
+                index={index}
+                publication={item}
+                navigation={this.props.navigation}
+                space={'profile'}
+                toggleModal={(event) => this.props.toggleModal(event)}
+            />)
+    }
 
     render() {
         return (
@@ -17,7 +27,7 @@ class ProfilePublication extends React.Component {
                 style={{ flex: 1 }}
                 contentContainerStyle={{ flex: 1 }}
                 data={this.props.ProfilePublications.publications}
-                renderItem={({ item, index }) => <CardNewFeed index={index} publication={item} navigation={this.props.navigation} space={'profile'} />}
+                renderItem={({ item, index }) => this._cardRender(item, index)}
                 keyExtractor={item => item.id}
             />
         )

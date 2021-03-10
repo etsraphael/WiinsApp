@@ -5,25 +5,34 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import ProfilePublication from './profile-publication'
 import ProfileMusic from './profile-music'
-import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
-import * as MusicProjectListActions from '../../../../redux/MusicProjectList/actions'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
+import * as ProfilePublicationActions from '../../../redux/ProfilePublications/actions'
+import * as MusicProjectListActions from '../../../redux/MusicProjectList/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
+import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
 import ActionSheet from 'react-native-actionsheet'
 import AsyncStorage from '@react-native-community/async-storage';
 import { faNewspaper, faMusic, faVideo, faArrowLeft, faUserCog } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import PublicationModalContainer from './../../core/modal/publication-modal-container'
 
 class MyProfile extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            space: 'feed'
+            space: 'feed',
+            modal: false
         }
     }
 
     componentDidMount() {
         this.props.actions.getByModeProfile(1, 'myfeedpublication')
+    }
+
+    _toggleModal = (event) => {
+        if (!!event) { this.props.actions.putPublicationInModalActions(event.publication) }
+        else { this.props.actions.resetPublicationInModalActions() }
+        this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
     // to set the dropdowns actions
@@ -46,7 +55,7 @@ class MyProfile extends React.Component {
     }
 
     _spaceSelected = (space) => {
-        if(this.state.space == space){
+        if (this.state.space == space) {
             return 'black'
         } else {
             return 'grey'
@@ -61,13 +70,13 @@ class MyProfile extends React.Component {
             // music
             case 2: return (
                 <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <TouchableOpacity onPress={() => this.setState({space: 'feed'})}
-                    style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25}/>
+                    <TouchableOpacity onPress={() => this.setState({ space: 'feed' })}
+                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25} />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => {this.setState({space: 'music'}); this.props.actions.getMymusicProjectList(1)} }
-                    style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faMusic} color={this._spaceSelected('music')} size={25}/>
+                    <TouchableOpacity onPress={() => { this.setState({ space: 'music' }); this.props.actions.getMymusicProjectList(1) }}
+                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faMusic} color={this._spaceSelected('music')} size={25} />
                     </TouchableOpacity>
                 </View>
             )
@@ -75,10 +84,10 @@ class MyProfile extends React.Component {
             case 3: return (
                 <View style={{ flexDirection: 'row', padding: 15 }}>
                     <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25}/>
+                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25} />
                     </TouchableOpacity>
                     <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faVideo} color={this._spaceSelected('tube')} size={25}/>
+                        <FontAwesomeIcon icon={faVideo} color={this._spaceSelected('tube')} size={25} />
                     </TouchableOpacity>
                 </View>
             )
@@ -86,13 +95,13 @@ class MyProfile extends React.Component {
             case 4: return (
                 <View style={{ flexDirection: 'row', padding: 15 }}>
                     <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25}/>
+                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25} />
                     </TouchableOpacity>
                     <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faVideo} color={this._spaceSelected('tube')} size={25}/>
+                        <FontAwesomeIcon icon={faVideo} color={this._spaceSelected('tube')} size={25} />
                     </TouchableOpacity>
                     <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faMusic} color={this._spaceSelected('music')} size={25}/>
+                        <FontAwesomeIcon icon={faMusic} color={this._spaceSelected('music')} size={25} />
                     </TouchableOpacity>
                 </View>)
         }
@@ -170,7 +179,7 @@ class MyProfile extends React.Component {
     // to display the content of the profile
     _listContent = () => {
         switch (this.state.space) {
-            case 'feed': return (<ProfilePublication />)
+            case 'feed': return (<ProfilePublication toggleModal={(event) => this._toggleModal(event)} />)
             case 'music': return (<ProfileMusic />)
         }
     }
@@ -190,6 +199,7 @@ class MyProfile extends React.Component {
                     destructiveButtonIndex={1}
                     onPress={(index) => { this._menuFunctions(index) }}
                 />
+                {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
             </View>
         )
     }
@@ -224,7 +234,8 @@ const ActionCreators = Object.assign(
     // PublicationFeedActions,
     ProfilePublicationActions,
     MusicProjectListActions,
-    MyUserActions
+    MyUserActions,
+    PublicationInModalActions
 )
 
 const mapDispatchToProps = dispatch => ({
