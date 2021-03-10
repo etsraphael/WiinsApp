@@ -22,7 +22,8 @@ class CommentPage extends React.Component {
         this.state = {
             textComment: '',
             baseComment: null,
-            tagSearching: ''
+            tagSearching: '',
+            searchingActif: false
         }
     }
 
@@ -35,7 +36,7 @@ class CommentPage extends React.Component {
         return (
             <View style={styles.container_suggestions}>
                 <FlatList
-                    style={{margin: 15, borderRadius: 15, backgroundColor: '#acacac1a'}}
+                    style={{ margin: 15, borderRadius: 15, backgroundColor: '#acacac1a' }}
                     data={this.props.SearchList.tag}
                     keyExtractor={(item) => item._id.toString()}
                     renderItem={({ item }) => (<TagSuggest suggest={item} />)}
@@ -92,7 +93,7 @@ class CommentPage extends React.Component {
                                     <Text>{comment.text} </Text>
                                     <Text
                                         style={{ marginLeft: 15, color: '#7055E8', fontWeight: '600' }}
-                                        onPress={() => this.setState({baseComment: comment})}
+                                        onPress={() => this.setState({ baseComment: comment })}
                                     >
                                         ({i18n.t('CORE.answer')})
                                     </Text>
@@ -187,12 +188,39 @@ class CommentPage extends React.Component {
         />)
     }
 
+    _writtingListener = (val) => {
+        this.setState({ textComment: val })
+    }
+
     _tagListener = (val) => {
 
-        if(val == '@'){
-            // this.props.actions.tagSearchAction('levin')
+        // active the search
+        if (val == '@') {
+            return this.setState({ searchingActif: true })
         }
-    
+
+        // stop the search
+        if (this.searchingActif && val == ' ') {
+            return this.setState({ searchingActif: false })
+        }
+
+        // update the search
+        if (this.state.searchingActif) {
+
+            let searchingValue
+
+            if (val == 'Backspace') { searchingValue = this.state.tagSearching.slice(0, -1) }
+            else { searchingValue = this.state.tagSearching + val }
+
+            this.setState({ tagSearching: searchingValue })
+
+
+            console.log(searchingValue)
+
+            return this.props.actions.tagSearchAction(searchingValue)
+
+        }
+
     }
 
     _footerRender = () => {
@@ -213,8 +241,8 @@ class CommentPage extends React.Component {
                         placeholderTextColor="black"
                         value={this.state.textComment}
                         style={styles.comment_input}
-                        onChangeText={(val) => this.setState({ textComment: val })}
-                        onKeyPress={(event)=> this._tagListener(event.nativeEvent.key)}
+                        onChangeText={(val) => this._writtingListener(val)}
+                        onKeyPress={(event) => this._tagListener(event.nativeEvent.key)}
                         onSubmitEditing={() => null}
                         multiline={true}
                         numberOfLines={10}
@@ -236,13 +264,13 @@ class CommentPage extends React.Component {
             <View style={styles.main_container}>
                 {this._headerRender()}
                 <KeyboardAvoidingView
-                        behavior={Platform.OS === "ios" ? "padding" : null}
-                        keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
-                        style={{ flex: 1 }}
-                    >
-                {this._bodyRender()}
-                {this.props.SearchList.tag.length > 0 ? this._renderSuggest() : null}
-                {this._footerRender()}
+                    behavior={Platform.OS === "ios" ? "padding" : null}
+                    keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
+                    style={{ flex: 1 }}
+                >
+                    {this._bodyRender()}
+                    {this.props.SearchList.tag.length !== 0 ? this._renderSuggest() : null}
+                    {this._footerRender()}
                 </KeyboardAvoidingView>
             </View>
         )
