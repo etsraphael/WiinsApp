@@ -33,7 +33,14 @@ class CommentPage extends React.Component {
     }
 
     _addPseudoInComment = (profile) => {
-        this.setState({ textComment: this.state.textComment + profile._meta.pseudo, searchingActif: false, tagSearching: '' })
+
+        const inputComment = this.state.textComment.replace('@' + this.state.tagSearching, '@' + profile._meta.pseudo + ' ')
+
+        this.setState({ 
+            textComment: inputComment,
+            searchingActif: false,
+            tagSearching: ''
+        })
         this.props.actions.searchResetActions()
     }
 
