@@ -14,16 +14,6 @@ class PublicationStoryHeader extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = {
-            fakeStories: [
-                { url: 'https://images.unsplash.com/photo-1606695411535-e4e04b4cd6ba?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80' },
-                { url: 'https://images.unsplash.com/photo-1581729119391-e7eacf938875?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80' },
-                { url: 'https://images.unsplash.com/photo-1606312048149-08e754ca7958?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80' },
-                { url: 'https://images.unsplash.com/photo-1606247193592-53da505571f8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1308&q=80' },
-                { url: 'https://images.unsplash.com/photo-1605375641993-6121a8e10c56?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80' },
-                { url: 'https://images.unsplash.com/photo-1606276969080-bf446209054a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80' },
-            ]
-        }
     }
 
     UNSAFE_componentWillMount() {
