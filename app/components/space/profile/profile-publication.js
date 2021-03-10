@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { FlatList } from 'react-native'
-import CardNewFeed from './../../core/card/card-new-feed'
+import CardNewFeed from './../../core/reusable/card/card-new-feed'
 
 class ProfilePublication extends React.Component {
 

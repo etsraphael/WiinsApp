@@ -1,6 +1,6 @@
 import { createStackNavigator } from 'react-navigation-stack'
 import { createAppContainer } from 'react-navigation'
-import CardModal from './../components/core/card/card-modal'
+import CardModal from './..//components/core/reusable/card/card-modal'
 import CommentPage from './../components/core/reusable/comment/comment-page'
 
 const MainRoute = createStackNavigator(

@@ -6,14 +6,14 @@ import * as SearchActions from '../../../redux/SearchBar/actions'
 import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStoryHeader from './stories/publication-story-header'
-import StantardSuggest from '../../core/stantard-suggest'
+import StantardSuggest from '../../core/reusable/suggest/stantard-suggest'
 import PublicationModalContainer from '../../core/modal/publication-modal-container'
 import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
-import CardNewFeed from './../../core/card/card-new-feed'
+import CardNewFeed from './../../core/reusable/card/card-new-feed'
 
 class Feed extends React.Component {
 
