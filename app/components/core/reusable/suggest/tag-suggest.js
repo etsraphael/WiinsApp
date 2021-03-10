@@ -13,7 +13,7 @@ class TagSuggest extends React.Component {
 
     // to add a profile
     _addProfile = (profile) => {
-        DeviceEventEmitter.emit('friendTagged', profile)
+        this.props.addPseudoInComment(profile)
         this.props.actions.searchResetActions()
     }
 

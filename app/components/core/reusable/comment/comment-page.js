@@ -32,6 +32,11 @@ class CommentPage extends React.Component {
         else return '#77838F'
     }
 
+    _addPseudoInComment = (profile) => {
+        this.setState({ textComment: this.state.textComment + profile._meta.pseudo, searchingActif: false, tagSearching: '' })
+        this.props.actions.searchResetActions()
+    }
+
     _renderSuggest() {
         return (
             <View style={styles.container_suggestions}>
@@ -39,7 +44,7 @@ class CommentPage extends React.Component {
                     style={{ margin: 15, borderRadius: 15, backgroundColor: '#acacac1a' }}
                     data={this.props.SearchList.tag}
                     keyExtractor={(item) => item._id.toString()}
-                    renderItem={({ item }) => (<TagSuggest suggest={item} />)}
+                    renderItem={({ item }) => (<TagSuggest suggest={item} addPseudoInComment={(event) => this._addPseudoInComment(event)} />)}
                 />
             </View>
         )
