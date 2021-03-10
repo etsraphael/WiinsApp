@@ -209,16 +209,16 @@ class CommentPage extends React.Component {
 
             let searchingValue
 
+            if (val == 'Backspace' &&  this.state.tagSearching == '') { 
+                this.props.actions.searchResetActions()
+                return this.setState({ searchingActif: false, tagSearching: '' }) 
+            }
             if (val == 'Backspace') { searchingValue = this.state.tagSearching.slice(0, -1) }
             else { searchingValue = this.state.tagSearching + val }
 
             this.setState({ tagSearching: searchingValue })
 
-
-            console.log(searchingValue)
-
             return this.props.actions.tagSearchAction(searchingValue)
-
         }
 
     }
