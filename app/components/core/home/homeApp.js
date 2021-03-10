@@ -2,8 +2,8 @@ import React from 'react'
 import { StyleSheet, View, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as PlayerMusicActions from './../../redux/Player/actions'
-import * as MyProfileActions from './../../redux/MyProfile/actions'
+import * as PlayerMusicActions from '../../../redux/Player/actions'
+import * as MyProfileActions from '../../../redux/MyProfile/actions'
 
 class HomeApp extends React.Component {
 

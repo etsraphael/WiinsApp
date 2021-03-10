@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { StyleSheet, View } from 'react-native'
-import MiniPlayer from './mini-player'
-import ContainerHomeNav from '../../navigation/container-home-nav'
-import Sign from '../sign/sign'
+import MiniPlayer from './../reusable/music/mini-player'
+import ContainerHomeNav from '../../../navigation/container-home-nav'
+import Sign from '../../sign/sign'
 
 class MainApp extends React.Component {
 
