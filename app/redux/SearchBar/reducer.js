@@ -72,6 +72,13 @@ export default SearchReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+    case ActionTypes.COMPLETE_TAG_LIST: {
+      return {
+        ...state,
+        isLoading: false,
+        tag: action.payload
+      }
+    }
     case ActionTypes.SEARCH_RESET: {
       return initialState
     }

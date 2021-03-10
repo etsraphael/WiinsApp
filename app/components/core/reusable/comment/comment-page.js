@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import * as SearchActions from '../../../../redux/SearchBar/actions'
 import * as CommentListActions from '../../../../redux/CommentList/actions'
+import * as SearchBarActions from '../../../../redux/SearchBar/actions'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHeart } from '@fortawesome/pro-solid-svg-icons'
 import { faReply } from '@fortawesome/pro-duotone-svg-icons'
@@ -12,6 +13,7 @@ import i18n from '../../../../../assets/i18n/i18n'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { faAngleLeft, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
 import TagSuggest from './../suggest/tag-suggest'
+
 
 class CommentPage extends React.Component {
 
@@ -188,7 +190,7 @@ class CommentPage extends React.Component {
     _tagListener = (val) => {
 
         if(val == '@'){
-            alert('searching started')
+            // this.props.actions.tagSearchAction('levin')
         }
     
     }
@@ -315,7 +317,8 @@ const mapStateToProps = state => ({
 const ActionCreators = Object.assign(
     {},
     SearchActions,
-    CommentListActions
+    CommentListActions,
+    SearchBarActions
 )
 
 const mapDispatchToProps = dispatch => ({

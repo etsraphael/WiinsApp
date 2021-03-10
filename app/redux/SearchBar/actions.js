@@ -6,6 +6,10 @@ export function searchSuccess(publication) {
     return { type: ActionTypes.SEARCH_SUCCESS, payload: publication }
 }
 
+export function searchTagFriendSuccess(payload) {
+    return { type: ActionTypes.COMPLETE_TAG_LIST, payload }
+}
+
 export function searchSuccessWithCategory(payload, type) {
     switch (type) {
         case 'ProfileSuggestion': return { type: ActionTypes.COMPLETE_PROFILE_LIST, payload }
@@ -108,6 +112,32 @@ export function friendsearch(name) {
                 .then((response) => response.json())
                 .then(async (response) => {
                     if (response.status == 200) return dispatch(searchSuccess(response.results))
+                    return dispatch(searchFail(response.message))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(searchFail(error));
+        }
+    };
+}
+
+export function tagSearchAction(name) {
+    return async (dispatch) => {
+        try {
+            dispatch(searchStart())
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/friends/profiles?q=' + name
+
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) return dispatch(searchTagFriendSuccess(response.results))
                     return dispatch(searchFail(response.message))
                 })
         } catch (error) {
