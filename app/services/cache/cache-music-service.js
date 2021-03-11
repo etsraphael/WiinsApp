@@ -1,5 +1,6 @@
 import AsyncStorage from '@react-native-community/async-storage'
 import RNFetchBlob from 'rn-fetch-blob'
+import { sendError } from './../../../app/services/error/error-service'
 
 export async function addRefMusic(url, actions) {
 
@@ -183,25 +184,36 @@ export async function getCacheLinkOrSeverLink(url) {
 
 export async function verificationMusicCacheFormat(musicList) {
 
-    // get the musicRefCache
-    let musicRefCache = await AsyncStorage.getItem('musicRefCache')
+    try {
+        // get the musicRefCache
+        let musicRefCache = await AsyncStorage.getItem('musicRefCache')
 
-    // pars the json to manipulate it
-    musicRefCache = JSON.parse(musicRefCache)
+        // pars the json to manipulate it
+        musicRefCache = JSON.parse(musicRefCache)
 
-    // replace the link if it's in the cache
-    for ([i, m] of musicList.entries()) {
-        const musicFound = musicRefCache.find(music => (music.url == m.file) && (music.state == 'confirmed'))
-
-        if (musicFound) {
-            musicList[i].file = musicFound.path
-            musicList[i].inCache = 'confirmed'
-        } else {
-            musicList[i].inCache = 'not'
+        if(!!!musicRefCache) {
+            return musicList
         }
+
+        // replace the link if it's in the cache
+        for ([i, m] of musicList.entries()) {
+
+            const musicFound = musicRefCache.find(music => (music.url == m.file) && (music.state == 'confirmed'))
+
+            if (musicFound) {
+                musicList[i].file = musicFound.path
+                musicList[i].inCache = 'confirmed'
+            } else {
+                musicList[i].inCache = 'not'
+            }
+        }
+
+        return musicList
+    } catch (error) {
+        sendError(error)
     }
 
-    return musicList
+
 }
 
 export async function downloadFavoritesMusicList(musicList, actions) {
@@ -250,7 +262,7 @@ export async function downloadPlaylistMusicList(musicList, actions) {
 
 export async function cacheOneMusic(music, actions) {
 
-    if(!music.file) return null
+    if (!music.file) return null
 
     // check if the cache music cache exist
     let musicRefCache = await AsyncStorage.getItem('musicRefCache');
