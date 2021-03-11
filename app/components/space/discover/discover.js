@@ -15,7 +15,6 @@ import SuggestionDiscover from './suggestion-discover'
 import I18n from './../../../../assets/i18n/i18n'
 import PublicationModalContainer from '../../core/modal/publication-modal-container'
 
-
 class Discover extends React.Component {
 
     constructor(props) {
