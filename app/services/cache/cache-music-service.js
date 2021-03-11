@@ -192,6 +192,7 @@ export async function verificationMusicCacheFormat(musicList) {
         musicRefCache = JSON.parse(musicRefCache)
 
         if(!!!musicRefCache) {
+            for ([i, m] of musicList.entries()) { musicList[i].inCache = 'not' }
             return musicList
         }
 
