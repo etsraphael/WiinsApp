@@ -9,18 +9,20 @@ import { Platform } from 'react-native'
 import { configureNotification } from './app/services/notification/notification-service'
 import { initSentry } from './app/services/error/error-service'
 
+// default setting
+configureNotification()
+const { persistor, store } = configureStore()
+
 class App extends Component {
 
   constructor(props) {
     super(props)
-    const { persistor, store } = configureStore()
     this.persistor = persistor
     this.store = store
     this.onBeforeLift = this.onBeforeLift.bind(this)
     this.state = {
       auth: false
     }
-    configureNotification()
   }
 
   componentDidMount = async () => {
