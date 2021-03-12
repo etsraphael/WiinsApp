@@ -24,12 +24,10 @@ class App extends Component {
 
   componentDidMount = async () => {
 
-    if (__DEV__) {
-      await resetCacheForDev()
-    } else {
-      configureNotification()
-      initSentry()
-    }
+    configureNotification()
+
+    if (__DEV__) { await resetCacheForDev() }
+    else { initSentry()  }
 
     if(Platform.OS == 'ios'){
       await this.requestUserPermissionForIos()
