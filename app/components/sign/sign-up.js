@@ -12,9 +12,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Snackbar from 'react-native-snackbar'
 import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import DateTimePicker from '@react-native-community/datetimepicker';
-import moment from "moment";
-import CheckBox from '@react-native-community/checkbox';
+import DateTimePicker from '@react-native-community/datetimepicker'
+import moment from 'moment'
+import CheckBox from '@react-native-community/checkbox'
 import i18n from './../../../assets/i18n/i18n'
 
 class SignUp extends React.Component {
