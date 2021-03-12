@@ -20,11 +20,10 @@ class App extends Component {
     this.state = {
       auth: false
     }
+    configureNotification()
   }
 
   componentDidMount = async () => {
-
-    configureNotification()
 
     if (__DEV__) { await resetCacheForDev() }
     else { initSentry()  }
