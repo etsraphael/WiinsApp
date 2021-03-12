@@ -71,6 +71,8 @@ export async function getCacheLinkOrSeverLinkForTube(url) {
     // pars the json to manipulate it
     tubeRefCache = JSON.parse(tubeRefCache)
 
+    if(!!!tubeRefCache) return false
+
     // replace the link if it's in the cache
     const tubeFound = tubeRefCache.find(tube => (tube.url === url) && (tube.state == 'confirmed'))
 

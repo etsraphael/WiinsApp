@@ -3,13 +3,12 @@ import AsyncStorage from '@react-native-community/async-storage'
 import { verificationMusicCacheFormat } from './../../../app/services/cache/cache-music-service'
 import { sendError } from './../../../app/services/error/error-service'
 
-export async function getMusicMenuSuccess(menu, rapList) {
+export function getMusicMenuSuccess(menu, rapList) {
 
-    const defaultPlaylist = await verificationMusicCacheFormat(rapList)
-
+    console.log('function called')
     return { 
         type: ActionTypes.GET_MUSIC_MENU_SUCCESS,
-        rap: defaultPlaylist,
+        rap: rapList,
         payload: menu
     }
 }
@@ -34,15 +33,19 @@ export function getMusicMenu() {
 
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token
                 }
             })
                 .then((response) => response.json())
-                .then( async (response) => {
-                    if (response.status == 200) return dispatch(await getMusicMenuSuccess(response.menu, response.menu.stylesSuggestion.rap))
-                    return dispatch(getMusicMenuFail(response.message))
+                .then(async (response) => {
+                    if (response.status == 200) {
+                        const defaultPlaylist = await verificationMusicCacheFormat(response.menu.stylesSuggestion.rap)
+                        return dispatch(getMusicMenuSuccess(response.menu, defaultPlaylist))
+                    } else {
+                        return dispatch(getMusicMenuFail(response.message))
+                    }
                 })
         } catch (error) {
             sendError(error)

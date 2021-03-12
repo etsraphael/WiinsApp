@@ -6,6 +6,7 @@ export const initialState = {
     musiclist: [],
     musicProjectlist: [],
     playlistlist: [],
+    tag: [],
     isLoading: false,
     error: null,
 }

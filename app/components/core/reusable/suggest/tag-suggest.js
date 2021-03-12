@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, DeviceEventEmitter } from 'react-native'
-import * as SearchActions from '../../redux/SearchBar/actions'
+import * as SearchActions from '../../../../redux/SearchBar/actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
@@ -13,7 +13,7 @@ class TagSuggest extends React.Component {
 
     // to add a profile
     _addProfile = (profile) => {
-        DeviceEventEmitter.emit('friendTagged', profile)
+        this.props.addPseudoInComment(profile)
         this.props.actions.searchResetActions()
     }
 
@@ -64,8 +64,6 @@ const styles = StyleSheet.create({
         shadowRadius: 4.65,
         elevation: 6,
     },
-
-
     suggest_image: {
         width: 36,
         height: 36,

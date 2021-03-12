@@ -290,6 +290,9 @@ class HomeMusic extends React.Component {
     }
 
     render() {
+
+
+
         return (
             <View style={styles.main_container}>
                 {/*  search bar */}

@@ -83,13 +83,7 @@ export function dislikeTubePageFail(error) {
     }
 }
 
-export async function getTubePageSuccess(payload) {
-
-    const foundInCache = await getCacheLinkOrSeverLinkForTube(payload.tube.videoLink)
-
-    if(foundInCache){ payload.tube.inCache = true }
-    else { payload.tube.inCache = false }
-
+export function getTubePageSuccess(payload) {
     return { type: ActionTypes.GET_TUBE_PAGE_SUCCESS, payload }
 }
 
@@ -124,7 +118,14 @@ export function getTubePageActions(id) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 201) return dispatch(await getTubePageSuccess(response.page))
+                    if (response.status == 201) {
+                        const foundInCache = await getCacheLinkOrSeverLinkForTube(response.page.tube.videoLink)
+
+                        if(foundInCache){ response.page.tube.inCache = true }
+                        else { response.page.tube.inCache = false }
+
+                        return dispatch(getTubePageSuccess(response.page))
+                    }
                     return dispatch(getTubePageFail(response.message))
                 })
         } catch (error) {

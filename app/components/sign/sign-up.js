@@ -12,9 +12,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Snackbar from 'react-native-snackbar'
 import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import DateTimePicker from '@react-native-community/datetimepicker';
-import moment from "moment";
-import CheckBox from '@react-native-community/checkbox';
+import DateTimePicker from '@react-native-community/datetimepicker'
+import moment from 'moment'
+import CheckBox from '@react-native-community/checkbox'
 import i18n from './../../../assets/i18n/i18n'
 
 class SignUp extends React.Component {
@@ -231,15 +231,15 @@ class SignUp extends React.Component {
                         <View style={{ width: '100%', paddingHorizontal: 45, justifyContent: 'center', alignItems: 'center' }}>
                             <View style={{ flexDirection: 'row', marginBottom: 15 }}>
                                 <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                                    <FontAwesomeIcon icon={faCheckCircle} color={'white'} size={25} />
+                                    <FontAwesomeIcon icon={faCheckCircle} color={'green'} size={25} />
                                 </View>
                                 <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
-                                    <Text style={{ fontSize: 18, color: 'white' }}>{i18n.t('LOGIN-REGISTRER.click-on-email')}</Text>
+                                    <Text style={{ fontSize: 18 }}>{i18n.t('LOGIN-REGISTRER.click-on-email')}</Text>
                                 </View>
                             </View>
                             <View style={{ backgroundColor: 'white', marginVertical: 25, height: 1, width: '80%' }}></View>
-                            <TouchableOpacity onPress={() => this.props.view('login')} style={styles.btn_back}>
-                                <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}>{i18n.t('LOGIN-REGISTRER.Login')}</Text>
+                            <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.btn_back}>
+                                <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}>{i18n.t('CORE.Back')}</Text>
                             </TouchableOpacity>
                         </View>
                     )
@@ -351,6 +351,11 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         height: 60 + StatusBar.currentHeight,
         alignItems: 'center'
+    },
+    btn_back: {
+        backgroundColor: '#e6e6e6',
+        padding: 5,
+        borderRadius: 5
     }
 })
 

@@ -2,18 +2,21 @@ import React, { Component } from 'react'
 import { Provider } from 'react-redux'
 import { configureStore } from './app/redux/configureStore'
 import { PersistGate } from 'redux-persist/integration/react'
-import MainApp from './app/components/core/main-app'
+import MainApp from './app/components/core/home/main-app'
 import { resetCacheForDev } from './app/services/cache/cache-core-service'
 import messaging from '@react-native-firebase/messaging'
 import { Platform } from 'react-native'
 import { configureNotification } from './app/services/notification/notification-service'
 import { initSentry } from './app/services/error/error-service'
 
+// default setting
+configureNotification()
+const { persistor, store } = configureStore()
+
 class App extends Component {
 
   constructor(props) {
     super(props)
-    const { persistor, store } = configureStore()
     this.persistor = persistor
     this.store = store
     this.onBeforeLift = this.onBeforeLift.bind(this)
@@ -24,12 +27,8 @@ class App extends Component {
 
   componentDidMount = async () => {
 
-    if (__DEV__) {
-      await resetCacheForDev()
-    } else {
-      configureNotification()
-      initSentry()
-    }
+    if (__DEV__) { await resetCacheForDev() }
+    else { initSentry()  }
 
     if(Platform.OS == 'ios'){
       await this.requestUserPermissionForIos()
