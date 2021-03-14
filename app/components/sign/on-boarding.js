@@ -47,13 +47,6 @@ const styles = StyleSheet.create({
     backgroundImage: {
         flex: 1,
     },
-    brand_container: {
-        flex: 3,
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'flex-end'
-    },
     logoBrand: {
         width: 125,
         height: 131,

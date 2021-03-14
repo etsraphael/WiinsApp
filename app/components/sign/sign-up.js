@@ -100,7 +100,7 @@ class SignUp extends React.Component {
     _displayLoading() {
         return (
             <View style={styles.loading_container}>
-                <ActivityIndicator size='large' color="#ffffff" />
+                <ActivityIndicator size='large' color="grey" />
             </View>
         )
     }
