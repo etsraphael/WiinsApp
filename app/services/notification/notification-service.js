@@ -1,5 +1,6 @@
 import PushNotificationIOS from '@react-native-community/push-notification-ios'
 import PushNotification from 'react-native-push-notification'
+import firebase from '@react-native-firebase/app'
 import { sendError } from './../../services/error/error-service'
 
 export function configureNotification() {
@@ -54,4 +55,39 @@ export function configureNotification() {
                  */
                 requestPermissions: true,
         })
+}
+
+
+export async function requestUserPermissionForIos() {
+        const enabled = await firebase.messaging().hasPermission();
+        if (enabled) { getToken() }
+        else { requestPermission() }
+}
+
+async function requestPermission() {
+        try {
+                await firebase.messaging().requestPermission();
+                // User has authorised
+                this.getToken();
+        } catch (error) {
+                // User has rejected permissions
+                console.log('permission rejected');
+        }
+}
+
+async function getToken() {
+        try {
+                const enabled = await firebase.messaging().hasPermission();
+                if (!enabled) {
+                        await firebase.messaging().requestPermission();
+                }
+
+                const fcmToken = await firebase.messaging().getToken();
+                if (fcmToken) {
+                        console.log('fcm token:', fcmToken); //-->use this token from the console to send a post request via postman
+                        return fcmToken;
+                }
+        } catch (error) {
+                console.warn('notification token error', error);
+        }
 }
