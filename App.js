@@ -9,8 +9,9 @@ import { configureNotification, requestUserPermissionForIos } from './app/servic
 import { initSentry } from './app/services/error/error-service'
 
 // default setting
+// if (Platform.OS == 'ios') { requestUserPermissionForIos() }
 configureNotification()
-if (Platform.OS == 'ios') { requestUserPermissionForIos() }
+
 const { persistor, store } = configureStore()
 
 class App extends Component {

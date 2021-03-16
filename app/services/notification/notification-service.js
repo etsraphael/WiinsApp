@@ -1,15 +1,23 @@
 import PushNotificationIOS from '@react-native-community/push-notification-ios'
 import PushNotification from 'react-native-push-notification'
 import firebase from '@react-native-firebase/app'
+import messaging from '@react-native-firebase/messaging'
 import { sendError } from './../../services/error/error-service'
+import { saveTokenDevice } from './token-service'
 
 export function configureNotification() {
 
         // Must be outside of any component LifeCycle (such as `componentDidMount`).
         PushNotification.configure({
+                
                 // (optional) Called when Token is generated (iOS and Android)
-                onRegister: function (token) {
-                        console.log('TOKEN:', token);
+                onRegister: function (response) {
+                        switch (response.os) {
+                                case 'ios': return requestUserPermissionForIos()
+                                case 'android': return saveTokenDevice({ token: response.token, support: 'android' }) 
+                                default: return null
+                        }
+
                 },
 
                 // (required) Called when a remote is received or opened, or local notification is opened
@@ -59,35 +67,32 @@ export function configureNotification() {
 
 
 export async function requestUserPermissionForIos() {
-        const enabled = await firebase.messaging().hasPermission();
+        const enabled = await firebase.messaging().hasPermission()
         if (enabled) { getToken() }
         else { requestPermission() }
 }
 
 async function requestPermission() {
         try {
-                await firebase.messaging().requestPermission();
-                // User has authorised
-                this.getToken();
+                await firebase.messaging().requestPermission()
+                this.getToken()
         } catch (error) {
-                // User has rejected permissions
-                console.log('permission rejected');
+                sendError(error)
         }
 }
 
 async function getToken() {
         try {
-                const enabled = await firebase.messaging().hasPermission();
+                const enabled = await firebase.messaging().hasPermission()
                 if (!enabled) {
-                        await firebase.messaging().requestPermission();
+                        await firebase.messaging().requestPermission()
                 }
 
-                const fcmToken = await firebase.messaging().getToken();
+                const fcmToken = await firebase.messaging().getToken()
                 if (fcmToken) {
-                        console.log('fcm token:', fcmToken); //-->use this token from the console to send a post request via postman
-                        return fcmToken;
+                        return saveTokenDevice({ token: fcmToken, support: 'ios' })
                 }
         } catch (error) {
-                console.warn('notification token error', error);
+                sendError(error)
         }
 }
