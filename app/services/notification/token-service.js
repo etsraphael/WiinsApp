@@ -7,7 +7,7 @@ export async function saveTokenDevice(device) {
         return null
 
         try {
-                return fetch('https://wiins-backend.herokuapp.com/user/token/setting', {
+                return fetch('https://wiins-backend.herokuapp.com/device/token/register', {
                         method: 'POST',
                         headers: {
                                 Accept: 'application/json', 'Content-Type': 'application/json',
