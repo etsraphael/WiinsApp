@@ -3,9 +3,6 @@ import { sendError } from './../../../app/services/error/error-service'
 
 export async function saveTokenDevice(device) {
         const token = await AsyncStorage.getItem('userToken')
-
-        return null
-
         try {
                 return fetch('https://wiins-backend.herokuapp.com/device/token/register', {
                         method: 'POST',
@@ -15,8 +12,6 @@ export async function saveTokenDevice(device) {
                         },
                         body: JSON.stringify({ device })
                 })
-                        .then((response) => response.json())
-                        .then(console.log)
         } catch (error) {
                 return sendError(error)
         }
