@@ -3,7 +3,7 @@ import PushNotification from 'react-native-push-notification'
 import firebase from '@react-native-firebase/app'
 import messaging from '@react-native-firebase/messaging'
 import { sendError } from './../../services/error/error-service'
-import { saveTokenDevice } from './token-service'
+import { saveTokenDeviceInStorage } from './token-service'
 
 export function configureNotification() {
 
@@ -14,7 +14,7 @@ export function configureNotification() {
                 onRegister: function (response) {
                         switch (response.os) {
                                 case 'ios': return requestUserPermissionForIos()
-                                case 'android': return saveTokenDevice({ token: response.token, support: 'android' }) 
+                                case 'android': return saveTokenDeviceInStorage({ token: response.token, support: 'android' }) 
                                 default: return null
                         }
 
@@ -90,7 +90,7 @@ async function getToken() {
 
                 const fcmToken = await firebase.messaging().getToken()
                 if (fcmToken) {
-                        return saveTokenDevice({ token: fcmToken, support: 'ios' })
+                        return saveTokenDeviceInStorage({ token: fcmToken, support: 'ios' })
                 }
         } catch (error) {
                 sendError(error)
