@@ -92,7 +92,6 @@ const MainNavigationContainer = () => (
             showHideTransition={'fade'}
             hidden={false}
         />
-
         <MainTabNavigation />
     </NavigationContainer>
 )

@@ -5,7 +5,6 @@ import MyProfile from '../components/space/profile/my-profile'
 import Discover from '../components/space/discover/discover'
 import Page from '../components/space/page/page'
 
-
 const Stack = createStackNavigator()
 
 export default DiscoverNavigation = () => (
