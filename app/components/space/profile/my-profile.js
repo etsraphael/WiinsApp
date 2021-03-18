@@ -116,7 +116,7 @@ class MyProfile extends React.Component {
                 <View style={{ flex: 1, position: 'relative' }}>
 
                     {/* Back Btn */}
-                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.goBack(null)}
+                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}
                         style={{ position: 'absolute', left: 25, width: 35, height: 35, top: 55, zIndex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
                     </TouchableOpacity>

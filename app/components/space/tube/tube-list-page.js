@@ -21,7 +21,7 @@ class TubeListPage extends React.Component {
         return (
             <View style={{ height: 50, width: '100%', flexDirection: 'row', paddingHorizontal: 25, marginBottom: 10 }}>
                 {/* Back Btn */}
-                <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.goBack(null)}
+                <TouchableOpacity onPress={() => this.props.navigation.goBack()}
                     style={{ justifyContent: 'center', alignItems: 'center', paddingTop: 10 }}>
                     <FontAwesomeIcon icon={faArrowLeft} color={'grey'} size={25} />
                 </TouchableOpacity>
