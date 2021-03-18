@@ -42,7 +42,7 @@ class TubeListPage extends React.Component {
     _oneTubeRender = (item) => {
         return (
             <TouchableOpacity
-            onPress={() => this.props.screenProps.rootNavigation.navigate('TubePage', { tubeId: item.tube._id })}
+            onPress={() => this.props.navigation.navigate('TubePage', { tubeId: item.tube._id })}
                 style={styles.oneTubeContainer}
             >
 

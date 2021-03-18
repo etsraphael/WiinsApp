@@ -56,12 +56,12 @@ class Setting extends React.Component {
 
     _actionSelected = (code) => {
         switch (code) {
-            case 'SettingProfile': return this.props.screenProps.rootNavigation.navigate('SettingProfile')
-            case 'SettingPassword': return this.props.screenProps.rootNavigation.navigate('SettingPassword')
-            case 'SettingLedger': return this.props.screenProps.rootNavigation.navigate('SettingLedger')
-            case 'SettingCertification': return this.props.screenProps.rootNavigation.navigate('SettingCertification')
-            case 'SettingOther': return this.props.screenProps.rootNavigation.navigate('SettingOther')
-            case 'SettingPrivacy': return this.props.screenProps.rootNavigation.navigate('SettingPrivacy')
+            case 'SettingProfile': return this.props.navigation.navigate('SettingProfile')
+            case 'SettingPassword': return this.props.navigation.navigate('SettingPassword')
+            case 'SettingLedger': return this.props.navigation.navigate('SettingLedger')
+            case 'SettingCertification': return this.props.navigation.navigate('SettingCertification')
+            case 'SettingOther': return this.props.navigation.navigate('SettingOther')
+            case 'SettingPrivacy': return this.props.navigation.navigate('SettingPrivacy')
             case 'Logout': return this._logOut()
         }
     }
