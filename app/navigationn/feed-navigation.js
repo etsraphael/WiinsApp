@@ -6,7 +6,10 @@ import Profile from '../components/space/profile/profile'
 const Stack = createStackNavigator()
 
 export default FeedNavigation = () => (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName={'Feed'}
+    >
         <Stack.Screen name={'Feed'} component={Feed} />
         <Stack.Screen name={'Profile'} component={Profile} />
     </Stack.Navigator>
