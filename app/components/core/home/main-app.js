@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { StyleSheet, View } from 'react-native'
 import MiniPlayer from './../reusable/music/mini-player'
-import ContainerHomeNav from '../../../navigation/container-home-nav'
 import Sign from '../../sign/sign'
 import MainNavigationContainer from './../../../navigationn/navigation'
 
@@ -22,7 +21,6 @@ class MainApp extends React.Component {
     _afterAuth() {
         return (
             <View style={styles.container}>
-                {/* <ContainerHomeNav /> */}
                 <MainNavigationContainer/>
                 {this.props.Player.displayMiniPlayer ? <View style={styles.btnPlayer}><MiniPlayer /></View> : false}
             </View>

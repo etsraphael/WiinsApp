@@ -20,11 +20,11 @@ import FeedNavigation from './feed-navigation'
 
 const MyTheme = {
     ...DefaultTheme,
-    dark: true,
+    dark: false,
     colors: {
         ...DefaultTheme.colors,
         primary: 'white',
-        background: 'black',
+        background: 'white',
         card: '#191919',
         text: 'white',
         border: '#191919',
@@ -90,8 +90,8 @@ const MainNavigationContainer = () => (
     <NavigationContainer theme={MyTheme}>
         <StatusBar
             animated={true}
-            backgroundColor="#61dafb"
-            barStyle={'light-content'}
+            backgroundColor="white"
+            barStyle={'default'}
             showHideTransition={'fade'}
             hidden={false}
         />

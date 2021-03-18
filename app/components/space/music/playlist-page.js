@@ -28,7 +28,7 @@ class PlaylistPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.actions.getMusicPlaylist(this.props.screenProps.rootNavigation.state.params.playlistId)
+        this.props.actions.getMusicPlaylist(this.props.route.params.playlistId)
     }
 
     // to display the loading animation

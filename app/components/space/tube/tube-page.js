@@ -34,7 +34,7 @@ class TubePage extends React.Component {
     }
 
     UNSAFE_componentWillMount = () => {
-        this.uploadPageTube(this.props.screenProps.rootNavigation.state.params.tubeId)
+        this.uploadPageTube(this.props.route.params.tubeId)
     }
 
     _likeTube = () => {
