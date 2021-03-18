@@ -4,14 +4,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHomeLg, faMusic, faCommentsAlt, faTv, faCompass } from '@fortawesome/pro-light-svg-icons'
 import { StatusBar } from 'react-native'
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
-import {
-    MAIN_FEED,
-    MAIN_DISCOVER,
-    MAIN_TUBE,
-    MAIN_MUSIC,
-    MAIN_MESSENGER
-} from './constant'
-
 import FeedNavigation from './feed-navigation'
 import DiscoverNavigation from './discover-navigation'
 
@@ -51,31 +43,31 @@ const MainTabNavigation = () => (
         }
     >
         <BottomTab.Screen
-            name={MAIN_FEED}
+            name={'MAIN_FEED'}
             component={FeedNavigation}
             options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faHomeLg} color={color} size={25} /> }}
         />
 
         <BottomTab.Screen
-            name={MAIN_DISCOVER}
+            name={'MAIN_DISCOVER'}
             component={DiscoverNavigation}
             options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faCompass} color={color} size={25} /> }}
         />
 
         <BottomTab.Screen
-            name={MAIN_TUBE}
+            name={'MAIN_TUBE'}
             component={DiscoverNavigation}
             options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faTv} color={color} size={25} /> }}
         />
 
         <BottomTab.Screen
-            name={MAIN_MUSIC}
+            name={'MAIN_MUSIC'}
             component={DiscoverNavigation}
             options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faMusic} color={color} size={25} /> }}
         />
 
         <BottomTab.Screen
-            name={MAIN_MESSENGER}
+            name={'MAIN_MESSENGER'}
             component={DiscoverNavigation}
             options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faCommentsAlt} color={color} size={25} /> }}
         />

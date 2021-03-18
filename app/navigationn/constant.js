@@ -1,5 +1,0 @@
-export const MAIN_FEED = 'MAIN_FEED'
-export const MAIN_DISCOVER = 'MAIN_DISCOVER'
-export const MAIN_TUBE = 'MAIN_TUBE'
-export const MAIN_MUSIC = 'MAIN_MUSIC'
-export const MAIN_MESSENGER = 'MAIN_MESSENGER'
