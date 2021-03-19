@@ -6,6 +6,8 @@ import MiniPlayer from './../reusable/music/mini-player'
 import MainNavigationContainer from './../../../navigation/navigation'
 import SignNavigation from './../../../navigation/sign-naviation'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
+import { listenerMusic } from './../../../services/music/music-service'
+
 
 
 class MainApp extends React.Component {
@@ -16,7 +18,6 @@ class MainApp extends React.Component {
     }
 
     componentDidMount = async () => {
-        this.props.actions.resetPlayerActions()
         this.musicProgress = listenerMusic(this.props.actions)
     }
 
