@@ -28,7 +28,7 @@ const BottomTab = createBottomTabNavigator()
 
 const MainTabNavigation = () => (
     <BottomTab.Navigator
-        initialRouteName="Home"
+        initialRouteName={'MAIN_FEED'}
         tabBarOptions={
             {
                 showLabel: false,
@@ -44,7 +44,7 @@ const MainTabNavigation = () => (
                 }
             }
         }
-    >
+    > 
         <BottomTab.Screen
             name={'MAIN_FEED'}
             component={FeedNavigation}
