@@ -5,11 +5,23 @@ import { StyleSheet, View } from 'react-native'
 import MiniPlayer from './../reusable/music/mini-player'
 import MainNavigationContainer from './../../../navigation/navigation'
 import SignNavigation from './../../../navigation/sign-naviation'
+import * as PlayerMusicActions from '../../../redux/Player/actions'
+
 
 class MainApp extends React.Component {
 
     constructor(props) {
         super(props)
+        this.musicProgress = null
+    }
+
+    componentDidMount = async () => {
+        this.props.actions.resetPlayerActions()
+        this.musicProgress = listenerMusic(this.props.actions)
+    }
+
+    componentWillUnmount = async () => {
+        this.musicProgress.remove()
     }
 
     // to select the sign view
@@ -42,11 +54,14 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
+    MyProfile: state.MyProfile,
     MyUser: state.MyUser,
-    Player: state.Player
+    Player: state.Player,
 })
 
-const ActionCreators = Object.assign({})
+const ActionCreators = Object.assign({
+    PlayerMusicActions
+})
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(ActionCreators, dispatch),
