@@ -52,7 +52,6 @@ class Feed extends React.Component {
     }
 
     // go to profile
-
     _goToProfile = (profileId) => {
         this.setState({ modal: false, PublicationModal: null })
         this.props.navigation.navigate('Profile', { profileId })
@@ -190,15 +189,31 @@ class Feed extends React.Component {
                     {this.state.search.length == 0 ? this._displayPublicationFeed() : this._suggestionSearch()}
 
                     {/* Modal */}
-                    {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
+                    {this.state.publicationModeExist ?
+                        <MainPublication
+                            getBack={this._togglePublicationMode}
+                            isVisible={this.state.publicationMode}
+                        /> : null}
+
                     {this.state.modal ?
                         <PublicationModalContainer
                             publicationModal={this.state.PublicationModal}
                             toggleModal={(event) => this._toggleModal(event)}
                             goToProfile={(profileId) => this._goToProfile(profileId)}
                         /> : null}
-                    {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
-                    {this.state.reportModal ? <OptionPublicationModal toggleReportModal={(event) => this._toggleReportModal(event)} isVisible={this.state.reportModal} publicationId={this.state.reportPublicationId} /> : null}
+
+                    {this.state.storysModalExist ?
+                        <StoriesTrend
+                            goBack={this._toggleStoryTrend}
+                            isVisible={this.state.storysModal}
+                        /> : null}
+
+                    {this.state.reportModal ?
+                        <OptionPublicationModal
+                            toggleReportModal={(event) => this._toggleReportModal(event)}
+                            isVisible={this.state.reportModal}
+                            publicationId={this.state.reportPublicationId}
+                        /> : null}
 
                 </View>
             </SafeAreaView>

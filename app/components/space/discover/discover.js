@@ -34,7 +34,7 @@ class Discover extends React.Component {
 
     // to display the modal view
     _toggleModal = (event) => {
-        if(!!event){ this.props.actions.putPublicationInModalActions(event.publication) }
+        if (!!event) { this.props.actions.putPublicationInModalActions(event.publication) }
         this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
@@ -235,13 +235,25 @@ class Discover extends React.Component {
         return (<SuggestionDiscover navigation={this.props.navigation} currentSearch={this.state.search} searchFilterUpdated={actifCategory => this.setState({ actifCategory })} />)
     }
 
+    _goToProfile = (profileId) => {
+        this.setState({ modal: false, PublicationModal: null })
+        this.props.navigation.navigate('Profile', { profileId })
+    }
+
     render() {
         return (
             <View style={styles.main_container}>
                 {this._header()}
                 {this.state.search.length <= 2 ? this._displayDiscoverView() : null}
                 {this.state.search.length > 2 ? this._displaySuggestionView() : null}
-                {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
+
+                {this.state.modal ?
+                    <PublicationModalContainer
+                        publicationModal={this.state.PublicationModal}
+                        toggleModal={(event) => this._toggleModal(event)}
+                        goToProfile={(profileId) => this._goToProfile(profileId)}
+                    /> : null}
+
             </View>
         );
     }
