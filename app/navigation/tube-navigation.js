@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import HomeTube from '../components/space/tube/home-tube'
 import TubePage from '../components/space/tube/tube-page'
 import TubeListPage from '../components/space/tube/tube-list-page'
+import CommentPage from './../components/core/reusable/comment/comment-page'
 
 const Stack = createStackNavigator()
 
@@ -14,5 +15,6 @@ export default TubeNavigation = () => (
         <Stack.Screen name={'HomeTube'} component={HomeTube} />
         <Stack.Screen name={'TubePage'} component={TubePage} />
         <Stack.Screen name={'TubeListPage'} component={TubeListPage} />
+        <Stack.Screen name={'Comments'} component={CommentPage} />
     </Stack.Navigator>
 )
