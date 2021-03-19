@@ -8,8 +8,6 @@ import SignNavigation from './../../../navigation/sign-naviation'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
 import { listenerMusic } from './../../../services/music/music-service'
 
-
-
 class MainApp extends React.Component {
 
     constructor(props) {
@@ -60,9 +58,10 @@ const mapStateToProps = state => ({
     Player: state.Player,
 })
 
-const ActionCreators = Object.assign({
+const ActionCreators = Object.assign(
+    {},
     PlayerMusicActions
-})
+)
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(ActionCreators, dispatch),

@@ -1,10 +1,17 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
-import FastImage from 'react-native-fast-image';
-import LinearGradient from 'react-native-linear-gradient';
+import FastImage from 'react-native-fast-image'
+import LinearGradient from 'react-native-linear-gradient'
 import I18n from '../../../assets/i18n/i18n'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as PlayerMusicActions from '../../redux/Player/actions'
 
 class OnBoarding extends React.Component {
+
+    componentDidMount() {
+        this.props.actions.resetPlayerActions()
+    }
 
     render() {
         return (
@@ -79,4 +86,18 @@ const styles = StyleSheet.create({
     }
 })
 
-export default OnBoarding
+
+const mapStateToProps = state => ({
+    MyUser: state.MyUser
+})
+
+const ActionCreators = Object.assign(
+    {},
+    PlayerMusicActions
+)
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(ActionCreators, dispatch),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(OnBoarding)
