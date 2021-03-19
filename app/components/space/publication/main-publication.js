@@ -26,7 +26,7 @@ class MainPublication extends React.Component {
         propagateSwipe={true}
         onSwipeComplete={() => this.props.getBack()}
       >
-        <PublicationNavigation screenProps={{getBack: this.props.getBack}}/>
+        <PublicationNavigation screenProps={() => this.props.getBack()} />
       </Modal>
     )
   }

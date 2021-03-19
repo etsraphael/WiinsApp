@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { StyleSheet, View } from 'react-native'
 import MiniPlayer from './../reusable/music/mini-player'
 import Sign from '../../sign/sign'
-import MainNavigationContainer from './../../../navigationn/navigation'
+import MainNavigationContainer from './../../../navigation/navigation'
 
 class MainApp extends React.Component {
 
