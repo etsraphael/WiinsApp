@@ -3,8 +3,8 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { StyleSheet, View } from 'react-native'
 import MiniPlayer from './../reusable/music/mini-player'
-import Sign from '../../sign/sign'
 import MainNavigationContainer from './../../../navigation/navigation'
+import SignNavigation from './../../../navigation/sign-naviation'
 
 class MainApp extends React.Component {
 
@@ -13,7 +13,7 @@ class MainApp extends React.Component {
     }
 
     // to select the sign view
-    _beforAuth() { return Sign }
+    _beforAuth() { return <SignNavigation/> }
 
     // to select the home view
     _afterAuth() {
