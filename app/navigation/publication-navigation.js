@@ -13,7 +13,7 @@ export default PublicationModalNavigation = (propsInitial) => (
         initialRouteName={'Camera'}
     >
         <Stack.Screen name={'Camera'}>
-            {() => <Camera closeModal={propsInitial.closeModal} />}
+            {(props) => <Camera {...props} closeModal={propsInitial.closeModal} />}
         </Stack.Screen>
         <Stack.Screen name={'PendingPublication'} component={PendingPublication} />
         <Stack.Screen name={'MyStory'} component={MyStory} />
