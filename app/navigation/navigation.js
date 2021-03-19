@@ -6,7 +6,9 @@ import { StatusBar } from 'react-native'
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
 import FeedNavigation from './feed-navigation'
 import DiscoverNavigation from './discover-navigation'
-import MessengerNavigation from './messenger-navigation '
+import MessengerNavigation from './messenger-navigation'
+import TubeNavigation from './tube-navigation'
+import MusicNavigation from './music-navigation'
 
 const MyTheme = {
     ...DefaultTheme,
@@ -57,13 +59,13 @@ const MainTabNavigation = () => (
 
         <BottomTab.Screen
             name={'MAIN_TUBE'}
-            component={DiscoverNavigation}
+            component={TubeNavigation}
             options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faTv} color={color} size={25} /> }}
         />
 
         <BottomTab.Screen
             name={'MAIN_MUSIC'}
-            component={DiscoverNavigation}
+            component={MusicNavigation}
             options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faMusic} color={color} size={25} /> }}
         />
 
