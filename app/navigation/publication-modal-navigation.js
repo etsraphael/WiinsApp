@@ -5,12 +5,14 @@ import CommentPage from './../components/core/reusable/comment/comment-page'
 
 const Stack = createStackNavigator()
 
-export default PublicationModalNavigation = () => (
+export default PublicationModalNavigation = (propsInitial) => (
     <Stack.Navigator
         screenOptions={{ headerShown: false }}
         initialRouteName={'CardModal'}
     >
-        <Stack.Screen name={'CardModal'} component={CardModal} />
+        <Stack.Screen name={'CardModal'}>
+            {() => <CardModal goToProfile={(profileId) => propsInitial.goToProfile(profileId)}/>}
+        </Stack.Screen>
         <Stack.Screen name={'Comments'} component={CommentPage} />
     </Stack.Navigator>
 )

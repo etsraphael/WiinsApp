@@ -60,8 +60,20 @@ class CardModal extends React.Component {
 
     // to navigate to a profile
     _goToProfile = (profileId) => {
-        if (profileId !== this.props.MyProfile._id) this.props.PublicationsInModal.navigation.navigate('Profile', { profileId })
-        else this.props.navigation.navigate('MyProfile')
+
+
+
+        this.props.goToProfile(profileId)
+
+
+        return null
+
+        if (profileId !== this.props.MyProfile._id) { 
+            this.props.navigation.navigate('Profile', { profileId })
+        }
+        else {
+            this.props.navigation.navigate('MyProfile')
+        }
         this.props.toggleModal()
     }
 
