@@ -13,23 +13,19 @@ class MainApp extends React.Component {
     }
 
     // to select the sign view
-    _beforAuth() {
-        return <Sign />
-    }
+    _beforAuth() { return Sign }
 
     // to select the home view
     _afterAuth() {
         return (
             <View style={styles.container}>
-                <MainNavigationContainer/>
+                <MainNavigationContainer />
                 {this.props.Player.displayMiniPlayer ? <View style={styles.btnPlayer}><MiniPlayer /></View> : false}
             </View>
         )
     }
 
     render() {
-
-
         if (!!this.props.MyUser.user) return this._afterAuth()
         else return this._beforAuth()
     }

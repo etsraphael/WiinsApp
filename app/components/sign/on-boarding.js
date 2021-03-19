@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
 import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
 import I18n from '../../../assets/i18n/i18n'
@@ -9,7 +9,6 @@ class OnBoarding extends React.Component {
     render() {
         return (
             <>
-                <StatusBar barStyle="default" hidden={false} backgroundColor="transparent" translucent={true} />
                 <LinearGradient
                     colors={['#35D1FE', '#0041C4', '#960CF8']}
                     style={styles.backgroundImage}
