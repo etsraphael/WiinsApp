@@ -52,9 +52,18 @@ class Feed extends React.Component {
     }
 
     // go to profile
-    _goToProfile = (profileId) => {
+    _goToProfile = (payload) => {
+
         this.setState({ modal: false, PublicationModal: null })
-        this.props.navigation.navigate('Profile', { profileId })
+
+        if(payload.pageName == 'Profile') return null
+
+        if (payload.profileId !== this.props.MyProfile._id) { 
+            this.props.navigation.navigate('Profile', { profileId: payload.profileId })
+        }
+        else {
+            this.props.navigation.navigate('MyProfile')
+        }
     }
 
     // to load the next page of the publication
@@ -199,7 +208,8 @@ class Feed extends React.Component {
                         <PublicationModalContainer
                             publicationModal={this.state.PublicationModal}
                             toggleModal={(event) => this._toggleModal(event)}
-                            goToProfile={(profileId) => this._goToProfile(profileId)}
+                            goToProfile={(payload) => this._goToProfile(payload)}
+                            pageName={'Feed'}
                         /> : null}
 
                     {this.state.storysModalExist ?

@@ -297,6 +297,10 @@ class Profile extends React.Component {
         }
     }
 
+    _goToProfile = () => {
+        this.setState({ modal: false, PublicationModal: null })
+    }
+
     render() {
 
         return (
@@ -308,7 +312,13 @@ class Profile extends React.Component {
                     {this.props.Profile.profile !== null ? this._displayPage() : null}
                 </ScrollView>
 
-                {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
+                {this.state.modal ?
+                    <PublicationModalContainer
+                        publicationModal={this.state.PublicationModal}
+                        toggleModal={(event) => this._toggleModal(event)}
+                        goToProfile={(payload) => this._goToProfile(payload)}
+                        pageName={'Profile'}
+                    /> : null}
 
             </View>
         )

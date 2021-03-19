@@ -235,9 +235,18 @@ class Discover extends React.Component {
         return (<SuggestionDiscover navigation={this.props.navigation} currentSearch={this.state.search} searchFilterUpdated={actifCategory => this.setState({ actifCategory })} />)
     }
 
-    _goToProfile = (profileId) => {
+    _goToProfile = (payload) => {
+
         this.setState({ modal: false, PublicationModal: null })
-        this.props.navigation.navigate('Profile', { profileId })
+
+        if(payload.pageName == 'Profile') return null
+
+        if (payload.profileId !== this.props.MyProfile._id) { 
+            this.props.navigation.navigate('Profile', { profileId: payload.profileId })
+        }
+        else {
+            this.props.navigation.navigate('MyProfile')
+        }
     }
 
     render() {
@@ -252,6 +261,7 @@ class Discover extends React.Component {
                         publicationModal={this.state.PublicationModal}
                         toggleModal={(event) => this._toggleModal(event)}
                         goToProfile={(profileId) => this._goToProfile(profileId)}
+                        pageName={'Discover'}
                     /> : null}
 
             </View>
@@ -309,6 +319,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
+    MyProfile: state.MyProfile,
     MyUser: state.MyUser,
     TopHastag: state.TopHastag,
     DiscoverPublications: state.DiscoverPublications

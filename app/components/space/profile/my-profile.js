@@ -184,6 +184,10 @@ class MyProfile extends React.Component {
         }
     }
 
+    _goToProfile = () => {
+        this.setState({ modal: false, PublicationModal: null })
+    }
+    
     render() {
 
         return (
@@ -199,7 +203,14 @@ class MyProfile extends React.Component {
                     destructiveButtonIndex={1}
                     onPress={(index) => { this._menuFunctions(index) }}
                 />
-                {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
+
+                {this.state.modal ?
+                    <PublicationModalContainer
+                        publicationModal={this.state.PublicationModal}
+                        toggleModal={(event) => this._toggleModal(event)}
+                        goToProfile={(payload) => this._goToProfile(payload)}
+                        pageName={'Profile'}
+                    /> : null}
             </View>
         )
     }

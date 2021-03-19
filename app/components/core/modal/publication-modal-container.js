@@ -40,7 +40,7 @@ class PublicationModalContainer extends React.Component {
                     swipeDirection={this.state.swipDirection}
                     swipeThreshold={50}
                 >
-                    <PublicationModalNavigation goToProfile={(profileId) => this.props.goToProfile(profileId)} />
+                    <PublicationModalNavigation goToProfile={(payload) => this.props.goToProfile(payload)} pageName={this.props.pageName}/>
                 </Modal>
             </View>
         )
