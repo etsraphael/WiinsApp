@@ -20,10 +20,7 @@ class MainApp extends React.Component {
         this.musicProgress = listenerMusic(this.props.actions)
 
         messaging().getInitialNotification().then((notification) => {
-
-            if(!!notification){
-                console.log(notification.data)
-            }
+            if (!!notification) { console.log(notification.data) }
         })
 
     }
@@ -33,7 +30,7 @@ class MainApp extends React.Component {
     }
 
     // to select the sign view
-    _beforAuth() { return <SignNavigation/> }
+    _beforAuth() { return <SignNavigation /> }
 
     // to select the home view
     _afterAuth() {

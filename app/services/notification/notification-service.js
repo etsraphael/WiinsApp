@@ -1,7 +1,6 @@
 import PushNotificationIOS from '@react-native-community/push-notification-ios'
 import PushNotification from 'react-native-push-notification'
 import firebase from '@react-native-firebase/app'
-import messaging from '@react-native-firebase/messaging'
 import { sendError } from './../../services/error/error-service'
 import { saveTokenDeviceInStorage } from './token-service'
 
@@ -47,7 +46,6 @@ export function configureNotification() {
                 requestPermissions: true,
         })
 }
-
 
 export async function requestUserPermissionForIos() {
         const enabled = await firebase.messaging().hasPermission()

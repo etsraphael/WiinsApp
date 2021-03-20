@@ -9,6 +9,7 @@ import DiscoverNavigation from './discover-navigation'
 import MessengerNavigation from './messenger-navigation'
 import TubeNavigation from './tube-navigation'
 import MusicNavigation from './music-navigation'
+import messaging from '@react-native-firebase/messaging'
 
 const MyTheme = {
     ...DefaultTheme,
@@ -26,69 +27,78 @@ const MyTheme = {
 
 const BottomTab = createBottomTabNavigator()
 
-const MainTabNavigation = () => (
-    <BottomTab.Navigator
-        initialRouteName={'MAIN_FEED'}
-        tabBarOptions={
-            {
-                showLabel: false,
-                activeTintColor: 'black',
-                inactiveTintColor: '#ced4d9',
-                style: {
-                    borderTopLeftRadius: 35,
-                    borderTopRightRadius: 35,
-                    overflow: 'hidden',
-                    backgroundColor: '#ffffff',
-                    position: 'absolute',
-                    border: 0
+class MainNavigationContainer extends React.Component {
+
+    constructor(props) {
+        super(props)
+    }
+
+    _mainTabNavigation = () => (
+        <BottomTab.Navigator
+            initialRouteName={'MAIN_FEED'}
+            tabBarOptions={
+                {
+                    showLabel: false,
+                    activeTintColor: 'black',
+                    inactiveTintColor: '#ced4d9',
+                    style: {
+                        borderTopLeftRadius: 35,
+                        borderTopRightRadius: 35,
+                        overflow: 'hidden',
+                        backgroundColor: '#ffffff',
+                        position: 'absolute',
+                        border: 0
+                    }
                 }
             }
-        }
-    > 
-        <BottomTab.Screen
-            name={'MAIN_FEED'}
-            component={FeedNavigation}
-            options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faHomeLg} color={color} size={25} /> }}
-        />
+        >
+            <BottomTab.Screen
+                name={'MAIN_FEED'}
+                component={FeedNavigation}
+                options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faHomeLg} color={color} size={25} /> }}
+            />
 
-        <BottomTab.Screen
-            name={'MAIN_DISCOVER'}
-            component={DiscoverNavigation}
-            options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faCompass} color={color} size={25} /> }}
-        />
+            <BottomTab.Screen
+                name={'MAIN_DISCOVER'}
+                component={DiscoverNavigation}
+                options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faCompass} color={color} size={25} /> }}
+            />
 
-        <BottomTab.Screen
-            name={'MAIN_TUBE'}
-            component={TubeNavigation}
-            options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faTv} color={color} size={25} /> }}
-        />
+            <BottomTab.Screen
+                name={'MAIN_TUBE'}
+                component={TubeNavigation}
+                options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faTv} color={color} size={25} /> }}
+            />
 
-        <BottomTab.Screen
-            name={'MAIN_MUSIC'}
-            component={MusicNavigation}
-            options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faMusic} color={color} size={25} /> }}
-        />
+            <BottomTab.Screen
+                name={'MAIN_MUSIC'}
+                component={MusicNavigation}
+                options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faMusic} color={color} size={25} /> }}
+            />
 
-        <BottomTab.Screen
-            name={'MAIN_MESSENGER'}
-            component={MessengerNavigation}
-            options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faCommentsAlt} color={color} size={25} /> }}
-        />
+            <BottomTab.Screen
+                name={'MAIN_MESSENGER'}
+                component={MessengerNavigation}
+                options={{ tabBarIcon: ({ color }) => <FontAwesomeIcon icon={faCommentsAlt} color={color} size={25} /> }}
+            />
 
-    </BottomTab.Navigator>
-)
+        </BottomTab.Navigator>
+    )
 
-const MainNavigationContainer = () => (
-    <NavigationContainer theme={MyTheme}>
-        <StatusBar
-            animated={true}
-            backgroundColor="white"
-            barStyle={'default'}
-            showHideTransition={'fade'}
-            hidden={false}
-        />
-        <MainTabNavigation />
-    </NavigationContainer>
-)
+    render = () => {
+        return (
+            <NavigationContainer theme={MyTheme}>
+                <StatusBar
+                    animated={true}
+                    backgroundColor="white"
+                    barStyle={'default'}
+                    showHideTransition={'fade'}
+                    hidden={false}
+                />
+                {this._mainTabNavigation()}
+            </NavigationContainer>
+        )
+    }
+}
 
 export default MainNavigationContainer
