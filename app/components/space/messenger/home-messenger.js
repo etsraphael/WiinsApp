@@ -16,6 +16,7 @@ import * as RoomActions from '../../../redux/OneRoom/actions'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import I18n from '../../../../assets/i18n/i18n'
+import { checkNotification } from './../../../services/notification/action-notification-service'
 
 class HomeMessenger extends React.Component {
 
@@ -31,6 +32,7 @@ class HomeMessenger extends React.Component {
     }
 
     componentDidMount = () => {
+        checkNotification(this.props.navigation)
         this.props.actions.getRoom(1)
     }
 

@@ -46,7 +46,6 @@ class Feed extends React.Component {
             this._getPublicationList()
         }
 
-
         componentDidMount(){
             checkNotification(this.props.navigation)
         }

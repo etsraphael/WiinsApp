@@ -7,7 +7,6 @@ import MainNavigationContainer from './../../../navigation/navigation'
 import SignNavigation from './../../../navigation/sign-naviation'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
 import { listenerMusic } from './../../../services/music/music-service'
-import messaging from '@react-native-firebase/messaging'
 
 class MainApp extends React.Component {
 
@@ -18,11 +17,6 @@ class MainApp extends React.Component {
 
     componentDidMount = async () => {
         this.musicProgress = listenerMusic(this.props.actions)
-
-        messaging().getInitialNotification().then((notification) => {
-            if (!!notification) { console.log(notification.data) }
-        })
-
     }
 
     componentWillUnmount = async () => {

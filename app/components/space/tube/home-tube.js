@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
-
+import { checkNotification } from './../../../services/notification/action-notification-service'
 import { bindActionCreators } from 'redux'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import FastImage from 'react-native-fast-image'
@@ -18,6 +18,10 @@ class HomeTube extends React.Component {
         this.state = {
             categorySelected: 'trending'
         }
+    }
+
+    componentDidMount = () => {
+        checkNotification(this.props.navigation)
     }
 
     UNSAFE_componentWillMount = () => {

@@ -14,6 +14,7 @@ import { faSearch, faTimes } from '@fortawesome/pro-light-svg-icons'
 import SuggestionDiscover from './suggestion-discover'
 import I18n from './../../../../assets/i18n/i18n'
 import PublicationModalContainer from '../../core/modal/publication-modal-container'
+import { checkNotification } from './../../../services/notification/action-notification-service'
 
 class Discover extends React.Component {
 
@@ -39,6 +40,7 @@ class Discover extends React.Component {
     }
 
     componentDidMount() {
+        checkNotification(this.props.navigation)
         this.props.actions.getTopHastag()
         this._getPublicationList()
     }
