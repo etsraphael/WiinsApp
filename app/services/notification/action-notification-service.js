@@ -4,6 +4,11 @@ import { TabActions } from '@react-navigation/native'
 export async function checkNotification(navigation) {
         return messaging().getInitialNotification().then((notification) => {
                 if (!!notification) {
+
+
+                        console.log('my data')
+                        console.log(notification.data)
+
                         switch (notification.data.type) {
                                 case 'message-received': return openMessengerRoom(navigation, notification.data)
                                 default: return null
@@ -14,6 +19,6 @@ export async function checkNotification(navigation) {
 
 
 function openMessengerRoom(navigation, data) {
-        const jumpToAction = TabActions.jumpTo('MAIN_MESSENGER')
-        return navigation.dispatch(jumpToAction, { notification: data })
+        const jumpToAction = TabActions.jumpTo('MAIN_MESSENGER', { notification: data })
+        return navigation.dispatch(jumpToAction)
 }

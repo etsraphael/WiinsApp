@@ -7,12 +7,14 @@ import OneRoom from '../components/space/messenger/one-room'
 
 const Stack = createStackNavigator()
 
-export default MessengerNavigation = () => (
+export default MessengerNavigation = (initialProps) => (
     <Stack.Navigator
         screenOptions={{ headerShown: false }}
         initialRouteName={'HomeMessenger'}
     >
-        <Stack.Screen name={'HomeMessenger'} component={HomeMessenger} />
+        <Stack.Screen name={'HomeMessenger'}>
+            {() => <HomeMessenger params={initialProps.route.params}/>}
+        </Stack.Screen>
         <Stack.Screen name={'OneRoom'} component={OneRoom} />
         <Stack.Screen name={'MyProfile'} component={MyProfile} />
         <Stack.Screen name={'Page'} component={Page} />
