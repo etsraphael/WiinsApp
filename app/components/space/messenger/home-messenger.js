@@ -162,7 +162,7 @@ class HomeMessenger extends React.Component {
                 <FlatList
                     data={this.props.RoomsList.rooms}
                     keyExtractor={(item) => item._id.toString()}
-                    renderItem={({ item }) => (<OneRoomMin room={item} goToRoom={this._openARoom} />)}
+                    renderItem={({ item }) => (<OneRoomMin room={item} goToRoom={this._openARoom} navigation={this.props.navigation}/>)}
                 />
             </View>
         )
@@ -220,6 +220,7 @@ class HomeMessenger extends React.Component {
     }
 
     render() {
+
         return (
             <View style={styles.main_container}>
                 {this._viewSelected()}

@@ -23,7 +23,7 @@ class OneRoom extends React.Component {
     }
 
     componentDidMount = () => {
-        this.props.actions.getRoomById(this.props.roomSelected._id, 1, null)
+        this.props.actions.getRoomById(this.props.route.params.room._id, 1, null)
     }
 
     componentWillUnmount = () => {
@@ -108,7 +108,7 @@ class OneRoom extends React.Component {
             !this.props.Room.isLoading
         ) {
             this.props.actions.getMessageByPage(
-                this.props.roomSelected._id, ++this.state.page,
+                this.props.route.params.room._id, ++this.state.page,
                 this.props.Room.room.nbMessage
             )
         }
@@ -136,7 +136,7 @@ class OneRoom extends React.Component {
             response_server: false,
             type: 'text'
         }
-        this.props.actions.sendMessage(message, this.props.roomSelected._id)
+        this.props.actions.sendMessage(message, this.props.route.params.room._id)
         this.setState({ textInput: '' })
     }
 
@@ -153,7 +153,7 @@ class OneRoom extends React.Component {
                 </TouchableOpacity>
             </View>
             <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
-                <Text style={{ fontSize: 23, color: 'white', fontFamily: 'Avenir-Heavy' }}>{this.props.roomSelected.participants[0]._meta.pseudo}</Text>
+                <Text style={{ fontSize: 23, color: 'white', fontFamily: 'Avenir-Heavy' }}>{this.props.route.params.room.participants[0]._meta.pseudo}</Text>
             </View>
             <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
                 <TouchableOpacity>
@@ -202,6 +202,7 @@ class OneRoom extends React.Component {
     }
 
     render() {
+        
 
         return (
             <View style={styles.container}>
