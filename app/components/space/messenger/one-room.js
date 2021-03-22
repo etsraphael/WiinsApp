@@ -53,7 +53,7 @@ class OneRoom extends React.Component {
                         <Text style={{ textAlign: 'left', fontSize: 15 }}>{message.text}</Text>
                     </View>
                 </View>
-                <View style={{ flex: 3 }}></View>
+                <View style={{ flex: 3 }}/>
             </View>
         )
     }
@@ -170,7 +170,7 @@ class OneRoom extends React.Component {
             <View style={{ flex: 1, backgroundColor: 'white', borderTopLeftRadius: 45, borderTopRightRadius: 45 }}>
                 {(this.props.Room.isLoading) && (this.state.page == 0) ? this._displayLoading() : null}
                 {this.props.Room.room ?
-                    <View style={{ marginBottom: 45, paddingTop: 15 }}>
+                    <View style={{ paddingBottom: 100, paddingTop: 15 }}>
                         <FlatList
                             contentContainerStyle={{ paddingHorizontal: 9 }}
                             data={this.props.Room.room.message.sort((a, b) => b.createdAt.localeCompare(a.createdAt))}

@@ -184,7 +184,7 @@ class HomeMessenger extends React.Component {
                     (!this.props.RoomsList.isLoading) ?
                     this._noRoomMessage() : null
                 }
-                {this._btnSearch()}
+                {/* {this._btnSearch()} */}
                 {this.state.newMessageModal ? this._createMessageView() : null}
             </View>
         )
