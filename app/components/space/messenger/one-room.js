@@ -48,7 +48,7 @@ class OneRoom extends React.Component {
                         backgroundColor: '#f1f0f0', borderRadius: 15, borderBottomStartRadius: 0,
                         paddingVertical: 9, paddingHorizontal: 13, marginLeft: 5
                     }}>
-                        <Text style={{ textAlign: 'left', fontSize: 15 }}>{message.text} ksdjnjksdnf kjsdn jksndf ksdjnsdkj nsd</Text>
+                        <Text style={{ textAlign: 'left', fontSize: 15 }}>{message.text}</Text>
                     </View>
                 </View>
                 <View style={{ flex: 3 }}></View>
@@ -163,6 +163,44 @@ class OneRoom extends React.Component {
         </View>)
     }
 
+    _bodyRender = () => {
+        return (
+            <View style={{ flex: 1, backgroundColor: 'white', borderTopLeftRadius: 45, borderTopRightRadius: 45 }}>
+                {(this.props.Room.isLoading) && (this.state.page == 0) ? this._displayLoading() : null}
+                {this.props.Room.room ?
+                    <View style={{ marginBottom: 45, paddingTop: 15 }}>
+                        <FlatList
+                            contentContainerStyle={{ paddingHorizontal: 9 }}
+                            data={this.props.Room.room.message.sort((a, b) => b.createdAt.localeCompare(a.createdAt))}
+                            keyExtractor={(item) => item._id.toString()}
+                            renderItem={({ item, index }) => this._renderOnemMessage(item, index)}
+                            inverted={true}
+                            onEndReachedThreshold={0.2}
+                            onEndReached={() => this._scrollOldMessage()}
+                        />
+                    </View> : null}
+                <View style={styles.footer_container}>
+                    <View style={styles.input_container}>
+                        <TextInput
+                            style={styles.textInput}
+                            placeholder='Write a text..'
+                            placeholderTextColor='#8c8c8c'
+                            value={this.state.textInput}
+                            onChangeText={this.inputChange}
+                        >
+                        </TextInput>
+                        <TouchableOpacity onPress={() => this._send()} style={{ justifyContent: 'center', alignItems: 'center', flex: 2 }}>
+                            <View style={{ width: 45, height: 45, borderRadius: 45, backgroundColor: '#4726ff', justifyContent: 'center', alignItems: 'center' }}>
+                                <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={20} style={{ marginRight: 2 }} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+
+        )
+    }
+
     render() {
 
         return (
@@ -172,44 +210,9 @@ class OneRoom extends React.Component {
                     keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
                     style={{ flex: 1 }}
                 >
-                    <View style={{ flex: 1, backgroundColor: '#4623fd', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0 }}>
-
-
+                    <View style={styles.container_room}>
                         {this._renderHeader()}
-
-
-                        <View style={{ flex: 1, backgroundColor: 'white', borderTopLeftRadius: 45, borderTopRightRadius: 45 }}>
-                            {(this.props.Room.isLoading) && (this.state.page == 0) ? this._displayLoading() : null}
-                            {this.props.Room.room ?
-                                <View style={{ marginBottom: 45, paddingTop: 15 }}>
-                                    <FlatList
-                                        contentContainerStyle={{ paddingHorizontal: 9 }}
-                                        data={this.props.Room.room.message.sort((a, b) => b.createdAt.localeCompare(a.createdAt))}
-                                        keyExtractor={(item) => item._id.toString()}
-                                        renderItem={({ item, index }) => this._renderOnemMessage(item, index)}
-                                        inverted={true}
-                                        onEndReachedThreshold={0.2}
-                                        onEndReached={() => this._scrollOldMessage()}
-                                    />
-                                </View> : null}
-                            <View style={styles.footer_container}>
-                                <View style={styles.input_container}>
-                                    <TextInput
-                                        style={styles.textInput}
-                                        placeholder='Write a text..'
-                                        placeholderTextColor='#8c8c8c'
-                                        value={this.state.textInput}
-                                        onChangeText={this.inputChange}
-                                    >
-                                    </TextInput>
-                                    <TouchableOpacity onPress={() => this._send()} style={{ justifyContent: 'center', alignItems: 'center', flex: 2 }}>
-                                        <View style={{ width: 45, height: 45, borderRadius: 45, backgroundColor: '#4726ff', justifyContent: 'center', alignItems: 'center' }}>
-                                            <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={20} style={{ marginRight: 2 }} />
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                        </View>
+                        {this._bodyRender()}
                     </View>
                 </KeyboardAvoidingView>
             </View>
@@ -221,6 +224,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white'
+    },
+    container_room: {
+        flex: 1,
+        backgroundColor: '#4623fd',
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0
     },
     footer_container: {
         paddingHorizontal: 15,
