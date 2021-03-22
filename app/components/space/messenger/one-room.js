@@ -150,7 +150,7 @@ class OneRoom extends React.Component {
     _renderHeader = () => {
         return (<View style={{ height: 50, flexDirection: 'row', paddingHorizontal: 25 }}>
             <View style={{ flex: 2, justifyContent: 'center' }}>
-                <TouchableOpacity onPress={() => this.props.goBack()}>
+                <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                     <FontAwesomeIcon icon={faAngleLeft} color={'white'} size={25} />
                 </TouchableOpacity>
             </View>
