@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     StyleSheet, View, Text, FlatList, ActivityIndicator, TextInput,
-    TouchableOpacity, KeyboardAvoidingView, ScrollView
+    TouchableOpacity, KeyboardAvoidingView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
