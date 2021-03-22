@@ -49,13 +49,7 @@ class OneRoomMin extends React.Component {
 
         return (
             <TouchableOpacity
-                // onPress={() => this.props.goToRoom(room)}
-
                 onPress={() => this.props.navigation.navigate('OneRoom', {room})}
-
-
-
-
                 style={[styles.container_room, this._activeBackground(room.roomOption.participants[0].notification)]}
             >
                 <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>

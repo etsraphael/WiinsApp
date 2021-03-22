@@ -24,9 +24,11 @@ class OneRoom extends React.Component {
 
     componentDidMount = () => {
         this.props.actions.getRoomById(this.props.route.params.room._id, 1, null)
+        this.props.navigation.dangerouslyGetParent().setOptions({ tabBarVisible: false })
     }
 
     componentWillUnmount = () => {
+        this.props.navigation.dangerouslyGetParent().setOptions({ tabBarVisible: true })
         this.props.actions.leaveRoom()
     }
 
@@ -202,7 +204,6 @@ class OneRoom extends React.Component {
     }
 
     render() {
-        
 
         return (
             <View style={styles.container}>

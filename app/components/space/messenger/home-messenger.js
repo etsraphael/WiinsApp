@@ -38,6 +38,7 @@ class HomeMessenger extends React.Component {
         if(!!this.props.params){
             console.log(this.props.params.notification)
         }
+
     }
 
     // to set the search
