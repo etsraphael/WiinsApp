@@ -7,7 +7,6 @@ import * as SearchActions from '../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import { faPlus } from '@fortawesome/pro-light-svg-icons'
 import OneRoomMin from './one-room-min'
-import OneRoom from './one-room'
 import { faComments } from '@fortawesome/pro-duotone-svg-icons'
 import RoomCreation from './room-creation'
 import LinearGradient from 'react-native-linear-gradient'
@@ -25,9 +24,7 @@ class HomeMessenger extends React.Component {
         this.state = {
             page: 1,
             newMessageModal: false,
-            oneRoomModal: false,
-            search: '',
-            roomSelected: null
+            search: ''
         }
     }
 
@@ -104,26 +101,6 @@ class HomeMessenger extends React.Component {
                     <FontAwesomeIcon icon={faPlus} color={'white'} size={25} />
                 </LinearGradient>
             </TouchableOpacity>
-        )
-    }
-
-    // to display the room view
-    _oneRoomView = () => {
-        return (
-            <Modal
-                animationIn={'bounceInRight'}
-                animationOut={'bounceInLeft'}
-                onSwipeComplete={() => this.setState({ oneRoomModal: false })}
-                onBackdropPress={() => this.setState({ oneRoomModal: false })}
-                isVisible={this.state.oneRoomModal}
-                transparent={true}
-                swipeDirection={'right'}
-                propagateSwipe={true}
-                style={{ flex: 1, margin: 0, overflow: 'hidden' }}
-                backdropOpacity={0.20}
-            >
-                {!!this.state.roomSelected ? <OneRoom roomSelected={this.state.roomSelected} goBack={() => this.setState({ oneRoomModal: false, roomSelected: null })} /> : null}
-            </Modal>
         )
     }
 
@@ -209,7 +186,6 @@ class HomeMessenger extends React.Component {
                 }
                 {this._btnSearch()}
                 {this.state.newMessageModal ? this._createMessageView() : null}
-                {this._oneRoomView()}
             </View>
         )
     }
