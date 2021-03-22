@@ -1,7 +1,7 @@
 import React from 'react'
 import {
     StyleSheet, View, Text, FlatList, ActivityIndicator, TextInput,
-    TouchableOpacity, KeyboardAvoidingView
+    TouchableOpacity, KeyboardAvoidingView, ScrollView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
@@ -48,7 +48,7 @@ class OneRoom extends React.Component {
                         backgroundColor: '#f1f0f0', borderRadius: 15, borderBottomStartRadius: 0,
                         paddingVertical: 9, paddingHorizontal: 13, marginLeft: 5
                     }}>
-                        <Text style={{ textAlign: 'left', fontSize: 15 }}>{message.text}</Text>
+                        <Text style={{ textAlign: 'left', fontSize: 15 }}>{message.text} ksdjnjksdnf kjsdn jksndf ksdjnsdkj nsd</Text>
                     </View>
                 </View>
                 <View style={{ flex: 3 }}></View>
@@ -145,6 +145,24 @@ class OneRoom extends React.Component {
         this.setState({ textInput: event })
     }
 
+    _renderHeader = () => {
+        return (<View style={{ height: 50, flexDirection: 'row', paddingHorizontal: 25 }}>
+            <View style={{ flex: 2, justifyContent: 'center' }}>
+                <TouchableOpacity onPress={() => this.props.goBack()}>
+                    <FontAwesomeIcon icon={faAngleLeft} color={'white'} size={25} />
+                </TouchableOpacity>
+            </View>
+            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
+                <Text style={{ fontSize: 23, color: 'white', fontFamily: 'Avenir-Heavy' }}>{this.props.roomSelected.participants[0]._meta.pseudo}</Text>
+            </View>
+            <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                <TouchableOpacity>
+                    <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={25} />
+                </TouchableOpacity>
+            </View>
+        </View>)
+    }
+
     render() {
 
         return (
@@ -154,22 +172,12 @@ class OneRoom extends React.Component {
                     keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
                     style={{ flex: 1 }}
                 >
-                    <View style={{ flex: 1, backgroundColor: '#4623fd', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 15 : 0 }}>
-                        <View style={{ height: 80, flexDirection: 'row', paddingHorizontal: 25 }}>
-                            <View style={{ flex: 2, justifyContent: 'center' }}>
-                                <TouchableOpacity onPress={() => this.props.goBack()}>
-                                    <FontAwesomeIcon icon={faAngleLeft} color={'white'} size={25} />
-                                </TouchableOpacity>
-                            </View>
-                            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
-                                <Text style={{ fontSize: 23, color: 'white', fontFamily: 'Avenir-Heavy' }}>{this.props.roomSelected.participants[0]._meta.pseudo}</Text>
-                            </View>
-                            <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                                <TouchableOpacity>
-                                    <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={25} />
-                                </TouchableOpacity>
-                            </View>
-                        </View>
+                    <View style={{ flex: 1, backgroundColor: '#4623fd', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0 }}>
+
+
+                        {this._renderHeader()}
+
+
                         <View style={{ flex: 1, backgroundColor: 'white', borderTopLeftRadius: 45, borderTopRightRadius: 45 }}>
                             {(this.props.Room.isLoading) && (this.state.page == 0) ? this._displayLoading() : null}
                             {this.props.Room.room ?
@@ -182,7 +190,8 @@ class OneRoom extends React.Component {
                                         inverted={true}
                                         onEndReachedThreshold={0.2}
                                         onEndReached={() => this._scrollOldMessage()}
-                                    /></View> : null}
+                                    />
+                                </View> : null}
                             <View style={styles.footer_container}>
                                 <View style={styles.input_container}>
                                     <TextInput
@@ -212,9 +221,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white'
-    },
-    header_container: {
-
     },
     footer_container: {
         paddingHorizontal: 15,
