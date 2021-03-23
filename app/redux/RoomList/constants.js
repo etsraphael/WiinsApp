@@ -4,3 +4,4 @@ export const GET_ROOM_LIST_FAIL = 'GET_ROOM_LIST_FAIL'
 
 export const REST_ROOM_LIST = 'REST_ROOM_LIST'
 
+export const UPDATE_ROOM_BY_ID = 'UPDATE_ROOM_BY_ID'
