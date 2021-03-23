@@ -26,10 +26,10 @@ export function updateStoreOnNotification(store, notification) {
 
 function updateMessenger(store, notification) {
 
-        const found = store.getState().Rooms.rooms.find(x => x._id === notification.roomId)
+        const foundInRoomList = store.getState().Rooms.rooms.find(x => x._id === notification.roomId)
 
         // if the room exist on the store
-        if (found) {
+        if (foundInRoomList) {
                 return store.dispatch({ type: 'UPDATE_ROOM_BY_ID', notification })
         }
 
