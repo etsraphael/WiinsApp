@@ -16,6 +16,7 @@ import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import I18n from '../../../../assets/i18n/i18n'
 import { checkNotification } from './../../../services/notification/action-notification-service'
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 class HomeMessenger extends React.Component {
 
@@ -210,7 +211,8 @@ class HomeMessenger extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
-        backgroundColor: '#e3e6ef'
+        backgroundColor: '#e3e6ef',
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 5 : 5
     }
 })
 
