@@ -18,22 +18,26 @@ export function resetRoomList() {
     return { type: ActionTypes.REST_ROOM_LIST }
 }
 
+export function updateRoomNotification(payload) {
+    return { type: ActionTypes.UPDATE_ROOM_NOTIFICATION, payload }
+}
+
 export function getRoom(page) {
     return async (dispatch) => {
         try {
-            if(page == 1) dispatch(resetRoomList())
+            if (page == 1) dispatch(resetRoomList())
             dispatch(getRoomListStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/messenger/allRooms/' + page
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 }
             })
                 .then((response) => response.json())
-                .then( async (response) => {
+                .then(async (response) => {
                     if (response.status == 200) return dispatch(getRoomListSuccess(response.results))
                     return dispatch(getRoomListFail(response))
                 })

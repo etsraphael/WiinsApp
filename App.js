@@ -8,8 +8,8 @@ import { configureNotification } from './app/services/notification/notification-
 import { initSentry } from './app/services/error/error-service'
 
 // default setting
-configureNotification()
 const { persistor, store } = configureStore()
+configureNotification(store)
 
 class App extends Component {
 
@@ -24,10 +24,8 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
-
     if (__DEV__) { await resetCacheForDev() }
     else { initSentry() }
-
   }
 
   onBeforeLift() {

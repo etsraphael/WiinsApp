@@ -24,6 +24,15 @@ export default RoomListReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+
+
+    case ActionTypes.UPDATE_ROOM_NOTIFICATION: {
+      console.log(action.notification.data)
+      return { ...state }
+    }
+
+
+
     case ActionTypes.REST_ROOM_LIST: return initialState
     default: return state
   }
