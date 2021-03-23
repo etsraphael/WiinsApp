@@ -25,14 +25,17 @@ export default RoomListReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.UPDATE_ROOM_BY_ID: {
+      const index = state.rooms.map(x => x._id).indexOf(action.notification.roomId)
 
+      state.rooms[index] = {
+        ...state.rooms[index],
+        lastMessage: {
+          text: action.notification.text,
+          createdAt: Date.now()
+        },
+        updatedAt: Date.now(),
+      }
 
-
-      
-
-
-
-      console.log(action.notification)
       return { ...state }
     }
     case ActionTypes.REST_ROOM_LIST: return initialState
