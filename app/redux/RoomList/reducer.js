@@ -38,7 +38,7 @@ export default RoomListReducer = (state = initialState, action) => {
 
       return { ...state }
     }
-    case ActionTypes.REST_ROOM_LIST: return initialState
+    case ActionTypes.RESET_ROOM_LIST: return initialState
     default: return state
   }
 }

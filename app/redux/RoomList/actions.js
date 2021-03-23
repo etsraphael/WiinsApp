@@ -15,7 +15,7 @@ export function getRoomListFail(error) {
 }
 
 export function resetRoomList() {
-    return { type: ActionTypes.REST_ROOM_LIST }
+    return { type: ActionTypes.RESET_ROOM_LIST }
 }
 
 export function updateRoomNotification(payload) {

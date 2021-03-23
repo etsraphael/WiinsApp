@@ -27,7 +27,7 @@ export function sendMessageFail(error) {
 }
 
 export function resetRoom() {
-    return { type: ActionTypes.REST_ROOM }
+    return { type: ActionTypes.RESET_ROOM }
 }
 
 export function leaveRoom() {
