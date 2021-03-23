@@ -26,16 +26,23 @@ export function updateStoreOnNotification(store, notification) {
 
 function updateMessenger(store, notification) {
 
-
-        console.log(store.getState().Rooms)
+        const found = store.getState().Rooms.rooms.find(x => x._id === notification.roomId)
 
         // if the room exist on the store
-        // to get the list
+        if (found) {
+                return store.dispatch({ type: 'UPDATE_ROOM_NOTIFICATION', notification })
+        }
+
+        // if the room it's not in the list
+        else {
+
+        }
 
 
 
 
 
-        // if the room has never been created
-        return store.dispatch({ type: 'UPDATE_ROOM_NOTIFICATION', notification: notification.data })
+
+
+
 }
