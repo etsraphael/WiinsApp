@@ -138,7 +138,7 @@ class HomeMessenger extends React.Component {
         return (
             <View style={{ height: '100%' }}>
                 <FlatList
-                    data={this.props.RoomsList.rooms}
+                    data={this.props.RoomsList.rooms.sort((a,b)=> new Date(b.updatedAt) - new Date(a.updatedAt))}
                     keyExtractor={(item) => item._id.toString()}
                     renderItem={({ item }) => (<OneRoomMin room={item} goToRoom={this._openARoom} navigation={this.props.navigation}/>)}
                 />
