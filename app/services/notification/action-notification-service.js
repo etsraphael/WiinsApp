@@ -31,7 +31,7 @@ function updateMessenger(store, notification) {
         if(!!store.getState().Room.room){
                 const roomOpen = store.getState().Room.room._id   
                 if(roomOpen == notification.roomId){
-                       // update to do..
+                       return store.dispatch({ type: 'UPDATE_OPEN_ROOM', notification })
                 }
         }
 
