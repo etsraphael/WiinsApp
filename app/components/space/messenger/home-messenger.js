@@ -25,7 +25,14 @@ class HomeMessenger extends React.Component {
         this.state = {
             page: 1,
             newMessageModal: false,
-            search: ''
+            search: '',
+            refreshing: false
+        }
+    }
+
+    UNSAFE_componentWillReceiveProps = (newProps) => {
+        if (!newProps.rooms && this.state.refreshing && !newProps.RoomsList.isLoading) {
+            this.setState({ refreshing: false })
         }
     }
 
@@ -33,7 +40,7 @@ class HomeMessenger extends React.Component {
         checkNotification(this.props.navigation)
         this.props.actions.getRoom(1)
 
-        if(!!this.props.params){
+        if (!!this.props.params) {
             console.log(this.props.params.notification)
         }
 
@@ -128,9 +135,16 @@ class HomeMessenger extends React.Component {
 
     // to go to a room
     _openARoom = (room) => {
-        if(!!room._id){
+        if (!!room._id) {
             this.setState({ oneRoomModal: true, roomSelected: room })
             this.props.actions.getRoomById(room._id, 1, null)
+        }
+    }
+
+    _onrefresh = () => {
+        if (!this.props.RoomsList.isLoading) {
+            this.props.actions.getRoom(1)
+            this.setState({ refreshing: true })
         }
     }
 
@@ -139,9 +153,11 @@ class HomeMessenger extends React.Component {
         return (
             <View style={{ height: '100%' }}>
                 <FlatList
-                    data={this.props.RoomsList.rooms.sort((a,b)=> new Date(b.updatedAt) - new Date(a.updatedAt))}
+                    onRefresh={this._onrefresh}
+                    refreshing={this.state.refreshing}
+                    data={this.props.RoomsList.rooms.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))}
                     keyExtractor={(item) => item._id.toString()}
-                    renderItem={({ item }) => (<OneRoomMin room={item} goToRoom={this._openARoom} navigation={this.props.navigation}/>)}
+                    renderItem={({ item }) => (<OneRoomMin room={item} goToRoom={this._openARoom} navigation={this.props.navigation} />)}
                 />
             </View>
         )
@@ -159,11 +175,11 @@ class HomeMessenger extends React.Component {
     // to display the no room message
     _noRoomMessage = () => {
         return (
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <View>
-                    <View style={{justifyContent: 'center', alignItems: 'center', marginBottom: 145}}>
+                    <View style={{ justifyContent: 'center', alignItems: 'center', marginBottom: 145 }}>
                         <FontAwesomeIcon icon={faComments} color={'grey'} size={125} />
-                        <Text style={{marginVertical: 15, fontWeight: '700', color: 'grey'}}>{I18n.t('ERROR-MESSAGE.Y-dont-have-a-conversation-yet')}</Text>
+                        <Text style={{ marginVertical: 15, fontWeight: '700', color: 'grey' }}>{I18n.t('ERROR-MESSAGE.Y-dont-have-a-conversation-yet')}</Text>
                     </View>
                 </View>
             </View>
@@ -182,8 +198,8 @@ class HomeMessenger extends React.Component {
                 }
                 {
                     (this.props.RoomsList.rooms.length == 0) &&
-                    (!this.props.RoomsList.isLoading) ?
-                    this._noRoomMessage() : null
+                        (!this.props.RoomsList.isLoading) ?
+                        this._noRoomMessage() : null
                 }
                 {/* {this._btnSearch()} */}
                 {this.state.newMessageModal ? this._createMessageView() : null}
