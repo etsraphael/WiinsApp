@@ -1,5 +1,9 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, FlatList, TouchableOpacity, ActivityIndicator, LayoutAnimation, ScrollView } from 'react-native'
+import {
+    StyleSheet, View, Text, TextInput, FlatList,
+    TouchableOpacity, ActivityIndicator, LayoutAnimation,
+    ScrollView, RefreshControl
+} from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import * as TopHastagActions from '../../../redux/TopHastag/actions'
@@ -229,6 +233,12 @@ class Discover extends React.Component {
                 scrollEventThrottle={5}
                 style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }}
                 showsVerticalScrollIndicator={false}
+                // refreshControl={
+                //     <RefreshControl
+                //     refreshing={true}
+                //     onRefresh={console.log}
+                //     />
+                //   }
             >
                 {this._hastagView()}
                 {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
