@@ -2,6 +2,24 @@ import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
 
+export function refreshPublicationsSuccess(publications) {
+    return {
+        type: ActionTypes.REFRESH_PUBLICATIONS_SUCCESS,
+        payload: publications,
+    }
+}
+
+export function refreshPublicationsStart() {
+    return { type: ActionTypes.REFRESH_PUBLICATIONS }
+}
+
+export function refreshPublicationsFail(error) {
+    return {
+        type: ActionTypes.REFRESH_PUBLICATIONS_FAIL,
+        payload: error,
+    }
+}
+
 export function getPublicationsSuccess(publications) {
     return {
         type: ActionTypes.GET_PUBLICATIONS_SUCCESS,
@@ -158,3 +176,30 @@ export function unlikePublicationDiscover(id) {
 export function resetPublicationActions() {
     return async (dispatch) => dispatch(resetPublication())
 }
+
+export function refreshTrend() {
+    return async (dispatch) => {
+        try {
+            dispatch(refreshPublicationsStart())
+            const token = await AsyncStorage .getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/publication/discover?limit=18&page=1'
+
+            return fetch(url, {
+                method: 'GET',
+                headers: { 
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then( (response) => {
+                    if (response.status == 200) return dispatch(refreshPublicationsSuccess(response.results))
+                    return dispatch(refreshPublicationsFail(response.message))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(refreshPublicationsFail(error));
+        }
+    }
+}
+
