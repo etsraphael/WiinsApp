@@ -45,7 +45,21 @@ export default RoomReducer = (state = initialState, action) => {
         ...state
       }
     }
-    case ActionTypes.REST_ROOM: return initialState
-    default: return state
+    case ActionTypes.UPDATE_OPEN_ROOM: { 
+      const today = new Date(Date.now())
+      const newMessage = {
+        _id: Math.floor(Math.random() * 100),
+        text: action.notification.text,
+        owner: action.notification.ownerProfileId,
+        createdAt: today.toISOString()
+      }
+      state.room.message.push(newMessage)
+      return {
+        ...state,
+        isLoading: false
+      }
+    }
+    case ActionTypes.RESET_ROOM: return { ...initialState }
+    default: return { ...state }
   }
 }

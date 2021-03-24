@@ -23,10 +23,12 @@ class OneRoom extends React.Component {
     }
 
     componentDidMount = () => {
-        this.props.actions.getRoomById(this.props.roomSelected._id, 1, null)
+        this.props.actions.getRoomById(this.props.route.params.room._id, 1, null)
+        this.props.navigation.dangerouslyGetParent().setOptions({ tabBarVisible: false })
     }
 
     componentWillUnmount = () => {
+        this.props.navigation.dangerouslyGetParent().setOptions({ tabBarVisible: true })
         this.props.actions.leaveRoom()
     }
 
@@ -51,7 +53,7 @@ class OneRoom extends React.Component {
                         <Text style={{ textAlign: 'left', fontSize: 15 }}>{message.text}</Text>
                     </View>
                 </View>
-                <View style={{ flex: 3 }}></View>
+                <View style={{ flex: 3 }}/>
             </View>
         )
     }
@@ -108,7 +110,7 @@ class OneRoom extends React.Component {
             !this.props.Room.isLoading
         ) {
             this.props.actions.getMessageByPage(
-                this.props.roomSelected._id, ++this.state.page,
+                this.props.route.params.room._id, ++this.state.page,
                 this.props.Room.room.nbMessage
             )
         }
@@ -136,13 +138,69 @@ class OneRoom extends React.Component {
             response_server: false,
             type: 'text'
         }
-        this.props.actions.sendMessage(message, this.props.roomSelected._id)
+        this.props.actions.sendMessage(message, this.props.route.params.room._id)
         this.setState({ textInput: '' })
     }
 
     // to set the input
     inputChange = (event) => {
         this.setState({ textInput: event })
+    }
+
+    _renderHeader = () => {
+        return (<View style={{ height: 50, flexDirection: 'row', paddingHorizontal: 25 }}>
+            <View style={{ flex: 2, justifyContent: 'center' }}>
+                <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+                    <FontAwesomeIcon icon={faAngleLeft} color={'white'} size={25} />
+                </TouchableOpacity>
+            </View>
+            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
+                <Text style={{ fontSize: 23, color: 'white', fontFamily: 'Avenir-Heavy' }}>{this.props.route.params.room.participants[0]._meta.pseudo}</Text>
+            </View>
+            <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                <TouchableOpacity>
+                    <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={25} />
+                </TouchableOpacity>
+            </View>
+        </View>)
+    }
+
+    _bodyRender = () => {
+        return (
+            <View style={{ flex: 1, backgroundColor: 'white', borderTopLeftRadius: 45, borderTopRightRadius: 45 }}>
+                {(this.props.Room.isLoading) && (this.state.page == 0) ? this._displayLoading() : null}
+                {this.props.Room.room ?
+                    <View style={{ paddingBottom: 100, paddingTop: 15 }}>
+                        <FlatList
+                            contentContainerStyle={{ paddingHorizontal: 9 }}
+                            data={this.props.Room.room.message.sort((a, b) => b.createdAt.localeCompare(a.createdAt))}
+                            keyExtractor={(item) => item._id.toString()}
+                            renderItem={({ item, index }) => this._renderOnemMessage(item, index)}
+                            inverted={true}
+                            onEndReachedThreshold={0.2}
+                            onEndReached={() => this._scrollOldMessage()}
+                        />
+                    </View> : null}
+                <View style={styles.footer_container}>
+                    <View style={styles.input_container}>
+                        <TextInput
+                            style={styles.textInput}
+                            placeholder='Write a text..'
+                            placeholderTextColor='#8c8c8c'
+                            value={this.state.textInput}
+                            onChangeText={this.inputChange}
+                        >
+                        </TextInput>
+                        <TouchableOpacity onPress={() => this._send()} style={{ justifyContent: 'center', alignItems: 'center', flex: 2 }}>
+                            <View style={{ width: 45, height: 45, borderRadius: 45, backgroundColor: '#4726ff', justifyContent: 'center', alignItems: 'center' }}>
+                                <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={20} style={{ marginRight: 2 }} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            </View>
+
+        )
     }
 
     render() {
@@ -154,53 +212,9 @@ class OneRoom extends React.Component {
                     keyboardVerticalOffset={Platform.OS === "ios" ? 0 : 0}
                     style={{ flex: 1 }}
                 >
-                    <View style={{ flex: 1, backgroundColor: '#4623fd', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 15 : 0 }}>
-                        <View style={{ height: 80, flexDirection: 'row', paddingHorizontal: 25 }}>
-                            <View style={{ flex: 2, justifyContent: 'center' }}>
-                                <TouchableOpacity onPress={() => this.props.goBack()}>
-                                    <FontAwesomeIcon icon={faAngleLeft} color={'white'} size={25} />
-                                </TouchableOpacity>
-                            </View>
-                            <View style={{ flex: 6, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
-                                <Text style={{ fontSize: 23, color: 'white', fontFamily: 'Avenir-Heavy' }}>{this.props.roomSelected.participants[0]._meta.pseudo}</Text>
-                            </View>
-                            <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                                <TouchableOpacity>
-                                    <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={25} />
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                        <View style={{ flex: 1, backgroundColor: 'white', borderTopLeftRadius: 45, borderTopRightRadius: 45 }}>
-                            {(this.props.Room.isLoading) && (this.state.page == 0) ? this._displayLoading() : null}
-                            {this.props.Room.room ?
-                                <View style={{ marginBottom: 45, paddingTop: 15 }}>
-                                    <FlatList
-                                        contentContainerStyle={{ paddingHorizontal: 9 }}
-                                        data={this.props.Room.room.message.sort((a, b) => b.createdAt.localeCompare(a.createdAt))}
-                                        keyExtractor={(item) => item._id.toString()}
-                                        renderItem={({ item, index }) => this._renderOnemMessage(item, index)}
-                                        inverted={true}
-                                        onEndReachedThreshold={0.2}
-                                        onEndReached={() => this._scrollOldMessage()}
-                                    /></View> : null}
-                            <View style={styles.footer_container}>
-                                <View style={styles.input_container}>
-                                    <TextInput
-                                        style={styles.textInput}
-                                        placeholder='Write a text..'
-                                        placeholderTextColor='#8c8c8c'
-                                        value={this.state.textInput}
-                                        onChangeText={this.inputChange}
-                                    >
-                                    </TextInput>
-                                    <TouchableOpacity onPress={() => this._send()} style={{ justifyContent: 'center', alignItems: 'center', flex: 2 }}>
-                                        <View style={{ width: 45, height: 45, borderRadius: 45, backgroundColor: '#4726ff', justifyContent: 'center', alignItems: 'center' }}>
-                                            <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={20} style={{ marginRight: 2 }} />
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                        </View>
+                    <View style={styles.container_room}>
+                        {this._renderHeader()}
+                        {this._bodyRender()}
                     </View>
                 </KeyboardAvoidingView>
             </View>
@@ -213,8 +227,10 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: 'white'
     },
-    header_container: {
-
+    container_room: {
+        flex: 1,
+        backgroundColor: '#4623fd',
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0
     },
     footer_container: {
         paddingHorizontal: 15,

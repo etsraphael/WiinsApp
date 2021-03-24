@@ -133,7 +133,7 @@ class MiniPlayer extends React.Component {
         }
     }
 
-    // to select the music modal view
+    // to display the music modal view
     _modalView = () => {
         return (
             <Modal
@@ -148,64 +148,64 @@ class MiniPlayer extends React.Component {
             >
                 <View style={{ flex: 1, backgroundColor: 'white' }}>
 
-                    <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
-                        <TouchableOpacity onPress={() => this._closeModalMusic()} style={{ paddingLeft: 20, paddingTop: 25 }} >
-                            <FontAwesomeIcon icon={faAngleDown} color={'grey'} size={32} />
-                        </TouchableOpacity>
-                    </View>
-
                     {/* Music Image */}
-                    <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <View style={{ shadowColor: "#000", width: 250, height: 250, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5, borderRadius: 25 }}>
-                            <FastImage
-                                style={{ width: '100%', height: '100%', borderRadius: 25, overflow: 'hidden' }}
-                                source={{
-                                    uri: this.props.Player.musicIsPlaying.artwork,
-                                    priority: FastImage.priority.normal,
-                                }}
-                                resizeMode={FastImage.resizeMode.cover}
-                            />
+                    <View style={{ flex: 3, backgroundColor: 'white' }}>
+                        <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center' }}>
+                            <TouchableOpacity onPress={() => this._closeModalMusic()} style={{ paddingLeft: 20, paddingTop: 25 }} >
+                                <FontAwesomeIcon icon={faAngleDown} color={'grey'} size={32} />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <View style={{ shadowColor: "#000", width: 175, height: 175, shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.25, shadowRadius: 3.84, elevation: 5, borderRadius: 25 }}>
+                                <FastImage
+                                    style={{ width: '100%', height: '100%', borderRadius: 25, overflow: 'hidden' }}
+                                    source={{
+                                        uri: this.props.Player.musicIsPlaying.artwork,
+                                        priority: FastImage.priority.normal,
+                                    }}
+                                    resizeMode={FastImage.resizeMode.cover}
+                                />
+                            </View>
                         </View>
                     </View>
 
-                    <View style={{ marginVertical: 75 }}>
-
-                        {/* Progress Bar */}
+                    {/* Progress bar */}
+                    <View style={{ flex: 1, justifyContent: 'center' }}>
                         <ProgressBar />
+                    </View>
 
-                        {/* Artist and title */}
-                        <View style={{ flexDirection: 'row' }}>
+                    {/* Informations */}
+                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center' }}>
 
-                            {/* Like Btn */}
-                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
-                                {this.props.Player.musicIsPlaying.isLiked ?
-                                    <TouchableOpacity onPress={() => this.props.actions.dislikeMusicFromPlayerAction(this.props.Player.musicIsPlaying.id)} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
-                                        <FontAwesomeIcon icon={faHeart} color={'red'} size={17} />
-                                    </TouchableOpacity>
-                                    :
-                                    <TouchableOpacity onPress={() => this._likeMusic()} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
-                                        <FontAwesomeIcon icon={faHeart} color={'grey'} size={17} />
-                                    </TouchableOpacity>
-                                }
-                            </View>
-
-                            {/* Description */}
-                            <View style={{ flex: 2, alignItems: 'center' }}>
-                                <Text style={{ fontSize: 22, color: '#15141E', marginVertical: 3, fontWeight: '700' }}>{this.props.Player.musicIsPlaying.title}</Text>
-                                <Text style={{ color: '#8B8F92', fontSize: 16, marginBottom: 4 }}>{this.props.Player.musicIsPlaying.artist}</Text>
-                            </View>
-
-                            {/* Follow Btn */}
-                            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
-                                {this._displayRelationIcon()}
-                            </View>
-
+                        {/* Like Btn */}
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
+                            {this.props.Player.musicIsPlaying.isLiked ?
+                                <TouchableOpacity onPress={() => this.props.actions.dislikeMusicFromPlayerAction(this.props.Player.musicIsPlaying.id)} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                    <FontAwesomeIcon icon={faHeart} color={'red'} size={17} />
+                                </TouchableOpacity>
+                                :
+                                <TouchableOpacity onPress={() => this._likeMusic()} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                    <FontAwesomeIcon icon={faHeart} color={'grey'} size={17} />
+                                </TouchableOpacity>
+                            }
                         </View>
+
+                        {/* Description */}
+                        <View style={{ flex: 2, alignItems: 'center' }}>
+                            <Text style={{ fontSize: 22, color: '#15141E', marginVertical: 3, fontWeight: '700' }}>{this.props.Player.musicIsPlaying.title}</Text>
+                            <Text style={{ color: '#8B8F92', fontSize: 16, marginBottom: 4 }}>{this.props.Player.musicIsPlaying.artist}</Text>
+                        </View>
+
+                        {/* Follow Btn */}
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
+                            {this._displayRelationIcon()}
+                        </View>
+
 
                     </View>
 
-                    {/* Control */}
-                    <View style={{ flexDirection: 'row', marginTop: 15, paddingHorizontal: 15 }}>
+                    {/* Controlers */}
+                    <View style={{ flex: 1, flexDirection: 'row' }}>
 
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                             {this._displayRepeatIcon()}
@@ -247,7 +247,10 @@ class MiniPlayer extends React.Component {
 
                     </View>
 
+
+
                 </View>
+
             </Modal>
         )
     }

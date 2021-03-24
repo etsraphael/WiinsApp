@@ -1,15 +1,21 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, TouchableOpacity, StatusBar } from 'react-native'
-import FastImage from 'react-native-fast-image';
-import LinearGradient from 'react-native-linear-gradient';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native'
+import FastImage from 'react-native-fast-image'
+import LinearGradient from 'react-native-linear-gradient'
 import I18n from '../../../assets/i18n/i18n'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as PlayerMusicActions from '../../redux/Player/actions'
 
 class OnBoarding extends React.Component {
+
+    componentDidMount() {
+        this.props.actions.resetPlayerActions()
+    }
 
     render() {
         return (
             <>
-                <StatusBar barStyle="default" hidden={false} backgroundColor="transparent" translucent={true} />
                 <LinearGradient
                     colors={['#35D1FE', '#0041C4', '#960CF8']}
                     style={styles.backgroundImage}
@@ -47,13 +53,6 @@ const styles = StyleSheet.create({
     backgroundImage: {
         flex: 1,
     },
-    brand_container: {
-        flex: 3,
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'flex-end'
-    },
     logoBrand: {
         width: 125,
         height: 131,
@@ -87,4 +86,18 @@ const styles = StyleSheet.create({
     }
 })
 
-export default OnBoarding
+
+const mapStateToProps = state => ({
+    MyUser: state.MyUser
+})
+
+const ActionCreators = Object.assign(
+    {},
+    PlayerMusicActions
+)
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(ActionCreators, dispatch),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(OnBoarding)

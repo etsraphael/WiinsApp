@@ -44,8 +44,10 @@ class CardModal extends React.Component {
 
     _toggleComment = () => {
         this.props.actions.getCommentListPublication(this.props.PublicationsInModal.publication.id, 1)
+
+
+
         this.props.navigation.navigate('Comments')
-        // this.setState({ swipDirection: null })
     }
 
     componentWillUnmount() {
@@ -60,9 +62,7 @@ class CardModal extends React.Component {
 
     // to navigate to a profile
     _goToProfile = (profileId) => {
-        if (profileId !== this.props.MyProfile._id) this.props.PublicationsInModal.navigation.navigate('Profile', { profileId })
-        else this.props.navigation.navigate('MyProfile')
-        this.props.toggleModal()
+        return this.props.goToProfile({profileId, pageName: this.props.pageName})
     }
 
     // to navigate to a page

@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faTransporterEmpty } from '@fortawesome/pro-light-svg-icons'
 import { downloadFavoritesMusicList } from './../../../services/cache/cache-music-service'
 import I18n from '../../../../assets/i18n/i18n'
+import { checkNotification } from './../../../services/notification/action-notification-service'
 
 class HomeMusic extends React.Component {
 
@@ -42,6 +43,7 @@ class HomeMusic extends React.Component {
     }
 
     componentDidMount() {
+        checkNotification(this.props.navigation)
         this.props.actions.getMusicMenu()
         this.props.actions.getMyMusic()
     }

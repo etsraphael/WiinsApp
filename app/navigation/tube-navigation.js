@@ -1,37 +1,20 @@
 import React from 'react'
-import { createStackNavigator } from 'react-navigation-stack'
-import { createAppContainer } from 'react-navigation'
+import { createStackNavigator } from '@react-navigation/stack'
 import HomeTube from '../components/space/tube/home-tube'
 import TubePage from '../components/space/tube/tube-page'
 import TubeListPage from '../components/space/tube/tube-list-page'
 import CommentPage from './../components/core/reusable/comment/comment-page'
 
-const HomeTubeRoute = createStackNavigator(
-    { HomeTube: { screen: HomeTube } },
-    { headerMode: 'none', initialRouteName: 'HomeTube' }
+const Stack = createStackNavigator()
+
+export default TubeNavigation = () => (
+    <Stack.Navigator
+        screenOptions={{ headerShown: false }}
+        initialRouteName={'HomeTube'}
+    >
+        <Stack.Screen name={'HomeTube'} component={HomeTube} />
+        <Stack.Screen name={'TubePage'} component={TubePage} />
+        <Stack.Screen name={'TubeListPage'} component={TubeListPage} />
+        <Stack.Screen name={'Comments'} component={CommentPage} />
+    </Stack.Navigator>
 )
-
-const TubePageRoute = createStackNavigator(
-    { 
-        TubePage: { screen: ({ navigation }) => <TubePage screenProps={{ rootNavigation: navigation }}/> },
-        Comments: { screen: CommentPage }
-    },
-    { headerMode: 'none', initialRouteName: 'TubePage' }
-)
-
-const TubeListPageRoute = createStackNavigator(
-    { TubeListPage: { screen: ({ navigation }) => <TubeListPage screenProps={{ rootNavigation: navigation }}/> } },
-    { headerMode: 'none', initialRouteName: 'TubeListPage' }
-)
-
-const TubeNavigation = createStackNavigator(
-    {
-        Home: HomeTubeRoute,
-        TubePage: TubePageRoute,
-        TubeListPage: TubeListPageRoute
-    },
-    { headerMode: 'none', initialRouteName: 'Home' }
-)
-
-export default createAppContainer(TubeNavigation)
-

@@ -7,7 +7,6 @@ import * as SearchActions from '../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import { faPlus } from '@fortawesome/pro-light-svg-icons'
 import OneRoomMin from './one-room-min'
-import OneRoom from './one-room'
 import { faComments } from '@fortawesome/pro-duotone-svg-icons'
 import RoomCreation from './room-creation'
 import LinearGradient from 'react-native-linear-gradient'
@@ -16,6 +15,8 @@ import * as RoomActions from '../../../redux/OneRoom/actions'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import I18n from '../../../../assets/i18n/i18n'
+import { checkNotification } from './../../../services/notification/action-notification-service'
+import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 class HomeMessenger extends React.Component {
 
@@ -24,14 +25,18 @@ class HomeMessenger extends React.Component {
         this.state = {
             page: 1,
             newMessageModal: false,
-            oneRoomModal: false,
-            search: '',
-            roomSelected: null
+            search: ''
         }
     }
 
     componentDidMount = () => {
+        checkNotification(this.props.navigation)
         this.props.actions.getRoom(1)
+
+        if(!!this.props.params){
+            console.log(this.props.params.notification)
+        }
+
     }
 
     // to set the search
@@ -100,26 +105,6 @@ class HomeMessenger extends React.Component {
         )
     }
 
-    // to display the room view
-    _oneRoomView = () => {
-        return (
-            <Modal
-                animationIn={'bounceInRight'}
-                animationOut={'bounceInLeft'}
-                onSwipeComplete={() => this.setState({ oneRoomModal: false })}
-                onBackdropPress={() => this.setState({ oneRoomModal: false })}
-                isVisible={this.state.oneRoomModal}
-                transparent={true}
-                swipeDirection={'right'}
-                propagateSwipe={true}
-                style={{ flex: 1, margin: 0, overflow: 'hidden' }}
-                backdropOpacity={0.20}
-            >
-                {!!this.state.roomSelected ? <OneRoom roomSelected={this.state.roomSelected} goBack={() => this.setState({ oneRoomModal: false, roomSelected: null })} /> : null}
-            </Modal>
-        )
-    }
-
     // to display the creation room
     _createMessageView = () => {
 
@@ -154,9 +139,9 @@ class HomeMessenger extends React.Component {
         return (
             <View style={{ height: '100%' }}>
                 <FlatList
-                    data={this.props.RoomsList.rooms}
+                    data={this.props.RoomsList.rooms.sort((a,b)=> new Date(b.updatedAt) - new Date(a.updatedAt))}
                     keyExtractor={(item) => item._id.toString()}
-                    renderItem={({ item }) => (<OneRoomMin room={item} goToRoom={this._openARoom} />)}
+                    renderItem={({ item }) => (<OneRoomMin room={item} goToRoom={this._openARoom} navigation={this.props.navigation}/>)}
                 />
             </View>
         )
@@ -200,9 +185,8 @@ class HomeMessenger extends React.Component {
                     (!this.props.RoomsList.isLoading) ?
                     this._noRoomMessage() : null
                 }
-                {this._btnSearch()}
+                {/* {this._btnSearch()} */}
                 {this.state.newMessageModal ? this._createMessageView() : null}
-                {this._oneRoomView()}
             </View>
         )
     }
@@ -214,6 +198,7 @@ class HomeMessenger extends React.Component {
     }
 
     render() {
+
         return (
             <View style={styles.main_container}>
                 {this._viewSelected()}
@@ -226,7 +211,8 @@ class HomeMessenger extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
-        backgroundColor: '#e3e6ef'
+        backgroundColor: '#e3e6ef',
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 5 : 5
     }
 })
 

@@ -50,7 +50,7 @@ class SignIn extends React.Component {
     _displayLoading = () => {
         return (
             <View style={styles.loading_container}>
-                <ActivityIndicator size='large' color="#ffffff" />
+                <ActivityIndicator size='large' color="grey" />
             </View>
         )
     }
@@ -95,7 +95,7 @@ class SignIn extends React.Component {
 
     render() {
         return (
-            <View style={{flex: 1, backgroundColor: 'white' }}>
+            <View style={{ flex: 1, backgroundColor: 'white' }}>
                 <StatusBar barStyle="dark-content" hidden={false} backgroundColor="transparent" translucent={true} />
                 <View style={styles.actionBarStyle}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
@@ -103,23 +103,22 @@ class SignIn extends React.Component {
                     </TouchableOpacity>
                 </View>
 
-
                 <KeyboardAvoidingView
                     behavior={Platform.OS === "ios" ? "padding" : null}
                     keyboardVerticalOffset={0}
                     style={{ width: '100%', padding: 31, paddingTop: 50, flex: 1 }}
                 >
-
                     <ScrollView showsVerticalScrollIndicator={false}>
                         <View style={styles.brand_container}>
                             <Text style={{ color: '#960CF8', fontSize: 32 }}>{I18n.t('CORE.Hello')}</Text>
-                            <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? I18n.t('LOGIN-REGISTRER.Login-first-to-continue') : I18n.t('LOGIN-REGISTRER.Checking-yr-infos')}</Text>
+                            <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>
+                                {!this.props.MyUser.isLoading ? I18n.t('LOGIN-REGISTRER.Login-first-to-continue') : I18n.t('LOGIN-REGISTRER.Checking-yr-infos')}
+                            </Text>
                         </View>
                         <View style={styles.card_container}>
                             {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
                         </View>
                     </ScrollView>
-
                 </KeyboardAvoidingView>
             </View>
         )

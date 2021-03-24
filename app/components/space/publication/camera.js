@@ -617,7 +617,7 @@ class Camera extends React.Component {
             </TouchableOpacity>
           </View>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <TouchableOpacity onPress={() => this.props.screenProps.getBack()}>
+            <TouchableOpacity onPress={() =>  this.props.closeModal()}>
               <FontAwesomeIcon icon={faAngleDown} color={'white'} size={39} />
             </TouchableOpacity>
           </View>

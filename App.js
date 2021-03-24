@@ -4,14 +4,12 @@ import { configureStore } from './app/redux/configureStore'
 import { PersistGate } from 'redux-persist/integration/react'
 import MainApp from './app/components/core/home/main-app'
 import { resetCacheForDev } from './app/services/cache/cache-core-service'
-import messaging from '@react-native-firebase/messaging'
-import { Platform } from 'react-native'
 import { configureNotification } from './app/services/notification/notification-service'
 import { initSentry } from './app/services/error/error-service'
 
 // default setting
-configureNotification()
 const { persistor, store } = configureStore()
+configureNotification(store)
 
 class App extends Component {
 
@@ -26,24 +24,8 @@ class App extends Component {
   }
 
   componentDidMount = async () => {
-
     if (__DEV__) { await resetCacheForDev() }
-    else { initSentry()  }
-
-    if(Platform.OS == 'ios'){
-      await this.requestUserPermissionForIos()
-    }
-
-  }
-
-  requestUserPermissionForIos = async () => {
-    const authStatus = await messaging().requestPermission();
-    const enabled =
-      authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
-      authStatus === messaging.AuthorizationStatus.PROVISIONAL;
-      if (enabled) {
-      console.log('Authorization status:', authStatus);
-    }
+    else { initSentry() }
   }
 
   onBeforeLift() {

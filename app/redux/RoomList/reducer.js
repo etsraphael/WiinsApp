@@ -24,7 +24,21 @@ export default RoomListReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
-    case ActionTypes.REST_ROOM_LIST: return initialState
+    case ActionTypes.UPDATE_ROOM_BY_ID: {
+      const index = state.rooms.map(x => x._id).indexOf(action.notification.roomId)
+
+      state.rooms[index] = {
+        ...state.rooms[index],
+        lastMessage: {
+          text: action.notification.text,
+          createdAt: Date.now()
+        },
+        updatedAt: Date.now(),
+      }
+
+      return { ...state }
+    }
+    case ActionTypes.RESET_ROOM_LIST: return initialState
     default: return state
   }
 }

@@ -28,7 +28,7 @@ class PlaylistPage extends React.Component {
     }
 
     componentDidMount() {
-        this.props.actions.getMusicPlaylist(this.props.screenProps.rootNavigation.state.params.playlistId)
+        this.props.actions.getMusicPlaylist(this.props.route.params.playlistId)
     }
 
     // to display the loading animation
@@ -69,7 +69,7 @@ class PlaylistPage extends React.Component {
                 {/* Navigation Header */}
                 <View style={{ flexDirection: 'row', paddingVertical: 10 }}>
                     <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.goBack(null)}>
+                        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
                             <FontAwesomeIcon icon={faAngleLeft} color={'grey'} size={38} />
                         </TouchableOpacity>
                     </View>

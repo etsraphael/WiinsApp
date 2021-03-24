@@ -14,6 +14,7 @@ import { faSearch, faTimes } from '@fortawesome/pro-light-svg-icons'
 import SuggestionDiscover from './suggestion-discover'
 import I18n from './../../../../assets/i18n/i18n'
 import PublicationModalContainer from '../../core/modal/publication-modal-container'
+import { checkNotification } from './../../../services/notification/action-notification-service'
 
 class Discover extends React.Component {
 
@@ -34,11 +35,12 @@ class Discover extends React.Component {
 
     // to display the modal view
     _toggleModal = (event) => {
-        if(!!event){ this.props.actions.putPublicationInModalActions(event.publication) }
+        if (!!event) { this.props.actions.putPublicationInModalActions(event.publication) }
         this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
     componentDidMount() {
+        checkNotification(this.props.navigation)
         this.props.actions.getTopHastag()
         this._getPublicationList()
     }
@@ -235,13 +237,35 @@ class Discover extends React.Component {
         return (<SuggestionDiscover navigation={this.props.navigation} currentSearch={this.state.search} searchFilterUpdated={actifCategory => this.setState({ actifCategory })} />)
     }
 
+    _goToProfile = (payload) => {
+
+        this.setState({ modal: false, PublicationModal: null })
+
+        if(payload.pageName == 'Profile') return null
+
+        if (payload.profileId !== this.props.MyProfile._id) { 
+            this.props.navigation.navigate('Profile', { profileId: payload.profileId })
+        }
+        else {
+            this.props.navigation.navigate('MyProfile')
+        }
+    }
+
     render() {
         return (
             <View style={styles.main_container}>
                 {this._header()}
                 {this.state.search.length <= 2 ? this._displayDiscoverView() : null}
                 {this.state.search.length > 2 ? this._displaySuggestionView() : null}
-                {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
+
+                {this.state.modal ?
+                    <PublicationModalContainer
+                        publicationModal={this.state.PublicationModal}
+                        toggleModal={(event) => this._toggleModal(event)}
+                        goToProfile={(profileId) => this._goToProfile(profileId)}
+                        pageName={'Discover'}
+                    /> : null}
+
             </View>
         );
     }
@@ -297,6 +321,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
+    MyProfile: state.MyProfile,
     MyUser: state.MyUser,
     TopHastag: state.TopHastag,
     DiscoverPublications: state.DiscoverPublications
