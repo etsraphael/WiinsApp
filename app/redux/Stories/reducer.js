@@ -24,6 +24,27 @@ export default StoriesReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+    case ActionTypes.GET_STORIES: {
+      return {
+        ...state,
+        isRefreshing: true
+      }
+    }
+    case ActionTypes.GET_STORIES_SUCCESS: {
+      return {
+        ...state,
+        stories: action.payload,
+        isRefreshing: false,
+        error: null,
+      }
+    }
+    case ActionTypes.GET_STORIES_FAIL: {
+      return {
+        ...state,
+        isRefreshing: false,
+        error: action.payload
+      }
+    }
     case ActionTypes.GET_STACK: {
       return {
         ...state,
