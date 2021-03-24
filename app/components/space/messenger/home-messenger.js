@@ -25,14 +25,7 @@ class HomeMessenger extends React.Component {
         this.state = {
             page: 1,
             newMessageModal: false,
-            search: '',
-            refreshing: false
-        }
-    }
-
-    UNSAFE_componentWillReceiveProps = (newProps) => {
-        if (!newProps.rooms && this.state.refreshing && !newProps.RoomsList.isLoading) {
-            this.setState({ refreshing: false })
+            search: ''
         }
     }
 
@@ -143,8 +136,7 @@ class HomeMessenger extends React.Component {
 
     _onrefresh = () => {
         if (!this.props.RoomsList.isLoading) {
-            this.props.actions.getRoom(1)
-            this.setState({ refreshing: true })
+            this.props.actions.refreshRooms()
         }
     }
 
@@ -154,7 +146,7 @@ class HomeMessenger extends React.Component {
             <View style={{ height: '100%' }}>
                 <FlatList
                     onRefresh={this._onrefresh}
-                    refreshing={this.state.refreshing}
+                    refreshing={this.props.RoomsList.isRefreshing}
                     data={this.props.RoomsList.rooms.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))}
                     keyExtractor={(item) => item._id.toString()}
                     renderItem={({ item }) => (<OneRoomMin room={item} goToRoom={this._openARoom} navigation={this.props.navigation} />)}
