@@ -25,8 +25,6 @@ class Feed extends React.Component {
             isHeaderVisible: true,
             search: '',
             pagePublication: 1,
-            isRefreshing: false,
-            isLoadingMore: false,
             modal: false,
             PublicationModal: null,
             publicationMode: false,
@@ -37,8 +35,6 @@ class Feed extends React.Component {
             reportModalExist: false,
             reportPublicationId: null
         }
-        _listViewOffset = 0
-
     }
 
     UNSAFE_componentWillMount() {
@@ -111,14 +107,6 @@ class Feed extends React.Component {
                 </View>
             </View>
         )
-    }
-
-    // to refresh the publications
-    _refreshRequest = () => {
-        this.setState({ isRefreshing: true, pagePublication: 1 })
-        this.props.actions.resetPublicationActions()
-        setTimeout(() => { this.setState({ isRefreshing: false }) }, 1000);
-        this.props.actions.getByModeFeed(1, 'FollowerAndFriend')
     }
 
     _cardRender = (item, index) => {
