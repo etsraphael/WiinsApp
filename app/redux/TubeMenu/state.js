@@ -14,6 +14,7 @@ export const initialState = {
     suggestions: [],
     downloaded: [],
     isLoading: false,
+    isRefreshing: false,
     error: null,
 }
 

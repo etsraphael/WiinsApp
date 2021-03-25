@@ -1,5 +1,8 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView, ActivityIndicator } from 'react-native'
+import {
+    StyleSheet, View, Text, TextInput, TouchableOpacity,
+    FlatList, ScrollView, ActivityIndicator, RefreshControl
+} from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { checkNotification } from './../../../services/notification/action-notification-service'
@@ -240,6 +243,12 @@ class HomeTube extends React.Component {
         )
     }
 
+    _refreshPage = () => {
+        if (!this.props.TubeMenu.isLoading) {
+            this.props.actions.refreshTubeMenuActions()
+        }
+    }
+
     // to select the loading of the contents
     _bodyRender = () => {
         if (this.props.TubeMenu.isLoading) {
@@ -249,16 +258,23 @@ class HomeTube extends React.Component {
                 </View>
             )
         } else {
-            return (<ScrollView>
-                {this._tubeListBySection(this.props.TubeMenu.trending, I18n.t('TUBE.Categorie.Trending'), { fontWeight: 'bold' }, true)}
+            return (
+                <ScrollView
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={this.props.TubeMenu.isRefreshing}
+                            onRefresh={this._refreshPage}
+                        />
+                    }>
+                    {this._tubeListBySection(this.props.TubeMenu.trending, I18n.t('TUBE.Categorie.Trending'), { fontWeight: 'bold' }, true)}
 
-                {/* {this._categorieViews()} */}
-                {/* {this._tubeListBySection(this.props.TubeMenu.following, 'Following')}
+                    {/* {this._categorieViews()} */}
+                    {/* {this._tubeListBySection(this.props.TubeMenu.following, 'Following')}
                     {this._tubeListBySection(this.props.TubeMenu.trending, 'Trending')}
                     {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Suggestion')} */}
 
-                {this._tubeListDownloaded(this.props.TubeMenu.downloaded, I18n.t('CORE.Downloaded'), { fontWeight: 'bold' }, true)}
-            </ScrollView>)
+                    {this._tubeListDownloaded(this.props.TubeMenu.downloaded, I18n.t('CORE.Downloaded'), { fontWeight: 'bold' }, true)}
+                </ScrollView>)
         }
     }
 
