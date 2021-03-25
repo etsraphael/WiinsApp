@@ -226,6 +226,13 @@ class Discover extends React.Component {
         )
     }
 
+    _refreshDisover = () => {
+        if(!this.props.DiscoverPublications.isLoading){
+            this.props.actions.refreshTrend()
+            this.setState({hastagSelected: 'trend'})
+        }
+    }
+
     // to select the discover view
     _displayDiscoverView = () => {
         return (
@@ -233,12 +240,12 @@ class Discover extends React.Component {
                 scrollEventThrottle={5}
                 style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }}
                 showsVerticalScrollIndicator={false}
-                // refreshControl={
-                //     <RefreshControl
-                //     refreshing={true}
-                //     onRefresh={console.log}
-                //     />
-                //   }
+                refreshControl={
+                    <RefreshControl
+                    refreshing={this.props.DiscoverPublications.isRefreshing}
+                    onRefresh={this._refreshDisover}
+                    />
+                  }
             >
                 {this._hastagView()}
                 {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
