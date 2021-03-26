@@ -165,6 +165,9 @@ class CardNewFeed extends React.Component {
         console.log(this.props.navigation)
 
 
+        return null
+
+
         if (this.props.space == 'profile') return null
         if (profileId !== this.props.MyProfile.profile._id) this.props.navigation.navigate('Profile', { profileId })
         else this.props.navigation.navigate('MyProfile')

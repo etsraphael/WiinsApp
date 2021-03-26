@@ -2,6 +2,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import Feed from '../components/space/feed/feed'
 import Profile from '../components/space/profile/profile'
+import MyProfile from '../components/space/profile/my-profile'
 import Setting from '../components/space/setting/setting'
 import SettingProfile from '../components/space/setting/setting-profile'
 import SettingLedger from '../components/space/setting/setting-ledger'
@@ -33,6 +34,7 @@ export default FeedNavigation = () => (
         initialRouteName={'Feed'}
     >
         <Stack.Screen name={'Feed'} component={Feed} />
+        <Stack.Screen name={'MyProfile'} component={MyProfile} />
         <Stack.Screen name={'Profile'} component={Profile} />
         <Stack.Screen name={'Setting'} component={SettingNavigation} />
     </Stack.Navigator>
