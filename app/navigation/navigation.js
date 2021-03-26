@@ -9,7 +9,9 @@ import DiscoverNavigation from './discover-navigation'
 import MessengerNavigation from './messenger-navigation'
 import TubeNavigation from './tube-navigation'
 import MusicNavigation from './music-navigation'
-import messaging from '@react-native-firebase/messaging'
+import * as MyProfileActions from './../redux/MyProfile/actions'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
 const MyTheme = {
     ...DefaultTheme,
@@ -31,6 +33,11 @@ class MainNavigationContainer extends React.Component {
 
     constructor(props) {
         super(props)
+    }
+
+    componentDidMount = async () => {
+        this.props.actions.getMyProfile()
+        // this.musicProgress = listenerMusic(this.props.actions)
     }
 
     _mainTabNavigation = () => (
@@ -101,4 +108,19 @@ class MainNavigationContainer extends React.Component {
     }
 }
 
-export default MainNavigationContainer
+const mapStateToProps = state => ({
+    MyProfile: state.MyProfile,
+    MyUser: state.MyUser,
+    Player: state.Player,
+})
+
+const ActionCreators = Object.assign(
+    {},
+    MyProfileActions,
+)
+
+const mapDispatchToProps = dispatch => ({
+    actions: bindActionCreators(ActionCreators, dispatch),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainNavigationContainer)
