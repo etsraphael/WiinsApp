@@ -1,5 +1,9 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, FlatList, ScrollView, TouchableOpacity, ActivityIndicator, SafeAreaView, VirtualizedList } from 'react-native'
+import {
+    StyleSheet, View, Text, TextInput, FlatList,
+    ScrollView, TouchableOpacity, ActivityIndicator,
+    SafeAreaView, VirtualizedList, RefreshControl
+} from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as MusicMenuActions from '../../../redux/MusicMenu/actions'
@@ -171,7 +175,7 @@ class HomeMusic extends React.Component {
     // to display the music list
     _showMusicList = () => {
 
-        if(!!this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]){
+        if (!!this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]) {
             return (
                 <SafeAreaView style={{ flex: 1 }}>
                     <VirtualizedList
@@ -186,7 +190,7 @@ class HomeMusic extends React.Component {
                 </SafeAreaView>
             )
         }
-        
+
     }
 
     // to display the list of the genre
@@ -278,10 +282,25 @@ class HomeMusic extends React.Component {
         )
     }
 
+    _refreshPage = () => {
+        if (!this.props.MyMenu.isLoading) {
+            this.props.actions.refreshMusicMenu()
+            this.props.actions.getMyMusic()
+        }
+    }
+
     _displayContentView = () => {
         return (
             <SafeAreaView style={{ flex: 1 }}>
-                <ScrollView style={{ flex: 1 }}>
+                <ScrollView
+                    style={{ flex: 1 }}
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={this.props.MyMenu.isRefreshing}
+                            onRefresh={this._refreshPage}
+                        />
+                    }
+                >
                     {/* categorie playslit */}
                     {this._categorieViews()}
                     {/* chart playslit */}
@@ -292,9 +311,6 @@ class HomeMusic extends React.Component {
     }
 
     render() {
-
-
-
         return (
             <View style={styles.main_container}>
                 {/*  search bar */}
@@ -379,7 +395,7 @@ const mapStateToProps = state => ({
 const ActionCreators = Object.assign(
     {},
     MusicMenuActions,
-    MyFavMusicActions,
+    MyFavMusicActions
 )
 
 const mapDispatchToProps = dispatch => ({

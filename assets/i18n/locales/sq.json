@@ -653,7 +653,7 @@
     "Register": "Regjistrohuni",
     "Registration": "Regjistrimi",
     "Sign-up": "Regjistrohu",
-    "accept-tou": "Unë i pranoj termat dhe kushtet e përdorimit",
+    "accept-tou": "Unë vërtetoj se jam 16 vjeç ose më i vjetër dhe pajtohem me marrëveshjen e përdoruesit dhe politikën e privatësisë",
     "click-on-email": "Ju lutemi klikoni në lidhjen e postës elektronike"
   },
   "MAIN-MUSIC": {
@@ -733,7 +733,9 @@
     "Your-Email": "Emaili juaj",
     "Your-Password": "Fjalëkalimi juaj",
     "Your-Pseudo": "Emri juaj i përdoruesit",
-    "Your-message": "Mesazhi juaj"
+    "Your-message": "Mesazhi juaj",
+    "Confirm-your-password": "Konfirmoni fjalëkalimin tuaj",
+    "Password-not-matching": "Fjalëkalimet nuk përputhen"
   },
   "PLEASE": {
     "Password": "Ju lutem vendosni fjalëkalimin tuaj"

@@ -1,5 +1,9 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, FlatList, TouchableOpacity, ActivityIndicator, LayoutAnimation, ScrollView } from 'react-native'
+import {
+    StyleSheet, View, Text, TextInput, FlatList,
+    TouchableOpacity, ActivityIndicator, LayoutAnimation,
+    ScrollView, RefreshControl
+} from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import * as TopHastagActions from '../../../redux/TopHastag/actions'
@@ -222,10 +226,27 @@ class Discover extends React.Component {
         )
     }
 
+    _refreshDisover = () => {
+        if(!this.props.DiscoverPublications.isLoading){
+            this.props.actions.refreshTrend()
+            this.setState({hastagSelected: 'trend'})
+        }
+    }
+
     // to select the discover view
     _displayDiscoverView = () => {
         return (
-            <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }} showsVerticalScrollIndicator={false} >
+            <ScrollView
+                scrollEventThrottle={5}
+                style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }}
+                showsVerticalScrollIndicator={false}
+                refreshControl={
+                    <RefreshControl
+                    refreshing={this.props.DiscoverPublications.isRefreshing}
+                    onRefresh={this._refreshDisover}
+                    />
+                  }
+            >
                 {this._hastagView()}
                 {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
             </ScrollView>
@@ -241,9 +262,9 @@ class Discover extends React.Component {
 
         this.setState({ modal: false, PublicationModal: null })
 
-        if(payload.pageName == 'Profile') return null
+        if (payload.pageName == 'Profile') return null
 
-        if (payload.profileId !== this.props.MyProfile._id) { 
+        if (payload.profileId !== this.props.MyProfile._id) {
             this.props.navigation.navigate('Profile', { profileId: payload.profileId })
         }
         else {

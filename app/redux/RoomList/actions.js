@@ -14,6 +14,18 @@ export function getRoomListFail(error) {
     return { type: ActionTypes.GET_ROOM_LIST_FAIL, payload: error }
 }
 
+export function refreshRoomListStart() {
+    return { type: ActionTypes.REFRESH_ROOM_LIST }
+}
+
+export function refreshRoomListSuccess(rooms) {
+    return { type: ActionTypes.REFRESH_ROOM_LIST_SUCCESS, payload: rooms }
+}
+
+export function refreshRoomListFail(error) {
+    return { type: ActionTypes.REFRESH_ROOM_LIST_FAIL, payload: error }
+}
+
 export function resetRoomList() {
     return { type: ActionTypes.RESET_ROOM_LIST }
 }
@@ -44,6 +56,31 @@ export function getRoom(page) {
         } catch (error) {
             sendError(error)
             return dispatch(getRoomListFail(error))
+        }
+    }
+}
+
+export function refreshRooms() {
+    return async (dispatch) => {
+        try {
+            dispatch(refreshRoomListStart())
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/messenger/allRooms/1'
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) return dispatch(refreshRoomListSuccess(response.results))
+                    return dispatch(refreshRoomListFail(response))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(refreshRoomListFail(error))
         }
     }
 }

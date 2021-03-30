@@ -649,7 +649,7 @@
     "Register": "Registruotis",
     "Registration": "Registracija",
     "Sign-up": "Registruotis",
-    "accept-tou": "Aš sutinku su naudojimo sąlygomis",
+    "accept-tou": "Patvirtinu, kad esu 16 metų ar vyresnis, ir sutinku su vartotojo sutartimi bei privatumo politika",
     "click-on-email": "Spustelėkite el. Pašto nuorodą",
     "Create-yr-account": "Susikurkite savo paskyrą",
     "Creating-yr-account": "Jūsų paskyros kūrimas",
@@ -733,7 +733,9 @@
     "Your-Email": "Tavo elektroninis paštas",
     "Your-Password": "Jūsų slaptažodis",
     "Your-Pseudo": "Jūsų slapyvardis",
-    "Your-message": "Tavo žinutė"
+    "Your-message": "Tavo žinutė",
+    "Confirm-your-password": "Patvirtinkite savo slaptažodį",
+    "Password-not-matching": "Slaptažodžiai nesutampa"
   },
   "PLEASE": {
     "Password": "Prašome įvesti savo slaptažodį"

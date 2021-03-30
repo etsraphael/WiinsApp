@@ -649,7 +649,7 @@
     "Register": "Kayıt ol",
     "Registration": "Kayıt",
     "Sign-up": "kaydol",
-    "accept-tou": "Kullanım şartlarını ve koşullarını kabul ediyorum",
+    "accept-tou": "16 yaşında veya daha büyük olduğumu onaylıyorum ve kullanıcı sözleşmesini ve gizlilik politikasını kabul ediyorum",
     "click-on-email": "Lütfen e-posta bağlantısına tıklayın",
     "Create-yr-account": "hesabını oluştur",
     "Creating-yr-account": "Hesabınız oluşturuluyor",
@@ -733,7 +733,9 @@
     "Your-Email": "E-posta adresiniz",
     "Your-Password": "Şifreniz",
     "Your-Pseudo": "Kullanıcı adınızı",
-    "Your-message": "Mesajın"
+    "Your-message": "Mesajın",
+    "Confirm-your-password": "Parolanızı doğrulayın",
+    "Password-not-matching": "Şifreler eşleşmiyor"
   },
   "PLEASE": {
     "Password": "Şifrenizi giriniz Lütfen"

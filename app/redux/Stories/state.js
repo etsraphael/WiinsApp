@@ -3,6 +3,7 @@ export const initialState = {
     posted: null,
     isLoading: false,
     oneStoryIsLoading: false,
+    isRefreshing: false,
     error: null,
     currentIndexStory: null
 }

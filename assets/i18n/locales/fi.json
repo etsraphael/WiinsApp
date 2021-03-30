@@ -653,7 +653,7 @@
     "Register": "Rekisteröidy",
     "Registration": "Rekisteröinti",
     "Sign-up": "Kirjaudu",
-    "accept-tou": "Hyväksyn käyttöehdot",
+    "accept-tou": "Vakuutan olevani 16-vuotias tai vanhempi ja hyväksyn käyttäjän sopimuksen ja tietosuojakäytännön",
     "click-on-email": "Napsauta sähköpostilinkkiä"
   },
   "MAIN-MUSIC": {
@@ -733,7 +733,9 @@
     "Your-Email": "Sähköpostisi",
     "Your-Password": "Salasanasi",
     "Your-Pseudo": "Sinun käyttäjä nimesi",
-    "Your-message": "Viestisi"
+    "Your-message": "Viestisi",
+    "Confirm-your-password": "Vahvista salasana",
+    "Password-not-matching": "Salasanat eivät täsmää"
   },
   "PLEASE": {
     "Password": "Anna salasanasi"

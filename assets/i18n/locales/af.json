@@ -649,7 +649,7 @@
     "Register": "Registreer",
     "Registration": "Registrasie",
     "Sign-up": "Teken aan",
-    "accept-tou": "Ek aanvaar die bepalings en voorwaardes van gebruik",
+    "accept-tou": "Ek verklaar dat ek 16 jaar of ouer is en stem in tot die gebruikersooreenkoms en privaatheidsbeleid",
     "click-on-email": "Klik op die e-pos skakel",
     "Create-yr-account": "Skep jou rekening",
     "Creating-yr-account": "Maak u rekening",
@@ -733,7 +733,9 @@
     "Your-Email": "Jou epos",
     "Your-Password": "Jou wagwoord",
     "Your-Pseudo": "Jou verbruikersnaam",
-    "Your-message": "Jou boodskap"
+    "Your-message": "Jou boodskap",
+    "Confirm-your-password": "Bevestig jou wagwoord",
+    "Password-not-matching": "Die wagwoorde stem nie ooreen nie"
   },
   "PLEASE": {
     "Password": "Tik asseblief jou wagwoord"

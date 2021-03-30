@@ -653,7 +653,7 @@
     "Register": "Cláraigh",
     "Registration": "Clárú",
     "Sign-up": "Clarú",
-    "accept-tou": "Glacaim leis na téarmaí agus coinníollacha úsáide",
+    "accept-tou": "Deimhním go bhfuil mé 16 bliana d’aois nó níos sine agus aontaím leis an gcomhaontú úsáideora agus leis an mbeartas príobháideachta",
     "click-on-email": "Cliceáil ar an nasc ríomhphoist le do thoil"
   },
   "MAIN-MUSIC": {
@@ -733,7 +733,9 @@
     "Your-Email": "Do r-phost",
     "Your-Password": "Do phasfhocal",
     "Your-Pseudo": "D'ainm úsáideora",
-    "Your-message": "Do theachtaireacht"
+    "Your-message": "Do theachtaireacht",
+    "Confirm-your-password": "Deimhnigh do phasfhocal",
+    "Password-not-matching": "Níl na pasfhocail comhoiriúnach"
   },
   "PLEASE": {
     "Password": "Iontráil do phasfhocal le do thoil"

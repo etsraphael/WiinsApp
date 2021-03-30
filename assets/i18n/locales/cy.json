@@ -653,7 +653,7 @@
     "Register": "Cofrestrwch",
     "Registration": "Cofrestru",
     "Sign-up": "Cofrestru",
-    "accept-tou": "Rwy'n derbyn y telerau ac amodau defnyddio",
+    "accept-tou": "Rwy'n tystio fy mod i'n 16 oed neu'n hŷn ac rwy'n cytuno i'r cytundeb defnyddiwr a'r polisi preifatrwydd",
     "click-on-email": "Cliciwch ar y ddolen e-bost"
   },
   "MAIN-MUSIC": {
@@ -733,7 +733,9 @@
     "Your-Email": "Dy ebost",
     "Your-Password": "Eich cyfrinair",
     "Your-Pseudo": "Eich enw defnyddiwr",
-    "Your-message": "Dy neges"
+    "Your-message": "Dy neges",
+    "Confirm-your-password": "Cadarnhewch eich cyfrinair",
+    "Password-not-matching": "Nid yw'r cyfrineiriau'n cyfateb"
   },
   "PLEASE": {
     "Password": "Rhowch eich cyfrinair"

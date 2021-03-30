@@ -649,7 +649,7 @@
     "Register": "Inregistreaza-te",
     "Registration": "Înregistrare",
     "Sign-up": "Inscrie-te",
-    "accept-tou": "Accept termenii și condițiile de utilizare",
+    "accept-tou": "Certific că am 16 ani sau mai mult și sunt de acord cu acordul de utilizare și politica de confidențialitate",
     "click-on-email": "Vă rugăm să faceți clic pe linkul de e-mail",
     "Create-yr-account": "Creeaza-ti contul",
     "Creating-yr-account": "Crearea contului dvs.",
@@ -733,7 +733,9 @@
     "Your-Email": "Email-ul tau",
     "Your-Password": "Parola Dvs",
     "Your-Pseudo": "Nume de utilizator",
-    "Your-message": "Mesajul tau"
+    "Your-message": "Mesajul tau",
+    "Confirm-your-password": "Confirmă parola",
+    "Password-not-matching": "Parolele nu se potrivesc"
   },
   "PLEASE": {
     "Password": "Va rugam sa introduceti parola"

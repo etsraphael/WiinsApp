@@ -653,7 +653,7 @@
     "Register": "Ro'yxatdan o'tish",
     "Registration": "Ro'yxatdan o'tish",
     "Sign-up": "Ro'yxatdan o'tish",
-    "accept-tou": "Men foydalanish shartlarini qabul qilaman",
+    "accept-tou": "Men 16 yoshga to'lganligimni tasdiqlayman va foydalanuvchi shartnomasi va maxfiylik siyosatiga roziman",
     "click-on-email": "Iltimos, elektron pochta havolasini bosing"
   },
   "MAIN-MUSIC": {
@@ -733,7 +733,9 @@
     "Your-Email": "Sizning elektron manzilingiz",
     "Your-Password": "Parolingiz",
     "Your-Pseudo": "Sizning foydalanuvchi ismingiz",
-    "Your-message": "Sizning xatingiz"
+    "Your-message": "Sizning xatingiz",
+    "Confirm-your-password": "Parolingizni tasdiqlang",
+    "Password-not-matching": "Parollar mos kelmayapti"
   },
   "PLEASE": {
     "Password": "Parolingizni kiriting"

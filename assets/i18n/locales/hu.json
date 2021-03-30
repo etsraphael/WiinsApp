@@ -653,7 +653,7 @@
     "Register": "Regisztráció",
     "Registration": "Bejegyzés",
     "Sign-up": "Regisztrálj",
-    "accept-tou": "Elfogadom a használati feltételeket",
+    "accept-tou": "Igazolom, hogy 16 éves vagy idősebb vagyok, és elfogadom a felhasználói megállapodást és az adatvédelmi irányelveket",
     "click-on-email": "Kattintson az e-mail linkre"
   },
   "MAIN-MUSIC": {
@@ -733,7 +733,9 @@
     "Your-Email": "Az email címed",
     "Your-Password": "A jelszavad",
     "Your-Pseudo": "Felhasználóneved",
-    "Your-message": "Az üzeneted"
+    "Your-message": "Az üzeneted",
+    "Confirm-your-password": "Erősítse meg a jelszót",
+    "Password-not-matching": "A jelszavak nem egyeznek"
   },
   "PLEASE": {
     "Password": "Kérem írja be a jelszavát"

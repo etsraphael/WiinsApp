@@ -607,7 +607,7 @@
     "Register": "레지스터",
     "Registration": "기재",
     "Sign-up": "등록하세요",
-    "accept-tou": "이용 약관에 동의합니다.",
+    "accept-tou": "본인은 16 세 이상임을 확인하고 이용 약관 및 개인 정보 취급 방침에 동의합니다.",
     "click-on-email": "이메일 링크를 클릭하십시오",
     "Create-yr-account": "계정 생성",
     "Creating-yr-account": "계정 생성",
@@ -691,7 +691,9 @@
     "Your-Email": "귀하의 이메일",
     "Your-Password": "너의 비밀번호",
     "Your-Pseudo": "사용자 이름",
-    "Your-message": "당신의 메시지"
+    "Your-message": "당신의 메시지",
+    "Confirm-your-password": "암호를 확인",
+    "Password-not-matching": "비밀번호가 일치하지 않습니다."
   },
   "PLEASE": {
     "Password": "비밀번호를 입력하십시오"

@@ -607,7 +607,7 @@
     "Register": "تسجيل",
     "Registration": "التسجيل",
     "Sign-up": "التسجيل",
-    "accept-tou": "أقبل شروط وأحكام الاستخدام",
+    "accept-tou": "أقر بأنني أبلغ من العمر 16 عامًا أو أكثر وأوافق على اتفاقية المستخدم وسياسة الخصوصية",
     "click-on-email": "الرجاء الضغط على رابط البريد الإلكتروني",
     "Create-yr-account": "أنشئ حسابك",
     "Creating-yr-account": "إنشاء حسابك",
@@ -691,7 +691,9 @@
     "Your-Email": "بريدك الالكتروني",
     "Your-Password": "كلمة مرورك",
     "Your-Pseudo": "اسم المستخدم الخاص بك",
-    "Your-message": "رسالتك"
+    "Your-message": "رسالتك",
+    "Confirm-your-password": "أكد رقمك السري",
+    "Password-not-matching": "كلمات المرور غير متطابقة"
   },
   "PLEASE": {
     "Password": "من فضلك أدخل رقمك السري"

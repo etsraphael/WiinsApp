@@ -649,7 +649,7 @@
     "Register": "Zarejestrować",
     "Registration": "Rejestracja",
     "Sign-up": "Zapisz się",
-    "accept-tou": "Akceptuję regulamin",
+    "accept-tou": "Oświadczam, że mam ukończone 16 lat i akceptuję umowę z użytkownikiem oraz politykę prywatności",
     "click-on-email": "Kliknij łącze e-mail",
     "Create-yr-account": "Utwórz swoje konto",
     "Creating-yr-account": "Tworzenie Twojego konta",
@@ -733,7 +733,9 @@
     "Your-Email": "Twój email",
     "Your-Password": "Twoje hasło",
     "Your-Pseudo": "Twoja nazwa użytkownika",
-    "Your-message": "Twoja wiadomość"
+    "Your-message": "Twoja wiadomość",
+    "Confirm-your-password": "Potwierdź swoje hasło",
+    "Password-not-matching": "Hasła nie pasują"
   },
   "PLEASE": {
     "Password": "Wprowadź hasło"

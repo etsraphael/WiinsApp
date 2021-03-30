@@ -607,7 +607,7 @@
     "Register": "S'inscrire",
     "Registration": "Inscription",
     "Sign-up": "S'inscrire",
-    "accept-tou": "J'accepte les conditions d'utilisations",
+    "accept-tou": "Je certifie que j'ai 16 ans ou plus et j'accepte le contrat d'utilisation et la politique de confidentialité",
     "click-on-email": "Veuillez cliquer sur le lien du courriel",
     "Create-yr-account": "Créez votre compte",
     "Creating-yr-account": "Création de votre compte",
@@ -691,7 +691,9 @@
     "Your-Email": "Votre email",
     "Your-Password": "Votre mot de passe",
     "Your-Pseudo": "Votre pseudo",
-    "Your-message": "Votre message"
+    "Your-message": "Votre message",
+    "Confirm-your-password": "Confirmer votre mot de passe",
+    "Password-not-matching": "Les mots de passe ne correspondent pas"
   },
   "PLEASE": {
     "Password": "Veuillez taper votre mot de passe"

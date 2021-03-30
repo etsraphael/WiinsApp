@@ -2,6 +2,18 @@ import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
 
+export function refreshStoriesStart() {
+    return { type: ActionTypes.REFRESH_STORIES }
+}
+
+export function refreshStoriesSuccess(payload) {
+    return { type: ActionTypes.REFRESH_STORIES_SUCCESS, payload }
+}
+
+export function refreshStoriesFail(payload) {
+    return { type: ActionTypes.REFRESH_STORIES_FAIL, payload }
+}
+
 export function storySeen(profileId, storyId) {
     return { type: ActionTypes.STORY_SEEN, profileId, storyId }
 }
@@ -125,4 +137,31 @@ export function storySeenActions(profileId, storyId) {
         }
 
     }
+}
+
+export function refreshStoriesActions() {
+    return async (dispatch) => {
+        try {
+
+            dispatch(refreshStoriesStart())
+            const token = await AsyncStorage.getItem('userToken')
+            const url = `https://wiins-backend.herokuapp.com/stories/followerAndFriend/8/1`
+
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) return dispatch(refreshStoriesSuccess(response.results))
+                    return dispatch(refreshStoriesFail(response))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(refreshStoriesFail(error));
+        }
+    };
 }

@@ -24,6 +24,27 @@ export default RoomListReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+    case ActionTypes.REFRESH_ROOM_LIST: {
+      return {
+        ...state,
+        isRefreshing: true
+      }
+    }
+    case ActionTypes.REFRESH_ROOM_LIST_SUCCESS: {
+      return {
+        ...state,
+        rooms: action.payload,
+        isRefreshing: false,
+        error: null,
+      }
+    }
+    case ActionTypes.REFRESH_ROOM_LIST_FAIL: {
+      return {
+        ...state,
+        isRefreshing: false,
+        error: action.payload
+      }
+    }
     case ActionTypes.UPDATE_ROOM_BY_ID: {
       const index = state.rooms.map(x => x._id).indexOf(action.notification.roomId)
 
