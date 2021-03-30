@@ -40,7 +40,7 @@ export async function requestUserPermissionForIos() {
 async function requestPermission() {
         try {
                 await firebase.messaging().requestPermission()
-                this.getToken()
+                getToken()
         } catch (error) {
                 sendError(error)
         }

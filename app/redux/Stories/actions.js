@@ -145,7 +145,7 @@ export function refreshStoriesActions() {
 
             dispatch(refreshStoriesStart())
             const token = await AsyncStorage.getItem('userToken')
-            const url = `https://wiins-backend.herokuapp.com/stories/followerAndFriend/8/${page}`
+            const url = `https://wiins-backend.herokuapp.com/stories/followerAndFriend/8/1`
 
             return fetch(url, {
                 method: 'GET',
