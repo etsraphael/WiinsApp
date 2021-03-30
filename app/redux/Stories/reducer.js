@@ -79,9 +79,9 @@ export default StoriesReducer = (state = initialState, action) => {
       state.stories[indexFound].lastStoryView = action.storyId
       return {
         ...state
-      } 
+      }
     }
-    case ActionTypes.RESET_STORIES: return initialState
-    default: return state
+    case ActionTypes.RESET_STORIES: return { ...initialState }
+    default: return { ...state }
   }
 }
