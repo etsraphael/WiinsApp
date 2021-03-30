@@ -24,13 +24,13 @@ export default StoriesReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
-    case ActionTypes.GET_STORIES: {
+    case ActionTypes.REFRESH_STORIES: {
       return {
         ...state,
         isRefreshing: true
       }
     }
-    case ActionTypes.GET_STORIES_SUCCESS: {
+    case ActionTypes.REFRESH_STORIES_SUCCESS: {
       return {
         ...state,
         stories: action.payload,
@@ -38,7 +38,7 @@ export default StoriesReducer = (state = initialState, action) => {
         error: null,
       }
     }
-    case ActionTypes.GET_STORIES_FAIL: {
+    case ActionTypes.REFRESH_STORIES_FAIL: {
       return {
         ...state,
         isRefreshing: false,
