@@ -649,7 +649,7 @@
     "Register": "Skráðu þig",
     "Registration": "Skráning",
     "Sign-up": "Skráðu þig",
-    "accept-tou": "Ég samþykki notkunarskilmála",
+    "accept-tou": "Ég staðfesti að ég er 16 ára eða eldri og ég samþykki notendasamninginn og persónuverndarstefnu",
     "click-on-email": "Vinsamlegast smelltu á tengilinn í tölvupósti",
     "Create-yr-account": "Búðu til reikninginn þinn",
     "Creating-yr-account": "Að búa til reikninginn þinn",
@@ -733,7 +733,9 @@
     "Your-Email": "Netfangið þitt",
     "Your-Password": "Lykilorð þitt",
     "Your-Pseudo": "Notendanafnið þitt",
-    "Your-message": "Skilaboð þín"
+    "Your-message": "Skilaboð þín",
+    "Confirm-your-password": "Staðfestu lykilorðið þitt",
+    "Password-not-matching": "Lykilorðin passa ekki saman"
   },
   "PLEASE": {
     "Password": "Vinsamlegast sláðu inn lykilorðið þitt"

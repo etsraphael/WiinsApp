@@ -653,7 +653,7 @@
     "Register": "Đăng ký",
     "Registration": "Đăng ký",
     "Sign-up": "Đăng ký",
-    "accept-tou": "Tôi chấp nhận các điều khoản và điều kiện sử dụng",
+    "accept-tou": "Tôi xác nhận rằng tôi từ 16 tuổi trở lên và tôi đồng ý với thỏa thuận người dùng và chính sách bảo mật",
     "click-on-email": "Vui lòng nhấp vào liên kết email"
   },
   "MAIN-MUSIC": {
@@ -733,7 +733,9 @@
     "Your-Email": "Email của bạn",
     "Your-Password": "Mật khẩu của bạn",
     "Your-Pseudo": "Tên người dùng của bạn",
-    "Your-message": "Tin nhắn của bạn"
+    "Your-message": "Tin nhắn của bạn",
+    "Confirm-your-password": "Xác nhận mật khẩu của bạn",
+    "Password-not-matching": "Mật khẩu không khớp"
   },
   "PLEASE": {
     "Password": "Xin hãy điền mật khẩu"

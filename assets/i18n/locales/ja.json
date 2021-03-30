@@ -607,7 +607,7 @@
     "Register": "登録",
     "Registration": "登録",
     "Sign-up": "サインアップ",
-    "accept-tou": "利用規約に同意します",
+    "accept-tou": "私は16歳以上であることを証明し、ユーザー契約とプライバシーポリシーに同意します",
     "click-on-email": "メールのリンクをクリックしてください",
     "Create-yr-account": "アカウントを作成",
     "Creating-yr-account": "アカウントの作成",
@@ -691,7 +691,9 @@
     "Your-Email": "あなたのメール",
     "Your-Password": "あなたのパスワード",
     "Your-Pseudo": "ユーザー名",
-    "Your-message": "あなたのメッセージ"
+    "Your-message": "あなたのメッセージ",
+    "Confirm-your-password": "あなたのパスワードを確認",
+    "Password-not-matching": "パスワードが一致していません"
   },
   "PLEASE": {
     "Password": "パスワードを入力してください"

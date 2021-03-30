@@ -653,7 +653,7 @@
     "Register": "Daftar",
     "Registration": "Registrasi",
     "Sign-up": "Daftar",
-    "accept-tou": "Saya menerima syarat dan ketentuan penggunaan",
+    "accept-tou": "Saya menyatakan bahwa saya berusia 16 tahun atau lebih dan saya menyetujui perjanjian pengguna dan kebijakan privasi",
     "click-on-email": "Silakan klik tautan email"
   },
   "MAIN-MUSIC": {
@@ -733,7 +733,9 @@
     "Your-Email": "Email mu",
     "Your-Password": "Kata sandi Anda",
     "Your-Pseudo": "Nama pengguna Anda",
-    "Your-message": "Pesan Anda"
+    "Your-message": "Pesan Anda",
+    "Confirm-your-password": "Konfirmasi password Anda",
+    "Password-not-matching": "Kata sandi tidak cocok"
   },
   "PLEASE": {
     "Password": "Silakan masukkan kata sandi Anda"

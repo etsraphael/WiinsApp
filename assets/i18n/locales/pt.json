@@ -607,7 +607,7 @@
     "Register": "Registro",
     "Registration": "Cadastro",
     "Sign-up": "Inscrição",
-    "accept-tou": "Eu aceito os termos e condições de uso",
+    "accept-tou": "Certifico que tenho 16 anos de idade ou mais e concordo com o contrato do usuário e a política de privacidade",
     "click-on-email": "Por favor, clique no link do email",
     "Create-yr-account": "crie sua conta",
     "Creating-yr-account": "Criando sua conta",
@@ -691,7 +691,9 @@
     "Your-Email": "Seu email",
     "Your-Password": "Sua senha",
     "Your-Pseudo": "Seu nome de usuário",
-    "Your-message": "Sua mensagem"
+    "Your-message": "Sua mensagem",
+    "Confirm-your-password": "Confirme sua senha",
+    "Password-not-matching": "As senhas não são iguais"
   },
   "PLEASE": {
     "Password": "Por favor, insira sua senha"

@@ -653,7 +653,7 @@
     "Register": "Registar",
     "Registration": "Registracija",
     "Sign-up": "Prijavite se",
-    "accept-tou": "Prihvaćam uvjete i odredbe korištenja",
+    "accept-tou": "Potvrđujem da imam 16 ili više godina i da se slažem s korisničkim ugovorom i pravilima o privatnosti",
     "click-on-email": "Molimo kliknite vezu e-pošte"
   },
   "MAIN-MUSIC": {
@@ -733,7 +733,9 @@
     "Your-Email": "Tvoj email",
     "Your-Password": "Tvoja lozinka",
     "Your-Pseudo": "Vaše korisničko ime",
-    "Your-message": "Tvoja poruka"
+    "Your-message": "Tvoja poruka",
+    "Confirm-your-password": "Potvrdi svoju lozinku",
+    "Password-not-matching": "Lozinke se ne podudaraju"
   },
   "PLEASE": {
     "Password": "Unesite lozinku"
