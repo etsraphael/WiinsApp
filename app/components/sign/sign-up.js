@@ -203,8 +203,8 @@ class SignUp extends React.Component {
 
             // If the count down is finished, write some text
             if (distance <= 0) {
-              this.setState({counterDone: true})
-              clearInterval(x)
+                this.setState({ counterDone: true })
+                clearInterval(x)
             }
         }, 1000)
 
@@ -212,22 +212,65 @@ class SignUp extends React.Component {
 
     _renderTimer = () => {
         return (
-            <View>
-                <View style={styles.actionBarStyle}>
+            <LinearGradient
+                colors={['#35D1FE', '#0041C4', '#960CF8']}
+                style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}
+                locations={[0, 0.5596885789406173, 1]}
+                start={{ x: 0.1, y: 0.09 }}
+                end={{ x: 0.94, y: 0.95 }} >
+                <View style={{ paddingHorizontal: 15, paddingVertical: 10 }}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
-                        <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />
+                        <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'white'} />
                     </TouchableOpacity>
                 </View>
-                <View style={{ flex: 1, height: '100%', alignItems: 'center' }}>
-                    <Text style={{ fontSize: 20 }}>{this.state.countDownString}</Text>
+
+                {this.state.countDownString ? <View style={{ flex: 1, height: '100%', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 25, color: 'white', fontWeight: '800', backgroundColor: '#5f5f5fb0', padding: 15, borderRadius: 15, overflow: 'hidden' }}>{this.state.countDownString}</Text>
+                </View> : null}
+
+                <View style={{ paddingTop: 15, paddingHorizontal: 10 }}>
+                    <Text style={styles.textSection}>
+                        Wiin's t’annonce qu’à compter du 01 mai, tu bénéficieras d’un accès anticipé à nos services.
+                        En attendant cette grande révolution, il va falloir que tu patientes !
+                        “Tu peux d’ores et déjà renseigner ton adresse email pour avoir le privilège de faire partie de nos premiers Wiinser.”
+                        Tu seras contacté en priorité pour bénéficier de cet accès.
+                        Attention, cet accès sera disponible aux 1000 premières inscriptions, En savoir plus
+                    </Text>
+                    <Text style={styles.textSection}>
+                        Pourquoi cet accès anticipé ?
+                        Et pourquoi pas…? :wink:
+                        Wiin’s souhaite révolutionner la relation que tu as avec ton téléphone :rofl:
+                        Aussi, nous avons besoin de ton aide afin d’améliorer nos services et t’offrir une expérience exclusive qui sera totalement GRATUITE pendant cette période.
+                        Et en plus, en tant que premier Winser, tu profiteras de… :shushing_face:  une réduction sur ton futur abonnement.
+                    </Text>
+                    <Text style={styles.textSection}>
+                        Que propose l'accès anticipé ?
+                        L'accès anticipé te permet d'utiliser toutes les fonctionnalités actuellement disponibles de Wiin's. Nous te laissons le soin d’en découvrir plus grâce à la vidéo, si tu ne l'as pas déjà fait .
+                    </Text>
+                    <Text style={styles.textSection}>
+                        Pendant combien de temps la plateforme sera-t-elle en accès anticipé ?
+                        Pendant 9 mois, ou peut-être 6, ou 3... Tu as ton rôle à jouer !! Ce qui est sûr, jusqu’au 1er janvier 2022, au plus tard.
+                    </Text>
+                    <Text style={styles.textSection}>
+                        En quoi la version complète sera-t-elle différente de la version en accès anticipé ?
+                        La plateforme sera améliorée selon tes demandes, que tu pourras formuler grâce au menu "proposer une amélioration”. Les artistes pourront également toucher une rémunération digne de leur talent :slight_smile: Aussi.... ça sera la fin de la gratuité de Wiin's.  De plus, tu as la possibilité de nous suivre sur les réseaux sociaux pour rester informé.
+                    </Text>
+                    <Text style={styles.textSection}>
+                        Quel sera le prix sur la version complète, après l'accès anticipé ?
+                        Le prix n’est pas encore fixé. L’accès anticipé va nous permettre de t’offrir le service au meilleur prix. Tu en sera informé avant de payer, bien sûr.
+                    </Text>
+                    <Text style={styles.textSection}>
+                        Comment comptez-vous impliquer la communauté dans le processus de développement ?
+                        Tout simplement en l’utilisant :wink:. Nous serons ravis d’apprendre que tu désir apporter ton soutien! Sens-toi libre de tout nous dire car, après tout, c’est aussi TA plateforme. Avoir des idées et tes retours, c’est génial. Mais tu peux en plus participer au développement de Wiin’s en faisant une donation.
+                    </Text>
                 </View>
-            </View>
+            </LinearGradient>
         )
     }
 
     _renderRegistration = () => {
         return (
-            <View>
+            <View style={{ paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
                 <View style={styles.actionBarStyle}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
                         <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />
@@ -273,7 +316,7 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <ScrollView style={{ flex: 1, backgroundColor: 'white', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
+            <ScrollView style={{ flex: 1 }}>
                 {this.state.counterDone ? this._renderRegistration() : this._renderTimer()}
             </ScrollView>
         )
@@ -358,6 +401,13 @@ const styles = StyleSheet.create({
         backgroundColor: '#e6e6e6',
         padding: 5,
         borderRadius: 5
+    },
+    textSection: {
+        color: 'white',
+        fontWeight: '700',
+        paddingVertical: 8,
+        fontSize: 18,
+        textAlign: 'center'
     }
 })
 
