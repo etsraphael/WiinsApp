@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyleSheet, View, FlatList, TouchableOpacity, ActivityIndicator, Text } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyStoryActions from '../../../../redux/MyStory/actions'
+import * as MyStoryActions from '../../../redux/MyStory/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'

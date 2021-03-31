@@ -1,14 +1,15 @@
 import React from 'react'
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, ScrollView, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
+
 import { bindActionCreators } from 'redux'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { TubesCategories } from './../../core/data/tubes'
-import * as TubeMenuActions from '../../../../redux/TubeMenu/actions'
-import I18n from '../../../i18n/i18n'
+import * as TubeMenuActions from '../../../redux/TubeMenu/actions'
+import I18n from '../../../../assets/i18n/i18n'
 
 class HomeTube extends React.Component {
 

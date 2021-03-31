@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Text, FlatList, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as MusicProjectListActions from '../../../../redux/MusicProjectList/actions'
+import * as MusicProjectListActions from '../../../redux/MusicProjectList/actions'
 import MusicProjectStandard from '../music/music-project-standard'
 
 class ProfileMusic extends React.Component {

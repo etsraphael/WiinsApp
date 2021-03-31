@@ -1,10 +1,11 @@
 import React from 'react'
 import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
-import * as TopHastagActions from '../../../../redux/TopHastag/actions'
-import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublications/actions'
-import * as SearchBarActions from '../../../../redux/SearchBar/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
+
+import * as TopHastagActions from '../../../redux/TopHastag/actions'
+import * as DiscoverPublicationActions from '../../../redux/DiscoverPublications/actions'
+import * as SearchBarActions from '../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 

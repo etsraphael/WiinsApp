@@ -4,8 +4,8 @@ import {
     TouchableOpacity, KeyboardAvoidingView
 } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
-import * as RoomActions from '../../../../redux/OneRoom/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
+import * as RoomActions from '../../../redux/OneRoom/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'

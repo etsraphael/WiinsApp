@@ -1,31 +1,29 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, FlatList, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
-import * as CommentListActions from '../../../../redux/CommentList/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
+import * as CommentListActions from '../../../redux/CommentList/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faShare, faDownload, faCommentLines, faCheck } from '@fortawesome/pro-light-svg-icons'
 import { faCircle } from '@fortawesome/pro-solid-svg-icons'
-import * as TubePageActions from '../../../../redux/TubePage/actions'
+import * as TubePageActions from '../../../redux/TubePage/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 import VideoPlayer from '../../core/reusable/video/video-player'
 import LinearGradient from 'react-native-linear-gradient'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
-import CommentListModal from './../../core/modal/comment-list-modal'
 import { cacheOneTube } from './../../../services/cache/cache-tube-service'
 import Clipboard from '@react-native-community/clipboard'
 import Snackbar from 'react-native-snackbar'
-import I18n from '../../../i18n/i18n'
+import I18n from '../../../../assets/i18n/i18n'
 
 class TubePage extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            commentVisible: false,
             videoReady: false
         }
     }
@@ -33,16 +31,6 @@ class TubePage extends React.Component {
     _copyToClipboard = () => {
         Clipboard.setString(`https://www.wiins.io/SpaceTube/watching-video/${this.props.TubePage.tube._id}`)
         return Snackbar.show({ text: I18n.t('CORE.Url-Copied'), duration: Snackbar.LENGTH_LONG })
-    }
-
-    _toggleComment = () => {
-        if (this.state.commentVisible == true) {
-            this.setState({ commentVisible: false })
-
-        } else {
-            // this.props.actions.getCommentListPublication(this.props.publicationModal.publication.id, 1)
-            this.setState({ commentVisible: true })
-        }
     }
 
     UNSAFE_componentWillMount = () => {
@@ -144,7 +132,7 @@ class TubePage extends React.Component {
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
-                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => this._toggleComment()}>
+                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => this.props.screenProps.rootNavigation.navigate('Comments')}>
                             <FontAwesomeIcon icon={faCommentLines} size={20} color="#77838F" />
                             <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{I18n.t('CORE.Comment')}</Text>
                         </TouchableOpacity>
@@ -313,19 +301,10 @@ class TubePage extends React.Component {
     _pageRender = () => {
         return (
             <View style={{ flex: 1 }}>
-
                 {/* Header */}
                 {this._headerRender()}
                 {/* Body */}
                 {this._suggestionTubeRender()}
-                {/* Comment */}
-                {this.state.commentVisible ?
-                    <CommentListModal
-                        closeModal={() => this._toggleComment()}
-                        _activePropagateSwipe={this._activePropagateSwipe}
-                        _inactivePropagateSwipe={this._inactivePropagateSwipe}
-                    />
-                    : null}
             </View>
         )
     }

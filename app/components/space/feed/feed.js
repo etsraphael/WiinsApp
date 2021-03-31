@@ -1,18 +1,19 @@
 import React from 'react'
 import { StyleSheet, View, FlatList, TouchableOpacity, Image, SafeAreaView, VirtualizedList } from 'react-native'
 import { connect } from 'react-redux'
-import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
-import * as SearchActions from '../../../../redux/SearchBar/actions'
+import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
+import * as SearchActions from '../../../redux/SearchBar/actions'
+import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStoryHeader from './stories/publication-story-header'
-import StantardSuggest from '../../core/stantard-suggest'
-import PublicationModal from '../../core/modal/publication-modal'
+import StantardSuggest from '../../core/reusable/suggest/stantard-suggest'
+import PublicationModalContainer from '../../core/modal/publication-modal-container'
 import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
-import CardNewFeed from './../../core/card/card-new-feed'
+import CardNewFeed from './../../core/reusable/card/card-new-feed'
 
 class Feed extends React.Component {
 
@@ -45,6 +46,8 @@ class Feed extends React.Component {
 
     // to display the modal view
     _toggleModal = (event) => {
+        if(!!event){ this.props.actions.putPublicationInModalActions(event.publication) }
+        else { this.props.actions.resetPublicationInModalActions() }
         this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
@@ -181,7 +184,7 @@ class Feed extends React.Component {
 
                     {/* Modal */}
                     {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
-                    {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
+                    {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
                     {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
                     {this.state.reportModal ? <OptionPublicationModal toggleReportModal={(event) => this._toggleReportModal(event)} isVisible={this.state.reportModal} publicationId={this.state.reportPublicationId}/> : null}
 
@@ -227,7 +230,8 @@ const mapStateToProps = state => ({
 const ActionCreators = Object.assign(
     {},
     PublicationFeedActions,
-    SearchActions
+    SearchActions,
+    PublicationInModalActions
 )
 
 const mapDispatchToProps = dispatch => ({

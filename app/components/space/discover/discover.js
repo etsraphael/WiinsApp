@@ -1,18 +1,19 @@
 import React from 'react'
 import { StyleSheet, View, Text, TextInput, FlatList, TouchableOpacity, ActivityIndicator, LayoutAnimation, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../../redux/MyUser/actions'
-import * as TopHastagActions from '../../../../redux/TopHastag/actions'
-import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublications/actions'
-import * as SearchBarActions from '../../../../redux/SearchBar/actions'
+import * as MyUserActions from '../../../redux/MyUser/actions'
+import * as TopHastagActions from '../../../redux/TopHastag/actions'
+import * as DiscoverPublicationActions from '../../../redux/DiscoverPublications/actions'
+import * as SearchBarActions from '../../../redux/SearchBar/actions'
+import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
 import { bindActionCreators } from 'redux'
-import CardNewFeedMasonry from './../../core/card/card-new-feed-masonry'
+import CardNewFeedMasonry from './../../core/reusable/card//card-new-feed-masonry'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faTimes } from '@fortawesome/pro-light-svg-icons'
 import SuggestionDiscover from './suggestion-discover'
-import PublicationModal from '../../core/modal/publication-modal'
-import I18n from '../../../i18n/i18n'
+import I18n from './../../../../assets/i18n/i18n'
+import PublicationModalContainer from '../../core/modal/publication-modal-container'
 
 class Discover extends React.Component {
 
@@ -33,6 +34,7 @@ class Discover extends React.Component {
 
     // to display the modal view
     _toggleModal = (event) => {
+        if(!!event){ this.props.actions.putPublicationInModalActions(event.publication) }
         this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
@@ -239,8 +241,7 @@ class Discover extends React.Component {
                 {this._header()}
                 {this.state.search.length <= 2 ? this._displayDiscoverView() : null}
                 {this.state.search.length > 2 ? this._displaySuggestionView() : null}
-
-                {this.state.modal ? <PublicationModal publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
+                {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
             </View>
         );
     }
@@ -306,7 +307,8 @@ const ActionCreators = Object.assign(
     MyUserActions,
     TopHastagActions,
     DiscoverPublicationActions,
-    SearchBarActions
+    SearchBarActions,
+    PublicationInModalActions
 )
 
 const mapDispatchToProps = dispatch => ({

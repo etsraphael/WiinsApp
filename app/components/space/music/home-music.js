@@ -2,8 +2,8 @@ import React from 'react'
 import { StyleSheet, View, Text, TextInput, FlatList, ScrollView, TouchableOpacity, ActivityIndicator, SafeAreaView, VirtualizedList } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as MusicMenuActions from '../../../../redux/MusicMenu/actions'
-import * as MyFavMusicActions from '../../../../redux/MyFavMusic/actions'
+import * as MusicMenuActions from '../../../redux/MusicMenu/actions'
+import * as MyFavMusicActions from '../../../redux/MyFavMusic/actions'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
@@ -12,7 +12,7 @@ import OneMusicFav from './one-music-fav'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faSearch, faTransporterEmpty } from '@fortawesome/pro-light-svg-icons'
 import { downloadFavoritesMusicList } from './../../../services/cache/cache-music-service'
-import I18n from '../../../i18n/i18n'
+import I18n from '../../../../assets/i18n/i18n'
 
 class HomeMusic extends React.Component {
 
@@ -290,6 +290,9 @@ class HomeMusic extends React.Component {
     }
 
     render() {
+
+
+
         return (
             <View style={styles.main_container}>
                 {/*  search bar */}
