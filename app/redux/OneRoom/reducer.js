@@ -22,6 +22,7 @@ export default RoomReducer = (state = initialState, action) => {
         ...state,
         room: action.payload,
         isLoading: false,
+        page: 1,
         error: null,
       }
     }
@@ -57,6 +58,31 @@ export default RoomReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false
+      }
+    }
+    case ActionTypes.LOAD_MORE_MESSAGE_BY_ID: {
+      return {
+        ...state,
+        isLoadingMore: true
+      }
+    }
+    case ActionTypes.LOAD_MORE_MESSAGE_BY_ID_SUCCESS: {
+      return {
+        ...state,
+        room: {
+          ...state.room,
+          message: state.room.message.concat(action.payload.message)
+        },
+        isLoadingMore: false,
+        page: state.page + 1,
+        error: null,
+      }
+    }
+    case ActionTypes.LOAD_MORE_MESSAGE_BY_ID_FAIL: {
+      return {
+        ...state,
+        isLoadingMore: false,
+        error: action.payload
       }
     }
     case ActionTypes.RESET_ROOM: return { ...initialState }

@@ -6,11 +6,11 @@ export function loadMoreMessageByIdSuccess(room) {
     return { type: ActionTypes.LOAD_MORE_MESSAGE_BY_ID_SUCCESS, payload: room }
 }
 
-export function loadMoreMessageStart() {
+export function loadMoreMessageByIdStart() {
     return { type: ActionTypes.LOAD_MORE_MESSAGE_BY_ID }
 }
 
-export function loadMoreMessageFail(error) {
+export function loadMoreMessageByIdFail(error) {
     return { type: ActionTypes.LOAD_MORE_MESSAGE_BY_ID_FAIL, payload: error }
 }
 
@@ -124,6 +124,33 @@ export function getMessageByPage(id, page, nBMessage) {
         } catch (error) {
             sendError(error)
             return dispatch(getRoomByIdFail(error))
+        }
+    }
+}
+
+export function loadMoreMessageByIdAction() {
+    return async (dispatch, props) => {
+        try {
+            dispatch(loadMoreMessageByIdStart())
+
+            const nextPage = props().Room.page + 1
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/messenger/getRoomById/' + props().Room.room._id + '/' + nextPage + '/' + props().Room.room.nbMessage
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) return dispatch(loadMoreMessageByIdSuccess(response.result))
+                    return dispatch(loadMoreMessageByIdFail(response))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(loadMoreMessageByIdFail(error))
         }
     }
 }

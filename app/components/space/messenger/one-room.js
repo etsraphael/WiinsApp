@@ -18,7 +18,6 @@ class OneRoom extends React.Component {
         super(props)
         this.state = {
             textInput: '',
-            loadMoreIsLoading: false,
             page: 0
         }
     }
@@ -167,13 +166,7 @@ class OneRoom extends React.Component {
     }
 
     _loadPreviousMessage = () => {
-
-        this.setState({loadMoreIsLoading: true})
-
-        return setTimeout(() => {
-            this.setState({loadMoreIsLoading: false})
-        }, 1000)
-
+        return this.props.actions.loadMoreMessageByIdAction()
     }
 
     _bodyRender = () => {
@@ -184,7 +177,7 @@ class OneRoom extends React.Component {
                     <View style={{ paddingBottom: 100, paddingTop: 15 }}>
                         <FlatList
                             onRefresh={this._loadPreviousMessage}
-                            refreshing={this.state.loadMoreIsLoading}
+                            refreshing={this.props.Room.isLoadingMore}
                             contentContainerStyle={{ paddingHorizontal: 9 }}
                             data={this.props.Room.room.message.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
                             keyExtractor={(item) => item._id.toString()}
