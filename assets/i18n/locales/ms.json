@@ -653,7 +653,7 @@
     "Register": "Daftar",
     "Registration": "Pendaftaran",
     "Sign-up": "Mendaftar",
-    "accept-tou": "Saya menerima terma dan syarat penggunaan",
+    "accept-tou": "Saya mengesahkan bahawa saya berumur 16 tahun ke atas dan saya bersetuju dengan perjanjian pengguna dan dasar privasi",
     "click-on-email": "Sila klik pada pautan e-mel"
   },
   "MAIN-MUSIC": {
@@ -733,7 +733,9 @@
     "Your-Email": "Emel anda",
     "Your-Password": "Kata laluan Awak",
     "Your-Pseudo": "Nama pengguna anda",
-    "Your-message": "Mesej anda"
+    "Your-message": "Mesej anda",
+    "Confirm-your-password": "Mengesahkan kata laluan anda",
+    "Password-not-matching": "Kata laluan tidak sepadan"
   },
   "PLEASE": {
     "Password": "Sila masukkan kata laluan anda"

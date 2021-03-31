@@ -24,6 +24,27 @@ export default StoriesReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+    case ActionTypes.REFRESH_STORIES: {
+      return {
+        ...state,
+        isRefreshing: true
+      }
+    }
+    case ActionTypes.REFRESH_STORIES_SUCCESS: {
+      return {
+        ...state,
+        stories: action.payload,
+        isRefreshing: false,
+        error: null,
+      }
+    }
+    case ActionTypes.REFRESH_STORIES_FAIL: {
+      return {
+        ...state,
+        isRefreshing: false,
+        error: action.payload
+      }
+    }
     case ActionTypes.GET_STACK: {
       return {
         ...state,
@@ -58,9 +79,9 @@ export default StoriesReducer = (state = initialState, action) => {
       state.stories[indexFound].lastStoryView = action.storyId
       return {
         ...state
-      } 
+      }
     }
-    case ActionTypes.RESET_STORIES: return initialState
-    default: return state
+    case ActionTypes.RESET_STORIES: return { ...initialState }
+    default: return { ...state }
   }
 }

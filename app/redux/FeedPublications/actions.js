@@ -2,6 +2,24 @@ import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
 
+export function refreshPublicationsStart() {
+    return { type: ActionTypes.REFRESH_PUBLICATIONS }
+}
+
+export function refreshPublicationsSuccess(publication) {
+    return {
+        type: ActionTypes.REFRESH_PUBLICATIONS_SUCCESS,
+        payload: publication,
+    }
+}
+
+export function refreshPublicationsFail(error) {
+    return {
+        type: ActionTypes.REFRESH_PUBLICATIONS_FAIL,
+        payload: error
+    }
+}
+
 export function addPublicationStart() {
     return { type: ActionTypes.ADD_PUBLICATIONS_FEED }
 }
@@ -62,8 +80,6 @@ export function resetPublication() {
 
 export function getByModeFeed(page, mode) {
 
-
-    
     return async (dispatch) => {
         try {
             if(page == 1) dispatch(resetPublication())
@@ -180,4 +196,32 @@ export function addPublication(publication) {
         }
     }
 
+}
+
+export function refreshFeed() {
+    return async (dispatch) => {
+        try {
+            dispatch(refreshPublicationsStart())
+            const token = await AsyncStorage .getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/publication/FollowerAndFriend?limit=8&page=1'
+
+            return fetch(url, {
+                method: 'GET',
+                headers: { 
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then(response=> {
+                    if (response.status == 200) {
+                        return dispatch(refreshPublicationsSuccess(response.results))
+                    }
+                    else return dispatch(refreshPublicationsFail(response.message))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(refreshPublicationsFail(error));
+        }
+    }
 }

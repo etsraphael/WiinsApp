@@ -649,7 +649,7 @@
     "Register": "Registrovať",
     "Registration": "Registrácia",
     "Sign-up": "Prihlásiť Se",
-    "accept-tou": "Prijímam podmienky používania",
+    "accept-tou": "Potvrdzujem, že mám 16 rokov alebo viac a súhlasím s užívateľskou dohodou a zásadami ochrany osobných údajov",
     "click-on-email": "Kliknite na e-mailový odkaz",
     "Create-yr-account": "Vytvor si účet",
     "Creating-yr-account": "Vytvára sa váš účet",
@@ -733,7 +733,9 @@
     "Your-Email": "Tvoj email",
     "Your-Password": "Tvoje heslo",
     "Your-Pseudo": "Vaše užívateľské meno",
-    "Your-message": "Tvoja správa"
+    "Your-message": "Tvoja správa",
+    "Confirm-your-password": "Potvrď svoje heslo",
+    "Password-not-matching": "Heslá sa nezhodujú"
   },
   "PLEASE": {
     "Password": "Prosím vložte heslo"

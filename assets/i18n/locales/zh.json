@@ -607,7 +607,7 @@
     "Register": "寄存器",
     "Registration": "注册",
     "Sign-up": "登记",
-    "accept-tou": "我接受使用条款和条件",
+    "accept-tou": "我证明我16岁或以上，并同意接受用户协议和隐私权政策",
     "click-on-email": "请点击电子邮件链接",
     "Create-yr-account": "创建您的帐户",
     "Creating-yr-account": "建立您的帐户",
@@ -691,7 +691,9 @@
     "Your-Email": "你的邮件",
     "Your-Password": "你的密码",
     "Your-Pseudo": "您的用户名",
-    "Your-message": "你的信息"
+    "Your-message": "你的信息",
+    "Confirm-your-password": "确认你的密码",
+    "Password-not-matching": "密码不匹配"
   },
   "PLEASE": {
     "Password": "请输入您的密码"

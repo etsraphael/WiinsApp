@@ -1,19 +1,21 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import Profile from '../components/space/profile/profile'
 import MyProfile from '../components/space/profile/my-profile'
-import Discover from '../components/space/discover/discover'
 import Page from '../components/space/page/page'
+import HomeMessenger from '../components/space/messenger/home-messenger'
+import OneRoom from '../components/space/messenger/one-room'
 
 const Stack = createStackNavigator()
 
-export default DiscoverNavigation = () => (
+export default MessengerNavigation = (initialProps) => (
     <Stack.Navigator
         screenOptions={{ headerShown: false }}
-        initialRouteName={'Discover'}
+        initialRouteName={'HomeMessenger'}
     >
-        <Stack.Screen name={'Discover'} component={Discover} />
-        <Stack.Screen name={'Profile'} component={Profile} />
+        <Stack.Screen name={'HomeMessenger'}>
+            {(props) => <HomeMessenger {...props} params={initialProps.route.params}/>}
+        </Stack.Screen>
+        <Stack.Screen name={'OneRoom'} component={OneRoom} />
         <Stack.Screen name={'MyProfile'} component={MyProfile} />
         <Stack.Screen name={'Page'} component={Page} />
     </Stack.Navigator>

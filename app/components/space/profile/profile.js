@@ -35,14 +35,14 @@ class Profile extends React.Component {
     _getPublicationList = () => {
         if (!this.props.ProfilePublications.isLoading) {
             this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true })
-            this.props.actions.getByModeProfile(++this.state.pagePublication, 'profile/' + this.props.screenProps.rootNavigation.state.params.profileId)
+            this.props.actions.getByModeProfile(++this.state.pagePublication, 'profile/' + this.props.route.params.profileId)
             setTimeout(() => this.setState({ publicationLoading: false }), 3000);
         }
     }
 
     componentDidMount() {
-        this.props.actions.getProfile(this.props.screenProps.rootNavigation.state.params.profileId)
-        this.props.actions.getByModeProfile(1, 'profile/' + this.props.screenProps.rootNavigation.state.params.profileId)
+        this.props.actions.getProfile(this.props.route.params.profileId)
+        this.props.actions.getByModeProfile(1, 'profile/' + this.props.route.params.profileId)
     }
 
     // to display the relation button
@@ -201,7 +201,7 @@ class Profile extends React.Component {
                 <View style={{ flex: 1, position: 'relative' }}>
 
                     {/* Back Btn */}
-                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.goBack(null)}
+                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}
                         style={{ position: 'absolute', left: 25, width: 35, height: 35, top: 55, zIndex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
                     </TouchableOpacity>
@@ -291,10 +291,14 @@ class Profile extends React.Component {
         switch (this.state.space) {
             case 'feed': return (<ProfilePublication toggleModal={(event) => this._toggleModal(event)} />)
             case 'music': {
-                this.props.actions.getmusicProjectListByProfile(1, this.props.screenProps.rootNavigation.state.params.profileId)
+                this.props.actions.getmusicProjectListByProfile(1, this.props.route.params.profileId)
                 return (<ProfileMusic />)
             }
         }
+    }
+
+    _goToProfile = () => {
+        this.setState({ modal: false, PublicationModal: null })
     }
 
     render() {
@@ -308,7 +312,13 @@ class Profile extends React.Component {
                     {this.props.Profile.profile !== null ? this._displayPage() : null}
                 </ScrollView>
 
-                {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
+                {this.state.modal ?
+                    <PublicationModalContainer
+                        publicationModal={this.state.PublicationModal}
+                        toggleModal={(event) => this._toggleModal(event)}
+                        goToProfile={(payload) => this._goToProfile(payload)}
+                        pageName={'Profile'}
+                    /> : null}
 
             </View>
         )

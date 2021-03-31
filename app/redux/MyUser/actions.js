@@ -1,6 +1,7 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage';
 import { sendError } from './../../../app/services/error/error-service'
+import { sendTokenDevice } from './../../services/notification/token-service'
 
 export function loginSuccess(user) {
     return {
@@ -55,6 +56,7 @@ export function login(email, password) {
                 .then( async (response) => {
                     if (response.status == 200) {
                         await AsyncStorage.setItem('userToken', response.token)
+                        await sendTokenDevice()
                         return dispatch(loginSuccess(response.user))
                     }
                     return dispatch(loginFail(response.message))

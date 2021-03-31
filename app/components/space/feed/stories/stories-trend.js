@@ -13,7 +13,6 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import Video from 'react-native-video'
 import { getDateTranslated } from '../../../../services/translation/translation-service'
 
-
 class StoriesTrend extends React.Component {
 
     constructor(props) {

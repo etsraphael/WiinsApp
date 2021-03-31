@@ -116,7 +116,7 @@ class MyProfile extends React.Component {
                 <View style={{ flex: 1, position: 'relative' }}>
 
                     {/* Back Btn */}
-                    <TouchableOpacity onPress={() => this.props.screenProps.rootNavigation.goBack(null)}
+                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}
                         style={{ position: 'absolute', left: 25, width: 35, height: 35, top: 55, zIndex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
                     </TouchableOpacity>
@@ -184,6 +184,10 @@ class MyProfile extends React.Component {
         }
     }
 
+    _goToProfile = () => {
+        this.setState({ modal: false, PublicationModal: null })
+    }
+    
     render() {
 
         return (
@@ -199,7 +203,14 @@ class MyProfile extends React.Component {
                     destructiveButtonIndex={1}
                     onPress={(index) => { this._menuFunctions(index) }}
                 />
-                {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
+
+                {this.state.modal ?
+                    <PublicationModalContainer
+                        publicationModal={this.state.PublicationModal}
+                        toggleModal={(event) => this._toggleModal(event)}
+                        goToProfile={(payload) => this._goToProfile(payload)}
+                        pageName={'Profile'}
+                    /> : null}
             </View>
         )
     }

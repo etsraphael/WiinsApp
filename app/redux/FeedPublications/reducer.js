@@ -24,6 +24,27 @@ export default PublicationsReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+    case ActionTypes.REFRESH_PUBLICATIONS: {
+      return {
+        ...state,
+        isRefreshing: true
+      }
+    }
+    case ActionTypes.REFRESH_PUBLICATIONS_SUCCESS: {
+      return {
+        ...state,
+        publications: action.payload,
+        isRefreshing: false,
+        error: null,
+      }
+    }
+    case ActionTypes.REFRESH_PUBLICATIONS_FAIL: {
+      return {
+        ...state,
+        isRefreshing: false,
+        error: action.payload
+      }
+    }
     case ActionTypes.LIKE_PUBLICATIONS_FEED_SUCCESS: {
       const found = state.publications.map(x => x._id).indexOf(action.id)
       state.publications[found].like.isLike = true

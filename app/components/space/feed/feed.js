@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 import * as SearchActions from '../../../redux/SearchBar/actions'
 import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
+import * as StoriesActions from '../../../redux/Stories/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStoryHeader from './stories/publication-story-header'
 import StantardSuggest from '../../core/reusable/suggest/stantard-suggest'
@@ -14,6 +15,7 @@ import OptionPublicationModal from './../../core/modal/option-publication-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
 import CardNewFeed from './../../core/reusable/card/card-new-feed'
+import { checkNotification } from './../../../services/notification/action-notification-service'
 
 class Feed extends React.Component {
 
@@ -23,8 +25,6 @@ class Feed extends React.Component {
             isHeaderVisible: true,
             search: '',
             pagePublication: 1,
-            isRefreshing: false,
-            isLoadingMore: false,
             modal: false,
             PublicationModal: null,
             publicationMode: false,
@@ -35,8 +35,6 @@ class Feed extends React.Component {
             reportModalExist: false,
             reportPublicationId: null
         }
-        _listViewOffset = 0
-
     }
 
     UNSAFE_componentWillMount() {
@@ -44,11 +42,30 @@ class Feed extends React.Component {
         this._getPublicationList()
     }
 
+    componentDidMount() {
+        checkNotification(this.props.navigation)
+    }
+
     // to display the modal view
     _toggleModal = (event) => {
-        if(!!event){ this.props.actions.putPublicationInModalActions(event.publication) }
+        if (!!event) { this.props.actions.putPublicationInModalActions(event.publication) }
         else { this.props.actions.resetPublicationInModalActions() }
         this.setState({ modal: !this.state.modal, PublicationModal: event })
+    }
+
+    // go to profile
+    _goToProfile = (payload) => {
+
+        this.setState({ modal: false, PublicationModal: null })
+
+        if (payload.pageName == 'Profile') return null
+
+        if (payload.profileId !== this.props.MyProfile._id) {
+            this.props.navigation.navigate('Profile', { profileId: payload.profileId })
+        }
+        else {
+            this.props.navigation.navigate('MyProfile')
+        }
     }
 
     // to load the next page of the publication
@@ -92,14 +109,6 @@ class Feed extends React.Component {
         )
     }
 
-    // to refresh the publications
-    _refreshRequest = () => {
-        this.setState({ isRefreshing: true, pagePublication: 1 })
-        this.props.actions.resetPublicationActions()
-        setTimeout(() => { this.setState({ isRefreshing: false }) }, 1000);
-        this.props.actions.getByModeFeed(1, 'FollowerAndFriend')
-    }
-
     _cardRender = (item, index) => {
         return (<CardNewFeed
             toggleReportModal={() => this._toggleReportModal(item._id)}
@@ -111,10 +120,17 @@ class Feed extends React.Component {
         />)
     }
 
+    _refreshPage= () => {
+        this.props.actions.refreshFeed()
+        this.props.actions.refreshStoriesActions()       
+    }
+
     _publicationList = () => {
         return (
             <SafeAreaView style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white', flex: 1, overflow: 'hidden' }}>
                 <VirtualizedList
+                    onRefresh={this._refreshPage}
+                    refreshing={this.props.Stories.isRefreshing || this.props.FeedPublications.isRefreshing}
                     showsVerticalScrollIndicator={false}
                     ListHeaderComponent={<PublicationStoryHeader goToPublication={this._togglePublicationMode} openStory={this._toggleStoryTrend} />}
                     style={{ flex: 1 }}
@@ -183,10 +199,32 @@ class Feed extends React.Component {
                     {this.state.search.length == 0 ? this._displayPublicationFeed() : this._suggestionSearch()}
 
                     {/* Modal */}
-                    {this.state.publicationModeExist ? <MainPublication getBack={this._togglePublicationMode} isVisible={this.state.publicationMode} /> : null}
-                    {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
-                    {this.state.storysModalExist ? <StoriesTrend goBack={this._toggleStoryTrend} isVisible={this.state.storysModal} /> : null}
-                    {this.state.reportModal ? <OptionPublicationModal toggleReportModal={(event) => this._toggleReportModal(event)} isVisible={this.state.reportModal} publicationId={this.state.reportPublicationId}/> : null}
+                    {this.state.publicationModeExist ?
+                        <MainPublication
+                            getBack={this._togglePublicationMode}
+                            isVisible={this.state.publicationMode}
+                        /> : null}
+
+                    {this.state.modal ?
+                        <PublicationModalContainer
+                            publicationModal={this.state.PublicationModal}
+                            toggleModal={(event) => this._toggleModal(event)}
+                            goToProfile={(payload) => this._goToProfile(payload)}
+                            pageName={'Feed'}
+                        /> : null}
+
+                    {this.state.storysModalExist ?
+                        <StoriesTrend
+                            goBack={this._toggleStoryTrend}
+                            isVisible={this.state.storysModal}
+                        /> : null}
+
+                    {this.state.reportModal ?
+                        <OptionPublicationModal
+                            toggleReportModal={(event) => this._toggleReportModal(event)}
+                            isVisible={this.state.reportModal}
+                            publicationId={this.state.reportPublicationId}
+                        /> : null}
 
                 </View>
             </SafeAreaView>
@@ -231,7 +269,8 @@ const ActionCreators = Object.assign(
     {},
     PublicationFeedActions,
     SearchActions,
-    PublicationInModalActions
+    PublicationInModalActions,
+    StoriesActions
 )
 
 const mapDispatchToProps = dispatch => ({

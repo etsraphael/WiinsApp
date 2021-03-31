@@ -289,6 +289,9 @@ const styles = StyleSheet.create({
         top: 250
     },
     search_bar: {
+        position: absolute,
+        width: 100%,
+        height: 100%,
         fontSize: 15,
         paddingLeft: 5,
         paddingVertical: 15,

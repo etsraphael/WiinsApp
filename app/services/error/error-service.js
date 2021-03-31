@@ -7,5 +7,6 @@ export function initSentry() {
 }
 
 export function sendError(error) {
-    return Sentry.captureException(error)
+    if(!__DEV__) return Sentry.captureException(error)
+    else return null
 }

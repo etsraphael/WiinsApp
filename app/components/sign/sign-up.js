@@ -12,8 +12,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Snackbar from 'react-native-snackbar'
 import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import DateTimePicker from '@react-native-community/datetimepicker'
-import moment from 'moment'
 import CheckBox from '@react-native-community/checkbox'
 import i18n from './../../../assets/i18n/i18n'
 
@@ -24,10 +22,8 @@ class SignUp extends React.Component {
         this.state = {
             email: null,
             pseudo: null,
-            birthDate: null,
             password: null,
             registration_success: false,
-            showDatePicker: false,
             conditionAccepted: false
         }
     }
@@ -59,8 +55,8 @@ class SignUp extends React.Component {
         else {
             const deviceLanguage = Platform.OS === 'ios' ? NativeModules.SettingsManager.settings.AppleLocale ||
                 NativeModules.SettingsManager.settings.AppleLanguages[0] : NativeModules.I18nManager.localeIdentifier;
-            const user = { pseudo: this.state.pseudo, email: this.state.email, password: this.state.birthDate }
-            const userDetail = { language: deviceLanguage.split('_')[0], birthDate: this.state.birthDate }
+            const user = { pseudo: this.state.pseudo, email: this.state.email, password: this.state.password }
+            const userDetail = { language: deviceLanguage.split('_')[0] }
             return this.props.actions.register(user, userDetail)
         }
     }
@@ -69,7 +65,7 @@ class SignUp extends React.Component {
     _verificationTrue = () => {
 
         // null value
-        if (!this.state.email || !this.state.pseudo || !this.state.birthDate || !this.state.password) {
+        if (!this.state.email || !this.state.pseudo || !this.state.password) {
             Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Missing-informations'), duration: Snackbar.LENGTH_LONG })
             return false
         }
@@ -100,7 +96,7 @@ class SignUp extends React.Component {
     _displayLoading() {
         return (
             <View style={styles.loading_container}>
-                <ActivityIndicator size='large' color="#ffffff" />
+                <ActivityIndicator size='large' color='grey' />
             </View>
         )
     }
@@ -140,29 +136,6 @@ class SignUp extends React.Component {
                         onChangeText={(val) => this.setState({ password: val })}
                     />
                 </View>
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Text style={styles.inputLabel}>{i18n.t('PROFILE.BirthDate')}</Text>
-
-                    <TouchableOpacity style={dateStyle.containerDatePicker} onPress={() => this.setState({ showDatePicker: true })}>
-                        <Text>{this.state.birthDate}</Text>
-                    </TouchableOpacity>
-
-                    {this.state.showDatePicker && (
-                        <DateTimePicker
-                            style={{ flex: 1 }}
-                            maximumDate={this._getMaxDate()}
-                            testID="dateTimePicker"
-                            value={new Date()}
-                            mode={'date'}
-                            is24Hour={true}
-                            display="default"
-                            onChange={(val) => this.setState({ birthDate: moment(new Date(val.nativeEvent.timestamp)).format("DD-MM-YYYY"), showDatePicker: false })}
-                        />
-                    )}
-
-                </View>
-
-
 
                 <View style={{ flexDirection: 'row', marginVertical: 25 }}>
 
@@ -248,35 +221,6 @@ class SignUp extends React.Component {
         )
     }
 }
-
-const dateStyle = StyleSheet.create({
-    containerDatePicker: {
-        flex: 1,
-        padding: 15,
-        backgroundColor: '#EDEDED',
-        borderRadius: 5,
-        marginHorizontal: 15,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    dateIcon: {
-        display: 'none'
-    },
-    dateInput: {
-        textAlign: 'center',
-        fontSize: 20,
-        height: 60,
-        backgroundColor: '#0041C409',
-        borderWidth: 0,
-        borderRadius: 5
-    },
-    placeholderText: {
-        fontSize: 20,
-    },
-    dateText: {
-        fontSize: 20,
-    }
-})
 
 const styles = StyleSheet.create({
     brand_container: {

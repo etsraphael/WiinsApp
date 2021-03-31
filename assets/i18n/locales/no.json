@@ -649,7 +649,7 @@
     "Register": "Registrere",
     "Registration": "Registrering",
     "Sign-up": "Melde deg på",
-    "accept-tou": "Jeg godtar vilkårene og betingelsene for bruk",
+    "accept-tou": "Jeg bekrefter at jeg er 16 år eller eldre, og jeg godtar brukeravtalen og personvernreglene",
     "click-on-email": "Klikk på e-postkoblingen",
     "Create-yr-account": "lag din konto",
     "Creating-yr-account": "Opprette kontoen din",
@@ -733,7 +733,9 @@
     "Your-Email": "Din epost",
     "Your-Password": "Ditt passord",
     "Your-Pseudo": "Ditt brukernavn",
-    "Your-message": "Din beskjed"
+    "Your-message": "Din beskjed",
+    "Confirm-your-password": "Bekreft passordet ditt",
+    "Password-not-matching": "Passordene samsvarer ikke"
   },
   "PLEASE": {
     "Password": "Vennligst skriv inn passordet ditt"

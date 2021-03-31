@@ -1,6 +1,18 @@
 import * as ActionTypes from './constants'
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
+
+export function loadMoreMessageByIdSuccess(room) {
+    return { type: ActionTypes.LOAD_MORE_MESSAGE_BY_ID_SUCCESS, payload: room }
+}
+
+export function loadMoreMessageByIdStart() {
+    return { type: ActionTypes.LOAD_MORE_MESSAGE_BY_ID }
+}
+
+export function loadMoreMessageByIdFail(error) {
+    return { type: ActionTypes.LOAD_MORE_MESSAGE_BY_ID_FAIL, payload: error }
+}
 
 export function getRoomByIdSuccess(room) {
     return { type: ActionTypes.GET_ROOM_BY_ID_SUCCESS, payload: room }
@@ -27,7 +39,7 @@ export function sendMessageFail(error) {
 }
 
 export function resetRoom() {
-    return { type: ActionTypes.REST_ROOM }
+    return { type: ActionTypes.RESET_ROOM }
 }
 
 export function leaveRoom() {
@@ -112,6 +124,33 @@ export function getMessageByPage(id, page, nBMessage) {
         } catch (error) {
             sendError(error)
             return dispatch(getRoomByIdFail(error))
+        }
+    }
+}
+
+export function loadMoreMessageByIdAction() {
+    return async (dispatch, props) => {
+        try {
+            dispatch(loadMoreMessageByIdStart())
+
+            const nextPage = props().Room.page + 1
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/messenger/getRoomById/' + props().Room.room._id + '/' + nextPage + '/' + props().Room.room.nbMessage
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) return dispatch(loadMoreMessageByIdSuccess(response.result))
+                    return dispatch(loadMoreMessageByIdFail(response))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(loadMoreMessageByIdFail(error))
         }
     }
 }

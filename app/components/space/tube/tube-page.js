@@ -34,7 +34,7 @@ class TubePage extends React.Component {
     }
 
     UNSAFE_componentWillMount = () => {
-        this.uploadPageTube(this.props.screenProps.rootNavigation.state.params.tubeId)
+        this.uploadPageTube(this.props.route.params.tubeId)
     }
 
     _likeTube = () => {
@@ -132,7 +132,7 @@ class TubePage extends React.Component {
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
-                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => this.props.screenProps.rootNavigation.navigate('Comments')}>
+                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Comments')}>
                             <FontAwesomeIcon icon={faCommentLines} size={20} color="#77838F" />
                             <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{I18n.t('CORE.Comment')}</Text>
                         </TouchableOpacity>

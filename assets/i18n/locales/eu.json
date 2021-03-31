@@ -649,7 +649,7 @@
     "Register": "Izena eman",
     "Registration": "Izena ematea",
     "Sign-up": "Izena eman",
-    "accept-tou": "Erabilera baldintzak eta baldintzak onartzen ditut",
+    "accept-tou": "16 urte edo gehiago ditudala ziurtatzen dut eta erabiltzailearen akordioa eta pribatutasun politika onartzen ditut",
     "click-on-email": "Egin klik posta elektronikoaren estekan",
     "Create-yr-account": "Sortu zure kontua",
     "Creating-yr-account": "Zure kontua sortzen",
@@ -733,7 +733,9 @@
     "Your-Email": "Zure emaila",
     "Your-Password": "Zure pasahitza",
     "Your-Pseudo": "Zure erabiltzaile izena",
-    "Your-message": "Zure mezua"
+    "Your-message": "Zure mezua",
+    "Confirm-your-password": "Berretsi zure pasahitza",
+    "Password-not-matching": "Pasahitzak ez datoz bat"
   },
   "PLEASE": {
     "Password": "Mesedez, sartu zure pasahitza"

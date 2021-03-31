@@ -2,11 +2,9 @@ import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
-
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { getDateTranslated } from '../../../services/translation/translation-service'
-
 
 class OneRoomMin extends React.Component {
 
@@ -51,7 +49,7 @@ class OneRoomMin extends React.Component {
 
         return (
             <TouchableOpacity
-                onPress={() => this.props.goToRoom(room)}
+                onPress={() => this.props.navigation.navigate('OneRoom', {room})}
                 style={[styles.container_room, this._activeBackground(room.roomOption.participants[0].notification)]}
             >
                 <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>

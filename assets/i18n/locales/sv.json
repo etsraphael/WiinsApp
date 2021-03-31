@@ -649,7 +649,7 @@
     "Register": "Registrera",
     "Registration": "Registrering",
     "Sign-up": "Bli Medlem",
-    "accept-tou": "Jag accepterar användarvillkoren",
+    "accept-tou": "Jag intygar att jag är 16 år eller äldre och godkänner användaravtalet och sekretesspolicyn",
     "click-on-email": "Klicka på e-postlänken",
     "Create-yr-account": "Skapa ditt konto",
     "Creating-yr-account": "Skapa ditt konto",
@@ -733,7 +733,9 @@
     "Your-Email": "Din email",
     "Your-Password": "Ditt lösenord",
     "Your-Pseudo": "Ditt användarnamn",
-    "Your-message": "Ditt meddelande"
+    "Your-message": "Ditt meddelande",
+    "Confirm-your-password": "Bekräfta ditt lösenord",
+    "Password-not-matching": "Lösenorden matchar inte"
   },
   "PLEASE": {
     "Password": "Vänligen ange ditt lösenord"
