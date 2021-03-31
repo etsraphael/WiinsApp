@@ -24,8 +24,14 @@ class SignUp extends React.Component {
             pseudo: null,
             password: null,
             registration_success: false,
-            conditionAccepted: false
+            conditionAccepted: false,
+            countDownString: null,
+            counterDone: false
         }
+    }
+
+    componentDidMount() {
+        this._startTimer()
     }
 
     UNSAFE_componentWillReceiveProps(newProps) {
@@ -175,10 +181,53 @@ class SignUp extends React.Component {
         )
     }
 
-    render() {
+    // timer test
+    _startTimer = () => {
+        let countDownDate = new Date('May 1, 2021 00:00:00').getTime()
+
+        let x = setInterval(() => {
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            this.setState({ countDownString: days + "d " + hours + "h " + minutes + "m " + seconds + "s " })
+
+            // If the count down is finished, write some text
+            if (distance <= 0) {
+              this.setState({counterDone: true})
+              clearInterval(x)
+            }
+        }, 1000)
+
+    }
+
+    _renderTimer = () => {
         return (
-            <ScrollView style={{ flex: 1, backgroundColor: 'white', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
-                <StatusBar barStyle="dark-content" hidden={false} backgroundColor="transparent" translucent={true} />
+            <View>
+                <View style={styles.actionBarStyle}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
+                        <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />
+                    </TouchableOpacity>
+                </View>
+                <View style={{ flex: 1, height: '100%', alignItems: 'center' }}>
+                    <Text style={{ fontSize: 20 }}>{this.state.countDownString}</Text>
+                </View>
+            </View>
+        )
+    }
+
+    _renderRegistration = () => {
+        return (
+            <View>
                 <View style={styles.actionBarStyle}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
                         <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />
@@ -217,6 +266,15 @@ class SignUp extends React.Component {
                         </View>
                     )
                 }
+            </View>
+        )
+
+    }
+
+    render() {
+        return (
+            <ScrollView style={{ flex: 1, backgroundColor: 'white', paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
+                {this.state.counterDone ? this._renderRegistration() : this._renderTimer()}
             </ScrollView>
         )
     }
