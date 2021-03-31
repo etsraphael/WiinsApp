@@ -1,6 +1,18 @@
 import * as ActionTypes from './constants'
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
+
+export function loadMoreMessageByIdSuccess(room) {
+    return { type: ActionTypes.LOAD_MORE_MESSAGE_BY_ID_SUCCESS, payload: room }
+}
+
+export function loadMoreMessageStart() {
+    return { type: ActionTypes.LOAD_MORE_MESSAGE_BY_ID }
+}
+
+export function loadMoreMessageFail(error) {
+    return { type: ActionTypes.LOAD_MORE_MESSAGE_BY_ID_FAIL, payload: error }
+}
 
 export function getRoomByIdSuccess(room) {
     return { type: ActionTypes.GET_ROOM_BY_ID_SUCCESS, payload: room }
