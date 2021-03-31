@@ -1,5 +1,9 @@
 import React from 'react'
-import { StyleSheet, View, Text, TextInput, FlatList, TouchableOpacity, ActivityIndicator, LayoutAnimation, ScrollView } from 'react-native'
+import {
+    StyleSheet, View, Text, TextInput, FlatList,
+    TouchableOpacity, ActivityIndicator, LayoutAnimation,
+    ScrollView, RefreshControl
+} from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import * as TopHastagActions from '../../../redux/TopHastag/actions'
@@ -14,6 +18,7 @@ import { faSearch, faTimes } from '@fortawesome/pro-light-svg-icons'
 import SuggestionDiscover from './suggestion-discover'
 import I18n from './../../../../assets/i18n/i18n'
 import PublicationModalContainer from '../../core/modal/publication-modal-container'
+import { checkNotification } from './../../../services/notification/action-notification-service'
 
 class Discover extends React.Component {
 
@@ -34,11 +39,12 @@ class Discover extends React.Component {
 
     // to display the modal view
     _toggleModal = (event) => {
-        if(!!event){ this.props.actions.putPublicationInModalActions(event.publication) }
+        if (!!event) { this.props.actions.putPublicationInModalActions(event.publication) }
         this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
     componentDidMount() {
+        checkNotification(this.props.navigation)
         this.props.actions.getTopHastag()
         this._getPublicationList()
     }
@@ -220,10 +226,27 @@ class Discover extends React.Component {
         )
     }
 
+    _refreshDisover = () => {
+        if(!this.props.DiscoverPublications.isLoading){
+            this.props.actions.refreshTrend()
+            this.setState({hastagSelected: 'trend'})
+        }
+    }
+
     // to select the discover view
     _displayDiscoverView = () => {
         return (
-            <ScrollView scrollEventThrottle={5} style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }} showsVerticalScrollIndicator={false} >
+            <ScrollView
+                scrollEventThrottle={5}
+                style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }}
+                showsVerticalScrollIndicator={false}
+                refreshControl={
+                    <RefreshControl
+                    refreshing={this.props.DiscoverPublications.isRefreshing}
+                    onRefresh={this._refreshDisover}
+                    />
+                  }
+            >
                 {this._hastagView()}
                 {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
             </ScrollView>
@@ -235,13 +258,35 @@ class Discover extends React.Component {
         return (<SuggestionDiscover navigation={this.props.navigation} currentSearch={this.state.search} searchFilterUpdated={actifCategory => this.setState({ actifCategory })} />)
     }
 
+    _goToProfile = (payload) => {
+
+        this.setState({ modal: false, PublicationModal: null })
+
+        if (payload.pageName == 'Profile') return null
+
+        if (payload.profileId !== this.props.MyProfile._id) {
+            this.props.navigation.navigate('Profile', { profileId: payload.profileId })
+        }
+        else {
+            this.props.navigation.navigate('MyProfile')
+        }
+    }
+
     render() {
         return (
             <View style={styles.main_container}>
                 {this._header()}
                 {this.state.search.length <= 2 ? this._displayDiscoverView() : null}
                 {this.state.search.length > 2 ? this._displaySuggestionView() : null}
-                {this.state.modal ? <PublicationModalContainer publicationModal={this.state.PublicationModal} toggleModal={(event) => this._toggleModal(event)} /> : null}
+
+                {this.state.modal ?
+                    <PublicationModalContainer
+                        publicationModal={this.state.PublicationModal}
+                        toggleModal={(event) => this._toggleModal(event)}
+                        goToProfile={(profileId) => this._goToProfile(profileId)}
+                        pageName={'Discover'}
+                    /> : null}
+
             </View>
         );
     }
@@ -289,9 +334,6 @@ const styles = StyleSheet.create({
         top: 250
     },
     search_bar: {
-        position: absolute,
-        width: '100%',
-        height: '100%',
         fontSize: 15,
         paddingLeft: 5,
         paddingVertical: 15,
@@ -300,6 +342,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
+    MyProfile: state.MyProfile,
     MyUser: state.MyUser,
     TopHastag: state.TopHastag,
     DiscoverPublications: state.DiscoverPublications
