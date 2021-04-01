@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    StyleSheet, View, TextInput, Text, TouchableOpacity,
+    StyleSheet, View, TextInput, Text, TouchableOpacity, Linking,
     ActivityIndicator, ScrollView, StatusBar, KeyboardAvoidingView
 } from 'react-native'
 import { connect } from 'react-redux'
@@ -217,7 +217,8 @@ class SignUp extends React.Component {
                 style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}
                 locations={[0, 0.5596885789406173, 1]}
                 start={{ x: 0.1, y: 0.09 }}
-                end={{ x: 0.94, y: 0.95 }} >
+                end={{ x: 0.94, y: 0.95 }}
+            >
                 <View style={{ paddingHorizontal: 15, paddingVertical: 10 }}>
                     <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
                         <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'white'} />
@@ -228,7 +229,7 @@ class SignUp extends React.Component {
                     <Text style={{ fontSize: 25, color: 'white', fontWeight: '800', backgroundColor: '#5f5f5fb0', padding: 15, borderRadius: 15, overflow: 'hidden' }}>{this.state.countDownString}</Text>
                 </View> : null}
 
-                <View style={{ paddingTop: 15, paddingHorizontal: 10 }}>
+                <View style={{ padding: 15 }}>
                     <Text style={styles.textSection}>
                         Wiin's t’annonce qu’à compter du 01 mai, tu bénéficieras d’un accès anticipé à nos services.
                         En attendant cette grande révolution, il va falloir que tu patientes !
@@ -264,6 +265,13 @@ class SignUp extends React.Component {
                         Tout simplement en l’utilisant :wink:. Nous serons ravis d’apprendre que tu désir apporter ton soutien! Sens-toi libre de tout nous dire car, après tout, c’est aussi TA plateforme. Avoir des idées et tes retours, c’est génial. Mais tu peux en plus participer au développement de Wiin’s en faisant une donation.
                     </Text>
                 </View>
+
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginBottom: 30 }}>
+                    <TouchableOpacity onPress={() => Linking.openURL('https://discord.gg/bBE6xmR')} style={{backgroundColor: 'black', padding: 15, borderRadius: 15, overflow: 'hidden'}}>
+                        <Text style={styles.loginText}> Join the cummunity on discord</Text>
+                    </TouchableOpacity>
+                </View>
+
             </LinearGradient>
         )
     }
