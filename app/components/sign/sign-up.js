@@ -26,7 +26,8 @@ class SignUp extends React.Component {
             registration_success: false,
             conditionAccepted: false,
             countDownString: null,
-            counterDone: false
+            counterDone: false,
+            showMore: false
         }
     }
 
@@ -214,63 +215,82 @@ class SignUp extends React.Component {
         return (
             <LinearGradient
                 colors={['#35D1FE', '#0041C4', '#960CF8']}
-                style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}
+                style={{ paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10, flex: 1 }}
                 locations={[0, 0.5596885789406173, 1]}
                 start={{ x: 0.1, y: 0.09 }}
                 end={{ x: 0.94, y: 0.95 }}
             >
-                <View style={{ paddingHorizontal: 15, paddingVertical: 10 }}>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
-                        <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'white'} />
-                    </TouchableOpacity>
-                </View>
 
-                {this.state.countDownString ? <View style={{ flex: 1, height: '100%', alignItems: 'center' }}>
-                    <Text style={{ fontSize: 25, color: 'white', fontWeight: '800', backgroundColor: '#5f5f5fb0', padding: 15, borderRadius: 15, overflow: 'hidden' }}>{this.state.countDownString}</Text>
-                </View> : null}
 
-                <View style={{ padding: 15 }}>
-                    <Text style={styles.textSection}>
-                        Wiin's t’annonce qu’à compter du 01 mai, tu bénéficieras d’un accès anticipé à nos services.
-                        En attendant cette grande révolution, il va falloir que tu patientes !
-                        “Tu peux d’ores et déjà renseigner ton adresse email pour avoir le privilège de faire partie de nos premiers Wiinser.”
-                        Tu seras contacté en priorité pour bénéficier de cet accès.
-                        Attention, cet accès sera disponible aux 1000 premières inscriptions, En savoir plus
-                    </Text>
-                    <Text style={styles.textSection}>
-                        Pourquoi cet accès anticipé ?
-                        Et pourquoi pas…? :wink:
-                        Wiin’s souhaite révolutionner la relation que tu as avec ton téléphone :rofl:
-                        Aussi, nous avons besoin de ton aide afin d’améliorer nos services et t’offrir une expérience exclusive qui sera totalement GRATUITE pendant cette période.
-                        Et en plus, en tant que premier Winser, tu profiteras de… :shushing_face:  une réduction sur ton futur abonnement.
-                    </Text>
-                    <Text style={styles.textSection}>
-                        Que propose l'accès anticipé ?
-                        L'accès anticipé te permet d'utiliser toutes les fonctionnalités actuellement disponibles de Wiin's. Nous te laissons le soin d’en découvrir plus grâce à la vidéo, si tu ne l'as pas déjà fait .
-                    </Text>
-                    <Text style={styles.textSection}>
-                        Pendant combien de temps la plateforme sera-t-elle en accès anticipé ?
-                        Pendant 9 mois, ou peut-être 6, ou 3... Tu as ton rôle à jouer !! Ce qui est sûr, jusqu’au 1er janvier 2022, au plus tard.
-                    </Text>
-                    <Text style={styles.textSection}>
-                        En quoi la version complète sera-t-elle différente de la version en accès anticipé ?
-                        La plateforme sera améliorée selon tes demandes, que tu pourras formuler grâce au menu "proposer une amélioration”. Les artistes pourront également toucher une rémunération digne de leur talent :slight_smile: Aussi.... ça sera la fin de la gratuité de Wiin's.  De plus, tu as la possibilité de nous suivre sur les réseaux sociaux pour rester informé.
-                    </Text>
-                    <Text style={styles.textSection}>
-                        Quel sera le prix sur la version complète, après l'accès anticipé ?
-                        Le prix n’est pas encore fixé. L’accès anticipé va nous permettre de t’offrir le service au meilleur prix. Tu en sera informé avant de payer, bien sûr.
-                    </Text>
-                    <Text style={styles.textSection}>
-                        Comment comptez-vous impliquer la communauté dans le processus de développement ?
-                        Tout simplement en l’utilisant :wink:. Nous serons ravis d’apprendre que tu désir apporter ton soutien! Sens-toi libre de tout nous dire car, après tout, c’est aussi TA plateforme. Avoir des idées et tes retours, c’est génial. Mais tu peux en plus participer au développement de Wiin’s en faisant une donation.
-                    </Text>
-                </View>
+                <ScrollView style={{flex: 1}}>
 
-                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginBottom: 30 }}>
-                    <TouchableOpacity onPress={() => Linking.openURL('https://discord.gg/bBE6xmR')} style={{backgroundColor: 'black', padding: 15, borderRadius: 15, overflow: 'hidden'}}>
-                        <Text style={styles.loginText}> Join the cummunity on discord</Text>
-                    </TouchableOpacity>
-                </View>
+
+
+                    <View style={{ paddingHorizontal: 15, paddingVertical: 10}}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
+                            <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'white'} />
+                        </TouchableOpacity>
+                    </View>
+
+                    {this.state.countDownString ? <View style={{ alignItems: 'center'}}>
+                        <Text style={{ fontSize: 25, color: 'white', fontWeight: '800', backgroundColor: '#5f5f5fb0', padding: 15, borderRadius: 15, overflow: 'hidden' }}>{this.state.countDownString}</Text>
+                    </View> : null}
+
+                    <View style={{ padding: 15 , flex: 1}}>
+
+                        <Text style={styles.textSection}>
+                            Wiin's t’annonce qu’à compter du 01 mai, tu bénéficieras d’un accès anticipé à nos services.
+                            En attendant cette grande révolution, il va falloir que tu patientes !
+                            Attention, cet accès sera disponible aux 1000 premières inscriptions.
+                        <Text style={{ color: 'yellow' }} onPress={() => this.setState({ showMore: true })}> En savoir plus</Text>
+                        </Text>
+
+                        {this.state.showMore ?
+                            <View>
+                                <Text style={styles.textSection}>
+                                    Pourquoi cet accès anticipé ?
+                                    Et pourquoi pas…?
+                                    Wiin’s souhaite révolutionner la relation que tu as avec ton téléphone :rofl:
+                                    Aussi, nous avons besoin de ton aide afin d’améliorer nos services et t’offrir une expérience exclusive qui sera totalement GRATUITE pendant cette période.
+                                    Et en plus, en tant que premier Winser, tu profiteras de… :shushing_face:  une réduction sur ton futur abonnement.
+                    </Text>
+                                <Text style={styles.textSection}>
+                                    Que propose l'accès anticipé ?
+                                    L'accès anticipé te permet d'utiliser toutes les fonctionnalités actuellement disponibles de Wiin's. Nous te laissons le soin d’en découvrir plus grâce à la vidéo, si tu ne l'as pas déjà fait .
+                    </Text>
+                                <Text style={styles.textSection}>
+                                    Pendant combien de temps la plateforme sera-t-elle en accès anticipé ?
+                                    Pendant 9 mois, ou peut-être 6, ou 3... Tu as ton rôle à jouer !! Ce qui est sûr, jusqu’au 1er janvier 2022, au plus tard.
+                    </Text>
+                                <Text style={styles.textSection}>
+                                    En quoi la version complète sera-t-elle différente de la version en accès anticipé ?
+                                    La plateforme sera améliorée selon tes demandes, que tu pourras formuler grâce au menu "proposer une amélioration”. Les artistes pourront également toucher une rémunération digne de leur talent :slight_smile: Aussi.... ça sera la fin de la gratuité de Wiin's.  De plus, tu as la possibilité de nous suivre sur les réseaux sociaux pour rester informé.
+                    </Text>
+                                <Text style={styles.textSection}>
+                                    Quel sera le prix sur la version complète, après l'accès anticipé ?
+                                    Le prix n’est pas encore fixé. L’accès anticipé va nous permettre de t’offrir le service au meilleur prix. Tu en sera informé avant de payer, bien sûr.
+                    </Text>
+                                <Text style={styles.textSection}>
+                                    Comment comptez-vous impliquer la communauté dans le processus de développement ?
+                                    Tout simplement en l’utilisant. Nous serons ravis d’apprendre que tu désir apporter ton soutien! Sens-toi libre de tout nous dire car, après tout, c’est aussi TA plateforme. Avoir des idées et tes retours, c’est génial. Mais tu peux en plus participer au développement de Wiin’s en faisant une donation.
+                    </Text>
+
+                    <Text style={[styles.textSection, {color: 'yellow' }]}onPress={()=> this.setState({counterDone: true})}> Thank you </Text>
+
+                            </View>
+                            : null}
+
+
+                    </View>
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginBottom: 30, flex: 1 }}>
+                        <TouchableOpacity onPress={() => Linking.openURL('https://discord.gg/bBE6xmR')} style={{ backgroundColor: 'black', padding: 15, borderRadius: 15, overflow: 'hidden' }}>
+                            <Text style={styles.loginText}> Join the cummunity on discord</Text>
+                        </TouchableOpacity>
+                    </View>
+
+
+                </ScrollView>
 
             </LinearGradient>
         )
@@ -278,56 +298,57 @@ class SignUp extends React.Component {
 
     _renderRegistration = () => {
         return (
-            <View style={{ paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
-                <View style={styles.actionBarStyle}>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
-                        <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />
-                    </TouchableOpacity>
-                </View>
-                {
-                    !this.state.registration_success ? (
-                        <KeyboardAvoidingView
-                            behavior={Platform.OS === "ios" ? "padding" : null}
-                            keyboardVerticalOffset={0}
-                        >
-                            <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 31, marginTop: 56 }}>
-                                <View style={styles.brand_container}>
-                                    <Text style={{ color: '#960CF8', fontSize: 32 }}>{i18n.t('CORE.Hello')}</Text>
-                                    <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? i18n.t('LOGIN-REGISTRER.Create-yr-account') : i18n.t('LOGIN-REGISTRER.Creating-yr-account')}</Text>
+            <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
+                <View style={{ paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
+                    <View style={styles.actionBarStyle}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
+                            <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />
+                        </TouchableOpacity>
+                    </View>
+                    {
+                        !this.state.registration_success ? (
+                            <KeyboardAvoidingView
+                                behavior={Platform.OS === "ios" ? "padding" : null}
+                                keyboardVerticalOffset={0}
+                            >
+                                <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 31, marginTop: 56 }}>
+                                    <View style={styles.brand_container}>
+                                        <Text style={{ color: '#960CF8', fontSize: 32 }}>{i18n.t('CORE.Hello')}</Text>
+                                        <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? i18n.t('LOGIN-REGISTRER.Create-yr-account') : i18n.t('LOGIN-REGISTRER.Creating-yr-account')}</Text>
+                                    </View>
+                                    <View style={{ flex: 4, width: '100%', marginTop: 56 }}>
+                                        {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
+                                    </View>
+                                </ScrollView>
+                            </KeyboardAvoidingView>
+                        ) : (
+                            <View style={{ width: '100%', paddingHorizontal: 45, justifyContent: 'center', alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', marginBottom: 15 }}>
+                                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                                        <FontAwesomeIcon icon={faCheckCircle} color={'green'} size={25} />
+                                    </View>
+                                    <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
+                                        <Text style={{ fontSize: 18 }}>{i18n.t('LOGIN-REGISTRER.click-on-email')}</Text>
+                                    </View>
                                 </View>
-                                <View style={{ flex: 4, width: '100%', marginTop: 56 }}>
-                                    {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
-                                </View>
-                            </ScrollView>
-                        </KeyboardAvoidingView>
-                    ) : (
-                        <View style={{ width: '100%', paddingHorizontal: 45, justifyContent: 'center', alignItems: 'center' }}>
-                            <View style={{ flexDirection: 'row', marginBottom: 15 }}>
-                                <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                                    <FontAwesomeIcon icon={faCheckCircle} color={'green'} size={25} />
-                                </View>
-                                <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
-                                    <Text style={{ fontSize: 18 }}>{i18n.t('LOGIN-REGISTRER.click-on-email')}</Text>
-                                </View>
+                                <View style={{ backgroundColor: 'white', marginVertical: 25, height: 1, width: '80%' }}></View>
+                                <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.btn_back}>
+                                    <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}>{i18n.t('CORE.Back')}</Text>
+                                </TouchableOpacity>
                             </View>
-                            <View style={{ backgroundColor: 'white', marginVertical: 25, height: 1, width: '80%' }}></View>
-                            <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.btn_back}>
-                                <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}>{i18n.t('CORE.Back')}</Text>
-                            </TouchableOpacity>
-                        </View>
-                    )
-                }
-            </View>
-        )
+                        )
+                    }
+                </View>
+            </ScrollView>)
 
     }
 
     render() {
-        return (
-            <ScrollView style={{ flex: 1 }}>
-                {this.state.counterDone ? this._renderRegistration() : this._renderTimer()}
-            </ScrollView>
-        )
+        if (!this.state.counterDone) {
+            return this._renderTimer()
+        } else {
+            return this._renderRegistration()
+        }
     }
 }
 
