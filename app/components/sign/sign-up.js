@@ -220,63 +220,34 @@ class SignUp extends React.Component {
                 start={{ x: 0.1, y: 0.09 }}
                 end={{ x: 0.94, y: 0.95 }}
             >
+                <ScrollView style={{ flex: 1 }}>
 
-
-                <ScrollView style={{flex: 1}}>
-
-
-
-                    <View style={{ paddingHorizontal: 15, paddingVertical: 10}}>
+                    <View style={{ paddingHorizontal: 15, paddingVertical: 10 }}>
                         <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
                             <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'white'} />
                         </TouchableOpacity>
                     </View>
 
-                    {this.state.countDownString ? <View style={{ alignItems: 'center'}}>
+                    {this.state.countDownString ? <View style={{ alignItems: 'center' }}>
                         <Text style={{ fontSize: 25, color: 'white', fontWeight: '800', backgroundColor: '#5f5f5fb0', padding: 15, borderRadius: 15, overflow: 'hidden' }}>{this.state.countDownString}</Text>
                     </View> : null}
 
-                    <View style={{ padding: 15 , flex: 1}}>
+                    <View style={{ padding: 15, flex: 1 }}>
 
                         <Text style={styles.textSection}>
-                            Wiin's t’annonce qu’à compter du 01 mai, tu bénéficieras d’un accès anticipé à nos services.
-                            En attendant cette grande révolution, il va falloir que tu patientes !
-                            Attention, cet accès sera disponible aux 1000 premières inscriptions.
-                        <Text style={{ color: 'yellow' }} onPress={() => this.setState({ showMore: true })}> En savoir plus</Text>
+                            {i18n.t('TEMPORARY.On-first-may-d')}
+                            <Text style={{ color: 'yellow' }} onPress={() => this.setState({ showMore: true })}>{i18n.t('TEMPORARY.Know-more')}</Text>
                         </Text>
 
                         {this.state.showMore ?
                             <View>
-                                <Text style={styles.textSection}>
-                                    Pourquoi cet accès anticipé ?
-                                    Et pourquoi pas…?
-                                    Wiin’s souhaite révolutionner la relation que tu as avec ton téléphone :rofl:
-                                    Aussi, nous avons besoin de ton aide afin d’améliorer nos services et t’offrir une expérience exclusive qui sera totalement GRATUITE pendant cette période.
-                                    Et en plus, en tant que premier Winser, tu profiteras de… :shushing_face:  une réduction sur ton futur abonnement.
-                    </Text>
-                                <Text style={styles.textSection}>
-                                    Que propose l'accès anticipé ?
-                                    L'accès anticipé te permet d'utiliser toutes les fonctionnalités actuellement disponibles de Wiin's. Nous te laissons le soin d’en découvrir plus grâce à la vidéo, si tu ne l'as pas déjà fait .
-                    </Text>
-                                <Text style={styles.textSection}>
-                                    Pendant combien de temps la plateforme sera-t-elle en accès anticipé ?
-                                    Pendant 9 mois, ou peut-être 6, ou 3... Tu as ton rôle à jouer !! Ce qui est sûr, jusqu’au 1er janvier 2022, au plus tard.
-                    </Text>
-                                <Text style={styles.textSection}>
-                                    En quoi la version complète sera-t-elle différente de la version en accès anticipé ?
-                                    La plateforme sera améliorée selon tes demandes, que tu pourras formuler grâce au menu "proposer une amélioration”. Les artistes pourront également toucher une rémunération digne de leur talent :slight_smile: Aussi.... ça sera la fin de la gratuité de Wiin's.  De plus, tu as la possibilité de nous suivre sur les réseaux sociaux pour rester informé.
-                    </Text>
-                                <Text style={styles.textSection}>
-                                    Quel sera le prix sur la version complète, après l'accès anticipé ?
-                                    Le prix n’est pas encore fixé. L’accès anticipé va nous permettre de t’offrir le service au meilleur prix. Tu en sera informé avant de payer, bien sûr.
-                    </Text>
-                                <Text style={styles.textSection}>
-                                    Comment comptez-vous impliquer la communauté dans le processus de développement ?
-                                    Tout simplement en l’utilisant. Nous serons ravis d’apprendre que tu désir apporter ton soutien! Sens-toi libre de tout nous dire car, après tout, c’est aussi TA plateforme. Avoir des idées et tes retours, c’est génial. Mais tu peux en plus participer au développement de Wiin’s en faisant une donation.
-                    </Text>
-
-                    <Text style={[styles.textSection, {color: 'yellow' }]}onPress={()=> this.setState({counterDone: true})}> Thank you </Text>
-
+                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.Why-this-early-access')}</Text>
+                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.W-does-early-access-offer')}</Text>
+                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.H-lg-ll-t-platform-be-in-early-access')}</Text>
+                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.H-ll-t-full-version-b-diff-frm-t-early-access-version')}</Text>
+                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.H-much-ll-t-full-version-cost-after-Early-Access')}</Text>
+                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.H-d-y-plan-to-involve-t-community-in-t-dev-process')}</Text>
+                                <Text style={[styles.textSection, { color: 'yellow' }]} onPress={() => this.setState({ counterDone: true })}>{i18n.t('TEMPORARY.Ty')}</Text>
                             </View>
                             : null}
 
@@ -285,7 +256,7 @@ class SignUp extends React.Component {
 
                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginBottom: 30, flex: 1 }}>
                         <TouchableOpacity onPress={() => Linking.openURL('https://discord.gg/bBE6xmR')} style={{ backgroundColor: 'black', padding: 15, borderRadius: 15, overflow: 'hidden' }}>
-                            <Text style={styles.loginText}> Join the cummunity on discord</Text>
+                            <Text style={styles.loginText}>{i18n.t('TEMPORARY.Join-us-on-discord')}</Text>
                         </TouchableOpacity>
                     </View>
 
@@ -344,11 +315,8 @@ class SignUp extends React.Component {
     }
 
     render() {
-        if (!this.state.counterDone) {
-            return this._renderTimer()
-        } else {
-            return this._renderRegistration()
-        }
+        if (!this.state.counterDone) { return this._renderTimer()
+        } else { return this._renderRegistration() }
     }
 }
 

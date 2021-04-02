@@ -1435,5 +1435,17 @@
       "Video-name": "Video nomi",
       "Visualisation-of-the-video": "Videoning vizualizatsiyasi"
     }
+  },
+  "TEMPORARY": {
+    "Know-more": "Qo'shimcha ma'lumot",
+    "Join-us-on-discord": "Ixtilofda jummunitiyaga qo'shiling",
+    "Ty": "rahmat",
+    "On-first-may-d": "Birinchi mayda siz bizning xizmatlarimizdan erta foydalanish huquqiga ega bo'lasiz. Ushbu buyuk inqilobni kutish paytida siz sabr-toqatli bo'lishingizga to'g'ri keladi! Iltimos, e'tibor bering, ushbu kirish birinchi 1000 ta ro'yxatdan o'tish uchun mavjud bo'ladi.",
+    "Why-this-early-access": "Nega bu erta kirish? Wiinning telefoningiz bilan bo'lgan munosabatlarida inqilob qilishni xohlaydi. Shuningdek, bizning xizmatlarimizni yaxshilash va sizga ushbu davrda mutlaqo bepul bo'lgan eksklyuziv tajribani taklif qilish uchun sizga yordam kerak. Bundan tashqari, birinchi G'olib sifatida sizga ... kelajakdagi obunangiz pasayishi foyda keltiradi.",
+    "W-does-early-access-offer": "Erta kirish nimani taklif qiladi? Erta kirish sizga Wiinning hozirda mavjud bo'lgan barcha xususiyatlaridan foydalanish imkonini beradi. Agar siz hali ham bo'lmagan bo'lsa, video orqali ko'proq narsalarni bilib olish uchun sizga topshiramiz.",
+    "H-lg-ll-t-platform-be-in-early-access": "Platforma qancha vaqtgacha erta kirishda bo'ladi? 9 oy, yoki ehtimol 6 yoki 3 yil davomida ... Sizning o'ynashingiz uchun o'z hissangiz bor !! Bu aniq, 2022 yil 1 yanvargacha, eng kechi.",
+    "H-ll-t-full-version-b-diff-frm-t-early-access-version": "To'liq versiya dastlabki kirish versiyasidan qanday farq qiladi? Platforma sizning so'rovlaringizga binoan yaxshilanadi, uni \"takomillashtirishni taklif qilaman\" menyusi tufayli shakllantirishingiz mumkin. Shuningdek, san'atkorlar o'zlarining iste'dodlariga munosib mukofot olishlari mumkin. Shuningdek .... bu bepul Wiin-larning oxiri bo'ladi. , bizni xabardor bo'lish uchun bizni ijtimoiy tarmoqlarda kuzatib borish imkoniyati mavjud.",
+    "H-much-ll-t-full-version-cost-after-Early-Access": "Early Accessdan so'ng to'liq versiyasi qancha turadi? Narx hali aniqlanmagan. Erta kirish sizga xizmatni eng yaxshi narxda taklif qilishimizga imkon beradi. To'lashdan oldin bu haqda sizga xabar beriladi, albatta.",
+    "H-d-y-plan-to-involve-t-community-in-t-dev-process": "Jamiyatni rivojlanish jarayoniga qanday jalb qilishni rejalashtiryapsiz? Shunchaki uni ishlatish bilan. Sizni qo'llab-quvvatlamoqchi ekaningizni eshitib xursand bo'lamiz! Iltimos, bizga biron bir narsani ayting, chunki bu sizning platformangizdir. Fikrlaringiz va fikr-mulohazalaringiz juda yaxshi. Ammo siz Wiin-ning rivojlanishida ham xayriya qilish orqali ishtirok etishingiz mumkin."
   }
 }
