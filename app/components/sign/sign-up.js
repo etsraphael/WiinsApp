@@ -236,7 +236,7 @@ class SignUp extends React.Component {
 
                         <Text style={styles.textSection}>
                             {i18n.t('TEMPORARY.On-first-may-d')}
-                            <Text style={{ color: 'yellow' }} onPress={() => this.setState({ showMore: true })}>{i18n.t('TEMPORARY.Know-more')}</Text>
+                            <Text style={{ color: 'yellow' }} onPress={() => this.setState({ showMore: true })}>{i18n.t('TEMPORARY.Tell-m-more')}</Text>
                         </Text>
 
                         {this.state.showMore ?
