@@ -34,6 +34,6 @@ export default MyUserReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.LOGOUT: return initialState
-    default: return { ...state }
+    default: return state
   }
 }

@@ -45,7 +45,7 @@ class MainApp extends React.Component {
     }
 
     render() {
-        if (!!this.state.userToken) return this._afterAuth()
+        if (!!this.props.MyUser.user) return this._afterAuth()
         else return this._beforAuth()
     }
 }
