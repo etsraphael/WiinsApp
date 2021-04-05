@@ -46,6 +46,6 @@ export default MyStoryReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
-    default: return state
+    default: return { ...state }
   }
 }

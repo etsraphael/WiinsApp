@@ -7,16 +7,24 @@ import MainNavigationContainer from './../../../navigation/navigation'
 import SignNavigation from './../../../navigation/sign-naviation'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
 import { listenerMusic } from './../../../services/music/music-service'
+import AsyncStorage from '@react-native-community/async-storage';
 
 class MainApp extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            userToken: null
+        }
         this.musicProgress = null
     }
 
     componentDidMount = async () => {
         this.musicProgress = listenerMusic(this.props.actions)
+
+        const userToken = await AsyncStorage.getItem('userToken')
+        if(!!userToken) { this.setState({userToken}) }
+
     }
 
     componentWillUnmount = async () => {
@@ -37,7 +45,7 @@ class MainApp extends React.Component {
     }
 
     render() {
-        if (!!this.props.MyUser.user) return this._afterAuth()
+        if (!!this.state.userToken) return this._afterAuth()
         else return this._beforAuth()
     }
 }

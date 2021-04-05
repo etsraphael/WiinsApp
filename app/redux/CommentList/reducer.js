@@ -48,7 +48,7 @@ export default CommentListReducer = (state = initialState, action) => {
     }
     case ActionTypes.GET_REPONSE_LIST_SUCCESS: {
       const found = state.commentList.map(x => x._id).indexOf(action.id)
-      if(!state.commentList[found].responseList) {
+      if (!state.commentList[found].responseList) {
         state.commentList[found].responseList = action.results
       } else {
         state.commentList[found].responseList.concat(action.results)
@@ -58,10 +58,10 @@ export default CommentListReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.LIKE_RESPONSE_SUCCESS: {
-      for(let [i, comment] of state.commentList.entries()) {
-        if(!!comment.responseList) {
+      for (let [i, comment] of state.commentList.entries()) {
+        if (!!comment.responseList) {
           responsefound = state.commentList[i].responseList.map(x => x._id).indexOf(action.id)
-          if(responsefound !== -1) {
+          if (responsefound !== -1) {
             state.commentList[i].responseList[responsefound].liked = true
             ++state.commentList[i].responseList[responsefound].like
             return {
@@ -75,10 +75,10 @@ export default CommentListReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.UNLIKE_RESPONSE_SUCCESS: {
-      for(let [i, comment] of state.commentList.entries()) {
-        if(!!comment.responseList) {
+      for (let [i, comment] of state.commentList.entries()) {
+        if (!!comment.responseList) {
           responsefound = state.commentList[i].responseList.map(x => x._id).indexOf(action.id)
-          if(responsefound !== -1) {
+          if (responsefound !== -1) {
             state.commentList[i].responseList[responsefound].liked = false
             --state.commentList[i].responseList[responsefound].like
             return {
@@ -91,7 +91,7 @@ export default CommentListReducer = (state = initialState, action) => {
         ...state
       }
     }
-    case ActionTypes.RESET_COMMENT_LIST  : return initialState
-    default: return state
+    case ActionTypes.RESET_COMMENT_LIST: return initialState
+    default: return { ...state }
   }
 }

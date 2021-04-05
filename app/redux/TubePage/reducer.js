@@ -81,6 +81,6 @@ export default TubePageReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.RESET_TUBE_PAGE: return initialState
-    default: return state
+    default: return { ...state }
   }
 }

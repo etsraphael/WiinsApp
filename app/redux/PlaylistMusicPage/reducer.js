@@ -91,6 +91,6 @@ export default PlaylistPageReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.RESET_MUSIC_PLAYLIST: return initialState
-    default: return state
+    default: return { ...state }
   }
 }

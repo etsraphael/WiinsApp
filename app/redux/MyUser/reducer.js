@@ -33,9 +33,7 @@ export default MyUserReducer = (state = initialState, action) => {
         message: action.message
       }
     }
-    case ActionTypes.LOGOUT: {
-      return initialState
-    }
-    default: return state
+    case ActionTypes.LOGOUT: return initialState
+    default: return { ...state }
   }
 }
