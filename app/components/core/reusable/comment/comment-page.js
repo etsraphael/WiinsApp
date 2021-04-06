@@ -14,7 +14,6 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { faAngleLeft, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
 import TagSuggest from './../suggest/tag-suggest'
 
-
 class CommentPage extends React.Component {
 
     constructor(props) {
@@ -23,8 +22,17 @@ class CommentPage extends React.Component {
             textComment: '',
             baseComment: null,
             tagSearching: '',
-            searchingActif: false
+            searchingActif: false,
+            listProfileTagged: []
         }
+    }
+
+    componentDidMount = () => {
+        this.props.navigation.dangerouslyGetParent().setOptions({ tabBarVisible: false })
+    }
+
+    componentWillUnmount(){
+        this.props.navigation.dangerouslyGetParent().setOptions({ tabBarVisible: true })
     }
 
     _heartColor = (liked) => {
@@ -36,10 +44,11 @@ class CommentPage extends React.Component {
 
         const inputComment = this.state.textComment.replace('@' + this.state.tagSearching, '@' + profile._meta.pseudo + ' ')
 
-        this.setState({ 
+        this.setState({
             textComment: inputComment,
             searchingActif: false,
-            tagSearching: ''
+            tagSearching: '',
+            listProfileTagged: [...this.state.listProfileTagged, profile]
         })
         this.props.actions.searchResetActions()
     }
@@ -221,9 +230,9 @@ class CommentPage extends React.Component {
 
             let searchingValue
 
-            if (val == 'Backspace' &&  this.state.tagSearching == '') { 
+            if (val == 'Backspace' && this.state.tagSearching == '') {
                 this.props.actions.searchResetActions()
-                return this.setState({ searchingActif: false, tagSearching: '' }) 
+                return this.setState({ searchingActif: false, tagSearching: '' })
             }
             if (val == 'Backspace') { searchingValue = this.state.tagSearching.slice(0, -1) }
             else { searchingValue = this.state.tagSearching + val }
@@ -233,6 +242,135 @@ class CommentPage extends React.Component {
             return this.props.actions.tagSearchAction(searchingValue)
         }
 
+    }
+
+    _getListProfilesTagged = () => {
+
+        let listProfile = []
+
+        for(let profile of this.state.listProfileTagged){
+            if(this.state.textComment.includes( '@' + profile._meta.pseudo)){
+                listProfile.push(profile._id)
+            }
+        }
+
+        return listProfile
+    }
+
+    _resetInput = () => {
+        return this.setState({
+            textComment: '',
+            baseComment: null,
+            tagSearching: '',
+            searchingActif: false,
+            listProfileTagged: []
+        })
+    }
+
+    _sendAnswer = () => {
+        switch (this.props.route.params.page) {
+            case 'modal-feed-publication-profile': {
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    publicationId: this.props.route.params.publicationId,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'feed-publication',
+                    baseComment: this.state.baseComment._id,
+                    commentProfile: this.state.baseComment.idProfil._id
+                }
+                return this.props.actions.sendCommentAnswer(comment, () => this._resetInput())
+            }
+            case 'modal-feed-publication-page': {
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    publicationId: this.props.route.params.publicationId,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'feed-publication',
+                    baseComment: this.state.baseComment._id,
+                    commentProfile: this.state.baseComment.idProfil._id
+                }
+                return this.props.actions.sendCommentAnswer(comment, () => this._resetInput())
+            }
+            case 'tube': {
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    tube: this.props.route.params.tubeId,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'tube',
+                    baseComment: this.state.baseComment._id,
+                    commentProfile: this.state.baseComment.idProfil._id
+                }
+                return null
+            }
+            case 'music': {
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    idPlaylist: this.props.route.params.idPlaylist,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'playlist',
+                    baseComment: this.state.baseComment._id,
+                    commentProfile: this.state.baseComment.idProfil._id
+                }
+                return null
+            }
+            default: return null
+        }
+    }
+
+
+    _sendComment = () => {
+
+        if(!!this.state.baseComment){
+            return this._sendAnswer()
+        }
+
+        switch (this.props.route.params.page) {
+            case 'modal-feed-publication-profile': {
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    publicationId: this.props.route.params.publicationId,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'feed-publication'
+                }
+                return this.props.actions.sendCommentToProfile(comment, 'feed', () => this._resetInput())
+            }
+            case 'modal-feed-publication-page': {
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    publicationId: this.props.route.params.publicationId,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'feed-publication'
+                }
+                return this.props.actions.sendCommentToPage(comment, 'discover', () => this._resetInput())
+            }
+            case 'tube': {
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    tube: this.props.route.params.tubeId,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'tube'
+                }
+                return null
+            }
+            case 'music': {
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    idPlaylist: this.props.route.params.idPlaylist,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'playlist'
+                }
+                return null
+            }
+            default: return null
+        }
     }
 
     _footerRender = () => {
@@ -255,12 +393,12 @@ class CommentPage extends React.Component {
                         style={styles.comment_input}
                         onChangeText={(val) => this._writtingListener(val)}
                         onKeyPress={(event) => this._tagListener(event.nativeEvent.key)}
-                        onSubmitEditing={() => null}
+                        onSubmitEditing={() => this._sendComment()}
                         multiline={true}
                         numberOfLines={10}
                     />
 
-                    <TouchableOpacity onPress={() => null}
+                    <TouchableOpacity onPress={() => this._sendComment()}
                         style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
                         <FontAwesomeIcon icon={faPaperPlane} color={'black'} size={19} />
                     </TouchableOpacity>

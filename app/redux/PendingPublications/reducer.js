@@ -16,6 +16,6 @@ export default PendingPublicationsReducer = (state = initialState, action) => {
         publications: state.publication.filter(x => x.savingDate !== action.date)
       }
     }
-    default: return state
+    default: return { ...state }
   }
 }

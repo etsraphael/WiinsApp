@@ -90,6 +90,18 @@ export function resetComment() {
     return { type: ActionTypes.RESET_COMMENT_LIST }
 }
 
+export function sendCommentAnswerStart() {
+    return { type: ActionTypes.SEND_ANSWER }
+}
+
+export function sendCommentAnswerSuccess(response) {
+    return { type: ActionTypes.SEND_ANSWER_SUCCESS, payload: response }
+}
+
+export function sendCommentAnswerFail(error) {
+    return { type: ActionTypes.SEND_ANSWER_FAIL, payload: error }
+}
+
 export function sendCommentStart() {
     return { type: ActionTypes.SEND_COMMENT }
 }
@@ -208,7 +220,7 @@ export function unlikeResponsePublication(id) {
     }
 }
 
-export function sendCommentToPage(comment, space) {
+export function sendCommentToPage(comment, space, reset) {
     return async (dispatch) => {
         try {
             dispatch(sendCommentStart())
@@ -227,6 +239,7 @@ export function sendCommentToPage(comment, space) {
                 .then(async (response) => {
                     if (response.status == 201) {
                         await dispatch(updateCommentStat(comment.publicationId, space))
+                        reset()
                         return dispatch(sendCommentSuccess(response.comment))
                     }
                     return dispatch(sendCommentFail(response))
@@ -265,7 +278,7 @@ export function sendCommentToPlaylist(comment) {
     }
 }
 
-export function sendCommentToProfile(comment, space) {
+export function sendCommentToProfile(comment, space, reset) {
     return async (dispatch) => {
         try {
             dispatch(sendCommentStart())
@@ -284,6 +297,7 @@ export function sendCommentToProfile(comment, space) {
                 .then(async (response) => {
                     if (response.status == 201){ 
                         await dispatch(updateCommentStat(comment.publicationId, space))
+                        reset()
                         return dispatch(sendCommentSuccess(response.comment))
                     }
                     return dispatch(sendCommentFail(response))
@@ -371,4 +385,34 @@ export function getResponseByIdAndPage(id, page){
             return dispatch(getResponseFail(error));
         }
     };
+}
+
+export function sendCommentAnswer(response, reset) {
+    return async (dispatch) => {
+        try {
+            dispatch(sendCommentAnswerStart())
+            const url = 'https://wiins-backend.herokuapp.com/comments/response/'
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify(response)
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 201){ 
+                        reset()
+                        return dispatch(sendCommentAnswerSuccess(response.comment))
+                    }
+                    return dispatch(sendCommentAnswerFail(response))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(sendCommentAnswerFail(error))
+        }
+    }
 }

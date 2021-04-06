@@ -25,6 +25,6 @@ export default MusicProjectListReducer = (state = initialState, action) => {
       }
     }
     case RESET_PUBLICATIONS_MUSIC: return initialState
-    default: return state
+    default: return { ...state }
   }
 }
