@@ -28,6 +28,14 @@ class CommentPage extends React.Component {
         }
     }
 
+    componentDidMount = () => {
+        this.props.navigation.dangerouslyGetParent().setOptions({ tabBarVisible: false })
+    }
+
+    componentWillUnmount(){
+        this.props.navigation.dangerouslyGetParent().setOptions({ tabBarVisible: true })
+    }
+
     _heartColor = (liked) => {
         if (liked) return '#784BEA'
         else return '#77838F'
@@ -250,30 +258,80 @@ class CommentPage extends React.Component {
         return listProfile
     }
 
-    _sendComment() {
+    _resetInput = () => {
+        return this.setState({
+            textComment: '',
+            baseComment: null,
+            tagSearching: '',
+            searchingActif: false,
+            listProfileTagged: []
+        })
+    }
+
+    _sendAnswer = () => {
+
+        const answer = {
+            tagFriend: this._getListProfilesTagged(),
+            text: this.state.textComment,
+            publicationId: this.props.route.params.publicationId,
+            publicationProfile: this.props.route.params.publicationProfile,
+            space: 'feed-publication',
+            baseComment: this.state.baseComment._id,
+            commentProfile: this.state.baseComment.idProfil._id
+        }
+
+        console.log(answer)
+
+    }
+
+
+    _sendComment = () => {
+
+        if(!!this.state.baseComment){
+            return this._sendAnswer()
+        }
+
         switch (this.props.route.params.page) {
             case 'modal-feed-publication': {
-
-
-
 
                 const comment = {
                     tagFriend: this._getListProfilesTagged(),
                     text: this.state.textComment,
-                    baseComment: '',
-                    commentProfile: '',
                     publicationId: this.props.route.params.publicationId,
                     publicationProfile: this.props.route.params.publicationProfile,
                     space: 'feed-publication'
                 }
 
-                console.log(comment)
+                return this.props.actions.sendCommentToProfile(comment, 'feed', () => this._resetInput())
+            }
+            case 'tube': {
 
+
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    tube: this.props.route.params.tubeId,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'tube'
+                }
+
+                console.log(comment)
 
 
                 return null
             }
-            case 'tube': {
+            case 'music': {
+
+
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    idPlaylist: this.props.route.params.idPlaylist,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'playlist'
+                }
+
+
                 return null
             }
         }
