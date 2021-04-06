@@ -236,13 +236,14 @@ class CommentPage extends React.Component {
     }
 
     _sendComment(){
-
-
-
-        console.log(this.state.textComment)
-
-        return null
-
+        switch (this.props.route.params.page) {
+            case 'modal-feed-publication': {
+                return null
+            }
+            case 'tube': {
+                return null
+            }
+        }
     }
 
     _footerRender = () => {
