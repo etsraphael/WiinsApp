@@ -36,7 +36,7 @@ class CommentPage extends React.Component {
 
         const inputComment = this.state.textComment.replace('@' + this.state.tagSearching, '@' + profile._meta.pseudo + ' ')
 
-        this.setState({ 
+        this.setState({
             textComment: inputComment,
             searchingActif: false,
             tagSearching: ''
@@ -221,9 +221,9 @@ class CommentPage extends React.Component {
 
             let searchingValue
 
-            if (val == 'Backspace' &&  this.state.tagSearching == '') { 
+            if (val == 'Backspace' && this.state.tagSearching == '') {
                 this.props.actions.searchResetActions()
-                return this.setState({ searchingActif: false, tagSearching: '' }) 
+                return this.setState({ searchingActif: false, tagSearching: '' })
             }
             if (val == 'Backspace') { searchingValue = this.state.tagSearching.slice(0, -1) }
             else { searchingValue = this.state.tagSearching + val }
@@ -235,9 +235,27 @@ class CommentPage extends React.Component {
 
     }
 
-    _sendComment(){
+    _sendComment() {
         switch (this.props.route.params.page) {
             case 'modal-feed-publication': {
+
+
+
+
+                const comment = {
+                    tagFriend: [''],
+                    text: this.state.textComment,
+                    baseComment: '',
+                    commentProfile: '',
+                    publicationId: this.props.route.params.publicationId,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'feed-publication'
+                }
+
+                console.log(comment)
+
+
+
                 return null
             }
             case 'tube': {

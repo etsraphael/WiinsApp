@@ -44,7 +44,17 @@ class CardModal extends React.Component {
 
     _toggleComment = () => {
         this.props.actions.getCommentListPublication(this.props.PublicationsInModal.publication.id, 1)
-        this.props.navigation.navigate('Comments', { page: 'modal-feed-publication' })
+
+
+
+
+        this.props.navigation.navigate('Comments',
+            {
+                page: 'modal-feed-publication',
+                publicationId: this.props.PublicationsInModal.publication.id,
+                publicationProfile: this.props.PublicationsInModal.publication.profile._id
+            }
+        )
     }
 
     componentWillUnmount() {
