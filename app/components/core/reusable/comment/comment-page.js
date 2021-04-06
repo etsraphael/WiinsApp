@@ -338,7 +338,6 @@ class CommentPage extends React.Component {
             }
             case 'tube': {
 
-
                 const comment = {
                     tagFriend: this._getListProfilesTagged(),
                     text: this.state.textComment,
@@ -347,13 +346,9 @@ class CommentPage extends React.Component {
                     space: 'tube'
                 }
 
-                console.log(comment)
-
-
                 return null
             }
             case 'music': {
-
 
                 const comment = {
                     tagFriend: this._getListProfilesTagged(),
@@ -362,7 +357,6 @@ class CommentPage extends React.Component {
                     publicationProfile: this.props.route.params.publicationProfile,
                     space: 'playlist'
                 }
-
 
                 return null
             }
