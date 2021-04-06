@@ -90,6 +90,18 @@ export function resetComment() {
     return { type: ActionTypes.RESET_COMMENT_LIST }
 }
 
+export function sendCommentAnswerStart() {
+    return { type: ActionTypes.SEND_ANSWER }
+}
+
+export function sendCommentAnswerSuccess(response) {
+    return { type: ActionTypes.SEND_ANSWER_SUCCESS, payload: response }
+}
+
+export function sendCommentAnswerFail(error) {
+    return { type: ActionTypes.SEND_ANSWER_FAIL, payload: error }
+}
+
 export function sendCommentStart() {
     return { type: ActionTypes.SEND_COMMENT }
 }
@@ -374,34 +386,32 @@ export function getResponseByIdAndPage(id, page){
     };
 }
 
+export function sendCommentAnswer(response, space, reset) {
+    return async (dispatch) => {
+        try {
+            dispatch(sendCommentAnswerStart())
+            const url = 'https://wiins-backend.herokuapp.com/comments/response/'
+            const token = await AsyncStorage.getItem('userToken')
 
-// export function sendCommentResponseToProfile(comment, space, reset) {
-//     return async (dispatch) => {
-//         try {
-//             dispatch(sendCommentStart())
-//             const url = 'https://wiins-backend.herokuapp.com/comments/response/'
-//             const token = await AsyncStorage.getItem('userToken')
-
-//             return fetch(url, {
-//                 method: 'POST',
-//                 headers: {
-//                     Accept: 'application/json', 'Content-Type': 'application/json',
-//                     'Authorization': 'Bearer ' + token
-//                 },
-//                 body: JSON.stringify(comment)
-//             })
-//                 .then((response) => response.json())
-//                 .then(async (response) => {
-//                     if (response.status == 201){ 
-//                         await dispatch(updateCommentStat(comment.publicationId, space))
-//                         reset()
-//                         return dispatch(sendCommentSuccess(response.comment))
-//                     }
-//                     return dispatch(sendCommentFail(response))
-//                 })
-//         } catch (error) {
-//             sendError(error)
-//             return dispatch(sendCommentFail(error))
-//         }
-//     }
-// }
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify(response)
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 201){ 
+                        reset()
+                        return dispatch(sendCommentAnswerSuccess(response.comment))
+                    }
+                    return dispatch(sendCommentAnswerFail(response))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(sendCommentAnswerFail(error))
+        }
+    }
+}

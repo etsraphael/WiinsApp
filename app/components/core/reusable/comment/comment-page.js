@@ -14,7 +14,6 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { faAngleLeft, faPaperPlane } from '@fortawesome/pro-light-svg-icons'
 import TagSuggest from './../suggest/tag-suggest'
 
-
 class CommentPage extends React.Component {
 
     constructor(props) {
@@ -270,17 +269,50 @@ class CommentPage extends React.Component {
 
     _sendAnswer = () => {
 
-        const answer = {
-            tagFriend: this._getListProfilesTagged(),
-            text: this.state.textComment,
-            publicationId: this.props.route.params.publicationId,
-            publicationProfile: this.props.route.params.publicationProfile,
-            space: 'feed-publication',
-            baseComment: this.state.baseComment._id,
-            commentProfile: this.state.baseComment.idProfil._id
-        }
+        switch (this.props.route.params.page) {
+            case 'modal-feed-publication': {
 
-        console.log(answer)
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    publicationId: this.props.route.params.publicationId,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'feed-publication',
+                    baseComment: this.state.baseComment._id,
+                    commentProfile: this.state.baseComment.idProfil._id
+                }
+
+                return this.props.actions.sendCommentAnswer(comment, 'feed', () => this._resetInput())
+            }
+            case 'tube': {
+
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    tube: this.props.route.params.tubeId,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'tube',
+                    baseComment: this.state.baseComment._id,
+                    commentProfile: this.state.baseComment.idProfil._id
+                }
+
+                return null
+            }
+            case 'music': {
+
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    idPlaylist: this.props.route.params.idPlaylist,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'playlist',
+                    baseComment: this.state.baseComment._id,
+                    commentProfile: this.state.baseComment.idProfil._id
+                }
+
+                return null
+            }
+        }
 
     }
 

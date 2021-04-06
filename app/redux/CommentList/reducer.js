@@ -30,6 +30,18 @@ export default CommentListReducer = (state = initialState, action) => {
         commentList: state.commentList.concat(action.payload)
       }
     }
+    case ActionTypes.SEND_ANSWER_SUCCESS: {
+      const found = state.commentList.map(x => x._id).indexOf(action.payload.baseComment)
+
+      if (!state.commentList[found].responseList) {
+        state.commentList[found].responseList = [action.payload]
+      } else {
+        state.commentList[found].responseList = [ ...state.commentList[found].responseList, action.payload]
+      }
+      return {
+        ...state
+      }
+    }
     case ActionTypes.LIKE_COMMENT_SUCCESS: {
       const found = state.commentList.map(x => x._id).indexOf(action.id)
       state.commentList[found].liked = true
