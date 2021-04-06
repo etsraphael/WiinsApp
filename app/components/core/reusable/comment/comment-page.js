@@ -23,7 +23,8 @@ class CommentPage extends React.Component {
             textComment: '',
             baseComment: null,
             tagSearching: '',
-            searchingActif: false
+            searchingActif: false,
+            listProfileTagged: []
         }
     }
 
@@ -39,7 +40,8 @@ class CommentPage extends React.Component {
         this.setState({
             textComment: inputComment,
             searchingActif: false,
-            tagSearching: ''
+            tagSearching: '',
+            listProfileTagged: [...this.state.listProfileTagged, profile]
         })
         this.props.actions.searchResetActions()
     }
@@ -235,6 +237,19 @@ class CommentPage extends React.Component {
 
     }
 
+    _getListProfilesTagged = () => {
+
+        let listProfile = []
+
+        for(let profile of this.state.listProfileTagged){
+            if(this.state.textComment.includes( '@' + profile._meta.pseudo)){
+                listProfile.push(profile._id)
+            }
+        }
+
+        return listProfile
+    }
+
     _sendComment() {
         switch (this.props.route.params.page) {
             case 'modal-feed-publication': {
@@ -243,7 +258,7 @@ class CommentPage extends React.Component {
 
 
                 const comment = {
-                    tagFriend: [''],
+                    tagFriend: this._getListProfilesTagged(),
                     text: this.state.textComment,
                     baseComment: '',
                     commentProfile: '',
