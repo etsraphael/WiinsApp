@@ -220,7 +220,7 @@ export function unlikeResponsePublication(id) {
     }
 }
 
-export function sendCommentToPage(comment, space) {
+export function sendCommentToPage(comment, space, reset) {
     return async (dispatch) => {
         try {
             dispatch(sendCommentStart())
@@ -239,6 +239,7 @@ export function sendCommentToPage(comment, space) {
                 .then(async (response) => {
                     if (response.status == 201) {
                         await dispatch(updateCommentStat(comment.publicationId, space))
+                        reset()
                         return dispatch(sendCommentSuccess(response.comment))
                     }
                     return dispatch(sendCommentFail(response))

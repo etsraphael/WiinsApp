@@ -324,7 +324,7 @@ class CommentPage extends React.Component {
         }
 
         switch (this.props.route.params.page) {
-            case 'modal-feed-publication': {
+            case 'modal-feed-publication-profile': {
 
                 const comment = {
                     tagFriend: this._getListProfilesTagged(),
@@ -336,6 +336,21 @@ class CommentPage extends React.Component {
 
                 return this.props.actions.sendCommentToProfile(comment, 'feed', () => this._resetInput())
             }
+
+            case 'modal-feed-publication-page': {
+
+                const comment = {
+                    tagFriend: this._getListProfilesTagged(),
+                    text: this.state.textComment,
+                    publicationId: this.props.route.params.publicationId,
+                    publicationProfile: this.props.route.params.publicationProfile,
+                    space: 'feed-publication'
+                }
+
+                return this.props.actions.sendCommentToPage(comment, 'discover', () => this._resetInput())
+            }
+
+
             case 'tube': {
 
                 const comment = {
@@ -360,6 +375,7 @@ class CommentPage extends React.Component {
 
                 return null
             }
+            default: return null
         }
     }
 
