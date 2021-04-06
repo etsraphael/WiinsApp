@@ -235,6 +235,16 @@ class CommentPage extends React.Component {
 
     }
 
+    _sendComment(){
+
+
+
+        console.log(this.state.textComment)
+
+        return null
+
+    }
+
     _footerRender = () => {
         return (
             <View>
@@ -255,12 +265,12 @@ class CommentPage extends React.Component {
                         style={styles.comment_input}
                         onChangeText={(val) => this._writtingListener(val)}
                         onKeyPress={(event) => this._tagListener(event.nativeEvent.key)}
-                        onSubmitEditing={() => null}
+                        onSubmitEditing={() => this._sendComment()}
                         multiline={true}
                         numberOfLines={10}
                     />
 
-                    <TouchableOpacity onPress={() => null}
+                    <TouchableOpacity onPress={() => this._sendComment()}
                         style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
                         <FontAwesomeIcon icon={faPaperPlane} color={'black'} size={19} />
                     </TouchableOpacity>
