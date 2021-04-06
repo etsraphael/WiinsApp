@@ -387,7 +387,7 @@ export function getResponseByIdAndPage(id, page){
     };
 }
 
-export function sendCommentAnswer(response, space, reset) {
+export function sendCommentAnswer(response, reset) {
     return async (dispatch) => {
         try {
             dispatch(sendCommentAnswerStart())
