@@ -416,3 +416,33 @@ export function sendCommentAnswer(response, reset) {
         }
     }
 }
+
+export function sendCommentToTube(comment, reset) {
+    return async (dispatch) => {
+        try {
+            dispatch(sendCommentStart())
+            const url = 'https://wiins-backend.herokuapp.com/comments/toTube'
+            const token = await AsyncStorage.getItem('userToken')
+
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify(comment)
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 201){ 
+                        reset()
+                        return dispatch(sendCommentSuccess(response.comment))
+                    }
+                    return dispatch(sendCommentFail(response))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(sendCommentFail(error))
+        }
+    }
+}

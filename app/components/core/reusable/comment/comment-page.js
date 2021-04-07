@@ -357,7 +357,7 @@ class CommentPage extends React.Component {
                     publicationProfile: this.props.route.params.publicationProfile,
                     space: 'tube'
                 }
-                return null
+                return this.props.actions.sendCommentToTube(comment, () => this._resetInput())
             }
             case 'music': {
                 const comment = {
