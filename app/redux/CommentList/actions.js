@@ -421,7 +421,7 @@ export function sendCommentToTube(comment, reset) {
     return async (dispatch) => {
         try {
             dispatch(sendCommentStart())
-            const url = 'https://wiins-backend.herokuapp.com/comments/toTube'
+            const url = 'https://wiins-backend.herokuapp.com/createComment/toTube'
             const token = await AsyncStorage.getItem('userToken')
 
             return fetch(url, {
