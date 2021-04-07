@@ -1,6 +1,7 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
+import { roomSeenById } from './../RoomList/actions'
 
 export function loadMoreMessageByIdSuccess(room) {
     return { type: ActionTypes.LOAD_MORE_MESSAGE_BY_ID_SUCCESS, payload: room }
@@ -66,7 +67,10 @@ export function getRoomById(id, page, nBMessage) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 200) return dispatch(getRoomByIdSuccess(response.result))
+                    if (response.status == 200) {
+                        dispatch(roomSeenById(id))
+                        return dispatch(getRoomByIdSuccess(response.result))
+                    }
                     return dispatch(getRoomByIdFail(response))
                 })
         } catch (error) {
