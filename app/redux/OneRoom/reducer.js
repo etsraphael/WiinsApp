@@ -85,6 +85,7 @@ export default RoomReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+    
     case ActionTypes.RESET_ROOM: return { ...initialState }
     default: return { ...state }
   }

@@ -1,14 +1,14 @@
 import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, FlatList, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
-import * as MyUserActions from '../../../redux/MyUser/actions'
-import * as CommentListActions from '../../../redux/CommentList/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faShare, faDownload, faCommentLines, faCheck } from '@fortawesome/pro-light-svg-icons'
 import { faCircle } from '@fortawesome/pro-solid-svg-icons'
+import * as MyUserActions from '../../../redux/MyUser/actions'
 import * as TubePageActions from '../../../redux/TubePage/actions'
+import * as CommentListActions from '../../../redux/CommentList/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
 import VideoPlayer from '../../core/reusable/video/video-player'
 import LinearGradient from 'react-native-linear-gradient'
@@ -106,6 +106,19 @@ class TubePage extends React.Component {
         }
     }
 
+    _goToComment = () => {
+
+        this.props.actions.getCommentListTube(this.props.TubePage.tube._id, 1)
+
+        return this.props.navigation.navigate('Comments', 
+            { 
+                page: 'tube',
+                tubeId: this.props.TubePage.tube._id,
+                publicationProfile: this.props.TubePage.tube.profile._id 
+            }
+        )
+    }
+
     _subHeader = () => {
         return (
             <View>
@@ -132,7 +145,7 @@ class TubePage extends React.Component {
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }} >
-                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => this.props.navigation.navigate('Comments', { page: 'tube', tubeId: this.props.TubePage.tube._id, publicationProfile: this.props.TubePage.tube.profile._id })}>
+                        <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} onPress={() => this._goToComment()}>
                             <FontAwesomeIcon icon={faCommentLines} size={20} color="#77838F" />
                             <Text style={{ color: "#77838F", fontSize: 13, paddingTop: 4 }}>{I18n.t('CORE.Comment')}</Text>
                         </TouchableOpacity>

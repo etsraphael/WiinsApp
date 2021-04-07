@@ -59,6 +59,26 @@ export default RoomListReducer = (state = initialState, action) => {
 
       return { ...state }
     }
+    case ActionTypes.ROOM_SEEN_BY_ID: {
+
+      const index = state.rooms.map(x => x._id).indexOf(action.id)
+
+      const participantsUpdated = {
+        ...state.rooms[index].roomOption.participants[0],
+        seen: true,
+        notification: 0
+      }
+
+      state.rooms[index] = {
+        ...state.rooms[index],
+        roomOption: {
+          ...state.rooms[index].roomOption,
+          participants: [participantsUpdated]
+        }
+      }    
+      
+      return { ...state }
+    }
     case ActionTypes.RESET_ROOM_LIST: return initialState
     default: return { ...state }
   }
