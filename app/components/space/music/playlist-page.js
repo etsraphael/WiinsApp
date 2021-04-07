@@ -61,18 +61,12 @@ class PlaylistPage extends React.Component {
     }
 
     _goToComment() {
-
-
         this.props.actions.getCommentListPlaylist(this.props.PlaylistPage.playlist._id, 1)
 
-        return this.props.navigation.navigate('Comments', 
-            { 
-                page: 'playlist',
-                playlistId: this.props.PlaylistPage.playlist._id
-            }
-        )
-
-
+        return this.props.navigation.navigate('Comments', { 
+            page: 'playlist',
+            playlistId: this.props.PlaylistPage.playlist._id
+        })
     }
 
     // to display the playlist header

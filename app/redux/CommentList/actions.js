@@ -252,6 +252,7 @@ export function sendCommentToPage(comment, space, reset) {
 }
 
 export function sendCommentToPlaylist(comment) {
+    
     return async (dispatch) => {
         try {
             dispatch(sendCommentStart())

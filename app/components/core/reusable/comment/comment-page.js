@@ -303,7 +303,7 @@ class CommentPage extends React.Component {
                     baseComment: this.state.baseComment._id,
                     commentProfile: this.state.baseComment.idProfil._id
                 }
-                return null
+                return this.props.actions.sendCommentAnswer(comment, () => this._resetInput())
             }
             case 'music': {
                 const comment = {
@@ -315,7 +315,7 @@ class CommentPage extends React.Component {
                     baseComment: this.state.baseComment._id,
                     commentProfile: this.state.baseComment.idProfil._id
                 }
-                return null
+                return this.props.actions.sendCommentAnswer(comment, () => this._resetInput())
             }
             default: return null
         }
@@ -357,18 +357,16 @@ class CommentPage extends React.Component {
                     publicationProfile: this.props.route.params.publicationProfile,
                     space: 'tube'
                 }
-                
                 return this.props.actions.sendCommentToTube(comment, () => this._resetInput())
             }
-            case 'music': {
+            case 'playlist': {
                 const comment = {
                     tagFriend: this._getListProfilesTagged(),
                     text: this.state.textComment,
-                    idPlaylist: this.props.route.params.idPlaylist,
-                    publicationProfile: this.props.route.params.publicationProfile,
+                    idPlaylist: this.props.route.params.playlistId,
                     space: 'playlist'
                 }
-                return null
+                return this.props.actions.sendCommentToPlaylist(comment, () => this._resetInput())
             }
             default: return null
         }
