@@ -43,11 +43,6 @@ export function addPublicationInPendingList(publication) {
 export function addPublicationStoryInPendingList(publication) {
     return async (dispatch) => {
         try {
-
-
-            return dispatch(addPublication(publication))
-
-
             await dispatch(addPublication(publication))
             return dispatch(sendStoryPublication(publication))
         } catch (error) {
