@@ -78,7 +78,7 @@ export function sendPublication(publication) {
 
             switch (publication.type) {
                 case 'PostPublication': return dispatch(sendPostPublication(publication, token, url))
-                case 'PicturePublication': return dispatch(sendPublication(publication, token, url))
+                case 'PicturePublication': return dispatch(sendImagePublication(publication, token, url))
                 case 'PublicationVideo': return dispatch(sendVideoPublication(publication, token, url))
             }
 
@@ -88,7 +88,7 @@ export function sendPublication(publication) {
     }
 }
 
-// type of publication to send
+// send publications
 
 export function sendPostPublication(publication, token, url) {
 
@@ -177,6 +177,8 @@ export function sendVideoPublication(publicationReceived, token, url) {
 
 }
 
+// send stories
+
 export function sendPostStory(publication, token, url) {
 
     return async (dispatch) => {
@@ -262,6 +264,8 @@ export function sendVideoStory(publicationReceived, token, url) {
 
     }
 }
+
+// upload files
 
 export async function uploadPicture(file, token, bucketName) {
 
