@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  StyleSheet, View, TouchableOpacity, Text, Image, Animated,
+  StyleSheet, View, TouchableOpacity, Text, Image,
   FlatList, TextInput, KeyboardAvoidingView, TouchableWithoutFeedback,
   DeviceEventEmitter, Keyboard,
 } from 'react-native'
@@ -14,7 +14,7 @@ import { bindActionCreators } from 'redux'
 import { RNCamera } from 'react-native-camera'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
-  faSync, faPhotoVideo, faTimes, faBolt, faClone,
+  faSync, faPhotoVideo, faTimes, faBolt, faArrowAltCircleUp,
   faPaperPlane, faUserPlus, faCheckCircle, faAngleDown
 } from '@fortawesome/pro-light-svg-icons'
 import { faCircle } from '@fortawesome/pro-duotone-svg-icons'
@@ -589,7 +589,7 @@ class Camera extends React.Component {
               onPress={() => this.props.navigation.navigate('PendingPublication')}
               style={{ paddingVertical: 18, paddingHorizontal: 15 }}
             >
-              <FontAwesomeIcon icon={faClone} color={'white'} size={24} />
+              <FontAwesomeIcon icon={faArrowAltCircleUp} color={'white'} size={28} />
             </TouchableOpacity>
           </View>
         </View>
