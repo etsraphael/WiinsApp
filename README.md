@@ -1,5 +1,16 @@
 # Wiins.io-App
 
+## Link to access the platorm
+
+Download the app on IOS: https://apps.apple.com/us/app/wiins/id1544597650#?platform=iphone
+
+Download the app on Android: https://play.google.com/store/apps/details?id=com.wiins
+
+To try the website: https://www.wiins.io/sign/in
+
+
+## How to help us
+
 [![Sauce Test Status](https://eps-git.s3.eu-west-3.amazonaws.com/welcome-to.png)](https://eps-git.s3.eu-west-3.amazonaws.com/welcome-to.png)
 [![Sauce Test Status](https://eps-git.s3.eu-west-3.amazonaws.com/donations-adress.png)](https://eps-git.s3.eu-west-3.amazonaws.com/donations-adress.png)
 
@@ -9,12 +20,6 @@ Donation link :
 - [Our bitcoin account (BTC)](https://www.blockchain.com/btc/address/3LTuh8uygp9FgjgsiDjSheWE3EesgEBgDi) : 3LTuh8uygp9FgjgsiDjSheWE3EesgEBgDi
 - [Our bitcoin cash account (BCH)](https://www.blockchain.com/btc/address/17aPovD2JS6kbVajHjm3SZhRqgyz8jmyvP) : 17aPovD2JS6kbVajHjm3SZhRqgyz8jmyvP
 - [Our ethereum address (ETH)](https://www.blockchain.com/eth/address/0xB30E1527785011Ce1746023A86540Ae99aA51970) : 0xB30E1527785011Ce1746023A86540Ae99aA51970
-
-## Link to access the platorm
-
-- [The production link](https://www.wiins.io/sign/in), is connected to the master
-- [The developement link](https://piins-front-end-web.herokuapp.com/sign/in), is connected to the pre-master
-
 
 ## Last rewards
 
