@@ -42,12 +42,40 @@ class CardModal extends React.Component {
         this.setState({ propagateSwipe: false })
     }
 
+    _getOwnerId = () => {
+        if (!!this.props.PublicationsInModal.publication.profile) {
+            return this.props.PublicationsInModal.publication.profile._id
+        } else {
+            return this.props.PublicationsInModal.publication.page._id
+        }
+    }
+
     _toggleComment = () => {
+
         this.props.actions.getCommentListPublication(this.props.PublicationsInModal.publication.id, 1)
 
+        // if it's a page 
+        if (!!this.props.PublicationsInModal.publication.profile) {
+            this.props.navigation.navigate('Comments',
+                {
+                    page: 'modal-feed-publication-profile',
+                    publicationId: this.props.PublicationsInModal.publication.id,
+                    publicationProfile: this.props.PublicationsInModal.publication.profile._id
+                }
+            )
+        }
 
+        // or a profile
+        else {
+            this.props.navigation.navigate('Comments',
+                {
+                    page: 'modal-feed-publication-page',
+                    publicationId: this.props.PublicationsInModal.publication.id,
+                    publicationProfile: this.props.PublicationsInModal.publication.page._id
+                }
+            )
+        }
 
-        this.props.navigation.navigate('Comments')
     }
 
     componentWillUnmount() {
@@ -62,7 +90,7 @@ class CardModal extends React.Component {
 
     // to navigate to a profile
     _goToProfile = (profileId) => {
-        return this.props.goToProfile({profileId, pageName: this.props.pageName})
+        return this.props.goToProfile({ profileId, pageName: this.props.pageName })
     }
 
     // to navigate to a page

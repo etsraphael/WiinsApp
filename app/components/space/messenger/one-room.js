@@ -165,6 +165,10 @@ class OneRoom extends React.Component {
         </View>)
     }
 
+    _loadPreviousMessage = () => {
+        return this.props.actions.loadMoreMessageByIdAction()
+    }
+
     _bodyRender = () => {
         return (
             <View style={{ flex: 1, backgroundColor: 'white', borderTopLeftRadius: 45, borderTopRightRadius: 45 }}>
@@ -172,11 +176,12 @@ class OneRoom extends React.Component {
                 {this.props.Room.room ?
                     <View style={{ paddingBottom: 100, paddingTop: 15 }}>
                         <FlatList
+                            onRefresh={this._loadPreviousMessage}
+                            refreshing={this.props.Room.isLoadingMore}
                             contentContainerStyle={{ paddingHorizontal: 9 }}
-                            data={this.props.Room.room.message.sort((a, b) => b.createdAt.localeCompare(a.createdAt))}
+                            data={this.props.Room.room.message.sort((a, b) => a.createdAt.localeCompare(b.createdAt))}
                             keyExtractor={(item) => item._id.toString()}
                             renderItem={({ item, index }) => this._renderOnemMessage(item, index)}
-                            inverted={true}
                             onEndReachedThreshold={0.2}
                             onEndReached={() => this._scrollOldMessage()}
                         />

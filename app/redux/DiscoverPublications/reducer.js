@@ -69,6 +69,6 @@ export default PublicationsDiscoverReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.RESET_PUBLICATIONS: return initialState
-    default: return state
+    default: return { ...state }
   }
 }

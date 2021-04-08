@@ -34,6 +34,6 @@ export default PageReducer = (state = initialState, action) => {
       --state.page.followers
       return { ...state  }
     }
-    default: return state
+    default: return { ...state }
   }
 }

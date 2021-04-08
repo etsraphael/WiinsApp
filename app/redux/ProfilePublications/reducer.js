@@ -47,9 +47,7 @@ export default PublicationsProfileReducer = (state = initialState, action) => {
         ...state
       }
     }
-    case ActionTypes.RESET_PUBLICATIONS: {
-      return initialState
-    }
-    default: return state
+    case ActionTypes.RESET_PUBLICATIONS: return initialState
+    default: return { ...state }
   }
 }

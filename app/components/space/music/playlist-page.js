@@ -9,7 +9,7 @@ import FastImage from 'react-native-fast-image'
 import OneMusic from './one-music'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faAngleLeft, faEllipsisV, faHeart, faDownload } from '@fortawesome/pro-light-svg-icons'
+import { faAngleLeft, faEllipsisV, faDownload, faCommentLines } from '@fortawesome/pro-light-svg-icons'
 import { faPlay } from '@fortawesome/pro-solid-svg-icons'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
 import { getDateTranslated } from '../../../services/translation/translation-service'
@@ -58,6 +58,15 @@ class PlaylistPage extends React.Component {
 
         // Already have all this files
         else return (<FontAwesomeIcon icon={faCloudDownloadAlt} color={'green'} size={29} />)
+    }
+
+    _goToComment() {
+        this.props.actions.getCommentListPlaylist(this.props.PlaylistPage.playlist._id, 1)
+
+        return this.props.navigation.navigate('Comments', { 
+            page: 'playlist',
+            playlistId: this.props.PlaylistPage.playlist._id
+        })
     }
 
     // to display the playlist header
@@ -111,8 +120,8 @@ class PlaylistPage extends React.Component {
 
                     {/* Like */}
                     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <TouchableOpacity onPress={() => alert('Available soon..')}>
-                            <FontAwesomeIcon icon={faHeart} color={'grey'} size={21} />
+                        <TouchableOpacity onPress={() => this._goToComment()}>
+                            <FontAwesomeIcon icon={faCommentLines} color={'grey'} size={21} />
                         </TouchableOpacity>
                     </View>
 

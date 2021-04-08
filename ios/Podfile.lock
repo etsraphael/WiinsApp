@@ -326,20 +326,20 @@ PODS:
     - React-cxxreact (= 0.63.4)
     - React-jsi (= 0.63.4)
   - React-jsinspector (0.63.4)
-  - react-native-camera (3.43.0):
+  - react-native-camera (3.43.1):
     - React-Core
-    - react-native-camera/RCT (= 3.43.0)
-    - react-native-camera/RN (= 3.43.0)
-  - react-native-camera/RCT (3.43.0):
+    - react-native-camera/RCT (= 3.43.1)
+    - react-native-camera/RN (= 3.43.1)
+  - react-native-camera/RCT (3.43.1):
     - React-Core
-  - react-native-camera/RN (3.43.0):
+  - react-native-camera/RN (3.43.1):
     - React-Core
   - react-native-ffmpeg/https-lts (0.5.1):
     - mobile-ffmpeg-https (= 4.4.LTS)
     - React
-  - react-native-image-picker (2.3.4):
+  - react-native-image-picker (3.3.2):
     - React-Core
-  - react-native-image-resizer (1.4.3):
+  - react-native-image-resizer (1.4.4):
     - React-Core
   - react-native-safe-area-context (3.2.0):
     - React-Core
@@ -347,8 +347,8 @@ PODS:
     - React
   - react-native-spinkit (1.4.1):
     - React
-  - react-native-track-player (1.2.5):
-    - React
+  - react-native-track-player (1.2.7):
+    - React-Core
   - react-native-video (5.1.1):
     - React-Core
     - react-native-video/Video (= 5.1.1)
@@ -426,7 +426,7 @@ PODS:
     - React
   - RNCPushNotificationIOS (1.8.0):
     - React-Core
-  - RNDateTimePicker (3.2.0):
+  - RNDateTimePicker (3.4.3):
     - React-Core
   - RNFastImage (8.3.4):
     - React-Core
@@ -451,7 +451,7 @@ PODS:
     - React-Core
   - RNScreens (2.18.1):
     - React-Core
-  - RNSentry (2.3.0):
+  - RNSentry (2.4.0):
     - React-Core
     - Sentry (= 6.1.4)
   - RNSnackbar (2.4.0):
@@ -740,15 +740,15 @@ SPEC CHECKSUMS:
   React-jsi: a0418934cf48f25b485631deb27c64dc40fb4c31
   React-jsiexecutor: 93bd528844ad21dc07aab1c67cb10abae6df6949
   React-jsinspector: 58aef7155bc9a9683f5b60b35eccea8722a4f53a
-  react-native-camera: c2cb270b2546bb6d99352455676cd01a1cbeb1d5
+  react-native-camera: 7aeaef71f5c13a4940fe4767b9814664f02de986
   react-native-ffmpeg: 9fbe53d5afd6f35978804756f58238cf9340d1d8
-  react-native-image-picker: 32d1ad2c0024ca36161ae0d5c2117e2d6c441f11
-  react-native-image-resizer: 2e41d4bcfc5ac4f4f8583688b835f68460ff9161
-  react-native-safe-area-context: e471852c5ed67eea4b10c5d9d43c1cebae3b231d
-  react-native-slider: b733e17fdd31186707146debf1f04b5d94aa1a93
+  react-native-image-picker: b42940647478bf106ad3c491d6f5d9d40916d865
+  react-native-image-resizer: 13ac4af788f88af36d0353a1324401ebabd04fe4
+  react-native-safe-area-context: f0906bf8bc9835ac9a9d3f97e8bde2a997d8da79
+  react-native-slider: e99fc201cefe81270fc9d81714a7a0f5e566b168
   react-native-spinkit: da294fd828216ad211fe36a5c14c1e09f09e62db
-  react-native-track-player: 1f99ebeec68dd9c86e14504efee0885e106db117
-  react-native-video: 1574074179ecaf6a9dd067116c8f31bf9fec15c8
+  react-native-track-player: 6ec965317dbf9d49f2f4f87d050b53b3f994a5b7
+  react-native-video: 0bb76b6d6b77da3009611586c7dbf817b947f30e
   React-RCTActionSheet: 89a0ca9f4a06c1f93c26067af074ccdce0f40336
   React-RCTAnimation: 1bde3ecc0c104c55df246eda516e0deb03c4e49b
   React-RCTBlob: a97d378b527740cc667e03ebfa183a75231ab0f0
@@ -760,23 +760,23 @@ SPEC CHECKSUMS:
   React-RCTVibration: ae4f914cfe8de7d4de95ae1ea6cc8f6315d73d9d
   ReactCommon: 73d79c7039f473b76db6ff7c6b159c478acbbb3b
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
-  RNCAsyncStorage: cb9a623793918c6699586281f0b51cbc38f046f9
-  RNCCheckbox: 500919ac122273ea8eef93dae01431091968c14a
-  RNCClipboard: 5e299c6df8e0c98f3d7416b86ae563d3a9f768a3
-  RNCMaskedView: f5c7d14d6847b7b44853f7acb6284c1da30a3459
-  RNCPushNotificationIOS: 5b1cf9ad2aaa107ecb92d5d2d7005ba521b2b97a
-  RNDateTimePicker: da3ca5b9a16d6d1b287e42c61cef7b7dd7c23a64
+  RNCAsyncStorage: b03032fdbdb725bea0bd9e5ec5a7272865ae7398
+  RNCCheckbox: d1749e6a92178ce5dbc31e63becd1f34f0c76bbd
+  RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
+  RNCMaskedView: 5a8ec07677aa885546a0d98da336457e2bea557f
+  RNCPushNotificationIOS: 61a7c72bd1ebad3568025957d001e0f0e7b32191
+  RNDateTimePicker: d943800c936fb01c352fcfb70439550d2cb57092
   RNFastImage: d4870d58f5936111c56218dbd7fcfc18e65b58ff
   RNFBAnalytics: 454b17745d3824156cb906e2777d85f6848bf3e1
   RNFBApp: 02bde3edecf2e9694b908a5d3504e03449980f20
   RNFBMessaging: 1823217d31e942531cc3f51fb5367dcbc69c1e10
   RNFS: 2bd9eb49dc82fa9676382f0585b992c424cd59df
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
-  RNLocalize: 47e22ef8c36df1d572e42a87c8ae22e3fcf551dd
+  RNLocalize: 43f6c30d8e19ad92282ae434d310fb463b31f419
   RNScreens: f7ad633b2e0190b77b6a7aab7f914fad6f198d8d
-  RNSentry: 4f6907f9a4a41058988ebaa17666e9a402b50ff2
-  RNSnackbar: b6cbf294923b8d6c6056592bca87527c81a0130b
-  RNSound: c980916b596cc15c8dcd2f6ecd3b13c4881dbe20
+  RNSentry: b0d55027200c96f52e26b9bfb20296d47fc5051d
+  RNSnackbar: be3333a21a453ccc272f41a8add5a71f7d44dfcd
+  RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
   SDWebImage: b69257f4ab14e9b6a2ef53e910fdf914d8f757c1
   SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21

@@ -54,6 +54,6 @@ export default ProfileReducer = (state = initialState, action) => {
         ...state
       }
     }
-    default: return state
+    default: return { ...state }
   }
 }

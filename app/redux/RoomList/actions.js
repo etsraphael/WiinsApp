@@ -1,6 +1,10 @@
 import * as ActionTypes from './constants'
-import AsyncStorage from '@react-native-community/async-storage';
+import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
+
+export function roomSeenById(id){
+    return { type: ActionTypes.ROOM_SEEN_BY_ID, id }
+}
 
 export function getRoomListSuccess(rooms) {
     return { type: ActionTypes.GET_ROOM_LIST_SUCCESS, payload: rooms }

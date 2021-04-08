@@ -1,16 +1,4 @@
-# Wiins.io-App
-
-## Link to access the platorm
-
-Download the app on IOS: https://apps.apple.com/us/app/wiins/id1544597650#?platform=iphone
-
-Download the app on Android: https://play.google.com/store/apps/details?id=com.wiins
-
-To try the website: https://www.wiins.io/sign/in
-
-
-## How to help us
-
+# Wiins.io
 [![Sauce Test Status](https://eps-git.s3.eu-west-3.amazonaws.com/welcome-to.png)](https://eps-git.s3.eu-west-3.amazonaws.com/welcome-to.png)
 [![Sauce Test Status](https://eps-git.s3.eu-west-3.amazonaws.com/donations-adress.png)](https://eps-git.s3.eu-west-3.amazonaws.com/donations-adress.png)
 
@@ -21,49 +9,17 @@ Donation link :
 - [Our bitcoin cash account (BCH)](https://www.blockchain.com/btc/address/17aPovD2JS6kbVajHjm3SZhRqgyz8jmyvP) : 17aPovD2JS6kbVajHjm3SZhRqgyz8jmyvP
 - [Our ethereum address (ETH)](https://www.blockchain.com/eth/address/0xB30E1527785011Ce1746023A86540Ae99aA51970) : 0xB30E1527785011Ce1746023A86540Ae99aA51970
 
-## Last rewards
+## Link to access the platorm
 
-The only requirement is [ReactNative](https://reactnative.dev/docs/environment-setup)
-
-| New features | Rewards (only in altcoins)
-| -  | - |
-| [Others minors update](https://discord.gg/9nCK2be)  | 0$-15$ |
+- [The production link](https://www.wiins.io/sign/in), is connected to the master
+- [The developement link](https://piins-front-end-web.herokuapp.com/sign/in), is connected to the pre-master
 
 
-## Before to start
+## Requirement
 
-```shell
-yarn install
-```
-or :
+The easier way to help to community to update or add a language is to do it with https://www.electronjs.org/apps/i18n-manager.
+You can just update all the words of the plateform by opening the project with this software. This library is connected to the app and the web plateform.
 
-```shell
-npm i install
-```
-
-## Development server
-
-Run : 
-
-```shell
-npx react-native start
-```
-
-## Build and run (android)
-
-The easier way to try is to use Android Studio and play the app in the android folder. Or do this in the project root : 
-
-```shell
-npx react-native run-android
-```
-
-## Build and run (ios)
-
-The easier way to try is to use Xcode and play the app in the ios folder. Or do this in the project root : 
-
-```shell
-npx react-native run-ios
-```
 
 ## Important to know
 
@@ -72,15 +28,8 @@ npx react-native run-ios
 - Even if your update is not mentioned. Anyone can push a new version which can improve the platform (the administrators can merge if they deem the idea necessary)
 - Don't forget to share the project, more we have in the community, better the updates, and better the rewards
 
-## Rule for the rewards
-
-- The code have to be commented and simplified for all of the community
-- Make sure you choose the right branch
-- The reward will be given only for the owner(s) who gets the validated branch
-
 ## Caution
 
-- Make sure you have the right bitcoin address, no refund can be made otherwise
 - Only the twitter of [iamraphaelsalei](https://twitter.com/iamraphaelsalei) is official. Don't send donations to other bitcoin addresses. (Make sure during the donation, [iamraphaelsalei](https://twitter.com/iamraphaelsalei) is to the owner of the publication)
 
 

@@ -27,7 +27,7 @@ import { createPublication, createStoryPublication } from '../../../services/pub
 import Snackbar from 'react-native-snackbar'
 import FastImage from 'react-native-fast-image'
 import PendingPublication from './pending-publication'
-import ImagePicker from 'react-native-image-picker'
+import { launchImageLibrary } from 'react-native-image-picker'
 import MyStoryMin from './my-story-min'
 import I18n from '../../../../assets/i18n/i18n'
 import CameraView from './camera-view'
@@ -617,7 +617,7 @@ class Camera extends React.Component {
             </TouchableOpacity>
           </View>
           <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <TouchableOpacity onPress={() =>  this.props.closeModal()}>
+            <TouchableOpacity onPress={() => this.props.closeModal()}>
               <FontAwesomeIcon icon={faAngleDown} color={'white'} size={39} />
             </TouchableOpacity>
           </View>
@@ -631,7 +631,7 @@ class Camera extends React.Component {
 
     const options = { storageOptions: { skipBackup: true, path: 'images' } }
 
-    ImagePicker.launchImageLibrary(options, (response) => {
+    launchImageLibrary(options, (response) => {
       if (!response.uri) return null
       this.setState({ pictureData: response.uri, screenMode: 'PicturePublication' })
     })
