@@ -45,11 +45,16 @@ export function addPublicationInPendingList(publication) {
     }
 }
 
-export function addPublicationStoryInPendingList(publication) {
+export function addPublicationStoryInPendingList(publication, refreshStory) {
     return async (dispatch, props) => {
         try {
             await dispatch(addPublication(publication))
-            return dispatch(sendStoryPublication(publication, props().MyProfile.profile._id))
+            return dispatch(sendStoryPublication(
+                publication,
+                props().MyProfile.profile._id,
+                refreshStory
+                )  
+            )
         } catch (error) {
             sendError(error)
             return dispatch(addPublicationFail(error));
@@ -57,7 +62,7 @@ export function addPublicationStoryInPendingList(publication) {
     }
 }
 
-export function sendStoryPublication(publication, myProfileId) {
+export function sendStoryPublication(publication, myProfileId, refreshStory) {
     return async (dispatch) => {
         try {
             const token = await AsyncStorage.getItem('userToken')
@@ -65,7 +70,7 @@ export function sendStoryPublication(publication, myProfileId) {
 
             switch (publication.type) {
                 case 'PostStory': return dispatch(sendPostStory(publication, token, url, myProfileId))
-                case 'PictureStory': return dispatch(sendPictureStory(publication, token, url, myProfileId))
+                case 'PictureStory': return dispatch(sendPictureStory(publication, token, url, myProfileId, refreshStory))
                 case 'VideoStory': return dispatch(sendVideoStory(publication, token, url, myProfileId))
             }
         } catch (error) {
@@ -204,7 +209,7 @@ export function sendPostStory(publication, token, url) {
 
 }
 
-export function sendPictureStory(publicationReceived, token, url, myProfileId) {
+export function sendPictureStory(publicationReceived, token, url, myProfileId, refreshStory) {
     return async (dispatch) => {
         try {
 
@@ -230,7 +235,7 @@ export function sendPictureStory(publicationReceived, token, url, myProfileId) {
                         await dispatch(updateWithMyNewStory(publication, myProfileId))
                         
                         // update the personal story
-                        // to do..
+                        await refreshStory()
 
                         // delete the item in the pending list
                         return dispatch(deleteItemInPendingList(publication.savingDate))

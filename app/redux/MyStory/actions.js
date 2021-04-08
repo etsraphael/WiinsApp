@@ -46,7 +46,7 @@ export function getMyStoryActions() {
             })
                 .then((response) => response.json())
                 .then( async (response) => {
-                    if (response.status == 200) return dispatch(getMyStorySuccess(response.stack.publicationList))
+                    if (response.status == 200) {return dispatch(getMyStorySuccess(response.stack.publicationList))}
                     return dispatch(getMyStoryFail(response))
                 })
         } catch (error) {

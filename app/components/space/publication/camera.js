@@ -117,7 +117,9 @@ class Camera extends React.Component {
     if (!publicationCreated) return null
 
     // send story or publication
-    if (this.state.ifStories) { this.props.actions.addPublicationStoryInPendingList(publicationCreated) }
+    if (this.state.ifStories) { 
+      this.props.actions.addPublicationStoryInPendingList(publicationCreated, () => this.props.actions.getMyStoryActions()) 
+    }
     else { this.props.actions.addPublicationInPendingList(publicationCreated) }
 
     this.handlerGoBack()
