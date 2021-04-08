@@ -11,7 +11,14 @@ export default PublicationModalNavigation = (propsInitial) => (
         initialRouteName={'CardModal'}
     >
         <Stack.Screen name={'CardModal'}>
-            {(props) => <CardModal {...props} goToProfile={(payload) => propsInitial.goToProfile(payload)} pageName={propsInitial.pageName}/>}
+            {(props) =>
+                <CardModal
+                    {...props}
+                    goToProfile={(payload) => propsInitial.goToProfile(payload)}
+                    toggleModal={() => propsInitial.toggleModal()}
+                    pageName={propsInitial.pageName}
+                />
+            }
         </Stack.Screen>
         <Stack.Screen name={'Comments'} component={CommentPage} />
     </Stack.Navigator>
