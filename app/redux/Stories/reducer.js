@@ -82,12 +82,11 @@ export default StoriesReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.UPDATE_WITH_MY_NEW_STORY: {
-
+      const found = state.stories.map(x => x._id).indexOf(action.myProfileId)
       // if we found the trend
-      // to do.. 
-
-      // otherwise we have to create it
-      // to do..
+      if(found !== -1) {
+        state.stories[found].lastStoryView = null
+      }
 
       return {
         ...state

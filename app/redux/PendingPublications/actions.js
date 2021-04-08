@@ -46,10 +46,10 @@ export function addPublicationInPendingList(publication) {
 }
 
 export function addPublicationStoryInPendingList(publication) {
-    return async (dispatch) => {
+    return async (dispatch, props) => {
         try {
             await dispatch(addPublication(publication))
-            return dispatch(sendStoryPublication(publication))
+            return dispatch(sendStoryPublication(publication, props().MyProfile.profile._id))
         } catch (error) {
             sendError(error)
             return dispatch(addPublicationFail(error));
@@ -57,16 +57,16 @@ export function addPublicationStoryInPendingList(publication) {
     }
 }
 
-export function sendStoryPublication(publication) {
+export function sendStoryPublication(publication, myProfileId) {
     return async (dispatch) => {
         try {
             const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/stories/post'
 
             switch (publication.type) {
-                case 'PostStory': return dispatch(sendPostStory(publication, token, url))
-                case 'PictureStory': return dispatch(sendPictureStory(publication, token, url))
-                case 'VideoStory': return dispatch(sendVideoStory(publication, token, url))
+                case 'PostStory': return dispatch(sendPostStory(publication, token, url, myProfileId))
+                case 'PictureStory': return dispatch(sendPictureStory(publication, token, url, myProfileId))
+                case 'VideoStory': return dispatch(sendVideoStory(publication, token, url, myProfileId))
             }
         } catch (error) {
             return dispatch(addPublicationFail(error));
@@ -204,7 +204,7 @@ export function sendPostStory(publication, token, url) {
 
 }
 
-export function sendPictureStory(publicationReceived, token, url) {
+export function sendPictureStory(publicationReceived, token, url, myProfileId) {
     return async (dispatch) => {
         try {
 
@@ -227,7 +227,7 @@ export function sendPictureStory(publicationReceived, token, url) {
                     if (response.status == 201) {
 
                         // udpate the stories trending
-                        // await dispatch(updateWithMyNewStory(publication))
+                        await dispatch(updateWithMyNewStory(publication, myProfileId))
                         
                         // update the personal story
                         // to do..
