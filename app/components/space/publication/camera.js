@@ -561,6 +561,15 @@ class Camera extends React.Component {
     )
   }
 
+  _displayPendingPublicationIcon = () => {
+    return (<TouchableOpacity
+      onPress={() => this.props.navigation.navigate('PendingPublication')}
+      style={{ paddingVertical: 18, paddingHorizontal: 15 }}
+    >
+      <FontAwesomeIcon icon={faArrowAltCircleUp} color={'white'} size={28} />
+    </TouchableOpacity>)
+  }
+
   // to display the header view
   _showDefaultBtnHeader = () => {
     if (!this.state.isRecording) {
@@ -585,12 +594,7 @@ class Camera extends React.Component {
             <TouchableOpacity onPress={() => this.setState({ screenMode: 'PostPublication' })} style={{ paddingVertical: 18, paddingHorizontal: 15 }}>
               <FontAwesomeIcon icon={faText} color={'white'} size={24} />
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('PendingPublication')}
-              style={{ paddingVertical: 18, paddingHorizontal: 15 }}
-            >
-              <FontAwesomeIcon icon={faArrowAltCircleUp} color={'white'} size={28} />
-            </TouchableOpacity>
+            {this.props.PendingPublication.publications.length > 0 ? this._displayPendingPublicationIcon() : null}
           </View>
         </View>
       )
@@ -778,6 +782,7 @@ const mapStateToProps = state => ({
   MyUser: state.MyUser,
   SearchList: state.Search,
   Publication: state.FeedPublications.posted,
+  PendingPublication: state.PendingPublications,
   MyStory: state.MyStory,
 })
 
