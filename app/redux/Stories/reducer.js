@@ -81,6 +81,20 @@ export default StoriesReducer = (state = initialState, action) => {
         ...state
       }
     }
+    case ActionTypes.UPDATE_WITH_MY_NEW_STORY: {
+
+      // if we found the trend
+      // to do.. 
+
+      // otherwise we have to create it
+      // to do..
+
+      return {
+        ...state
+      }
+    }
+
+
     case ActionTypes.RESET_STORIES: return { ...initialState }
     default: return { ...state }
   }

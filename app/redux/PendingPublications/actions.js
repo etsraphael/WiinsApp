@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 import { uploadImageFile, uploadVideoFile, getFileNameUploaded } from '../../../app/services/upload/upload'
 import { v4 as uuidv4 } from 'uuid';
 import { sendError } from './../../../app/services/error/error-service'
+import { updateWithMyNewStory } from './../Stories/actions'
 
 export function addPublication(payload) {
     return { type: ActionTypes.ADD_PUBLICATIONS_PENDING, payload }
@@ -203,7 +204,7 @@ export function sendPostStory(publication, token, url) {
 
 }
 
-export function sendPictureStory(publicationReceived, token, url, id) {
+export function sendPictureStory(publicationReceived, token, url) {
     return async (dispatch) => {
         try {
 
@@ -226,8 +227,10 @@ export function sendPictureStory(publicationReceived, token, url, id) {
                     if (response.status == 201) {
 
                         // udpate the stories trending
-
+                        await dispatch(updateWithMyNewStory(publication))
+                        
                         // update the personal story
+                        // to do..
 
                         // delete the item in the pending list
                         return dispatch(deleteItemInPendingList(publication.savingDate))
