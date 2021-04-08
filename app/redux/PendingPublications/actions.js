@@ -24,6 +24,10 @@ export function publicationPosted(date) {
     return { type: ActionTypes.PUBLICATION_ADDED, date }
 }
 
+export function deleteItemInPendingList(date) {
+    return { type: ActionTypes.DELETE_ITEM_IN_PENDING_LIST, date }
+}
+
 export function cancelPublicationActions(date) {
     return (dispatch) => dispatch(cancelPublication(date))
 }
@@ -199,7 +203,7 @@ export function sendPostStory(publication, token, url) {
 
 }
 
-export function sendPictureStory(publicationReceived, token, url) {
+export function sendPictureStory(publicationReceived, token, url, id) {
     return async (dispatch) => {
         try {
 
@@ -218,8 +222,16 @@ export function sendPictureStory(publicationReceived, token, url) {
                 body: JSON.stringify(publication)
             })
                 .then((response) => response.json())
-                .then((response) => {
-                    if (response.status == 201) return dispatch(publicationPosted(publicationReceived.savingDate))
+                .then(async (response) => {
+                    if (response.status == 201) {
+
+                        // udpate the stories trending
+
+                        // update the personal story
+
+                        // delete the item in the pending list
+                        return dispatch(deleteItemInPendingList(publication.savingDate))
+                    }
                     return dispatch(addPublicationFail(error))
                 })
                 .catch(() => dispatch(addPublicationFail(response.status)))

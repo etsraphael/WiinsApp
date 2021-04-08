@@ -9,8 +9,14 @@ export default PendingPublicationsReducer = (state = initialState, action) => {
         publications: state.publications.concat(action.payload)
       }
     }
-    case ActionTypes.CANCEL_publications:
+    case ActionTypes.CANCEL_PUBLICATION:
     case ActionTypes.PUBLICATION_ADDED: {
+      return {
+        ...state,
+        publications: state.publication.filter(x => x.savingDate !== action.date)
+      }
+    }
+    case ActionTypes.DELETE_ITEM_IN_PENDING_LIST: {
       return {
         ...state,
         publications: state.publication.filter(x => x.savingDate !== action.date)
