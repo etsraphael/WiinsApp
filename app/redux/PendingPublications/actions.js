@@ -227,7 +227,7 @@ export function sendPictureStory(publicationReceived, token, url) {
                     if (response.status == 201) {
 
                         // udpate the stories trending
-                        await dispatch(updateWithMyNewStory(publication))
+                        // await dispatch(updateWithMyNewStory(publication))
                         
                         // update the personal story
                         // to do..
