@@ -363,7 +363,7 @@ class Camera extends React.Component {
                     <TextInput
                       blurOnSubmit={true}
                       style={{ fontSize: 16, paddingLeft: 10, color: 'white', alignItems: 'center' }}
-                      placeholder={'CORE.With'}
+                      placeholder={I18n.t('CORE.With')}
                       placeholderTextColor={'white'}
                       onChangeText={(event) => this._searchProfile(event)}
                       value={this.state.searchProfile}
@@ -489,7 +489,7 @@ class Camera extends React.Component {
             <TextInput
               blurOnSubmit={true}
               style={{ fontSize: 16, paddingLeft: 10, color: 'white', alignItems: 'center' }}
-              placeholder={'CORE.With'}
+              placeholder={I18n.t('CORE.With')}
               placeholderTextColor={'white'}
               onChangeText={(event) => this._searchProfile(event)}
               value={this.state.searchProfile}
