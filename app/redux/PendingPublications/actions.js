@@ -53,7 +53,7 @@ export function addPublicationStoryInPendingList(publication, refreshStory) {
                 publication,
                 props().MyProfile.profile._id,
                 refreshStory
-                )  
+            )
             )
         } catch (error) {
             sendError(error)
@@ -69,9 +69,9 @@ export function sendStoryPublication(publication, myProfileId, refreshStory) {
             const url = 'https://wiins-backend.herokuapp.com/stories/post'
 
             switch (publication.type) {
-                case 'PostStory': return dispatch(sendPostStory(publication, token, url, myProfileId))
+                case 'PostStory': return dispatch(sendPostStory(publication, token, url, myProfileId, refreshStory))
                 case 'PictureStory': return dispatch(sendPictureStory(publication, token, url, myProfileId, refreshStory))
-                case 'VideoStory': return dispatch(sendVideoStory(publication, token, url, myProfileId))
+                case 'VideoStory': return dispatch(sendVideoStory(publication, token, url, myProfileId, refreshStory))
             }
         } catch (error) {
             return dispatch(addPublicationFail(error));
@@ -189,7 +189,7 @@ export function sendVideoPublication(publicationReceived, token, url) {
 
 // send stories
 
-export function sendPostStory(publication, token, url) {
+export function sendPostStory(publication, token, url, myProfileId, refreshStory) {
 
     return async (dispatch) => {
         return fetch(url, {
@@ -201,8 +201,18 @@ export function sendPostStory(publication, token, url) {
             body: JSON.stringify(publication)
         })
             .then((response) => response.json())
-            .then((response) => {
-                if (response.status == 201) return dispatch(publicationPosted(publication.savingDate))
+            .then(async (response) => {
+                if (response.status == 201) {
+
+                    // udpate the stories trending
+                    await dispatch(updateWithMyNewStory(publication, myProfileId))
+
+                    // update the personal story
+                    await refreshStory()
+
+                    // delete the item in the pending list
+                    return dispatch(publicationPosted(publication.savingDate))
+                }
                 return dispatch(addPublicationFail(response))
             })
     }
@@ -233,7 +243,7 @@ export function sendPictureStory(publicationReceived, token, url, myProfileId, r
 
                         // udpate the stories trending
                         await dispatch(updateWithMyNewStory(publication, myProfileId))
-                        
+
                         // update the personal story
                         await refreshStory()
 
@@ -252,7 +262,7 @@ export function sendPictureStory(publicationReceived, token, url, myProfileId, r
     }
 }
 
-export function sendVideoStory(publicationReceived, token, url) {
+export function sendVideoStory(publicationReceived, token, url, myProfileId, refreshStory) {
 
     return async (dispatch) => {
         try {
@@ -273,8 +283,18 @@ export function sendVideoStory(publicationReceived, token, url) {
                 body: JSON.stringify(publication)
             })
                 .then((response) => response.json())
-                .then((response) => {
-                    if (response.status == 201) return dispatch(publicationPosted(publicationReceived.savingDate))
+                .then(async (response) => {
+                    if (response.status == 201) {
+
+                        // udpate the stories trending
+                        await dispatch(updateWithMyNewStory(publication, myProfileId))
+
+                        // update the personal story
+                        await refreshStory()
+
+                        // delete the item in the pending list
+                        return dispatch(publicationPosted(publicationReceived.savingDate))
+                    }
                     return dispatch(addPublicationFail(response))
                 })
         }
