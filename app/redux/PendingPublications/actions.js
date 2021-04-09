@@ -146,8 +146,14 @@ export function sendImagePublication(publicationReceived, token, url) {
                 body: JSON.stringify(publication)
             })
                 .then((response) => response.json())
-                .then((response) => {
-                    if (response.status == 201) return dispatch(publicationPosted(publicationReceived.savingDate))
+                .then(async (response) => {
+                    if (response.status == 201) {
+
+                        // update the feed
+                        await dispatch(addOnePublicationOnFeed(response.publication))
+
+                        return dispatch(publicationPosted(publicationReceived.savingDate))
+                    }
                     return dispatch(addPublicationFail(error))
                 })
                 .catch((error) => dispatch(addPublicationFail(error)))
@@ -179,8 +185,14 @@ export function sendVideoPublication(publicationReceived, token, url) {
                 body: JSON.stringify(publication)
             })
                 .then((response) => response.json())
-                .then((response) => {
-                    if (response.status == 201) return dispatch(publicationPosted(publicationReceived.savingDate))
+                .then(async (response) => {
+                    if (response.status == 201) {
+
+                        // update the feed
+                        await dispatch(addOnePublicationOnFeed(response.publication))
+
+                        return dispatch(publicationPosted(publicationReceived.savingDate))
+                    }
                     return dispatch(addPublicationFail(error))
                 }).catch((error) => dispatch(addPublicationFail(error)))
         }
