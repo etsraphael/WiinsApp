@@ -8,10 +8,7 @@ import { faCheckCircle } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { sendReport } from './../../../services/report/report-service'
 
-const optionsList = [
-    { code: 'reportPublication', title: 'Report Publication', color: 'red' },
-    { code: 'blockUser', title: 'Block User', color: 'black' }
-]
+
 
 const categoriesReport = [
     {
@@ -114,13 +111,39 @@ class OptionPublicationModal extends React.Component {
     }
 
     _defaultMenu = () => {
+
+
+
+
+        const optionsList = [
+            { 
+                code: 'reportPublication',
+                title: 'Report Publication',
+                color: 'red',
+                display: this.props.myProfileId !== this.props.ownerId
+            },
+            { 
+                code: 'deletePublication',
+                title: 'Delete Publication',
+                color: 'black',
+                display: this.props.myProfileId == this.props.ownerId
+            },
+            { 
+                code: 'blockUser', 
+                title: 'Block User', 
+                color: 'black', 
+                display: this.props.myProfileId !== this.props.ownerId
+            }
+        ]
+
+
         return (
             <View>
                 <FlatList
                     scrollEnabled={false}
                     ItemSeparatorComponent={this._separatorItem}
                     style={{ backgroundColor: 'white', borderRadius: 15 }}
-                    data={optionsList}
+                    data={optionsList.filter(x => x.display == true)}
                     keyExtractor={(item) => item.code}
                     renderItem={({ item }) =>
                         <TouchableOpacity

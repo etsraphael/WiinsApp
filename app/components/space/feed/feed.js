@@ -33,7 +33,8 @@ class Feed extends React.Component {
             storysModalExist: false,
             reportModal: false,
             reportModalExist: false,
-            reportPublicationId: null
+            reportPublicationId: null,
+            ownerReportPublication: null
         }
     }
 
@@ -109,9 +110,14 @@ class Feed extends React.Component {
         )
     }
 
+    _getItemOwner = (item) => {
+        if (!!item.profile) return item.profile._id
+        else return item.page._id
+    }
+
     _cardRender = (item, index) => {
         return (<CardNewFeed
-            toggleReportModal={() => this._toggleReportModal(item._id)}
+            toggleReportModal={() => this._toggleReportModal(item._id, this._getItemOwner(item))}
             index={index}
             navigation={this.props.navigation}
             publication={item}
@@ -120,9 +126,9 @@ class Feed extends React.Component {
         />)
     }
 
-    _refreshPage= () => {
+    _refreshPage = () => {
         this.props.actions.refreshFeed()
-        this.props.actions.refreshStoriesActions()       
+        this.props.actions.refreshStoriesActions()
     }
 
     _publicationList = () => {
@@ -183,8 +189,8 @@ class Feed extends React.Component {
         setTimeout(() => this.setState({ storysModalExist: !this.state.storysModalExist }), 100)
     }
 
-    _toggleReportModal = (id) => {
-        this.setState({ reportModal: !this.state.reportModal, reportPublicationId: id })
+    _toggleReportModal = (id, ownerId) => {
+        this.setState({ reportModal: !this.state.reportModal, reportPublicationId: id, ownerReportPublication: ownerId })
         setTimeout(() => this.setState({ reportModalExist: !this.state.reportModalExist }), 100)
     }
 
@@ -224,6 +230,8 @@ class Feed extends React.Component {
                             toggleReportModal={(event) => this._toggleReportModal(event)}
                             isVisible={this.state.reportModal}
                             publicationId={this.state.reportPublicationId}
+                            myProfileId={this.props.MyProfile.profile._id}
+                            ownerId={this.state.ownerReportPublication}
                         /> : null}
 
                 </View>
