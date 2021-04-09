@@ -136,7 +136,7 @@ class Feed extends React.Component {
                     style={{ flex: 1 }}
                     data={this.props.FeedPublications.publications}
                     renderItem={({ item, index }) => this._cardRender(item[index], index)}
-                    keyExtractor={(item, index) => item[index].id}
+                    keyExtractor={(item, index) => item[index]._id}
                     getItemCount={() => this.props.FeedPublications.publications.length}
                     getItem={(data) => data}
                     scrollEventThrottle={5}

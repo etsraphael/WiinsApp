@@ -4,6 +4,7 @@ import { uploadImageFile, uploadVideoFile, getFileNameUploaded } from '../../../
 import { v4 as uuidv4 } from 'uuid';
 import { sendError } from './../../../app/services/error/error-service'
 import { updateWithMyNewStory } from './../Stories/actions'
+import { addOnePublicationOnFeed } from './../FeedPublications/actions'
 
 export function addPublication(payload) {
     return { type: ActionTypes.ADD_PUBLICATIONS_PENDING, payload }
@@ -101,7 +102,6 @@ export function sendPublication(publication) {
 // send publications
 
 export function sendPostPublication(publication, token, url) {
-
     return async (dispatch) => {
         return fetch(url, {
             method: 'POST',
@@ -112,8 +112,14 @@ export function sendPostPublication(publication, token, url) {
             body: JSON.stringify(publication)
         })
             .then((response) => response.json())
-            .then((response) => {
-                if (response.status == 201) return dispatch(publicationPosted(publication.savingDate))
+            .then(async (response) => {
+                if (response.status == 201) {
+
+                    // update the feed
+                    await dispatch(addOnePublicationOnFeed(response.publication))
+
+                    return dispatch(publicationPosted(publication.savingDate))
+                }
                 return dispatch(addPublicationFail(error))
             })
     }

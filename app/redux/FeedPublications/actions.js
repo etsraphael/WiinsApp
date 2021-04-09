@@ -2,6 +2,10 @@ import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
 
+export function addOnePublicationOnFeed(payload) {
+    return { type: ActionTypes.ADD_ONE_PUBLICATIONS_FEED, payload }
+}
+
 export function refreshPublicationsStart() {
     return { type: ActionTypes.REFRESH_PUBLICATIONS }
 }

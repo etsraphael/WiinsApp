@@ -17,6 +17,12 @@ export default PublicationsReducer = (state = initialState, action) => {
         error: null,
       }
     }
+    case ActionTypes.ADD_ONE_PUBLICATIONS_FEED: {
+      return {
+        ...state,
+        publications: [action.payload, ...state.publications]
+      }
+    }
     case ActionTypes.GET_PUBLICATIONS_FAIL: {
       return {
         ...state,
