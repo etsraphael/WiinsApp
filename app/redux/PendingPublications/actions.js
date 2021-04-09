@@ -30,11 +30,11 @@ export function cancelPublicationActions(date) {
     return (dispatch) => dispatch(cancelPublication(date))
 }
 
-export function addPublicationInPendingList(publication) {
+export function addPublicationInPendingList(publication, refreshPage) {
     return async (dispatch) => {
         try {
             await dispatch(addPublication(publication))
-            return dispatch(sendPublication(publication))
+            return dispatch(sendPublication(publication, refreshPage))
         } catch (error) {
             sendError(error)
             return dispatch(addPublicationFail(error));
@@ -50,8 +50,7 @@ export function addPublicationStoryInPendingList(publication, refreshStory) {
                 publication,
                 props().MyProfile.profile._id,
                 refreshStory
-            )
-            )
+            ))
         } catch (error) {
             sendError(error)
             return dispatch(addPublicationFail(error));
@@ -76,7 +75,7 @@ export function sendStoryPublication(publication, myProfileId, refreshStory) {
     }
 }
 
-export function sendPublication(publication) {
+export function sendPublication(publication, refreshPage) {
     return async (dispatch) => {
         try {
 
@@ -84,9 +83,9 @@ export function sendPublication(publication) {
             const url = 'https://wiins-backend.herokuapp.com/publication'
 
             switch (publication.type) {
-                case 'PostPublication': return dispatch(sendPostPublication(publication, token, url))
-                case 'PicturePublication': return dispatch(sendImagePublication(publication, token, url))
-                case 'PublicationVideo': return dispatch(sendVideoPublication(publication, token, url))
+                case 'PostPublication': return dispatch(sendPostPublication(publication, token, url, refreshPage))
+                case 'PicturePublication': return dispatch(sendImagePublication(publication, token, url, refreshPage))
+                case 'PublicationVideo': return dispatch(sendVideoPublication(publication, token, url, refreshPage))
             }
 
         } catch (error) {
@@ -97,7 +96,7 @@ export function sendPublication(publication) {
 
 // send publications
 
-export function sendPostPublication(publication, token, url) {
+export function sendPostPublication(publication, token, url, refreshPage) {
     return async (dispatch) => {
         return fetch(url, {
             method: 'POST',
@@ -114,6 +113,9 @@ export function sendPostPublication(publication, token, url) {
                     // update the feed
                     await dispatch(addOnePublicationOnFeed(response.publication))
 
+                    // refresh the page
+                    refreshPage()
+
                     return dispatch(deleteItemInPendingList(publication.savingDate))
                 }
                 return dispatch(addPublicationFail(error))
@@ -122,7 +124,7 @@ export function sendPostPublication(publication, token, url) {
 
 }
 
-export function sendImagePublication(publicationReceived, token, url) {
+export function sendImagePublication(publicationReceived, token, url, refreshPage) {
 
     return async (dispatch) => {
         try {
@@ -148,6 +150,9 @@ export function sendImagePublication(publicationReceived, token, url) {
                         // update the feed
                         await dispatch(addOnePublicationOnFeed(response.publication))
 
+                        // refresh the page
+                        refreshPage()
+
                         return dispatch(deleteItemInPendingList(publication.savingDate))
                     }
                     return dispatch(addPublicationFail(error))
@@ -162,7 +167,7 @@ export function sendImagePublication(publicationReceived, token, url) {
     }
 }
 
-export function sendVideoPublication(publicationReceived, token, url) {
+export function sendVideoPublication(publicationReceived, token, url, refreshPage) {
     return async (dispatch) => {
         try {
 
@@ -186,6 +191,9 @@ export function sendVideoPublication(publicationReceived, token, url) {
 
                         // update the feed
                         await dispatch(addOnePublicationOnFeed(response.publication))
+
+                        // refresh the page
+                        refreshPage()
 
                         return dispatch(deleteItemInPendingList(publication.savingDate))
                     }

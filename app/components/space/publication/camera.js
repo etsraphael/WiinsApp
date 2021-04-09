@@ -75,23 +75,16 @@ class Camera extends React.Component {
     this.eventListener.remove()
   }
 
-  UNSAFE_componentWillReceiveProps = (newProps) => {
-
-    if (!!newProps.Publication) {
-      switch (newProps.Publication) {
-        case 'posted': {
-          this.setState({ screenMode: 'default' })
-          setTimeout(() => {
-            this.props.actions.resetPublicationActions()
-            this.props.actions.getByModeFeed(1, 'FollowerAndFriend')
-          }, 1000)
-        }
-      }
-    }
-
+  handlerGoBack() {
+    this.setState({ screenMode: 'default' })
   }
 
-  handlerGoBack() {
+  _refreshPageAfterSentStory = () => {
+    this.setState({ screenMode: 'default' })
+    this.props.actions.getMyStoryActions()
+  }
+
+  _refreshPageAfterSentPublication = () => {
     this.setState({ screenMode: 'default' })
   }
 
@@ -118,9 +111,9 @@ class Camera extends React.Component {
 
     // send story or publication
     if (this.state.ifStories) { 
-      this.props.actions.addPublicationStoryInPendingList(publicationCreated, () => this.props.actions.getMyStoryActions()) 
+      this.props.actions.addPublicationStoryInPendingList(publicationCreated, () => this._refreshPageAfterSentStory()) 
     }
-    else { this.props.actions.addPublicationInPendingList(publicationCreated) }
+    else { this.props.actions.addPublicationInPendingList(publicationCreated, () => this._refreshPageAfterSentPublication()) }
 
     this.handlerGoBack()
 
