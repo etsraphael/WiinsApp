@@ -2,6 +2,10 @@ import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
 
+export function updateWithMyNewStory(payload, myProfileId) {
+    return { type: ActionTypes.UPDATE_WITH_MY_NEW_STORY, payload, myProfileId }
+}
+
 export function refreshStoriesStart() {
     return { type: ActionTypes.REFRESH_STORIES }
 }

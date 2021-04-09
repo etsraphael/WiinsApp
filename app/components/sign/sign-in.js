@@ -7,7 +7,7 @@ import {
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import Snackbar from 'react-native-snackbar';
+import Snackbar from 'react-native-snackbar'
 import I18n from '../../../assets/i18n/i18n'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'

@@ -7,11 +7,8 @@ import I18n from '../../../../assets/i18n/i18n'
 import { faCheckCircle } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { sendReport } from './../../../services/report/report-service'
-
-const optionsList = [
-    { code: 'reportPublication', title: 'Report Publication', color: 'red' },
-    { code: 'blockUser', title: 'Block User', color: 'black' }
-]
+import ActionSheet from 'react-native-actionsheet'
+import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 
 const categoriesReport = [
     {
@@ -114,13 +111,36 @@ class OptionPublicationModal extends React.Component {
     }
 
     _defaultMenu = () => {
+
+        const optionsList = [
+            {
+                code: 'reportPublication',
+                title: 'Report Publication',
+                color: 'red',
+                display: this.props.myProfileId !== this.props.ownerId
+            },
+            {
+                code: 'deletePublication',
+                title: 'Delete Publication',
+                color: 'black',
+                display: this.props.myProfileId == this.props.ownerId
+            },
+            {
+                code: 'blockUser',
+                title: 'Block User',
+                color: 'black',
+                display: this.props.myProfileId !== this.props.ownerId
+            }
+        ]
+
+
         return (
             <View>
                 <FlatList
                     scrollEnabled={false}
                     ItemSeparatorComponent={this._separatorItem}
                     style={{ backgroundColor: 'white', borderRadius: 15 }}
-                    data={optionsList}
+                    data={optionsList.filter(x => x.display == true)}
                     keyExtractor={(item) => item.code}
                     renderItem={({ item }) =>
                         <TouchableOpacity
@@ -252,6 +272,10 @@ class OptionPublicationModal extends React.Component {
         )
     }
 
+    _showActionSheetPublicationDeletion = () => {
+        this.ActionSheet.show()
+    }
+
     _blockUserSentView = () => {
         return (
             <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
@@ -272,7 +296,20 @@ class OptionPublicationModal extends React.Component {
             case 'blockUser': return this._blockUserView()
             case 'reportPublicationSent': return this._reportPublicationSentView()
             case 'blockUserSent': return this._blockUserSentView()
+            case 'deletePublication': return this._showActionSheetPublicationDeletion()
             default: return this._defaultMenu()
+        }
+    }
+
+    _actionSheetDeletionCommand = (index) => {
+        switch (index) {
+            case 0: {
+                this.props.actions.deleteFeedPublicationById(this.props.publicationId)
+                return this.props.toggleReportModal()
+            }
+            default: {
+                return this.setState({ menu: '' })
+            }
         }
     }
 
@@ -294,6 +331,16 @@ class OptionPublicationModal extends React.Component {
                     <View style={{ height: 'auto' }}>
                         {this._displaySection()}
                     </View>
+
+                    <ActionSheet
+                        ref={o => this.ActionSheet = o}
+                        options={['Delete', 'Cancel']}
+                        message={'Are you sure to delete this publication ? you will not be able to get it a new time'}
+                        cancelButtonIndex={1}
+                        destructiveButtonIndex={1}
+                        onPress={(index) => this._actionSheetDeletionCommand(index)}
+                    />
+
                 </Modal>
             </View>
         )
@@ -331,7 +378,8 @@ const mapStateToProps = state => ({
 })
 
 const ActionCreators = Object.assign(
-    {}
+    {},
+    PublicationFeedActions
 )
 
 const mapDispatchToProps = dispatch => ({

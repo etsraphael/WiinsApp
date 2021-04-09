@@ -24,7 +24,7 @@ export function getMyProfile() {
     return async (dispatch) => {
         try {
             dispatch(getMyProfileStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             return fetch('https://wiins-backend.herokuapp.com/myprofile', {
                 method: 'GET',
                 headers: { 

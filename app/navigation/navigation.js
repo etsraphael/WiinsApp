@@ -97,8 +97,8 @@ class MainNavigationContainer extends React.Component {
             <NavigationContainer theme={MyTheme}>
                 <StatusBar
                     animated={true}
-                    backgroundColor="white"
-                    barStyle={'default'}
+                    backgroundColor={MyTheme.colors.background}
+                    barStyle='dark-content'
                     showHideTransition={'fade'}
                     hidden={false}
                 />
