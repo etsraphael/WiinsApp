@@ -7,8 +7,7 @@ import I18n from '../../../../assets/i18n/i18n'
 import { faCheckCircle } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { sendReport } from './../../../services/report/report-service'
-
-
+import ActionSheet from 'react-native-actionsheet'
 
 const categoriesReport = [
     {
@@ -112,26 +111,23 @@ class OptionPublicationModal extends React.Component {
 
     _defaultMenu = () => {
 
-
-
-
         const optionsList = [
-            { 
+            {
                 code: 'reportPublication',
                 title: 'Report Publication',
                 color: 'red',
                 display: this.props.myProfileId !== this.props.ownerId
             },
-            { 
+            {
                 code: 'deletePublication',
                 title: 'Delete Publication',
                 color: 'black',
                 display: this.props.myProfileId == this.props.ownerId
             },
-            { 
-                code: 'blockUser', 
-                title: 'Block User', 
-                color: 'black', 
+            {
+                code: 'blockUser',
+                title: 'Block User',
+                color: 'black',
                 display: this.props.myProfileId !== this.props.ownerId
             }
         ]
@@ -275,6 +271,10 @@ class OptionPublicationModal extends React.Component {
         )
     }
 
+    _showActionSheetPublicationDeletion = () => {
+        this.ActionSheet.show()
+    }
+
     _blockUserSentView = () => {
         return (
             <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
@@ -295,7 +295,16 @@ class OptionPublicationModal extends React.Component {
             case 'blockUser': return this._blockUserView()
             case 'reportPublicationSent': return this._reportPublicationSentView()
             case 'blockUserSent': return this._blockUserSentView()
+            case 'deletePublication': return this._showActionSheetPublicationDeletion()
             default: return this._defaultMenu()
+        }
+    }
+
+    _actionSheetDeletionCommand = (index) => {
+        switch (index) {
+            // delete content to do..
+            case 0: return null
+            default: return this.setState({ menu: '' })
         }
     }
 
@@ -317,6 +326,16 @@ class OptionPublicationModal extends React.Component {
                     <View style={{ height: 'auto' }}>
                         {this._displaySection()}
                     </View>
+
+                    <ActionSheet
+                        ref={o => this.ActionSheet = o}
+                        options={['Delete', 'Cancel']}
+                        message={'Are you sure to delete this publication ? you will not be able to get it a new time'}
+                        cancelButtonIndex={1}
+                        destructiveButtonIndex={1}
+                        onPress={(index) => this._actionSheetDeletionCommand(index)}
+                    />
+
                 </Modal>
             </View>
         )
