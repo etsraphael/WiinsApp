@@ -56,8 +56,7 @@ class Camera extends React.Component {
       textInputHastag: '',
       hastags: [],
       searchProfile: '',
-      searchingPlace: '',
-      posted: null
+      searchingPlace: ''
     }
 
     this.interval = null
@@ -656,20 +655,6 @@ class Camera extends React.Component {
     )
   }
 
-  // to confirm the sending publication
-  _alertMessageView = () => {
-    if (this.props.Publication == 'posted') {
-      return (
-        <View style={{ position: 'absolute', bottom: 0, top: 0, left: 0, right: 0 }}>
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <FontAwesomeIcon icon={faCheckCircle} color={'white'} size={65} style={{}} />
-            <Text style={{ color: 'white', fontSize: 28, paddingTop: 15 }}>Posted</Text>
-          </View>
-        </View>
-      )
-    }
-  }
-
   // to update the comment
   _writeComment(val) {
 
@@ -723,7 +708,6 @@ class Camera extends React.Component {
         />
         {/* Body */}
         {this._screen()}
-        {this._alertMessageView()}
       </View>
     )
   }
@@ -776,7 +760,6 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
   MyUser: state.MyUser,
   SearchList: state.Search,
-  Publication: state.FeedPublications.posted,
   PendingPublication: state.PendingPublications,
   MyStory: state.MyStory,
 })

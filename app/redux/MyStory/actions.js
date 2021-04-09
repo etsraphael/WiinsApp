@@ -34,7 +34,7 @@ export function getMyStoryActions() {
     return async (dispatch) => {
         try {
             dispatch(getMyStoryStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/stories/getmystories'
 
             return fetch(url, {
@@ -61,7 +61,7 @@ export function deleteStoryByIdActions(id) {
         try {
 
             dispatch(deleteStoryByIdStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = `https://pre-master-wiins-backend.herokuapp.com/stories/deleteStoryById/${id}`
 
             return fetch(url, {

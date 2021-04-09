@@ -1,6 +1,23 @@
 import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
+import Snackbar from 'react-native-snackbar'
+import I18n from '../../../assets/i18n/i18n'
+
+export function deletePublicationByIdStart() {
+    return { type: ActionTypes.DELETE_PUBLICATION_BY_ID }
+}
+
+export function deletePublicationByIdSuccess(id) {
+    return { type: ActionTypes.DELETE_PUBLICATION_BY_ID_SUCCESS, id }
+}
+
+export function deletePublicationByIdFail(error) {
+    return {
+        type: ActionTypes.DELETE_PUBLICATION_BY_ID_FAIL,
+        payload: error
+    }
+}
 
 export function addOnePublicationOnFeed(payload) {
     return { type: ActionTypes.ADD_ONE_PUBLICATIONS_FEED, payload }
@@ -88,7 +105,7 @@ export function getByModeFeed(page, mode) {
         try {
             if(page == 1) dispatch(resetPublication())
             dispatch(getPublicationsStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/publication/' + mode + '?limit=8' + '&page=' + page
 
             return fetch(url, {
@@ -116,7 +133,7 @@ export function likePublicationFeed(like) {
     return async (dispatch) => {
         try {
             dispatch(likePublicationStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/likes'
             return fetch(url, {
                 method: 'POST',
@@ -143,7 +160,7 @@ export function unlikePublicationFeed(id) {
         try {
 
             dispatch(unlikePublicationStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/likes/dislikeFeedPublication/' + id
             return fetch(url, {
                 method: 'GET',
@@ -176,7 +193,7 @@ export function addPublication(publication) {
 
             dispatch(addPublicationStart())
 
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/publication'
 
             return fetch(url, {
@@ -206,7 +223,7 @@ export function refreshFeed() {
     return async (dispatch) => {
         try {
             dispatch(refreshPublicationsStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/publication/FollowerAndFriend?limit=8&page=1'
 
             return fetch(url, {
@@ -226,6 +243,36 @@ export function refreshFeed() {
         } catch (error) {
             sendError(error)
             return dispatch(refreshPublicationsFail(error));
+        }
+    }
+}
+
+export function deleteFeedPublicationById(id) {
+    return async (dispatch) => {
+        try {
+
+            dispatch(deletePublicationByIdStart())
+            const token = await AsyncStorage.getItem('userToken')
+            const url = `https://wiins-backend.herokuapp.com/publication/delete/${id}`
+
+            return fetch(url, {
+                method: 'DELETE',
+                headers: { 
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then(response=> {
+                    if (response.status == 200) {
+                        Snackbar.show({ text: I18n.t('VALID-MESSAGE.update-is-done'), duration: Snackbar.LENGTH_LONG })
+                        return dispatch(deletePublicationByIdSuccess(id))
+                    }
+                    else return dispatch(deletePublicationByIdFail(response.message))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(deletePublicationByIdFail(error));
         }
     }
 }

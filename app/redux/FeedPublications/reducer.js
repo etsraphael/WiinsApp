@@ -9,6 +9,12 @@ export default PublicationsReducer = (state = initialState, action) => {
         isLoading: true
       }
     }
+    case ActionTypes.DELETE_PUBLICATION_BY_ID_SUCCESS: {
+      return {
+        ...state,
+        publications: state.publications.filter(x => x._id !== action.id)
+      }
+    }
     case ActionTypes.GET_PUBLICATIONS_SUCCESS: {
       return {
         ...state,
@@ -75,10 +81,7 @@ export default PublicationsReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.ADD_PUBLICATIONS_FEED_SUCCESS: {
-      return {
-        ...state,
-        posted: 'posted'
-      }
+      return { ...state }
     }
     case ActionTypes.RESET_PUBLICATIONS: {
       return { ...initialState }

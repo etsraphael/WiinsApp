@@ -8,6 +8,7 @@ import { faCheckCircle } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { sendReport } from './../../../services/report/report-service'
 import ActionSheet from 'react-native-actionsheet'
+import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 
 const categoriesReport = [
     {
@@ -302,9 +303,13 @@ class OptionPublicationModal extends React.Component {
 
     _actionSheetDeletionCommand = (index) => {
         switch (index) {
-            // delete content to do..
-            case 0: return null
-            default: return this.setState({ menu: '' })
+            case 0: {
+                this.props.actions.deleteFeedPublicationById(this.props.publicationId)
+                return this.props.toggleReportModal()
+            }
+            default: {
+                return this.setState({ menu: '' })
+            }
         }
     }
 
@@ -373,7 +378,8 @@ const mapStateToProps = state => ({
 })
 
 const ActionCreators = Object.assign(
-    {}
+    {},
+    PublicationFeedActions
 )
 
 const mapDispatchToProps = dispatch => ({
