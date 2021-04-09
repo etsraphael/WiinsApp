@@ -22,10 +22,6 @@ export function cancelPublication(date) {
     return { type: ActionTypes.CANCEL_PUBLICATION, date }
 }
 
-export function publicationPosted(date) {
-    return { type: ActionTypes.PUBLICATION_ADDED, date }
-}
-
 export function deleteItemInPendingList(date) {
     return { type: ActionTypes.DELETE_ITEM_IN_PENDING_LIST, date }
 }
@@ -118,7 +114,7 @@ export function sendPostPublication(publication, token, url) {
                     // update the feed
                     await dispatch(addOnePublicationOnFeed(response.publication))
 
-                    return dispatch(publicationPosted(publication.savingDate))
+                    return dispatch(deleteItemInPendingList(publication.savingDate))
                 }
                 return dispatch(addPublicationFail(error))
             })
@@ -152,7 +148,7 @@ export function sendImagePublication(publicationReceived, token, url) {
                         // update the feed
                         await dispatch(addOnePublicationOnFeed(response.publication))
 
-                        return dispatch(publicationPosted(publicationReceived.savingDate))
+                        return dispatch(deleteItemInPendingList(publication.savingDate))
                     }
                     return dispatch(addPublicationFail(error))
                 })
@@ -191,7 +187,7 @@ export function sendVideoPublication(publicationReceived, token, url) {
                         // update the feed
                         await dispatch(addOnePublicationOnFeed(response.publication))
 
-                        return dispatch(publicationPosted(publicationReceived.savingDate))
+                        return dispatch(deleteItemInPendingList(publication.savingDate))
                     }
                     return dispatch(addPublicationFail(error))
                 }).catch((error) => dispatch(addPublicationFail(error)))
@@ -229,7 +225,7 @@ export function sendPostStory(publication, token, url, myProfileId, refreshStory
                     await refreshStory()
 
                     // delete the item in the pending list
-                    return dispatch(publicationPosted(publication.savingDate))
+                    return dispatch(deleteItemInPendingList(publication.savingDate))
                 }
                 return dispatch(addPublicationFail(response))
             })
@@ -311,7 +307,7 @@ export function sendVideoStory(publicationReceived, token, url, myProfileId, ref
                         await refreshStory()
 
                         // delete the item in the pending list
-                        return dispatch(publicationPosted(publicationReceived.savingDate))
+                        return dispatch(deleteItemInPendingList(publication.savingDate))
                     }
                     return dispatch(addPublicationFail(response))
                 })
