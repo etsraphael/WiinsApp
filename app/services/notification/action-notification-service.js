@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-community/async-storage'
 import messaging from '@react-native-firebase/messaging'
 import { TabActions } from '@react-navigation/native'
 
@@ -49,9 +50,23 @@ function updateMessenger(store, notification) {
 
 }
 
-function goToCommentTagPublicationInNewFeed(store, notification) {
-        // TO DO
-        return null
+async function goToCommentTagPublicationInNewFeed(store, notification) {
+        const token = await AsyncStorage.getItem('userToken')
+        const url = 'https://wiins-backend.herokuapp.com/publication/id/' + notification.publicationId
+
+        return fetch(url, {
+                method: 'GET',
+                headers: {
+                        Accept: 'application/json', 'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + token,
+                },
+        })
+                .then((response) => response.json())
+                .then(async (response) => {
+                        if (response.status == 200) {
+                                return store.dispatch({ type: 'PUT_PUBLICATION_IN_MODAL', payload: response.publication })
+                        }
+                })
 }
 
 function goToCommentTagPublicationInMusic(store, notification) {
