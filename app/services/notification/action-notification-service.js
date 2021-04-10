@@ -20,6 +20,8 @@ function openMessengerRoom(navigation, data) {
 export function updateStoreOnNotification(store, notification) {
         switch (notification.type) {
                 case 'message-received': return updateMessenger(store, notification)
+                case 'feed-publication-tag-comment': return goToCommentTagPublicationInNewFeed(store, notification)
+                case 'playlist-music-tag-comment': return goToCommentTagPublicationInMusic(store, notification)
                 default: return null
         }
 }
@@ -28,10 +30,10 @@ function updateMessenger(store, notification) {
 
         const foundInRoomList = store.getState().Rooms.rooms.find(x => x._id === notification.roomId)
 
-        if(!!store.getState().Room.room){
-                const roomOpen = store.getState().Room.room._id   
-                if(roomOpen == notification.roomId){
-                       return store.dispatch({ type: 'UPDATE_OPEN_ROOM', notification })
+        if (!!store.getState().Room.room) {
+                const roomOpen = store.getState().Room.room._id
+                if (roomOpen == notification.roomId) {
+                        return store.dispatch({ type: 'UPDATE_OPEN_ROOM', notification })
                 }
         }
 
@@ -45,4 +47,14 @@ function updateMessenger(store, notification) {
 
         }
 
+}
+
+function goToCommentTagPublicationInNewFeed(store, notification) {
+        // TO DO
+        return null
+}
+
+function goToCommentTagPublicationInMusic(store, notification) {
+        // TO DO
+        return null
 }
