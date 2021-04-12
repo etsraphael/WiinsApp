@@ -69,7 +69,11 @@ async function goToCommentTagPublicationInNewFeed(store, notification) {
                 })
 }
 
-function goToCommentTagPublicationInMusic(store, notification) {
-        // TO DO
+async function goToCommentTagPublicationInMusic(store, notification) {
+
+        const token = await AsyncStorage.getItem('userToken')
+        const url = 'https://wiins-backend.herokuapp.com/NA' + notification.playlist
+        // TO DO..
+
         return null
 }
