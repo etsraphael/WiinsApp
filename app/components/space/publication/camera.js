@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  StyleSheet, View, TouchableOpacity, Text, Image, Animated,
+  StyleSheet, View, TouchableOpacity, Text, Image,
   FlatList, TextInput, KeyboardAvoidingView, TouchableWithoutFeedback,
   DeviceEventEmitter, Keyboard,
 } from 'react-native'
@@ -14,7 +14,7 @@ import { bindActionCreators } from 'redux'
 import { RNCamera } from 'react-native-camera'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import {
-  faSync, faPhotoVideo, faTimes, faBolt, faClone,
+  faSync, faPhotoVideo, faTimes, faBolt, faArrowAltCircleUp,
   faPaperPlane, faUserPlus, faCheckCircle, faAngleDown
 } from '@fortawesome/pro-light-svg-icons'
 import { faCircle } from '@fortawesome/pro-duotone-svg-icons'
@@ -56,8 +56,7 @@ class Camera extends React.Component {
       textInputHastag: '',
       hastags: [],
       searchProfile: '',
-      searchingPlace: '',
-      posted: null
+      searchingPlace: ''
     }
 
     this.interval = null
@@ -75,23 +74,16 @@ class Camera extends React.Component {
     this.eventListener.remove()
   }
 
-  UNSAFE_componentWillReceiveProps = (newProps) => {
-
-    if (!!newProps.Publication) {
-      switch (newProps.Publication) {
-        case 'posted': {
-          this.setState({ screenMode: 'default' })
-          setTimeout(() => {
-            this.props.actions.resetPublicationActions()
-            this.props.actions.getByModeFeed(1, 'FollowerAndFriend')
-          }, 1000)
-        }
-      }
-    }
-
+  handlerGoBack() {
+    this.setState({ screenMode: 'default' })
   }
 
-  handlerGoBack() {
+  _refreshPageAfterSentStory = () => {
+    this.setState({ screenMode: 'default' })
+    this.props.actions.getMyStoryActions()
+  }
+
+  _refreshPageAfterSentPublication = () => {
     this.setState({ screenMode: 'default' })
   }
 
@@ -117,8 +109,10 @@ class Camera extends React.Component {
     if (!publicationCreated) return null
 
     // send story or publication
-    if (this.state.ifStories) { this.props.actions.addPublicationStoryInPendingList(publicationCreated) }
-    else { this.props.actions.addPublicationInPendingList(publicationCreated) }
+    if (this.state.ifStories) { 
+      this.props.actions.addPublicationStoryInPendingList(publicationCreated, () => this._refreshPageAfterSentStory()) 
+    }
+    else { this.props.actions.addPublicationInPendingList(publicationCreated, () => this._refreshPageAfterSentPublication()) }
 
     this.handlerGoBack()
 
@@ -361,7 +355,7 @@ class Camera extends React.Component {
                     <TextInput
                       blurOnSubmit={true}
                       style={{ fontSize: 16, paddingLeft: 10, color: 'white', alignItems: 'center' }}
-                      placeholder={'CORE.With'}
+                      placeholder={I18n.t('CORE.With')}
                       placeholderTextColor={'white'}
                       onChangeText={(event) => this._searchProfile(event)}
                       value={this.state.searchProfile}
@@ -487,7 +481,7 @@ class Camera extends React.Component {
             <TextInput
               blurOnSubmit={true}
               style={{ fontSize: 16, paddingLeft: 10, color: 'white', alignItems: 'center' }}
-              placeholder={'CORE.With'}
+              placeholder={I18n.t('CORE.With')}
               placeholderTextColor={'white'}
               onChangeText={(event) => this._searchProfile(event)}
               value={this.state.searchProfile}
@@ -561,6 +555,15 @@ class Camera extends React.Component {
     )
   }
 
+  _displayPendingPublicationIcon = () => {
+    return (<TouchableOpacity
+      onPress={() => this.props.navigation.navigate('PendingPublication')}
+      style={{ paddingVertical: 18, paddingHorizontal: 15 }}
+    >
+      <FontAwesomeIcon icon={faArrowAltCircleUp} color={'white'} size={28} />
+    </TouchableOpacity>)
+  }
+
   // to display the header view
   _showDefaultBtnHeader = () => {
     if (!this.state.isRecording) {
@@ -585,12 +588,7 @@ class Camera extends React.Component {
             <TouchableOpacity onPress={() => this.setState({ screenMode: 'PostPublication' })} style={{ paddingVertical: 18, paddingHorizontal: 15 }}>
               <FontAwesomeIcon icon={faText} color={'white'} size={24} />
             </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('PendingPublication')}
-              style={{ paddingVertical: 18, paddingHorizontal: 15 }}
-            >
-              <FontAwesomeIcon icon={faClone} color={'white'} size={24} />
-            </TouchableOpacity>
+            {this.props.PendingPublication.publications.length > 0 ? this._displayPendingPublicationIcon() : null}
           </View>
         </View>
       )
@@ -657,20 +655,6 @@ class Camera extends React.Component {
     )
   }
 
-  // to confirm the sending publication
-  _alertMessageView = () => {
-    if (this.props.Publication == 'posted') {
-      return (
-        <View style={{ position: 'absolute', bottom: 0, top: 0, left: 0, right: 0 }}>
-          <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <FontAwesomeIcon icon={faCheckCircle} color={'white'} size={65} style={{}} />
-            <Text style={{ color: 'white', fontSize: 28, paddingTop: 15 }}>Posted</Text>
-          </View>
-        </View>
-      )
-    }
-  }
-
   // to update the comment
   _writeComment(val) {
 
@@ -724,7 +708,6 @@ class Camera extends React.Component {
         />
         {/* Body */}
         {this._screen()}
-        {this._alertMessageView()}
       </View>
     )
   }
@@ -777,7 +760,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = state => ({
   MyUser: state.MyUser,
   SearchList: state.Search,
-  Publication: state.FeedPublications.posted,
+  PendingPublication: state.PendingPublications,
   MyStory: state.MyStory,
 })
 

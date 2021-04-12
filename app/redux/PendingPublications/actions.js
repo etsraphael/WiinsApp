@@ -3,6 +3,8 @@ import AsyncStorage from '@react-native-community/async-storage'
 import { uploadImageFile, uploadVideoFile, getFileNameUploaded } from '../../../app/services/upload/upload'
 import { v4 as uuidv4 } from 'uuid';
 import { sendError } from './../../../app/services/error/error-service'
+import { updateWithMyNewStory } from './../Stories/actions'
+import { addOnePublicationOnFeed } from './../FeedPublications/actions'
 
 export function addPublication(payload) {
     return { type: ActionTypes.ADD_PUBLICATIONS_PENDING, payload }
@@ -20,19 +22,19 @@ export function cancelPublication(date) {
     return { type: ActionTypes.CANCEL_PUBLICATION, date }
 }
 
-export function publicationPosted(date) {
-    return { type: ActionTypes.PUBLICATION_ADDED, date }
+export function deleteItemInPendingList(date) {
+    return { type: ActionTypes.DELETE_ITEM_IN_PENDING_LIST, date }
 }
 
 export function cancelPublicationActions(date) {
     return (dispatch) => dispatch(cancelPublication(date))
 }
 
-export function addPublicationInPendingList(publication) {
+export function addPublicationInPendingList(publication, refreshPage) {
     return async (dispatch) => {
         try {
             await dispatch(addPublication(publication))
-            return dispatch(sendPublication(publication))
+            return dispatch(sendPublication(publication, refreshPage))
         } catch (error) {
             sendError(error)
             return dispatch(addPublicationFail(error));
@@ -40,11 +42,15 @@ export function addPublicationInPendingList(publication) {
     }
 }
 
-export function addPublicationStoryInPendingList(publication) {
-    return async (dispatch) => {
+export function addPublicationStoryInPendingList(publication, refreshStory) {
+    return async (dispatch, props) => {
         try {
             await dispatch(addPublication(publication))
-            return dispatch(sendStoryPublication(publication))
+            return dispatch(sendStoryPublication(
+                publication,
+                props().MyProfile.profile._id,
+                refreshStory
+            ))
         } catch (error) {
             sendError(error)
             return dispatch(addPublicationFail(error));
@@ -52,16 +58,16 @@ export function addPublicationStoryInPendingList(publication) {
     }
 }
 
-export function sendStoryPublication(publication) {
+export function sendStoryPublication(publication, myProfileId, refreshStory) {
     return async (dispatch) => {
         try {
             const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/stories/post'
 
             switch (publication.type) {
-                case 'PostStory': return dispatch(sendPostStory(publication, token, url))
-                case 'PictureStory': return dispatch(sendPictureStory(publication, token, url))
-                case 'VideoStory': return dispatch(sendVideoStory(publication, token, url))
+                case 'PostStory': return dispatch(sendPostStory(publication, token, url, myProfileId, refreshStory))
+                case 'PictureStory': return dispatch(sendPictureStory(publication, token, url, myProfileId, refreshStory))
+                case 'VideoStory': return dispatch(sendVideoStory(publication, token, url, myProfileId, refreshStory))
             }
         } catch (error) {
             return dispatch(addPublicationFail(error));
@@ -69,7 +75,7 @@ export function sendStoryPublication(publication) {
     }
 }
 
-export function sendPublication(publication) {
+export function sendPublication(publication, refreshPage) {
     return async (dispatch) => {
         try {
 
@@ -77,9 +83,9 @@ export function sendPublication(publication) {
             const url = 'https://wiins-backend.herokuapp.com/publication'
 
             switch (publication.type) {
-                case 'PostPublication': return dispatch(sendPostPublication(publication, token, url))
-                case 'PicturePublication': return dispatch(sendPublication(publication, token, url))
-                case 'PublicationVideo': return dispatch(sendVideoPublication(publication, token, url))
+                case 'PostPublication': return dispatch(sendPostPublication(publication, token, url, refreshPage))
+                case 'PicturePublication': return dispatch(sendImagePublication(publication, token, url, refreshPage))
+                case 'PublicationVideo': return dispatch(sendVideoPublication(publication, token, url, refreshPage))
             }
 
         } catch (error) {
@@ -88,10 +94,9 @@ export function sendPublication(publication) {
     }
 }
 
-// type of publication to send
+// send publications
 
-export function sendPostPublication(publication, token, url) {
-
+export function sendPostPublication(publication, token, url, refreshPage) {
     return async (dispatch) => {
         return fetch(url, {
             method: 'POST',
@@ -102,15 +107,24 @@ export function sendPostPublication(publication, token, url) {
             body: JSON.stringify(publication)
         })
             .then((response) => response.json())
-            .then((response) => {
-                if (response.status == 201) return dispatch(publicationPosted(publication.savingDate))
+            .then(async (response) => {
+                if (response.status == 201) {
+
+                    // update the feed
+                    await dispatch(addOnePublicationOnFeed(response.publication))
+
+                    // refresh the page
+                    refreshPage()
+
+                    return dispatch(deleteItemInPendingList(publication.savingDate))
+                }
                 return dispatch(addPublicationFail(error))
             })
     }
 
 }
 
-export function sendImagePublication(publicationReceived, token, url) {
+export function sendImagePublication(publicationReceived, token, url, refreshPage) {
 
     return async (dispatch) => {
         try {
@@ -130,8 +144,17 @@ export function sendImagePublication(publicationReceived, token, url) {
                 body: JSON.stringify(publication)
             })
                 .then((response) => response.json())
-                .then((response) => {
-                    if (response.status == 201) return dispatch(publicationPosted(publicationReceived.savingDate))
+                .then(async (response) => {
+                    if (response.status == 201) {
+
+                        // update the feed
+                        await dispatch(addOnePublicationOnFeed(response.publication))
+
+                        // refresh the page
+                        refreshPage()
+
+                        return dispatch(deleteItemInPendingList(publication.savingDate))
+                    }
                     return dispatch(addPublicationFail(error))
                 })
                 .catch((error) => dispatch(addPublicationFail(error)))
@@ -144,7 +167,7 @@ export function sendImagePublication(publicationReceived, token, url) {
     }
 }
 
-export function sendVideoPublication(publicationReceived, token, url) {
+export function sendVideoPublication(publicationReceived, token, url, refreshPage) {
     return async (dispatch) => {
         try {
 
@@ -163,8 +186,17 @@ export function sendVideoPublication(publicationReceived, token, url) {
                 body: JSON.stringify(publication)
             })
                 .then((response) => response.json())
-                .then((response) => {
-                    if (response.status == 201) return dispatch(publicationPosted(publicationReceived.savingDate))
+                .then(async (response) => {
+                    if (response.status == 201) {
+
+                        // update the feed
+                        await dispatch(addOnePublicationOnFeed(response.publication))
+
+                        // refresh the page
+                        refreshPage()
+
+                        return dispatch(deleteItemInPendingList(publication.savingDate))
+                    }
                     return dispatch(addPublicationFail(error))
                 }).catch((error) => dispatch(addPublicationFail(error)))
         }
@@ -177,7 +209,9 @@ export function sendVideoPublication(publicationReceived, token, url) {
 
 }
 
-export function sendPostStory(publication, token, url) {
+// send stories
+
+export function sendPostStory(publication, token, url, myProfileId, refreshStory) {
 
     return async (dispatch) => {
         return fetch(url, {
@@ -189,15 +223,25 @@ export function sendPostStory(publication, token, url) {
             body: JSON.stringify(publication)
         })
             .then((response) => response.json())
-            .then((response) => {
-                if (response.status == 201) return dispatch(publicationPosted(publication.savingDate))
+            .then(async (response) => {
+                if (response.status == 201) {
+
+                    // udpate the stories trending
+                    await dispatch(updateWithMyNewStory(publication, myProfileId))
+
+                    // update the personal story
+                    await refreshStory()
+
+                    // delete the item in the pending list
+                    return dispatch(deleteItemInPendingList(publication.savingDate))
+                }
                 return dispatch(addPublicationFail(response))
             })
     }
 
 }
 
-export function sendPictureStory(publicationReceived, token, url) {
+export function sendPictureStory(publicationReceived, token, url, myProfileId, refreshStory) {
     return async (dispatch) => {
         try {
 
@@ -216,8 +260,18 @@ export function sendPictureStory(publicationReceived, token, url) {
                 body: JSON.stringify(publication)
             })
                 .then((response) => response.json())
-                .then((response) => {
-                    if (response.status == 201) return dispatch(publicationPosted(publicationReceived.savingDate))
+                .then(async (response) => {
+                    if (response.status == 201) {
+
+                        // udpate the stories trending
+                        await dispatch(updateWithMyNewStory(publication, myProfileId))
+
+                        // update the personal story
+                        await refreshStory()
+
+                        // delete the item in the pending list
+                        return dispatch(deleteItemInPendingList(publication.savingDate))
+                    }
                     return dispatch(addPublicationFail(error))
                 })
                 .catch(() => dispatch(addPublicationFail(response.status)))
@@ -230,7 +284,7 @@ export function sendPictureStory(publicationReceived, token, url) {
     }
 }
 
-export function sendVideoStory(publicationReceived, token, url) {
+export function sendVideoStory(publicationReceived, token, url, myProfileId, refreshStory) {
 
     return async (dispatch) => {
         try {
@@ -251,8 +305,18 @@ export function sendVideoStory(publicationReceived, token, url) {
                 body: JSON.stringify(publication)
             })
                 .then((response) => response.json())
-                .then((response) => {
-                    if (response.status == 201) return dispatch(publicationPosted(publicationReceived.savingDate))
+                .then(async (response) => {
+                    if (response.status == 201) {
+
+                        // udpate the stories trending
+                        await dispatch(updateWithMyNewStory(publication, myProfileId))
+
+                        // update the personal story
+                        await refreshStory()
+
+                        // delete the item in the pending list
+                        return dispatch(deleteItemInPendingList(publication.savingDate))
+                    }
                     return dispatch(addPublicationFail(response))
                 })
         }
@@ -262,6 +326,8 @@ export function sendVideoStory(publicationReceived, token, url) {
 
     }
 }
+
+// upload files
 
 export async function uploadPicture(file, token, bucketName) {
 

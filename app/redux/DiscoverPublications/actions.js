@@ -73,7 +73,7 @@ export function getByName(page, name) {
         try {
             if(page == 1) dispatch(resetPublication())
             dispatch(getPublicationsStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/publication/discover/hastag/' + name + '?limit=18' + '&page=' + page
 
             return fetch(url, {
@@ -100,7 +100,7 @@ export function getTrend(page) {
         try {
             if(page == 1) dispatch(resetPublication())
             dispatch(getPublicationsStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/publication/discover?limit=18' + '&page=' + page
 
             return fetch(url, {
@@ -126,7 +126,7 @@ export function likePublicationDiscover(like) {
     return async (dispatch) => {
         try {
             dispatch(likePublicationStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/likes'
             return fetch(url, {
                 method: 'POST',
@@ -152,7 +152,7 @@ export function unlikePublicationDiscover(id) {
     return async (dispatch) => {
         try {
             dispatch(unlikePublicationStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/likes/dislikeFeedPublication/' + id
             return fetch(url, {
                 method: 'GET',
@@ -181,7 +181,7 @@ export function refreshTrend() {
     return async (dispatch) => {
         try {
             dispatch(refreshPublicationsStart())
-            const token = await AsyncStorage .getItem('userToken')
+            const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/publication/discover?limit=18&page=1'
 
             return fetch(url, {

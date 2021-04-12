@@ -28,7 +28,7 @@ class PendingPublication extends React.Component {
         <View style={{ flex: 11 }}>
           <FlatList
             style={styles.list}
-            data={this.props.publication}
+            data={this.props.PendingPublication.publications}
             keyExtractor={(item) => item.savingDate.toString()}
             renderItem={({ item }) => (
               <View style={{ flexDirection: 'row' }}>
@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
-  Publication: state.PendingPublications.publication,
+  PendingPublication: state.PendingPublications,
 })
 
 const ActionCreators = Object.assign(
