@@ -9,7 +9,7 @@ export default PublicationModalNavigation = (propsInitial) => (
     <Stack.Navigator
         screenOptions={{ headerShown: false }}
         initialRouteName={'CardModal'}
-    >(
+    >
         <Stack.Screen name={'CardModal'}>
             {(props) => <CardModal {...props} goToProfile={(payload) => propsInitial.goToProfile(payload)} toggleModal={propsInitial.toggleModal} pageName={propsInitial.pageName}/>}
         </Stack.Screen>
