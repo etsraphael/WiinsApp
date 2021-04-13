@@ -10,6 +10,7 @@ import SettingOther from '../components/space/setting/setting-other'
 import SettingPassword from '../components/space/setting/setting-password'
 import SettingCertification from '../components/space/setting/setting-certification'
 import SettingPrivacy from '../components/space/setting/setting-privacy'
+import NotificationPage from './../components/space/feed/notification/notification-page'
 
 const Stack = createStackNavigator()
 
@@ -39,5 +40,6 @@ export default FeedNavigation = (initialProps) => (
         <Stack.Screen name={'MyProfile'} component={MyProfile} />
         <Stack.Screen name={'Profile'} component={Profile} />
         <Stack.Screen name={'Setting'} component={SettingNavigation} />
+        <Stack.Screen name={'Notification'} component={NotificationPage} />
     </Stack.Navigator>
 )
