@@ -28,12 +28,14 @@ const SettingNavigation = () => (
     </Stack.Navigator>
 )
 
-export default FeedNavigation = () => (
+export default FeedNavigation = (initialProps) => (
     <Stack.Navigator
         screenOptions={{ headerShown: false }}
         initialRouteName={'Feed'}
     >
-        <Stack.Screen name={'Feed'} component={Feed} />
+        <Stack.Screen name={'Feed'}>
+            {(props) => <Feed {...props} params={initialProps.route.params} />}
+        </Stack.Screen>
         <Stack.Screen name={'MyProfile'} component={MyProfile} />
         <Stack.Screen name={'Profile'} component={Profile} />
         <Stack.Screen name={'Setting'} component={SettingNavigation} />

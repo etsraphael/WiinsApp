@@ -44,7 +44,14 @@ class Feed extends React.Component {
     }
 
     componentDidMount() {
-        checkNotification(this.props.navigation)
+        checkNotification(this.props.navigation, {
+            openToggleModal: (event) => this._toggleModal(event)
+        })
+
+        if (!!this.props.params) {
+            alert('boum')
+            console.log(this.props.params.notification)
+        }
     }
 
     // to display the modal view
