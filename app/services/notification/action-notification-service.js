@@ -2,11 +2,13 @@ import AsyncStorage from '@react-native-community/async-storage'
 import messaging from '@react-native-firebase/messaging'
 import { TabActions } from '@react-navigation/native'
 
-export async function checkNotification(navigation) {
+export async function checkNotification(navigation, actions) {
         return messaging().getInitialNotification().then((notification) => {
                 if (!!notification) {
                         switch (notification.data.type) {
                                 case 'message-received': return openMessengerRoom(navigation, notification.data)
+                                case 'feed-publication-tag-comment': return goToCommentTagPublicationInNewFeed(navigation, notification.data, actions)
+                                case 'playlist-music-tag-comment': return goToCommentTagPublicationInMusic(navigation, notification.data, actions)
                                 default: return null
                         }
                 }
@@ -21,8 +23,6 @@ function openMessengerRoom(navigation, data) {
 export function updateStoreOnNotification(store, notification) {
         switch (notification.type) {
                 case 'message-received': return updateMessenger(store, notification)
-                case 'feed-publication-tag-comment': return goToCommentTagPublicationInNewFeed(store, notification)
-                case 'playlist-music-tag-comment': return goToCommentTagPublicationInMusic(store, notification)
                 default: return null
         }
 }
@@ -50,7 +50,7 @@ function updateMessenger(store, notification) {
 
 }
 
-async function goToCommentTagPublicationInNewFeed(store, notification) {
+async function goToCommentTagPublicationInNewFeed(notification, actions) {
         const token = await AsyncStorage.getItem('userToken')
         const url = 'https://wiins-backend.herokuapp.com/publication/id/' + notification.publicationId
 
@@ -64,13 +64,12 @@ async function goToCommentTagPublicationInNewFeed(store, notification) {
                 .then((response) => response.json())
                 .then(async (response) => {
                         if (response.status == 200) {
-                                return store.dispatch({ type: 'PUT_PUBLICATION_IN_MODAL', payload: response.publication })
+                                return actions.openToggleModal({ publication: response.publication })
                         }
                 })
 }
 
-async function goToCommentTagPublicationInMusic(store, notification) {
-
+async function goToCommentTagPublicationInMusic(notification, actions) {
         const token = await AsyncStorage.getItem('userToken')
         const url = 'https://wiins-backend.herokuapp.com/NA' + notification.playlist
         // TO DO..

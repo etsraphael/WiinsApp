@@ -13,7 +13,7 @@ import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
+import { faUserCircle, faCog, faBell } from '@fortawesome/pro-light-svg-icons'
 import CardNewFeed from './../../core/reusable/card/card-new-feed'
 import { checkNotification } from './../../../services/notification/action-notification-service'
 
@@ -44,7 +44,14 @@ class Feed extends React.Component {
     }
 
     componentDidMount() {
-        checkNotification(this.props.navigation)
+        checkNotification(this.props.navigation, {
+            openToggleModal: (event) => this._toggleModal(event)
+        })
+
+        if (!!this.props.params) {
+            alert('boum')
+            console.log(this.props.params.notification)
+        }
     }
 
     // to display the modal view
@@ -92,7 +99,7 @@ class Feed extends React.Component {
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Setting')}
-                        style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        style={{ justifyContent: 'center', alignItems: 'center', paddingLeft: 25 }}>
                         <FontAwesomeIcon icon={faCog} size={24} color={'#aeaeae'} />
                     </TouchableOpacity>
                 </View>
@@ -100,11 +107,18 @@ class Feed extends React.Component {
                     <Image style={{ width: 65, height: 35 }} source={require('../../../../assets/image/wiins-written.png')} />
                 </View>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('MyProfile')}
-                        style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faUserCircle} size={27} color={'#aeaeae'} />
-                    </TouchableOpacity>
+                    <View style={{ flexDirection: 'row', paddingHorizontal: 20 }}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('Notification')}
+                            style={{ justifyContent: 'center', alignItems: 'center', paddingHorizontal: 10 }}>
+                            <FontAwesomeIcon icon={faBell} size={27} color={'#aeaeae'} />
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('MyProfile')}
+                            style={{ justifyContent: 'center', alignItems: 'center', paddingHorizontal: 10 }}>
+                            <FontAwesomeIcon icon={faUserCircle} size={27} color={'#aeaeae'} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         )
@@ -250,7 +264,6 @@ const styles = StyleSheet.create({
         position: 'relative',
         flexDirection: 'row',
         marginVertical: 5,
-        paddingHorizontal: 30,
         height: 38
     },
     search_bar: {
