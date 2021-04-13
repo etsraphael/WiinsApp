@@ -12,21 +12,21 @@ import { faAngleLeft } from '@fortawesome/pro-solid-svg-icons'
 
 
 const notificationList = [
-    { _id: 1, type: 'NotificationComment', read: true },
-    { _id: 2, type: 'NotificationResponse', read: true },
-    { _id: 3, type: 'NotificationLike', read: false },
-    { _id: 4, type: 'NotificationCommentLike', read: true },
-    { _id: 5, type: 'NotificationCommentLikePlaylist', read: true },
-    { _id: 6, type: 'NotificationCommentResponsePlaylist', read: true },
-    { _id: 7, type: 'NotificationRequest', read: true },
-    { _id: 8, type: 'NotificationTagCommentPublication', read: true },
-    { _id: 9, type: 'NotificationTagCommentPlaylist', read: true },
-    { _id: 10, type: 'NotificationTagPublication', read: true },
-    { _id: 11, type: 'NotificationFeatPublication', read: true },
-    { _id: 12, type: 'NotificationReport', read: true },
-    { _id: 13, type: 'NotificationPageReport', read: true },
-    { _id: 14, type: 'NotificationVerification', read: true },
-    { _id: 15, type: 'NotificationCertification', read: true },
+    { _id: '1', type: 'NotificationComment', read: true },
+    { _id: '2', type: 'NotificationResponse', read: true },
+    { _id: '3', type: 'NotificationLike', read: false },
+    { _id: '4', type: 'NotificationCommentLike', read: true },
+    { _id: '5', type: 'NotificationCommentLikePlaylist', read: true },
+    { _id: '6', type: 'NotificationCommentResponsePlaylist', read: true },
+    { _id: '7', type: 'NotificationRequest', read: true },
+    { _id: '8', type: 'NotificationTagCommentPublication', read: true },
+    { _id: '9', type: 'NotificationTagCommentPlaylist', read: true },
+    { _id: '10', type: 'NotificationTagPublication', read: true },
+    { _id: '11', type: 'NotificationFeatPublication', read: true },
+    { _id: '12', type: 'NotificationReport', read: true },
+    { _id: '13', type: 'NotificationPageReport', read: true },
+    { _id: '14', type: 'NotificationVerification', read: true },
+    { _id: '15', type: 'NotificationCertification', read: true },
 ]
 
 class NotificationPage extends React.Component {
