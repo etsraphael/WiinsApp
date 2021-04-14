@@ -9,6 +9,7 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { getDateTranslated } from '../../../../services/translation/translation-service'
 
 class OneNotification extends React.Component {
 
@@ -50,12 +51,32 @@ class OneNotification extends React.Component {
         )
     }
 
+
+    _notificationCommentFeedRender = (notif) => {
+        return (
+            <View style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}>
+
+                {/* Picture profile notification */}
+                {this._avatarNotificationRender(notif.profile.pictureprofile)}
+
+                {/* Description */}
+                <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
+                    <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} comment your publication </Text>
+                    <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
+                </View>
+
+                {/* Content Publication */}
+                {this._ellipsiBtnRender()}
+            </View>
+        )
+    }
+
     _verificationRender = (notif) => {
         return (
             <View style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}>
 
                 {/* Picture profile notification */}
-                {this._brandRender()}
+                {this._avatarNotificationRender('https://eps-file-default.s3.eu-west-3.amazonaws.com/icon-wiins.png')}
 
                 {/* Description */}
                 <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
@@ -70,12 +91,12 @@ class OneNotification extends React.Component {
         )
     }
 
-    _brandRender = () => {
+    _avatarNotificationRender = (link) => {
         return (
             <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
                 <FastImage
                     style={{ width: 70, height: 70, borderRadius: 70, resizeMode: 'cover' }}
-                    source={{ uri: 'https://eps-file-default.s3.eu-west-3.amazonaws.com/icon-wiins.png', priority: FastImage.priority.normal }}
+                    source={{ uri: link, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.cover}
                 />
             </View>
@@ -92,11 +113,10 @@ class OneNotification extends React.Component {
         )
     }
 
-
-
     render = () => {
         switch (this.props.notification.type) {
             case 'NotificationVerification': return this._verificationRender(this.props.notification)
+            case 'NotificationComment': return this._notificationCommentFeedRender(this.props.notification)
             default: return this._oneNotificationRender(this.props.notification)
         }
     }
@@ -104,10 +124,6 @@ class OneNotification extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    feed_container: {
-        flex: 1,
-        backgroundColor: '#eef2f4'
-    }
 })
 
 const mapStateToProps = state => ({
