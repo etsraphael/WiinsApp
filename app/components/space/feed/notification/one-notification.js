@@ -108,6 +108,27 @@ class OneNotification extends React.Component {
         )
     }
 
+
+    _notificationTagCommentPublicationRender = (notif) => {
+        return (
+            <View style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}>
+
+            {/* Picture profile notification */}
+            {this._avatarNotificationRender(notif.profile.pictureprofile)}
+
+            {/* Description */}
+            <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
+                <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} tagged you in a publication in the feed </Text>
+                <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
+            </View>
+
+            {/* Content Publication */}
+            {this._ellipsiBtnRender()}
+
+        </View>
+        )
+    }
+
     _avatarNotificationRender = (link) => {
         return (
             <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
@@ -136,10 +157,10 @@ class OneNotification extends React.Component {
             case 'NotificationComment': return this._notificationCommentFeedRender(this.props.notification)
             case 'NotificationCommentLikePlaylist': return this._notificationCommentLikePlaylistRender(this.props.notification)
             case 'NotificationLike': return this._notificationLikeFeedPublicationRender(this.props.notification)
+            case 'NotificationTagCommentPublication': return this._notificationTagCommentPublicationRender(this.props.notification)
             case 'NotificationResponse':
             case 'NotificationCommentLike':
             case 'NotificationCommentResponsePlaylist':
-            case 'NotificationTagCommentPublication':
             case 'NotificationTagCommentPlaylist':
             case 'NotificationTagPublication':
             case 'NotificationFeatPublication':
