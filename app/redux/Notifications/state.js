@@ -1,107 +1,152 @@
 export const initialState = {
     list: [
-        {
-          "_id": "607009c221073300310abeb4",
-          "read": true,
-          "quantity": 1,
-          "type": "NotificationComment",
-          "profile": {
-            "_id": "5f79c39bfb1625003153111a",
-            "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/80fa72f0-8259-4eb7-9266-7ca50bc1253b",
-            "_meta": {
-              "pseudo": "Nathy"
-            }
-          },
-          "profileNotification": "5f79bf25fb16250031531109",
-          "publication": {
-            "_id": "606fa89fad2d23003175724f",
-            "type": "PostPublication",
-            "background": "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
-            "text": "What's up everyone ? "
-          },
-          "comment": "607009c221073300310abeb2",
-          "createdAt": "2021-04-09T08:01:06.810Z",
-          "updatedAt": "2021-04-09T08:01:06.810Z",
-          "__v": 0,
-          "id": "607009c221073300310abeb4"
+      {
+        "_id": "606f0eb44cb80800317d9cd9",
+        "read": false,
+        "quantity": 2,
+        "type": "NotificationLike",
+        "profile": {
+          "_id": "5f7d4daaad486a003187a374",
+          "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/f73522c6-a9ee-40ec-b0e1-92a886c74785",
+          "_meta": {
+            "pseudo": "Thierry440"
+          }
         },
-        {
-          "_id": "6023bddcb304bd003185ab57",
-          "read": true,
-          "quantity": 1,
-          "type": "NotificationVerification",
-          "accepted": true,
-          "profileNotification": "5f79bf25fb16250031531109",
-          "createdAt": "2021-02-10T11:05:00.666Z",
-          "updatedAt": "2021-02-10T11:05:00.666Z",
-          "__v": 0,
-          "id": "6023bddcb304bd003185ab57"
+        "profileNotification": "5f79c39bfb1625003153111a",
+        "publication": {
+          "_id": "604641ca8fc005003147471a",
+          "type": "PicturePublication",
+          "file": "https://eps-file-feed-publication-image.s3.eu-west-3.amazonaws.com/dbf1d4d7-4e1a-4e1d-9c07-88b5633a3f51",
+          "text": ""
         },
-        {
-          "_id": "6023801cb304bd003185ab51",
-          "read": false,
-          "quantity": 1,
-          "type": "NotificationVerification",
-          "accepted": true,
-          "profileNotification": "5f79bf25fb16250031531109",
-          "createdAt": "2021-02-10T06:41:32.480Z",
-          "updatedAt": "2021-02-10T06:41:32.480Z",
-          "__v": 0,
-          "id": "6023801cb304bd003185ab51"
+        "createdAt": "2021-04-08T14:09:56.827Z",
+        "updatedAt": "2021-04-08T23:52:20.713Z",
+        "__v": 0,
+        "id": "606f0eb44cb80800317d9cd9"
+      },
+      {
+        "_id": "606bff6eb39e46003176ca29",
+        "read": true,
+        "quantity": 1,
+        "type": "NotificationComment",
+        "profile": {
+          "_id": "5f7bf87f12b838003170b5ce",
+          "pictureprofile": "https://dev-eps-file-avatar.s3.eu-west-3.amazonaws.com/478baa5c-30a2-4059-b481-b4b34c4b9e66",
+          "_meta": {
+            "pseudo": "rafael_salei"
+          }
         },
-        {
-          "_id": "60214f2eafb0f300317cb4fd",
-          "read": true,
-          "quantity": 1,
-          "type": "NotificationCommentLikePlaylist",
-          "profile": {
-            "_id": "5f79c39bfb1625003153111a",
-            "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/80fa72f0-8259-4eb7-9266-7ca50bc1253b",
-            "_meta": {
-              "pseudo": "Nathy"
-            }
-          },
-          "profileNotification": "5f79bf25fb16250031531109",
-          "comment": "6017e3c39853b800315ca306",
-          "playlist": "600ff6803a484d003188fd58",
-          "createdAt": "2021-02-08T14:48:14.172Z",
-          "updatedAt": "2021-02-08T14:48:14.172Z",
-          "__v": 0,
-          "id": "60214f2eafb0f300317cb4fd"
+        "profileNotification": "5f79c39bfb1625003153111a",
+        "publication": {
+          "_id": "604641ca8fc005003147471a",
+          "type": "PicturePublication",
+          "file": "https://eps-file-feed-publication-image.s3.eu-west-3.amazonaws.com/dbf1d4d7-4e1a-4e1d-9c07-88b5633a3f51",
+          "text": ""
         },
-        {
-          "_id": "60214ab2afb0f300317cb4f8",
-          "read": true,
-          "quantity": 1,
-          "type": "NotificationCommentLikePlaylist",
-          "profile": {
-            "_id": "5f79c39bfb1625003153111a",
-            "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/80fa72f0-8259-4eb7-9266-7ca50bc1253b",
-            "_meta": {
-              "pseudo": "Nathy"
-            }
-          },
-          "profileNotification": "5f79bf25fb16250031531109",
-          "comment": "6017e3c39853b800315ca306",
-          "playlist": "600ff6803a484d003188fd58",
-          "createdAt": "2021-02-08T14:29:06.413Z",
-          "updatedAt": "2021-02-08T14:29:06.413Z",
-          "__v": 0,
-          "id": "60214ab2afb0f300317cb4f8"
+        "comment": "606bff6eb39e46003176ca27",
+        "createdAt": "2021-04-06T06:27:58.561Z",
+        "updatedAt": "2021-04-08T07:00:41.235Z",
+        "__v": 0,
+        "id": "606bff6eb39e46003176ca29"
+      },
+      {
+        "_id": "606a7526175cf20031c9dc28",
+        "read": false,
+        "quantity": 1,
+        "type": "NotificationLike",
+        "profile": {
+          "_id": "5f7bf87f12b838003170b5ce",
+          "pictureprofile": "https://dev-eps-file-avatar.s3.eu-west-3.amazonaws.com/478baa5c-30a2-4059-b481-b4b34c4b9e66",
+          "_meta": {
+            "pseudo": "rafael_salei"
+          }
         },
-        {
-          "_id": "60212e84afb0f300317cb4f7",
-          "read": true,
-          "quantity": 1,
-          "type": "NotificationVerification",
-          "accepted": true,
-          "profileNotification": "5f79bf25fb16250031531109",
-          "createdAt": "2021-02-08T12:28:52.752Z",
-          "updatedAt": "2021-02-08T12:28:52.752Z",
-          "__v": 0,
-          "id": "60212e84afb0f300317cb4f7"
-        }
-      ],
+        "profileNotification": "5f79c39bfb1625003153111a",
+        "publication": {
+          "_id": "6046418f8fc0050031474712",
+          "type": "PicturePublication",
+          "file": "https://eps-file-feed-publication-image.s3.eu-west-3.amazonaws.com/627f5cf0-dd1d-4f93-8ce9-40b29321a0cb",
+          "text": "2 cute raccoons"
+        },
+        "createdAt": "2021-04-05T02:25:42.442Z",
+        "updatedAt": "2021-04-05T02:25:42.442Z",
+        "__v": 0,
+        "id": "606a7526175cf20031c9dc28"
+      },
+      {
+        "_id": "605f230c39a888003171a1cc",
+        "read": true,
+        "quantity": 1,
+        "type": "NotificationComment",
+        "profile": {
+          "_id": "605f224e39a888003171a1bc",
+          "pictureprofile": "https://eps-file-default.s3.eu-west-3.amazonaws.com/profile-placeholder.png",
+          "_meta": {
+            "pseudo": "usamaidrsk"
+          }
+        },
+        "profileNotification": "5f79c39bfb1625003153111a",
+        "publication": {
+          "_id": "6045ca578fc00500314746ef",
+          "type": "PicturePublication",
+          "file": "https://eps-file-feed-publication-image.s3.eu-west-3.amazonaws.com/b21e7767-28d0-485b-aa0b-0438d0097ebf",
+          "text": ""
+        },
+        "comment": "605f230c39a888003171a1ca",
+        "createdAt": "2021-03-27T12:20:28.348Z",
+        "updatedAt": "2021-04-03T09:32:51.206Z",
+        "__v": 0,
+        "id": "605f230c39a888003171a1cc"
+      },
+      {
+        "_id": "605f230839a888003171a1c9",
+        "read": true,
+        "quantity": 1,
+        "type": "NotificationLike",
+        "profile": {
+          "_id": "605f224e39a888003171a1bc",
+          "pictureprofile": "https://eps-file-default.s3.eu-west-3.amazonaws.com/profile-placeholder.png",
+          "_meta": {
+            "pseudo": "usamaidrsk"
+          }
+        },
+        "profileNotification": "5f79c39bfb1625003153111a",
+        "publication": {
+          "_id": "6045ca578fc00500314746ef",
+          "type": "PicturePublication",
+          "file": "https://eps-file-feed-publication-image.s3.eu-west-3.amazonaws.com/b21e7767-28d0-485b-aa0b-0438d0097ebf",
+          "text": ""
+        },
+        "createdAt": "2021-03-27T12:20:24.287Z",
+        "updatedAt": "2021-04-03T09:35:45.529Z",
+        "__v": 0,
+        "id": "605f230839a888003171a1c9"
+      },
+      {
+        "_id": "6046fc81ddc53d0031ee8369",
+        "read": true,
+        "quantity": 1,
+        "type": "NotificationLike",
+        "profile": {
+          "_id": "5f79bf25fb16250031531109",
+          "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/a1640c16-6b0b-4b54-ba51-c190e2235c2f",
+          "_meta": {
+            "pseudo": "levin"
+          }
+        },
+        "profileNotification": "5f79c39bfb1625003153111a",
+        "publication": {
+          "_id": "6045ca6a8fc00500314746f3",
+          "type": "PicturePublication",
+          "file": "https://eps-file-feed-publication-image.s3.eu-west-3.amazonaws.com/19c9cd3b-274d-40f2-937c-21adb4d4312f",
+          "text": ""
+        },
+        "createdAt": "2021-03-09T04:41:37.823Z",
+        "updatedAt": "2021-04-03T09:37:12.937Z",
+        "__v": 0,
+        "id": "6046fc81ddc53d0031ee8369"
+      }
+    ],
     isLoading: false,
     isRefreshing: false,
     error: null,
