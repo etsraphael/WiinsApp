@@ -204,7 +204,7 @@ export function getNotificationTagCommentPublicationAction(publicationId, naviga
                 .then((response) => response.json())
                 .then(async (response) => {
                     if (response.status == 200) {
-                        dispatch(getFeedPublicationByIdSuccess(response.publication))
+                        dispatch(getFeedPublicationByIdSuccess(response.publication, 'feed'))
                         return navigation.goBack()
                     } else {
                         return dispatch(getFeedPublicationByIdFail(response.message))

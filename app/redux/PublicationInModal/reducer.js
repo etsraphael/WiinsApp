@@ -13,7 +13,8 @@ export default PublicationsInModalReducer = (state = initialState, action) => {
       return {
         ...state,
         publication: action.payload,
-        isLoading: false
+        isLoading: false,
+        space: action.space
       }
     }
     case ActionTypes.GET_FEED_PUBLICATION_BY_ID_FAIL: {
@@ -26,7 +27,8 @@ export default PublicationsInModalReducer = (state = initialState, action) => {
     case ActionTypes.PUT_PUBLICATION_IN_MODAL:
       return {
         ...state,
-        publication: action.payload
+        publication: action.payload,
+        space: action.space
       }
     case ActionTypes.RESET_PUBLICATIONS_IN_MODAL: return initialState
     default: return { ...state }

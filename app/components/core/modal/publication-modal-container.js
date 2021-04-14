@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { View } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Modal from 'react-native-modal'
@@ -7,6 +7,7 @@ import * as PublicationFeedActions from '../../../redux/FeedPublications/actions
 import * as ProfilePublicationActions from '../../../redux/ProfilePublications/actions'
 import * as DiscoverPublicationActions from '../../../redux/DiscoverPublications/actions'
 import * as CommentListActions from '../../../redux/CommentList/actions'
+import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
 import PublicationModalNavigation from '../../../navigation/publication-modal-navigation'
 
 class PublicationModalContainer extends React.Component {
@@ -26,12 +27,10 @@ class PublicationModalContainer extends React.Component {
     }
 
     render() {
-        console.log('modal values ')
-        console.log(this.props.PublicationsInModal)
         return (
             <View>
                 <Modal
-                    onSwipeComplete={() => this.props.toggleModal()}
+                    onSwipeComplete={() => this.props.actions.resetPublicationInModalActions()}
                     isVisible={true}
                     transparent={true}
                     propagateSwipe={this.state.propagateSwipe}
@@ -54,7 +53,6 @@ class PublicationModalContainer extends React.Component {
 
 }
 
-const styles = StyleSheet.create({})
 
 const mapStateToProps = state => ({
     MyProfile: state.MyProfile.profile,
@@ -68,6 +66,7 @@ const mapStateToProps = state => ({
 
 const ActionCreators = Object.assign(
     {},
+    PublicationInModalActions,
     CommentListActions,
     PublicationFeedActions,
     ProfilePublicationActions,

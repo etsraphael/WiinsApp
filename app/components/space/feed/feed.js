@@ -53,26 +53,11 @@ class Feed extends React.Component {
         }
     }
 
-    // to display the modal view
-    _toggleModal = (event) => {
-        if (!!event) { this.props.actions.putPublicationInModalActions(event.publication) }
-        else {
-            this.props.actions.resetPublicationInModalActions()
-        }
-        this.setState({
-            modal: !this.state.modal, PublicationModal: event
-        })
-    }
-
-    _toggleModalNotification = () => {
-        this.props.actions.resetPublicationInModalActions()
-    }
-
     // go to profile
     _goToProfile = (payload) => {
 
-        this.setState({ modal: false, PublicationModal: null })
-
+        this.props.actions.resetPublicationInModalActions()
+        
         if (payload.pageName == 'Profile') return null
 
         if (payload.profileId !== this.props.MyProfile._id) {
@@ -143,7 +128,6 @@ class Feed extends React.Component {
             navigation={this.props.navigation}
             publication={item}
             space={'feed'}
-            toggleModal={(event) => this._toggleModal(event)}
         />)
     }
 
@@ -231,13 +215,12 @@ class Feed extends React.Component {
                             isVisible={this.state.publicationMode}
                         /> : null}
 
-                    {this.state.modal ?
+                    {!!this.props.PublicationsInModal.publication &&
                         <PublicationModalContainer
-                            publicationModal={this.state.PublicationModal}
-                            toggleModal={(event) => this._toggleModal(event)}
                             goToProfile={(payload) => this._goToProfile(payload)}
                             pageName={'Feed'}
-                        /> : null}
+                        />
+                    }
 
                     {this.state.storysModalExist ?
                         <StoriesTrend
@@ -254,14 +237,14 @@ class Feed extends React.Component {
                             ownerId={this.state.ownerReportPublication}
                         /> : null}
 
-                    {!!this.props.PublicationsInModal.publication &&
+                    {/* {!!this.props.PublicationsInModal.publication &&
                         <PublicationModalContainer
                             publicationModal={this.props.PublicationsInModal.publication}
                             toggleModal={(event) => this._toggleModalNotification(event)}
                             goToProfile={(payload) => this._goToProfile(payload)}
                             pageName={'Feed'}
                         />
-                    }
+                    } */}
 
                 </View>
             </SafeAreaView>
@@ -304,9 +287,9 @@ const mapStateToProps = state => ({
 
 const ActionCreators = Object.assign(
     {},
+    PublicationInModalActions,
     PublicationFeedActions,
     SearchActions,
-    PublicationInModalActions,
     StoriesActions
 )
 

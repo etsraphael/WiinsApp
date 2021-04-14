@@ -15,7 +15,6 @@ export default PublicationModalNavigation = (propsInitial) => (
                 <CardModal
                     {...props}
                     goToProfile={(payload) => propsInitial.goToProfile(payload)}
-                    toggleModal={() => propsInitial.toggleModal()}
                     pageName={propsInitial.pageName}
                 />
             }
