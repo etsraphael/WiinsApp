@@ -38,6 +38,7 @@ class Feed extends React.Component {
 
     UNSAFE_componentWillMount() {
         this.props.actions.resetPublicationActions()
+        this.props.actions.resetPublicationInModalActions()
         this._getPublicationList()
     }
 

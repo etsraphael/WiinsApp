@@ -44,6 +44,7 @@ class Discover extends React.Component {
     }
 
     componentDidMount() {
+        this.props.actions.resetPublicationInModalActions()
         checkNotification(this.props.navigation)
         this.props.actions.getTopHastag()
         this._getPublicationList()
