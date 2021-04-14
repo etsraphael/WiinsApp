@@ -435,8 +435,6 @@ class CardModal extends React.Component {
                 }
             }
 
-
-
             switch (this.props.PublicationsInModal.space) {
                 case 'feed': return this.props.actions.likePublicationFeed(like)
                 case 'profile': return this.props.actions.likePublicationProfile(like)

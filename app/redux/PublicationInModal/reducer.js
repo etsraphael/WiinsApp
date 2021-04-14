@@ -28,7 +28,7 @@ export default PublicationsInModalReducer = (state = initialState, action) => {
         ...state,
         publication: action.payload
       }
-    case ActionTypes.RESET_PUBLICATIONS_IN_MODAL: return initialState 
+    case ActionTypes.RESET_PUBLICATIONS_IN_MODAL: return initialState
     default: return { ...state }
   }
 }

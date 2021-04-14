@@ -26,6 +26,8 @@ class PublicationModalContainer extends React.Component {
     }
 
     render() {
+        console.log('modal values ')
+        console.log(this.props.PublicationsInModal)
         return (
             <View>
                 <Modal
