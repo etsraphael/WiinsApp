@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
 import Snackbar from 'react-native-snackbar'
 import I18n from '../../../assets/i18n/i18n'
+import { getFeedPublicationByIdStart, getFeedPublicationByIdSuccess, getFeedPublicationByIdFail } from './../PublicationInModal/actions'
 
 export function deleteNotificationByIdStart() {
     return { type: ActionTypes.DELETE_NOTIFICATION_BY_ID }
@@ -185,18 +186,35 @@ export function deleteNotificationById(id) {
     }
 }
 
-export function getNotificationTagCommentPublication(id, navigation) {
+export function getNotificationTagCommentPublicationAction(publicationId, navigation) {
     return async (dispatch) => {
         try {
-            console.log(id)
-            return navigation.goBack()
 
+            dispatch(getFeedPublicationByIdStart())
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/publication/id/' + publicationId
 
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) {
+                        dispatch(getFeedPublicationByIdSuccess(response.publication))
+                        return navigation.goBack()
+                    } else {
+                        return dispatch(getFeedPublicationByIdFail(response.message))
+                    }
+                })
 
-
-            
         } catch (error) {
-            return sendError(error)
+            sendError(error)
+            return dispatch(getFeedPublicationByIdFail(error))
+
         }
     }
 }

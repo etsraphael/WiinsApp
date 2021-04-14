@@ -141,10 +141,7 @@ class OneNotification extends React.Component {
         switch (this.props.notification.type) {
 
             case 'NotificationTagCommentPublication': {
-
-                return this.props.actions.getNotificationTagCommentPublication(this.props.notification.publication._id, this.props.navigation)
-
-
+                return this.props.actions.getNotificationTagCommentPublicationAction(this.props.notification.publication._id, this.props.navigation)
             }
 
 
