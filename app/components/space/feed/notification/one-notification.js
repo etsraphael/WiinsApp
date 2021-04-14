@@ -82,6 +82,7 @@ class OneNotification extends React.Component {
                 <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
                     {notif.accepted && <Text style={{ fontSize: 15 }}>You have been verified in the platform. You can enjoy all the extras now. </Text>}
                     {!notif.accepted && <Text style={{ fontSize: 15 }}>You havn't been verified due to your requirements. Try a new time when you're ready</Text>}
+                    <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
                 </View>
 
                 {/* Content Publication */}
