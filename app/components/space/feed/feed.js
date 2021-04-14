@@ -25,8 +25,6 @@ class Feed extends React.Component {
             isHeaderVisible: true,
             search: '',
             pagePublication: 1,
-            modal: false,
-            PublicationModal: null,
             publicationMode: false,
             publicationModeExist: false,
             storysModal: false,
@@ -57,7 +55,7 @@ class Feed extends React.Component {
     _goToProfile = (payload) => {
 
         this.props.actions.resetPublicationInModalActions()
-        
+
         if (payload.pageName == 'Profile') return null
 
         if (payload.profileId !== this.props.MyProfile._id) {
@@ -236,15 +234,6 @@ class Feed extends React.Component {
                             myProfileId={this.props.MyProfile.profile._id}
                             ownerId={this.state.ownerReportPublication}
                         /> : null}
-
-                    {/* {!!this.props.PublicationsInModal.publication &&
-                        <PublicationModalContainer
-                            publicationModal={this.props.PublicationsInModal.publication}
-                            toggleModal={(event) => this._toggleModalNotification(event)}
-                            goToProfile={(payload) => this._goToProfile(payload)}
-                            pageName={'Feed'}
-                        />
-                    } */}
 
                 </View>
             </SafeAreaView>
