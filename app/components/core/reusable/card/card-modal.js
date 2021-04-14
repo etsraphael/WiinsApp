@@ -53,7 +53,7 @@ class CardModal extends React.Component {
 
     _toggleComment = () => {
 
-        this.props.actions.getCommentListPublication(this.props.PublicationsInModal.publication.id, 1)
+        this.props.actions.getCommentListPublication(this.props.PublicationsInModal.publication._id, 1)
 
         // if it's a page 
         if (!!this.props.PublicationsInModal.publication.profile) {
