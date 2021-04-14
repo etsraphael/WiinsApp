@@ -55,27 +55,39 @@ class OneNotification extends React.Component {
             <View style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}>
 
                 {/* Picture profile notification */}
-                <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                    <FastImage
-                        style={{ width: 70, height: 70, borderRadius: 70, resizeMode: 'cover' }}
-                        source={{ uri: 'https://eps-file-default.s3.eu-west-3.amazonaws.com/icon-wiins.png', priority: FastImage.priority.normal }}
-                        resizeMode={FastImage.resizeMode.cover}
-                    />
-                </View>
+                {this._brandRender()}
 
                 {/* Description */}
                 <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
-                    { notif.accepted && <Text style={{ fontSize: 15 }}>You have been verified in the platform. You can enjoy all the extras now. </Text> }
-                    { !notif.accepted && <Text style={{ fontSize: 15 }}>You havn't been verified due to your requirements. Try a new time when you're ready</Text> }  
+                    {notif.accepted && <Text style={{ fontSize: 15 }}>You have been verified in the platform. You can enjoy all the extras now. </Text>}
+                    {!notif.accepted && <Text style={{ fontSize: 15 }}>You havn't been verified due to your requirements. Try a new time when you're ready</Text>}
                 </View>
 
                 {/* Content Publication */}
-                <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity>
-                        <FontAwesomeIcon icon={faEllipsisH} color={'grey'} size={19} />
-                    </TouchableOpacity>
-                </View>
+                {this._ellipsiBtnRender()}
 
+            </View>
+        )
+    }
+
+    _brandRender = () => {
+        return (
+            <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                <FastImage
+                    style={{ width: 70, height: 70, borderRadius: 70, resizeMode: 'cover' }}
+                    source={{ uri: 'https://eps-file-default.s3.eu-west-3.amazonaws.com/icon-wiins.png', priority: FastImage.priority.normal }}
+                    resizeMode={FastImage.resizeMode.cover}
+                />
+            </View>
+        )
+    }
+
+    _ellipsiBtnRender = () => {
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <TouchableOpacity>
+                    <FontAwesomeIcon icon={faEllipsisH} color={'grey'} size={19} />
+                </TouchableOpacity>
             </View>
         )
     }
