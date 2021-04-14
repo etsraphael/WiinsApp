@@ -1,10 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, TouchableOpacity, Image, SafeAreaView, VirtualizedList, Text } from 'react-native'
+import { StyleSheet, View, TouchableOpacity, Text } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as SearchActions from '../../../../redux/SearchBar/actions'
 import * as PublicationInModalActions from '../../../../redux/PublicationInModal/actions'
 import * as StoriesActions from '../../../../redux/Stories/actions'
+import * as NotificationActions from '../../../../redux/Notifications/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons'
@@ -29,7 +30,10 @@ class OneNotification extends React.Component {
 
     _notificationCommentFeedRender = (notif) => {
         return (
-            <View style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}>
+            <TouchableOpacity
+                style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}
+                onPress={() => alert('oh')}
+            >
 
                 {/* Picture profile notification */}
                 {this._avatarNotificationRender(notif.profile.pictureprofile)}
@@ -43,7 +47,7 @@ class OneNotification extends React.Component {
                 {/* Content Publication */}
                 {this._ellipsiBtnRender()}
 
-            </View>
+            </TouchableOpacity>
         )
     }
 
@@ -92,41 +96,73 @@ class OneNotification extends React.Component {
         return (
             <View style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}>
 
-            {/* Picture profile notification */}
-            {this._avatarNotificationRender(notif.profile.pictureprofile)}
+                {/* Picture profile notification */}
+                {this._avatarNotificationRender(notif.profile.pictureprofile)}
 
-            {/* Description */}
-            <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
-                <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} like your publication in the feed </Text>
-                <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
+                {/* Description */}
+                <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
+                    <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} like your publication in the feed </Text>
+                    <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
+                </View>
+
+                {/* Content Publication */}
+                {this._ellipsiBtnRender()}
+
             </View>
+        )
+    }
 
-            {/* Content Publication */}
-            {this._ellipsiBtnRender()}
+    _notificationTagCommentPublicationRender = (notif) => {
 
-        </View>
+        return (
+            <TouchableOpacity
+                style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}
+                onPress={() => this._goToNotification()}
+            >
+
+                {/* Picture profile notification */}
+                {this._avatarNotificationRender(notif.profile.pictureprofile)}
+
+                {/* Description */}
+                <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
+                    <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} tagged you in a publication in the feed </Text>
+                    <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
+                </View>
+
+                {/* Content Publication */}
+                {this._ellipsiBtnRender()}
+
+            </TouchableOpacity>
         )
     }
 
 
-    _notificationTagCommentPublicationRender = (notif) => {
-        return (
-            <View style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}>
+    _goToNotification = () => {
+        switch (this.props.notification.type) {
 
-            {/* Picture profile notification */}
-            {this._avatarNotificationRender(notif.profile.pictureprofile)}
+            case 'NotificationTagCommentPublication': {
 
-            {/* Description */}
-            <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
-                <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} tagged you in a publication in the feed </Text>
-                <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
-            </View>
+                return this.props.actions.getNotificationTagCommentPublication(this.props.notification.publication._id, this.props.navigation)
 
-            {/* Content Publication */}
-            {this._ellipsiBtnRender()}
 
-        </View>
-        )
+            }
+
+
+            case 'NotificationVerification':
+            case 'NotificationComment':
+            case 'NotificationCommentLikePlaylist':
+            case 'NotificationLike':
+            case 'NotificationResponse':
+            case 'NotificationCommentLike':
+            case 'NotificationCommentResponsePlaylist':
+            case 'NotificationTagCommentPlaylist':
+            case 'NotificationTagPublication':
+            case 'NotificationFeatPublication':
+            case 'NotificationReport':
+            case 'NotificationPageReport':
+            case 'NotificationCertification':
+            default: return alert(this.props.notification.type)
+        }
     }
 
     _avatarNotificationRender = (link) => {
@@ -189,7 +225,8 @@ const ActionCreators = Object.assign(
     PublicationFeedActions,
     SearchActions,
     PublicationInModalActions,
-    StoriesActions
+    StoriesActions,
+    NotificationActions
 )
 
 const mapDispatchToProps = dispatch => ({

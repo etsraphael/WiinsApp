@@ -49,7 +49,6 @@ class Feed extends React.Component {
         })
 
         if (!!this.props.params) {
-            alert('boum')
             console.log(this.props.params.notification)
         }
     }

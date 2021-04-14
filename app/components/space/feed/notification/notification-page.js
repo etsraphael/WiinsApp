@@ -36,7 +36,7 @@ class NotificationPage extends React.Component {
                     showsVerticalScrollIndicator={false}
                     style={{ marginBottom: 50 }}
                     data={this.props.Notifications.list}
-                    renderItem={({ item, index }) => <OneNotification notification={item[index]} />}
+                    renderItem={({ item, index }) => <OneNotification notification={item[index]} navigation={this.props.navigation} />}
                     keyExtractor={(item, index) => item[index]._id}
                     getItemCount={() => this.props.Notifications.list.length}
                     getItem={(data) => data}

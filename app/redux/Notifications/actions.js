@@ -63,20 +63,20 @@ export function getByModeFeed(page, mode) {
 
     return async (dispatch) => {
         try {
-            if(page == 1) dispatch(resetNotification())
+            if (page == 1) dispatch(resetNotification())
             dispatch(getNotificationsStart())
             const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/Notification/' + mode + '?limit=8' + '&page=' + page
 
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 }
             })
                 .then((response) => response.json())
-                .then(response=> {
+                .then(response => {
                     if (response.status == 200) {
                         return dispatch(getNotificationsSuccess(response.results))
                     }
@@ -106,7 +106,7 @@ export function addNotification(Notification) {
 
             return fetch(url, {
                 method: 'POST',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 },
@@ -118,7 +118,7 @@ export function addNotification(Notification) {
                     return dispatch(addNotificationFail(response))
                 })
 
-        
+
         } catch (error) {
             sendError(error)
             return dispatch(addNotificationFail(error));
@@ -136,13 +136,13 @@ export function refreshList() {
 
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 }
             })
                 .then((response) => response.json())
-                .then(response=> {
+                .then(response => {
                     if (response.status == 200) {
                         return dispatch(refreshNotificationsSuccess(response.results))
                     }
@@ -165,13 +165,13 @@ export function deleteNotificationById(id) {
 
             return fetch(url, {
                 method: 'DELETE',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 }
             })
                 .then((response) => response.json())
-                .then(response=> {
+                .then(response => {
                     if (response.status == 200) {
                         Snackbar.show({ text: I18n.t('VALID-MESSAGE.update-is-done'), duration: Snackbar.LENGTH_LONG })
                         return dispatch(deleteNotificationByIdSuccess(id))
@@ -181,6 +181,22 @@ export function deleteNotificationById(id) {
         } catch (error) {
             sendError(error)
             return dispatch(deleteNotificationByIdFail(error));
+        }
+    }
+}
+
+export function getNotificationTagCommentPublication(id, navigation) {
+    return async (dispatch) => {
+        try {
+            console.log(id)
+            return navigation.goBack()
+
+
+
+
+            
+        } catch (error) {
+            return sendError(error)
         }
     }
 }
