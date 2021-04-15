@@ -5,6 +5,7 @@ import * as PublicationFeedActions from '../../../../redux/FeedPublications/acti
 import * as SearchActions from '../../../../redux/SearchBar/actions'
 import * as PublicationInModalActions from '../../../../redux/PublicationInModal/actions'
 import * as StoriesActions from '../../../../redux/Stories/actions'
+import * as NotificationsActions from '../../../../redux/Notifications/actions'
 import { bindActionCreators } from 'redux'
 import OneNotification from './one-notification'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -15,6 +16,18 @@ class NotificationPage extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            page: 1
+        }
+    }
+
+    componentDidMount = () => {
+        this.props.actions.getNotificationList(1)
+    }
+
+    _getNextPageOfNotification = () => {
+        this.setState({page: this.state.page++ })
+        this.props.actions.getNotificationList(this.state.page)
     }
 
     render = () => {
@@ -31,8 +44,8 @@ class NotificationPage extends React.Component {
                 </View>
 
                 <VirtualizedList
-                    onRefresh={null}
-                    refreshing={false}
+                    onRefresh={() => this.props.actions.refreshList()}
+                    refreshing={this.props.Notifications.isRefreshing}
                     showsVerticalScrollIndicator={false}
                     style={{ marginBottom: 50 }}
                     data={this.props.Notifications.list}
@@ -41,7 +54,7 @@ class NotificationPage extends React.Component {
                     getItemCount={() => this.props.Notifications.list.length}
                     getItem={(data) => data}
                     scrollEventThrottle={5}
-                    onMomentumScrollEnd={() => null}
+                    onMomentumScrollEnd={() => this._getNextPageOfNotification()}
                 />
             </SafeAreaView>
         )
@@ -65,9 +78,10 @@ const mapStateToProps = state => ({
 const ActionCreators = Object.assign(
     {},
     PublicationFeedActions,
-    SearchActions,
     PublicationInModalActions,
-    StoriesActions
+    NotificationsActions,
+    StoriesActions,
+    SearchActions,
 )
 
 const mapDispatchToProps = dispatch => ({

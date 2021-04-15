@@ -60,14 +60,14 @@ export function resetNotification() {
     return { type: ActionTypes.RESET_NOTIFICATIONS }
 }
 
-export function getByModeFeed(page, mode) {
+export function getNotificationList(page) {
 
     return async (dispatch) => {
         try {
             if (page == 1) dispatch(resetNotification())
             dispatch(getNotificationsStart())
             const token = await AsyncStorage.getItem('userToken')
-            const url = 'https://wiins-backend.herokuapp.com/Notification/' + mode + '?limit=8' + '&page=' + page
+            const url = 'https://wiins-backend.herokuapp.com/notification/activity/list?limit=10&page=' + page
 
             return fetch(url, {
                 method: 'GET',
@@ -78,7 +78,8 @@ export function getByModeFeed(page, mode) {
             })
                 .then((response) => response.json())
                 .then(response => {
-                    if (response.status == 200) {
+                    if (response.status == 201) {
+                        console.log(response.results)
                         return dispatch(getNotificationsSuccess(response.results))
                     }
                     else return dispatch(getNotificationsFail(response.message))
@@ -133,7 +134,7 @@ export function refreshList() {
         try {
             dispatch(refreshNotificationsStart())
             const token = await AsyncStorage.getItem('userToken')
-            const url = 'https://wiins-backend.herokuapp.com/Notification/FollowerAndFriend?limit=8&page=1'
+            const url = 'https://wiins-backend.herokuapp.com/notification/activity/list?limit=10&page=1'
 
             return fetch(url, {
                 method: 'GET',
@@ -144,7 +145,7 @@ export function refreshList() {
             })
                 .then((response) => response.json())
                 .then(response => {
-                    if (response.status == 200) {
+                    if (response.status == 201) {
                         return dispatch(refreshNotificationsSuccess(response.results))
                     }
                     else return dispatch(refreshNotificationsFail(response.message))
