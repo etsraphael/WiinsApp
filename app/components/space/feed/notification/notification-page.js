@@ -16,10 +16,18 @@ class NotificationPage extends React.Component {
 
     constructor(props) {
         super(props)
+        this.state = {
+            page: 1
+        }
     }
 
     componentDidMount = () => {
         this.props.actions.getNotificationList(1)
+    }
+
+    _getNextPageOfNotification = () => {
+        this.setState({page: this.state.page++ })
+        this.props.actions.getNotificationList(this.state.page)
     }
 
     render = () => {
@@ -46,7 +54,7 @@ class NotificationPage extends React.Component {
                     getItemCount={() => this.props.Notifications.list.length}
                     getItem={(data) => data}
                     scrollEventThrottle={5}
-                    onMomentumScrollEnd={() => null}
+                    onMomentumScrollEnd={() => this._getNextPageOfNotification()}
                 />
             </SafeAreaView>
         )
