@@ -12,7 +12,8 @@ export default class ScrollableHeader extends Component {
         super(props);
 
         this.state = {
-            scrollY: new Animated.Value(0)
+            scrollY: new Animated.Value(0),
+            scrollDistance: HEADER_MAX_HEIGHT
         };
     }
 
@@ -33,8 +34,8 @@ export default class ScrollableHeader extends Component {
 
     render() {
         const headerTranslate = this.state.scrollY.interpolate({
-            inputRange: [0, HEADER_SCROLL_DISTANCE],
-            outputRange: [0, -HEADER_SCROLL_DISTANCE],
+            inputRange: [0, this.state.scrollDistance],
+            outputRange: [0, -this.state.scrollDistance],
             extrapolate: 'clamp'
         });
         return (
@@ -42,6 +43,7 @@ export default class ScrollableHeader extends Component {
                 <ScrollView
                     style={styles.fill}
                     scrollEventThrottle={16}
+                    showsVerticalScrollIndicator={this.props.showsVerticalScrollIndicator || true}
                     onScroll={
                         Animated.event(
                             [{ nativeEvent: { contentOffset: { y: this.state.scrollY } } }],
@@ -52,9 +54,10 @@ export default class ScrollableHeader extends Component {
                 >
                 {this._renderScrollViewContent()}
                 </ScrollView>
-                <Animated.View  style={[styles.header, { transform: [{ translateY: headerTranslate }] }]}>
+                <Animated.View  style={[styles.header, (this.props.headerStyle || {}), { transform: [{ translateY: headerTranslate }] }]}>
                     <View onLayout={(event) => {
-                        const { layout: { height, width } } = event.nativeEvent;
+                        const { layout: { height } } = event.nativeEvent;
+                        this.setState({ scrollDistance: height })
                     }}>
                         { this.props.headerNode }
                     </View>
@@ -69,7 +72,7 @@ export default class ScrollableHeader extends Component {
 
 const styles = StyleSheet.create({
     fill: {
-      flex: 1,
+      flex: 1
     },
     row: {
       height: 40,
@@ -83,8 +86,7 @@ const styles = StyleSheet.create({
         top: 0,
         left: 0,
         right: 0,
-        // backgroundColor: '#03A9F4',
-        overflow: 'hidden'
+        zIndex: 1
       },
       bar: {
         height: HEADER_MAX_HEIGHT,

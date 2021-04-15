@@ -19,6 +19,7 @@ import SuggestionDiscover from './suggestion-discover'
 import I18n from './../../../../assets/i18n/i18n'
 import PublicationModalContainer from '../../core/modal/publication-modal-container'
 import { checkNotification } from './../../../services/notification/action-notification-service'
+import ScrollableHeader from '../../core/reusable/component/ScrollableHeader'
 
 class Discover extends React.Component {
 
@@ -237,20 +238,10 @@ class Discover extends React.Component {
     // to select the discover view
     _displayDiscoverView = () => {
         return (
-            <ScrollView
-                scrollEventThrottle={5}
-                style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }}
-                showsVerticalScrollIndicator={false}
-                refreshControl={
-                    <RefreshControl
-                    refreshing={this.props.DiscoverPublications.isRefreshing}
-                    onRefresh={this._refreshDisover}
-                    />
-                  }
-            >
+            <>
                 {this._hastagView()}
                 {(this.props.DiscoverPublications.isLoading && this.state.pagePublication == 1) ? this._displayLoading() : this._publicationFeed()}
-            </ScrollView>
+            </>
         )
     }
 
@@ -273,12 +264,31 @@ class Discover extends React.Component {
         }
     }
 
+    _headerTitle = () => (
+        <View style={styles.headerTitle}>
+            <Text style={styles.title}>{ 'Discover' }</Text>
+        </View>
+    )
+
     render() {
         return (
             <View style={styles.main_container}>
-                {this._header()}
-                {this.state.search.length <= 2 ? this._displayDiscoverView() : null}
-                {this.state.search.length > 2 ? this._displaySuggestionView() : null}
+                <ScrollableHeader
+                    headerNode={this._headerTitle()}
+                    subHeaderNode={this._header()}
+                    style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35 }}
+                    headerStyle={styles.overall_header}
+                    showsVerticalScrollIndicator={false}
+                    refreshControl={
+                        <RefreshControl
+                        refreshing={this.props.DiscoverPublications.isRefreshing}
+                        onRefresh={this._refreshDisover}
+                        />
+                    }
+                >
+                    {this.state.search.length <= 2 ? this._displayDiscoverView() : null}
+                    {this.state.search.length > 2 ? this._displaySuggestionView() : null}
+                </ScrollableHeader>
 
                 {this.state.modal ?
                     <PublicationModalContainer
@@ -298,16 +308,33 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#eef2f4'
     },
+    headerTitle: {
+        height: 50,
+        flex: 1,
+        // alignItems: 'center',
+        justifyContent: 'center',
+        paddingLeft: 24
+    },
+    title: {
+        backgroundColor: 'transparent',
+        color: 'black',
+        fontSize: 24,
+        fontWeight: 'bold'
+    },
     header_container: {
-        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10,
         paddingBottom: 15,
         paddingHorizontal: 25,
+        // borderBottomRightRadius: 25,
+        // borderBottomLeftRadius: 25,
+        position: 'relative',
+        // borderWidth: 0.3,
+        // borderColor: '#c3c3c36e'
+    },
+    overall_header: {
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10,
         backgroundColor: '#f9fafc',
         borderBottomRightRadius: 25,
         borderBottomLeftRadius: 25,
-        position: 'relative',
-        borderWidth: 0.3,
-        borderColor: '#c3c3c36e'
     },
     container_search_bar: {
         height: 45,
