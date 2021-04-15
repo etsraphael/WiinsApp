@@ -13,6 +13,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { TubesCategories } from './../../core/data/tubes'
 import * as TubeMenuActions from '../../../redux/TubeMenu/actions'
 import I18n from '../../../../assets/i18n/i18n'
+import ScrollableHeader from './../../core/reusable/component/ScrollableHeader'
 
 class HomeTube extends React.Component {
 
@@ -259,13 +260,7 @@ class HomeTube extends React.Component {
             )
         } else {
             return (
-                <ScrollView
-                    refreshControl={
-                        <RefreshControl
-                            refreshing={this.props.TubeMenu.isRefreshing}
-                            onRefresh={this._refreshPage}
-                        />
-                    }>
+                <View>
                     {this._tubeListBySection(this.props.TubeMenu.trending, I18n.t('TUBE.Categorie.Trending'), { fontWeight: 'bold' }, true)}
 
                     {/* {this._categorieViews()} */}
@@ -274,16 +269,33 @@ class HomeTube extends React.Component {
                     {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Suggestion')} */}
 
                     {this._tubeListDownloaded(this.props.TubeMenu.downloaded, I18n.t('CORE.Downloaded'), { fontWeight: 'bold' }, true)}
-                </ScrollView>)
+                </View>)
         }
     }
 
+    _headerTitle = () => (
+        <View style={styles.headerTitle}>
+            <Text style={styles.title}>{ Tube }</Text>
+        </View>
+    )
+
     render() {
         return (
-            <View style={styles.main_container}>
-                {this._header()}
-                {this._bodyRender()}
-            </View>
+            <ScrollableHeader 
+                title="Tube" 
+                refreshControl={
+                    <RefreshControl
+                        refreshing={this.props.TubeMenu.isRefreshing}
+                        onRefresh={this._refreshPage}
+                    />
+                }
+                subHeaderNode={this._header()}
+                headerNode={this._headerTitle}
+            >
+                <View style={styles.main_container}>
+                    {this._bodyRender()}
+                </View>
+            </ScrollableHeader>
         )
     }
 }
@@ -291,7 +303,21 @@ class HomeTube extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
         flex: 1,
-        backgroundColor: '#eef2f4'
+        backgroundColor: '#eef2f4',
+        paddingBottom: 2000
+    },
+    headerTitle: {
+        height: 60,
+        flex: 1,
+        // alignItems: 'center',
+        justifyContent: 'center',
+        paddingLeft: 24
+    },
+    title: {
+        backgroundColor: 'transparent',
+        color: 'black',
+        fontSize: 24,
+        fontWeight: 'bold'
     },
     header_container: {
         paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10,
