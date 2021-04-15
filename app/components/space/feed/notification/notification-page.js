@@ -36,8 +36,8 @@ class NotificationPage extends React.Component {
                 </View>
 
                 <VirtualizedList
-                    onRefresh={null}
-                    refreshing={false}
+                    onRefresh={() => this.props.actions.refreshList()}
+                    refreshing={this.props.Notifications.isRefreshing}
                     showsVerticalScrollIndicator={false}
                     style={{ marginBottom: 50 }}
                     data={this.props.Notifications.list}

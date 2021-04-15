@@ -134,7 +134,7 @@ export function refreshList() {
         try {
             dispatch(refreshNotificationsStart())
             const token = await AsyncStorage.getItem('userToken')
-            const url = 'https://wiins-backend.herokuapp.com/Notification/FollowerAndFriend?limit=8&page=1'
+            const url = 'https://wiins-backend.herokuapp.com/notification/activity/list?limit=10&page=1'
 
             return fetch(url, {
                 method: 'GET',
