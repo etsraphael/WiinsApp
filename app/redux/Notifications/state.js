@@ -1,107 +1,156 @@
 export const initialState = {
     list: [
-        {
-          "_id": "607009c221073300310abeb4",
-          "read": true,
-          "quantity": 1,
-          "type": "NotificationComment",
-          "profile": {
-            "_id": "5f79c39bfb1625003153111a",
-            "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/80fa72f0-8259-4eb7-9266-7ca50bc1253b",
-            "_meta": {
-              "pseudo": "Nathy"
-            }
-          },
-          "profileNotification": "5f79bf25fb16250031531109",
-          "publication": {
-            "_id": "606fa89fad2d23003175724f",
-            "type": "PostPublication",
-            "background": "linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12)",
-            "text": "What's up everyone ? "
-          },
-          "comment": "607009c221073300310abeb2",
-          "createdAt": "2021-04-09T08:01:06.810Z",
-          "updatedAt": "2021-04-09T08:01:06.810Z",
-          "__v": 0,
-          "id": "607009c221073300310abeb4"
+      {
+        "_id": "60750aff8abc4f0a0ff5e9b8",
+        "read": true,
+        "quantity": 1,
+        "type": "NotificationTagCommentPublication",
+        "profile": {
+          "_id": "5f79bf25fb16250031531109",
+          "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/a1640c16-6b0b-4b54-ba51-c190e2235c2f",
+          "_meta": {
+            "pseudo": "levin"
+          }
         },
-        {
-          "_id": "6023bddcb304bd003185ab57",
-          "read": true,
-          "quantity": 1,
-          "type": "NotificationVerification",
-          "accepted": true,
-          "profileNotification": "5f79bf25fb16250031531109",
-          "createdAt": "2021-02-10T11:05:00.666Z",
-          "updatedAt": "2021-02-10T11:05:00.666Z",
-          "__v": 0,
-          "id": "6023bddcb304bd003185ab57"
+        "profileNotification": "5f7bf87f12b838003170b5ce",
+        "publication": {
+          "_id": "603d0389425cce0031c09654",
+          "type": "PicturePublication",
+          "file": "https://eps-file-feed-publication-image.s3.eu-west-3.amazonaws.com/b305e4f1-ef08-42ce-9e2e-89218571a4ac",
+          "text": ""
         },
-        {
-          "_id": "6023801cb304bd003185ab51",
-          "read": false,
-          "quantity": 1,
-          "type": "NotificationVerification",
-          "accepted": true,
-          "profileNotification": "5f79bf25fb16250031531109",
-          "createdAt": "2021-02-10T06:41:32.480Z",
-          "updatedAt": "2021-02-10T06:41:32.480Z",
-          "__v": 0,
-          "id": "6023801cb304bd003185ab51"
+        "comment": "60750afe8abc4f0a0ff5e9b6",
+        "createdAt": "2021-04-13T03:07:43.797Z",
+        "updatedAt": "2021-04-13T05:04:36.053Z",
+        "__v": 0,
+        "id": "60750aff8abc4f0a0ff5e9b8"
+      },
+      {
+        "_id": "607502468abc4f0a0ff5e9b5",
+        "read": false,
+        "quantity": 1,
+        "type": "NotificationTagCommentPublication",
+        "profile": {
+          "_id": "5f79bf25fb16250031531109",
+          "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/a1640c16-6b0b-4b54-ba51-c190e2235c2f",
+          "_meta": {
+            "pseudo": "levin"
+          }
         },
-        {
-          "_id": "60214f2eafb0f300317cb4fd",
-          "read": true,
-          "quantity": 1,
-          "type": "NotificationCommentLikePlaylist",
-          "profile": {
-            "_id": "5f79c39bfb1625003153111a",
-            "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/80fa72f0-8259-4eb7-9266-7ca50bc1253b",
-            "_meta": {
-              "pseudo": "Nathy"
-            }
-          },
-          "profileNotification": "5f79bf25fb16250031531109",
-          "comment": "6017e3c39853b800315ca306",
-          "playlist": "600ff6803a484d003188fd58",
-          "createdAt": "2021-02-08T14:48:14.172Z",
-          "updatedAt": "2021-02-08T14:48:14.172Z",
-          "__v": 0,
-          "id": "60214f2eafb0f300317cb4fd"
+        "profileNotification": "5f7bf87f12b838003170b5ce",
+        "publication": {
+          "_id": "603d0389425cce0031c09654",
+          "type": "PicturePublication",
+          "file": "https://eps-file-feed-publication-image.s3.eu-west-3.amazonaws.com/b305e4f1-ef08-42ce-9e2e-89218571a4ac",
+          "text": ""
         },
-        {
-          "_id": "60214ab2afb0f300317cb4f8",
-          "read": true,
-          "quantity": 1,
-          "type": "NotificationCommentLikePlaylist",
-          "profile": {
-            "_id": "5f79c39bfb1625003153111a",
-            "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/80fa72f0-8259-4eb7-9266-7ca50bc1253b",
-            "_meta": {
-              "pseudo": "Nathy"
-            }
-          },
-          "profileNotification": "5f79bf25fb16250031531109",
-          "comment": "6017e3c39853b800315ca306",
-          "playlist": "600ff6803a484d003188fd58",
-          "createdAt": "2021-02-08T14:29:06.413Z",
-          "updatedAt": "2021-02-08T14:29:06.413Z",
-          "__v": 0,
-          "id": "60214ab2afb0f300317cb4f8"
+        "comment": "607502458abc4f0a0ff5e9b3",
+        "createdAt": "2021-04-13T02:30:30.439Z",
+        "updatedAt": "2021-04-13T02:30:30.439Z",
+        "__v": 0,
+        "id": "607502468abc4f0a0ff5e9b5"
+      },
+      {
+        "_id": "607501f38abc4f0a0ff5e9b2",
+        "read": false,
+        "quantity": 1,
+        "type": "NotificationTagCommentPublication",
+        "profile": {
+          "_id": "5f79bf25fb16250031531109",
+          "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/a1640c16-6b0b-4b54-ba51-c190e2235c2f",
+          "_meta": {
+            "pseudo": "levin"
+          }
         },
-        {
-          "_id": "60212e84afb0f300317cb4f7",
-          "read": true,
-          "quantity": 1,
-          "type": "NotificationVerification",
-          "accepted": true,
-          "profileNotification": "5f79bf25fb16250031531109",
-          "createdAt": "2021-02-08T12:28:52.752Z",
-          "updatedAt": "2021-02-08T12:28:52.752Z",
-          "__v": 0,
-          "id": "60212e84afb0f300317cb4f7"
-        }
-      ],
+        "profileNotification": "5f7bf87f12b838003170b5ce",
+        "publication": {
+          "_id": "603d0389425cce0031c09654",
+          "type": "PicturePublication",
+          "file": "https://eps-file-feed-publication-image.s3.eu-west-3.amazonaws.com/b305e4f1-ef08-42ce-9e2e-89218571a4ac",
+          "text": ""
+        },
+        "comment": "607501f28abc4f0a0ff5e9b0",
+        "createdAt": "2021-04-13T02:29:07.238Z",
+        "updatedAt": "2021-04-13T02:29:07.238Z",
+        "__v": 0,
+        "id": "607501f38abc4f0a0ff5e9b2"
+      },
+      {
+        "_id": "607500518abc4f0a0ff5e9af",
+        "read": false,
+        "quantity": 1,
+        "type": "NotificationTagCommentPublication",
+        "profile": {
+          "_id": "5f79bf25fb16250031531109",
+          "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/a1640c16-6b0b-4b54-ba51-c190e2235c2f",
+          "_meta": {
+            "pseudo": "levin"
+          }
+        },
+        "profileNotification": "5f7bf87f12b838003170b5ce",
+        "publication": {
+          "_id": "603d0389425cce0031c09654",
+          "type": "PicturePublication",
+          "file": "https://eps-file-feed-publication-image.s3.eu-west-3.amazonaws.com/b305e4f1-ef08-42ce-9e2e-89218571a4ac",
+          "text": ""
+        },
+        "comment": "607500518abc4f0a0ff5e9ad",
+        "createdAt": "2021-04-13T02:22:09.771Z",
+        "updatedAt": "2021-04-13T02:22:09.771Z",
+        "__v": 0,
+        "id": "607500518abc4f0a0ff5e9af"
+      },
+      {
+        "_id": "607500138abc4f0a0ff5e9ac",
+        "read": false,
+        "quantity": 1,
+        "type": "NotificationTagCommentPublication",
+        "profile": {
+          "_id": "5f79bf25fb16250031531109",
+          "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/a1640c16-6b0b-4b54-ba51-c190e2235c2f",
+          "_meta": {
+            "pseudo": "levin"
+          }
+        },
+        "profileNotification": "5f7bf87f12b838003170b5ce",
+        "publication": {
+          "_id": "603d0389425cce0031c09654",
+          "type": "PicturePublication",
+          "file": "https://eps-file-feed-publication-image.s3.eu-west-3.amazonaws.com/b305e4f1-ef08-42ce-9e2e-89218571a4ac",
+          "text": ""
+        },
+        "comment": "607500128abc4f0a0ff5e9aa",
+        "createdAt": "2021-04-13T02:21:07.531Z",
+        "updatedAt": "2021-04-13T02:21:07.531Z",
+        "__v": 0,
+        "id": "607500138abc4f0a0ff5e9ac"
+      },
+      {
+        "_id": "6074fd168abc4f0a0ff5e9a9",
+        "read": false,
+        "quantity": 1,
+        "type": "NotificationTagCommentPublication",
+        "profile": {
+          "_id": "5f79bf25fb16250031531109",
+          "pictureprofile": "https://eps-file-avatar.s3.eu-west-3.amazonaws.com/a1640c16-6b0b-4b54-ba51-c190e2235c2f",
+          "_meta": {
+            "pseudo": "levin"
+          }
+        },
+        "profileNotification": "5f7bf87f12b838003170b5ce",
+        "publication": {
+          "_id": "603d0389425cce0031c09654",
+          "type": "PicturePublication",
+          "file": "https://eps-file-feed-publication-image.s3.eu-west-3.amazonaws.com/b305e4f1-ef08-42ce-9e2e-89218571a4ac",
+          "text": ""
+        },
+        "comment": "6074fd158abc4f0a0ff5e9a7",
+        "createdAt": "2021-04-13T02:08:22.156Z",
+        "updatedAt": "2021-04-13T02:08:22.156Z",
+        "__v": 0,
+        "id": "6074fd168abc4f0a0ff5e9a9"
+      }
+    ],
     isLoading: false,
     isRefreshing: false,
     error: null,

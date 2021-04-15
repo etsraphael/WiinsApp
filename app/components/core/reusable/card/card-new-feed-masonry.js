@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
 import * as DiscoverdPublicationActions from '../../../../redux/DiscoverPublications/actions'
+import * as PublicationInModalActions from '../../../../redux/PublicationInModal/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
@@ -113,7 +114,7 @@ class CardNewFeedMasonry extends React.Component {
 
         return (
             <TouchableOpacity
-                onLayout={(event) => { this.setState({ textHeight: 0 })  }}
+                onLayout={() => { this.setState({ textHeight: 0 })  }}
                 onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
             >
                 <LinearGradient colors={background} start={orientation[0]} end={orientation[1]} style={{ flex: 1, justifyContent: 'center' }}>
@@ -522,6 +523,7 @@ const mapStateToProps = state => ({
     FeedPublications: state.FeedPublications,
     ProfilePublications: state.ProfilePublications,
     DiscoverPublications: state.DiscoverPublications,
+    PublicationsInModal: state.PublicationsInModal,
     MyProfile: state.MyProfile
 })
 
@@ -529,7 +531,8 @@ const ActionCreators = Object.assign(
     {},
     PublicationFeedActions,
     ProfilePublicationActions,
-    DiscoverdPublicationActions
+    DiscoverdPublicationActions,
+    PublicationInModalActions
 )
 
 const mapDispatchToProps = dispatch => ({

@@ -25,8 +25,6 @@ class Feed extends React.Component {
             isHeaderVisible: true,
             search: '',
             pagePublication: 1,
-            modal: false,
-            PublicationModal: null,
             publicationMode: false,
             publicationModeExist: false,
             storysModal: false,
@@ -40,6 +38,7 @@ class Feed extends React.Component {
 
     UNSAFE_componentWillMount() {
         this.props.actions.resetPublicationActions()
+        this.props.actions.resetPublicationInModalActions()
         this._getPublicationList()
     }
 
@@ -49,22 +48,14 @@ class Feed extends React.Component {
         })
 
         if (!!this.props.params) {
-            alert('boum')
             console.log(this.props.params.notification)
         }
-    }
-
-    // to display the modal view
-    _toggleModal = (event) => {
-        if (!!event) { this.props.actions.putPublicationInModalActions(event.publication) }
-        else { this.props.actions.resetPublicationInModalActions() }
-        this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
     // go to profile
     _goToProfile = (payload) => {
 
-        this.setState({ modal: false, PublicationModal: null })
+        this.props.actions.resetPublicationInModalActions()
 
         if (payload.pageName == 'Profile') return null
 
@@ -136,7 +127,6 @@ class Feed extends React.Component {
             navigation={this.props.navigation}
             publication={item}
             space={'feed'}
-            toggleModal={(event) => this._toggleModal(event)}
         />)
     }
 
@@ -208,7 +198,6 @@ class Feed extends React.Component {
         setTimeout(() => this.setState({ reportModalExist: !this.state.reportModalExist }), 100)
     }
 
-
     render = () => {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -225,13 +214,12 @@ class Feed extends React.Component {
                             isVisible={this.state.publicationMode}
                         /> : null}
 
-                    {this.state.modal ?
+                    {!!this.props.PublicationsInModal.publication &&
                         <PublicationModalContainer
-                            publicationModal={this.state.PublicationModal}
-                            toggleModal={(event) => this._toggleModal(event)}
                             goToProfile={(payload) => this._goToProfile(payload)}
                             pageName={'Feed'}
-                        /> : null}
+                        />
+                    }
 
                     {this.state.storysModalExist ?
                         <StoriesTrend
@@ -283,14 +271,15 @@ const mapStateToProps = state => ({
     MyUser: state.MyUser,
     SearchList: state.Search,
     MyProfile: state.MyProfile,
-    Stories: state.Stories
+    Stories: state.Stories,
+    PublicationsInModal: state.PublicationsInModal
 })
 
 const ActionCreators = Object.assign(
     {},
+    PublicationInModalActions,
     PublicationFeedActions,
     SearchActions,
-    PublicationInModalActions,
     StoriesActions
 )
 

@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
 import Snackbar from 'react-native-snackbar'
 import I18n from '../../../assets/i18n/i18n'
+import { getFeedPublicationByIdStart, getFeedPublicationByIdSuccess, getFeedPublicationByIdFail } from './../PublicationInModal/actions'
 
 export function deleteNotificationByIdStart() {
     return { type: ActionTypes.DELETE_NOTIFICATION_BY_ID }
@@ -63,20 +64,20 @@ export function getByModeFeed(page, mode) {
 
     return async (dispatch) => {
         try {
-            if(page == 1) dispatch(resetNotification())
+            if (page == 1) dispatch(resetNotification())
             dispatch(getNotificationsStart())
             const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/Notification/' + mode + '?limit=8' + '&page=' + page
 
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 }
             })
                 .then((response) => response.json())
-                .then(response=> {
+                .then(response => {
                     if (response.status == 200) {
                         return dispatch(getNotificationsSuccess(response.results))
                     }
@@ -106,7 +107,7 @@ export function addNotification(Notification) {
 
             return fetch(url, {
                 method: 'POST',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 },
@@ -118,7 +119,7 @@ export function addNotification(Notification) {
                     return dispatch(addNotificationFail(response))
                 })
 
-        
+
         } catch (error) {
             sendError(error)
             return dispatch(addNotificationFail(error));
@@ -136,13 +137,13 @@ export function refreshList() {
 
             return fetch(url, {
                 method: 'GET',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 }
             })
                 .then((response) => response.json())
-                .then(response=> {
+                .then(response => {
                     if (response.status == 200) {
                         return dispatch(refreshNotificationsSuccess(response.results))
                     }
@@ -165,13 +166,13 @@ export function deleteNotificationById(id) {
 
             return fetch(url, {
                 method: 'DELETE',
-                headers: { 
+                headers: {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 }
             })
                 .then((response) => response.json())
-                .then(response=> {
+                .then(response => {
                     if (response.status == 200) {
                         Snackbar.show({ text: I18n.t('VALID-MESSAGE.update-is-done'), duration: Snackbar.LENGTH_LONG })
                         return dispatch(deleteNotificationByIdSuccess(id))
@@ -181,6 +182,39 @@ export function deleteNotificationById(id) {
         } catch (error) {
             sendError(error)
             return dispatch(deleteNotificationByIdFail(error));
+        }
+    }
+}
+
+export function getNotificationTagCommentPublicationAction(publicationId, navigation) {
+    return async (dispatch) => {
+        try {
+
+            dispatch(getFeedPublicationByIdStart())
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/publication/id/' + publicationId
+
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) {
+                        dispatch(getFeedPublicationByIdSuccess(response.publication, 'feed'))
+                        return navigation.goBack()
+                    } else {
+                        return dispatch(getFeedPublicationByIdFail(response.message))
+                    }
+                })
+
+        } catch (error) {
+            sendError(error)
+            return dispatch(getFeedPublicationByIdFail(error))
+
         }
     }
 }

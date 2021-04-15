@@ -1,3 +1,6 @@
 export const initialState = {
-    publication: null
+    publication: null,
+    isLoading: false,
+    error: null,
+    space: null
 }
