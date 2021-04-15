@@ -5,6 +5,7 @@ import * as PublicationFeedActions from '../../../../redux/FeedPublications/acti
 import * as SearchActions from '../../../../redux/SearchBar/actions'
 import * as PublicationInModalActions from '../../../../redux/PublicationInModal/actions'
 import * as StoriesActions from '../../../../redux/Stories/actions'
+import * as NotificationsActions from '../../../../redux/Notifications/actions'
 import { bindActionCreators } from 'redux'
 import OneNotification from './one-notification'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
@@ -15,6 +16,10 @@ class NotificationPage extends React.Component {
 
     constructor(props) {
         super(props)
+    }
+
+    componentDidMount = () => {
+        this.props.actions.getNotificationList(1)
     }
 
     render = () => {
@@ -65,9 +70,10 @@ const mapStateToProps = state => ({
 const ActionCreators = Object.assign(
     {},
     PublicationFeedActions,
-    SearchActions,
     PublicationInModalActions,
-    StoriesActions
+    NotificationsActions,
+    StoriesActions,
+    SearchActions,
 )
 
 const mapDispatchToProps = dispatch => ({
