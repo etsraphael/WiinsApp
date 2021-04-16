@@ -53,12 +53,13 @@ class VideoPlayer extends React.Component {
         this.setState({ paused: true });
         // this.video.seek(0);
     }
+    onSliderStart = () => this.setState({ paused: true })
+    onSliderComplete = () => this.setState({ paused: false })
     onSliderSeek = (slide) => {
         this.player.seek(slide * this.state.duration);
         this.scheduleCloseOverlay();
     }
     onClickOnVideo = () => {
-        console.log("overlay", this.state.overlay)
         if (!this.state.videoReady) {
             return null;
         }
@@ -112,9 +113,13 @@ class VideoPlayer extends React.Component {
                             <View style={{ flex: 1, marginHorizontal: 10 }}>
                             <Slider
                                 minimumTrackTintColor="#307ecc"
-                                maximumTrackTintColor="#000000"
+                                maximumTrackTintColor="#898989"
                                 value={currentTime / duration}
-                                onValueChange={this.onSliderSeek} />
+                                thumbTintColor="#f9f9f9"
+                                onValueChange={this.onSliderSeek}
+                                onSlidingStart={this.onSliderStart}
+                                onSlidingComplete={this.onSliderComplete}
+                            />
                             </View>
                             <Text style={{ color: 'white', maxWidth: 40 }}>{ this.getTime(duration) }</Text>
                         </View>
