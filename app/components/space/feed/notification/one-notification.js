@@ -24,7 +24,6 @@ class OneNotification extends React.Component {
     }
 
     _notificationToCode = (item) => {
-        console.log(item)
         return (<View />)
     }
 
@@ -94,7 +93,10 @@ class OneNotification extends React.Component {
 
     _notificationLikeFeedPublicationRender = (notif) => {
         return (
-            <View style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}>
+            <TouchableOpacity 
+                style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}
+                onPress={() => this._goToNotification()}
+            >
 
                 {/* Picture profile notification */}
                 {this._avatarNotificationRender(notif.profile.pictureprofile)}
@@ -108,7 +110,7 @@ class OneNotification extends React.Component {
                 {/* Content Publication */}
                 {this._ellipsiBtnRender()}
 
-            </View>
+            </TouchableOpacity>
         )
     }
 
@@ -143,12 +145,13 @@ class OneNotification extends React.Component {
             case 'NotificationTagCommentPublication': {
                 return this.props.actions.getNotificationTagCommentPublicationAction(this.props.notification.publication._id, this.props.navigation)
             }
-
+            case 'NotificationLike': {
+                return this.props.actions.getNotificationPublicationLikeAction(this.props.notification.publication._id, this.props.navigation) 
+            }
 
             case 'NotificationVerification':
             case 'NotificationComment':
             case 'NotificationCommentLikePlaylist':
-            case 'NotificationLike':
             case 'NotificationResponse':
             case 'NotificationCommentLike':
             case 'NotificationCommentResponsePlaylist':

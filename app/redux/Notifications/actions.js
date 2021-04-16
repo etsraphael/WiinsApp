@@ -219,3 +219,36 @@ export function getNotificationTagCommentPublicationAction(publicationId, naviga
         }
     }
 }
+
+export function getNotificationPublicationLikeAction(publicationId, navigation) {
+    return async (dispatch) => {
+        try {
+
+            dispatch(getFeedPublicationByIdStart())
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/publication/id/' + publicationId
+
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) {
+                        dispatch(getFeedPublicationByIdSuccess(response.publication, 'feed'))
+                        return navigation.goBack()
+                    } else {
+                        return dispatch(getFeedPublicationByIdFail(response.message))
+                    }
+                })
+
+        } catch (error) {
+            sendError(error)
+            return dispatch(getFeedPublicationByIdFail(error))
+
+        }
+    }
+}
