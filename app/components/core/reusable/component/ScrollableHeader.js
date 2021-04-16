@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { Animated, StyleSheet, View, Text, ScrollView } from "react-native";
 
-const HEADER_MAX_HEIGHT = 60,
-HEADER_MIN_HEIGHT = 0,
-HEADER_SCROLL_DISTANCE = HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT;
+const HEADER_MAX_HEIGHT = 60;
 
 export default class ScrollableHeader extends Component {
 
@@ -38,6 +36,11 @@ export default class ScrollableHeader extends Component {
             outputRange: [0, -this.state.scrollDistance],
             extrapolate: 'clamp'
         });
+        const zIndexTranslate = this.state.scrollY.interpolate({
+            inputRange: [0, this.state.scrollDistance],
+            outputRange: [-1, 1],
+            extrapolate: 'clamp'
+        });
         return (
             <View style={styles.fill}>
                 <ScrollView
@@ -54,7 +57,7 @@ export default class ScrollableHeader extends Component {
                 >
                 {this._renderScrollViewContent()}
                 </ScrollView>
-                <Animated.View  style={[styles.header, (this.props.headerStyle || {}), { transform: [{ translateY: headerTranslate }] }]}>
+                <Animated.View  style={[styles.header, (this.props.headerStyle || {}), { transform: [{ translateY: headerTranslate }] }, { zIndex: zIndexTranslate }]}>
                     <View onLayout={(event) => {
                         const { layout: { height } } = event.nativeEvent;
                         this.setState({ scrollDistance: height })
@@ -85,8 +88,7 @@ const styles = StyleSheet.create({
         position: 'absolute',
         top: 0,
         left: 0,
-        right: 0,
-        zIndex: 1
+        right: 0
       },
       bar: {
         height: HEADER_MAX_HEIGHT,
