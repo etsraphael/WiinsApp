@@ -11,6 +11,7 @@ import FastImage from 'react-native-fast-image'
 import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { getDateTranslated } from '../../../../services/translation/translation-service'
+import { TabActions } from '@react-navigation/native'
 
 class OneNotification extends React.Component {
 
@@ -24,6 +25,7 @@ class OneNotification extends React.Component {
     }
 
     _notificationToCode = (item) => {
+        console.log(item)
         return (<View />)
     }
 
@@ -138,6 +140,29 @@ class OneNotification extends React.Component {
         )
     }
 
+    _notificationTagCommentPlaylistRender = (notif) => {
+        return (
+            <TouchableOpacity
+                style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}
+                onPress={() => this._goToNotification()}
+            >
+
+                {/* Picture profile notification */}
+                {this._avatarNotificationRender(notif.profile.pictureprofile)}
+
+                {/* Description */}
+                <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
+                    <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} tagged you in a publication a music playlist </Text>
+                    <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
+                </View>
+
+                {/* Content Publication */}
+                {this._ellipsiBtnRender()}
+
+            </TouchableOpacity>
+        )
+    }
+
 
     _goToNotification = () => {
         switch (this.props.notification.type) {
@@ -155,10 +180,14 @@ class OneNotification extends React.Component {
             }
 
             case 'NotificationCommentLikePlaylist':
+            case 'NotificationTagCommentPlaylist': 
+            case 'NotificationCommentResponsePlaylist': {
+                const jumpToAction = TabActions.jumpTo('MAIN_MUSIC', { type: 'playlist-redirection', playlistId: this.props.notification.playlist })
+                return this.props.navigation.dispatch(jumpToAction)
+            }
+
             case 'NotificationResponse':
             case 'NotificationCommentLike':
-            case 'NotificationCommentResponsePlaylist':
-            case 'NotificationTagCommentPlaylist':
             case 'NotificationTagPublication':
             case 'NotificationFeatPublication':
             case 'NotificationReport':
@@ -197,10 +226,10 @@ class OneNotification extends React.Component {
             case 'NotificationCommentLikePlaylist': return this._notificationCommentLikePlaylistRender(this.props.notification)
             case 'NotificationLike': return this._notificationLikeFeedPublicationRender(this.props.notification)
             case 'NotificationTagCommentPublication': return this._notificationTagCommentPublicationRender(this.props.notification)
+            case 'NotificationTagCommentPlaylist': return this._notificationTagCommentPlaylistRender(this.props.notification)
             case 'NotificationResponse':
             case 'NotificationCommentLike':
             case 'NotificationCommentResponsePlaylist':
-            case 'NotificationTagCommentPlaylist':
             case 'NotificationTagPublication':
             case 'NotificationFeatPublication':
             case 'NotificationReport':

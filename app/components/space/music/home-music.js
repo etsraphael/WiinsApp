@@ -50,7 +50,17 @@ class HomeMusic extends React.Component {
         checkNotification(this.props.navigation)
         this.props.actions.getMusicMenu()
         this.props.actions.getMyMusic()
+
+
     }
+
+    UNSAFE_componentWillUpdate() {
+        if (!!this.props.params && this.props.params.type  == 'playlist-redirection') {
+            this.props.navigation.navigate('PlaylistPage', { playlistId: this.props.params.playlistId})
+        }
+    }
+
+    
 
     // to display the header view of the screen
     _header = () => {
