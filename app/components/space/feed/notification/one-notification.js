@@ -31,7 +31,7 @@ class OneNotification extends React.Component {
         return (
             <TouchableOpacity
                 style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}
-                onPress={() => alert('oh')}
+                onPress={() => this._goToNotification()}
             >
 
                 {/* Picture profile notification */}
@@ -142,6 +142,11 @@ class OneNotification extends React.Component {
     _goToNotification = () => {
         switch (this.props.notification.type) {
 
+            case 'NotificationCertification':
+            case 'NotificationVerification': {
+                return null
+            }
+            case 'NotificationComment':
             case 'NotificationTagCommentPublication': {
                 return this.props.actions.getNotificationTagCommentPublicationAction(this.props.notification.publication._id, this.props.navigation)
             }
@@ -149,8 +154,6 @@ class OneNotification extends React.Component {
                 return this.props.actions.getNotificationPublicationLikeAction(this.props.notification.publication._id, this.props.navigation) 
             }
 
-            case 'NotificationVerification':
-            case 'NotificationComment':
             case 'NotificationCommentLikePlaylist':
             case 'NotificationResponse':
             case 'NotificationCommentLike':
@@ -160,7 +163,7 @@ class OneNotification extends React.Component {
             case 'NotificationFeatPublication':
             case 'NotificationReport':
             case 'NotificationPageReport':
-            case 'NotificationCertification':
+            
             default: return alert(this.props.notification.type)
         }
     }
