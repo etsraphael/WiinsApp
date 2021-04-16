@@ -13,7 +13,7 @@ import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
+import { faUserCircle, faCog, faBell } from '@fortawesome/pro-light-svg-icons'
 import CardNewFeed from './../../core/reusable/card/card-new-feed'
 import { checkNotification } from './../../../services/notification/action-notification-service'
 
@@ -25,8 +25,6 @@ class Feed extends React.Component {
             isHeaderVisible: true,
             search: '',
             pagePublication: 1,
-            modal: false,
-            PublicationModal: null,
             publicationMode: false,
             publicationModeExist: false,
             storysModal: false,
@@ -40,24 +38,24 @@ class Feed extends React.Component {
 
     UNSAFE_componentWillMount() {
         this.props.actions.resetPublicationActions()
+        this.props.actions.resetPublicationInModalActions()
         this._getPublicationList()
     }
 
     componentDidMount() {
-        checkNotification(this.props.navigation)
-    }
+        checkNotification(this.props.navigation, {
+            openToggleModal: (event) => this._toggleModal(event)
+        })
 
-    // to display the modal view
-    _toggleModal = (event) => {
-        if (!!event) { this.props.actions.putPublicationInModalActions(event.publication) }
-        else { this.props.actions.resetPublicationInModalActions() }
-        this.setState({ modal: !this.state.modal, PublicationModal: event })
+        if (!!this.props.params) {
+            console.log(this.props.params.notification)
+        }
     }
 
     // go to profile
     _goToProfile = (payload) => {
 
-        this.setState({ modal: false, PublicationModal: null })
+        this.props.actions.resetPublicationInModalActions()
 
         if (payload.pageName == 'Profile') return null
 
@@ -92,7 +90,7 @@ class Feed extends React.Component {
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Setting')}
-                        style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        style={{ justifyContent: 'center', alignItems: 'center', paddingLeft: 25 }}>
                         <FontAwesomeIcon icon={faCog} size={24} color={'#aeaeae'} />
                     </TouchableOpacity>
                 </View>
@@ -100,11 +98,18 @@ class Feed extends React.Component {
                     <Image style={{ width: 65, height: 35 }} source={require('../../../../assets/image/wiins-written.png')} />
                 </View>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('MyProfile')}
-                        style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faUserCircle} size={27} color={'#aeaeae'} />
-                    </TouchableOpacity>
+                    <View style={{ flexDirection: 'row', paddingHorizontal: 20 }}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('Notification')}
+                            style={{ justifyContent: 'center', alignItems: 'center', paddingHorizontal: 10 }}>
+                            <FontAwesomeIcon icon={faBell} size={27} color={'#aeaeae'} />
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('MyProfile')}
+                            style={{ justifyContent: 'center', alignItems: 'center', paddingHorizontal: 10 }}>
+                            <FontAwesomeIcon icon={faUserCircle} size={27} color={'#aeaeae'} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         )
@@ -122,7 +127,6 @@ class Feed extends React.Component {
             navigation={this.props.navigation}
             publication={item}
             space={'feed'}
-            toggleModal={(event) => this._toggleModal(event)}
         />)
     }
 
@@ -194,7 +198,6 @@ class Feed extends React.Component {
         setTimeout(() => this.setState({ reportModalExist: !this.state.reportModalExist }), 100)
     }
 
-
     render = () => {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -211,13 +214,12 @@ class Feed extends React.Component {
                             isVisible={this.state.publicationMode}
                         /> : null}
 
-                    {this.state.modal ?
+                    {!!this.props.PublicationsInModal.publication &&
                         <PublicationModalContainer
-                            publicationModal={this.state.PublicationModal}
-                            toggleModal={(event) => this._toggleModal(event)}
                             goToProfile={(payload) => this._goToProfile(payload)}
                             pageName={'Feed'}
-                        /> : null}
+                        />
+                    }
 
                     {this.state.storysModalExist ?
                         <StoriesTrend
@@ -250,7 +252,6 @@ const styles = StyleSheet.create({
         position: 'relative',
         flexDirection: 'row',
         marginVertical: 5,
-        paddingHorizontal: 30,
         height: 38
     },
     search_bar: {
@@ -270,14 +271,15 @@ const mapStateToProps = state => ({
     MyUser: state.MyUser,
     SearchList: state.Search,
     MyProfile: state.MyProfile,
-    Stories: state.Stories
+    Stories: state.Stories,
+    PublicationsInModal: state.PublicationsInModal
 })
 
 const ActionCreators = Object.assign(
     {},
+    PublicationInModalActions,
     PublicationFeedActions,
     SearchActions,
-    PublicationInModalActions,
     StoriesActions
 )
 

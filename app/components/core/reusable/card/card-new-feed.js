@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
 import * as DiscoverdPublicationActions from '../../../../redux/DiscoverPublications/actions'
+import * as PublicationInModalActions from '../../../../redux/PublicationInModal/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
@@ -81,9 +82,9 @@ class CardNewFeed extends React.Component {
         }
 
         return (
-            <TouchableWithoutFeedback // TouchableOpacity
+            <TouchableWithoutFeedback
                 style={{ height: 400 }}
-                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
+                onPress={() => this.props.actions.putPublicationInModalActions(publication, 'feed')}
             >
                 <LinearGradient colors={background} start={orientation[0]} end={orientation[1]} style={{ flex: 1, justifyContent: 'center' }}>
                     <Text style={{
@@ -111,7 +112,7 @@ class CardNewFeed extends React.Component {
         return (
             <TouchableWithoutFeedback
                 style={styles.container_type}
-                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
+                onPress={() => this.props.actions.putPublicationInModalActions(publication, 'feed')}
             >
 
                 <FastImage
@@ -130,7 +131,7 @@ class CardNewFeed extends React.Component {
 
         return (
             <TouchableOpacity style={styles.container_type}
-                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
+                onPress={() => this.props.actions.putPublicationInModalActions(publication, 'feed')}
             >
                 <FastImage
                     style={{ flex: 1, width: '100%', height: this.state.imageHeight }}
@@ -419,6 +420,7 @@ const mapStateToProps = state => ({
     FeedPublications: state.FeedPublications,
     ProfilePublications: state.ProfilePublications,
     DiscoverPublications: state.DiscoverPublications,
+    PublicationsInModal: state.PublicationsInModal,
     MyProfile: state.MyProfile
 })
 
@@ -426,7 +428,8 @@ const ActionCreators = Object.assign(
     {},
     PublicationFeedActions,
     ProfilePublicationActions,
-    DiscoverdPublicationActions
+    DiscoverdPublicationActions,
+    PublicationInModalActions
 )
 
 const mapDispatchToProps = dispatch => ({

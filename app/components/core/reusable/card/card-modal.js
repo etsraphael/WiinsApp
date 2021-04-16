@@ -12,6 +12,7 @@ import * as PublicationFeedActions from '../../../../redux/FeedPublications/acti
 import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
 import * as DiscoverPublicationActions from '../../../../redux/DiscoverPublications/actions'
 import * as CommentListActions from '../../../../redux/CommentList/actions'
+import * as PublicationInModalActions from '../../../../redux/PublicationInModal/actions'
 import Video from 'react-native-video'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { getDateTranslated } from '../../../../services/translation/translation-service'
@@ -52,7 +53,7 @@ class CardModal extends React.Component {
 
     _toggleComment = () => {
 
-        this.props.actions.getCommentListPublication(this.props.PublicationsInModal.publication.id, 1)
+        this.props.actions.getCommentListPublication(this.props.PublicationsInModal.publication._id, 1)
 
         // if it's a page 
         if (!!this.props.PublicationsInModal.publication.profile) {
@@ -90,13 +91,12 @@ class CardModal extends React.Component {
 
     // to navigate to a profile
     _goToProfile = (profileId) => {
-        return this.props.goToProfile({ profileId, pageName: this.props.pageName })
+        this.props.goToProfile({ profileId, pageName: this.props.pageName })
     }
 
     // to navigate to a page
     _goToPage = (pageId) => {
         this.props.PublicationsInModal.navigation.navigate('Page', { pageId })
-        this.props.toggleModal()
     }
 
     // send the comment
@@ -209,7 +209,7 @@ class CardModal extends React.Component {
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'flex-end' }}>
                     <TouchableOpacity style={{ height: 35, width: 35, borderRadius: 35, backgroundColor: '#00000036', justifyContent: 'center', alignItems: 'center' }}
-                        onPress={() => this.props.toggleModal()}>
+                        onPress={() => this.props.actions.resetPublicationInModalActions()}>
                         <FontAwesomeIcon icon={faAngleDown} color={'white'} size={22} />
                     </TouchableOpacity>
                 </View>
@@ -435,8 +435,6 @@ class CardModal extends React.Component {
                 }
             }
 
-
-
             switch (this.props.PublicationsInModal.space) {
                 case 'feed': return this.props.actions.likePublicationFeed(like)
                 case 'profile': return this.props.actions.likePublicationProfile(like)
@@ -536,7 +534,8 @@ const ActionCreators = Object.assign(
     CommentListActions,
     PublicationFeedActions,
     ProfilePublicationActions,
-    DiscoverPublicationActions
+    DiscoverPublicationActions,
+    PublicationInModalActions
 )
 
 const mapDispatchToProps = dispatch => ({

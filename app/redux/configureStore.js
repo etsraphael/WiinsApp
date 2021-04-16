@@ -27,6 +27,7 @@ import MyStoryReducer from './../redux/MyStory/reducer'
 import TubeMenuReducer from './../redux/TubeMenu/reducer'
 import TubePageReducer from './../redux/TubePage/reducer'
 import PublicationsInModalReducer from './../redux/PublicationInModal/reducer'
+import NotificationReducer from './../redux/Notifications/reducer'
 
 const rootReducer = combineReducers(
     { 
@@ -52,7 +53,8 @@ const rootReducer = combineReducers(
         PendingPublications: PendingPublicationsReducer,
         Stories: StoriesReducer,
         MyStory: MyStoryReducer,
-        PublicationsInModal: PublicationsInModalReducer
+        PublicationsInModal: PublicationsInModalReducer,
+        Notifications: NotificationReducer
     }
 )
 
