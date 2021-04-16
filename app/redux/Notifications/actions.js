@@ -79,7 +79,6 @@ export function getNotificationList(page) {
                 .then((response) => response.json())
                 .then(response => {
                     if (response.status == 201) {
-                        console.log(response.results)
                         return dispatch(getNotificationsSuccess(response.results))
                     }
                     else return dispatch(getNotificationsFail(response.message))
@@ -188,6 +187,39 @@ export function deleteNotificationById(id) {
 }
 
 export function getNotificationTagCommentPublicationAction(publicationId, navigation) {
+    return async (dispatch) => {
+        try {
+
+            dispatch(getFeedPublicationByIdStart())
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/publication/id/' + publicationId
+
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) {
+                        dispatch(getFeedPublicationByIdSuccess(response.publication, 'feed'))
+                        return navigation.goBack()
+                    } else {
+                        return dispatch(getFeedPublicationByIdFail(response.message))
+                    }
+                })
+
+        } catch (error) {
+            sendError(error)
+            return dispatch(getFeedPublicationByIdFail(error))
+
+        }
+    }
+}
+
+export function getNotificationPublicationLikeAction(publicationId, navigation) {
     return async (dispatch) => {
         try {
 
