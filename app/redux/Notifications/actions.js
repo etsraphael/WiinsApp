@@ -79,7 +79,6 @@ export function getNotificationList(page) {
                 .then((response) => response.json())
                 .then(response => {
                     if (response.status == 201) {
-                        console.log(response.results)
                         return dispatch(getNotificationsSuccess(response.results))
                     }
                     else return dispatch(getNotificationsFail(response.message))
