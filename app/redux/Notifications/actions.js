@@ -13,6 +13,10 @@ export function deleteNotificationByIdSuccess(id) {
     return { type: ActionTypes.DELETE_NOTIFICATION_BY_ID_SUCCESS, id }
 }
 
+export function putViewOnNotificationById(id) {
+    return { type: ActionTypes.PUT_VIEW_ON_NOTIFICATION_BY_ID, id }
+}
+
 export function deleteNotificationByIdFail(error) {
     return {
         type: ActionTypes.DELETE_NOTIFICATION_BY_ID_FAIL,
@@ -249,5 +253,12 @@ export function getNotificationPublicationLikeAction(publicationId, navigation) 
             return dispatch(getFeedPublicationByIdFail(error))
 
         }
+    }
+}
+
+export function putViewOnNotificationByIdAction(id) {
+    return async (dispatch) => {
+        try { return dispatch(putViewOnNotificationById(id)) }
+        catch (error) { return sendError(error) }
     }
 }

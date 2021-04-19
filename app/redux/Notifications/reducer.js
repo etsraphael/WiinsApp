@@ -57,6 +57,17 @@ export default NotificationReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
+    case ActionTypes.PUT_VIEW_ON_NOTIFICATION_BY_ID: {
+
+      const newList = [...state.list]
+      const found = state.list.map(x => x._id).indexOf(action.id)
+      newList[found].read = true
+
+      return {
+        ...state,
+        list: newList
+      }
+    }
     case ActionTypes.RESET_NOTIFICATIONS: return initialState
     default: return { ...state }
   }
