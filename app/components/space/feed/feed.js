@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, TouchableOpacity, Image, SafeAreaView, VirtualizedList } from 'react-native'
+import { StyleSheet, View, FlatList, TouchableOpacity, Image, SafeAreaView, VirtualizedList, Text } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 import * as SearchActions from '../../../redux/SearchBar/actions'
@@ -103,6 +103,20 @@ class Feed extends React.Component {
                             onPress={() => this.props.navigation.navigate('Notification')}
                             style={{ justifyContent: 'center', alignItems: 'center', paddingHorizontal: 10 }}>
                             <FontAwesomeIcon icon={faBell} size={27} color={'#aeaeae'} />
+                            {/* <View style={{
+                                position: 'absolute',
+                                backgroundColor: 'red',
+                                width: 20,
+                                height: 20,
+                                borderRadius: 50,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                top: -9,
+                                left: 25
+                                
+                            }}>
+                                <Text style={{ color: 'white' }}>3</Text>
+                            </View> */}
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate('MyProfile')}
