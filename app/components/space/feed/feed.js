@@ -103,7 +103,8 @@ class Feed extends React.Component {
                             onPress={() => this.props.navigation.navigate('Notification')}
                             style={{ justifyContent: 'center', alignItems: 'center', paddingHorizontal: 10 }}>
                             <FontAwesomeIcon icon={faBell} size={27} color={'#aeaeae'} />
-                            {/* <View style={{
+                            {this.props.Notifications.badge > 0 && 
+                            <View style={{
                                 position: 'absolute',
                                 backgroundColor: 'red',
                                 width: 20,
@@ -115,8 +116,8 @@ class Feed extends React.Component {
                                 left: 25
                                 
                             }}>
-                                <Text style={{ color: 'white' }}>3</Text>
-                            </View> */}
+                                <Text style={{ color: 'white' }}>{this.props.Notifications.badge}</Text>
+                            </View>}
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate('MyProfile')}
@@ -286,7 +287,8 @@ const mapStateToProps = state => ({
     SearchList: state.Search,
     MyProfile: state.MyProfile,
     Stories: state.Stories,
-    PublicationsInModal: state.PublicationsInModal
+    PublicationsInModal: state.PublicationsInModal,
+    Notifications: state.Notifications
 })
 
 const ActionCreators = Object.assign(

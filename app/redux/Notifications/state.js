@@ -3,4 +3,5 @@ export const initialState = {
     isLoading: false,
     isRefreshing: false,
     error: null,
+    badge: 0
 }
