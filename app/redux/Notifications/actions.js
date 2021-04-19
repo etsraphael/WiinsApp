@@ -341,7 +341,6 @@ export function resetNotificationNumberAction() {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    console.log(response)
                     if (response.status == 202) {
                         return dispatch(resetNotificationNumber())
                     }

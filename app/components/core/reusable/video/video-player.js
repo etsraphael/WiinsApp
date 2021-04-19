@@ -58,7 +58,6 @@ class VideoPlayer extends React.Component {
         this.scheduleCloseOverlay();
     }
     onClickOnVideo = () => {
-        console.log("overlay", this.state.overlay)
         if (!this.state.videoReady) {
             return null;
         }

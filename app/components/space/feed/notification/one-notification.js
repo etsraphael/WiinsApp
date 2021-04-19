@@ -25,7 +25,6 @@ class OneNotification extends React.Component {
     }
 
     _notificationToCode = (item) => {
-        console.log(item)
         return (<View />)
     }
 
