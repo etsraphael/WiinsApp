@@ -5,6 +5,7 @@ import * as PublicationFeedActions from '../../../redux/FeedPublications/actions
 import * as SearchActions from '../../../redux/SearchBar/actions'
 import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
 import * as StoriesActions from '../../../redux/Stories/actions'
+import * as NotificationsActions from '../../../redux/Notifications/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStoryHeader from './stories/publication-story-header'
 import StantardSuggest from '../../core/reusable/suggest/stantard-suggest'
@@ -39,6 +40,7 @@ class Feed extends React.Component {
     UNSAFE_componentWillMount() {
         this.props.actions.resetPublicationActions()
         this.props.actions.resetPublicationInModalActions()
+        this.props.actions.getNotificationsNumberAction()
         this._getPublicationList()
     }
 
@@ -296,7 +298,8 @@ const ActionCreators = Object.assign(
     PublicationInModalActions,
     PublicationFeedActions,
     SearchActions,
-    StoriesActions
+    StoriesActions,
+    NotificationsActions
 )
 
 const mapDispatchToProps = dispatch => ({

@@ -68,6 +68,18 @@ export default NotificationReducer = (state = initialState, action) => {
         list: newList
       }
     }
+    case ActionTypes.GET_NOTIFICATIONS_NUMBER_SUCCESS: {
+      return {
+        ...state,
+        badge: action.payload
+      }
+    }
+    case ActionTypes.RESET_NOTIFICATIONS_NUMBER: {
+      return {
+        ...state,
+        badge: 0
+      }
+    }
     case ActionTypes.RESET_NOTIFICATIONS: return initialState
     default: return { ...state }
   }

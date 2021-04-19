@@ -23,6 +23,7 @@ class NotificationPage extends React.Component {
 
     componentDidMount = () => {
         this.props.actions.getNotificationList(1)
+        this.props.actions.resetNotificationNumberAction()
     }
 
     _getNextPageOfNotification = () => {

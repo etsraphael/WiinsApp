@@ -5,6 +5,22 @@ import Snackbar from 'react-native-snackbar'
 import I18n from '../../../assets/i18n/i18n'
 import { getFeedPublicationByIdStart, getFeedPublicationByIdSuccess, getFeedPublicationByIdFail } from './../PublicationInModal/actions'
 
+export function getNotificationsNumberSuccess(payload) {
+    return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER_SUCCESS, payload }
+}
+
+export function getNotificationsNumberStart() {
+    return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER }
+}
+
+export function getNotificationsNumberFail(payload) {
+    return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER_FAIL, payload }
+}
+
+export function resetNotificationNumber() {
+    return { type: ActionTypes.RESET_NOTIFICATIONS_NUMBER }
+}
+
 export function deleteNotificationByIdStart() {
     return { type: ActionTypes.DELETE_NOTIFICATION_BY_ID }
 }
@@ -258,7 +274,7 @@ export function getNotificationPublicationLikeAction(publicationId, navigation) 
 
 export function putViewOnNotificationByIdAction(id) {
     return async (dispatch) => {
-        try { 
+        try {
             const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/notification/seenWithId/' + id
             return fetch(url, {
@@ -274,9 +290,64 @@ export function putViewOnNotificationByIdAction(id) {
                         return dispatch(putViewOnNotificationById(id))
                     }
                 })
-            
+
         }
-        catch (error) { 
+        catch (error) {
+            return sendError(error)
+        }
+    }
+}
+
+export function getNotificationsNumberAction() {
+    return async (dispatch) => {
+        try {
+
+            dispatch(getNotificationsNumberStart())
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/notification/activity'
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) {
+                        return dispatch(getNotificationsNumberSuccess(response.number))
+                    }
+                })
+
+        }
+        catch (error) {
+            dispatch(getNotificationsNumberFail())
+            return sendError(error)
+        }
+    }
+}
+
+export function resetNotificationNumberAction() {
+    return async (dispatch) => {
+        try {
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/notification/activity/seen'
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    console.log(response)
+                    if (response.status == 202) {
+                        return dispatch(resetNotificationNumber())
+                    }
+                })
+        }
+        catch (error) {
             return sendError(error)
         }
     }
