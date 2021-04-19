@@ -165,6 +165,9 @@ class OneNotification extends React.Component {
 
 
     _goToNotification = () => {
+
+        this.props.actions.putViewOnNotificationByIdAction(this.props.notification._id)
+
         switch (this.props.notification.type) {
             case 'NotificationCertification':
             case 'NotificationVerification': {

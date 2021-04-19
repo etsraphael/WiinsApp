@@ -258,7 +258,26 @@ export function getNotificationPublicationLikeAction(publicationId, navigation) 
 
 export function putViewOnNotificationByIdAction(id) {
     return async (dispatch) => {
-        try { return dispatch(putViewOnNotificationById(id)) }
-        catch (error) { return sendError(error) }
+        try { 
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/notification/seenWithId/' + id
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 202) {
+                        return dispatch(putViewOnNotificationById(id))
+                    }
+                })
+            
+        }
+        catch (error) { 
+            return sendError(error)
+        }
     }
 }
