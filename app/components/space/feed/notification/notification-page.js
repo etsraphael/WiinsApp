@@ -42,7 +42,7 @@ class NotificationPage extends React.Component {
     }
 
     _rendeRequestNumber = () => {
-        if(this.props.Notifications.requestNumber > 0){
+        if (this.props.Notifications.requestNumber > 0) {
             return (<Text>({this.props.Notifications.requestNumber})</Text>)
         }
     }
@@ -68,7 +68,7 @@ class NotificationPage extends React.Component {
                     onPress={() => this._goTofriendRequest()}
                 >
                     <Text style={[styles.header_text_btn, this.state.pageSelected == 'friendRequest' && this._colorTextBtnHeaderActif()]}>
-                        Friend Request  {this._rendeRequestNumber()}   
+                        Friend Request {this._rendeRequestNumber()}
                     </Text>
                 </TouchableOpacity>
 
