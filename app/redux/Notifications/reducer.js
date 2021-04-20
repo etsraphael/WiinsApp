@@ -133,6 +133,12 @@ export default NotificationReducer = (state = initialState, action) => {
         activity_list: []
       }
     }
+    case ActionTypes.RESET_REQUEST_NOTIFICATIONS: {
+      return {
+        ...state,
+        request_list: []
+      } 
+    }
     default: return { ...state }
   }
 }
