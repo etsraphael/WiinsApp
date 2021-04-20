@@ -24,7 +24,7 @@ class NotificationPage extends React.Component {
 
     componentDidMount = () => {
         this.props.actions.getActivityNotificationList(1)
-        // this.props.actions.resetActivityNotificationNumberAction()
+        this.props.actions.getRequestNotificationList(1)
     }
 
     _getNextPageOfNotification = () => {
@@ -108,14 +108,14 @@ class NotificationPage extends React.Component {
                 { this.state.pageSelected == 'friendRequest' &&
                     <VirtualizedList
                         ListHeaderComponent={this._headerRender}
-                        // onRefresh={() => this.props.actions.refreshList()}
-                        // refreshing={this.props.Notifications.isRefreshing}
+                        onRefresh={() => null}
+                        refreshing={this.props.Notifications.request_isRefreshing}
                         showsVerticalScrollIndicator={false}
                         style={{ marginBottom: 50 }}
-                        data={[1, 2, 3, 4, 5, 6, 7]}
+                        data={this.props.Notifications.request_list}
                         renderItem={({ item, index }) => <OneFriendRequestNotification notification={item[index]} navigation={this.props.navigation} />}
                         keyExtractor={(item, index) => item[index]}
-                        getItemCount={() => 6}
+                        getItemCount={() => this.props.Notifications.request_list.length}
                         getItem={(data) => data}
                         scrollEventThrottle={5}
                     />

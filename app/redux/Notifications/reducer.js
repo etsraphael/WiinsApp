@@ -9,6 +9,12 @@ export default NotificationReducer = (state = initialState, action) => {
         activity_isLoading: true
       }
     }
+    case ActionTypes.GET_REQUEST_NOTIFICATIONS: {
+      return {
+        ...state,
+        request_isLoading: true
+      }
+    }
     case ActionTypes.DELETE_NOTIFICATION_BY_ID_SUCCESS: {
       return {
         ...state,
@@ -21,6 +27,14 @@ export default NotificationReducer = (state = initialState, action) => {
         activity_list: state.activity_list.concat(action.payload),
         activity_isLoading: false,
         activity_error: null,
+      }
+    }
+    case ActionTypes.GET_REQUEST_NOTIFICATIONS_SUCCESS: {
+      return {
+        ...state,
+        request_list: state.request_list.concat(action.payload),
+        request_isLoading: false,
+        request_error: null,
       }
     }
     case ActionTypes.ADD_ONE_NOTIFICATIONS_FEED: {
@@ -36,10 +50,23 @@ export default NotificationReducer = (state = initialState, action) => {
         activity_error: action.payload
       }
     }
+    case ActionTypes.GET_REQUEST_NOTIFICATIONS_FAIL: {
+      return {
+        ...state,
+        request_isLoading: false,
+        request_error: action.payload
+      }
+    }
     case ActionTypes.REFRESH_ACTIVITY_NOTIFICATIONS: {
       return {
         ...state,
         activity_isRefreshing: true
+      }
+    }
+    case ActionTypes.REFRESH_REQUEST_NOTIFICATIONS: {
+      return {
+        ...state,
+        request_isRefreshing: true
       }
     }
     case ActionTypes.REFRESH_ACTIVITY_NOTIFICATIONS_SUCCESS: {
@@ -50,6 +77,14 @@ export default NotificationReducer = (state = initialState, action) => {
         activity_error: null,
       }
     }
+    case ActionTypes.REFRESH_REQUEST_NOTIFICATIONS_SUCCESS: {
+      return {
+        ...state,
+        request_list: action.payload,
+        request_isRefreshing: false,
+        request_error: null,
+      }
+    }
     case ActionTypes.REFRESH_ACTIVITY_NOTIFICATIONS_FAIL: {
       return {
         ...state,
@@ -57,12 +92,17 @@ export default NotificationReducer = (state = initialState, action) => {
         activity_error: action.payload
       }
     }
+    case ActionTypes.REFRESH_REQUEST_NOTIFICATIONS_FAIL: {
+      return {
+        ...state,
+        request_isRefreshing: false,
+        request_error: action.payload
+      }
+    }
     case ActionTypes.PUT_VIEW_ON_NOTIFICATION_BY_ID: {
-
       const newList = [...state.activity_list]
       const found = state.activity_list.map(x => x._id).indexOf(action.id)
       newList[found].read = true
-
       return {
         ...state,
         activity_list: newList

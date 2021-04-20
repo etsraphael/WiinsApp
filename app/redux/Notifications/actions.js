@@ -74,8 +74,42 @@ export function getActivityNotificationsFail(error) {
     }
 }
 
+export function getRequestNotificationsSuccess(payload) {
+    return { type: ActionTypes.GET_REQUEST_NOTIFICATIONS_SUCCESS, payload }
+}
+
+export function getRequestNotificationsStart() {
+    return { type: ActionTypes.GET_REQUEST_NOTIFICATIONS }
+}
+
+export function getRequestNotificationsFail(error) {
+    return {
+        type: ActionTypes.GET_REQUEST_NOTIFICATIONS_FAIL,
+        payload: error
+    }
+}
+
+export function refreshRequestNotificationsStart() {
+    return { type: ActionTypes.REFRESH_REQUEST_NOTIFICATIONS }
+}
+
+export function refreshRequestNotificationsSuccess(payload) {
+    return { type: ActionTypes.REFRESH_REQUEST_NOTIFICATIONS_SUCCESS, payload }
+}
+
+export function refreshRequestNotificationsFail(error) {
+    return {
+        type: ActionTypes.REFRESH_REQUEST_NOTIFICATIONS_FAIL,
+        payload: error
+    }
+}
+
 export function resetActivityNotification() {
     return { type: ActionTypes.RESET_ACTIVITY_NOTIFICATIONS }
+}
+
+export function resetRequestNotification() {
+    return { type: ActionTypes.RESET_REQUEST_NOTIFICATIONS }
 }
 
 export function getActivityNotificationList(page) {
@@ -104,6 +138,36 @@ export function getActivityNotificationList(page) {
         } catch (error) {
             sendError(error)
             return dispatch(getActivityNotificationsFail(error));
+        }
+    };
+}
+
+export function getRequestNotificationList() {
+
+    return async (dispatch) => {
+        try {
+            dispatch(resetRequestNotification())
+            dispatch(getRequestNotificationsStart())
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/requests/requestsToMe'
+
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then(response => {
+                    if (response.status == 200) {
+                        return dispatch(getRequestNotificationsSuccess(response.results))
+                    }
+                    else return dispatch(getRequestNotificationsFail(response.message))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(getRequestNotificationsFail(error));
         }
     };
 }
