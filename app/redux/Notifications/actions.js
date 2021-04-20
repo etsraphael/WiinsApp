@@ -5,12 +5,40 @@ import Snackbar from 'react-native-snackbar'
 import I18n from '../../../assets/i18n/i18n'
 import { getFeedPublicationByIdStart, getFeedPublicationByIdSuccess, getFeedPublicationByIdFail } from './../PublicationInModal/actions'
 
+export function deleteRequestById(id) {
+    return { type: ActionTypes.DELETE_REQUEST_BY_ID, id }
+}
+
+export function getNotificationsNumberStart() {
+    return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER }
+}
+
+export function getNotificationsNumberSuccess(activity, request) {
+    return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER_SUCCESS, activity, request }
+}
+
+export function getNotificationsNumberFail(payload) {
+    return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER_FAIL, payload }
+}
+
+export function resetActivityNotificationNumber() {
+    return { type: ActionTypes.RESET_ACTIVITY_NOTIFICATIONS_NUMBER }
+}
+
+export function resetFriendRequestNotificationNumber() {
+    return { type: ActionTypes.RESET_FRIEND_REQUEST_NOTIFICATIONS_NUMBER }
+}
+
 export function deleteNotificationByIdStart() {
     return { type: ActionTypes.DELETE_NOTIFICATION_BY_ID }
 }
 
 export function deleteNotificationByIdSuccess(id) {
     return { type: ActionTypes.DELETE_NOTIFICATION_BY_ID_SUCCESS, id }
+}
+
+export function putViewOnNotificationById(id) {
+    return { type: ActionTypes.PUT_VIEW_ON_NOTIFICATION_BY_ID, id }
 }
 
 export function deleteNotificationByIdFail(error) {
@@ -20,52 +48,80 @@ export function deleteNotificationByIdFail(error) {
     }
 }
 
-export function refreshNotificationsStart() {
-    return { type: ActionTypes.REFRESH_NOTIFICATIONS }
+export function refreshActivityNotificationsStart() {
+    return { type: ActionTypes.REFRESH_ACTIVITY_NOTIFICATIONS }
 }
 
-export function refreshNotificationsSuccess(Notification) {
-    return {
-        type: ActionTypes.REFRESH_NOTIFICATIONS_SUCCESS,
-        payload: Notification,
-    }
+export function refreshActivityNotificationsSuccess(payload) {
+    return { type: ActionTypes.REFRESH_ACTIVITY_NOTIFICATIONS_SUCCESS, payload }
 }
 
-export function refreshNotificationsFail(error) {
+export function refreshActivityNotificationsFail(error) {
     return {
-        type: ActionTypes.REFRESH_NOTIFICATIONS_FAIL,
+        type: ActionTypes.REFRESH_ACTIVITY_NOTIFICATIONS_FAIL,
         payload: error
     }
 }
 
-export function getNotificationsSuccess(payload) {
-    return {
-        type: ActionTypes.GET_NOTIFICATIONS_SUCCESS,
-        payload: payload,
-    }
+export function getActivityNotificationsSuccess(payload) {
+    return { type: ActionTypes.GET_ACTIVITY_NOTIFICATIONS_SUCCESS, payload }
 }
 
-export function getNotificationsStart() {
-    return { type: ActionTypes.GET_NOTIFICATIONS }
+export function getActivityNotificationsStart() {
+    return { type: ActionTypes.GET_ACTIVITY_NOTIFICATIONS }
 }
 
-export function getNotificationsFail(error) {
+export function getActivityNotificationsFail(error) {
     return {
-        type: ActionTypes.GET_NOTIFICATIONS_FAIL,
+        type: ActionTypes.GET_ACTIVITY_NOTIFICATIONS_FAIL,
         payload: error
     }
 }
 
-export function resetNotification() {
-    return { type: ActionTypes.RESET_NOTIFICATIONS }
+export function getRequestNotificationsSuccess(payload) {
+    return { type: ActionTypes.GET_REQUEST_NOTIFICATIONS_SUCCESS, payload }
 }
 
-export function getNotificationList(page) {
+export function getRequestNotificationsStart() {
+    return { type: ActionTypes.GET_REQUEST_NOTIFICATIONS }
+}
+
+export function getRequestNotificationsFail(error) {
+    return {
+        type: ActionTypes.GET_REQUEST_NOTIFICATIONS_FAIL,
+        payload: error
+    }
+}
+
+export function refreshRequestNotificationsStart() {
+    return { type: ActionTypes.REFRESH_REQUEST_NOTIFICATIONS }
+}
+
+export function refreshRequestNotificationsSuccess(payload) {
+    return { type: ActionTypes.REFRESH_REQUEST_NOTIFICATIONS_SUCCESS, payload }
+}
+
+export function refreshRequestNotificationsFail(error) {
+    return {
+        type: ActionTypes.REFRESH_REQUEST_NOTIFICATIONS_FAIL,
+        payload: error
+    }
+}
+
+export function resetActivityNotification() {
+    return { type: ActionTypes.RESET_ACTIVITY_NOTIFICATIONS }
+}
+
+export function resetRequestNotification() {
+    return { type: ActionTypes.RESET_REQUEST_NOTIFICATIONS }
+}
+
+export function getActivityNotificationList(page) {
 
     return async (dispatch) => {
         try {
-            if (page == 1) dispatch(resetNotification())
-            dispatch(getNotificationsStart())
+            if (page == 1) dispatch(resetActivityNotification())
+            dispatch(getActivityNotificationsStart())
             const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/notification/activity/list?limit=10&page=' + page
 
@@ -79,22 +135,52 @@ export function getNotificationList(page) {
                 .then((response) => response.json())
                 .then(response => {
                     if (response.status == 201) {
-                        return dispatch(getNotificationsSuccess(response.results))
+                        return dispatch(getActivityNotificationsSuccess(response.results))
                     }
-                    else return dispatch(getNotificationsFail(response.message))
+                    else return dispatch(getActivityNotificationsFail(response.message))
                 })
         } catch (error) {
             sendError(error)
-            return dispatch(getNotificationsFail(error));
+            return dispatch(getActivityNotificationsFail(error));
         }
     };
 }
 
-export function resetNotificationActions() {
-    return (dispatch) => dispatch(resetNotification())
+export function getRequestNotificationList() {
+
+    return async (dispatch) => {
+        try {
+            dispatch(resetRequestNotification())
+            dispatch(getRequestNotificationsStart())
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/requests/requestsToMe'
+
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then(response => {
+                    if (response.status == 200) {
+                        return dispatch(getRequestNotificationsSuccess(response.results))
+                    }
+                    else return dispatch(getRequestNotificationsFail(response.message))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(getRequestNotificationsFail(error));
+        }
+    };
 }
 
-export function addNotification(Notification) {
+export function resetActivityNotificationActions() {
+    return (dispatch) => dispatch(resetActivityNotification())
+}
+
+export function addNotification(notification) {
 
     return async (dispatch) => {
 
@@ -111,7 +197,7 @@ export function addNotification(Notification) {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 },
-                body: JSON.stringify(Notification)
+                body: JSON.stringify(notification)
             })
                 .then((response) => response.json())
                 .then((response) => {
@@ -128,10 +214,10 @@ export function addNotification(Notification) {
 
 }
 
-export function refreshList() {
+export function refreshActivityNotifications() {
     return async (dispatch) => {
         try {
-            dispatch(refreshNotificationsStart())
+            dispatch(refreshActivityNotificationsStart())
             const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/notification/activity/list?limit=10&page=1'
 
@@ -145,13 +231,13 @@ export function refreshList() {
                 .then((response) => response.json())
                 .then(response => {
                     if (response.status == 201) {
-                        return dispatch(refreshNotificationsSuccess(response.results))
+                        return dispatch(refreshActivityNotificationsSuccess(response.results))
                     }
-                    else return dispatch(refreshNotificationsFail(response.message))
+                    else return dispatch(refreshActivityNotificationsFail(response.message))
                 })
         } catch (error) {
             sendError(error)
-            return dispatch(refreshNotificationsFail(error));
+            return dispatch(refreshActivityNotificationsFail(error));
         }
     }
 }
@@ -248,6 +334,161 @@ export function getNotificationPublicationLikeAction(publicationId, navigation) 
             sendError(error)
             return dispatch(getFeedPublicationByIdFail(error))
 
+        }
+    }
+}
+
+export function putViewOnNotificationByIdAction(id) {
+    return async (dispatch) => {
+        try {
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/notification/seenWithId/' + id
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 202) {
+                        return dispatch(putViewOnNotificationById(id))
+                    }
+                })
+
+        }
+        catch (error) {
+            return sendError(error)
+        }
+    }
+}
+
+export function getNotificationsNumberAction() {
+    return async (dispatch) => {
+        try {
+
+            dispatch(getNotificationsNumberStart())
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/notification/request-and-activity'
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 200) {
+                        return dispatch(getNotificationsNumberSuccess(response.activity, response.request))
+                    }
+                })
+
+        }
+        catch (error) {
+            dispatch(getNotificationsNumberFail())
+            return sendError(error)
+        }
+    }
+}
+
+export function resetActivityNotificationNumberAction() {
+    return async (dispatch) => {
+        try {
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/notification/activity/seen'
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 202) {
+                        return dispatch(resetActivityNotificationNumber())
+                    }
+                })
+        }
+        catch (error) {
+            return sendError(error)
+        }
+    }
+}
+
+export function resetFriendRequestNotificationNumberAction() {
+    return async (dispatch) => {
+        try {
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/notification/request/seen'
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 202) {
+                        return dispatch(resetFriendRequestNotificationNumber())
+                    }
+                })
+        }
+        catch (error) {
+            return sendError(error)
+        }
+    }
+}
+
+export function confirmFriendRequestAction(id) {
+    return async (dispatch) => {
+        try {
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/friends/addWithProfile/' + id
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then((response) => {
+                    if (response.status == 200) {
+                        return dispatch(deleteRequestById(id))
+                    }
+                })
+        }
+        catch (error) {
+            return sendError(error)
+        }
+    }
+}
+
+export function refuseFriendRequestAction(id) {
+    return async (dispatch) => {
+        try {
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/friends/refuseWithProfile/' + id
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then((response) => {
+                    if (response.status == 201) {
+                        return dispatch(deleteRequestById(id))
+                    }
+                })
+        }
+        catch (error) {
+            return sendError(error)
         }
     }
 }
