@@ -21,7 +21,7 @@ class OneFriendRequestNotification extends React.Component {
 
     render = () => {
         return (
-            <View style={{ flexDirection: 'row', paddingVertical: 15 }}>
+            <View style={{ flexDirection: 'row', paddingTop: 15 }}>
                 <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
                     <FastImage
                         style={{ width: 70, height: 70, borderRadius: 70, resizeMode: 'cover' }}
