@@ -8,6 +8,7 @@ import * as StoriesActions from '../../../../redux/Stories/actions'
 import * as NotificationsActions from '../../../../redux/Notifications/actions'
 import { bindActionCreators } from 'redux'
 import OneNotification from './one-notification'
+import OneFriendRequestNotification from './one-friend-request-notification'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faAngleLeft } from '@fortawesome/pro-solid-svg-icons'
 import FastImage from 'react-native-fast-image'
@@ -18,7 +19,7 @@ class NotificationPage extends React.Component {
         super(props)
         this.state = {
             page: 1,
-            pageSelected: 'earlier'
+            pageSelected: 'friendRequest'
         }
     }
 
@@ -63,26 +64,6 @@ class NotificationPage extends React.Component {
         )
     }
 
-    _friendRequestRender = () => {
-        return (
-            <View style={{ flexDirection: 'row' }}>
-                <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                    <FastImage
-                        style={{ width: 70, height: 70, borderRadius: 70, resizeMode: 'cover' }}
-                        source={{ uri: 'https://images.unsplash.com/photo-1618692526479-be59c699eae8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80', priority: FastImage.priority.normal }}
-                        resizeMode={FastImage.resizeMode.cover}
-                    />
-                </View>
-                <View style={{ flex: 5 }}>
-
-                </View>
-            </View>
-        )
-    }
-
-
-
-
     render = () => {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -124,17 +105,14 @@ class NotificationPage extends React.Component {
                         // refreshing={this.props.Notifications.isRefreshing}
                         showsVerticalScrollIndicator={false}
                         style={{ marginBottom: 50 }}
-                        data={[1,2,3,4,5,6,7]}
-                        renderItem={({ item, index }) => null}
+                        data={[1, 2, 3, 4, 5, 6, 7]}
+                        renderItem={({ item, index }) => <OneFriendRequestNotification notification={item[index]} navigation={this.props.navigation} />}
                         keyExtractor={(item, index) => item[index]}
                         getItemCount={() => 6}
                         getItem={(data) => data}
                         scrollEventThrottle={5}
-                        onMomentumScrollEnd={() => alert('oh')}
-                    />}
-
-
-
+                    />
+                }
 
             </SafeAreaView>
         )
