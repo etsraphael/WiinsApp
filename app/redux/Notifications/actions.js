@@ -5,8 +5,8 @@ import Snackbar from 'react-native-snackbar'
 import I18n from '../../../assets/i18n/i18n'
 import { getFeedPublicationByIdStart, getFeedPublicationByIdSuccess, getFeedPublicationByIdFail } from './../PublicationInModal/actions'
 
-export function getNotificationsNumberSuccess(payload) {
-    return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER_SUCCESS, payload }
+export function getNotificationsNumberSuccess(activity, request) {
+    return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER_SUCCESS, activity, request }
 }
 
 export function getNotificationsNumberStart() {
@@ -17,8 +17,12 @@ export function getNotificationsNumberFail(payload) {
     return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER_FAIL, payload }
 }
 
-export function resetNotificationNumber() {
-    return { type: ActionTypes.RESET_NOTIFICATIONS_NUMBER }
+export function resetActivityNotificationNumber() {
+    return { type: ActionTypes.RESET_ACTIVITY_NOTIFICATIONS_NUMBER }
+}
+
+export function resetFriendRequestNotificationNumber() {
+    return { type: ActionTypes.RESET_FRIEND_REQUEST_NOTIFICATIONS_NUMBER }
 }
 
 export function deleteNotificationByIdStart() {
@@ -76,15 +80,15 @@ export function getNotificationsFail(error) {
     }
 }
 
-export function resetNotification() {
-    return { type: ActionTypes.RESET_NOTIFICATIONS }
+export function resetActivityNotification() {
+    return { type: ActionTypes.RESET_ACTIVITY_NOTIFICATIONS }
 }
 
 export function getNotificationList(page) {
 
     return async (dispatch) => {
         try {
-            if (page == 1) dispatch(resetNotification())
+            if (page == 1) dispatch(resetActivityNotification())
             dispatch(getNotificationsStart())
             const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/notification/activity/list?limit=10&page=' + page
@@ -304,7 +308,7 @@ export function getNotificationsNumberAction() {
 
             dispatch(getNotificationsNumberStart())
             const token = await AsyncStorage.getItem('userToken')
-            const url = 'https://wiins-backend.herokuapp.com/notification/activity'
+            const url = 'https://wiins-backend.herokuapp.com/notification/request-and-activity'
             return fetch(url, {
                 method: 'GET',
                 headers: {
@@ -315,7 +319,7 @@ export function getNotificationsNumberAction() {
                 .then((response) => response.json())
                 .then(async (response) => {
                     if (response.status == 200) {
-                        return dispatch(getNotificationsNumberSuccess(response.number))
+                        return dispatch(getNotificationsNumberSuccess(response.activity, response.request))
                     }
                 })
 
@@ -327,7 +331,7 @@ export function getNotificationsNumberAction() {
     }
 }
 
-export function resetNotificationNumberAction() {
+export function resetActivityNotificationNumberAction() {
     return async (dispatch) => {
         try {
             const token = await AsyncStorage.getItem('userToken')
@@ -342,7 +346,32 @@ export function resetNotificationNumberAction() {
                 .then((response) => response.json())
                 .then(async (response) => {
                     if (response.status == 202) {
-                        return dispatch(resetNotificationNumber())
+                        return dispatch(resetActivityNotificationNumber())
+                    }
+                })
+        }
+        catch (error) {
+            return sendError(error)
+        }
+    }
+}
+
+export function resetFriendRequestNotificationNumberAction() {
+    return async (dispatch) => {
+        try {
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/notification/request/seen'
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 202) {
+                        return dispatch(resetFriendRequestNotificationNumber())
                     }
                 })
         }

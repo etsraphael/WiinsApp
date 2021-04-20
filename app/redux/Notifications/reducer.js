@@ -71,16 +71,28 @@ export default NotificationReducer = (state = initialState, action) => {
     case ActionTypes.GET_NOTIFICATIONS_NUMBER_SUCCESS: {
       return {
         ...state,
-        badge: action.payload
+        requestNumber: action.request,
+        activityNumber: action.activity
       }
     }
-    case ActionTypes.RESET_NOTIFICATIONS_NUMBER: {
+    case ActionTypes.RESET_ACTIVITY_NOTIFICATIONS_NUMBER: {
       return {
         ...state,
-        badge: 0
+        activityNumber: 0
       }
     }
-    case ActionTypes.RESET_NOTIFICATIONS: return initialState
+    case ActionTypes.RESET_FRIEND_REQUEST_NOTIFICATIONS_NUMBER: {
+      return {
+        ...state,
+        requestNumber: 0
+      }
+    }
+    case ActionTypes.RESET_NOTIFICATIONS: {
+      return {
+        ...state,
+        list: []
+      }
+    }
     default: return { ...state }
   }
 }

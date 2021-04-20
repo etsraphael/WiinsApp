@@ -3,5 +3,6 @@ export const initialState = {
     isLoading: false,
     isRefreshing: false,
     error: null,
-    badge: 0
+    requestNumber: 0,
+    activityNumber: 0
 }

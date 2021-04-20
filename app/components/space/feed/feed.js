@@ -105,7 +105,7 @@ class Feed extends React.Component {
                             onPress={() => this.props.navigation.navigate('Notification')}
                             style={{ justifyContent: 'center', alignItems: 'center', paddingHorizontal: 10 }}>
                             <FontAwesomeIcon icon={faBell} size={27} color={'#aeaeae'} />
-                            {this.props.Notifications.badge > 0 && 
+                            {this.props.Notifications.requestNumber + this.props.Notifications.activityNumber > 0 && 
                             <View style={{
                                 position: 'absolute',
                                 backgroundColor: 'red',
@@ -118,7 +118,7 @@ class Feed extends React.Component {
                                 left: 25
                                 
                             }}>
-                                <Text style={{ color: 'white' }}>{this.props.Notifications.badge}</Text>
+                                <Text style={{ color: 'white' }}>{this.props.Notifications.requestNumber + this.props.Notifications.activityNumber}</Text>
                             </View>}
                         </TouchableOpacity>
                         <TouchableOpacity

@@ -11,7 +11,6 @@ import OneNotification from './one-notification'
 import OneFriendRequestNotification from './one-friend-request-notification'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faAngleLeft } from '@fortawesome/pro-solid-svg-icons'
-import FastImage from 'react-native-fast-image'
 
 class NotificationPage extends React.Component {
 
@@ -19,13 +18,13 @@ class NotificationPage extends React.Component {
         super(props)
         this.state = {
             page: 1,
-            pageSelected: 'friendRequest'
+            pageSelected: 'earlier'
         }
     }
 
     componentDidMount = () => {
         this.props.actions.getNotificationList(1)
-        this.props.actions.resetNotificationNumberAction()
+        // this.props.actions.resetActivityNotificationNumberAction()
     }
 
     _getNextPageOfNotification = () => {
@@ -39,6 +38,12 @@ class NotificationPage extends React.Component {
 
     _colorTextBtnHeaderActif = () => {
         return { color: 'white' }
+    }
+
+    _rendeRequestNumber = () => {
+        if(this.props.Notifications.requestNumber > 0){
+            return (<Text>({this.props.Notifications.requestNumber})</Text>)
+        }
     }
 
 
@@ -57,7 +62,9 @@ class NotificationPage extends React.Component {
                     style={[styles.container_btn_header, this.state.pageSelected == 'friendRequest' && this._backgroundBtnHeaderActif()]}
                     onPress={() => this.setState({ pageSelected: 'friendRequest' })}
                 >
-                    <Text style={[styles.header_text_btn, this.state.pageSelected == 'friendRequest' && this._colorTextBtnHeaderActif()]}>Friend Request</Text>
+                    <Text style={[styles.header_text_btn, this.state.pageSelected == 'friendRequest' && this._colorTextBtnHeaderActif()]}>
+                        Friend Request  {this._rendeRequestNumber()}   
+                    </Text>
                 </TouchableOpacity>
 
             </View>
