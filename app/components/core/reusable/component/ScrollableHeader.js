@@ -36,11 +36,6 @@ export default class ScrollableHeader extends Component {
             outputRange: [0, -this.state.scrollDistance],
             extrapolate: 'clamp'
         });
-        const zIndexTranslate = this.state.scrollY.interpolate({
-            inputRange: [0, this.state.scrollDistance],
-            outputRange: [-1, 1],
-            extrapolate: 'clamp'
-        });
         return (
             <View style={styles.fill}>
                 <ScrollView
@@ -57,7 +52,7 @@ export default class ScrollableHeader extends Component {
                 >
                 {this._renderScrollViewContent()}
                 </ScrollView>
-                <Animated.View  style={[styles.header, (this.props.headerStyle || {}), { transform: [{ translateY: headerTranslate }] }, { zIndex: zIndexTranslate }]}>
+                <Animated.View  style={[styles.header, (this.props.headerStyle || {}), { transform: [{ translateY: headerTranslate }] }]}>
                     <View onLayout={(event) => {
                         const { layout: { height } } = event.nativeEvent;
                         this.setState({ scrollDistance: height })

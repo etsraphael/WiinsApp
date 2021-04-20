@@ -296,6 +296,7 @@ class HomeTube extends React.Component {
                 title="Tube" 
                 refreshControl={
                     <RefreshControl
+                        progressViewOffset={110}
                         refreshing={this.props.TubeMenu.isRefreshing}
                         onRefresh={this._refreshPage}
                     />

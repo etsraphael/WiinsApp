@@ -281,6 +281,7 @@ class Discover extends React.Component {
                     showsVerticalScrollIndicator={false}
                     refreshControl={
                         <RefreshControl
+                        progressViewOffset={110}
                         refreshing={this.props.DiscoverPublications.isRefreshing}
                         onRefresh={this._refreshDisover}
                         />
