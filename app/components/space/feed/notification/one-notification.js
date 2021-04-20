@@ -25,7 +25,6 @@ class OneNotification extends React.Component {
     }
 
     _notificationToCode = (item) => {
-        console.log(item)
         return (<View />)
     }
 
@@ -165,8 +164,10 @@ class OneNotification extends React.Component {
 
 
     _goToNotification = () => {
-        switch (this.props.notification.type) {
 
+        this.props.actions.putViewOnNotificationByIdAction(this.props.notification._id)
+
+        switch (this.props.notification.type) {
             case 'NotificationCertification':
             case 'NotificationVerification': {
                 return null
@@ -178,7 +179,6 @@ class OneNotification extends React.Component {
             case 'NotificationLike': {
                 return this.props.actions.getNotificationPublicationLikeAction(this.props.notification.publication._id, this.props.navigation) 
             }
-
             case 'NotificationCommentLikePlaylist':
             case 'NotificationTagCommentPlaylist': 
             case 'NotificationCommentResponsePlaylist': {
@@ -192,8 +192,7 @@ class OneNotification extends React.Component {
             case 'NotificationFeatPublication':
             case 'NotificationReport':
             case 'NotificationPageReport':
-            
-            default: return alert(this.props.notification.type)
+            default: return null
         }
     }
 
@@ -210,6 +209,7 @@ class OneNotification extends React.Component {
     }
 
     _ellipsiBtnRender = () => {
+        return null
         return (
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                 <TouchableOpacity>

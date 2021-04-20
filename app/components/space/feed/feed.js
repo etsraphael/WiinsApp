@@ -1,10 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, TouchableOpacity, Image, SafeAreaView, VirtualizedList } from 'react-native'
+import { StyleSheet, View, FlatList, TouchableOpacity, Image, SafeAreaView, VirtualizedList, Text } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 import * as SearchActions from '../../../redux/SearchBar/actions'
 import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
 import * as StoriesActions from '../../../redux/Stories/actions'
+import * as NotificationsActions from '../../../redux/Notifications/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStoryHeader from './stories/publication-story-header'
 import StantardSuggest from '../../core/reusable/suggest/stantard-suggest'
@@ -39,6 +40,7 @@ class Feed extends React.Component {
     UNSAFE_componentWillMount() {
         this.props.actions.resetPublicationActions()
         this.props.actions.resetPublicationInModalActions()
+        this.props.actions.getNotificationsNumberAction()
         this._getPublicationList()
     }
 
@@ -103,6 +105,21 @@ class Feed extends React.Component {
                             onPress={() => this.props.navigation.navigate('Notification')}
                             style={{ justifyContent: 'center', alignItems: 'center', paddingHorizontal: 10 }}>
                             <FontAwesomeIcon icon={faBell} size={27} color={'#aeaeae'} />
+                            {this.props.Notifications.requestNumber + this.props.Notifications.activityNumber > 0 && 
+                            <View style={{
+                                position: 'absolute',
+                                backgroundColor: 'red',
+                                width: 20,
+                                height: 20,
+                                borderRadius: 50,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                top: -9,
+                                left: 25
+                                
+                            }}>
+                                <Text style={{ color: 'white' }}>{this.props.Notifications.requestNumber + this.props.Notifications.activityNumber}</Text>
+                            </View>}
                         </TouchableOpacity>
                         <TouchableOpacity
                             onPress={() => this.props.navigation.navigate('MyProfile')}
@@ -272,7 +289,8 @@ const mapStateToProps = state => ({
     SearchList: state.Search,
     MyProfile: state.MyProfile,
     Stories: state.Stories,
-    PublicationsInModal: state.PublicationsInModal
+    PublicationsInModal: state.PublicationsInModal,
+    Notifications: state.Notifications
 })
 
 const ActionCreators = Object.assign(
@@ -280,7 +298,8 @@ const ActionCreators = Object.assign(
     PublicationInModalActions,
     PublicationFeedActions,
     SearchActions,
-    StoriesActions
+    StoriesActions,
+    NotificationsActions
 )
 
 const mapDispatchToProps = dispatch => ({

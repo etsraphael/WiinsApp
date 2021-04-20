@@ -32,11 +32,6 @@ class HomeMessenger extends React.Component {
     componentDidMount = () => {
         checkNotification(this.props.navigation)
         this.props.actions.getRoom(1)
-
-        if (!!this.props.params) {
-            console.log(this.props.params.notification)
-        }
-
     }
 
     // to set the search

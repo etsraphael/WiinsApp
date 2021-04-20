@@ -19,8 +19,7 @@ export function configureNotification(store) {
                         notification.finish(PushNotificationIOS.FetchResult.NoData)
                 },
                 onAction: function (notification) {
-                        console.log('ACTION:', notification.action);
-                        console.log('NOTIFICATION:', notification);
+                        // manage notification
                 },
                 onRegistrationError: function (err) {
                         sendError(err)
