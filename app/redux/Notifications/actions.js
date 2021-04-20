@@ -5,6 +5,10 @@ import Snackbar from 'react-native-snackbar'
 import I18n from '../../../assets/i18n/i18n'
 import { getFeedPublicationByIdStart, getFeedPublicationByIdSuccess, getFeedPublicationByIdFail } from './../PublicationInModal/actions'
 
+export function deleteRequestById(id) {
+    return { type: ActionTypes.DELETE_REQUEST_BY_ID, id }
+}
+
 export function getNotificationsNumberStart() {
     return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER }
 }
@@ -432,6 +436,58 @@ export function resetFriendRequestNotificationNumberAction() {
                         return dispatch(resetFriendRequestNotificationNumber())
                     }
                 })
+        }
+        catch (error) {
+            return sendError(error)
+        }
+    }
+}
+
+export function confirmFriendRequestAction(id) {
+    return async (dispatch) => {
+        try {
+            return dispatch(deleteRequestById(id))
+            // const token = await AsyncStorage.getItem('userToken')
+            // const url = 'https://wiins-backend.herokuapp.com/friends/addWithProfile/' + id
+            // return fetch(url, {
+            //     method: 'GET',
+            //     headers: {
+            //         Accept: 'application/json', 'Content-Type': 'application/json',
+            //         'Authorization': 'Bearer ' + token,
+            //     },
+            // })
+            //     .then((response) => response.json())
+            //     .then(async (response) => {
+            //         if (response.status == 202) {
+            //             return dispatch(resetFriendRequestNotificationNumber())
+            //         }
+            //     })
+        }
+        catch (error) {
+            return sendError(error)
+        }
+    }
+}
+
+export function refuseFriendRequestAction(id) {
+    return async (dispatch) => {
+        try {
+            return dispatch(deleteRequestById(id))
+            // const token = await AsyncStorage.getItem('userToken')
+            // const url = 'https://wiins-backend.herokuapp.com/friends/cancelWidthProfile/' + id
+            // return fetch(url, {
+            //     method: 'GET',
+            //     headers: {
+            //         Accept: 'application/json', 'Content-Type': 'application/json',
+            //         'Authorization': 'Bearer ' + token,
+            //     },
+            // })
+            //     .then((response) => response.json())
+            //     .then(async (response) => {
+            //         if (response.status == 202) {
+            //             return dispatch(resetFriendRequestNotificationNumber())
+            //         }
+            //     })
         }
         catch (error) {
             return sendError(error)

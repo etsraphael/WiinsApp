@@ -8,8 +8,6 @@ import * as StoriesActions from '../../../../redux/Stories/actions'
 import * as NotificationActions from '../../../../redux/Notifications/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
-import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { getDateTranslated } from '../../../../services/translation/translation-service'
 import { TabActions } from '@react-navigation/native'
 
@@ -38,12 +36,18 @@ class OneFriendRequestNotification extends React.Component {
             <View style={{ flexDirection: 'row', paddingHorizontal: 5 }}>
 
                 <View style={{ flex: 1 }}>
-                    <TouchableOpacity style={[styles.container_answer_btn, { backgroundColor: '#6600ff' }]}>
+                    <TouchableOpacity 
+                        style={[styles.container_answer_btn, { backgroundColor: '#6600ff' }]}
+                        onPress={() => this.props.actions.confirmFriendRequestAction(this.props.notification.from._id)}
+                    >
                         <Text style={{ fontSize: 15, color: 'white', fontWeight: '700' }}>Confirm</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{ flex: 1 }}>
-                    <TouchableOpacity style={[styles.container_answer_btn, { backgroundColor: '#e6e6e6' }]}>
+                    <TouchableOpacity 
+                        style={[styles.container_answer_btn, { backgroundColor: '#e6e6e6' }]}
+                        onPress={() => this.props.actions.refuseFriendRequestAction(this.props.notification.from._id)}
+                    >
                         <Text style={{ fontSize: 15, fontWeight: '700' }}>Cancel</Text>
                     </TouchableOpacity>
                 </View>

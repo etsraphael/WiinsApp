@@ -137,7 +137,13 @@ export default NotificationReducer = (state = initialState, action) => {
       return {
         ...state,
         request_list: []
-      } 
+      }
+    }
+    case ActionTypes.DELETE_REQUEST_BY_ID: {
+      return {
+        ...state,
+        request_list: state.request_list.filter(x => x.from._id !== action.id)
+      }
     }
     default: return { ...state }
   }

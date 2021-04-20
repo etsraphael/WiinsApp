@@ -23,6 +23,7 @@ class NotificationPage extends React.Component {
     }
 
     componentDidMount = () => {
+        this.props.actions.resetActivityNotificationNumberAction()
         this.props.actions.getActivityNotificationList(1)
         this.props.actions.getRequestNotificationList(1)
     }
@@ -46,6 +47,10 @@ class NotificationPage extends React.Component {
         }
     }
 
+    _goTofriendRequest = () => {
+        this.props.actions.resetFriendRequestNotificationNumberAction()
+        this.setState({ pageSelected: 'friendRequest' })
+    }
 
     _headerRender = () => {
         return (
@@ -60,7 +65,7 @@ class NotificationPage extends React.Component {
 
                 <TouchableOpacity
                     style={[styles.container_btn_header, this.state.pageSelected == 'friendRequest' && this._backgroundBtnHeaderActif()]}
-                    onPress={() => this.setState({ pageSelected: 'friendRequest' })}
+                    onPress={() => this._goTofriendRequest()}
                 >
                     <Text style={[styles.header_text_btn, this.state.pageSelected == 'friendRequest' && this._colorTextBtnHeaderActif()]}>
                         Friend Request  {this._rendeRequestNumber()}   
