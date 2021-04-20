@@ -23,13 +23,13 @@ class NotificationPage extends React.Component {
     }
 
     componentDidMount = () => {
-        this.props.actions.getNotificationList(1)
+        this.props.actions.getActivityNotificationList(1)
         // this.props.actions.resetActivityNotificationNumberAction()
     }
 
     _getNextPageOfNotification = () => {
         this.setState({ page: this.state.page++ })
-        this.props.actions.getNotificationList(this.state.page)
+        this.props.actions.getActivityNotificationList(this.state.page)
     }
 
     _backgroundBtnHeaderActif = () => {
@@ -90,14 +90,14 @@ class NotificationPage extends React.Component {
                 { this.state.pageSelected == 'earlier' &&
                     <VirtualizedList
                         ListHeaderComponent={this._headerRender}
-                        onRefresh={() => this.props.actions.refreshList()}
-                        refreshing={this.props.Notifications.isRefreshing}
+                        onRefresh={() => this.props.actions.refreshActivityNotifications()}
+                        refreshing={this.props.Notifications.activity_isRefreshing}
                         showsVerticalScrollIndicator={false}
                         style={{ marginBottom: 50 }}
-                        data={this.props.Notifications.list}
+                        data={this.props.Notifications.activity_list}
                         renderItem={({ item, index }) => <OneNotification notification={item[index]} navigation={this.props.navigation} />}
                         keyExtractor={(item, index) => item[index]._id}
-                        getItemCount={() => this.props.Notifications.list.length}
+                        getItemCount={() => this.props.Notifications.activity_list.length}
                         getItem={(data) => data}
                         scrollEventThrottle={5}
                         onMomentumScrollEnd={() => this._getNextPageOfNotification()}
@@ -132,7 +132,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         paddingVertical: 5,
         marginHorizontal: 5,
-        borderRadius: 8
+        borderRadius: 8,
+        backgroundColor: '#d9d9d9'
     },
     header_text_btn: {
         fontSize: 19,

@@ -5,12 +5,12 @@ import Snackbar from 'react-native-snackbar'
 import I18n from '../../../assets/i18n/i18n'
 import { getFeedPublicationByIdStart, getFeedPublicationByIdSuccess, getFeedPublicationByIdFail } from './../PublicationInModal/actions'
 
-export function getNotificationsNumberSuccess(activity, request) {
-    return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER_SUCCESS, activity, request }
-}
-
 export function getNotificationsNumberStart() {
     return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER }
+}
+
+export function getNotificationsNumberSuccess(activity, request) {
+    return { type: ActionTypes.GET_NOTIFICATIONS_NUMBER_SUCCESS, activity, request }
 }
 
 export function getNotificationsNumberFail(payload) {
@@ -44,38 +44,32 @@ export function deleteNotificationByIdFail(error) {
     }
 }
 
-export function refreshNotificationsStart() {
-    return { type: ActionTypes.REFRESH_NOTIFICATIONS }
+export function refreshActivityNotificationsStart() {
+    return { type: ActionTypes.REFRESH_ACTIVITY_NOTIFICATIONS }
 }
 
-export function refreshNotificationsSuccess(Notification) {
-    return {
-        type: ActionTypes.REFRESH_NOTIFICATIONS_SUCCESS,
-        payload: Notification,
-    }
+export function refreshActivityNotificationsSuccess(payload) {
+    return { type: ActionTypes.REFRESH_ACTIVITY_NOTIFICATIONS_SUCCESS, payload }
 }
 
-export function refreshNotificationsFail(error) {
+export function refreshActivityNotificationsFail(error) {
     return {
-        type: ActionTypes.REFRESH_NOTIFICATIONS_FAIL,
+        type: ActionTypes.REFRESH_ACTIVITY_NOTIFICATIONS_FAIL,
         payload: error
     }
 }
 
-export function getNotificationsSuccess(payload) {
-    return {
-        type: ActionTypes.GET_NOTIFICATIONS_SUCCESS,
-        payload: payload,
-    }
+export function getActivityNotificationsSuccess(payload) {
+    return { type: ActionTypes.GET_ACTIVITY_NOTIFICATIONS_SUCCESS, payload }
 }
 
-export function getNotificationsStart() {
-    return { type: ActionTypes.GET_NOTIFICATIONS }
+export function getActivityNotificationsStart() {
+    return { type: ActionTypes.GET_ACTIVITY_NOTIFICATIONS }
 }
 
-export function getNotificationsFail(error) {
+export function getActivityNotificationsFail(error) {
     return {
-        type: ActionTypes.GET_NOTIFICATIONS_FAIL,
+        type: ActionTypes.GET_ACTIVITY_NOTIFICATIONS_FAIL,
         payload: error
     }
 }
@@ -84,12 +78,12 @@ export function resetActivityNotification() {
     return { type: ActionTypes.RESET_ACTIVITY_NOTIFICATIONS }
 }
 
-export function getNotificationList(page) {
+export function getActivityNotificationList(page) {
 
     return async (dispatch) => {
         try {
             if (page == 1) dispatch(resetActivityNotification())
-            dispatch(getNotificationsStart())
+            dispatch(getActivityNotificationsStart())
             const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/notification/activity/list?limit=10&page=' + page
 
@@ -103,22 +97,22 @@ export function getNotificationList(page) {
                 .then((response) => response.json())
                 .then(response => {
                     if (response.status == 201) {
-                        return dispatch(getNotificationsSuccess(response.results))
+                        return dispatch(getActivityNotificationsSuccess(response.results))
                     }
-                    else return dispatch(getNotificationsFail(response.message))
+                    else return dispatch(getActivityNotificationsFail(response.message))
                 })
         } catch (error) {
             sendError(error)
-            return dispatch(getNotificationsFail(error));
+            return dispatch(getActivityNotificationsFail(error));
         }
     };
 }
 
-export function resetNotificationActions() {
-    return (dispatch) => dispatch(resetNotification())
+export function resetActivityNotificationActions() {
+    return (dispatch) => dispatch(resetActivityNotification())
 }
 
-export function addNotification(Notification) {
+export function addNotification(notification) {
 
     return async (dispatch) => {
 
@@ -135,7 +129,7 @@ export function addNotification(Notification) {
                     Accept: 'application/json', 'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + token,
                 },
-                body: JSON.stringify(Notification)
+                body: JSON.stringify(notification)
             })
                 .then((response) => response.json())
                 .then((response) => {
@@ -152,10 +146,10 @@ export function addNotification(Notification) {
 
 }
 
-export function refreshList() {
+export function refreshActivityNotifications() {
     return async (dispatch) => {
         try {
-            dispatch(refreshNotificationsStart())
+            dispatch(refreshActivityNotificationsStart())
             const token = await AsyncStorage.getItem('userToken')
             const url = 'https://wiins-backend.herokuapp.com/notification/activity/list?limit=10&page=1'
 
@@ -169,13 +163,13 @@ export function refreshList() {
                 .then((response) => response.json())
                 .then(response => {
                     if (response.status == 201) {
-                        return dispatch(refreshNotificationsSuccess(response.results))
+                        return dispatch(refreshActivityNotificationsSuccess(response.results))
                     }
-                    else return dispatch(refreshNotificationsFail(response.message))
+                    else return dispatch(refreshActivityNotificationsFail(response.message))
                 })
         } catch (error) {
             sendError(error)
-            return dispatch(refreshNotificationsFail(error));
+            return dispatch(refreshActivityNotificationsFail(error));
         }
     }
 }
