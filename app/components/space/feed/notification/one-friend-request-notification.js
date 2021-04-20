@@ -30,7 +30,7 @@ class OneFriendRequestNotification extends React.Component {
 
             <View style={{paddingHorizontal: 10}}>
                 <Text style={{ fontSize: 15 }}>{this.props.notification.from._meta.pseudo} sent you a friend request</Text>
-                <Text style={{ fontSize: 13, color: 'grey' }}>2 days ago</Text>
+                <Text style={{ fontSize: 13, color: 'grey' }}>{getDateTranslated(this.props.notification.createdAt)}</Text>
             </View>
 
             <View style={{ flexDirection: 'row', paddingHorizontal: 5 }}>

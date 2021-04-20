@@ -446,22 +446,21 @@ export function resetFriendRequestNotificationNumberAction() {
 export function confirmFriendRequestAction(id) {
     return async (dispatch) => {
         try {
-            return dispatch(deleteRequestById(id))
-            // const token = await AsyncStorage.getItem('userToken')
-            // const url = 'https://wiins-backend.herokuapp.com/friends/addWithProfile/' + id
-            // return fetch(url, {
-            //     method: 'GET',
-            //     headers: {
-            //         Accept: 'application/json', 'Content-Type': 'application/json',
-            //         'Authorization': 'Bearer ' + token,
-            //     },
-            // })
-            //     .then((response) => response.json())
-            //     .then(async (response) => {
-            //         if (response.status == 202) {
-            //             return dispatch(resetFriendRequestNotificationNumber())
-            //         }
-            //     })
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/friends/addWithProfile/' + id
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then((response) => {
+                    if (response.status == 200) {
+                        return dispatch(deleteRequestById(id))
+                    }
+                })
         }
         catch (error) {
             return sendError(error)
@@ -472,22 +471,21 @@ export function confirmFriendRequestAction(id) {
 export function refuseFriendRequestAction(id) {
     return async (dispatch) => {
         try {
-            return dispatch(deleteRequestById(id))
-            // const token = await AsyncStorage.getItem('userToken')
-            // const url = 'https://wiins-backend.herokuapp.com/friends/cancelWidthProfile/' + id
-            // return fetch(url, {
-            //     method: 'GET',
-            //     headers: {
-            //         Accept: 'application/json', 'Content-Type': 'application/json',
-            //         'Authorization': 'Bearer ' + token,
-            //     },
-            // })
-            //     .then((response) => response.json())
-            //     .then(async (response) => {
-            //         if (response.status == 202) {
-            //             return dispatch(resetFriendRequestNotificationNumber())
-            //         }
-            //     })
+            const token = await AsyncStorage.getItem('userToken')
+            const url = 'https://wiins-backend.herokuapp.com/friends/refuseWithProfile/' + id
+            return fetch(url, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                },
+            })
+                .then((response) => response.json())
+                .then((response) => {
+                    if (response.status == 201) {
+                        return dispatch(deleteRequestById(id))
+                    }
+                })
         }
         catch (error) {
             return sendError(error)
