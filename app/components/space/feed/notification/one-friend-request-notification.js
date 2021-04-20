@@ -9,7 +9,7 @@ import * as NotificationActions from '../../../../redux/Notifications/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import { getDateTranslated } from '../../../../services/translation/translation-service'
-import { TabActions } from '@react-navigation/native'
+import i18n from '../../../../../assets/i18n/i18n'
 
 class OneFriendRequestNotification extends React.Component {
 
@@ -40,7 +40,7 @@ class OneFriendRequestNotification extends React.Component {
                         style={[styles.container_answer_btn, { backgroundColor: '#6600ff' }]}
                         onPress={() => this.props.actions.confirmFriendRequestAction(this.props.notification.from._id)}
                     >
-                        <Text style={{ fontSize: 15, color: 'white', fontWeight: '700' }}>Confirm</Text>
+                        <Text style={{ fontSize: 15, color: 'white', fontWeight: '700' }}>{i18n.t('CORE.Confirm')}</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={{ flex: 1 }}>
@@ -48,7 +48,7 @@ class OneFriendRequestNotification extends React.Component {
                         style={[styles.container_answer_btn, { backgroundColor: '#e6e6e6' }]}
                         onPress={() => this.props.actions.refuseFriendRequestAction(this.props.notification.from._id)}
                     >
-                        <Text style={{ fontSize: 15, fontWeight: '700' }}>Cancel</Text>
+                        <Text style={{ fontSize: 15, fontWeight: '700' }}>{i18n.t('CORE.Cancel')}</Text>
                     </TouchableOpacity>
                 </View>
             </View>
