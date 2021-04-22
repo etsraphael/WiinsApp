@@ -29,6 +29,8 @@ class SettingCertification extends React.Component {
             idRectoLink: null,
             idVersoLink: null,
             facePhotoLink: null,
+            verificationIsLoading: false,
+            certificationIsLoading: false
         }
     }
 
@@ -42,7 +44,7 @@ class SettingCertification extends React.Component {
 
     _loadingForSectionRender = () => {
         return (
-            <View style={{position: 'absolute', right: 8, top: 8}}>
+            <View style={{ position: 'absolute', right: 8, top: 8 }}>
                 <ActivityIndicator size='large' color="grey" />
             </View>
         )
@@ -101,6 +103,11 @@ class SettingCertification extends React.Component {
     }
 
     _certificationRender = () => {
+
+        if(this.state.certificationIsLoading){
+            return this._loadingMenuRender()
+        }
+
         return (
             <View>
                 <View style={{ flexDirection: 'row' }}>
@@ -146,6 +153,11 @@ class SettingCertification extends React.Component {
     }
 
     _verificationRender = () => {
+
+        if(this.state.verificationIsLoading){
+            return this._loadingMenuRender()
+        }
+
         return (
             <View style={{ padding: 25 }}>
 
@@ -155,7 +167,7 @@ class SettingCertification extends React.Component {
                     style={styles.container_section(this.state.idRectoReceived)}
                     onPress={() => this._saveFile('id-recto')}
                 >
-                    { this.state.idRectoIsLoading && this._loadingForSectionRender()}
+                    {this.state.idRectoIsLoading && this._loadingForSectionRender()}
                     {this._uploadIconAndTextRender()}
                     <View style={{ paddingHorizontal: 15 }}>
                         <Text>{i18n.t('SETTING.verified.Upload-yr-password-id-identity-or-driver-license')}</Text>
@@ -166,7 +178,7 @@ class SettingCertification extends React.Component {
                     style={styles.container_section(this.state.idVersoReceived)}
                     onPress={() => this._saveFile('id-verso')}
                 >
-                    { this.state.idVersoIsLoading && this._loadingForSectionRender()}
+                    {this.state.idVersoIsLoading && this._loadingForSectionRender()}
                     {this._uploadIconAndTextRender()}
                     <View style={{ paddingHorizontal: 15 }}>
                         <Text>{i18n.t('SETTING.verified.M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card')}</Text>
@@ -177,7 +189,7 @@ class SettingCertification extends React.Component {
                     style={styles.container_section(this.state.facePhotoReceived)}
                     onPress={() => this._saveFile('face-photo')}
                 >
-                    { this.state.facePhotoIsLoading && this._loadingForSectionRender()}
+                    {this.state.facePhotoIsLoading && this._loadingForSectionRender()}
                     {this._uploadIconAndTextRender()}
                     <View style={{ paddingHorizontal: 15 }}>
                         <Text>{i18n.t('SETTING.verified.Upload-a-photo-holding-t-ID-D')}</Text>
@@ -219,30 +231,55 @@ class SettingCertification extends React.Component {
 
     _submitVerification = () => {
 
-
-
-        if(!this.state.verifTerm) {
-
+        if (!this.state.verifTerm) {
             return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
-
-
-
         }
 
+        if (!this.state.idRectoLink || !this.state.facePhotoLink) {
+            return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.A-err-has-occurred'), duration: Snackbar.LENGTH_LONG })
+        }
+
+        const verification = {
+            identityFile: this.state.idRectoLink,
+            identityFileBack: this.state.idVersoLink,
+            pictureTakeFile: this.state.facePhotoLink
+        }
+
+        this.setState({ verificationIsLoading: true })
+
+        // to do..
+        // return fetch('https://wiins-backend.herokuapp.com/admin/createVerificationProfile', {
+        //     method: 'POST',
+        //     headers: {
+        //         Accept: 'application/json', 'Content-Type': 'application/json',
+        //         'Authorization': 'Bearer ' + token
+        //     },
+        //     body: JSON.stringify({ verification })
+        // })
+        //     .then((response) => response.json())
+        //     .then((response) => {
+        //         this.setState({ verificationIsLoading: false })
+
+        //     }).catch(() => {
+        //         this.setState({ verificationIsLoading: false })
+        //     })
+
+    }
 
 
-
-
-
-        console.log('idRectoLink : ' + this.state.idRectoLink)
-        console.log('idVersoLink : ' + this.state.idVersoLink)
-        console.log('facePhotoLink : ' + this.state.facePhotoLink)
+    _loadingMenuRender = () => {
+            return (
+                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 150}}>
+                    <ActivityIndicator size='large' color="grey" />
+                </View>
+            )
     }
 
     render() {
         return (
             <ScrollView style={styles.main_container}>
                 {this._renderHeader()}
+                {console.log(this.state.pageSelected == 'c' && !this.state.verificationIsLoading)}
                 {this.state.pageSelected == 'c' && this._certificationRender()}
                 {this.state.pageSelected == 'v' && this._verificationRender()}
             </ScrollView>
