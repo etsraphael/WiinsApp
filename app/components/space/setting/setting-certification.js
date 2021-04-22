@@ -11,6 +11,7 @@ import CheckBox from '@react-native-community/checkbox'
 import LinearGradient from 'react-native-linear-gradient'
 import { launchImageLibrary } from 'react-native-image-picker'
 import { uploadImageFileWithSignedUrl } from './../../../services/upload/upload'
+import Snackbar from 'react-native-snackbar'
 
 class SettingCertification extends React.Component {
 
@@ -18,13 +19,16 @@ class SettingCertification extends React.Component {
         super(props)
         this.state = {
             pageSelected: 'v',
-            verifTerm: true,
+            verifTerm: false,
             idRectoReceived: false,
             idVersoReceived: false,
             facePhotoReceived: false,
             idRectoIsLoading: false,
             idVersoIsLoading: false,
             facePhotoIsLoading: false,
+            idRectoLink: null,
+            idVersoLink: null,
+            facePhotoLink: null,
         }
     }
 
@@ -109,18 +113,14 @@ class SettingCertification extends React.Component {
     }
 
 
-    _sendFile = async(file, type) => {
+    _sendFile = async (file, type) => {
+
+        const upload = await uploadImageFileWithSignedUrl('eps-file-verification', file)
 
         switch (type) {
             case 'id-recto': {
-
-                const upload = await uploadImageFileWithSignedUrl('eps-file-verification', file)
-                if(!!upload){
-                    return this.setState({ idRectoReceived: true, idRectoIsLoading: false })
-                } else {
-                    return this.setState({ idRectoReceived: false, idRectoIsLoading: false })
-                }
-                
+                if (!!upload) return this.setState({ idRectoReceived: true, idRectoIsLoading: false, idRectoLink: upload })
+                else return this.setState({ idRectoReceived: false, idRectoIsLoading: false, idRectoLink: null })
             }
             case 'id-verso': {
                 return this.setState({ idVersoReceived: true })
@@ -184,7 +184,7 @@ class SettingCertification extends React.Component {
                 </View>
 
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => this._submitVerification()}>
                         <LinearGradient colors={['#f12711', '#f5af19']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
                             style={{ borderRadius: 7, paddingHorizontal: 20, paddingVertical: 15 }}>
                             <Text style={{ color: 'white', fontSize: 15, fontWeight: '800' }}>{i18n.t('CORE.Confirm')}</Text>
@@ -197,6 +197,29 @@ class SettingCertification extends React.Component {
 
             </View>
         )
+    }
+
+
+    _submitVerification = () => {
+
+
+
+        if(!this.state.verifTerm) {
+
+            return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
+
+
+
+        }
+
+
+
+
+
+
+        console.log('idRectoLink : ' + this.state.idRectoLink)
+        console.log('idVersoLink : ' + this.state.idVersoLink)
+        console.log('facePhotoLink : ' + this.state.facePhotoLink)
     }
 
     render() {
