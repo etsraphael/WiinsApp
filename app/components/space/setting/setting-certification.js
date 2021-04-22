@@ -187,9 +187,11 @@ class SettingCertification extends React.Component {
     }
 
     _pendingRequest = () => {
-        return (<View>
-            <Text>Pending Request</Text>
-        </View>)
+        return (
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', padding: 45}}>
+            <Text style={{fontSize: 16, textAlign: 'center'}}>{i18n.t('SETTING.verified.Yr-profil-is-currently-being-checked-D')}</Text>
+        </View>
+        )
     }
 
     _verificationRender = () => {
@@ -264,8 +266,6 @@ class SettingCertification extends React.Component {
                         </LinearGradient>
                     </TouchableOpacity>
                 </View>
-
-                {/* <Text>{i18n.t('SETTING.verified.Yr-profil-is-currently-being-checked-D')}</Text> */}
 
             </View>
         )
