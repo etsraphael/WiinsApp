@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
@@ -38,6 +38,14 @@ class SettingCertification extends React.Component {
 
     _colorTextBtnHeaderActif = () => {
         return { color: 'white' }
+    }
+
+    _loadingForSectionRender = () => {
+        return (
+            <View style={{position: 'absolute', right: 8, top: 8}}>
+                <ActivityIndicator size='large' color="grey" />
+            </View>
+        )
     }
 
     _renderHeader = () => {
@@ -115,10 +123,10 @@ class SettingCertification extends React.Component {
 
     _sendFile = async (file, type) => {
 
-        const upload = await uploadImageFileWithSignedUrl('eps-file-verification', file)
-
         switch (type) {
             case 'id-recto': {
+                this.setState({ idRectoIsLoading: true })
+                const upload = await uploadImageFileWithSignedUrl('eps-file-verification', file)
                 if (!!upload) return this.setState({ idRectoReceived: true, idRectoIsLoading: false, idRectoLink: upload })
                 else return this.setState({ idRectoReceived: false, idRectoIsLoading: false, idRectoLink: null })
             }
@@ -141,6 +149,7 @@ class SettingCertification extends React.Component {
                     style={styles.container_section(this.state.idRectoReceived)}
                     onPress={() => this._saveFile('id-recto')}
                 >
+                    { this.state.idRectoIsLoading && this._loadingForSectionRender()}
                     {this._uploadIconAndTextRender()}
                     <View style={{ paddingHorizontal: 15 }}>
                         <Text>{i18n.t('SETTING.verified.Upload-yr-password-id-identity-or-driver-license')}</Text>
@@ -151,6 +160,7 @@ class SettingCertification extends React.Component {
                     style={styles.container_section(this.state.idVersoReceived)}
                     onPress={() => this._saveFile('id-verso')}
                 >
+                    { this.state.idVersoIsLoading && this._loadingForSectionRender()}
                     {this._uploadIconAndTextRender()}
                     <View style={{ paddingHorizontal: 15 }}>
                         <Text>{i18n.t('SETTING.verified.M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card')}</Text>
@@ -161,6 +171,7 @@ class SettingCertification extends React.Component {
                     style={styles.container_section(this.state.facePhotoReceived)}
                     onPress={() => this._saveFile('face-photo')}
                 >
+                    { this.state.facePhotoIsLoading && this._loadingForSectionRender()}
                     {this._uploadIconAndTextRender()}
                     <View style={{ paddingHorizontal: 15 }}>
                         <Text>{i18n.t('SETTING.verified.Upload-a-photo-holding-t-ID-D')}</Text>
