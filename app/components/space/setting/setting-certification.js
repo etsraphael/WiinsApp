@@ -3,13 +3,14 @@ import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from 'react-nati
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import { faArrowLeft, faDownload, faTreeChristmas } from '@fortawesome/pro-duotone-svg-icons'
+import { faArrowLeft, faDownload } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import i18n from '../../../../assets/i18n/i18n'
 import CheckBox from '@react-native-community/checkbox'
 import LinearGradient from 'react-native-linear-gradient'
 import { launchImageLibrary } from 'react-native-image-picker'
+import { uploadImageFileWithSignedUrl } from './../../../services/upload/upload'
 
 class SettingCertification extends React.Component {
 
@@ -21,6 +22,9 @@ class SettingCertification extends React.Component {
             idRectoReceived: false,
             idVersoReceived: false,
             facePhotoReceived: false,
+            idRectoIsLoading: false,
+            idVersoIsLoading: false,
+            facePhotoIsLoading: false,
         }
     }
 
@@ -105,11 +109,18 @@ class SettingCertification extends React.Component {
     }
 
 
-    _sendFile = (file, type) => {
+    _sendFile = async(file, type) => {
 
         switch (type) {
             case 'id-recto': {
-                return this.setState({ idRectoReceived: true })
+
+                const upload = await uploadImageFileWithSignedUrl('eps-file-verification', file)
+                if(!!upload){
+                    return this.setState({ idRectoReceived: true, idRectoIsLoading: false })
+                } else {
+                    return this.setState({ idRectoReceived: false, idRectoIsLoading: false })
+                }
+                
             }
             case 'id-verso': {
                 return this.setState({ idVersoReceived: true })
