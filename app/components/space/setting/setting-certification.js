@@ -131,10 +131,16 @@ class SettingCertification extends React.Component {
                 else return this.setState({ idRectoReceived: false, idRectoIsLoading: false, idRectoLink: null })
             }
             case 'id-verso': {
-                return this.setState({ idVersoReceived: true })
+                this.setState({ idVersoIsLoading: true })
+                const upload = await uploadImageFileWithSignedUrl('eps-file-verification', file)
+                if (!!upload) return this.setState({ idVersoReceived: true, idVersoIsLoading: false, idVersoLink: upload })
+                else return this.setState({ idVersoReceived: false, idVersoIsLoading: false, idVersoLink: null })
             }
             case 'face-photo': {
-                return this.setState({ facePhotoReceived: true })
+                this.setState({ facePhotoIsLoading: true })
+                const upload = await uploadImageFileWithSignedUrl('eps-file-verification', file)
+                if (!!upload) return this.setState({ facePhotoReceived: true, facePhotoIsLoading: false, facePhotoLink: upload })
+                else return this.setState({ facePhotoReceived: false, facePhotoIsLoading: false, facePhotoLink: null })
             }
         }
     }
