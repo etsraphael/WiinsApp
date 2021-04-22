@@ -12,6 +12,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { launchImageLibrary } from 'react-native-image-picker'
 import { uploadImageFileWithSignedUrl } from './../../../services/upload/upload'
 import Snackbar from 'react-native-snackbar'
+import AsyncStorage from '@react-native-community/async-storage'
 
 class SettingCertification extends React.Component {
 
@@ -30,8 +31,41 @@ class SettingCertification extends React.Component {
             idVersoLink: null,
             facePhotoLink: null,
             verificationIsLoading: false,
-            certificationIsLoading: false
+            certificationIsLoading: false,
+            verificationSent: false,
+            certificationSent: false
         }
+    }
+
+
+
+    UNSAFE_componentWillMount = () => {
+        this._checkVerificationState()
+    }
+
+    _checkVerificationState = async() => {
+
+        this.setState({verificationIsLoading: true})
+
+        const token = await AsyncStorage.getItem('userToken')
+
+        return fetch('https://wiins-backend.herokuapp.com/admin/getVerificationProfile', {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json', 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                if(response.status == 200){
+                    this.setState({verificationIsLoading: false, verificationSent: true})
+                } else {
+                    this.setState({verificationIsLoading: false})
+                }
+            }).catch(() => {
+                this.setState({verificationIsLoading: false})
+            })
     }
 
     _backgroundBtnHeaderActif = () => {
@@ -152,10 +186,20 @@ class SettingCertification extends React.Component {
         }
     }
 
+    _pendingRequest = () => {
+        return (<View>
+            <Text>Pending Request</Text>
+        </View>)
+    }
+
     _verificationRender = () => {
 
         if(this.state.verificationIsLoading){
             return this._loadingMenuRender()
+        }
+
+        if(this.state.verificationSent){
+            return this._pendingRequest()
         }
 
         return (
@@ -221,15 +265,14 @@ class SettingCertification extends React.Component {
                     </TouchableOpacity>
                 </View>
 
-                {/* <Text>{i18n.t('SETTING.verified.Yr-profil-is-currently-being-checked-D')}</Text>
-                <Text>{i18n.t('CORE.Loading')}</Text> */}
+                {/* <Text>{i18n.t('SETTING.verified.Yr-profil-is-currently-being-checked-D')}</Text> */}
 
             </View>
         )
     }
 
 
-    _submitVerification = () => {
+    _submitVerification = async() => {
 
         if (!this.state.verifTerm) {
             return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
@@ -246,23 +289,28 @@ class SettingCertification extends React.Component {
         }
 
         this.setState({ verificationIsLoading: true })
+        const token = await AsyncStorage.getItem('userToken')
 
-        // to do..
-        // return fetch('https://wiins-backend.herokuapp.com/admin/createVerificationProfile', {
-        //     method: 'POST',
-        //     headers: {
-        //         Accept: 'application/json', 'Content-Type': 'application/json',
-        //         'Authorization': 'Bearer ' + token
-        //     },
-        //     body: JSON.stringify({ verification })
-        // })
-        //     .then((response) => response.json())
-        //     .then((response) => {
-        //         this.setState({ verificationIsLoading: false })
-
-        //     }).catch(() => {
-        //         this.setState({ verificationIsLoading: false })
-        //     })
+        return fetch('https://wiins-backend.herokuapp.com/admin/createVerificationProfile', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json', 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({ verification })
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                if(response.status == 201){
+                    return this.setState({ verificationIsLoading: false, verificationSent: true })
+                } else {
+                    this.setState({ verificationIsLoading: false })
+                    return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.A-err-has-occurred'), duration: Snackbar.LENGTH_LONG })
+                }
+            }).catch(() => {
+                this.setState({ verificationIsLoading: false })
+                    return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.A-err-has-occurred'), duration: Snackbar.LENGTH_LONG })
+            })
 
     }
 
@@ -279,7 +327,6 @@ class SettingCertification extends React.Component {
         return (
             <ScrollView style={styles.main_container}>
                 {this._renderHeader()}
-                {console.log(this.state.pageSelected == 'c' && !this.state.verificationIsLoading)}
                 {this.state.pageSelected == 'c' && this._certificationRender()}
                 {this.state.pageSelected == 'v' && this._verificationRender()}
             </ScrollView>
