@@ -109,13 +109,13 @@ class SettingCertification extends React.Component {
 
         switch (type) {
             case 'id-recto': {
-                return this.setState({idRectoReceived: true})
+                return this.setState({ idRectoReceived: true })
             }
             case 'id-verso': {
-                return this.setState({idVersoReceived: true})
+                return this.setState({ idVersoReceived: true })
             }
             case 'face-photo': {
-                return this.setState({facePhotoReceived: true})
+                return this.setState({ facePhotoReceived: true })
             }
         }
     }
