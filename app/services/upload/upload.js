@@ -1,8 +1,10 @@
 import { RNFFmpeg } from 'react-native-ffmpeg'
 import * as RNFS from 'react-native-fs'
 import RNFetchBlob from 'rn-fetch-blob'
-import ImageResizer from 'react-native-image-resizer';
+import ImageResizer from 'react-native-image-resizer'
 import { Image } from 'react-native'
+import { v4 as uuidv4 } from 'uuid'
+import AsyncStorage from '@react-native-community/async-storage'
 
 // to get the file name uploaded
 export function getFileNameUploaded(bucketName, id) {
@@ -32,6 +34,33 @@ export async function uploadImageFile(link, file) {
             return fetch(link, { method: 'PUT', headers: { 'Content-Type': 'image/jpg' }, body: imageBody })
         })
 
+}
+
+// to upload a image with the signed Url
+export async function uploadImageFileWithSignedUrl(bucketName, file) {
+
+    const fileKey = uuidv4()
+    const urlSigned = { Bucket: bucketName, Key: fileKey, ContentType: 'image/jpg' }
+    const token = await AsyncStorage.getItem('userToken')
+
+
+    return fetch('https://wiins-backend.herokuapp.com/fs/getSignedUrl', {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json', 'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        },
+        body: JSON.stringify({ urlSigned })
+    })
+        .then((response) => response.json())
+        .then(async (response) => {
+            if (response.status == 200) {
+                const picture_response = await uploadImageFile(response.url, file)
+                if (picture_response.status == 200) {
+                    return getFileNameUploaded(bucketName, fileKey)
+                } else return null
+            } else return null
+        })
 }
 
 // to upload a video file

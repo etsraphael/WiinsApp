@@ -1,10 +1,10 @@
 import React from 'react'
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, FlatList } from 'react-native'
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, FlatList, SafeAreaView } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft, faKey, faUser, faEllipsisH, faWallet, faCertificate, faSignOut, faUserShield } from '@fortawesome/pro-duotone-svg-icons'
+import { faArrowLeft, faCertificate, faSignOut, faUserShield } from '@fortawesome/pro-duotone-svg-icons'
 import { faAngleRight } from '@fortawesome/pro-light-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
@@ -73,33 +73,35 @@ class Setting extends React.Component {
             // { title: I18n.t('CORE.Profile'), code: 'SettingProfile', icon: <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} /> },
             // { title: I18n.t('CORE.Password'), code: 'SettingPassword', icon: <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} /> },
             // { title: I18n.t('CORE.Ledger'), code: 'SettingLedger', icon: <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} /> },
-            // { title: I18n.t('CORE.Certification'), code: 'SettingCertification', icon: <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} /> },
             // { title: I18n.t('CORE.Others'), code: 'SettingOther', icon: <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} /> },
+            { title: I18n.t('CORE.Certification'), code: 'SettingCertification', icon: <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} /> },
             { title: 'Privacy', code: 'SettingPrivacy', icon: <FontAwesomeIcon icon={faUserShield} color={'#808080a3'} size={30} /> },
             { title: I18n.t('NAVBAR.Logout'), code: 'Logout', icon: <FontAwesomeIcon icon={faSignOut} color={'#808080a3'} size={30} /> }
         ]
 
         return (
             <View style={{ flex: 1, padding: 15 }}>
-                <FlatList
-                    style={{ flex: 1, paddingBottom: 45 }}
-                    data={listSetting}
-                    keyExtractor={(item) => item.code.toString()}
-                    ItemSeparatorComponent={() => <View style={{ height: 0.5, backgroundColor: '#c0c0c0' }} />}
-                    renderItem={({ item }) =>
-                        <TouchableOpacity style={{ flexDirection: 'row', paddingVertical: 15 }} onPress={() => this._actionSelected(item.code)}>
-                            <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                                {item.icon}
-                            </View>
-                            <View style={{ flex: 6, justifyContent: 'center' }}>
-                                <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{item.title}</Text>
-                            </View>
-                            <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                                <FontAwesomeIcon icon={faAngleRight} color={'#808080a3'} size={30} />
-                            </View>
-                        </TouchableOpacity>
-                    }
-                />
+                <SafeAreaView style={{ flex: 1 }}>
+                    <FlatList
+                        style={{ flex: 1, paddingBottom: 45 }}
+                        data={listSetting}
+                        keyExtractor={(item) => item.code.toString()}
+                        ItemSeparatorComponent={() => <View style={{ height: 0.5, backgroundColor: '#c0c0c0' }} />}
+                        renderItem={({ item }) =>
+                            <TouchableOpacity style={{ flexDirection: 'row', paddingVertical: 15 }} onPress={() => this._actionSelected(item.code)}>
+                                <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                                    {item.icon}
+                                </View>
+                                <View style={{ flex: 6, justifyContent: 'center' }}>
+                                    <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{item.title}</Text>
+                                </View>
+                                <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                                    <FontAwesomeIcon icon={faAngleRight} color={'#808080a3'} size={30} />
+                                </View>
+                            </TouchableOpacity>
+                        }
+                    />
+                </SafeAreaView>
             </View>
         )
     }
