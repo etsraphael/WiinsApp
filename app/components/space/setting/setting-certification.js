@@ -47,7 +47,7 @@ class SettingCertification extends React.Component {
                 return null
             }
 
-            case 1:{
+            case 1: {
                 await this._checkCertificationState()
                 return null
             }
@@ -173,16 +173,16 @@ class SettingCertification extends React.Component {
 
     _confirmationRender = (text) => {
         return (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 35}}>
-            <FontAwesomeIcon style={{marginVertical: 15}} icon={faCheck} color={'#29a329'} size={54} />
-            <Text style={{fontSize: 19, fontWeight: '800', color: 'grey'}}>{i18n.t(text)}</Text>
-        </View>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 35 }}>
+                <FontAwesomeIcon style={{ marginVertical: 15 }} icon={faCheck} color={'#29a329'} size={54} />
+                <Text style={{ fontSize: 19, fontWeight: '800', color: 'grey' }}>{i18n.t(text)}</Text>
+            </View>
         )
     }
 
     _certificationRender = () => {
 
-        if(this.props.MyProfile.profile.levelCertification == 2){
+        if (this.props.MyProfile.profile.levelCertification == 2) {
             return this._confirmationRender('SETTING.verified.Already-certified')
         }
 
@@ -298,7 +298,7 @@ class SettingCertification extends React.Component {
 
     _verificationRender = () => {
 
-        if(this.props.MyProfile.profile.levelCertification > 0){
+        if (this.props.MyProfile.profile.levelCertification > 0) {
             return this._confirmationRender('SETTING.verified.Already-verified')
         }
 
