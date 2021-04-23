@@ -169,8 +169,7 @@ class StoriesTrend extends React.Component {
                         </View>
                         : null
                 }
-
-
+                {!!this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.publicationList[this.state.indexProgress].publication.text && this._footerRender()}
             </View>
         )
     }
@@ -247,7 +246,16 @@ class StoriesTrend extends React.Component {
                     priority: FastImage.priority.high,
                 }} resizeMode={FastImage.resizeMode.cover}
             />
+            {!!this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.publicationList[this.state.indexProgress].publication.text && this._footerRender()}
         </View>)
+    }
+
+    _footerRender = () => {
+        return (
+        <View style={{position: 'absolute', bottom: 0, backgroundColor: '#000000a6', width: '100%', padding: 15}}>
+            <Text style={{color: 'white', fontSize: 17}}>{this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.publicationList[this.state.indexProgress].publication.text}</Text>
+        </View>
+        )
     }
 
     // to load the next page
