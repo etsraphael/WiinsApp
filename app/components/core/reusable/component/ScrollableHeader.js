@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { Animated, StyleSheet, View, Text, ScrollView } from "react-native";
+import { Animated, StyleSheet, View, Text, ScrollView, Platform, Dimensions, StatusBar, StatusBarIOS } from "react-native";
 
 const HEADER_MAX_HEIGHT = 60;
 
@@ -37,7 +37,7 @@ export default class ScrollableHeader extends Component {
             extrapolate: 'clamp'
         });
         return (
-            <View style={styles.fill}>
+            <View style={[styles.fill, styles.main]}>
                 <ScrollView
                     style={styles.fill}
                     scrollEventThrottle={16}
@@ -69,6 +69,9 @@ export default class ScrollableHeader extends Component {
 }
 
 const styles = StyleSheet.create({
+    main: {
+        paddingTop: Platform.OS === 'ios' ? StatusBar.currentHeight : 0
+    },
     fill: {
       flex: 1
     },
@@ -81,7 +84,7 @@ const styles = StyleSheet.create({
     },
     header: {
         position: 'absolute',
-        top: 0,
+        top: Platform.OS === 'ios' ? StatusBar.currentHeight : 0,
         left: 0,
         right: 0
       },
