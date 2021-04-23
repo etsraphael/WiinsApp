@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { faArrowLeft, faDownload } from '@fortawesome/pro-duotone-svg-icons'
+import { faCheck } from '@fortawesome/pro-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import i18n from '../../../../assets/i18n/i18n'
@@ -19,7 +20,7 @@ class SettingCertification extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            pageSelected: 'c',
+            pageSelected: 'v',
             verifTerm: false,
             certifTerm: false,
             idRectoReceived: false,
@@ -38,11 +39,20 @@ class SettingCertification extends React.Component {
         }
     }
 
-
-
     UNSAFE_componentWillMount = async () => {
-        await this._checkVerificationState()
-        await this._checkCertificationState()
+        switch (this.props.MyProfile.profile.levelCertification) {
+            case 0: {
+                await this._checkVerificationState()
+                await this._checkCertificationState()
+                return null
+            }
+
+            case 1:{
+                await this._checkCertificationState()
+                return null
+            }
+            default: return null
+        }
     }
 
     _checkCertificationState = async () => {
@@ -161,7 +171,20 @@ class SettingCertification extends React.Component {
         )
     }
 
+    _confirmationRender = (text) => {
+        return (
+        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 35}}>
+            <FontAwesomeIcon style={{marginVertical: 15}} icon={faCheck} color={'#29a329'} size={54} />
+            <Text style={{fontSize: 19, fontWeight: '800', color: 'grey'}}>{i18n.t(text)}</Text>
+        </View>
+        )
+    }
+
     _certificationRender = () => {
+
+        if(this.props.MyProfile.profile.levelCertification == 2){
+            return this._confirmationRender('SETTING.verified.Already-certified')
+        }
 
         if (this.state.certificationIsLoading) {
             return this._loadingMenuRender()
@@ -275,6 +298,10 @@ class SettingCertification extends React.Component {
 
     _verificationRender = () => {
 
+        if(this.props.MyProfile.profile.levelCertification > 0){
+            return this._confirmationRender('SETTING.verified.Already-verified')
+        }
+
         if (this.state.verificationIsLoading) {
             return this._loadingMenuRender()
         }
@@ -356,15 +383,15 @@ class SettingCertification extends React.Component {
             return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
         }
 
-        if(this.props.MyProfile.profile.levelCertification <= 1) {
+        if (this.props.MyProfile.profile.levelCertification <= 1) {
             return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.You-hv-to-be-verified'), duration: Snackbar.LENGTH_LONG })
         }
 
 
-        if(this.props.MyProfile.profile.communityTotal < 1000){
+        if (this.props.MyProfile.profile.communityTotal < 1000) {
             return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.You-hv-to-get-t-community'), duration: Snackbar.LENGTH_LONG })
         }
-        
+
         this.setState({ certificationIsLoading: true })
         const token = await AsyncStorage.getItem('userToken')
 
