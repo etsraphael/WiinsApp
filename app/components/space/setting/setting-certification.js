@@ -19,8 +19,9 @@ class SettingCertification extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            pageSelected: 'v',
+            pageSelected: 'c',
             verifTerm: false,
+            certifTerm: false,
             idRectoReceived: false,
             idVersoReceived: false,
             facePhotoReceived: false,
@@ -39,16 +40,40 @@ class SettingCertification extends React.Component {
 
 
 
-    UNSAFE_componentWillMount = () => {
-        this._checkVerificationState()
+    UNSAFE_componentWillMount = async () => {
+        await this._checkVerificationState()
+        await this._checkCertificationState()
     }
 
-    _checkVerificationState = async() => {
+    _checkCertificationState = async () => {
 
-        this.setState({verificationIsLoading: true})
+        this.setState({ certificationIsLoading: true })
 
         const token = await AsyncStorage.getItem('userToken')
+        return fetch('https://wiins-backend.herokuapp.com/admin/getCertificationProfile', {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json', 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                if (response.status == 200) {
+                    this.setState({ certificationIsLoading: false, certificationSent: true })
+                } else {
+                    this.setState({ certificationIsLoading: false })
+                }
+            }).catch(() => {
+                this.setState({ certificationIsLoading: false })
+            })
+    }
 
+    _checkVerificationState = async () => {
+
+        this.setState({ verificationIsLoading: true })
+
+        const token = await AsyncStorage.getItem('userToken')
         return fetch('https://wiins-backend.herokuapp.com/admin/getVerificationProfile', {
             method: 'GET',
             headers: {
@@ -58,13 +83,13 @@ class SettingCertification extends React.Component {
         })
             .then((response) => response.json())
             .then((response) => {
-                if(response.status == 200){
-                    this.setState({verificationIsLoading: false, verificationSent: true})
+                if (response.status == 200) {
+                    this.setState({ verificationIsLoading: false, verificationSent: true })
                 } else {
-                    this.setState({verificationIsLoading: false})
+                    this.setState({ verificationIsLoading: false })
                 }
             }).catch(() => {
-                this.setState({verificationIsLoading: false})
+                this.setState({ verificationIsLoading: false })
             })
     }
 
@@ -138,13 +163,67 @@ class SettingCertification extends React.Component {
 
     _certificationRender = () => {
 
-        if(this.state.certificationIsLoading){
+        if (this.state.certificationIsLoading) {
             return this._loadingMenuRender()
+        }
+
+        if (this.state.certificationSent) {
+            return this._pendingRequest()
         }
 
         return (
             <View>
-                <View style={{ flexDirection: 'row' }}>
+                <View style={{ padding: 25 }}>
+                    <Text style={{ textAlign: 'center' }}>{i18n.t('SETTING.verified.Y-m-complet-t-following-cdt-t-b-certified')}</Text>
+
+                    <View style={styles.separator_line} />
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <Text style={{ fontSize: 16, textAlign: 'center' }}>{i18n.t('SETTING.verified.H-m-t-1000-user-in-t-community')}</Text>
+                    </View>
+
+                    <View style={styles.separator_line} />
+
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <Text style={{ fontSize: 16, textAlign: 'center' }}>{i18n.t('SETTING.verified.Have-content-t-d-not-offend-the-community')}</Text>
+                    </View>
+
+                    <View style={styles.separator_line} />
+
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                        <Text style={{ fontSize: 16, textAlign: 'center' }}>{i18n.t('SETTING.verified.T-b-accepted-b-t-administration')}</Text>
+                    </View>
+
+
+                    <View style={styles.separator_line} />
+
+                    <View style={{ paddingVertical: 15, flexDirection: 'row' }}>
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <CheckBox
+                                value={this.state.certifTerm}
+                                disabled={false}
+                                boxType={'square'}
+                                lineWidth={1}
+                                onValueChange={(newValue) => this.setState({ certifTerm: newValue })}
+                                style={{ width: 20, height: 20 }}
+                            />
+                        </View>
+                        <View style={{ flex: 6 }}>
+                            <Text>{i18n.t('SETTING.verified.I-agree-t-m-data-may-b-used-t-check-my-account')}</Text>
+                        </View>
+                    </View>
+
+                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 25 }}>
+                        <TouchableOpacity onPress={() => this._submitCertification()}>
+                            <LinearGradient colors={['#f12711', '#f5af19']} start={{ x: 1, y: 1 }} end={{ x: 0, y: 1 }}
+                                style={{ borderRadius: 7, paddingHorizontal: 20, paddingVertical: 15 }}>
+                                <Text style={{ color: 'white', fontSize: 15, fontWeight: '800' }}>{i18n.t('CORE.Confirm')}</Text>
+                            </LinearGradient>
+                        </TouchableOpacity>
+                    </View>
+
                 </View>
             </View>
         )
@@ -188,19 +267,19 @@ class SettingCertification extends React.Component {
 
     _pendingRequest = () => {
         return (
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', padding: 45}}>
-            <Text style={{fontSize: 16, textAlign: 'center'}}>{i18n.t('SETTING.verified.Yr-profil-is-currently-being-checked-D')}</Text>
-        </View>
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', padding: 45 }}>
+                <Text style={{ fontSize: 16, textAlign: 'center' }}>{i18n.t('SETTING.verified.Yr-profil-is-currently-being-checked-D')}</Text>
+            </View>
         )
     }
 
     _verificationRender = () => {
 
-        if(this.state.verificationIsLoading){
+        if (this.state.verificationIsLoading) {
             return this._loadingMenuRender()
         }
 
-        if(this.state.verificationSent){
+        if (this.state.verificationSent) {
             return this._pendingRequest()
         }
 
@@ -271,8 +350,47 @@ class SettingCertification extends React.Component {
         )
     }
 
+    _submitCertification = async () => {
 
-    _submitVerification = async() => {
+        if (!this.state.certifTerm) {
+            return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
+        }
+
+        if(this.props.MyProfile.profile.levelCertification <= 1) {
+            return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.You-hv-to-be-verified'), duration: Snackbar.LENGTH_LONG })
+        }
+
+
+        if(this.props.MyProfile.profile.communityTotal < 1000){
+            return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.You-hv-to-get-t-community'), duration: Snackbar.LENGTH_LONG })
+        }
+        
+        this.setState({ certificationIsLoading: true })
+        const token = await AsyncStorage.getItem('userToken')
+
+        return fetch('https://wiins-backend.herokuapp.com/admin/createCertificationProfile', {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json', 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                if (response.status == 201) {
+                    return this.setState({ certificationIsLoading: false, certificationSent: true })
+                } else {
+                    this.setState({ certificationIsLoading: false })
+                    return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.A-err-has-occurred'), duration: Snackbar.LENGTH_LONG })
+                }
+            }).catch(() => {
+                this.setState({ certificationIsLoading: false })
+                return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.A-err-has-occurred'), duration: Snackbar.LENGTH_LONG })
+            })
+
+    }
+
+    _submitVerification = async () => {
 
         if (!this.state.verifTerm) {
             return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
@@ -301,7 +419,7 @@ class SettingCertification extends React.Component {
         })
             .then((response) => response.json())
             .then((response) => {
-                if(response.status == 201){
+                if (response.status == 201) {
                     return this.setState({ verificationIsLoading: false, verificationSent: true })
                 } else {
                     this.setState({ verificationIsLoading: false })
@@ -309,18 +427,18 @@ class SettingCertification extends React.Component {
                 }
             }).catch(() => {
                 this.setState({ verificationIsLoading: false })
-                    return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.A-err-has-occurred'), duration: Snackbar.LENGTH_LONG })
+                return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.A-err-has-occurred'), duration: Snackbar.LENGTH_LONG })
             })
 
     }
 
 
     _loadingMenuRender = () => {
-            return (
-                <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 150}}>
-                    <ActivityIndicator size='large' color="grey" />
-                </View>
-            )
+        return (
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', paddingTop: 150 }}>
+                <ActivityIndicator size='large' color="grey" />
+            </View>
+        )
     }
 
     render() {
@@ -359,7 +477,14 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         backgroundColor: actif ? '#c2f0c2' : '#d9d9d9',
         borderRadius: 10
-    })
+    }),
+    separator_line: {
+        width: '100%',
+        backgroundColor: 'grey',
+        height: 0.5,
+        opacity: 0.5,
+        marginVertical: 15
+    }
 })
 
 const mapStateToProps = state => ({
