@@ -125,11 +125,10 @@ export function sendPostPublication(publication, token, url, refreshPage) {
 }
 
 export function sendImagePublication(publicationReceived, token, url, refreshPage) {
-
     return async (dispatch) => {
         try {
 
-            const picture = await uploadPicture(publicationReceived.file, token, 'dev-eps-file-wiins-image')
+            const picture = await uploadPicture(publicationReceived.file, token, 'eps-file-feed-publication-image')
             if (!picture) return null
 
             const publication = { ...publicationReceived, file: picture }
@@ -171,8 +170,8 @@ export function sendVideoPublication(publicationReceived, token, url, refreshPag
     return async (dispatch) => {
         try {
 
-            const picture = await uploadPicture(publicationReceived.filePicture, token, 'dev-eps-file-wiins-poster')
-            const video = await uploadVideo(publicationReceived.fileVideo, token, 'dev-eps-file-wiins-video')
+            const picture = await uploadPicture(publicationReceived.filePicture, token, 'eps-file-feed-publication-poster')
+            const video = await uploadVideo(publicationReceived.fileVideo, token, 'eps-file-feed-publication-video')
 
             if (!picture || !video) return null
             const publication = { ...publicationReceived, poster: picture, file: video }
