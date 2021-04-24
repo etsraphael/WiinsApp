@@ -86,7 +86,7 @@ class CardNewFeed extends React.Component {
                 style={{ paddingHorizontal: 15, paddingTop: 15, paddingBottom: 5, minHeight: 150 }}
                 onPress={() => this.props.actions.putPublicationInModalActions(publication, 'feed')}
             >
-                <LinearGradient 
+                <LinearGradient
                     colors={background}
                     start={orientation[0]}
                     end={orientation[1]}
@@ -116,26 +116,27 @@ class CardNewFeed extends React.Component {
 
         return (
             <TouchableWithoutFeedback
-                style={[styles.container_type, {paddingHorizontal: 15, paddingTop: 15, paddingBottom: 5}]}
+                style={[styles.container_type, { paddingHorizontal: 15, paddingTop: 15, paddingBottom: 5 }]}
                 onPress={() => this.props.actions.putPublicationInModalActions(publication, 'feed')}
             >
-                <View style={{shadowColor: "#000",
+                <View style={{
+                    shadowColor: "#000",
                     shadowOffset: {
-                    	width: 0,
-                    	height: 2,
+                        width: 0,
+                        height: 2,
                     },
                     shadowOpacity: 0.25,
                     shadowRadius: 3.84,
 
                     elevation: 5,
                     borderRadius: 15
-                    }}>
-                <FastImage
-                    style={{ flex: 1, width: '100%', height: 400, borderRadius: 15 }}
-                    source={{ uri: publication.file, priority: FastImage.priority.normal }}
-                    resizeMode={FastImage.resizeMode.cover}
-                    onLoad={this.onImageLoaded}
-                />
+                }}>
+                    <FastImage
+                        style={{ flex: 1, width: '100%', height: 400, borderRadius: 15 }}
+                        source={{ uri: publication.file, priority: FastImage.priority.normal }}
+                        resizeMode={FastImage.resizeMode.cover}
+                        onLoad={this.onImageLoaded}
+                    />
 
                 </View>
 
@@ -147,20 +148,34 @@ class CardNewFeed extends React.Component {
     _renderVideo(publication) {
 
         return (
-            <TouchableOpacity style={styles.container_type}
+            <TouchableOpacity
+                style={[styles.container_type, { paddingHorizontal: 15, paddingTop: 15, paddingBottom: 5 }]}
                 onPress={() => this.props.actions.putPublicationInModalActions(publication, 'feed')}
             >
-                <FastImage
-                    style={{ flex: 1, width: '100%', height: this.state.imageHeight }}
-                    source={{ uri: publication.poster, priority: FastImage.priority.normal }}
-                    resizeMode={FastImage.resizeMode.cover}
-                    onLoad={this.onImageLoaded}
-                />
                 <View style={{
-                    position: 'absolute', bottom: 0, top: 0, left: 0, right: 0,
-                    justifyContent: 'center', alignItems: 'center'
+                    shadowColor: "#000",
+                    shadowOffset: {
+                        width: 0,
+                        height: 2,
+                    },
+                    shadowOpacity: 0.25,
+                    shadowRadius: 3.84,
+
+                    elevation: 5,
+                    borderRadius: 15
                 }}>
-                    <FontAwesomeIcon icon={faPlay} color={'white'} size={37} style={{ opacity: 0.9 }} />
+                    <FastImage
+                        style={{ flex: 1, width: '100%', height: 400, borderRadius: 15 }}
+                        source={{ uri: publication.poster, priority: FastImage.priority.normal }}
+                        resizeMode={FastImage.resizeMode.cover}
+                        onLoad={this.onImageLoaded}
+                    />
+                    <View style={{
+                        position: 'absolute', bottom: 0, top: 0, left: 0, right: 0,
+                        justifyContent: 'center', alignItems: 'center'
+                    }}>
+                        <FontAwesomeIcon icon={faPlay} color={'white'} size={37} style={{ opacity: 0.9 }} />
+                    </View>
                 </View>
 
             </TouchableOpacity>
