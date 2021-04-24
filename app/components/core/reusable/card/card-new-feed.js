@@ -345,7 +345,7 @@ class CardNewFeed extends React.Component {
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity
-                                onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
+                                onPress={() => this.props.actions.putPublicationInModalActions(publication, 'feed')}
                                 style={{ flex: 1 }}
                             >
                                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 35 }}>
