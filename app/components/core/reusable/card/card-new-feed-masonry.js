@@ -299,7 +299,7 @@ class CardNewFeedMasonry extends React.Component {
                     <Text style={{ marginLeft: 10 }}>{like.likeNumber}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                    onPress={() => this.props.toggleModal({ publication, navigation: this.props.navigation, space: this.props.space })}
+                    onPress={() => this.props.actions.putPublicationInModalActions(publication, 'discover')}
                     style={{ flexDirection: 'row' }}>
                     <FontAwesomeIcon icon={faComment} size={20} />
                     <Text style={{ marginLeft: 10 }}>{commentNumber}</Text>
