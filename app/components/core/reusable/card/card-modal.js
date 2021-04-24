@@ -60,7 +60,7 @@ class CardModal extends React.Component {
             this.props.navigation.navigate('Comments',
                 {
                     page: 'modal-feed-publication-profile',
-                    publicationId: this.props.PublicationsInModal.publication.id,
+                    publicationId: this.props.PublicationsInModal.publication._id,
                     publicationProfile: this.props.PublicationsInModal.publication.profile._id
                 }
             )
@@ -71,7 +71,7 @@ class CardModal extends React.Component {
             this.props.navigation.navigate('Comments',
                 {
                     page: 'modal-feed-publication-page',
-                    publicationId: this.props.PublicationsInModal.publication.id,
+                    publicationId: this.props.PublicationsInModal.publication._id,
                     publicationProfile: this.props.PublicationsInModal.publication.page._id
                 }
             )

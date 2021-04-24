@@ -337,7 +337,7 @@ class CommentPage extends React.Component {
                     publicationProfile: this.props.route.params.publicationProfile,
                     space: 'feed-publication'
                 }
-                return this.props.actions.sendCommentToProfile(comment, 'feed', () => this._resetInput())
+                return this.props.actions.sendCommentToProfile(comment, this.props.PublicationsInModal.space, () => this._resetInput())
             }
             case 'modal-feed-publication-page': {
                 const comment = {
@@ -486,6 +486,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
+    PublicationsInModal: state.PublicationsInModal,
     MyProfile: state.MyProfile,
     CommentList: state.CommentList,
     SearchList: state.Search
