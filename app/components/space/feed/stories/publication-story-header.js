@@ -26,6 +26,18 @@ class PublicationStoryHeader extends React.Component {
         this.props.actions.getStackActions(id, index)
     }
 
+    _nameRender = (item) => {
+        return (
+            <Text style={{ fontWeight: '600' }}>
+                {
+                    ((item._meta.pseudo).length > 9) ?
+                        (((item._meta.pseudo).substring(0, 9 - 3)) + '...') :
+                        item._meta.pseudo
+                }
+            </Text>
+        )
+    }
+
     // to select a story not seen
     _oneStory = (item) => {
         return (
@@ -42,7 +54,7 @@ class PublicationStoryHeader extends React.Component {
                     />
                 </LinearGradient>
                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingTop: 5 }}>
-                    <Text style={{ fontWeight: '600' }}>{item._meta.pseudo}</Text>
+                    {this._nameRender(item)}
                 </View>
             </View>
         )
@@ -64,7 +76,7 @@ class PublicationStoryHeader extends React.Component {
                     />
                 </LinearGradient>
                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', paddingTop: 5 }}>
-                    <Text style={{ fontWeight: '600' }}>{item._meta.pseudo}</Text>
+                    {this._nameRender(item)}
                 </View>
             </View>
         )
