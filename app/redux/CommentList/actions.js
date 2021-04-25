@@ -2,6 +2,7 @@ import * as ActionTypes from './constants'
 import { UPDATE_COMMENT_PUBLICATIONS_DISCOVER_SUCCESS } from './../DiscoverPublications/constants'
 import { UPDATE_COMMENT_PUBLICATIONS_FEED_SUCCESS } from './../FeedPublications/constants'
 import { UPDATE_COMMENT_PUBLICATIONS_PROFILE_SUCCESS } from './../ProfilePublications/constants'
+import { COMMENT_ADDED_ON_PUBLICATION_MODAL } from './../PublicationInModal/constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { sendError } from './../../../app/services/error/error-service'
 
@@ -34,6 +35,7 @@ export function updateCommentStat(publicationId, space) {
         case 'feed': return { type: UPDATE_COMMENT_PUBLICATIONS_FEED_SUCCESS, id: publicationId }
         case 'profile': return { type: UPDATE_COMMENT_PUBLICATIONS_PROFILE_SUCCESS, id: publicationId }
         case 'discover': return { type: UPDATE_COMMENT_PUBLICATIONS_DISCOVER_SUCCESS, id: publicationId }
+        case 'notification': return { type: COMMENT_ADDED_ON_PUBLICATION_MODAL }
         default: return null
     }
 }

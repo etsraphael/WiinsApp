@@ -154,7 +154,7 @@ class Feed extends React.Component {
 
     _publicationList = () => {
         return (
-            <SafeAreaView style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white', flex: 1, overflow: 'hidden' }}>
+            <SafeAreaView style={{ flex: 1, overflow: 'hidden' }}>
                 <VirtualizedList
                     onRefresh={this._refreshPage}
                     refreshing={this.props.Stories.isRefreshing || this.props.FeedPublications.isRefreshing}

@@ -60,7 +60,7 @@ class CardModal extends React.Component {
             this.props.navigation.navigate('Comments',
                 {
                     page: 'modal-feed-publication-profile',
-                    publicationId: this.props.PublicationsInModal.publication.id,
+                    publicationId: this.props.PublicationsInModal.publication._id,
                     publicationProfile: this.props.PublicationsInModal.publication.profile._id
                 }
             )
@@ -71,7 +71,7 @@ class CardModal extends React.Component {
             this.props.navigation.navigate('Comments',
                 {
                     page: 'modal-feed-publication-page',
-                    publicationId: this.props.PublicationsInModal.publication.id,
+                    publicationId: this.props.PublicationsInModal.publication._id,
                     publicationProfile: this.props.PublicationsInModal.publication.page._id
                 }
             )
@@ -116,7 +116,7 @@ class CardModal extends React.Component {
                 space: 'feed-publication'
             }
 
-            this.props.actions.sendCommentToProfile(comment, this.props.PublicationsInModal.space)
+            this.props.actions.sendCommentToProfile(comment, this.props.PublicationsInModal.space, () => this.setState({textComment: ''}))
         }
 
         if (this.props.PublicationsInModal.publication.page) {
@@ -131,7 +131,7 @@ class CardModal extends React.Component {
                 space: 'feed-publication'
             }
 
-            this.props.actions.sendCommentToPage(comment, this.props.PublicationsInModal.space)
+            this.props.actions.sendCommentToPage(comment, this.props.PublicationsInModal.space,() => this.setState({textComment: ''}))
         }
 
         this.setState({ textComment: '' })
@@ -160,10 +160,10 @@ class CardModal extends React.Component {
                             style={{ flex: 9, padding: 15, paddingTop: 20, color: "#FFFFFF", borderRadius: 17, height: '100%', minHeight: 55, fontSize: 16 }}
                             onChangeText={(val) => this._writteComment(val)}
                             onSubmitEditing={() => this.sendComment()}
+                            blurOnSubmit = {true}
                             multiline={true}
                             numberOfLines={10}
                         />
-
 
                         {this.state.textComment.length > 10 ?
                             <TouchableOpacity onPress={() => this.sendComment()}
