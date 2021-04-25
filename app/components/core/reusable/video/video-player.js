@@ -6,7 +6,7 @@ import FastImage from 'react-native-fast-image';
 import LinearGradient from 'react-native-linear-gradient';
 import Slider from '@react-native-community/slider';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faArrowsAlt, faPause, faPlay } from '@fortawesome/pro-light-svg-icons';
+import { faPause, faPlay, faRedoAlt } from '@fortawesome/pro-light-svg-icons';
 
 
 class VideoPlayer extends React.Component {
@@ -15,17 +15,18 @@ class VideoPlayer extends React.Component {
         super(props);
         this.state = {
             videoReady: false,
+            videoError: false,
             currentTime: 0,
             duration: 0.1,
             paused: false,
             overlay: false,
             opacity: new Animated.Value(0),
-            fullscreen: false
+            fullscreen: false,
         }
     }
 
     componentDidUpdate(_, prevState) {
-        const { overlay } = this.state;
+        const { overlay, videoError } = this.state;
         if (prevState.overlay !== overlay) {
             Animated.timing(this.state.opacity, {
                 toValue: overlay ? 1 : 0,
@@ -49,7 +50,7 @@ class VideoPlayer extends React.Component {
 
     // video actions
     onVideoReadyToPlay = () => {
-        this.setState({ videoReady: true, overlay: true })
+        this.setState({ videoReady: true, overlay: true, videoError: false })
         // this.scheduleCloseOverlay();
     }
     playPauseVideo = (e) => {
@@ -65,6 +66,7 @@ class VideoPlayer extends React.Component {
         this.setState({ paused: true });
         // this.video.seek(0);
     }
+    onVideoError = () => this.setState({ videoError: true });
     onSliderStart = () => this.setState({ paused: true })
     onSliderComplete = () => this.setState({ paused: false })
     onSliderSeek = (slide) => {
@@ -145,6 +147,19 @@ class VideoPlayer extends React.Component {
         );
     }
 
+    _renderError = () => {
+        return (
+            <View style={{ ...styles.overlay, justifyContent: 'center', alignItems: 'center' }}>
+                <Animated.View>
+                    <FontAwesomeIcon icon={faRedoAlt} color={"#FFFFFF"} size={30} />
+                </Animated.View>
+                <Text style={{ color: '#FFFFFF', marginTop: 5, fontSize: 17 }}>
+                    Could not play video
+                </Text>
+            </View>
+        )
+    }
+
     render() {
         const { src } = this.props;
         const { paused } = this.state;
@@ -164,11 +179,13 @@ class VideoPlayer extends React.Component {
                     onLoad={this.onVideoLoad}
                     onProgress={this.onVideoProgress}
                     onEnd={this.onVideoEnd}
+                    onError={this.onVideoError}
+                    
                 />
                 
                 <View style={styles.overlay}  onPress={this.onClickOnVideo}>
                     {/* The absolute fill view for toggling overlay */}
-                    { this.state.videoReady ? this._renderOverlay() : this._renderPoster() }
+                    { this.state.videoError ? this._renderError() : this.state.videoReady ? this._renderOverlay() : this._renderPoster() }
                 </View>
             </View>
         );
