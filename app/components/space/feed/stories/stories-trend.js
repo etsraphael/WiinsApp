@@ -58,7 +58,7 @@ class StoriesTrend extends React.Component {
                 return this.setState({ progressTimer: this.state.progressTimer + 0.3, intervalPaused: false })
             }
             case 'PictureStory': {
-                if(this.state.intervalPaused) return null
+                if (this.state.intervalPaused) return null
                 else return this.setState({ progressTimer: this.state.progressTimer + 0.3 })
             }
             default: return null
@@ -111,7 +111,7 @@ class StoriesTrend extends React.Component {
                                 priority: FastImage.priority.normal,
                             }} resizeMode={FastImage.resizeMode.cover}
                         />
-                        {}
+                        { }
                         <View style={{ justifyContent: 'center', paddingLeft: 15 }}>
                             <Text style={{ color: 'white', fontSize: 19 }}>{this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.profile._meta.pseudo}</Text>
                             <Text style={{ color: 'white' }}>{getDateTranslated(this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.publicationList[this.state.indexProgress].publication.createdAt)}</Text>
@@ -135,7 +135,7 @@ class StoriesTrend extends React.Component {
         if (!!lastStoryView && lastIndexView) {
             // if we have already seen the last 
             if (lastIndexView + 1 > this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.publicationList.length - 1) return null
-            else return this.setState({ indexProgress: lastIndexView + 1, progressTimer: 0, videoDuration: 0, currentTimeVideo: 0 })
+            else return this.setState({ indexProgress: lastIndexView + 1, progressTimer: 0, videoDuration: 0, currentTimeVideo: 0, intervalPaused: true })
         }
 
     }
@@ -154,7 +154,7 @@ class StoriesTrend extends React.Component {
         return (
             <View style={{ flex: 1 }}>
                 <Video
-                    onReadyForDisplay={() => this.setState({ VideoReady: true })}
+                    onReadyForDisplay={() => this.setState({ VideoReady: true, intervalPaused: false })}
                     source={{ uri: this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.publicationList[this.state.indexProgress].publication.file }}
                     minLoadRetryCount={5}
                     volume={0.1}
@@ -243,8 +243,8 @@ class StoriesTrend extends React.Component {
     // to display the picture publication 
     _displayPictureStory = () => {
         return (
-        <View>
-            <FastImage
+            <View>
+                <FastImage
                 onLoadEnd={() => this.setState({intervalPaused: false})}
                 style={{ width: '100%', height: '100%' }}
                 source={{
@@ -252,16 +252,25 @@ class StoriesTrend extends React.Component {
                     priority: FastImage.priority.high,
                 }} 
                 resizeMode={FastImage.resizeMode.cover}
-            />
-            {!!this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.publicationList[this.state.indexProgress].publication.text && this._footerRender()}
-        </View>)
+                />
+
+                {this.state.intervalPaused &&
+                    <View style={{ width: '100%', height: '100%', position: 'absolute' }}>
+                        <View style={styles.container_loading_video}>
+                            <ActivityIndicator size='large' color="white" />
+                        </View>
+                    </View>
+                }
+
+                {!!this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.publicationList[this.state.indexProgress].publication.text && this._footerRender()}
+            </View>)
     }
 
     _footerRender = () => {
         return (
-        <View style={{position: 'absolute', bottom: 0, backgroundColor: '#000000a6', width: '100%', padding: 15}}>
-            <Text style={{color: 'white', fontSize: 17}}>{this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.publicationList[this.state.indexProgress].publication.text}</Text>
-        </View>
+            <View style={{ position: 'absolute', bottom: 0, backgroundColor: '#000000a6', width: '100%', padding: 15 }}>
+                <Text style={{ color: 'white', fontSize: 17 }}>{this.props.Stories.stories[this.props.Stories.currentIndexStory].stack.publicationList[this.state.indexProgress].publication.text}</Text>
+            </View>
         )
     }
 
