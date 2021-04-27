@@ -12,6 +12,7 @@ import * as PublicationInModalActions from '../../../redux/PublicationInModal/ac
 import ActionSheet from 'react-native-actionsheet'
 import AsyncStorage from '@react-native-community/async-storage';
 import { faNewspaper, faMusic, faVideo, faArrowLeft, faUserCog } from '@fortawesome/pro-light-svg-icons'
+import { faDotCircle, faCircle } from '@fortawesome/pro-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import PublicationModalContainer from './../../core/modal/publication-modal-container'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
@@ -260,7 +261,8 @@ class MyProfile extends React.Component {
                 horizontal={true}
                 keyExtractor={(item) => item.toString()}
                 renderItem={({ item }) =>
-                    <TouchableOpacity style={{padding: 5}} onPress={() => this._changeSpace(item)}>
+                    <TouchableOpacity style={{paddingVertical: 5, paddingHorizontal: 7, flexDirection: 'row', alignItems: 'center'}} onPress={() => this._changeSpace(item)}>
+                        {this.state.space == item && <FontAwesomeIcon style={{margin: 5}} icon={faCircle} color={'#6600ff'} size={10} />}
                         <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{item}</Text>
                     </TouchableOpacity>
                 }
