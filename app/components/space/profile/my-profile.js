@@ -68,48 +68,18 @@ class MyProfile extends React.Component {
         }
     }
 
-    // display nav bar profile
-    _renderNavBarProfile = () => {
-        switch (this.props.MyProfile.profile.actifSpace) {
-            // default
-            case 1: return null
-            // music
-            case 2: return (
-                <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <TouchableOpacity onPress={() => this.setState({ space: 'feed' })}
-                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25} />
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => { this.setState({ space: 'music' }); this.props.actions.getMymusicProjectList(1) }}
-                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faMusic} color={this._spaceSelected('music')} size={25} />
-                    </TouchableOpacity>
-                </View>
-            )
-            // tube
-            case 3: return (
-                <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faVideo} color={this._spaceSelected('tube')} size={25} />
-                    </TouchableOpacity>
-                </View>
-            )
-            // music and tube
-            case 4: return (
-                <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faVideo} color={this._spaceSelected('tube')} size={25} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faMusic} color={this._spaceSelected('music')} size={25} />
-                    </TouchableOpacity>
-                </View>)
+    _changeSpace = (space) => {
+        switch (space) {
+            case 'music':
+                this.props.actions.getMymusicProjectList(1)
+                return this.setState({ space: 'music' }) 
+            case 'feed': {
+                return this.setState({ space: 'feed' }) 
+            }
+            case 'tube' :{
+                return this.setState({ space: 'tube' }) 
+            }     
+            default: return null
         }
     }
 
@@ -234,7 +204,7 @@ class MyProfile extends React.Component {
                 horizontal={true}
                 keyExtractor={(item) => item.toString()}
                 renderItem={({ item }) =>
-                    <TouchableOpacity style={{padding: 5}} onPress={() => this.setState({ space: item })}>
+                    <TouchableOpacity style={{padding: 5}} onPress={() => this._changeSpace(item)}>
                         <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{item}</Text>
                     </TouchableOpacity>
                 }
