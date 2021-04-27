@@ -51,7 +51,8 @@
     "Enable-notification": "Permitir notificaciones",
     "Group-creation": "Creación del grupo",
     "Mute": "Mudo",
-    "Send": "Enviar"
+    "Send": "Enviar",
+    "days-message-delete-two-weeks": "Tus mensajes se eliminan automáticamente después de 14 días."
   },
   "CONFIRMATION": {
     "Delete-Room": "¿ Estás seguro de eliminar esta discusión ?"
@@ -578,7 +579,8 @@
     "Y-dont-have-a-conversation-yet": "Aún no tienes una conversación.",
     "Date-cannot-be-in-the-past": "La fecha de lanzamiento no puede ser pasada",
     "You-cannot-add-yourself": "No puedes agregarte a ti mismo",
-    "T-content-does-not-exist-anymore": "Este contenido ya no existe"
+    "T-content-does-not-exist-anymore": "Este contenido ya no existe",
+    "T-publication-no-longer-exists": "Esta publicación ya no existe"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "La foto es recibida",

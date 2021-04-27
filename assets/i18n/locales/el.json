@@ -93,7 +93,8 @@
     "Enable-notification": "Ενεργοποίηση ειδοποιήσεων",
     "Group-creation": "Δημιουργία της ομάδας",
     "Mute": "Βουβός",
-    "Send": "Στείλετε"
+    "Send": "Στείλετε",
+    "days-message-delete-two-weeks": "Τα μηνύματά σας διαγράφονται αυτόματα μετά από 14 ημέρες"
   },
   "CONFIRMATION": {
     "Delete-Room": "Είστε βέβαιοι ότι θα διαγράψετε αυτήν τη συζήτηση;"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "Δεν έχετε συνομιλία ακόμη.",
     "Date-cannot-be-in-the-past": "Η ημερομηνία κυκλοφορίας δεν μπορεί να είναι στο παρελθόν",
     "You-cannot-add-yourself": "Δεν μπορείτε να προσθέσετε τον εαυτό σας",
-    "T-content-does-not-exist-anymore": "Αυτό το περιεχόμενο δεν υπάρχει πια"
+    "T-content-does-not-exist-anymore": "Αυτό το περιεχόμενο δεν υπάρχει πια",
+    "T-publication-no-longer-exists": "Αυτή η δημοσίευση δεν υπάρχει πλέον"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Η φωτογραφία έχει ληφθεί",

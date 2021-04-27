@@ -93,7 +93,8 @@
     "Enable-notification": "Virkja tilkynningar",
     "Group-creation": "Sköpun hópsins",
     "Mute": "Þagga niður",
-    "Send": "Senda"
+    "Send": "Senda",
+    "days-message-delete-two-weeks": "Skilaboðunum þínum er sjálfkrafa eytt eftir 14 daga"
   },
   "CONFIRMATION": {
     "Delete-Room": "Ertu viss um að eyða þessari umræðu?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "Þú átt ekki samtal ennþá.",
     "Date-cannot-be-in-the-past": "Útgáfudagur getur ekki verið í fortíðinni",
     "You-cannot-add-yourself": "Þú getur ekki bætt þér við",
-    "T-content-does-not-exist-anymore": "Þetta innihald er ekki til lengur"
+    "T-content-does-not-exist-anymore": "Þetta innihald er ekki til lengur",
+    "T-publication-no-longer-exists": "Þetta rit er ekki lengur til"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Ljósmyndin er móttekin",

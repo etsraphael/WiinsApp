@@ -14,6 +14,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { faNewspaper, faMusic, faVideo, faArrowLeft, faUserCog } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import PublicationModalContainer from './../../core/modal/publication-modal-container'
+import OptionPublicationModal from './../../core/modal/option-publication-modal'
 
 class MyProfile extends React.Component {
 
@@ -21,7 +22,11 @@ class MyProfile extends React.Component {
         super(props)
         this.state = {
             space: 'feed',
-            modal: false
+            modal: false,
+            reportModal: false,
+            reportModalExist: false,
+            reportPublicationId: null,
+            ownerReportPublication: null
         }
     }
 
@@ -179,9 +184,19 @@ class MyProfile extends React.Component {
     // to display the content of the profile
     _listContent = () => {
         switch (this.state.space) {
-            case 'feed': return (<ProfilePublication toggleModal={(event) => this._toggleModal(event)} />)
+            case 'feed': return (
+            <ProfilePublication
+                toggleModal={(event) => this._toggleModal(event)}
+                toggleReportModal={(id, ownerId) => this._toggleReportModal(id, ownerId)}
+            />
+            )
             case 'music': return (<ProfileMusic />)
         }
+    }
+
+    _toggleReportModal = (id, ownerId) => {
+        this.setState({ reportModal: !this.state.reportModal, reportPublicationId: id, ownerReportPublication: ownerId })
+        setTimeout(() => this.setState({ reportModalExist: !this.state.reportModalExist }), 100)
     }
 
     _goToProfile = () => {
@@ -204,13 +219,24 @@ class MyProfile extends React.Component {
                     onPress={(index) => { this._menuFunctions(index) }}
                 />
 
-                {this.state.modal ?
+                {this.state.modal &&
                     <PublicationModalContainer
                         publicationModal={this.state.PublicationModal}
                         toggleModal={(event) => this._toggleModal(event)}
                         goToProfile={(payload) => this._goToProfile(payload)}
                         pageName={'Profile'}
-                    /> : null}
+                    />
+                }
+
+                {this.state.reportModal &&
+                    <OptionPublicationModal
+                        toggleReportModal={(event) => this._toggleReportModal(event)}
+                        isVisible={this.state.reportModal}
+                        publicationId={this.state.reportPublicationId}
+                        myProfileId={this.props.MyProfile.profile._id}
+                        ownerId={this.state.ownerReportPublication}
+                    />
+                }
             </View>
         )
     }

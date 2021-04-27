@@ -51,7 +51,8 @@
     "Enable-notification": "বিজ্ঞপ্তিগুলি সক্ষম করুন",
     "Group-creation": "গ্রুপ তৈরি",
     "Mute": "মূক",
-    "Send": "পাঠান"
+    "Send": "পাঠান",
+    "days-message-delete-two-weeks": "আপনার বার্তা 14 দিন পরে স্বয়ংক্রিয়ভাবে মুছে ফেলা হয়"
   },
   "CONFIRMATION": {
     "Delete-Room": "আপনি কি এই আলোচনাটি মুছে ফেলার বিষয়ে নিশ্চিত ?"
@@ -578,7 +579,8 @@
     "Y-dont-have-a-conversation-yet": "আপনার এখনও কোনও কথোপকথন নেই।",
     "Date-cannot-be-in-the-past": "মুক্তির তারিখ অতীতে হতে পারে না",
     "You-cannot-add-yourself": "আপনি নিজেকে যুক্ত করতে পারবেন না",
-    "T-content-does-not-exist-anymore": "এই বিষয়বস্তুর আর অস্তিত্ব নেই"
+    "T-content-does-not-exist-anymore": "এই বিষয়বস্তুর আর অস্তিত্ব নেই",
+    "T-publication-no-longer-exists": "এই প্রকাশনা আর বিদ্যমান নেই"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ছবিটি প্রাপ্ত হয়েছে",

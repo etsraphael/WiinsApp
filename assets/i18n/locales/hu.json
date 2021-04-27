@@ -93,7 +93,8 @@
     "Enable-notification": "Értesítések engedélyezése",
     "Group-creation": "A csoport létrehozása",
     "Mute": "Néma",
-    "Send": "Küld"
+    "Send": "Küld",
+    "days-message-delete-two-weeks": "Üzeneteit 14 nap múlva automatikusan törli"
   },
   "CONFIRMATION": {
     "Delete-Room": "Biztosan törli ezt a beszélgetést?"
@@ -620,7 +621,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "A csoportból való kilépés előtt előléptetnie kell egy vezetőt",
     "Date-cannot-be-in-the-past": "A megjelenés dátuma nem lehet múltbeli",
     "You-cannot-add-yourself": "Nem adhatja hozzá magát",
-    "T-content-does-not-exist-anymore": "Ez a tartalom már nem létezik"
+    "T-content-does-not-exist-anymore": "Ez a tartalom már nem létezik",
+    "T-publication-no-longer-exists": "Ez a kiadvány már nem létezik"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "A fénykép beérkezett",
