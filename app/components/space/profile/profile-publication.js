@@ -10,6 +10,11 @@ class ProfilePublication extends React.Component {
         super(props)
     }
 
+    _getItemOwner = (item) => {
+        if (!!item.profile) return item.profile._id
+        else return item.page._id
+    }
+
     _cardRender = (item, index) => {
         return (
             <CardNewFeed
@@ -17,11 +22,12 @@ class ProfilePublication extends React.Component {
                 publication={item}
                 navigation={this.props.navigation}
                 space={'profile'}
-                toggleModal={(event) => this.props.toggleModal(event)}
+                toggleReportModal={() => this.props.toggleReportModal(item._id, this._getItemOwner(item))}
             />)
     }
 
     render() {
+        console.log(this.props.toggleReportModal)
         return (
             <FlatList
                 style={{ flex: 1 }}

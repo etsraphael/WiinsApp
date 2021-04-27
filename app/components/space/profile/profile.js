@@ -14,6 +14,7 @@ import ProfileMusic from './profile-music'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faNewspaper, faMusic, faVideo, faUserPlus, faArrowLeft, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
 import PublicationModalContainer from './../../core/modal/publication-modal-container'
+import OptionPublicationModal from './../../core/modal/option-publication-modal'
 
 class Profile extends React.Component {
 
@@ -23,7 +24,11 @@ class Profile extends React.Component {
             space: 'feed',
             pagePublication: 1,
             publicationLoading: false,
-            modal: false
+            modal: false,
+            reportModal: false,
+            reportModalExist: false,
+            reportPublicationId: null,
+            ownerReportPublication: null
         }
     }
 
@@ -289,7 +294,12 @@ class Profile extends React.Component {
     // to display the contents of the profile
     _listContent = () => {
         switch (this.state.space) {
-            case 'feed': return (<ProfilePublication toggleModal={(event) => this._toggleModal(event)} />)
+            case 'feed': return (
+                <ProfilePublication
+                    toggleReportModal={(id, ownerId) => this._toggleReportModal(id, ownerId)}
+                    toggleModal={(event) => this._toggleModal(event)}
+                />
+            )
             case 'music': {
                 this.props.actions.getmusicProjectListByProfile(1, this.props.route.params.profileId)
                 return (<ProfileMusic />)
@@ -299,6 +309,11 @@ class Profile extends React.Component {
 
     _goToProfile = () => {
         this.setState({ modal: false, PublicationModal: null })
+    }
+
+    _toggleReportModal = (id, ownerId) => {
+        this.setState({ reportModal: !this.state.reportModal, reportPublicationId: id, ownerReportPublication: ownerId })
+        setTimeout(() => this.setState({ reportModalExist: !this.state.reportModalExist }), 100)
     }
 
     render() {
@@ -312,13 +327,24 @@ class Profile extends React.Component {
                     {this.props.Profile.profile !== null ? this._displayPage() : null}
                 </ScrollView>
 
-                {this.state.modal ?
+                {this.state.modal &&
                     <PublicationModalContainer
                         publicationModal={this.state.PublicationModal}
                         toggleModal={(event) => this._toggleModal(event)}
                         goToProfile={(payload) => this._goToProfile(payload)}
                         pageName={'Profile'}
-                    /> : null}
+                    />
+                }
+
+                {this.state.reportModal &&
+                    <OptionPublicationModal
+                        toggleReportModal={(event) => this._toggleReportModal(event)}
+                        isVisible={this.state.reportModal}
+                        publicationId={this.state.reportPublicationId}
+                        myProfileId={this.props.MyProfile.profile._id}
+                        ownerId={this.state.ownerReportPublication}
+                    />
+                }
 
             </View>
         )
@@ -347,7 +373,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = state => ({
     Profile: state.Profile,
-    ProfilePublications: state.ProfilePublications
+    ProfilePublications: state.ProfilePublications,
+    MyProfile: state.MyProfile
 })
 
 const ActionCreators = Object.assign(
