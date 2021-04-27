@@ -36,11 +36,10 @@ class Profile extends React.Component {
 
     componentWillUnmount() {
         this.props.actions.getByModeProfile(1, 'FollowerAndFriend')
-        this._initializeNavBar()
     }
 
-    _initializeNavBar = () => {
-        switch (this.props.Profile.profile.actifSpace) {
+    _initializeNavBar = (space) => {
+        switch (space) {
             case 1: return this.setState({spaceAvalaible: ['feed']})
             case 2: return this.setState({spaceAvalaible: ['feed', 'music']})
             case 3: return this.setState({spaceAvalaible: ['feed', 'tube']})
@@ -58,7 +57,7 @@ class Profile extends React.Component {
     }
 
     componentDidMount() {
-        this.props.actions.getProfile(this.props.route.params.profileId)
+        this.props.actions.getProfile(this.props.route.params.profileId, (space) => this._initializeNavBar(space))
         this.props.actions.getByModeProfile(1, 'profile/' + this.props.route.params.profileId)
     }
 
@@ -162,82 +161,39 @@ class Profile extends React.Component {
         )
     }
 
-    // display nav bar profile
-    _renderNavBarProfile = () => {
-        switch (this.props.Profile.profile.actifSpace) {
-            // default
-            case 1: return null
-            // music
-            case 2: return (
-                <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
-                    {this._displayRelationBtn()}
-                </View>
-            )
-            // tube
-            case 3: return (
-                <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
-                    {this._displayRelationBtn()}
-                </View>
-            )
-            // music and tube
-            case 4: return (
-                <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faVideo} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faMusic} color={'grey'} size={25} style={{ opacity: 0.8 }} />
-                    </View>
-                    {this._displayRelationBtn()}
-                </View>)
-        }
-    }
-
     // to display the header of the view
     _renderHeader = () => {
 
         return (
             <View style={styles.header_container}>
 
-
                 <View style={{ flex: 1, position: 'relative' }}>
 
-                    {/* Back Btn */}
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}
-                        style={{ position: 'absolute', left: 25, width: 35, height: 35, top: 55, zIndex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
-                    </TouchableOpacity>
-
-                    {/* Dropdown Btn */}
-                    <TouchableOpacity
-                        style={{ position: 'absolute', right: 25, width: 35, height: 35, top: 55, zIndex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={40} />
-                    </TouchableOpacity>
+                {/* Title and btn */}
+                    <View style={{ position: 'absolute', top: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', zIndex: 1, width: '100%' }}>
+                        <View style={{ flex: 1, justifyContent: 'flex-start' }}>
+                            <TouchableOpacity onPress={() => this.props.navigation.goBack()}
+                                style={{ justifyContent: 'center', alignItems: 'center' }}>
+                                <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>Profile</Text>
+                        </View>
+                        <View style={{ flex: 1 }}>
+                            <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={40} />
+                        </View>
+                    </View>
 
                     {/* Cover Picture */}
                     <FastImage
-                        style={{ height: 200 }}
+                        style={{ height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30 }}
                         resizeMode={FastImage.resizeMode.cover}
                         source={{ uri: this.props.Profile.profile.picturecover, priority: FastImage.priority.normal }}
                     />
 
                     {/* Background Filter */}
-                    <View style={{ backgroundColor: '#0000004d', width: '100%', height: 200, position: 'absolute' }} />
+                    <View style={{ backgroundColor: '#0000004d', width: '100%', height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30, position: 'absolute' }} />
 
                     {/* Profile picture and name */}
                     <View style={{ position: 'absolute', top: 110, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
@@ -256,9 +212,6 @@ class Profile extends React.Component {
                             <Text style={{ color: 'white', fontSize: 15, fontFamily: 'Avenir-Book' }}>Community : {this.props.Profile.profile.communityTotal}</Text>
                         </View>
                     </View>
-
-                    {/* Nav */}
-                    {/* {this._renderNavBarProfile()} */}
 
                 </View>
 
@@ -306,6 +259,10 @@ class Profile extends React.Component {
     }
 
     _navbarRender = () => {
+
+
+
+        console.log(this.state.spaceAvalaible)
         return (
             <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <FlatList

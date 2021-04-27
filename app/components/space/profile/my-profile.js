@@ -11,7 +11,7 @@ import * as MyUserActions from '../../../redux/MyUser/actions'
 import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
 import ActionSheet from 'react-native-actionsheet'
 import AsyncStorage from '@react-native-community/async-storage';
-import { faNewspaper, faMusic, faVideo, faArrowLeft, faUserCog } from '@fortawesome/pro-light-svg-icons'
+import { faArrowLeft, faUserCog } from '@fortawesome/pro-light-svg-icons'
 import { faCircle } from '@fortawesome/pro-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import PublicationModalContainer from './../../core/modal/publication-modal-container'
