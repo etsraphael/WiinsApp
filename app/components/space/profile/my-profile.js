@@ -27,12 +27,23 @@ class MyProfile extends React.Component {
             reportModal: false,
             reportModalExist: false,
             reportPublicationId: null,
-            ownerReportPublication: null
+            ownerReportPublication: null,
+            spaceAvalaible: ['feed']
         }
     }
 
     componentDidMount() {
         this.props.actions.getByModeProfile(1, 'myfeedpublication')
+        this._initializeNavBar()
+    }
+
+    _initializeNavBar = () => {
+        switch (this.props.MyProfile.profile.actifSpace) {
+            case 1: return this.setState({spaceAvalaible: ['feed']})
+            case 2: return this.setState({spaceAvalaible: ['feed', 'music']})
+            case 3: return this.setState({spaceAvalaible: ['feed', 'tube']})
+            case 4: return this.setState({spaceAvalaible: ['feed', 'music', 'tube']})
+        }
     }
 
     _toggleModal = (event) => {
@@ -65,6 +76,51 @@ class MyProfile extends React.Component {
             return 'black'
         } else {
             return 'grey'
+        }
+    }
+
+    // display nav bar profile
+     _renderNavBarProfile = () => {
+        switch (this.props.MyProfile.profile.actifSpace) {
+            // default
+            case 1: return null
+            // music
+            case 2: return (
+                <View style={{ flexDirection: 'row', padding: 15 }}>
+                    <TouchableOpacity onPress={() => this.setState({ space: 'feed' })}
+                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25} />
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => { this.setState({ space: 'music' }); this.props.actions.getMymusicProjectList(1) }}
+                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faMusic} color={this._spaceSelected('music')} size={25} />
+                    </TouchableOpacity>
+                </View>
+            )
+            // tube
+            case 3: return (
+                <View style={{ flexDirection: 'row', padding: 15 }}>
+                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faVideo} color={this._spaceSelected('tube')} size={25} />
+                    </TouchableOpacity>
+                </View>
+            )
+            // music and tube
+            case 4: return (
+                <View style={{ flexDirection: 'row', padding: 15 }}>
+                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faVideo} color={this._spaceSelected('tube')} size={25} />
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={faMusic} color={this._spaceSelected('music')} size={25} />
+                    </TouchableOpacity>
+                </View>)
         }
     }
 
@@ -200,7 +256,7 @@ class MyProfile extends React.Component {
         return (
             <View style={{justifyContent: 'center', alignItems: 'center'}}>
             <FlatList
-                data={['feed', 'music', 'tube']}
+                data={this.state.spaceAvalaible}
                 horizontal={true}
                 keyExtractor={(item) => item.toString()}
                 renderItem={({ item }) =>
