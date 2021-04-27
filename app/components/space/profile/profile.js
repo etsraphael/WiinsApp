@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, ActivityIndicator, TouchableOpacity, Text, ScrollView, Image } from 'react-native'
+import { StyleSheet, View, ActivityIndicator, TouchableOpacity, Text, ScrollView, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faNewspaper, faMusic, faVideo, faUserPlus, faArrowLeft, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
 import PublicationModalContainer from './../../core/modal/publication-modal-container'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
+import { faCircle } from '@fortawesome/pro-solid-svg-icons'
 
 class Profile extends React.Component {
 
@@ -28,12 +29,23 @@ class Profile extends React.Component {
             reportModal: false,
             reportModalExist: false,
             reportPublicationId: null,
-            ownerReportPublication: null
+            ownerReportPublication: null,
+            spaceAvalaible: ['feed']
         }
     }
 
     componentWillUnmount() {
         this.props.actions.getByModeProfile(1, 'FollowerAndFriend')
+        this._initializeNavBar()
+    }
+
+    _initializeNavBar = () => {
+        switch (this.props.Profile.profile.actifSpace) {
+            case 1: return this.setState({spaceAvalaible: ['feed']})
+            case 2: return this.setState({spaceAvalaible: ['feed', 'music']})
+            case 3: return this.setState({spaceAvalaible: ['feed', 'tube']})
+            case 4: return this.setState({spaceAvalaible: ['feed', 'music', 'tube']})
+        }
     }
 
     // to show the publications feed
@@ -246,7 +258,7 @@ class Profile extends React.Component {
                     </View>
 
                     {/* Nav */}
-                    {this._renderNavBarProfile()}
+                    {/* {this._renderNavBarProfile()} */}
 
                 </View>
 
@@ -265,11 +277,48 @@ class Profile extends React.Component {
 
     // to display the profile page
     _displayPage = () => {
-
         return (
             <View>
                 {this._renderHeader()}
+                {this._navbarRender()}
                 {this._renderBody()}
+            </View>
+        )
+    }
+
+    _actifTextNavbar = (item) => {
+        if(this.state.space == item) return {color: '#6600ff'}
+    }
+
+    _changeSpace = (space) => {
+        switch (space) {
+            case 'music':
+                this.props.actions.getMymusicProjectList(1)
+                return this.setState({ space: 'music' }) 
+            case 'feed': {
+                return this.setState({ space: 'feed' }) 
+            }
+            case 'tube' :{
+                return this.setState({ space: 'tube' }) 
+            }     
+            default: return null
+        }
+    }
+
+    _navbarRender = () => {
+        return (
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <FlatList
+                data={this.state.spaceAvalaible}
+                horizontal={true}
+                keyExtractor={(item) => item.toString()}
+                renderItem={({ item }) =>
+                    <TouchableOpacity style={{paddingVertical: 5, paddingHorizontal: 7, flexDirection: 'row', alignItems: 'center'}} onPress={() => this._changeSpace(item)}>
+                        {this.state.space == item && <FontAwesomeIcon style={{margin: 5}} icon={faCircle} color={'#6600ff'} size={10} />}
+                        <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{item}</Text>
+                    </TouchableOpacity>
+                }
+            />
             </View>
         )
     }
@@ -368,6 +417,11 @@ const styles = StyleSheet.create({
     },
     body_container: {
         paddingTop: 5
+    },
+    text_navbar: {
+        color: '#77838F',
+        fontSize: 19,
+        fontWeight: '600'
     }
 })
 
