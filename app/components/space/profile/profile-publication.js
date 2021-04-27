@@ -27,7 +27,6 @@ class ProfilePublication extends React.Component {
     }
 
     render() {
-        console.log(this.props.toggleReportModal)
         return (
             <FlatList
                 style={{ flex: 1 }}

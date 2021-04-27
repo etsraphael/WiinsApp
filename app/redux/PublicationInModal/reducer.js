@@ -31,11 +31,6 @@ export default PublicationsInModalReducer = (state = initialState, action) => {
         space: action.space
       }
     case ActionTypes.COMMENT_ADDED_ON_PUBLICATION_MODAL: {
-
-      console.log(state.publication.commentNumber)
-
-
-
       state.publication.commentNumber++
       return {
         ...state
