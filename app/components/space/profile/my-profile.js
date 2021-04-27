@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView, FlatList } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
@@ -15,6 +15,7 @@ import { faNewspaper, faMusic, faVideo, faArrowLeft, faUserCog } from '@fortawes
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import PublicationModalContainer from './../../core/modal/publication-modal-container'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
+import I18n from '../../../../assets/i18n/i18n'
 
 class MyProfile extends React.Component {
 
@@ -120,33 +121,41 @@ class MyProfile extends React.Component {
 
                 <View style={{ flex: 1, position: 'relative' }}>
 
-                    {/* Back Btn */}
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}
-                        style={{ position: 'absolute', left: 25, width: 35, height: 35, top: 55, zIndex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
-                    </TouchableOpacity>
+                    {/* Title and btn */}
+                    <View style={{ position: 'absolute', top: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', zIndex: 1, width: '100%' }}>
+                        <View style={{ flex: 1, justifyContent: 'flex-start' }}>
+                            <TouchableOpacity onPress={() => this.props.navigation.goBack()}
+                                style={{ justifyContent: 'center', alignItems: 'center' }}>
+                                <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>Profile</Text>
+                        </View>
+                        <View style={{ flex: 1 }}>
+                            <TouchableOpacity onPress={this.showActionSheet}
+                                style={{ justifyContent: 'flex-end' }}>
+                                <FontAwesomeIcon icon={faUserCog} color={'white'} size={30} />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
 
-                    {/* Dropdown Btn */}
-                    <TouchableOpacity onPress={this.showActionSheet}
-                        style={{ position: 'absolute', right: 25, width: 35, height: 35, top: 55, zIndex: 1 }}>
-                        <FontAwesomeIcon icon={faUserCog} color={'white'} size={30} />
-                    </TouchableOpacity>
 
                     {/* Cover Picture */}
                     <FastImage
-                        style={{ height: 200 }}
+                        style={{ height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30 }}
                         resizeMode={FastImage.resizeMode.cover}
                         source={{ uri: this.props.MyProfile.profile.picturecover, priority: FastImage.priority.normal }}
                     />
 
                     {/* Background Filter */}
-                    <View style={{ backgroundColor: '#0000004d', width: '100%', height: 200, position: 'absolute' }} />
+                    <View style={{ backgroundColor: '#0000004d', width: '100%', height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30, position: 'absolute' }} />
 
                     {/* Profile picture and name */}
-                    <View style={{ position: 'absolute', top: 110, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
-                        <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
+                    <View style={{ bottom: -50, width: '100%', flexDirection: 'row', paddingHorizontal: 5, position: 'absolute', paddingHorizontal: 35 }}>
+                        <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center' }}>
                             <FastImage
-                                style={{ height: 66, width: 66, borderRadius: 66 }}
+                                style={{ width: '100%', aspectRatio: 1, borderRadius: 15, borderColor: '#6600ff', borderWidth: 2 }}
                                 source={{
                                     uri: this.props.MyProfile.profile.pictureprofile,
                                     priority: FastImage.priority.normal,
@@ -154,18 +163,27 @@ class MyProfile extends React.Component {
                                 resizeMode={FastImage.resizeMode.cover}
                             />
                         </View>
-                        <View style={{ flex: 7, paddingLeft: 5, justifyContent: 'center' }}>
-                            <Text style={{ fontSize: 22, color: 'white', fontFamily: 'Avenir-Heavy' }}>@{this.props.MyProfile.profile._meta.pseudo}</Text>
-                            <Text style={{ color: 'white', fontSize: 15, fontFamily: 'Avenir-Book' }}>Community : {this.props.MyProfile.profile.communityTotal}</Text>
+                        <View style={{ flex: 7, paddingLeft: 15, justifyContent: 'space-evenly' }}>
+
+                            <View style={{ flexDirection: 'row' }}>
+                                <TouchableOpacity style={{ flex: 2 }} onPress={this.showActionSheet}>
+                                    <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Setting')}</Text>
+                                    </View>
+                                </TouchableOpacity>
+                                <View style={{ flex: 1 }} />
+                            </View>
+
+                            <View style={{ position: 'relative', bottom: -15 }}>
+                                <Text style={{ fontSize: 22, color: '#333333', fontFamily: 'Avenir-Heavy' }}>@{this.props.MyProfile.profile._meta.pseudo}</Text>
+                                <Text style={{ color: '#77838F', fontSize: 15, fontFamily: 'Avenir-Book' }}>Community : {this.props.MyProfile.profile.communityTotal}</Text>
+                            </View>
                         </View>
                     </View>
 
-                    {/* Navbar */}
-                    {this._renderNavBarProfile()}
-
                 </View>
 
-
+                <View style={{ height: 75 }} />
 
             </View>
         )
@@ -185,12 +203,13 @@ class MyProfile extends React.Component {
     _listContent = () => {
         switch (this.state.space) {
             case 'feed': return (
-            <ProfilePublication
-                toggleModal={(event) => this._toggleModal(event)}
-                toggleReportModal={(id, ownerId) => this._toggleReportModal(id, ownerId)}
-            />
+                <ProfilePublication
+                    toggleModal={(event) => this._toggleModal(event)}
+                    toggleReportModal={(id, ownerId) => this._toggleReportModal(id, ownerId)}
+                />
             )
             case 'music': return (<ProfileMusic />)
+            case 'tube': return (<View/>)
         }
     }
 
@@ -202,13 +221,35 @@ class MyProfile extends React.Component {
     _goToProfile = () => {
         this.setState({ modal: false, PublicationModal: null })
     }
-    
+
+    _actifTextNavbar = (item) => {
+        if(this.state.space == item) return {color: '#6600ff'}
+    }
+
+    _navbarRender = () => {
+        return (
+            <View style={{justifyContent: 'center', alignItems: 'center'}}>
+            <FlatList
+                data={['feed', 'music', 'tube']}
+                horizontal={true}
+                keyExtractor={(item) => item.toString()}
+                renderItem={({ item }) =>
+                    <TouchableOpacity style={{padding: 5}} onPress={() => this.setState({ space: item })}>
+                        <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{item}</Text>
+                    </TouchableOpacity>
+                }
+            />
+            </View>
+        )
+    }
+
     render() {
 
         return (
             <View style={styles.container}>
                 <ScrollView>
                     {this._renderHeader()}
+                    {this._navbarRender()}
                     {this._renderBody()}
                 </ScrollView>
                 <ActionSheet
@@ -259,6 +300,11 @@ const styles = StyleSheet.create({
     },
     body_container: {
         paddingTop: 5
+    },
+    text_navbar: {
+        color: '#77838F',
+        fontSize: 19,
+        fontWeight: '600'
     }
 })
 
