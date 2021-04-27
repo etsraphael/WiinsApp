@@ -151,17 +151,18 @@ class Discover extends React.Component {
     // to display the top of the hastag
     _hastagView = () => {
         if (this.state.isHeaderVisible && this.props.TopHastag.top.length > 1) {
+            const hashTags = ['trend', ...this.props.TopHastag.top]
             return (
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                     <FlatList
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
                         style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7, paddingLeft: 15 }}
-                        data={['trend', ...this.props.TopHastag.top]}
+                        data={hashTags}
                         keyExtractor={(item) => item.toString()}
-                        renderItem={({ item }) => (
-                            <TouchableOpacity style={styles.one_hastag} onPress={() => this._changeHastag(item)}>
-                                <Text style={[{ fontWeight: 'bold', fontSize: 15, lineHeight: 41, letterSpacing: 1, color: '#8E8E8E' }, this._selectedHastag(item)]}>#{item}</Text>
+                        renderItem={({ item, index }) => (
+                            <TouchableOpacity style={{ ...styles.one_hastag, marginEnd: hashTags.length - 1 === index ? 70 : 0 }} onPress={() => this._changeHastag(item)}>
+                                <Text style={[{ fontWeight: 'bold', fontSize: 15, paddingHorizontal: 10, paddingVertical: 15, letterSpacing: 1, color: '#8E8E8E' }, this._selectedHastag(item)]}>#{item}</Text>
                             </TouchableOpacity>
                         )}
                     />
