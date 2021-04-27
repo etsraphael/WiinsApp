@@ -93,7 +93,8 @@
     "Enable-notification": "Bật thông báo",
     "Group-creation": "Thành lập nhóm",
     "Mute": "Tắt tiếng",
-    "Send": "Gửi"
+    "Send": "Gửi",
+    "days-message-delete-two-weeks": "Tin nhắn của bạn sẽ tự động bị xóa sau 14 ngày"
   },
   "CONFIRMATION": {
     "Delete-Room": "Bạn có chắc chắn xóa cuộc thảo luận này không?"
@@ -620,7 +621,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Bạn phải thăng chức một người quản lý trước khi rời nhóm",
     "Date-cannot-be-in-the-past": "Ngày phát hành không được trong quá khứ",
     "You-cannot-add-yourself": "Bạn không thể thêm chính mình",
-    "T-content-does-not-exist-anymore": "Nội dung này không tồn tại nữa"
+    "T-content-does-not-exist-anymore": "Nội dung này không tồn tại nữa",
+    "T-publication-no-longer-exists": "Ấn phẩm này không còn tồn tại"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Ảnh được nhận",

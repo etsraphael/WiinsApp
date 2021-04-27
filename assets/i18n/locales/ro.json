@@ -93,7 +93,8 @@
     "Enable-notification": "Activați notificările",
     "Group-creation": "Crearea grupului",
     "Mute": "Mut",
-    "Send": "Trimite"
+    "Send": "Trimite",
+    "days-message-delete-two-weeks": "Mesajele dvs. sunt șterse automat după 14 zile"
   },
   "CONFIRMATION": {
     "Delete-Room": "Sigur ștergeți această discuție?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "Nu aveți încă o conversație.",
     "Date-cannot-be-in-the-past": "Data lansării nu poate fi trecută",
     "You-cannot-add-yourself": "Nu te poți adăuga singur",
-    "T-content-does-not-exist-anymore": "Acest conținut nu mai există"
+    "T-content-does-not-exist-anymore": "Acest conținut nu mai există",
+    "T-publication-no-longer-exists": "Această publicație nu mai există"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotografia este primită",

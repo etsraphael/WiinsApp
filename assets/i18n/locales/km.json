@@ -93,7 +93,8 @@
     "Enable-notification": "បើកការជូនដំណឹង",
     "Group-creation": "ការបង្កើតក្រុម",
     "Mute": "ស្ងាត់",
-    "Send": "ផ្ញើ"
+    "Send": "ផ្ញើ",
+    "days-message-delete-two-weeks": "សាររបស់អ្នកត្រូវបានលុបចោលដោយស្វ័យប្រវត្តិបន្ទាប់ពី ១៤ ថ្ងៃ"
   },
   "CONFIRMATION": {
     "Delete-Room": "តើអ្នកប្រាកដជាលុបការពិភាក្សានេះមែនទេ?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "អ្នកមិនទាន់មានការសន្ទនានៅឡើយទេ។",
     "Date-cannot-be-in-the-past": "កាលបរិច្ឆេទនៃការចេញផ្សាយមិនអាចជាអតីតកាលទេ",
     "You-cannot-add-yourself": "អ្នកមិនអាចបន្ថែមខ្លួនឯងបានទេ",
-    "T-content-does-not-exist-anymore": "មាតិកានេះមិនមានទៀតទេ"
+    "T-content-does-not-exist-anymore": "មាតិកានេះមិនមានទៀតទេ",
+    "T-publication-no-longer-exists": "ការបោះពុម្ពផ្សាយនេះមិនមានទៀតទេ"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "រូបថតត្រូវបានទទួល",

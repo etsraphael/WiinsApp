@@ -12,6 +12,8 @@ import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { getDateTranslated } from '../../../../services/translation/translation-service'
 import { TabActions } from '@react-navigation/native'
+import Snackbar from 'react-native-snackbar'
+import I18n from '../../../../../assets/i18n/i18n'
 
 class OneNotification extends React.Component {
 
@@ -174,6 +176,11 @@ class OneNotification extends React.Component {
             }
             case 'NotificationComment':
             case 'NotificationTagCommentPublication': {
+
+                if(!this.props.notification.publication){
+                    return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.T-publication-no-longer-exists'), duration: Snackbar.LENGTH_LONG })
+                }
+
                 return this.props.actions.getNotificationTagCommentPublicationAction(this.props.notification.publication._id, this.props.navigation)
             }
             case 'NotificationLike': {

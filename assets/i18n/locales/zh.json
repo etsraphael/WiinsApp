@@ -51,7 +51,8 @@
     "Enable-notification": "启用通知",
     "Group-creation": "组的创建",
     "Mute": "静音",
-    "Send": "发送"
+    "Send": "发送",
+    "days-message-delete-two-weeks": "您的邮件会在14天后自动删除"
   },
   "CONFIRMATION": {
     "Delete-Room": "您确定要删除此讨论吗？"
@@ -578,7 +579,8 @@
     "Y-dont-have-a-conversation-yet": "您还没有对话。",
     "Date-cannot-be-in-the-past": "发布日期不能是过去的日期",
     "You-cannot-add-yourself": "您无法添加自己",
-    "T-content-does-not-exist-anymore": "该内容已不存在"
+    "T-content-does-not-exist-anymore": "该内容已不存在",
+    "T-publication-no-longer-exists": "该出版物不再存在"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "收到照片",

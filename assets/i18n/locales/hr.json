@@ -93,7 +93,8 @@
     "Enable-notification": "Omogući obavijesti",
     "Group-creation": "Stvaranje grupe",
     "Mute": "Nijemo",
-    "Send": "Poslati"
+    "Send": "Poslati",
+    "days-message-delete-two-weeks": "Vaše se poruke automatski brišu nakon 14 dana"
   },
   "CONFIRMATION": {
     "Delete-Room": "Jeste li sigurni da ste izbrisali ovu raspravu?"
@@ -620,7 +621,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Prije napuštanja grupe morate unaprijediti menadžera",
     "Date-cannot-be-in-the-past": "Datum izdavanja ne može biti u prošlosti",
     "You-cannot-add-yourself": "Ne možete se dodati",
-    "T-content-does-not-exist-anymore": "Ovaj sadržaj više ne postoji"
+    "T-content-does-not-exist-anymore": "Ovaj sadržaj više ne postoji",
+    "T-publication-no-longer-exists": "Ova publikacija više ne postoji"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotografija je primljena",

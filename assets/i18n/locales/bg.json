@@ -93,7 +93,8 @@
     "Enable-notification": "Активиране на известията",
     "Group-creation": "Създаване на групата",
     "Mute": "Без звук",
-    "Send": "Изпрати"
+    "Send": "Изпрати",
+    "days-message-delete-two-weeks": "Вашите съобщения се изтриват автоматично след 14 дни"
   },
   "CONFIRMATION": {
     "Delete-Room": "Наистина ли ще изтриете тази дискусия?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "Все още нямате разговор.",
     "Date-cannot-be-in-the-past": "Датата на пускане не може да е минала",
     "You-cannot-add-yourself": "Не можете да се добавите",
-    "T-content-does-not-exist-anymore": "Това съдържание вече не съществува"
+    "T-content-does-not-exist-anymore": "Това съдържание вече не съществува",
+    "T-publication-no-longer-exists": "Тази публикация вече не съществува"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Снимката е получена",

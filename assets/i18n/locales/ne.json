@@ -93,7 +93,8 @@
     "Enable-notification": "सूचनाहरू सक्षम गर्नुहोस्",
     "Group-creation": "समूहको निर्माण",
     "Mute": "म्यूट गर्नुहोस्",
-    "Send": "पठाउनुहोस्"
+    "Send": "पठाउनुहोस्",
+    "days-message-delete-two-weeks": "तपाईंको सन्देशहरू स्वचालित रूपमा १ days दिन पछि हटाइनेछ"
   },
   "CONFIRMATION": {
     "Delete-Room": "के तपाइँ पक्का हुनुहुन्छ कि यस छलफललाई हटाउनु हुन्छ?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "तपाईंसँग अहिलेसम्म कुराकानी छैन।",
     "Date-cannot-be-in-the-past": "विमोचन मिति विगतमा हुन सक्दैन",
     "You-cannot-add-yourself": "तपाईं आफैलाई थप्न सक्नुहुन्न",
-    "T-content-does-not-exist-anymore": "यो सामग्री अब अवस्थित छैन"
+    "T-content-does-not-exist-anymore": "यो सामग्री अब अवस्थित छैन",
+    "T-publication-no-longer-exists": "यो प्रकाशन अब अवस्थित छैन"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "फोटो प्राप्त भयो",

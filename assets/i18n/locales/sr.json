@@ -93,7 +93,8 @@
     "Enable-notification": "Омогућили обавештења",
     "Group-creation": "Стварање групе",
     "Mute": "Муте",
-    "Send": "Пошаљите"
+    "Send": "Пошаљите",
+    "days-message-delete-two-weeks": "Ваше поруке се аутоматски бришу након 14 дана"
   },
   "CONFIRMATION": {
     "Delete-Room": "Да ли сте сигурни да сте избрисали ову дискусију?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "Још немате разговор.",
     "Date-cannot-be-in-the-past": "Датум издавања не може бити из прошлости",
     "You-cannot-add-yourself": "Не можете да додате себе",
-    "T-content-does-not-exist-anymore": "Овај садржај више не постоји"
+    "T-content-does-not-exist-anymore": "Овај садржај више не постоји",
+    "T-publication-no-longer-exists": "Ова публикација више не постоји"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фотографија је примљена",

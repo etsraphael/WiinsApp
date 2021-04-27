@@ -93,7 +93,8 @@
     "Enable-notification": "Fógraí a chumasú",
     "Group-creation": "Cruthú an ghrúpa",
     "Mute": "Mute",
-    "Send": "Seol"
+    "Send": "Seol",
+    "days-message-delete-two-weeks": "Scriostar do theachtaireachtaí go huathoibríoch tar éis 14 lá"
   },
   "CONFIRMATION": {
     "Delete-Room": "An bhfuil tú cinnte an plé seo a scriosadh?"
@@ -620,7 +621,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Caithfidh tú bainisteoir a chur chun cinn sula bhfágfaidh tú an grúpa",
     "Date-cannot-be-in-the-past": "Ní féidir an dáta scaoilte a bheith ann roimhe seo",
     "You-cannot-add-yourself": "Ní féidir leat tú féin a chur leis",
-    "T-content-does-not-exist-anymore": "Níl an t-ábhar seo ann níos mó"
+    "T-content-does-not-exist-anymore": "Níl an t-ábhar seo ann níos mó",
+    "T-publication-no-longer-exists": "Níl an foilseachán seo ann a thuilleadh"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Faightear an grianghraf",

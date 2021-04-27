@@ -51,7 +51,8 @@
     "Enable-notification": "सूचनाएं सक्षम करें",
     "Group-creation": "समूह का निर्माण",
     "Mute": "मूक",
-    "Send": "संदेश"
+    "Send": "संदेश",
+    "days-message-delete-two-weeks": "आपके संदेश 14 दिनों के बाद स्वचालित रूप से हटा दिए जाते हैं"
   },
   "CONFIRMATION": {
     "Delete-Room": "क्या आप इस चर्चा को हटाना सुनिश्चित करते हैं ?"
@@ -578,7 +579,8 @@
     "Y-dont-have-a-conversation-yet": "आपके पास अभी तक कोई वार्तालाप नहीं है।",
     "Date-cannot-be-in-the-past": "रिलीज की तारीख अतीत में नहीं हो सकती",
     "You-cannot-add-yourself": "आप खुद को नहीं जोड़ सकते",
-    "T-content-does-not-exist-anymore": "यह सामग्री अब मौजूद नहीं है"
+    "T-content-does-not-exist-anymore": "यह सामग्री अब मौजूद नहीं है",
+    "T-publication-no-longer-exists": "यह प्रकाशन अब मौजूद नहीं है"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "फोटो प्राप्त हुआ",

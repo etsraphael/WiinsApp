@@ -93,7 +93,8 @@
     "Enable-notification": "Bildirimleri etkinleştirin",
     "Group-creation": "Grubun oluşturulması",
     "Mute": "Sessiz",
-    "Send": "Gönder"
+    "Send": "Gönder",
+    "days-message-delete-two-weeks": "Mesajlarınız 14 gün sonra otomatik olarak silinir"
   },
   "CONFIRMATION": {
     "Delete-Room": "Bu tartışmayı silmek istediğinizden emin misiniz?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "Henüz konuşmadınız.",
     "Date-cannot-be-in-the-past": "Çıkış tarihi geçmiş bir tarih olamaz",
     "You-cannot-add-yourself": "Kendini ekleyemezsin",
-    "T-content-does-not-exist-anymore": "Bu içerik artık mevcut değil"
+    "T-content-does-not-exist-anymore": "Bu içerik artık mevcut değil",
+    "T-publication-no-longer-exists": "Bu yayın artık mevcut değil"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoğraf alındı",

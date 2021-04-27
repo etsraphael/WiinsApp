@@ -93,7 +93,8 @@
     "Enable-notification": "Aktifkan notifikasi",
     "Group-creation": "Pembuatan grup",
     "Mute": "Bisu",
-    "Send": "Kirim"
+    "Send": "Kirim",
+    "days-message-delete-two-weeks": "Pesan Anda secara otomatis dihapus setelah 14 hari"
   },
   "CONFIRMATION": {
     "Delete-Room": "Anda yakin ingin menghapus diskusi ini?"
@@ -620,7 +621,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Anda harus mempromosikan seorang manajer sebelum keluar dari grup",
     "Date-cannot-be-in-the-past": "Tanggal rilis tidak boleh di masa lalu",
     "You-cannot-add-yourself": "Anda tidak dapat menambahkan diri Anda sendiri",
-    "T-content-does-not-exist-anymore": "Konten ini sudah tidak ada"
+    "T-content-does-not-exist-anymore": "Konten ini sudah tidak ada",
+    "T-publication-no-longer-exists": "Publikasi ini sudah tidak ada"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Foto sudah diterima",
