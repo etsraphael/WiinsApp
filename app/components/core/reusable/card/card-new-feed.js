@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import React, { PureComponent } from 'react'
+import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
@@ -15,13 +15,13 @@ import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { faEllipsisV } from '@fortawesome/pro-solid-svg-icons'
 
-class CardNewFeed extends React.Component {
+class CardNewFeed extends PureComponent {
 
     constructor(props) {
         super(props)
         this.state = {
             imageHeight: 200,
-            cardWidth: null
+            cardWidth: Dimensions.get('window').width - 30
         }
     }
 
@@ -31,7 +31,7 @@ class CardNewFeed extends React.Component {
         const { width, height } = event.nativeEvent;
         const ratio = this.state.cardWidth / width;
         const ratioHeight = height * ratio;
-        this.setState({ imageHeight: ratioHeight >= 400 ? 400 : ratioHeight <= 200 ? 200 : ratioHeight });
+        this.setState({ imageHeight: ratioHeight > 400 ? 400 : ratioHeight < 250 ? 250 : ratioHeight });
     }
     // onImageLoaded = (event) => {
 
@@ -121,7 +121,7 @@ class CardNewFeed extends React.Component {
 
     // to select the picture publication view
     _renderPicture(publication) {
-
+        // console.log(this.props.index, this.state.imageHeight || 400)
         return (
             <TouchableWithoutFeedback
                 style={[styles.container_type, { paddingHorizontal: 15, paddingTop: 15, paddingBottom: 5 }]}
@@ -138,9 +138,13 @@ class CardNewFeed extends React.Component {
 
                     elevation: 3,
                     borderRadius: 15
-                }}>
+                    }}
+                    onLayout={(event) => {
+                        this.setState({ cardWidth: event.nativeEvent.layout.width })
+                    }}
+                >
                     <FastImage
-                        style={{ flex: 1, width: '100%', height: this.state.imageHeight | 400, borderRadius: 15 }}
+                        style={{ flex: 1, width: '100%', height: this.state.imageHeight || 400, borderRadius: 15 }}
                         source={{ uri: publication.file, priority: FastImage.priority.normal }}
                         resizeMode={FastImage.resizeMode.cover}
                         onLoad={this.onImageLoaded}
@@ -172,9 +176,6 @@ class CardNewFeed extends React.Component {
 
                     elevation: 5,
                     borderRadius: 15
-                    }}
-                    onLayout={(event) => {
-                        this.setState({ cardWidth: event.nativeEvent.layout.width })
                     }}
                 >
                     <FastImage
