@@ -290,7 +290,7 @@ export function getNotificationTagCommentPublicationAction(publicationId, naviga
                 .then((response) => response.json())
                 .then(async (response) => {
                     if (response.status == 200) {
-                        dispatch(getFeedPublicationByIdSuccess(response.publication, 'feed'))
+                        dispatch(getFeedPublicationByIdSuccess(response.publication, 'notification'))
                         return navigation.goBack()
                     } else {
                         return dispatch(getFeedPublicationByIdFail(response.message))
@@ -323,7 +323,7 @@ export function getNotificationPublicationLikeAction(publicationId, navigation) 
                 .then((response) => response.json())
                 .then(async (response) => {
                     if (response.status == 200) {
-                        dispatch(getFeedPublicationByIdSuccess(response.publication, 'feed'))
+                        dispatch(getFeedPublicationByIdSuccess(response.publication, 'notification'))
                         return navigation.goBack()
                     } else {
                         return dispatch(getFeedPublicationByIdFail(response.message))

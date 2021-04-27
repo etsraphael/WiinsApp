@@ -30,6 +30,17 @@ export default PublicationsInModalReducer = (state = initialState, action) => {
         publication: action.payload,
         space: action.space
       }
+    case ActionTypes.COMMENT_ADDED_ON_PUBLICATION_MODAL: {
+
+      console.log(state.publication.commentNumber)
+
+
+
+      state.publication.commentNumber++
+      return {
+        ...state
+      }
+    }
     case ActionTypes.RESET_PUBLICATIONS_IN_MODAL: return initialState
     default: return { ...state }
   }
