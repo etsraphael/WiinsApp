@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { Animated, StyleSheet, View, Text, ScrollView, Platform, Dimensions, StatusBar, StatusBarIOS } from "react-native";
+import { Animated, StyleSheet, View, ScrollView, Platform, Dimensions, StatusBar } from "react-native";
 
 const HEADER_MAX_HEIGHT = 60;
 
