@@ -51,7 +51,11 @@ class MusicProjectStandard extends React.Component {
                         keyExtractor={(item) => item._id.toString()}
                         ItemSeparatorComponent={this._flatListItemSeparator}
                         renderItem={({ item, index }) => (
-                            <OneMusic music={item} index={index} border={true ? (index == 1) : false} />
+                            <OneMusic
+                                music={item}
+                                tracklist={musicProject.musicList}
+                                index={index}
+                            />
                         )}
                     />
                 </View>
@@ -93,7 +97,7 @@ const styles = StyleSheet.create({
         color: '#404040'
     },
     container_musicList: {
-        paddingVertical: 10
+        backgroundColor: '#ebebeb8c'
     }
 })
 
