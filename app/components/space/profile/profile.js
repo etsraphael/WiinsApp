@@ -12,10 +12,11 @@ import LinearGradient from 'react-native-linear-gradient'
 import ProfilePublication from './profile-publication'
 import ProfileMusic from './profile-music'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faNewspaper, faMusic, faVideo, faUserPlus, faArrowLeft, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
+import { faUserPlus, faArrowLeft, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
 import PublicationModalContainer from './../../core/modal/publication-modal-container'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
 import { faCircle } from '@fortawesome/pro-solid-svg-icons'
+import I18n from '../../../../assets/i18n/i18n'
 
 class Profile extends React.Component {
 
@@ -40,10 +41,10 @@ class Profile extends React.Component {
 
     _initializeNavBar = (space) => {
         switch (space) {
-            case 1: return this.setState({spaceAvalaible: ['feed']})
-            case 2: return this.setState({spaceAvalaible: ['feed', 'music']})
-            case 3: return this.setState({spaceAvalaible: ['feed', 'tube']})
-            case 4: return this.setState({spaceAvalaible: ['feed', 'music', 'tube']})
+            case 1: return this.setState({ spaceAvalaible: ['feed'] })
+            case 2: return this.setState({ spaceAvalaible: ['feed', 'music'] })
+            case 3: return this.setState({ spaceAvalaible: ['feed', 'tube'] })
+            case 4: return this.setState({ spaceAvalaible: ['feed', 'music', 'tube'] })
         }
     }
 
@@ -88,11 +89,6 @@ class Profile extends React.Component {
 
     // to display the friend button
     _displayBtnFriend = () => {
-
-
-        <TouchableOpacity>
-            <Text style={styles.title_btn_nav}>Setting</Text>
-        </TouchableOpacity>
 
         if (this.props.Profile.profile.relation == 'friend') {
             return (
@@ -161,15 +157,71 @@ class Profile extends React.Component {
         )
     }
 
+    _btnToSendAMessage = () => {
+        return (
+            <View style={{ flexDirection: 'row' }}>
+                <TouchableOpacity style={{ flex: 2 }}>
+                    <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Message</Text>
+                    </View>
+                </TouchableOpacity>
+                <View style={{ flex: 1 }} />
+            </View>
+        )
+    }
+
+    _btnFollowing = () => {
+        return (
+            <View style={{ flexDirection: 'row' }}>
+                {this.props.Profile.profile.relationFollowing ?
+                    <TouchableOpacity style={{ flex: 2 }}>
+                        <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Following</Text>
+                        </View>
+                    </TouchableOpacity> :
+                    <TouchableOpacity style={{ flex: 2 }} onPress={() => this.props.actions.follow(this.props.Profile.profile._id)}>
+                        <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Follow</Text>
+                        </View>
+                    </TouchableOpacity>
+                }
+                <View style={{ flex: 1 }} />
+            </View>
+        )
+    }
+
+    _btnNotFriend = () => {
+        return (
+            <View style={{ flexDirection: 'row' }}>
+                <TouchableOpacity style={{ flex: 4 }} onPress={() => this.props.actions.askFriend(this.props.Profile.profile._id)}>
+                    <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Friend request</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
+        )
+    }
+
+    _btnFriendRequestPending = () => {
+        return (
+            <View style={{ flexDirection: 'row' }}>
+                <TouchableOpacity style={{ flex: 4 }} onPress={() => this.props.actions.cancelFriendRequest(this.props.Profile.profile._id)}>
+                    <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Pending</Text>
+                    </View>
+                </TouchableOpacity>
+            </View>
+        )
+    }
+
     // to display the header of the view
     _renderHeader = () => {
-
         return (
             <View style={styles.header_container}>
 
                 <View style={{ flex: 1, position: 'relative' }}>
 
-                {/* Title and btn */}
+                    {/* Title and btn */}
                     <View style={{ position: 'absolute', top: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', zIndex: 1, width: '100%' }}>
                         <View style={{ flex: 1, justifyContent: 'flex-start' }}>
                             <TouchableOpacity onPress={() => this.props.navigation.goBack()}
@@ -196,10 +248,10 @@ class Profile extends React.Component {
                     <View style={{ backgroundColor: '#0000004d', width: '100%', height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30, position: 'absolute' }} />
 
                     {/* Profile picture and name */}
-                    <View style={{ position: 'absolute', top: 110, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
-                        <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
+                    <View style={{ bottom: -50, width: '100%', flexDirection: 'row', paddingHorizontal: 5, position: 'absolute', paddingHorizontal: 35 }}>
+                        <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center' }}>
                             <FastImage
-                                style={{ height: 66, width: 66, borderRadius: 66 }}
+                                style={{ width: '100%', aspectRatio: 1, borderRadius: 15, borderColor: '#6600ff', borderWidth: 2 }}
                                 source={{
                                     uri: this.props.Profile.profile.pictureprofile,
                                     priority: FastImage.priority.normal,
@@ -207,13 +259,24 @@ class Profile extends React.Component {
                                 resizeMode={FastImage.resizeMode.cover}
                             />
                         </View>
-                        <View style={{ flex: 7, paddingLeft: 5, justifyContent: 'center' }}>
-                            <Text style={{ fontSize: 22, color: 'white', fontFamily: 'Avenir-Heavy' }}>@{this.props.Profile.profile._meta.pseudo}</Text>
-                            <Text style={{ color: 'white', fontSize: 15, fontFamily: 'Avenir-Book' }}>Community : {this.props.Profile.profile.communityTotal}</Text>
+                        <View style={{ flex: 7, paddingLeft: 15, justifyContent: 'space-evenly' }}>
+
+                            {this.props.Profile.profile.relation == 'friend' && this._btnToSendAMessage()}
+                            {this.props.Profile.profile.relation == 'following' && this._btnFollowing()}
+                            {this.props.Profile.profile.relation == 'not-friend' && this._btnNotFriend()}
+                            {this.props.Profile.profile.relation == 'pendingFromMe' && this._btnFriendRequestPending()}
+
+                            <View style={{ position: 'relative', bottom: -15 }}>
+                                <Text style={{ fontSize: 22, color: '#333333', fontFamily: 'Avenir-Heavy' }}>@{this.props.Profile.profile._meta.pseudo}</Text>
+                                <Text style={{ color: '#77838F', fontSize: 15, fontFamily: 'Avenir-Book' }}>Community : {this.props.Profile.profile.communityTotal}</Text>
+                            </View>
                         </View>
                     </View>
 
                 </View>
+
+                <View style={{ height: 75 }} />
+
 
             </View>
         )
@@ -240,42 +303,38 @@ class Profile extends React.Component {
     }
 
     _actifTextNavbar = (item) => {
-        if(this.state.space == item) return {color: '#6600ff'}
+        if (this.state.space == item) return { color: '#6600ff' }
     }
 
     _changeSpace = (space) => {
         switch (space) {
             case 'music':
                 this.props.actions.getMymusicProjectList(1)
-                return this.setState({ space: 'music' }) 
+                return this.setState({ space: 'music' })
             case 'feed': {
-                return this.setState({ space: 'feed' }) 
+                return this.setState({ space: 'feed' })
             }
-            case 'tube' :{
-                return this.setState({ space: 'tube' }) 
-            }     
+            case 'tube': {
+                return this.setState({ space: 'tube' })
+            }
             default: return null
         }
     }
 
     _navbarRender = () => {
-
-
-
-        console.log(this.state.spaceAvalaible)
         return (
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <FlatList
-                data={this.state.spaceAvalaible}
-                horizontal={true}
-                keyExtractor={(item) => item.toString()}
-                renderItem={({ item }) =>
-                    <TouchableOpacity style={{paddingVertical: 5, paddingHorizontal: 7, flexDirection: 'row', alignItems: 'center'}} onPress={() => this._changeSpace(item)}>
-                        {this.state.space == item && <FontAwesomeIcon style={{margin: 5}} icon={faCircle} color={'#6600ff'} size={10} />}
-                        <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{item}</Text>
-                    </TouchableOpacity>
-                }
-            />
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <FlatList
+                    data={this.state.spaceAvalaible}
+                    horizontal={true}
+                    keyExtractor={(item) => item.toString()}
+                    renderItem={({ item }) =>
+                        <TouchableOpacity style={{ paddingVertical: 5, paddingHorizontal: 7, flexDirection: 'row', alignItems: 'center' }} onPress={() => this._changeSpace(item)}>
+                            {this.state.space == item && <FontAwesomeIcon style={{ margin: 5 }} icon={faCircle} color={'#6600ff'} size={10} />}
+                            <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{item}</Text>
+                        </TouchableOpacity>
+                    }
+                />
             </View>
         )
     }
