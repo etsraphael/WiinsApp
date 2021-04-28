@@ -37,6 +37,10 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>BGTaskSchedulerPermittedIdentifiers</key>
+	<array>
+    	<string>com.wiins.io</string>
+	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Enable Wiins to access your camera to upload your photos and save ones you've taken with the app</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
