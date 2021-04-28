@@ -9,7 +9,7 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlay, faComment, faCommentLines } from '@fortawesome/pro-light-svg-icons'
+import { faPlay, faCommentLines } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
@@ -26,29 +26,12 @@ class CardNewFeed extends PureComponent {
     }
 
     // to set the size of the picture
-    // to set the size of the picture
     onImageLoaded = (event) => {
         const { width, height } = event.nativeEvent;
         const ratio = this.state.cardWidth / width;
         const ratioHeight = height * ratio;
         this.setState({ imageHeight: ratioHeight > 400 ? 400 : ratioHeight < 250 ? 250 : ratioHeight });
     }
-    // onImageLoaded = (event) => {
-
-    //     const ratio = ((event.nativeEvent.width / event.nativeEvent.height) * 100)
-
-    //     switch (true) {
-    //         case ratio <= 70: return this.setState({ imageHeight: ratio * 9 });
-    //         case ratio <= 85: return this.setState({ imageHeight: ratio * 7.5 });
-    //         case ratio <= 100: return this.setState({ imageHeight: ratio * 5 });
-    //         case ratio <= 115: return this.setState({ imageHeight: ratio * 3 });
-    //         case ratio <= 130: return this.setState({ imageHeight: ratio * 2.5 });
-    //         case ratio <= 155: return this.setState({ imageHeight: ratio * 1.8 });
-    //         case ratio <= 180: return this.setState({ imageHeight: ratio * 1.3 });
-    //         case ratio > 180: return this.setState({ imageHeight: ratio * 0.8 });
-    //     }
-
-    // }
 
     // to select the post publication view
     _renderPost(publication) {
@@ -121,27 +104,13 @@ class CardNewFeed extends PureComponent {
 
     // to select the picture publication view
     _renderPicture(publication) {
-        // console.log(this.props.index, this.state.imageHeight || 400)
         return (
             <TouchableWithoutFeedback
                 style={[styles.container_type, { paddingHorizontal: 15, paddingTop: 15, paddingBottom: 5 }]}
                 onPress={() => this.props.actions.putPublicationInModalActions(publication, 'feed')}
             >
-                <View style={{
-                    shadowColor: "#000",
-                    shadowOffset: {
-                        width: 0,
-                        height: 2,
-                    },
-                    shadowOpacity: 0.25,
-                    shadowRadius: 3.84,
-
-                    elevation: 3,
-                    borderRadius: 15
-                    }}
-                    onLayout={(event) => {
-                        this.setState({ cardWidth: event.nativeEvent.layout.width })
-                    }}
+                <View style={styles.container_render_picture}
+                    onLayout={(event) => { this.setState({ cardWidth: event.nativeEvent.layout.width }) }}
                 >
                     <FastImage
                         style={{ flex: 1, width: '100%', height: this.state.imageHeight || 400, borderRadius: 15 }}
@@ -164,20 +133,7 @@ class CardNewFeed extends PureComponent {
                 style={[styles.container_type, { paddingHorizontal: 15, paddingTop: 15, paddingBottom: 5 }]}
                 onPress={() => this.props.actions.putPublicationInModalActions(publication, 'feed')}
             >
-                <View 
-                    style={{
-                    shadowColor: "#000",
-                    shadowOffset: {
-                        width: 0,
-                        height: 2,
-                    },
-                    shadowOpacity: 0.25,
-                    shadowRadius: 3.84,
-
-                    elevation: 5,
-                    borderRadius: 15
-                    }}
-                >
+                <View style={styles.container_render_picture} >
                     <FastImage
                         style={{ flex: 1, width: '100%', height: 400, borderRadius: 15 }}
                         source={{ uri: publication.poster, priority: FastImage.priority.normal }}
@@ -259,8 +215,6 @@ class CardNewFeed extends PureComponent {
                         end={{ x: 0, y: 1 }}
                         style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25, width: '100%' }}
                     >
-
-
                         <TouchableOpacity onPress={() => this._goToPage(publication.page._id)} style={{ flexDirection: 'row', flex: 9 }}>
                             <FastImage
                                 style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
@@ -287,10 +241,6 @@ class CardNewFeed extends PureComponent {
                 </View>
             )
         }
-
-
-
-
     }
 
     // to select like icon
@@ -378,7 +328,7 @@ class CardNewFeed extends PureComponent {
                                 style={{ flex: 1 }}
                             >
                                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 35 }}>
-                                    <FontAwesomeIcon icon={faCommentLines} color={'#5C5C5C' /* #575EDD */} size={25} /> 
+                                    <FontAwesomeIcon icon={faCommentLines} color={'#5C5C5C' /* #575EDD */} size={25} />
                                     <Text style={{ marginLeft: 8, fontSize: 16, color: '#5C5C5C', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.commentNumber}</Text>
                                 </View>
                             </TouchableOpacity>
@@ -394,7 +344,7 @@ class CardNewFeed extends PureComponent {
         const { publication } = this.props
 
         return (
-            <View style={[styles.card], { marginBottom: this.props.lastIndex ? 50 : 0, marginTop: this.props.index === 0 ? 50 : 0 }}>
+            <View style={[styles.card], { marginBottom: this.props.lastIndex ? 50 : 0, marginTop: this.props.index === 0 ? 20 : 0 }}>
                 {this._showHeader(publication)}
                 {this._showTypePublication(publication)}
                 {this._showFooter(publication)}
@@ -433,6 +383,17 @@ const styles = StyleSheet.create({
     },
     heart_icon: {
         marginLeft: 7
+    },
+    container_render_picture: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 3,
+        borderRadius: 15
     }
 })
 
