@@ -49,6 +49,9 @@
 	<string>Enable Wiins to access your camera roll to upload your photos and save ones you've taken with the app</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>audio</string>
+		<string>fetch</string>
+		<string>processing</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
