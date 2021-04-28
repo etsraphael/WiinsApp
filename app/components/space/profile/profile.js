@@ -17,6 +17,7 @@ import PublicationModalContainer from './../../core/modal/publication-modal-cont
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
 import { faCircle } from '@fortawesome/pro-solid-svg-icons'
 import I18n from '../../../../assets/i18n/i18n'
+import { TabActions } from '@react-navigation/native'
 
 class Profile extends React.Component {
 
@@ -139,6 +140,11 @@ class Profile extends React.Component {
         )
     }
 
+    _openRoomInMessenger = () => {
+        const jumpToAction = TabActions.jumpTo('MAIN_MESSENGER')
+        return this.props.navigation.dispatch(jumpToAction)
+    }
+
     _displayBtnRelation = () => {
         switch (this.props.Profile.profile.relation) {
             case 'following': return (
@@ -160,7 +166,7 @@ class Profile extends React.Component {
             )
             case 'friend': return (
                 <View style={{ flexDirection: 'row' }}>
-                    <TouchableOpacity style={{ flex: 2 }}>
+                    <TouchableOpacity style={{ flex: 2 }} onPress={() => this._openRoomInMessenger()}>
                         <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
                             <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Message</Text>
                         </View>
