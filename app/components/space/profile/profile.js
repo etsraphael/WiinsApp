@@ -217,7 +217,7 @@ class Profile extends React.Component {
     _changeSpace = (space) => {
         switch (space) {
             case 'music':
-                this.props.actions.getMymusicProjectList(1)
+                this.props.actions.getmusicProjectListByProfile(1, this.props.route.params.profileId)
                 return this.setState({ space: 'music' })
             case 'feed': {
                 return this.setState({ space: 'feed' })
@@ -274,8 +274,10 @@ class Profile extends React.Component {
                 />
             )
             case 'music': {
-                this.props.actions.getmusicProjectListByProfile(1, this.props.route.params.profileId)
                 return (<ProfileMusic />)
+            }
+            case 'tube': {
+                return (<View/>)
             }
         }
     }
