@@ -62,16 +62,6 @@ class Profile extends React.Component {
         this.props.actions.getByModeProfile(1, 'profile/' + this.props.route.params.profileId)
     }
 
-    // to display the relation button
-    _renderBtnRelation = () => {
-        return (
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                {(this.props.Profile.profile.follow.viewer && this.props.Profile.profile.relation !== 'friend' && this.props.Profile.profile.relation !== 'pendingFromHim') ? this._displayBtnFollow() : null}
-                {this.props.Profile.profile.follow.friend && this.props.Profile.profile.relation !== 'pendingFromHim' ? this._displayBtnFriend() : null}
-                {this.props.Profile.profile.relation == 'pendingFromHim' ? this._displayBtnConfirmFriend() : null}
-            </View>
-        )
-    }
 
     // to display the button to confirm the friend request
     _displayBtnConfirmFriend = () => {
@@ -84,135 +74,6 @@ class Profile extends React.Component {
                     <Text style={{ color: 'white', fontWeight: '600' }}>Confirm</Text>
                 </TouchableOpacity>
             </LinearGradient>
-        )
-    }
-
-    // to display the friend button
-    _displayBtnFriend = () => {
-
-        if (this.props.Profile.profile.relation == 'friend') {
-            return (
-                <TouchableOpacity>
-                    <Text style={styles.title_btn_nav}>Friend</Text>
-                </TouchableOpacity>
-            )
-        }
-        if (this.props.Profile.profile.relation == 'pendingFromMe') {
-            return (
-                <TouchableOpacity onPress={() => this.props.actions.cancelFriendRequest(this.props.Profile.profile._id)}>
-                    <Text style={styles.title_btn_nav}>Pending</Text>
-                </TouchableOpacity>
-            )
-        }
-        else {
-            return (
-                <TouchableOpacity onPress={() => this.props.actions.askFriend(this.props.Profile.profile._id)}>
-                    <Text style={styles.title_btn_nav}>Add Friend</Text>
-                </TouchableOpacity>
-            )
-        }
-    }
-
-    // to display the button to follow
-    _displayBtnFollow = () => {
-
-        if (this.props.Profile.profile.relationFollowing) {
-            return (
-                <TouchableOpacity onPress={() => this.props.actions.unfollow(this.props.Profile.profile._id)}>
-                    <Text style={styles.title_btn_nav}>Follow</Text>
-                </TouchableOpacity>
-            )
-        } else {
-            return (
-                <TouchableOpacity onPress={() => this.props.actions.follow(this.props.Profile.profile._id)}>
-                    <Text style={styles.title_btn_nav}>Unfollow</Text>
-                </TouchableOpacity>
-            )
-        }
-    }
-
-    // to display the relation btn
-    _displayRelationBtn = () => {
-        return (
-            <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                {this.props.Profile.profile.relation == 'friend' ? null :
-                    <LinearGradient
-                        start={{ x: 0, y: 1 }}
-                        end={{ x: 1, y: 0 }}
-                        colors={['#f12711', '#f5af19']}
-                        style={{ borderRadius: 25, position: 'relative' }}
-                    >
-                        {this._displayBtnFollow()}
-                    </LinearGradient>
-                }
-                <LinearGradient
-                    start={{ x: 0, y: 1 }}
-                    end={{ x: 1, y: 0 }}
-                    colors={['#3C349B', '#8E46DF']}
-                    style={{ borderRadius: 25, position: 'relative' }}
-                >
-                    {this._displayBtnFriend()}
-                </LinearGradient>
-            </View>
-        )
-    }
-
-
-
-    _btnToSendAMessage = () => {
-        return (
-            <View style={{ flexDirection: 'row' }}>
-                <TouchableOpacity style={{ flex: 2 }}>
-                    <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Message</Text>
-                    </View>
-                </TouchableOpacity>
-                <View style={{ flex: 1 }} />
-            </View>
-        )
-    }
-
-    _btnFollowing = () => {
-        return (
-            <View style={{ flexDirection: 'row' }}>
-                {this.props.Profile.profile.relationFollowing ?
-                    <TouchableOpacity style={{ flex: 2 }}>
-                        <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Following</Text>
-                        </View>
-                    </TouchableOpacity> :
-                    <TouchableOpacity style={{ flex: 2 }} onPress={() => this.props.actions.follow(this.props.Profile.profile._id)}>
-                        <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Follow</Text>
-                        </View>
-                    </TouchableOpacity>
-                }
-                <View style={{ flex: 1 }} />
-            </View>
-        )
-    }
-
-    _btnNotFriend = () => {
-        return (
-            <View style={{ flexDirection: 'row' }}>
-                <TouchableOpacity style={{ flex: 4 }} onPress={() => this.props.actions.askFriend(this.props.Profile.profile._id)}>
-                    <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Friend request</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
-        )
-    }
-
-    _btnFriendRequestPending = () => {
-        return (
-            <View style={{ flexDirection: 'row' }}>
-                <TouchableOpacity style={{ flex: 4 }} onPress={() => this.props.actions.cancelFriendRequest(this.props.Profile.profile._id)}>
-                    <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Pending</Text>
-                    </View>
-                </TouchableOpacity>
-            </View>
         )
     }
 
@@ -273,7 +134,6 @@ class Profile extends React.Component {
                 </View>
 
                 <View style={{ height: 75 }} />
-
 
             </View>
         )
