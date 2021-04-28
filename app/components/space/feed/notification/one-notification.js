@@ -33,7 +33,7 @@ class OneNotification extends React.Component {
     _notificationCommentFeedRender = (notif) => {
         return (
             <TouchableOpacity
-                style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}
+                style={[{ flexDirection: 'row', paddingVertical: 10 }, this._activeBackground(notif.read)]}
                 onPress={() => this._goToNotification()}
             >
 
@@ -41,7 +41,7 @@ class OneNotification extends React.Component {
                 {this._avatarNotificationRender(notif.profile.pictureprofile)}
 
                 {/* Description */}
-                <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
+                <View style={{ flex: 5, justifyContent: 'center', marginStart: 10, marginEnd: 15 }}>
                     <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} comment your publication </Text>
                     <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
                 </View>
@@ -55,13 +55,13 @@ class OneNotification extends React.Component {
 
     _verificationRender = (notif) => {
         return (
-            <View style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}>
+            <View style={[{ flexDirection: 'row', paddingVertical: 10 }, this._activeBackground(notif.read)]}>
 
                 {/* Picture profile notification */}
                 {this._avatarNotificationRender('https://eps-file-default.s3.eu-west-3.amazonaws.com/icon-wiins.png')}
 
                 {/* Description */}
-                <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
+                <View style={{ flex: 5, justifyContent: 'center', marginStart: 10, marginEnd: 15 }}>
                     {notif.accepted && <Text style={{ fontSize: 15 }}>You have been verified in the platform. You can enjoy all the extras now. </Text>}
                     {!notif.accepted && <Text style={{ fontSize: 15 }}>You havn't been verified due to your requirements. Try a new time when you're ready</Text>}
                     <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
@@ -76,13 +76,13 @@ class OneNotification extends React.Component {
 
     _notificationCommentLikePlaylistRender = (notif) => {
         return (
-            <View style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}>
+            <View style={[{ flexDirection: 'row', paddingVertical: 10 }, this._activeBackground(notif.read)]}>
 
                 {/* Picture profile notification */}
                 {this._avatarNotificationRender(notif.profile.pictureprofile)}
 
                 {/* Description */}
-                <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
+                <View style={{ flex: 5, justifyContent: 'center', marginStart: 10, marginEnd: 15 }}>
                     <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} like your comment in a music playlist </Text>
                     <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
                 </View>
@@ -97,7 +97,7 @@ class OneNotification extends React.Component {
     _notificationLikeFeedPublicationRender = (notif) => {
         return (
             <TouchableOpacity 
-                style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}
+                style={[{ flexDirection: 'row', paddingVertical: 10}, this._activeBackground(notif.read)]}
                 onPress={() => this._goToNotification()}
             >
 
@@ -105,8 +105,8 @@ class OneNotification extends React.Component {
                 {this._avatarNotificationRender(notif.profile.pictureprofile)}
 
                 {/* Description */}
-                <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
-                    <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} like your publication in the feed </Text>
+                <View style={{ flex: 5, justifyContent: 'center', marginStart: 10, marginEnd: 15 }}>
+                    <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} liked your publication in the feed </Text>
                     <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
                 </View>
 
@@ -121,7 +121,7 @@ class OneNotification extends React.Component {
 
         return (
             <TouchableOpacity
-                style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}
+                style={[{ flexDirection: 'row', paddingVertical: 10 }, this._activeBackground(notif.read)]}
                 onPress={() => this._goToNotification()}
             >
 
@@ -129,7 +129,7 @@ class OneNotification extends React.Component {
                 {this._avatarNotificationRender(notif.profile.pictureprofile)}
 
                 {/* Description */}
-                <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
+                <View style={{ flex: 5, justifyContent: 'center', marginStart: 10, marginEnd: 15 }}>
                     <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} tagged you in a publication in the feed </Text>
                     <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
                 </View>
@@ -144,7 +144,7 @@ class OneNotification extends React.Component {
     _notificationTagCommentPlaylistRender = (notif) => {
         return (
             <TouchableOpacity
-                style={[{ flexDirection: 'row', paddingVertical: 9 }, this._activeBackground(notif.read)]}
+                style={[{ flexDirection: 'row', paddingVertical: 10 }, this._activeBackground(notif.read)]}
                 onPress={() => this._goToNotification()}
             >
 
@@ -152,7 +152,7 @@ class OneNotification extends React.Component {
                 {this._avatarNotificationRender(notif.profile.pictureprofile)}
 
                 {/* Description */}
-                <View style={{ flex: 5, justifyContent: 'center', paddingHorizontal: 15 }}>
+                <View style={{ flex: 5, justifyContent: 'center', marginStart: 10, marginEnd: 15 }}>
                     <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} tagged you in a publication a music playlist </Text>
                     <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
                 </View>
@@ -207,7 +207,7 @@ class OneNotification extends React.Component {
         return (
             <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
                 <FastImage
-                    style={{ width: 70, height: 70, borderRadius: 70, resizeMode: 'cover' }}
+                    style={{ width: 60, height: 60, borderRadius: 70, resizeMode: 'cover' }}
                     source={{ uri: link, priority: FastImage.priority.normal }}
                     resizeMode={FastImage.resizeMode.cover}
                 />

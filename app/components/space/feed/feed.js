@@ -141,6 +141,7 @@ class Feed extends React.Component {
         return (<CardNewFeed
             toggleReportModal={() => this._toggleReportModal(item._id, this._getItemOwner(item))}
             index={index}
+            lastIndex={index === this.props.FeedPublications.publications.length - 1 | false}
             navigation={this.props.navigation}
             publication={item}
             space={'feed'}

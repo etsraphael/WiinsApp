@@ -15,7 +15,7 @@ import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { getDateTranslated } from '../../../../services/translation/translation-service'
 
-class CardNewFeedMasonry extends React.Component {
+class CardNewFeedMasonry extends React.PureComponent {
 
     constructor(props) {
         super(props)
