@@ -59,7 +59,10 @@ export function getMyMusic() {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 200) return dispatch(await getMyFavMusicSuccess(response.playlist))
+                    if (response.status == 200) {
+                        response.playlist.forEach(element => element.isLiked = true)
+                        return dispatch(await getMyFavMusicSuccess(response.playlist))
+                    }
                     return dispatch(getMyFavMusicFail(response.message))
                 })
         } catch (error) {
