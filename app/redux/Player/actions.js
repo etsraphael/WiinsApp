@@ -319,15 +319,15 @@ export function followArtist(id) {
     return { type: ActionTypes.FOLLOW_ARTIST, id }
 }
 
-export function followArtistSuccess() {
-    return { type: ActionTypes.FOLLOW_ARTIST_SUCCESS }
+export function followArtistSuccess(profileId) {
+    return { type: ActionTypes.FOLLOW_ARTIST_SUCCESS, profileId }
 }
 
 export function followArtistFail(id) {
     return { type: ActionTypes.FOLLOW_ARTIST_FAIL, id }
 }
 
-export function followArtistActions(musicId, profileId) {
+export function followArtistActions(profileId) {
     return async (dispatch) => {
         try {
             dispatch(followArtist())
@@ -342,7 +342,9 @@ export function followArtistActions(musicId, profileId) {
             })
                 .then((response) => response.json())
                 .then(response => {
-                    if (response.status == 200) return dispatch(followArtistSuccess())
+                    if (response.status == 200) {
+                        return dispatch(followArtistSuccess(profileId))
+                    }
                     dispatch(followArtistFail(response.status))
                 })
 
