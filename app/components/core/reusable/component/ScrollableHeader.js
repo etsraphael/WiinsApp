@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
-import { Animated, StyleSheet, View, ScrollView, Platform, Dimensions, StatusBar } from "react-native";
+import { Animated, StyleSheet, View, ScrollView, Platform } from "react-native";
+import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 
 const HEADER_MAX_HEIGHT = 60;
 
@@ -70,7 +71,7 @@ export default class ScrollableHeader extends Component {
 
 const styles = StyleSheet.create({
     main: {
-        paddingTop: Platform.OS === 'ios' ? StatusBar.currentHeight : 0
+        paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0
     },
     fill: {
       flex: 1
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     },
     header: {
         position: 'absolute',
-        top: Platform.OS === 'ios' ? StatusBar.currentHeight : 0,
+        top: Platform.OS === 'ios' ? getStatusBarHeight() : 0,
         left: 0,
         right: 0
       },
