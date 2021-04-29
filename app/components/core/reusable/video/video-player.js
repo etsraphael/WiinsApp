@@ -14,6 +14,7 @@ class VideoPlayer extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            videoLoading: false,
             videoReady: false,
             videoError: false,
             currentTime: 0,
@@ -33,6 +34,14 @@ class VideoPlayer extends React.Component {
                 duration: 300,
                 useNativeDriver: true,
             }).start();
+        } if (prevState.videoError !== videoError) {
+            console.log(this.state.paused, "pause");
+            if (videoError) {
+                this.setState({ "overlay": true, "paused": true });
+                this._renderError();
+            } else {
+                this.scheduleCloseOverlay();
+            }
         }
     }
 
@@ -60,7 +69,8 @@ class VideoPlayer extends React.Component {
         }
         this.scheduleCloseOverlay();
     }
-    onVideoLoad = ({ duration }) => this.setState({ duration });
+    onVideoLoad = ({ duration }) => this.setState({ duration, videoLoading: false });
+    onVideoLoadStart = () => this.setState({ videoLoading: true });
     onVideoProgress = ({ currentTime }) => this.setState({ currentTime });
     onVideoEnd = () => {
         this.setState({ paused: true });
@@ -98,9 +108,13 @@ class VideoPlayer extends React.Component {
                 source={{ uri: this.props.posterSrc, priority: FastImage.priority.normal }}
                 resizeMode={FastImage.resizeMode.cover}
             />
-            <View style={{ backgroundColor: '#00000045', position: 'absolute', width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
-                <ActivityIndicator size='large' color="#ffffff" />
-            </View>
+            {
+                this.state.videoLoading ? (
+                    <View style={{ backgroundColor: '#00000045', position: 'absolute', width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+                        <ActivityIndicator size='large' color="#ffffff" />
+                    </View>
+                ) : <></>
+            }
         </View>
     )
 
@@ -118,9 +132,17 @@ class VideoPlayer extends React.Component {
 
                 { overlay ? (<>
                     {/* The Play and Pause centered button */}
-                    <TouchableOpacity onPress={(e) => this.playPauseVideo(e)} style={{ width: 50, height: 50, borderRadius: 30, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={paused ? faPlay : faPause} color={"#FFFFFF"} size={25} />
-                    </TouchableOpacity>
+                    {
+                        this.state.videoLoading ? (
+                            <View style={{ backgroundColor: '#00000045', ...styles.overlay, justifyContent: 'center', alignItems: 'center' }}>
+                                <ActivityIndicator size='large' color="#ffffff" />
+                            </View>
+                        ) :  this.state.videoError ? this._renderError() : (
+                            <TouchableOpacity onPress={(e) => this.playPauseVideo(e)} style={{ width: 50, height: 50, borderRadius: 30, justifyContent: 'center', alignItems: 'center' }}>
+                                <FontAwesomeIcon icon={paused ? faPlay : faPause} color={"#FFFFFF"} size={25} />
+                            </TouchableOpacity>
+                        )
+                    }
 
                     {/* The Slider Section */}
                     <View style={{ position: 'absolute', left: 0, bottom: 0, right: 0, flexDirection: 'row', paddingVertical: 15, paddingHorizontal: 10, alignItems: 'center' }}>
@@ -149,14 +171,14 @@ class VideoPlayer extends React.Component {
 
     _renderError = () => {
         return (
-            <View style={{ ...styles.overlay, justifyContent: 'center', alignItems: 'center' }}>
+            <TouchableWithoutFeedback style={{ ...styles.overlay, justifyContent: 'center', alignItems: 'center' }} onPress={this.playPauseVideo}>
                 <Animated.View>
                     <FontAwesomeIcon icon={faRedoAlt} color={"#FFFFFF"} size={30} />
                 </Animated.View>
                 <Text style={{ color: '#FFFFFF', marginTop: 5, fontSize: 17 }}>
                     Could not play video
                 </Text>
-            </View>
+            </TouchableWithoutFeedback>
         )
     }
 
@@ -167,6 +189,7 @@ class VideoPlayer extends React.Component {
             <View style={styles.videoPlayer}>
                 <Video
                     ref={(ref) => this.player = ref}
+                    onLoadStart={this.onVideoLoadStart}
                     onReadyForDisplay={this.onVideoReadyToPlay}
                     style={{ width: '100%', height: '100%' }}
                     source={{ uri: src }}
@@ -185,7 +208,8 @@ class VideoPlayer extends React.Component {
                 
                 <View style={styles.overlay}  onPress={this.onClickOnVideo}>
                     {/* The absolute fill view for toggling overlay */}
-                    { this.state.videoError ? this._renderError() : this.state.videoReady ? this._renderOverlay() : this._renderPoster() }
+                    { this.state.videoReady ? this._renderOverlay() : this._renderPoster() }
+                    { !this.state.videoReady &&  this.state.videoError ? this._renderError() : <></> }
                 </View>
             </View>
         );
