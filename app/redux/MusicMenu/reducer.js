@@ -3,6 +3,30 @@ import * as ActionTypes from './constants';
 
 export default MusicMenuReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ActionTypes.DISLIKE_MUSIC_FROM_HOME_MUSIC: {
+      const newMusicList = state.menu[stylesSuggestion].map(x =>
+        x._id === action.id ? { ...x, isLiked: false } : x
+      )
+      return {
+        ...state,
+        menu : {
+          ...state.menu,
+          [stylesSuggestion]: newMusicList
+        }
+      }
+    }
+    case ActionTypes.LIKE_MUSIC_FROM_HOME_MUSIC: {
+      const newMusicList = state.menu[stylesSuggestion].map(x =>
+        x._id === action.id ? { ...x, isLiked: true } : x
+      )
+      return {
+        ...state,
+        menu : {
+          ...state.menu,
+          [stylesSuggestion]: newMusicList
+        }
+      }
+    }
     case ActionTypes.GET_MUSIC_MENU: {
       return {
         ...state,
