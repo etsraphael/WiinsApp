@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     container_musicProjectList: {
         height: '100%',
         width: '100%',
+        marginBottom: 150
     }
 })
 

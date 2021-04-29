@@ -51,7 +51,8 @@
     "Enable-notification": "Включить уведомления",
     "Group-creation": "Создание группы",
     "Mute": "безгласный",
-    "Send": "послать"
+    "Send": "послать",
+    "days-message-delete-two-weeks": "Ваши сообщения автоматически удаляются через 14 дней."
   },
   "CONFIRMATION": {
     "Delete-Room": "Вы уверены, что хотите удалить это обсуждение ?"
@@ -578,7 +579,8 @@
     "Y-dont-have-a-conversation-yet": "Вы еще не разговаривали.",
     "Date-cannot-be-in-the-past": "Дата выхода не может быть в прошлом",
     "You-cannot-add-yourself": "Вы не можете добавить себя",
-    "T-content-does-not-exist-anymore": "Этот контент больше не существует"
+    "T-content-does-not-exist-anymore": "Этот контент больше не существует",
+    "T-publication-no-longer-exists": "Эта публикация больше не существует"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фото получено",

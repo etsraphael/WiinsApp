@@ -93,7 +93,8 @@
     "Enable-notification": "เปิดใช้งานการแจ้งเตือน",
     "Group-creation": "การสร้างกลุ่ม",
     "Mute": "ปิดเสียง",
-    "Send": "ส่ง"
+    "Send": "ส่ง",
+    "days-message-delete-two-weeks": "ข้อความของคุณจะถูกลบโดยอัตโนมัติหลังจาก 14 วัน"
   },
   "CONFIRMATION": {
     "Delete-Room": "แน่ใจหรือว่าจะลบการสนทนานี้?"
@@ -620,7 +621,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "คุณต้องเลื่อนระดับผู้จัดการก่อนออกจากกลุ่ม",
     "Date-cannot-be-in-the-past": "วันที่วางจำหน่ายต้องไม่เป็นวันที่ผ่านมา",
     "You-cannot-add-yourself": "คุณไม่สามารถเพิ่มตัวเองได้",
-    "T-content-does-not-exist-anymore": "ไม่มีเนื้อหานี้อีกต่อไป"
+    "T-content-does-not-exist-anymore": "ไม่มีเนื้อหานี้อีกต่อไป",
+    "T-publication-no-longer-exists": "ไม่มีสิ่งพิมพ์นี้แล้ว"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ได้รับภาพถ่ายแล้ว",

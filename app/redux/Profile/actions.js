@@ -107,7 +107,7 @@ export function confirmFriendFail(error) {
 
 // effect
 
-export function getProfile(id) {
+export function getProfile(id, initializeNavBar) {
     return async (dispatch) => {
         try {
 
@@ -122,7 +122,10 @@ export function getProfile(id) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 200) return dispatch(getProfileSuccess(response.profile))
+                    if (response.status == 200){
+                         initializeNavBar(response.profile.actifSpace)
+                         return dispatch(getProfileSuccess(response.profile))
+                    }
                     return dispatch(getProfileFail(response.message))
                 })
         } catch (error) {

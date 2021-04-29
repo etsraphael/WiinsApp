@@ -93,7 +93,8 @@
     "Enable-notification": "Bildirishnomalarni yoqish",
     "Group-creation": "Guruhni yaratish",
     "Mute": "Ovozni o'chirish",
-    "Send": "Yuborish"
+    "Send": "Yuborish",
+    "days-message-delete-two-weeks": "Sizning xabarlaringiz 14 kundan keyin avtomatik ravishda o'chiriladi"
   },
   "CONFIRMATION": {
     "Delete-Room": "Ushbu munozarani o'chirishga ishonchingiz komilmi?"
@@ -620,7 +621,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Guruhdan chiqishdan oldin menejerni lavozimga ko'tarishingiz kerak",
     "Date-cannot-be-in-the-past": "Chiqarish sanasi o'tmishda bo'lishi mumkin emas",
     "You-cannot-add-yourself": "Siz o'zingizni qo'sha olmaysiz",
-    "T-content-does-not-exist-anymore": "Ushbu tarkib endi mavjud emas"
+    "T-content-does-not-exist-anymore": "Ushbu tarkib endi mavjud emas",
+    "T-publication-no-longer-exists": "Ushbu nashr endi mavjud emas"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Surat qabul qilindi",

@@ -93,7 +93,8 @@
     "Enable-notification": "Įgalinti pranešimus",
     "Group-creation": "Grupės sukūrimas",
     "Mute": "Nutildyti",
-    "Send": "Siųsti"
+    "Send": "Siųsti",
+    "days-message-delete-two-weeks": "Jūsų pranešimai automatiškai ištrinami po 14 dienų"
   },
   "CONFIRMATION": {
     "Delete-Room": "Ar tikrai ištrinsite šią diskusiją?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "Jūs dar neturite pokalbio.",
     "Date-cannot-be-in-the-past": "Išleidimo data negali būti praeityje",
     "You-cannot-add-yourself": "Jūs negalite pridėti savęs",
-    "T-content-does-not-exist-anymore": "Šio turinio nebėra"
+    "T-content-does-not-exist-anymore": "Šio turinio nebėra",
+    "T-publication-no-longer-exists": "Šio leidinio nebėra"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Nuotrauka gauta",

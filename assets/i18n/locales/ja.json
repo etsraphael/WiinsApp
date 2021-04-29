@@ -51,7 +51,8 @@
     "Enable-notification": "通知を有効にします",
     "Group-creation": "グループの作成",
     "Mute": "ミュート",
-    "Send": "送る"
+    "Send": "送る",
+    "days-message-delete-two-weeks": "メッセージは14日後に自動的に削除されます"
   },
   "CONFIRMATION": {
     "Delete-Room": "このディスカッションを削除してもよろしいですか ？"
@@ -578,7 +579,8 @@
     "Y-dont-have-a-conversation-yet": "まだ会話はありません。",
     "Date-cannot-be-in-the-past": "リリース日は過去にすることはできません",
     "You-cannot-add-yourself": "自分を追加することはできません",
-    "T-content-does-not-exist-anymore": "このコンテンツはもう存在しません"
+    "T-content-does-not-exist-anymore": "このコンテンツはもう存在しません",
+    "T-publication-no-longer-exists": "この出版物はもう存在しません"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "写真を受け取りました",

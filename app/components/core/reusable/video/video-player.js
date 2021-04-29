@@ -1,13 +1,12 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import PropTypes from 'prop-types';
-import { View, StyleSheet, ActivityIndicator, Text } from 'react-native';
+import { View, StyleSheet, ActivityIndicator, Text, TouchableOpacity, TouchableWithoutFeedback, Animated } from 'react-native';
 import Video from 'react-native-video';
 import FastImage from 'react-native-fast-image';
-import { TouchableOpacity, TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import LinearGradient from 'react-native-linear-gradient';
 import Slider from '@react-native-community/slider';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
-import { faPause, faPlay } from '@fortawesome/pro-light-svg-icons';
+import { faPause, faPlay, faRedoAlt } from '@fortawesome/pro-light-svg-icons';
 
 
 class VideoPlayer extends React.Component {
@@ -16,11 +15,24 @@ class VideoPlayer extends React.Component {
         super(props);
         this.state = {
             videoReady: false,
+            videoError: false,
             currentTime: 0,
             duration: 0.1,
             paused: false,
             overlay: false,
-            fullscreen: false
+            opacity: new Animated.Value(0),
+            fullscreen: false,
+        }
+    }
+
+    componentDidUpdate(_, prevState) {
+        const { overlay, videoError } = this.state;
+        if (prevState.overlay !== overlay) {
+            Animated.timing(this.state.opacity, {
+                toValue: overlay ? 1 : 0,
+                duration: 300,
+                useNativeDriver: true,
+            }).start();
         }
     }
 
@@ -38,10 +50,11 @@ class VideoPlayer extends React.Component {
 
     // video actions
     onVideoReadyToPlay = () => {
-        this.setState({ videoReady: true, overlay: true })
+        this.setState({ videoReady: true, overlay: true, videoError: false })
         // this.scheduleCloseOverlay();
     }
-    playPauseVideo = () => {
+    playPauseVideo = (e) => {
+        e.stopPropagation();
         if (this.state.videoReady) {
             this.setState((prevState) => ({ paused: !prevState.paused }))
         }
@@ -53,6 +66,7 @@ class VideoPlayer extends React.Component {
         this.setState({ paused: true });
         // this.video.seek(0);
     }
+    onVideoError = () => this.setState({ videoError: true });
     onSliderStart = () => this.setState({ paused: true })
     onSliderComplete = () => this.setState({ paused: false })
     onSliderSeek = (slide) => {
@@ -94,23 +108,24 @@ class VideoPlayer extends React.Component {
         const { paused, duration, currentTime, overlay } = this.state;
         return (
             <TouchableWithoutFeedback style={{ ...styles.fillParent }} onPress={this.onClickOnVideo}>
-                {this.state.overlay ? (
-                    <LinearGradient
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 0, y: 1 }}
-                    colors={['transparent', '#000000a0']}
-                    style={{ ...styles.overlay, justifyContent: 'center', alignItems: 'center' }}
-                    >
+                <Animated.View style={{ ...styles.overlay, opacity: this.state.opacity }}>
+                <LinearGradient
+                start={{ x: 0, y: 0 }}
+                end={{ x: 0, y: 1 }}
+                colors={['transparent', '#000000a0']}
+                style={{ ...styles.overlay, justifyContent: 'center', alignItems: 'center' }}
+                >
 
-                        {/* The Play and Pause centered button */}
-                        <TouchableOpacity onPress={this.playPauseVideo} style={{ width: 50, height: 50, borderRadius: 30, justifyContent: 'center', alignItems: 'center' }}>
-                            <FontAwesomeIcon icon={paused ? faPlay : faPause} color={"#FFFFFF"} size={25} />
-                        </TouchableOpacity>
+                { overlay ? (<>
+                    {/* The Play and Pause centered button */}
+                    <TouchableOpacity onPress={(e) => this.playPauseVideo(e)} style={{ width: 50, height: 50, borderRadius: 30, justifyContent: 'center', alignItems: 'center' }}>
+                        <FontAwesomeIcon icon={paused ? faPlay : faPause} color={"#FFFFFF"} size={25} />
+                    </TouchableOpacity>
 
-                        {/* The Slider Section */}
-                        <View style={{ position: 'absolute', left: 0, bottom: 0, right: 0, flexDirection: 'row', paddingVertical: 15, paddingHorizontal: 10 }}>
-                            <Text style={{ color: 'white', maxWidth: 40 }}>{ this.getTime(currentTime) }</Text>
-                            <View style={{ flex: 1, marginHorizontal: 10 }}>
+                    {/* The Slider Section */}
+                    <View style={{ position: 'absolute', left: 0, bottom: 0, right: 0, flexDirection: 'row', paddingVertical: 15, paddingHorizontal: 10, alignItems: 'center' }}>
+                        <Text style={{ color: 'white', maxWidth: 40 }}>{ this.getTime(currentTime) }</Text>
+                        <View style={{ flex: 1, marginHorizontal: 10 }}>
                             <Slider
                                 minimumTrackTintColor="#307ecc"
                                 maximumTrackTintColor="#898989"
@@ -119,19 +134,35 @@ class VideoPlayer extends React.Component {
                                 onValueChange={this.onSliderSeek}
                                 onSlidingStart={this.onSliderStart}
                                 onSlidingComplete={this.onSliderComplete}
+                                tapToSeek={true}
                             />
-                            </View>
-                            <Text style={{ color: 'white', maxWidth: 40 }}>{ this.getTime(duration) }</Text>
                         </View>
-                    </LinearGradient>) : null
+                        <Text style={{ color: 'white', maxWidth: 40 }}>{ this.getTime(duration) }</Text>
+                    </View>
+                    </>) : <></>
                 }
+                </LinearGradient>
+                </Animated.View>
             </TouchableWithoutFeedback>
         );
     }
 
+    _renderError = () => {
+        return (
+            <View style={{ ...styles.overlay, justifyContent: 'center', alignItems: 'center' }}>
+                <Animated.View>
+                    <FontAwesomeIcon icon={faRedoAlt} color={"#FFFFFF"} size={30} />
+                </Animated.View>
+                <Text style={{ color: '#FFFFFF', marginTop: 5, fontSize: 17 }}>
+                    Could not play video
+                </Text>
+            </View>
+        )
+    }
+
     render() {
-        const { src, posterSrc } = this.props;
-        const { paused, duration, currentTime, overlay } = this.state;
+        const { src } = this.props;
+        const { paused } = this.state;
         return (
             <View style={styles.videoPlayer}>
                 <Video
@@ -141,18 +172,20 @@ class VideoPlayer extends React.Component {
                     source={{ uri: src }}
                     repeat={true}
                     minLoadRetryCount={5}
-                    volume={0.1}
+                    volume={1.0}
                     resizeMode={'cover'}
                     controls={false}
                     paused={paused}
                     onLoad={this.onVideoLoad}
                     onProgress={this.onVideoProgress}
                     onEnd={this.onVideoEnd}
+                    onError={this.onVideoError}
+                    
                 />
                 
-                <View style={styles.overlay}>
+                <View style={styles.overlay}  onPress={this.onClickOnVideo}>
                     {/* The absolute fill view for toggling overlay */}
-                    { this.state.videoReady ? this._renderOverlay() : this._renderPoster() }
+                    { this.state.videoError ? this._renderError() : this.state.videoReady ? this._renderOverlay() : this._renderPoster() }
                 </View>
             </View>
         );

@@ -93,7 +93,8 @@
     "Enable-notification": "Aktiveer kennisgewings",
     "Group-creation": "Skepping van die groep",
     "Mute": "Demp",
-    "Send": "Stuur"
+    "Send": "Stuur",
+    "days-message-delete-two-weeks": "U boodskappe word outomaties na 14 dae uitgevee"
   },
   "CONFIRMATION": {
     "Delete-Room": "Is u seker dat u hierdie bespreking sal uitvee?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "U het nog nie 'n gesprek nie.",
     "Date-cannot-be-in-the-past": "Die vrystellingsdatum kan nie in die verlede wees nie",
     "You-cannot-add-yourself": "U kan nie uself byvoeg nie",
-    "T-content-does-not-exist-anymore": "Hierdie inhoud bestaan nie meer nie"
+    "T-content-does-not-exist-anymore": "Hierdie inhoud bestaan nie meer nie",
+    "T-publication-no-longer-exists": "Hierdie publikasie bestaan nie meer nie"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Die foto word ontvang",

@@ -51,7 +51,8 @@
     "Enable-notification": "تمكين الإشعارات",
     "Group-creation": "إنشاء المجموعة",
     "Mute": "كتم الصوت",
-    "Send": "إرسال"
+    "Send": "إرسال",
+    "days-message-delete-two-weeks": "يتم حذف رسائلك تلقائيًا بعد 14 يومًا"
   },
   "CONFIRMATION": {
     "Delete-Room": "هل أنت متأكد من حذف هذه المناقشة ؟"
@@ -578,7 +579,8 @@
     "Y-dont-have-a-conversation-yet": "ليس لديك محادثة حتى الآن.",
     "Date-cannot-be-in-the-past": "لا يمكن أن يكون تاريخ الإصدار في الماضي",
     "You-cannot-add-yourself": "لا يمكنك إضافة نفسك",
-    "T-content-does-not-exist-anymore": "هذا المحتوى غير موجود بعد الآن"
+    "T-content-does-not-exist-anymore": "هذا المحتوى غير موجود بعد الآن",
+    "T-publication-no-longer-exists": "هذا المنشور لم يعد موجودا"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "تم استلام الصورة",

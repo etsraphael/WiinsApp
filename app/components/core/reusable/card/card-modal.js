@@ -187,7 +187,9 @@ class CardModal extends React.Component {
                                     <FontAwesomeIcon icon={faCommentLines} color={'white'} size={19} />
                                     <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
                                 </TouchableOpacity>
-                                <TouchableOpacity style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}>
+                                <TouchableOpacity
+                                     onPress={() => this._likeBtn()}
+                                     style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}>
                                     <FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />
                                     <Text style={{ fontSize: 15, color: 'white', paddingLeft: 7 }}>{publication.like.likeNumber}</Text>
                                 </TouchableOpacity>

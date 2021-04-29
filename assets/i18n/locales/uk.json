@@ -93,7 +93,8 @@
     "Enable-notification": "Увімкнути сповіщення",
     "Group-creation": "Створення групи",
     "Mute": "Без звуку",
-    "Send": "Надіслати"
+    "Send": "Надіслати",
+    "days-message-delete-two-weeks": "Ваші повідомлення автоматично видаляються через 14 днів"
   },
   "CONFIRMATION": {
     "Delete-Room": "Справді видалити це обговорення?"
@@ -620,7 +621,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Ви повинні просувати менеджера перед тим, як вийти з групи",
     "Date-cannot-be-in-the-past": "Дата випуску не може бути минулою",
     "You-cannot-add-yourself": "Ви не можете додати себе",
-    "T-content-does-not-exist-anymore": "Цей вміст уже не існує"
+    "T-content-does-not-exist-anymore": "Цей вміст уже не існує",
+    "T-publication-no-longer-exists": "Ця публікація більше не існує"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фотографія отримана",

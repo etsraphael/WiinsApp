@@ -93,7 +93,8 @@
     "Enable-notification": "Salli ilmoitukset",
     "Group-creation": "Ryhmän luominen",
     "Mute": "Mykistää",
-    "Send": "Lähettää"
+    "Send": "Lähettää",
+    "days-message-delete-two-weeks": "Viestisi poistetaan automaattisesti 14 päivän kuluttua"
   },
   "CONFIRMATION": {
     "Delete-Room": "Haluatko varmasti poistaa tämän keskustelun?"
@@ -620,7 +621,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Sinun on ylennettävä johtaja ennen ryhmästä poistumista",
     "Date-cannot-be-in-the-past": "Julkaisupäivä ei voi olla menneisyydessä",
     "You-cannot-add-yourself": "Et voi lisätä itseäsi",
-    "T-content-does-not-exist-anymore": "Tätä sisältöä ei ole enää olemassa"
+    "T-content-does-not-exist-anymore": "Tätä sisältöä ei ole enää olemassa",
+    "T-publication-no-longer-exists": "Tätä julkaisua ei ole enää olemassa"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Kuva on vastaanotettu",

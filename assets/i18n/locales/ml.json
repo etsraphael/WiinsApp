@@ -93,7 +93,8 @@
     "Enable-notification": "അറിയിപ്പുകൾ പ്രവർത്തനക്ഷമമാക്കുക",
     "Group-creation": "ഗ്രൂപ്പിന്റെ സൃഷ്ടി",
     "Mute": "നിശബ്ദമാക്കുക",
-    "Send": "അയയ്‌ക്കുക"
+    "Send": "അയയ്‌ക്കുക",
+    "days-message-delete-two-weeks": "14 ദിവസത്തിനുശേഷം നിങ്ങളുടെ സന്ദേശങ്ങൾ യാന്ത്രികമായി ഇല്ലാതാക്കപ്പെടും"
   },
   "CONFIRMATION": {
     "Delete-Room": "ഈ ചർച്ച ഇല്ലാതാക്കുമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "നിങ്ങൾക്ക് ഇതുവരെ ഒരു സംഭാഷണവുമില്ല.",
     "Date-cannot-be-in-the-past": "റിലീസ് തീയതി പഴയതായിരിക്കരുത്",
     "You-cannot-add-yourself": "നിങ്ങൾക്ക് സ്വയം ചേർക്കാൻ കഴിയില്ല",
-    "T-content-does-not-exist-anymore": "ഈ ഉള്ളടക്കം ഇപ്പോൾ നിലവിലില്ല"
+    "T-content-does-not-exist-anymore": "ഈ ഉള്ളടക്കം ഇപ്പോൾ നിലവിലില്ല",
+    "T-publication-no-longer-exists": "ഈ പ്രസിദ്ധീകരണം നിലവിലില്ല"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ഫോട്ടോ ലഭിച്ചു",

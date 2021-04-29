@@ -96,7 +96,7 @@ class OneMusic extends React.Component {
                 <View style={styles.description_container}>
                     <FastImage
                         style={styles.image_container} resizeMode={FastImage.resizeMode.cover}
-                        source={{ uri: music.profile.pictureprofile, priority: FastImage.priority.normal }}
+                        source={{ uri: music.imgUrl, priority: FastImage.priority.normal }}
                     />
                     <View style={{ paddingLeft: 15, justifyContent: 'center' }}>
                         <Text style={styles.title_text}>{music.name}</Text>
@@ -141,7 +141,7 @@ class OneMusic extends React.Component {
                     <View style={styles.description_container}>
                         <FastImage
                             style={styles.image_container} resizeMode={FastImage.resizeMode.cover}
-                            source={{ uri: music.profile.pictureprofile, priority: FastImage.priority.normal }}
+                            source={{ uri: music.imgUrl, priority: FastImage.priority.normal }}
                         />
                         <View style={{ paddingLeft: 15, justifyContent: 'center' }}>
                             <Text style={[styles.title_text, { color: 'white' }]}>{music.name}</Text>

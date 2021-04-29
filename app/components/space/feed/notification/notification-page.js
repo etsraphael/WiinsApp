@@ -54,7 +54,7 @@ class NotificationPage extends React.Component {
 
     _headerRender = () => {
         return (
-            <View style={{ paddingHorizontal: 15, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
+            <View style={{ marginVertical: 10,paddingHorizontal: 15, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
 
                 <TouchableOpacity
                     style={[styles.container_btn_header, this.state.pageSelected == 'earlier' && this._backgroundBtnHeaderActif()]}
@@ -83,10 +83,10 @@ class NotificationPage extends React.Component {
                 {/* Title page */}
                 <View style={{ flexDirection: 'row', alignItems: 'center', padding: 15 }}>
                     <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={{ paddingHorizontal: 15 }}>
-                        <FontAwesomeIcon icon={faAngleLeft} color={'black'} size={35} />
+                        <FontAwesomeIcon icon={faAngleLeft} color={'black'} size={23} />
                     </TouchableOpacity>
                     <View>
-                        <Text style={{ fontSize: 30, fontWeight: '700' }}>Notification</Text>
+                        <Text style={{ fontSize: 24, fontWeight: '700' }}>Notification</Text>
                     </View>
                 </View>
 
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#d9d9d9'
     },
     header_text_btn: {
-        fontSize: 19,
+        fontSize: 17,
         fontWeight: '600'
     }
 })

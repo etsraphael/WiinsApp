@@ -93,7 +93,8 @@
     "Enable-notification": "Aktivér underretninger",
     "Group-creation": "Oprettelse af gruppen",
     "Mute": "Stum",
-    "Send": "Sende"
+    "Send": "Sende",
+    "days-message-delete-two-weeks": "Dine meddelelser slettes automatisk efter 14 dage"
   },
   "CONFIRMATION": {
     "Delete-Room": "Er du sikker på at slette denne diskussion?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "Du har ikke en samtale endnu.",
     "Date-cannot-be-in-the-past": "Udgivelsesdatoen kan ikke være tidligere",
     "You-cannot-add-yourself": "Du kan ikke tilføje dig selv",
-    "T-content-does-not-exist-anymore": "Dette indhold findes ikke længere"
+    "T-content-does-not-exist-anymore": "Dette indhold findes ikke længere",
+    "T-publication-no-longer-exists": "Denne publikation findes ikke længere"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Billedet er modtaget",

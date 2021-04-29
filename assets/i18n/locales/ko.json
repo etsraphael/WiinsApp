@@ -51,7 +51,8 @@
     "Enable-notification": "알림 사용",
     "Group-creation": "그룹의 창조",
     "Mute": "음소거",
-    "Send": "보내다"
+    "Send": "보내다",
+    "days-message-delete-two-weeks": "메시지는 14 일 후에 자동으로 삭제됩니다."
   },
   "CONFIRMATION": {
     "Delete-Room": "이 토론을 삭제 하시겠습니까 ?"
@@ -578,7 +579,8 @@
     "Y-dont-have-a-conversation-yet": "아직 대화가 없습니다.",
     "Date-cannot-be-in-the-past": "출시일은 과거 일 수 없습니다.",
     "You-cannot-add-yourself": "자신을 추가 할 수 없습니다.",
-    "T-content-does-not-exist-anymore": "이 콘텐츠는 더 이상 존재하지 않습니다."
+    "T-content-does-not-exist-anymore": "이 콘텐츠는 더 이상 존재하지 않습니다.",
+    "T-publication-no-longer-exists": "이 출판물은 더 이상 존재하지 않습니다."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "사진이 접수되었습니다",

@@ -93,7 +93,8 @@
     "Enable-notification": "Gaitu jakinarazpenak",
     "Group-creation": "Taldearen sorrera",
     "Mute": "Mutua",
-    "Send": "Bidali"
+    "Send": "Bidali",
+    "days-message-delete-two-weeks": "Zure mezuak automatikoki ezabatzen dira 14 egunen buruan"
   },
   "CONFIRMATION": {
     "Delete-Room": "Ziur zaude eztabaida ezabatuko duzula?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "Oraindik ez duzu elkarrizketarik.",
     "Date-cannot-be-in-the-past": "Argitaratze data ezin da iraganean egon",
     "You-cannot-add-yourself": "Ezin duzu zeure burua gehitu",
-    "T-content-does-not-exist-anymore": "Eduki hau ez da existitzen"
+    "T-content-does-not-exist-anymore": "Eduki hau ez da existitzen",
+    "T-publication-no-longer-exists": "Argitalpen hau jada ez dago"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Argazkia jaso da",

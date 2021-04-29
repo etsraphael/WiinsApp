@@ -93,7 +93,8 @@
     "Enable-notification": "Galluogi hysbysiadau",
     "Group-creation": "Creu’r grŵp",
     "Mute": "Munud",
-    "Send": "Anfon"
+    "Send": "Anfon",
+    "days-message-delete-two-weeks": "Mae eich negeseuon yn cael eu dileu yn awtomatig ar ôl 14 diwrnod"
   },
   "CONFIRMATION": {
     "Delete-Room": "Ydych chi'n sicr o ddileu'r drafodaeth hon?"
@@ -620,7 +621,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Rhaid i chi hyrwyddo rheolwr cyn gadael y grŵp",
     "Date-cannot-be-in-the-past": "Ni all y dyddiad rhyddhau fod yn y gorffennol",
     "You-cannot-add-yourself": "Ni allwch ychwanegu eich hun",
-    "T-content-does-not-exist-anymore": "Nid yw'r cynnwys hwn yn bodoli mwyach"
+    "T-content-does-not-exist-anymore": "Nid yw'r cynnwys hwn yn bodoli mwyach",
+    "T-publication-no-longer-exists": "Nid yw'r cyhoeddiad hwn yn bodoli mwyach"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Derbynnir y llun",

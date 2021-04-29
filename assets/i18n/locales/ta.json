@@ -93,7 +93,8 @@
     "Enable-notification": "அறிவிப்புகளை இயக்கு",
     "Group-creation": "குழுவின் உருவாக்கம்",
     "Mute": "முடக்கு",
-    "Send": "அனுப்பு"
+    "Send": "அனுப்பு",
+    "days-message-delete-two-weeks": "உங்கள் செய்திகள் 14 நாட்களுக்குப் பிறகு தானாகவே நீக்கப்படும்"
   },
   "CONFIRMATION": {
     "Delete-Room": "இந்த விவாதத்தை நீக்குவது உறுதி?"
@@ -620,7 +621,8 @@
     "you-hav-to-upgrad-a-manager-before-leave": "குழுவிலிருந்து வெளியேறுவதற்கு முன்பு நீங்கள் ஒரு மேலாளரை விளம்பரப்படுத்த வேண்டும்",
     "Date-cannot-be-in-the-past": "வெளியீட்டு தேதி கடந்த காலத்தில் இருக்க முடியாது",
     "You-cannot-add-yourself": "உங்களை நீங்களே சேர்க்க முடியாது",
-    "T-content-does-not-exist-anymore": "இந்த உள்ளடக்கம் இனி இல்லை"
+    "T-content-does-not-exist-anymore": "இந்த உள்ளடக்கம் இனி இல்லை",
+    "T-publication-no-longer-exists": "இந்த வெளியீடு இனி இல்லை"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "புகைப்படம் பெறப்பட்டது",

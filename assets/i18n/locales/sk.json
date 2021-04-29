@@ -93,7 +93,8 @@
     "Enable-notification": "Povoliť upozornenia",
     "Group-creation": "Vytvorenie skupiny",
     "Mute": "Stíšiť",
-    "Send": "Pošli"
+    "Send": "Pošli",
+    "days-message-delete-two-weeks": "Vaše správy sa automaticky odstránia po 14 dňoch"
   },
   "CONFIRMATION": {
     "Delete-Room": "Naozaj chcete odstrániť túto diskusiu?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "Zatiaľ nemáte konverzáciu.",
     "Date-cannot-be-in-the-past": "Dátum vydania nemôže byť v minulosti",
     "You-cannot-add-yourself": "Nemôžete pridať seba",
-    "T-content-does-not-exist-anymore": "Tento obsah už neexistuje"
+    "T-content-does-not-exist-anymore": "Tento obsah už neexistuje",
+    "T-publication-no-longer-exists": "Táto publikácia už neexistuje"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotka je prijatá",

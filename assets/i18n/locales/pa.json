@@ -51,7 +51,8 @@
     "Enable-notification": "ਸੂਚਨਾਵਾਂ ਨੂੰ ਸਮਰੱਥ ਕਰੋ",
     "Group-creation": "ਸਮੂਹ ਦੀ ਸਿਰਜਣਾ",
     "Mute": "ਚੁੱਪ",
-    "Send": "ਭੇਜੋ"
+    "Send": "ਭੇਜੋ",
+    "days-message-delete-two-weeks": "ਤੁਹਾਡੇ ਸੁਨੇਹੇ 14 ਦਿਨਾਂ ਬਾਅਦ ਆਪਣੇ ਆਪ ਹਟਾਏ ਜਾਣਗੇ"
   },
   "CONFIRMATION": {
     "Delete-Room": "ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਇਸ ਵਿਚਾਰ ਵਟਾਂਦਰੇ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ ?"
@@ -578,7 +579,8 @@
     "Y-dont-have-a-conversation-yet": "ਤੁਹਾਡੇ ਕੋਲ ਅਜੇ ਗੱਲਬਾਤ ਨਹੀਂ ਹੈ.",
     "Date-cannot-be-in-the-past": "ਰੀਲੀਜ਼ ਦੀ ਤਾਰੀਖ ਅਤੀਤ ਵਿੱਚ ਨਹੀਂ ਹੋ ਸਕਦੀ",
     "You-cannot-add-yourself": "ਤੁਸੀਂ ਆਪਣੇ ਆਪ ਨੂੰ ਸ਼ਾਮਲ ਨਹੀਂ ਕਰ ਸਕਦੇ",
-    "T-content-does-not-exist-anymore": "ਇਹ ਸਮਗਰੀ ਹੁਣ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
+    "T-content-does-not-exist-anymore": "ਇਹ ਸਮਗਰੀ ਹੁਣ ਮੌਜੂਦ ਨਹੀਂ ਹੈ",
+    "T-publication-no-longer-exists": "ਇਹ ਪ੍ਰਕਾਸ਼ਨ ਹੁਣ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ਫੋਟੋ ਮਿਲੀ ਹੈ",

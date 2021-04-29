@@ -93,7 +93,8 @@
     "Enable-notification": "Aktiver varsler",
     "Group-creation": "Opprettelse av gruppen",
     "Mute": "Stum",
-    "Send": "Sende"
+    "Send": "Sende",
+    "days-message-delete-two-weeks": "Meldingene dine slettes automatisk etter 14 dager"
   },
   "CONFIRMATION": {
     "Delete-Room": "Er du sikker på at du vil slette denne diskusjonen?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "Du har ikke en samtale ennå.",
     "Date-cannot-be-in-the-past": "Utgivelsesdatoen kan ikke være tidligere",
     "You-cannot-add-yourself": "Du kan ikke legge deg til",
-    "T-content-does-not-exist-anymore": "Dette innholdet eksisterer ikke lenger"
+    "T-content-does-not-exist-anymore": "Dette innholdet eksisterer ikke lenger",
+    "T-publication-no-longer-exists": "Denne publikasjonen eksisterer ikke lenger"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Bildet er mottatt",

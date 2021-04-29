@@ -1,5 +1,5 @@
-import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
+import React, { PureComponent } from 'react'
+import { StyleSheet, View, Text, TouchableOpacity, Dimensions } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../../redux/FeedPublications/actions'
 import * as ProfilePublicationActions from '../../../../redux/ProfilePublications/actions'
@@ -9,37 +9,28 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlay, faComment } from '@fortawesome/pro-light-svg-icons'
+import { faPlay, faCommentLines } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { faEllipsisV } from '@fortawesome/pro-solid-svg-icons'
 
-class CardNewFeed extends React.Component {
+class CardNewFeed extends PureComponent {
 
     constructor(props) {
         super(props)
         this.state = {
-            imageHeight: 200
+            imageHeight: 200,
+            cardWidth: Dimensions.get('window').width - 30
         }
     }
 
     // to set the size of the picture
     onImageLoaded = (event) => {
-
-        const ratio = ((event.nativeEvent.width / event.nativeEvent.height) * 100)
-
-        switch (true) {
-            case ratio <= 70: return this.setState({ imageHeight: ratio * 9 });
-            case ratio <= 85: return this.setState({ imageHeight: ratio * 7.5 });
-            case ratio <= 100: return this.setState({ imageHeight: ratio * 5 });
-            case ratio <= 115: return this.setState({ imageHeight: ratio * 3 });
-            case ratio <= 130: return this.setState({ imageHeight: ratio * 2.5 });
-            case ratio <= 155: return this.setState({ imageHeight: ratio * 1.8 });
-            case ratio <= 180: return this.setState({ imageHeight: ratio * 1.3 });
-            case ratio > 180: return this.setState({ imageHeight: ratio * 0.8 });
-        }
-
+        const { width, height } = event.nativeEvent;
+        const ratio = this.state.cardWidth / width;
+        const ratioHeight = height * ratio;
+        this.setState({ imageHeight: ratioHeight > 400 ? 400 : ratioHeight < 250 ? 250 : ratioHeight });
     }
 
     // to select the post publication view
@@ -113,26 +104,16 @@ class CardNewFeed extends React.Component {
 
     // to select the picture publication view
     _renderPicture(publication) {
-
         return (
             <TouchableWithoutFeedback
                 style={[styles.container_type, { paddingHorizontal: 15, paddingTop: 15, paddingBottom: 5 }]}
                 onPress={() => this.props.actions.putPublicationInModalActions(publication, 'feed')}
             >
-                <View style={{
-                    shadowColor: "#000",
-                    shadowOffset: {
-                        width: 0,
-                        height: 2,
-                    },
-                    shadowOpacity: 0.25,
-                    shadowRadius: 3.84,
-
-                    elevation: 5,
-                    borderRadius: 15
-                }}>
+                <View style={styles.container_render_picture}
+                    onLayout={(event) => { this.setState({ cardWidth: event.nativeEvent.layout.width }) }}
+                >
                     <FastImage
-                        style={{ flex: 1, width: '100%', height: 400, borderRadius: 15 }}
+                        style={{ flex: 1, width: '100%', height: this.state.imageHeight || 400, borderRadius: 15 }}
                         source={{ uri: publication.file, priority: FastImage.priority.normal }}
                         resizeMode={FastImage.resizeMode.cover}
                         onLoad={this.onImageLoaded}
@@ -152,18 +133,7 @@ class CardNewFeed extends React.Component {
                 style={[styles.container_type, { paddingHorizontal: 15, paddingTop: 15, paddingBottom: 5 }]}
                 onPress={() => this.props.actions.putPublicationInModalActions(publication, 'feed')}
             >
-                <View style={{
-                    shadowColor: "#000",
-                    shadowOffset: {
-                        width: 0,
-                        height: 2,
-                    },
-                    shadowOpacity: 0.25,
-                    shadowRadius: 3.84,
-
-                    elevation: 5,
-                    borderRadius: 15
-                }}>
+                <View style={styles.container_render_picture} >
                     <FastImage
                         style={{ flex: 1, width: '100%', height: 400, borderRadius: 15 }}
                         source={{ uri: publication.poster, priority: FastImage.priority.normal }}
@@ -211,7 +181,7 @@ class CardNewFeed extends React.Component {
             return (
                 <View style={styles.header_container}>
                     <View
-                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25, width: '100%' }}
+                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, width: '100%' }}
                     >
                         <TouchableOpacity onPress={() => this._goToProfile(publication.profile._id)} style={{ flexDirection: 'row', flex: 9 }}>
                             <FastImage
@@ -245,8 +215,6 @@ class CardNewFeed extends React.Component {
                         end={{ x: 0, y: 1 }}
                         style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25, width: '100%' }}
                     >
-
-
                         <TouchableOpacity onPress={() => this._goToPage(publication.page._id)} style={{ flexDirection: 'row', flex: 9 }}>
                             <FastImage
                                 style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
@@ -273,16 +241,12 @@ class CardNewFeed extends React.Component {
                 </View>
             )
         }
-
-
-
-
     }
 
     // to select like icon
     _displayIconLike() {
         if (!this.props.publication.like.isLike) {
-            return (<FontAwesomeIcon icon={faHeartEmpty} color={'#575EDD'} size={25} />)
+            return (<FontAwesomeIcon icon={faHeartEmpty} color={'#5C5C5C'} size={25} />)
         }
         else {
             return (<FontAwesomeIcon icon={faHeartFull} color={'red'} size={25} />)
@@ -356,7 +320,7 @@ class CardNewFeed extends React.Component {
                                     style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', borderRadius: 18, height: 35 }}
                                 >
                                     {this._displayIconLike()}
-                                    <Text style={{ marginLeft: 8, fontSize: 16, color: '#575EDD', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.like.likeNumber}</Text>
+                                    <Text style={{ marginLeft: 8, fontSize: 16, color: '#5C5C5C', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.like.likeNumber}</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity
@@ -364,8 +328,8 @@ class CardNewFeed extends React.Component {
                                 style={{ flex: 1 }}
                             >
                                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', height: 35 }}>
-                                    <FontAwesomeIcon icon={faComment} color={'#575EDD'} size={25} />
-                                    <Text style={{ marginLeft: 8, fontSize: 16, color: '#575EDD', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.commentNumber}</Text>
+                                    <FontAwesomeIcon icon={faCommentLines} color={'#5C5C5C' /* #575EDD */} size={25} />
+                                    <Text style={{ marginLeft: 8, fontSize: 16, color: '#5C5C5C', fontFamily: 'Avenir-Book', fontWeight: '700' }}>{publication.commentNumber}</Text>
                                 </View>
                             </TouchableOpacity>
                             <View style={{ flex: 3 }} />
@@ -380,7 +344,7 @@ class CardNewFeed extends React.Component {
         const { publication } = this.props
 
         return (
-            <View style={styles.card}>
+            <View style={[styles.card], { marginBottom: this.props.lastIndex ? 50 : 0, marginTop: this.props.index === 0 ? 20 : 0 }}>
                 {this._showHeader(publication)}
                 {this._showTypePublication(publication)}
                 {this._showFooter(publication)}
@@ -419,6 +383,17 @@ const styles = StyleSheet.create({
     },
     heart_icon: {
         marginLeft: 7
+    },
+    container_render_picture: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 3,
+        borderRadius: 15
     }
 })
 

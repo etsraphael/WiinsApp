@@ -93,7 +93,8 @@
     "Enable-notification": "Aktivera aviseringar",
     "Group-creation": "Skapande av gruppen",
     "Mute": "Stum",
-    "Send": "Skicka"
+    "Send": "Skicka",
+    "days-message-delete-two-weeks": "Dina meddelanden raderas automatiskt efter 14 dagar"
   },
   "CONFIRMATION": {
     "Delete-Room": "Är du säker på att du tar bort den här diskussionen?"
@@ -620,7 +621,8 @@
     "Y-dont-have-a-conversation-yet": "Du har inte en konversation än.",
     "Date-cannot-be-in-the-past": "Släppdatumet kan inte vara tidigare",
     "You-cannot-add-yourself": "Du kan inte lägga till dig själv",
-    "T-content-does-not-exist-anymore": "Detta innehåll finns inte längre"
+    "T-content-does-not-exist-anymore": "Detta innehåll finns inte längre",
+    "T-publication-no-longer-exists": "Denna publikation finns inte längre"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoet tas emot",
