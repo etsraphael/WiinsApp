@@ -4,7 +4,7 @@ import TrackPlayer from 'react-native-track-player';
 export function listenerMusic(actions) {
 
 
-    notificationControlMusicEvent()
+    notificationControlMusicEvent(actions)
 
     return TrackPlayer.addEventListener('playback-state', async (data) => {
 
@@ -36,14 +36,23 @@ export function timer(actions) {
 }
 
 
-notificationControlMusicEvent = () => {
+notificationControlMusicEvent = (actions) => {
 
     TrackPlayer.addEventListener('remote-play', () => {
-        TrackPlayer.play();
-    });
+        actions.continuePlayerActions()
+    })
 
     TrackPlayer.addEventListener('remote-pause', () => {
-        TrackPlayer.pause();
-    });
+        actions.pausePlayerActions()
+    })
+
+    TrackPlayer.addEventListener('remote-previous', () => {
+        actions.previousMusicActions()
+    })
+
+    TrackPlayer.addEventListener('remote-next', () => {
+        actions.nextMusicActions()
+    })
+
 
 }
