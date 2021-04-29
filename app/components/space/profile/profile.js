@@ -148,20 +148,32 @@ class Profile extends React.Component {
     _displayBtnRelation = () => {
         switch (this.props.Profile.profile.relation) {
             case 'following': return (
-                <View style={{ flexDirection: 'row' }}>
-                    {this.props.Profile.profile.relationFollowing ?
-                        <TouchableOpacity style={{ flex: 2 }}>
+
+                <View>
+                    <View style={{ flexDirection: 'row' }}>
+                        {this.props.Profile.profile.relationFollowing ?
+                            <TouchableOpacity style={{ flex: 2 }}>
+                                <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                                    <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Following</Text>
+                                </View>
+                            </TouchableOpacity> :
+                            <TouchableOpacity style={{ flex: 2 }} onPress={() => this.props.actions.follow(this.props.Profile.profile._id)}>
+                                <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                                    <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Follow</Text>
+                                </View>
+                            </TouchableOpacity>
+                        }
+                        <View style={{ flex: 1 }} />
+                    </View>
+                    {this.props.Profile.profile.follow.friend ?
+                        <TouchableOpacity style={{ flex: 2, marginTop: 5 }} onPress={() => this.props.actions.askFriend(this.props.Profile.profile._id)}>
                             <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                                <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Following</Text>
-                            </View>
-                        </TouchableOpacity> :
-                        <TouchableOpacity style={{ flex: 2 }} onPress={() => this.props.actions.follow(this.props.Profile.profile._id)}>
-                            <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                                <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Follow</Text>
+                                <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Friend request</Text>
                             </View>
                         </TouchableOpacity>
+                        :
+                        <View style={{ flex: 1 }} />
                     }
-                    <View style={{ flex: 1 }} />
                 </View>
             )
             case 'friend': return (
@@ -183,7 +195,7 @@ class Profile extends React.Component {
                     </TouchableOpacity>
                 </View>
             )
-            case 'pendingFromMe':  return (
+            case 'pendingFromMe': return (
                 <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity style={{ flex: 4 }} onPress={() => this.props.actions.cancelFriendRequest(this.props.Profile.profile._id)}>
                         <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
@@ -283,7 +295,7 @@ class Profile extends React.Component {
                 return (<ProfileMusic />)
             }
             case 'tube': {
-                return (<View/>)
+                return (<View />)
             }
         }
     }
