@@ -263,7 +263,9 @@
     "Yes": "Sea",
     "Block-t-user": "Cuir bac ar an úsáideoir seo",
     "Message": "Teachtaireacht",
-    "Friend-request": "Iarraidh chara"
+    "Friend-request": "Iarraidh chara",
+    "feed": "flosc",
+    "tube": "feadán"
   },
   "COUNTRY": {
     "AD": "Andóra",

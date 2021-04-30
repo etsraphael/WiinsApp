@@ -263,7 +263,9 @@
     "Yes": "Ja",
     "Block-t-user": "Blokkeer hierdie gebruiker",
     "Message": "Boodskap",
-    "Friend-request": "Vriendversoek"
+    "Friend-request": "Vriendversoek",
+    "feed": "vloed",
+    "tube": "buis"
   },
   "COUNTRY": {
     "AD": "Andorra",

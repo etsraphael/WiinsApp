@@ -221,7 +221,9 @@
     "Yes": "はい",
     "Block-t-user": "このユーザーをブロックする",
     "Message": "メッセージ",
-    "Friend-request": "友達リクエスト"
+    "Friend-request": "友達リクエスト",
+    "feed": "フラックス",
+    "tube": "チューブ"
   },
   "COUNTRY": {
     "AD": "アンドラ",

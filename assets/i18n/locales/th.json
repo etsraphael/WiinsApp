@@ -263,7 +263,9 @@
     "Yes": "ใช่",
     "Block-t-user": "บล็อกผู้ใช้นี้",
     "Message": "ข้อความ",
-    "Friend-request": "ขอเป็นเพื่อน"
+    "Friend-request": "ขอเป็นเพื่อน",
+    "feed": "ฟลักซ์",
+    "tube": "หลอด"
   },
   "COUNTRY": {
     "AD": "อันดอร์รา",

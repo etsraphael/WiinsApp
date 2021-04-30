@@ -263,7 +263,9 @@
     "Yes": "Áno",
     "Block-t-user": "Blokovať tohto používateľa",
     "Message": "Správa",
-    "Friend-request": "Žiadosť o priateľstvo"
+    "Friend-request": "Žiadosť o priateľstvo",
+    "feed": "tok",
+    "tube": "trubica"
   },
   "COUNTRY": {
     "AD": "Andorra",

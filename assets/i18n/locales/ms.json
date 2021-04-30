@@ -263,7 +263,9 @@
     "Yes": "Ya",
     "Block-t-user": "Sekat pengguna ini",
     "Message": "Mesej",
-    "Friend-request": "Permintaan rakan"
+    "Friend-request": "Permintaan rakan",
+    "feed": "fluks",
+    "tube": "tiub"
   },
   "COUNTRY": {
     "AD": "Andorra",

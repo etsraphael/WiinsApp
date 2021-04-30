@@ -263,7 +263,9 @@
     "Yes": "Joo",
     "Block-t-user": "Estä tämä käyttäjä",
     "Message": "Viesti",
-    "Friend-request": "Kaveripyyntö"
+    "Friend-request": "Kaveripyyntö",
+    "feed": "virtaus",
+    "tube": "putki"
   },
   "COUNTRY": {
     "AD": "Andorra",

@@ -263,7 +263,9 @@
     "Yes": "Igen",
     "Block-t-user": "Letiltja ezt a felhasználót",
     "Message": "Üzenet",
-    "Friend-request": "Baráti felkérés"
+    "Friend-request": "Baráti felkérés",
+    "feed": "fényáram",
+    "tube": "cső"
   },
   "COUNTRY": {
     "AD": "Andorra",

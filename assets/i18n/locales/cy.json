@@ -263,7 +263,9 @@
     "Yes": "Ydw",
     "Block-t-user": "Blociwch y defnyddiwr hwn",
     "Message": "Neges",
-    "Friend-request": "Cais ffrind"
+    "Friend-request": "Cais ffrind",
+    "feed": "fflwcs",
+    "tube": "tiwb"
   },
   "COUNTRY": {
     "AD": "Andorra",

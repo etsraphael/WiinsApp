@@ -263,7 +263,9 @@
     "Yes": "Já",
     "Block-t-user": "Loka á þennan notanda",
     "Message": "Skilaboð",
-    "Friend-request": "Vinabeiðni"
+    "Friend-request": "Vinabeiðni",
+    "feed": "flæði",
+    "tube": "rör"
   },
   "COUNTRY": {
     "AD": "Andorra",

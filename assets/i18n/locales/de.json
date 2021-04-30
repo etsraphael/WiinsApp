@@ -221,7 +221,9 @@
     "Yes": "Ja",
     "Block-t-user": "Diesen Benutzer sperren",
     "Message": "Botschaft",
-    "Friend-request": "Freundschaftsanfrage"
+    "Friend-request": "Freundschaftsanfrage",
+    "feed": "Fluss",
+    "tube": "Tube"
   },
   "COUNTRY": {
     "AD": "Andorra",

@@ -263,7 +263,9 @@
     "Yes": "Ja",
     "Block-t-user": "Bloker denne bruger",
     "Message": "Besked",
-    "Friend-request": "Venneanmodning"
+    "Friend-request": "Venneanmodning",
+    "feed": "strøm",
+    "tube": "rør"
   },
   "COUNTRY": {
     "AD": "Andorra",

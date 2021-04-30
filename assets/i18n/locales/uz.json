@@ -263,7 +263,9 @@
     "Yes": "Ha",
     "Block-t-user": "Ushbu foydalanuvchini bloklash",
     "Message": "Xabar",
-    "Friend-request": "Do'stlik so'rovi"
+    "Friend-request": "Do'stlik so'rovi",
+    "feed": "oqim",
+    "tube": "naycha"
   },
   "COUNTRY": {
     "AD": "Andorra",

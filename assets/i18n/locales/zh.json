@@ -221,7 +221,9 @@
     "Yes": "是的",
     "Block-t-user": "阻止此用户",
     "Message": "信息",
-    "Friend-request": "好友请求"
+    "Friend-request": "好友请求",
+    "feed": "通量",
+    "tube": "管子"
   },
   "COUNTRY": {
     "AD": "安道尔",

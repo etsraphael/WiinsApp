@@ -263,7 +263,9 @@
     "Yes": "Bai",
     "Block-t-user": "Blokeatu erabiltzaile hau",
     "Message": "Mezua",
-    "Friend-request": "Lagun-eskaera"
+    "Friend-request": "Lagun-eskaera",
+    "feed": "fluxua",
+    "tube": "hodia"
   },
   "COUNTRY": {
     "AD": "Andorra",

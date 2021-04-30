@@ -263,7 +263,9 @@
     "Yes": "tak",
     "Block-t-user": "Zablokuj tego użytkownika",
     "Message": "Wiadomość",
-    "Friend-request": "Zaproszenie do znajomych"
+    "Friend-request": "Zaproszenie do znajomych",
+    "feed": "strumień",
+    "tube": "rura"
   },
   "COUNTRY": {
     "AD": "Andora",

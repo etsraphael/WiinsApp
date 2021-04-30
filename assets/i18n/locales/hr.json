@@ -263,7 +263,9 @@
     "Yes": "Da",
     "Block-t-user": "Blokiraj ovog korisnika",
     "Message": "Poruka",
-    "Friend-request": "Zahtjev za prijateljstvo"
+    "Friend-request": "Zahtjev za prijateljstvo",
+    "feed": "fluks",
+    "tube": "cijev"
   },
   "COUNTRY": {
     "AD": "Andora",

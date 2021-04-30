@@ -263,7 +263,9 @@
     "Yes": "po",
     "Block-t-user": "Blloko këtë përdorues",
     "Message": "Mesazh",
-    "Friend-request": "Kërkesë miqësie"
+    "Friend-request": "Kërkesë miqësie",
+    "feed": "fluksi",
+    "tube": "tub"
   },
   "COUNTRY": {
     "AD": "Andorra",

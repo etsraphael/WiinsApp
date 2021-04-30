@@ -263,7 +263,9 @@
     "Yes": "da",
     "Block-t-user": "Blochează acest utilizator",
     "Message": "Mesaj",
-    "Friend-request": "Cerere de prietenie"
+    "Friend-request": "Cerere de prietenie",
+    "feed": "flux",
+    "tube": "tub"
   },
   "COUNTRY": {
     "AD": "Andorra",

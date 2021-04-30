@@ -221,7 +221,9 @@
     "Yes": "Yes",
     "Block-t-user": "Block this user",
     "Message": "Message",
-    "Friend-request": "Friend request "
+    "Friend-request": "Friend request ",
+    "feed": "flux",
+    "tube": "tube"
   },
   "COUNTRY": {
     "AD": "Andorra",

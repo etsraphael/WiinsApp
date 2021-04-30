@@ -263,7 +263,9 @@
     "Yes": "Taip",
     "Block-t-user": "Blokuoti šį vartotoją",
     "Message": "Pranešimas",
-    "Friend-request": "Kvietimas draugauti"
+    "Friend-request": "Kvietimas draugauti",
+    "feed": "srautas",
+    "tube": "vamzdelis"
   },
   "COUNTRY": {
     "AD": "Andora",

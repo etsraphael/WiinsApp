@@ -221,7 +221,9 @@
     "Yes": "예",
     "Block-t-user": "이 사용자 차단",
     "Message": "메시지",
-    "Friend-request": "친구 요청"
+    "Friend-request": "친구 요청",
+    "feed": "유량",
+    "tube": "튜브"
   },
   "COUNTRY": {
     "AD": "안도라",

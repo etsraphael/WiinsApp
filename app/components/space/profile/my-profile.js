@@ -218,7 +218,7 @@ class MyProfile extends React.Component {
                 renderItem={({ item }) =>
                     <TouchableOpacity style={{paddingVertical: 5, paddingHorizontal: 7, flexDirection: 'row', alignItems: 'center'}} onPress={() => this._changeSpace(item)}>
                         {this.state.space == item && <FontAwesomeIcon style={{margin: 5}} icon={faCircle} color={'#6600ff'} size={10} />}
-                        <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{item}</Text>
+                        <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{I18n.t('CORE.'+item)}</Text>
                     </TouchableOpacity>
                 }
             />

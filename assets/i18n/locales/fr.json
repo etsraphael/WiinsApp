@@ -221,7 +221,9 @@
     "Yes": "Oui",
     "Block-t-user": "Bloquer cet utilisateur",
     "Message": "Un message",
-    "Friend-request": "Demande d'ami"
+    "Friend-request": "Demande d'ami",
+    "feed": "flux",
+    "tube": "tube"
   },
   "COUNTRY": {
     "AD": "Andorre",

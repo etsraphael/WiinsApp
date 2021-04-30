@@ -263,7 +263,9 @@
     "Yes": "ត្រូវហើយ",
     "Block-t-user": "រារាំងអ្នកប្រើប្រាស់នេះ",
     "Message": "សារ",
-    "Friend-request": "សំណូមពរមិត្ត"
+    "Friend-request": "សំណូមពរមិត្ត",
+    "feed": "flux",
+    "tube": "បំពង់"
   },
   "COUNTRY": {
     "AD": "អង់ដូរ៉ា",

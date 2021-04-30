@@ -263,7 +263,9 @@
     "Yes": "Evet",
     "Block-t-user": "Bu kullanıcıyı engelle",
     "Message": "İleti",
-    "Friend-request": "Arkadaşlık isteği"
+    "Friend-request": "Arkadaşlık isteği",
+    "feed": "akı",
+    "tube": "tüp"
   },
   "COUNTRY": {
     "AD": "Andorra",

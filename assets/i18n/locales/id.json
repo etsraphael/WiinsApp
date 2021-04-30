@@ -263,7 +263,9 @@
     "Yes": "Iya",
     "Block-t-user": "Cekal pengguna ini",
     "Message": "Pesan",
-    "Friend-request": "Permintaan pertemanan"
+    "Friend-request": "Permintaan pertemanan",
+    "feed": "aliran",
+    "tube": "tabung"
   },
   "COUNTRY": {
     "AD": "Andorra",
