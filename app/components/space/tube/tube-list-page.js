@@ -2,7 +2,6 @@ import React from 'react'
 import { StyleSheet, View, Text, TouchableOpacity, FlatList, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
-
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
@@ -28,7 +27,7 @@ class TubeListPage extends React.Component {
 
                 <View style={{ flexDirection: 'row', paddingHorizontal: 25, paddingTop: 15 }}>
                     <View style={{ flexWrap: 'wrap' }}>
-                        <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', paddingHorizontal: 5 }}>Title</Text>
+                        <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', paddingHorizontal: 5 }}>{I18n.t('CORE.Title')}</Text>
                         <View>
                             <LinearGradient colors={['#31B3D8', '#784BEA']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={{ height: 3, width: '100%' }} />
                         </View>

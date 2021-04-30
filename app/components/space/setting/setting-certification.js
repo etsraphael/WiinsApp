@@ -147,7 +147,9 @@ class SettingCertification extends React.Component {
                             style={[styles.container_btn_header, this.state.pageSelected == 'c' && this._backgroundBtnHeaderActif()]}
                             onPress={() => this.setState({ pageSelected: 'c' })}
                         >
-                            <Text style={[styles.header_text_btn, this.state.pageSelected == 'c' && this._colorTextBtnHeaderActif()]}>Certification</Text>
+                            <Text style={[styles.header_text_btn, this.state.pageSelected == 'c' && this._colorTextBtnHeaderActif()]}>
+                                {i18n.t('CORE.Certification')}
+                            </Text>
                         </TouchableOpacity>
                     </View>
 

@@ -277,7 +277,9 @@ class HomeMusic extends React.Component {
             return (
                 <View style={{ justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                     <FontAwesomeIcon icon={faTransporterEmpty} color={'#c7c7c79c'} size={121} />
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#acb1c0e3', marginTop: 45 }}>No music liked yet</Text>
+                    <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#acb1c0e3', marginTop: 45 }}>
+                        {I18n.t('ERROR-MESSAGE.No-music-liked-yet')}
+                    </Text>
                 </View>
             )
         }

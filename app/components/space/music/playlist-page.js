@@ -17,6 +17,7 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import Spinner from 'react-native-spinkit'
 import { faCloudDownloadAlt } from '@fortawesome/pro-duotone-svg-icons'
 import { downloadPlaylistMusicList } from './../../../services/cache/cache-music-service' 
+import i18n from '../../../../assets/i18n/i18n'
 
 class PlaylistPage extends React.Component {
 
@@ -83,7 +84,7 @@ class PlaylistPage extends React.Component {
                         </TouchableOpacity>
                     </View>
                     <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', color: '#002150' }}>Playlist Details</Text>
+                        <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', color: '#002150' }}>{i18n.t('WIINS-MUSIC.Playlist-Details')}</Text>
                     </View>
                     <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
                         <TouchableOpacity>
