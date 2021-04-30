@@ -22,7 +22,7 @@ class OneMusic extends React.Component {
 
     // like action
     _likeAction = async () => {
-        await this.props.actions.likeMusicAction(this.props.music._id, this.props.music, this.props.space)
+        await this.props.actions.likeMusicAction(this.props.music._id, this.props.music, this.props.space, this.props.category)
         cacheOneMusic(this.props.music, this.props.actions, this.props.space)
     }
 
@@ -49,7 +49,7 @@ class OneMusic extends React.Component {
         if (liked) {
             return (
                 <TouchableOpacity 
-                    onPress={() => this.props.actions.dislikeMusicAction(this.props.music._id, this.props.music, this.props.space)} 
+                    onPress={() => this.props.actions.dislikeMusicAction(this.props.music._id, this.props.music, this.props.space, this.props.category)} 
                     style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <View style={{ borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
                         <FontAwesomeIcon icon={faHeartFull} size={17} color={'red'} />

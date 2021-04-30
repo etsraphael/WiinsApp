@@ -191,7 +191,15 @@ class HomeMusic extends React.Component {
                         ItemSeparatorComponent={this._renderSeparator}
                         data={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]}
                         keyExtractor={(item, index) => item[index].id}
-                        renderItem={({ item, index }) => (<OneMusic music={item[index]} tracklist={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]} index={index} space={'home'} />)}
+                        renderItem={({ item, index }) => (
+                            <OneMusic 
+                                music={item[index]}
+                                tracklist={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]}
+                                index={index}
+                                space={'home'}
+                                category={this.state.categoryZoneSelected}
+                            />
+                        )}
                         getItemCount={() => this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected].length}
                         getItem={(data) => data}
                     />
