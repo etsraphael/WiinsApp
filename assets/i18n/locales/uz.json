@@ -265,7 +265,13 @@
     "Message": "Xabar",
     "Friend-request": "Do'stlik so'rovi",
     "feed": "oqim",
-    "tube": "naycha"
+    "tube": "naycha",
+    "Music": "Musiqa",
+    "Page": "Sahifa",
+    "Music-Project": "Musiqiy loyiha",
+    "Group": "Guruh",
+    "Earlier": "Oldinroq",
+    "Notifications": "Bildirishnomalar"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Chiqarish sanasi o'tmishda bo'lishi mumkin emas",
     "You-cannot-add-yourself": "Siz o'zingizni qo'sha olmaysiz",
     "T-content-does-not-exist-anymore": "Ushbu tarkib endi mavjud emas",
-    "T-publication-no-longer-exists": "Ushbu nashr endi mavjud emas"
+    "T-publication-no-longer-exists": "Ushbu nashr endi mavjud emas",
+    "Could-not-play-video": "Videoni ijro qilib bo‘lmadi"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Surat qabul qilindi",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Ushbu tarkib haqida xabar berilgan. Moderatorlarimiz uni ko'rib chiqish uchun 24 soat kechiktirishni ko'rib chiqadilar. Agar bu jamiyat qoidalariga rioya qilmasa, sanktsiya qo'llaniladi.",
     "T-user-has-been-blocked-D": "Ushbu foydalanuvchi sizning hisobingizdan bloklangan. Hisobingizda ushbu profilning hech qanday mazmuni ko'rinmaydi.",
     "W-is-t-reason-to-report-t-post": "Ushbu xabar haqida xabar berishning sababi nima?",
-    "W-is-t-reason-to-report-t-post-D": "Sizning hisobotingiz noma'lum. Iltimos, moratatorlarga yordam berish uchun faqat bitta toifani tanlang"
+    "W-is-t-reason-to-report-t-post-D": "Sizning hisobotingiz noma'lum. Iltimos, moratatorlarga yordam berish uchun faqat bitta toifani tanlang",
+    "A-y-s-to-unfollow-this-profile": "Ushbu profilni bekor qilishingizga ishonchingiz komilmi?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ushbu do'stingizni do'stlaringiz ro'yxatidan o'chirishga ishonchingiz komilmi?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Ogohlantirish. To'g'ri manzilga ega ekanligingizga ishonch hosil qiling"

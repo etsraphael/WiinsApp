@@ -223,7 +223,13 @@
     "Message": "Message",
     "Friend-request": "Friend request ",
     "feed": "flux",
-    "tube": "tube"
+    "tube": "tube",
+    "Music": "Music",
+    "Page": "Page",
+    "Music-Project": "Music Project",
+    "Group": "Group",
+    "Earlier": "Earlier",
+    "Notifications": "Notifications"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -584,7 +590,8 @@
     "Date-cannot-be-in-the-past": "The release date cannot be in the past",
     "You-cannot-add-yourself": "You cannot add yourself",
     "T-content-does-not-exist-anymore": "This content does not exist anymore",
-    "T-publication-no-longer-exists": "This publication no longer exists"
+    "T-publication-no-longer-exists": "This publication no longer exists",
+    "Could-not-play-video": "Could not play video"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "The photo is received",
@@ -1000,7 +1007,9 @@
     "T-content-has-been-reported": "This content has been reported. Our moderators will take a look in a 24 hours delay to review it. A sanction will be applied if this does not respect the rules of the community.",
     "T-user-has-been-blocked-D": "This user has been blocked from your account. No content of this profile will be visible with your account.",
     "W-is-t-reason-to-report-t-post": "What is the reason to report this post ?",
-    "W-is-t-reason-to-report-t-post-D": "Your report is anonymous. Please choose just a category to help the morators"
+    "W-is-t-reason-to-report-t-post-D": "Your report is anonymous. Please choose just a category to help the morators",
+    "A-y-s-to-unfollow-this-profile": "Are you sure to unfollow this profile ?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Are you sure to delete this friend in your friend list ?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Warning. Make sure you have the right address"

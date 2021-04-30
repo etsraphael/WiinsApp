@@ -223,7 +223,13 @@
     "Message": "メッセージ",
     "Friend-request": "友達リクエスト",
     "feed": "フラックス",
-    "tube": "チューブ"
+    "tube": "チューブ",
+    "Music": "音楽",
+    "Page": "ページ",
+    "Music-Project": "音楽プロジェクト",
+    "Group": "グループ",
+    "Earlier": "ついさっき",
+    "Notifications": "通知"
   },
   "COUNTRY": {
     "AD": "アンドラ",
@@ -584,7 +590,8 @@
     "Date-cannot-be-in-the-past": "リリース日は過去にすることはできません",
     "You-cannot-add-yourself": "自分を追加することはできません",
     "T-content-does-not-exist-anymore": "このコンテンツはもう存在しません",
-    "T-publication-no-longer-exists": "この出版物はもう存在しません"
+    "T-publication-no-longer-exists": "この出版物はもう存在しません",
+    "Could-not-play-video": "ビデオを再生できませんでした"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "写真を受け取りました",
@@ -1000,7 +1007,9 @@
     "T-content-has-been-reported": "このコンテンツは報告されています。モデレーターは24時間遅れて確認します。これがコミュニティの規則を尊重しない場合、制裁が適用されます。",
     "T-user-has-been-blocked-D": "このユーザーはあなたのアカウントからブロックされています。このプロファイルのコンテンツは、アカウントに表示されません。",
     "W-is-t-reason-to-report-t-post": "この投稿を報告する理由は何ですか？",
-    "W-is-t-reason-to-report-t-post-D": "あなたの報告は匿名です。モレーターを助けるためにカテゴリーだけを選んでください"
+    "W-is-t-reason-to-report-t-post-D": "あなたの報告は匿名です。モレーターを助けるためにカテゴリーだけを選んでください",
+    "A-y-s-to-unfollow-this-profile": "このプロファイルのフォローを解除してもよろしいですか？",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "友達リストからこの友達を削除してもよろしいですか？"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "警告。正しいアドレスを持っていることを確認する"

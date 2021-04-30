@@ -265,7 +265,13 @@
     "Message": "Poruka",
     "Friend-request": "Zahtjev za prijateljstvo",
     "feed": "fluks",
-    "tube": "cijev"
+    "tube": "cijev",
+    "Music": "glazba, muzika",
+    "Page": "Stranica",
+    "Music-Project": "Glazbeni projekt",
+    "Group": "Skupina",
+    "Earlier": "Ranije",
+    "Notifications": "Obavijesti"
   },
   "COUNTRY": {
     "AD": "Andora",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Datum izdavanja ne može biti u prošlosti",
     "You-cannot-add-yourself": "Ne možete se dodati",
     "T-content-does-not-exist-anymore": "Ovaj sadržaj više ne postoji",
-    "T-publication-no-longer-exists": "Ova publikacija više ne postoji"
+    "T-publication-no-longer-exists": "Ova publikacija više ne postoji",
+    "Could-not-play-video": "Reprodukcija videozapisa nije uspjela"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotografija je primljena",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Ovaj je sadržaj prijavljen. Naši će ih moderatori pogledati u odgodi od 24 sata kako bi ga pregledali. Primijenit će se sankcija ako se time ne poštuju pravila zajednice.",
     "T-user-has-been-blocked-D": "Ovaj je korisnik blokiran s vašeg računa. Na vašem računu neće biti vidljiv sadržaj ovog profila.",
     "W-is-t-reason-to-report-t-post": "Koji je razlog da prijavim ovaj post?",
-    "W-is-t-reason-to-report-t-post-D": "Vaša prijava je anonimna. Odaberite samo kategoriju koja će pomoći moratorima"
+    "W-is-t-reason-to-report-t-post-D": "Vaša prijava je anonimna. Odaberite samo kategoriju koja će pomoći moratorima",
+    "A-y-s-to-unfollow-this-profile": "Jeste li sigurni da želite prestati pratiti ovaj profil?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Jeste li sigurni da ste ovog prijatelja izbrisali s popisa prijatelja?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Upozorenje. Provjerite imate li pravu adresu"

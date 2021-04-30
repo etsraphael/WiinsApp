@@ -265,7 +265,13 @@
     "Message": "Pesan",
     "Friend-request": "Permintaan pertemanan",
     "feed": "aliran",
-    "tube": "tabung"
+    "tube": "tabung",
+    "Music": "Musik",
+    "Page": "Halaman",
+    "Music-Project": "Proyek Musik",
+    "Group": "Kelompok",
+    "Earlier": "Sebelumnya",
+    "Notifications": "Notifikasi"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Tanggal rilis tidak boleh di masa lalu",
     "You-cannot-add-yourself": "Anda tidak dapat menambahkan diri Anda sendiri",
     "T-content-does-not-exist-anymore": "Konten ini sudah tidak ada",
-    "T-publication-no-longer-exists": "Publikasi ini sudah tidak ada"
+    "T-publication-no-longer-exists": "Publikasi ini sudah tidak ada",
+    "Could-not-play-video": "Tidak dapat memutar video"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Foto sudah diterima",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Konten ini telah dilaporkan. Moderator kami akan memeriksa dalam 24 jam penundaan untuk memeriksanya. Sanksi akan diberikan jika tidak menghormati aturan masyarakat.",
     "T-user-has-been-blocked-D": "Pengguna ini telah diblokir dari akun Anda. Tidak ada konten dari profil ini yang akan terlihat dengan akun Anda.",
     "W-is-t-reason-to-report-t-post": "Apa alasan untuk melaporkan posting ini?",
-    "W-is-t-reason-to-report-t-post-D": "Laporan Anda bersifat anonim. Silakan pilih hanya satu kategori untuk membantu para morator"
+    "W-is-t-reason-to-report-t-post-D": "Laporan Anda bersifat anonim. Silakan pilih hanya satu kategori untuk membantu para morator",
+    "A-y-s-to-unfollow-this-profile": "Apakah Anda yakin untuk berhenti mengikuti profil ini?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Anda yakin ingin menghapus teman ini dari daftar teman Anda?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Peringatan. Pastikan Anda memiliki alamat yang benar"

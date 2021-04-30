@@ -265,7 +265,13 @@
     "Message": "Pranešimas",
     "Friend-request": "Kvietimas draugauti",
     "feed": "srautas",
-    "tube": "vamzdelis"
+    "tube": "vamzdelis",
+    "Music": "Muzika",
+    "Page": "Puslapis",
+    "Music-Project": "Muzikos projektas",
+    "Group": "Grupė",
+    "Earlier": "Anksčiau",
+    "Notifications": "Pranešimai"
   },
   "COUNTRY": {
     "AD": "Andora",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Išleidimo data negali būti praeityje",
     "You-cannot-add-yourself": "Jūs negalite pridėti savęs",
     "T-content-does-not-exist-anymore": "Šio turinio nebėra",
-    "T-publication-no-longer-exists": "Šio leidinio nebėra"
+    "T-publication-no-longer-exists": "Šio leidinio nebėra",
+    "Could-not-play-video": "Nepavyko paleisti vaizdo įrašo"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Nuotrauka gauta",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Pranešta apie šį turinį. Mūsų moderatoriai peržiūrės per 24 valandas. Jei nebus paisoma bendruomenės taisyklių, bus taikoma sankcija.",
     "T-user-has-been-blocked-D": "Šis vartotojas buvo užblokuotas jūsų paskyroje. Joks šio profilio turinys nebus matomas jūsų paskyroje.",
     "W-is-t-reason-to-report-t-post": "Kokia priežastis pranešti apie šį įrašą?",
-    "W-is-t-reason-to-report-t-post-D": "Jūsų pranešimas yra anonimas. Pasirinkite tik kategoriją, kad padėtų moratoriams"
+    "W-is-t-reason-to-report-t-post-D": "Jūsų pranešimas yra anonimas. Pasirinkite tik kategoriją, kad padėtų moratoriams",
+    "A-y-s-to-unfollow-this-profile": "Ar tikrai nebenorite stebėti šio profilio?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ar tikrai ištrinsite šį draugą iš savo draugų sąrašo?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Įspėjimas. Įsitikinkite, kad turite teisingą adresą"

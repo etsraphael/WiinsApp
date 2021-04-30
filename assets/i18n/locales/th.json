@@ -265,7 +265,13 @@
     "Message": "ข้อความ",
     "Friend-request": "ขอเป็นเพื่อน",
     "feed": "ฟลักซ์",
-    "tube": "หลอด"
+    "tube": "หลอด",
+    "Music": "เพลง",
+    "Page": "หน้า",
+    "Music-Project": "โครงการดนตรี",
+    "Group": "กลุ่ม",
+    "Earlier": "ก่อนหน้านี้",
+    "Notifications": "การแจ้งเตือน"
   },
   "COUNTRY": {
     "AD": "อันดอร์รา",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "วันที่วางจำหน่ายต้องไม่เป็นวันที่ผ่านมา",
     "You-cannot-add-yourself": "คุณไม่สามารถเพิ่มตัวเองได้",
     "T-content-does-not-exist-anymore": "ไม่มีเนื้อหานี้อีกต่อไป",
-    "T-publication-no-longer-exists": "ไม่มีสิ่งพิมพ์นี้แล้ว"
+    "T-publication-no-longer-exists": "ไม่มีสิ่งพิมพ์นี้แล้ว",
+    "Could-not-play-video": "ไม่สามารถเล่นวิดีโอ"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ได้รับภาพถ่ายแล้ว",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "มีการรายงานเนื้อหานี้แล้ว ผู้ดูแลของเราจะตรวจสอบล่าช้า 24 ชั่วโมง การลงโทษจะถูกนำไปใช้หากไม่เคารพกฎของชุมชน",
     "T-user-has-been-blocked-D": "ผู้ใช้รายนี้ถูกบล็อกจากบัญชีของคุณ บัญชีของคุณจะไม่เห็นเนื้อหาของโปรไฟล์นี้",
     "W-is-t-reason-to-report-t-post": "เหตุผลในการรายงานโพสต์นี้คืออะไร?",
-    "W-is-t-reason-to-report-t-post-D": "รายงานของคุณไม่ระบุชื่อ โปรดเลือกเพียงหมวดหมู่เพื่อช่วยในการเตือนภัย"
+    "W-is-t-reason-to-report-t-post-D": "รายงานของคุณไม่ระบุชื่อ โปรดเลือกเพียงหมวดหมู่เพื่อช่วยในการเตือนภัย",
+    "A-y-s-to-unfollow-this-profile": "แน่ใจหรือว่าเลิกติดตามโปรไฟล์นี้",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "คุณแน่ใจหรือไม่ว่าจะลบเพื่อนคนนี้ในรายชื่อเพื่อนของคุณ"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "คำเตือน. ตรวจสอบให้แน่ใจว่าคุณมีที่อยู่ที่ถูกต้อง"

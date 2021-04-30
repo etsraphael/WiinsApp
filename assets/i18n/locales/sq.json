@@ -265,7 +265,13 @@
     "Message": "Mesazh",
     "Friend-request": "Kërkesë miqësie",
     "feed": "fluksi",
-    "tube": "tub"
+    "tube": "tub",
+    "Music": "Muzika",
+    "Page": "Faqja",
+    "Music-Project": "Projekti muzikor",
+    "Group": "Grupi",
+    "Earlier": "Më herët",
+    "Notifications": "Njoftimet"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Data e lëshimit nuk mund të jetë në të kaluarën",
     "You-cannot-add-yourself": "Ju nuk mund të shtoni veten",
     "T-content-does-not-exist-anymore": "Kjo përmbajtje nuk ekziston më",
-    "T-publication-no-longer-exists": "Ky botim nuk ekziston më"
+    "T-publication-no-longer-exists": "Ky botim nuk ekziston më",
+    "Could-not-play-video": "Videoja nuk mund të luhet"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoja është marrë",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Kjo përmbajtje është raportuar. Moderatorët tanë do të hedhin një vështrim në një vonesë prej 24 orësh për ta shqyrtuar atë. Një sanksion do të zbatohet nëse kjo nuk respekton rregullat e komunitetit.",
     "T-user-has-been-blocked-D": "Ky përdorues është bllokuar nga llogaria juaj. Asnjë përmbajtje e këtij profili nuk do të jetë e dukshme me llogarinë tuaj.",
     "W-is-t-reason-to-report-t-post": "Cila është arsyeja për të raportuar këtë post?",
-    "W-is-t-reason-to-report-t-post-D": "Raporti juaj është anonim. Ju lutemi zgjidhni vetëm një kategori për të ndihmuar moratorët"
+    "W-is-t-reason-to-report-t-post-D": "Raporti juaj është anonim. Ju lutemi zgjidhni vetëm një kategori për të ndihmuar moratorët",
+    "A-y-s-to-unfollow-this-profile": "Je i sigurt që do ta heqësh këtë profil?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Jeni i sigurt që do ta fshini këtë mik në listën tuaj të miqve?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Paralajmërim. Sigurohuni që të keni adresën e duhur"

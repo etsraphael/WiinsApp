@@ -223,7 +223,13 @@
     "Message": "رسالة",
     "Friend-request": "طلب صداقة",
     "feed": "تدفق",
-    "tube": "الة النفخ"
+    "tube": "الة النفخ",
+    "Music": "موسيقى",
+    "Page": "صفحة",
+    "Music-Project": "مشروع الموسيقى",
+    "Group": "مجموعة",
+    "Earlier": "سابقا",
+    "Notifications": "إشعارات"
   },
   "COUNTRY": {
     "AD": "اندورا",
@@ -584,7 +590,8 @@
     "Date-cannot-be-in-the-past": "لا يمكن أن يكون تاريخ الإصدار في الماضي",
     "You-cannot-add-yourself": "لا يمكنك إضافة نفسك",
     "T-content-does-not-exist-anymore": "هذا المحتوى غير موجود بعد الآن",
-    "T-publication-no-longer-exists": "هذا المنشور لم يعد موجودا"
+    "T-publication-no-longer-exists": "هذا المنشور لم يعد موجودا",
+    "Could-not-play-video": "تعذر تشغيل الفيديو"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "تم استلام الصورة",
@@ -1000,7 +1007,9 @@
     "T-content-has-been-reported": "تم الإبلاغ عن هذا المحتوى. سيقوم المشرفون لدينا بإلقاء نظرة خلال 24 ساعة تأخير لمراجعتها. سيتم تطبيق عقوبة إذا كان هذا لا يحترم قواعد المجتمع.",
     "T-user-has-been-blocked-D": "تم حظر هذا المستخدم من حسابك. لن يكون أي محتوى لهذا الملف الشخصي مرئيًا في حسابك.",
     "W-is-t-reason-to-report-t-post": "ما هو سبب الإبلاغ عن هذا المنشور؟",
-    "W-is-t-reason-to-report-t-post-D": "تقريرك مجهول. الرجاء اختيار فئة فقط لمساعدة الوقف"
+    "W-is-t-reason-to-report-t-post-D": "تقريرك مجهول. الرجاء اختيار فئة فقط لمساعدة الوقف",
+    "A-y-s-to-unfollow-this-profile": "هل أنت متأكد من إلغاء متابعة هذا الملف الشخصي؟",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "هل أنت متأكد من حذف هذا الصديق من قائمة الأصدقاء الخاصة بك؟"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "تحذير. تأكد من أن لديك العنوان الصحيح"

@@ -265,7 +265,13 @@
     "Message": "İleti",
     "Friend-request": "Arkadaşlık isteği",
     "feed": "akı",
-    "tube": "tüp"
+    "tube": "tüp",
+    "Music": "Müzik",
+    "Page": "Sayfa",
+    "Music-Project": "Müzik Projesi",
+    "Group": "Grup",
+    "Earlier": "Daha erken",
+    "Notifications": "Bildirimler"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Çıkış tarihi geçmiş bir tarih olamaz",
     "You-cannot-add-yourself": "Kendini ekleyemezsin",
     "T-content-does-not-exist-anymore": "Bu içerik artık mevcut değil",
-    "T-publication-no-longer-exists": "Bu yayın artık mevcut değil"
+    "T-publication-no-longer-exists": "Bu yayın artık mevcut değil",
+    "Could-not-play-video": "Video oynatılamadı"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoğraf alındı",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Bu içerik bildirildi. Moderatörlerimiz incelemek için 24 saat sonra göz atacak. Topluluğun kurallarına uymaması halinde bir yaptırım uygulanacaktır.",
     "T-user-has-been-blocked-D": "Bu kullanıcı hesabınızdan engellendi. Bu profilin hiçbir içeriği hesabınızda görünmeyecek.",
     "W-is-t-reason-to-report-t-post": "Bu gönderiyi bildirmenin nedeni nedir?",
-    "W-is-t-reason-to-report-t-post-D": "Raporunuz anonimdir. Lütfen moratorlara yardımcı olacak bir kategori seçin"
+    "W-is-t-reason-to-report-t-post-D": "Raporunuz anonimdir. Lütfen moratorlara yardımcı olacak bir kategori seçin",
+    "A-y-s-to-unfollow-this-profile": "Bu profili takip etmeyi bırakacağına emin misin?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Bu arkadaşı arkadaş listenden silmek istediğinden emin misin?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Uyarı. Doğru adrese sahip olduğunuzdan emin olun"

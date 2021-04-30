@@ -265,7 +265,13 @@
     "Message": "Viesti",
     "Friend-request": "Kaveripyyntö",
     "feed": "virtaus",
-    "tube": "putki"
+    "tube": "putki",
+    "Music": "Musiikki",
+    "Page": "Sivu",
+    "Music-Project": "Musiikkiprojekti",
+    "Group": "Ryhmä",
+    "Earlier": "Aikaisemmin",
+    "Notifications": "Ilmoitukset"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Julkaisupäivä ei voi olla menneisyydessä",
     "You-cannot-add-yourself": "Et voi lisätä itseäsi",
     "T-content-does-not-exist-anymore": "Tätä sisältöä ei ole enää olemassa",
-    "T-publication-no-longer-exists": "Tätä julkaisua ei ole enää olemassa"
+    "T-publication-no-longer-exists": "Tätä julkaisua ei ole enää olemassa",
+    "Could-not-play-video": "Videota ei voitu toistaa"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Kuva on vastaanotettu",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Tästä sisällöstä on raportoitu. Moderaattorimme tarkistavat sen 24 tunnin viiveellä. Seuraamusta sovelletaan, jos se ei noudata yhteisön sääntöjä.",
     "T-user-has-been-blocked-D": "Tämä käyttäjä on estetty tililtäsi. Mikään tämän profiilin sisältö ei ole näkyvissä tililläsi.",
     "W-is-t-reason-to-report-t-post": "Mikä on syy ilmoittaa tästä viestistä?",
-    "W-is-t-reason-to-report-t-post-D": "Raporttisi on tuntematon. Valitse vain luokka, joka auttaa moratoreja"
+    "W-is-t-reason-to-report-t-post-D": "Raporttisi on tuntematon. Valitse vain luokka, joka auttaa moratoreja",
+    "A-y-s-to-unfollow-this-profile": "Haluatko varmasti poistaa tämän profiilin seuraamisen?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Haluatko varmasti poistaa tämän ystävän ystäväluettelostasi?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Varoitus. Varmista, että sinulla on oikea osoite"

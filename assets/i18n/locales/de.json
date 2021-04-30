@@ -223,7 +223,13 @@
     "Message": "Botschaft",
     "Friend-request": "Freundschaftsanfrage",
     "feed": "Fluss",
-    "tube": "Tube"
+    "tube": "Tube",
+    "Music": "Musik",
+    "Page": "Seite",
+    "Music-Project": "Musikprojekt",
+    "Group": "Gruppe",
+    "Earlier": "Vorhin",
+    "Notifications": "Benachrichtigungen"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -584,7 +590,8 @@
     "Date-cannot-be-in-the-past": "Das Veröffentlichungsdatum kann nicht in der Vergangenheit liegen",
     "You-cannot-add-yourself": "Sie können sich nicht hinzufügen",
     "T-content-does-not-exist-anymore": "Dieser Inhalt existiert nicht mehr",
-    "T-publication-no-longer-exists": "Diese Publikation existiert nicht mehr"
+    "T-publication-no-longer-exists": "Diese Publikation existiert nicht mehr",
+    "Could-not-play-video": "Video konnte nicht abgespielt werden"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Das Foto wird empfangen",
@@ -1000,7 +1007,9 @@
     "T-content-has-been-reported": "Dieser Inhalt wurde gemeldet. Unsere Moderatoren werden innerhalb von 24 Stunden einen Blick darauf werfen, um dies zu überprüfen. Eine Sanktion wird verhängt, wenn dies nicht den Regeln der Gemeinschaft entspricht.",
     "T-user-has-been-blocked-D": "Dieser Benutzer wurde von Ihrem Konto gesperrt. In Ihrem Konto ist kein Inhalt dieses Profils sichtbar.",
     "W-is-t-reason-to-report-t-post": "Was ist der Grund, diesen Beitrag zu melden?",
-    "W-is-t-reason-to-report-t-post-D": "Ihr Bericht ist anonym. Bitte wählen Sie nur eine Kategorie, um den Moratoren zu helfen"
+    "W-is-t-reason-to-report-t-post-D": "Ihr Bericht ist anonym. Bitte wählen Sie nur eine Kategorie, um den Moratoren zu helfen",
+    "A-y-s-to-unfollow-this-profile": "Sind Sie sicher, dieses Profil zu entfolgen?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Sind Sie sicher, diesen Freund in Ihrer Freundesliste zu löschen?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Warnung. Stellen Sie sicher, dass Sie die richtige Adresse haben"

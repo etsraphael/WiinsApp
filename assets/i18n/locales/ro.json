@@ -265,7 +265,13 @@
     "Message": "Mesaj",
     "Friend-request": "Cerere de prietenie",
     "feed": "flux",
-    "tube": "tub"
+    "tube": "tub",
+    "Music": "Muzică",
+    "Page": "Pagină",
+    "Music-Project": "Proiect muzical",
+    "Group": "grup",
+    "Earlier": "Mai devreme",
+    "Notifications": "Notificări"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Data lansării nu poate fi trecută",
     "You-cannot-add-yourself": "Nu te poți adăuga singur",
     "T-content-does-not-exist-anymore": "Acest conținut nu mai există",
-    "T-publication-no-longer-exists": "Această publicație nu mai există"
+    "T-publication-no-longer-exists": "Această publicație nu mai există",
+    "Could-not-play-video": "Nu s-a putut reda videoclipul"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotografia este primită",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Acest conținut a fost raportat. Moderatorii noștri vor arunca o privire într-o întârziere de 24 de ore pentru a o examina. Se va aplica o sancțiune dacă aceasta nu respectă regulile comunității.",
     "T-user-has-been-blocked-D": "Acest utilizator a fost blocat din contul dvs. Niciun conținut al acestui profil nu va fi vizibil în contul dvs.",
     "W-is-t-reason-to-report-t-post": "Care este motivul pentru a raporta această postare?",
-    "W-is-t-reason-to-report-t-post-D": "Raportul dvs. este anonim. Vă rugăm să alegeți doar o categorie pentru a ajuta moratorii"
+    "W-is-t-reason-to-report-t-post-D": "Raportul dvs. este anonim. Vă rugăm să alegeți doar o categorie pentru a ajuta moratorii",
+    "A-y-s-to-unfollow-this-profile": "Sigur doriți să anulați urmărirea acestui profil?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Sigur ștergeți acest prieten din lista dvs. de prieteni?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Avertizare. Asigurați-vă că aveți adresa corectă"

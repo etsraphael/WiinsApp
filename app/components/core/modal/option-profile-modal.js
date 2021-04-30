@@ -344,7 +344,7 @@ class OptionProfileModal extends React.Component {
 
                 {/* Header */}
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 15 }}>
-                    <Text style={{ fontSize: 15, fontWeight: '700' }}>Are you sure to unfollow this profile ? </Text>
+                    <Text style={{ fontSize: 15, fontWeight: '700' }}>{I18n.t('VALIDATION.A-y-s-to-unfollow-this-profile')}</Text>
                 </View>
 
                 {this._separatorItem()}
@@ -373,7 +373,7 @@ class OptionProfileModal extends React.Component {
 
                 {/* Header */}
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 15 }}>
-                    <Text style={{ fontSize: 15, fontWeight: '700' }}>Are you sure to delete this friend in your friend list ?</Text>
+                    <Text style={{ fontSize: 15, fontWeight: '700' }}>{I18n.t('VALIDATION.A-y-s-to-delete-t-friend-in-yr-friend-list')}</Text>
                 </View>
 
                 {this._separatorItem()}

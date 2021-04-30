@@ -265,7 +265,13 @@
     "Message": "Správa",
     "Friend-request": "Žiadosť o priateľstvo",
     "feed": "tok",
-    "tube": "trubica"
+    "tube": "trubica",
+    "Music": "Hudba",
+    "Page": "Strana",
+    "Music-Project": "Hudobný projekt",
+    "Group": "Skupina",
+    "Earlier": "Skôr",
+    "Notifications": "Oznámenia"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Dátum vydania nemôže byť v minulosti",
     "You-cannot-add-yourself": "Nemôžete pridať seba",
     "T-content-does-not-exist-anymore": "Tento obsah už neexistuje",
-    "T-publication-no-longer-exists": "Táto publikácia už neexistuje"
+    "T-publication-no-longer-exists": "Táto publikácia už neexistuje",
+    "Could-not-play-video": "Video sa nepodarilo prehrať"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotka je prijatá",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Tento obsah bol nahlásený. Naši moderátori to skontrolujú do 24 hodín oneskorenia. Ak to nebude v súlade s pravidlami komunity, bude uložená sankcia.",
     "T-user-has-been-blocked-D": "Tento používateľ bol blokovaný z vášho účtu. Vo vašom účte nebude viditeľný žiadny obsah tohto profilu.",
     "W-is-t-reason-to-report-t-post": "Aký je dôvod nahlásiť tento príspevok?",
-    "W-is-t-reason-to-report-t-post-D": "Vaše hlásenie je anonymné. Vyberte si iba kategóriu, ktorá pomôže moratátorom"
+    "W-is-t-reason-to-report-t-post-D": "Vaše hlásenie je anonymné. Vyberte si iba kategóriu, ktorá pomôže moratátorom",
+    "A-y-s-to-unfollow-this-profile": "Naozaj chcete prestať sledovať tento profil?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Naozaj chcete odstrániť tohto priateľa zo zoznamu priateľov?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Výstraha. Uistite sa, že máte správnu adresu"

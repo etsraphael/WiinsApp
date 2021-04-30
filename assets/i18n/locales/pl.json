@@ -265,7 +265,13 @@
     "Message": "Wiadomość",
     "Friend-request": "Zaproszenie do znajomych",
     "feed": "strumień",
-    "tube": "rura"
+    "tube": "rura",
+    "Music": "Muzyka",
+    "Page": "Strona",
+    "Music-Project": "Projekt muzyczny",
+    "Group": "Grupa",
+    "Earlier": "Wcześniej",
+    "Notifications": "Powiadomienia"
   },
   "COUNTRY": {
     "AD": "Andora",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Data premiery nie może przypadać w przeszłości",
     "You-cannot-add-yourself": "Nie możesz dodać siebie",
     "T-content-does-not-exist-anymore": "Ta treść już nie istnieje",
-    "T-publication-no-longer-exists": "Ta publikacja już nie istnieje"
+    "T-publication-no-longer-exists": "Ta publikacja już nie istnieje",
+    "Could-not-play-video": "Nie udało się odtworzyć wideo"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Zdjęcie zostało odebrane",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Ta treść została zgłoszona. Nasi moderatorzy z 24-godzinnym opóźnieniem sprawdzą to. Sankcja zostanie nałożona, jeśli nie jest to zgodne z zasadami społeczności.",
     "T-user-has-been-blocked-D": "Ten użytkownik został zablokowany na Twoim koncie. Żadna zawartość tego profilu nie będzie widoczna na Twoim koncie.",
     "W-is-t-reason-to-report-t-post": "Jaki jest powód zgłoszenia tego posta?",
-    "W-is-t-reason-to-report-t-post-D": "Twoje zgłoszenie jest anonimowe. Wybierz tylko kategorię, aby pomóc moratorom"
+    "W-is-t-reason-to-report-t-post-D": "Twoje zgłoszenie jest anonimowe. Wybierz tylko kategorię, aby pomóc moratorom",
+    "A-y-s-to-unfollow-this-profile": "Czy na pewno chcesz przestać obserwować ten profil?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Czy na pewno chcesz usunąć tego znajomego ze swojej listy znajomych?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Ostrzeżenie. Upewnij się, że masz właściwy adres"

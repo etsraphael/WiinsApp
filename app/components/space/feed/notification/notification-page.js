@@ -11,6 +11,7 @@ import OneNotification from './one-notification'
 import OneFriendRequestNotification from './one-friend-request-notification'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faAngleLeft } from '@fortawesome/pro-solid-svg-icons'
+import i18n from '../../../../../assets/i18n/i18n'
 
 class NotificationPage extends React.Component {
 
@@ -60,7 +61,7 @@ class NotificationPage extends React.Component {
                     style={[styles.container_btn_header, this.state.pageSelected == 'earlier' && this._backgroundBtnHeaderActif()]}
                     onPress={() => this.setState({ pageSelected: 'earlier' })}
                 >
-                    <Text style={[styles.header_text_btn, this.state.pageSelected == 'earlier' && this._colorTextBtnHeaderActif()]}>Earlier</Text>
+                    <Text style={[styles.header_text_btn, this.state.pageSelected == 'earlier' && this._colorTextBtnHeaderActif()]}>{i18n.t('CORE.Earlier')}</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -68,7 +69,7 @@ class NotificationPage extends React.Component {
                     onPress={() => this._goTofriendRequest()}
                 >
                     <Text style={[styles.header_text_btn, this.state.pageSelected == 'friendRequest' && this._colorTextBtnHeaderActif()]}>
-                        Friend Request {this._rendeRequestNumber()}
+                        {i18n.t('CORE.Friend-request')} {this._rendeRequestNumber()}
                     </Text>
                 </TouchableOpacity>
 
@@ -86,7 +87,7 @@ class NotificationPage extends React.Component {
                         <FontAwesomeIcon icon={faAngleLeft} color={'black'} size={23} />
                     </TouchableOpacity>
                     <View>
-                        <Text style={{ fontSize: 24, fontWeight: '700' }}>Notification</Text>
+                        <Text style={{ fontSize: 24, fontWeight: '700' }}>{i18n.t('CORE.Notifications')}</Text>
                     </View>
                 </View>
 

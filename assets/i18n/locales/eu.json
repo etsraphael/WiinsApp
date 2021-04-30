@@ -265,7 +265,13 @@
     "Message": "Mezua",
     "Friend-request": "Lagun-eskaera",
     "feed": "fluxua",
-    "tube": "hodia"
+    "tube": "hodia",
+    "Music": "Musika",
+    "Page": "Orrialdea",
+    "Music-Project": "Musika Proiektua",
+    "Group": "Taldea",
+    "Earlier": "Lehenago",
+    "Notifications": "Jakinarazpenak"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Argitaratze data ezin da iraganean egon",
     "You-cannot-add-yourself": "Ezin duzu zeure burua gehitu",
     "T-content-does-not-exist-anymore": "Eduki hau ez da existitzen",
-    "T-publication-no-longer-exists": "Argitalpen hau jada ez dago"
+    "T-publication-no-longer-exists": "Argitalpen hau jada ez dago",
+    "Could-not-play-video": "Ezin izan da bideoa erreproduzitu"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Argazkia jaso da",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Eduki honen berri eman da. Gure moderatzaileek 24 orduko atzerapenarekin begiratuko dute berrikusteko. Zigor bat aplikatuko da horrek komunitatearen arauak errespetatzen ez baditu.",
     "T-user-has-been-blocked-D": "Erabiltzaile hau zure kontutik blokeatu da. Profileko edukia ez da zure kontuarekin ikusgai egongo.",
     "W-is-t-reason-to-report-t-post": "Zein da mezu honen berri emateko arrazoia?",
-    "W-is-t-reason-to-report-t-post-D": "Zure txostena anonimoa da. Mesedez, aukeratu kategoria bat moratorrei laguntzeko"
+    "W-is-t-reason-to-report-t-post-D": "Zure txostena anonimoa da. Mesedez, aukeratu kategoria bat moratorrei laguntzeko",
+    "A-y-s-to-unfollow-this-profile": "Ziur zaude profil honi jarraipena egingo diozula?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ziur zaude lagun hau zure lagunen zerrendan ezabatuko duzula?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Abisua. Ziurtatu helbide egokia duzula"

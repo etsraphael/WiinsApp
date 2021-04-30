@@ -265,7 +265,13 @@
     "Message": "Besked",
     "Friend-request": "Venneanmodning",
     "feed": "strøm",
-    "tube": "rør"
+    "tube": "rør",
+    "Music": "musik",
+    "Page": "Side",
+    "Music-Project": "Musikprojekt",
+    "Group": "Gruppe",
+    "Earlier": "Tidligere",
+    "Notifications": "Meddelelser"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Udgivelsesdatoen kan ikke være tidligere",
     "You-cannot-add-yourself": "Du kan ikke tilføje dig selv",
     "T-content-does-not-exist-anymore": "Dette indhold findes ikke længere",
-    "T-publication-no-longer-exists": "Denne publikation findes ikke længere"
+    "T-publication-no-longer-exists": "Denne publikation findes ikke længere",
+    "Could-not-play-video": "Kunne ikke afspille video"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Billedet er modtaget",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Dette indhold er blevet rapporteret. Vores moderatorer tager et kig inden for 24 timer for at gennemgå det. En sanktion anvendes, hvis dette ikke respekterer samfundets regler.",
     "T-user-has-been-blocked-D": "Denne bruger er blevet blokeret fra din konto. Intet indhold af denne profil vil være synligt på din konto.",
     "W-is-t-reason-to-report-t-post": "Hvad er grunden til at rapportere dette indlæg?",
-    "W-is-t-reason-to-report-t-post-D": "Din rapport er anonym. Vælg bare en kategori for at hjælpe moratorerne"
+    "W-is-t-reason-to-report-t-post-D": "Din rapport er anonym. Vælg bare en kategori for at hjælpe moratorerne",
+    "A-y-s-to-unfollow-this-profile": "Er du sikker på at følge profilen op?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Er du sikker på at slette denne ven på din venneliste?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Advarsel. Sørg for, at du har den rigtige adresse"

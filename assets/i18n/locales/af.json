@@ -265,7 +265,13 @@
     "Message": "Boodskap",
     "Friend-request": "Vriendversoek",
     "feed": "vloed",
-    "tube": "buis"
+    "tube": "buis",
+    "Music": "Musiek",
+    "Page": "Bladsy",
+    "Music-Project": "Musiekprojek",
+    "Group": "Groep",
+    "Earlier": "Vroeër",
+    "Notifications": "Kennisgewings"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Die vrystellingsdatum kan nie in die verlede wees nie",
     "You-cannot-add-yourself": "U kan nie uself byvoeg nie",
     "T-content-does-not-exist-anymore": "Hierdie inhoud bestaan nie meer nie",
-    "T-publication-no-longer-exists": "Hierdie publikasie bestaan nie meer nie"
+    "T-publication-no-longer-exists": "Hierdie publikasie bestaan nie meer nie",
+    "Could-not-play-video": "Kon nie video speel nie"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Die foto word ontvang",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Hierdie inhoud is gerapporteer. Ons moderators sal binne 24 uur vertraging kyk om dit te hersien. 'N Sanksie sal toegepas word as dit nie die reëls van die gemeenskap respekteer nie.",
     "T-user-has-been-blocked-D": "Hierdie gebruiker is van u rekening geblokkeer. Geen inhoud van hierdie profiel sal met u rekening sigbaar wees nie.",
     "W-is-t-reason-to-report-t-post": "Wat is die rede om hierdie berig te rapporteer?",
-    "W-is-t-reason-to-report-t-post-D": "U verslag is anoniem. Kies slegs 'n kategorie om die morators te help"
+    "W-is-t-reason-to-report-t-post-D": "U verslag is anoniem. Kies slegs 'n kategorie om die morators te help",
+    "A-y-s-to-unfollow-this-profile": "Is u seker dat u hierdie profiel sal onttrek?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Is u seker dat u hierdie vriend uit u vriendelys sal uitvee?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Waarskuwing. Maak seker dat u die regte adres het"

@@ -265,7 +265,13 @@
     "Message": "Meddelande",
     "Friend-request": "Vänförfrågan",
     "feed": "flöde",
-    "tube": "rör"
+    "tube": "rör",
+    "Music": "musik",
+    "Page": "Sida",
+    "Music-Project": "Musikprojekt",
+    "Group": "Grupp",
+    "Earlier": "Tidigare",
+    "Notifications": "Meddelanden"
   },
   "COUNTRY": {
     "AD": "andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Släppdatumet kan inte vara tidigare",
     "You-cannot-add-yourself": "Du kan inte lägga till dig själv",
     "T-content-does-not-exist-anymore": "Detta innehåll finns inte längre",
-    "T-publication-no-longer-exists": "Denna publikation finns inte längre"
+    "T-publication-no-longer-exists": "Denna publikation finns inte längre",
+    "Could-not-play-video": "Det gick inte att spela upp video"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoet tas emot",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Detta innehåll har rapporterats. Våra moderatorer kommer att ta en titt inom 24 timmar för att granska den. En sanktion kommer att tillämpas om detta inte respekterar gemenskapens regler.",
     "T-user-has-been-blocked-D": "Den här användaren har blockerats från ditt konto. Inget innehåll i den här profilen syns på ditt konto.",
     "W-is-t-reason-to-report-t-post": "Vad är anledningen att rapportera detta inlägg?",
-    "W-is-t-reason-to-report-t-post-D": "Din rapport är anonym. Välj bara en kategori för att hjälpa moratorerna"
+    "W-is-t-reason-to-report-t-post-D": "Din rapport är anonym. Välj bara en kategori för att hjälpa moratorerna",
+    "A-y-s-to-unfollow-this-profile": "Är du säker på att följa upp den här profilen?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Är du säker på att du tar bort den här kompisen i din vänlista?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Varning. Se till att du har rätt adress"

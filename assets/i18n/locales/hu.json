@@ -265,7 +265,13 @@
     "Message": "Üzenet",
     "Friend-request": "Baráti felkérés",
     "feed": "fényáram",
-    "tube": "cső"
+    "tube": "cső",
+    "Music": "Zene",
+    "Page": "Oldal",
+    "Music-Project": "Zenei projekt",
+    "Group": "Csoport",
+    "Earlier": "Korábban",
+    "Notifications": "Értesítések"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "A megjelenés dátuma nem lehet múltbeli",
     "You-cannot-add-yourself": "Nem adhatja hozzá magát",
     "T-content-does-not-exist-anymore": "Ez a tartalom már nem létezik",
-    "T-publication-no-longer-exists": "Ez a kiadvány már nem létezik"
+    "T-publication-no-longer-exists": "Ez a kiadvány már nem létezik",
+    "Could-not-play-video": "Nem sikerült lejátszani a videót"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "A fénykép beérkezett",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Ezt a tartalmat jelentették. Moderátoraink 24 órán belül átnézik a felülvizsgálatot. Szankciót alkalmaznak, ha ez nem tartja be a közösség szabályait.",
     "T-user-has-been-blocked-D": "Ezt a felhasználót letiltottuk a fiókjából. A profil egyetlen tartalma sem lesz látható a fiókjában.",
     "W-is-t-reason-to-report-t-post": "Mi az oka annak, hogy jelentse ezt a bejegyzést?",
-    "W-is-t-reason-to-report-t-post-D": "Jelentése névtelen. Kérjük, válasszon csak egy kategóriát a morátorok segítésére"
+    "W-is-t-reason-to-report-t-post-D": "Jelentése névtelen. Kérjük, válasszon csak egy kategóriát a morátorok segítésére",
+    "A-y-s-to-unfollow-this-profile": "Biztosan megszünteti a profil követését?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Biztosan törli ezt a barátot a barátlistájáról?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Figyelem. Győződjön meg arról, hogy a megfelelő címet adta meg"

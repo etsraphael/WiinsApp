@@ -265,7 +265,13 @@
     "Message": "Neges",
     "Friend-request": "Cais ffrind",
     "feed": "fflwcs",
-    "tube": "tiwb"
+    "tube": "tiwb",
+    "Music": "Cerddoriaeth",
+    "Page": "Tudalen",
+    "Music-Project": "Prosiect Cerdd",
+    "Group": "Grŵp",
+    "Earlier": "Yn gynharach",
+    "Notifications": "Hysbysiadau"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Ni all y dyddiad rhyddhau fod yn y gorffennol",
     "You-cannot-add-yourself": "Ni allwch ychwanegu eich hun",
     "T-content-does-not-exist-anymore": "Nid yw'r cynnwys hwn yn bodoli mwyach",
-    "T-publication-no-longer-exists": "Nid yw'r cyhoeddiad hwn yn bodoli mwyach"
+    "T-publication-no-longer-exists": "Nid yw'r cyhoeddiad hwn yn bodoli mwyach",
+    "Could-not-play-video": "Methu chwarae fideo"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Derbynnir y llun",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Adroddwyd ar y cynnwys hwn. Bydd ein cymedrolwyr yn edrych mewn oedi o 24 awr i'w adolygu. Rhoddir cosb os nad yw hyn yn parchu rheolau'r gymuned.",
     "T-user-has-been-blocked-D": "Mae'r defnyddiwr hwn wedi'i rwystro o'ch cyfrif. Ni fydd unrhyw gynnwys o'r proffil hwn yn weladwy gyda'ch cyfrif.",
     "W-is-t-reason-to-report-t-post": "Beth yw'r rheswm i riportio'r swydd hon?",
-    "W-is-t-reason-to-report-t-post-D": "Mae eich adroddiad yn anhysbys. Dewiswch gategori yn unig i helpu'r morators"
+    "W-is-t-reason-to-report-t-post-D": "Mae eich adroddiad yn anhysbys. Dewiswch gategori yn unig i helpu'r morators",
+    "A-y-s-to-unfollow-this-profile": "Ydych chi'n sicr o ddadorchuddio'r proffil hwn?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ydych chi'n sicr o ddileu'r ffrind hwn yn eich rhestr ffrindiau?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Rhybudd. Sicrhewch fod gennych y cyfeiriad cywir"

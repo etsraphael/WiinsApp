@@ -265,7 +265,13 @@
     "Message": "Mesej",
     "Friend-request": "Permintaan rakan",
     "feed": "fluks",
-    "tube": "tiub"
+    "tube": "tiub",
+    "Music": "Muzik",
+    "Page": "Halaman",
+    "Music-Project": "Projek Muzik",
+    "Group": "Kumpulan",
+    "Earlier": "Lebih awal",
+    "Notifications": "Pemberitahuan"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Tarikh pelepasan tidak boleh berlalu",
     "You-cannot-add-yourself": "Anda tidak boleh menambah diri anda",
     "T-content-does-not-exist-anymore": "Kandungan ini sudah tidak ada lagi",
-    "T-publication-no-longer-exists": "Penerbitan ini tidak lagi wujud"
+    "T-publication-no-longer-exists": "Penerbitan ini tidak lagi wujud",
+    "Could-not-play-video": "Tidak dapat memainkan video"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Foto itu diterima",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Kandungan ini telah dilaporkan. Penyederhana kami akan melihat kelewatan 24 jam untuk meninjaunya. Sekatan akan dikenakan sekiranya ini tidak mematuhi peraturan masyarakat.",
     "T-user-has-been-blocked-D": "Pengguna ini telah disekat dari akaun anda. Tiada kandungan profil ini yang dapat dilihat dengan akaun anda.",
     "W-is-t-reason-to-report-t-post": "Apakah sebab untuk melaporkan catatan ini?",
-    "W-is-t-reason-to-report-t-post-D": "Laporan anda tidak dikenali. Tolong pilih kategori untuk menolong para pengganas"
+    "W-is-t-reason-to-report-t-post-D": "Laporan anda tidak dikenali. Tolong pilih kategori untuk menolong para pengganas",
+    "A-y-s-to-unfollow-this-profile": "Adakah anda pasti berhenti mengikuti profil ini?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Adakah anda pasti menghapus rakan ini dalam senarai rakan anda?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Amaran. Pastikan anda mempunyai alamat yang betul"

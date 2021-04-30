@@ -265,7 +265,13 @@
     "Message": "Thông điệp",
     "Friend-request": "Yêu cầu kết bạn",
     "feed": "tuôn ra",
-    "tube": "ống"
+    "tube": "ống",
+    "Music": "Âm nhạc",
+    "Page": "Trang",
+    "Music-Project": "Dự án âm nhạc",
+    "Group": "Nhóm",
+    "Earlier": "Sớm hơn",
+    "Notifications": "Thông báo"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -626,7 +632,8 @@
     "Date-cannot-be-in-the-past": "Ngày phát hành không được trong quá khứ",
     "You-cannot-add-yourself": "Bạn không thể thêm chính mình",
     "T-content-does-not-exist-anymore": "Nội dung này không tồn tại nữa",
-    "T-publication-no-longer-exists": "Ấn phẩm này không còn tồn tại"
+    "T-publication-no-longer-exists": "Ấn phẩm này không còn tồn tại",
+    "Could-not-play-video": "Không thể phát video"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Ảnh được nhận",
@@ -1057,7 +1064,9 @@
     "T-content-has-been-reported": "Nội dung này đã được báo cáo. Người kiểm duyệt của chúng tôi sẽ xem xét trong vòng 24 giờ để xem xét nó. Một hình phạt sẽ được áp dụng nếu điều này không tôn trọng các quy tắc của cộng đồng.",
     "T-user-has-been-blocked-D": "Người dùng này đã bị chặn khỏi tài khoản của bạn. Không có nội dung của hồ sơ này sẽ được hiển thị với tài khoản của bạn.",
     "W-is-t-reason-to-report-t-post": "Lý do để báo cáo bài đăng này là gì?",
-    "W-is-t-reason-to-report-t-post-D": "Báo cáo của bạn là ẩn danh. Vui lòng chỉ chọn một danh mục để giúp người động viên"
+    "W-is-t-reason-to-report-t-post-D": "Báo cáo của bạn là ẩn danh. Vui lòng chỉ chọn một danh mục để giúp người động viên",
+    "A-y-s-to-unfollow-this-profile": "Bạn có chắc chắn bỏ theo dõi hồ sơ này không?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Bạn có chắc chắn xóa người bạn này trong danh sách bạn bè của mình không?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Cảnh báo. Đảm bảo rằng bạn có đúng địa chỉ"

@@ -223,7 +223,13 @@
     "Message": "Mensaje",
     "Friend-request": "Solicitud de amistad",
     "feed": "flujo",
-    "tube": "tubo"
+    "tube": "tubo",
+    "Music": "Música",
+    "Page": "Página",
+    "Music-Project": "Proyecto musical",
+    "Group": "Grupo",
+    "Earlier": "Más temprano",
+    "Notifications": "Notificaciones"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -584,7 +590,8 @@
     "Date-cannot-be-in-the-past": "La fecha de lanzamiento no puede ser pasada",
     "You-cannot-add-yourself": "No puedes agregarte a ti mismo",
     "T-content-does-not-exist-anymore": "Este contenido ya no existe",
-    "T-publication-no-longer-exists": "Esta publicación ya no existe"
+    "T-publication-no-longer-exists": "Esta publicación ya no existe",
+    "Could-not-play-video": "No se pudo reproducir el video"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "La foto es recibida",
@@ -1000,7 +1007,9 @@
     "T-content-has-been-reported": "Este contenido ha sido informado. Nuestros moderadores lo revisarán con un retraso de 24 horas para revisarlo. Se aplicará una sanción si esto no respeta las reglas de la comunidad.",
     "T-user-has-been-blocked-D": "Este usuario ha sido bloqueado de su cuenta. Ningún contenido de este perfil será visible con su cuenta.",
     "W-is-t-reason-to-report-t-post": "¿Cuál es el motivo para denunciar esta publicación?",
-    "W-is-t-reason-to-report-t-post-D": "Tu denuncia es anónima. Elija solo una categoría para ayudar a los moradores"
+    "W-is-t-reason-to-report-t-post-D": "Tu denuncia es anónima. Elija solo una categoría para ayudar a los moradores",
+    "A-y-s-to-unfollow-this-profile": "¿Estás seguro de dejar de seguir este perfil?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "¿Estás seguro de eliminar a este amigo de tu lista de amigos?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Advertencia. Asegúrese de tener la dirección correcta"
