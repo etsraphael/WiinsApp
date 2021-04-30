@@ -149,7 +149,8 @@ class Profile extends React.Component {
 
     _displayBtnFollowing = () => {
 
-        if (!this.props.Profile.profile.follow.following || this.props.Profile.profile.relation == 'friend') return null
+        if (!this.props.Profile.profile.follow.following) return null
+        if (this.props.Profile.profile.relation == 'friend') return null
 
         return (
             <View style={{ flexDirection: 'row', marginVertical: 7 }}>

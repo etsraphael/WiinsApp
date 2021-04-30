@@ -332,6 +332,12 @@ class OptionProfileModal extends React.Component {
         )  
     }
 
+    _unfriendAction = () => {
+        this.props.actions.unfriendAction(this.props.Profile._id).then(
+            () => this.setState({ menu: 'unfriendConfirm' })
+        ) 
+    }
+
     _unfollowView = () => {
         return (
             <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
@@ -381,7 +387,7 @@ class OptionProfileModal extends React.Component {
                 {this._separatorItem()}
                 <TouchableOpacity
                     style={styles.container_item_menu}
-                    onPress={() => this.setState({ menu: 'blockUserSent' })}
+                    onPress={() => this._unfriendAction()}
                 >
                     <Text>{I18n.t('CORE.Yes')}</Text>
                 </TouchableOpacity>

@@ -30,6 +30,7 @@ export default ProfileReducer = (state = initialState, action) => {
         ...state
       }
     }
+    case ActionTypes.UNFRIEND_SUCCESS:
     case ActionTypes.UNFOLLOW_PROFILE_SUCCESS :
     case ActionTypes.CANCEL_ASK_FRIEND_SUCCESS : {
       state.profile.relation = 'not-friend'
