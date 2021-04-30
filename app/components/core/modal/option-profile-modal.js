@@ -6,7 +6,7 @@ import Modal from 'react-native-modal'
 import I18n from '../../../../assets/i18n/i18n'
 import { faCheckCircle } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { sendReport } from './../../../services/report/report-service'
+import { sendReport } from '../../../services/report/report-service'
 import ActionSheet from 'react-native-actionsheet'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 
@@ -97,7 +97,7 @@ const categoriesReport = [
     }
 ]
 
-class OptionPublicationModal extends React.Component {
+class OptionProfileModal extends React.Component {
 
     constructor(props) {
         super(props)
@@ -114,22 +114,22 @@ class OptionPublicationModal extends React.Component {
 
         const optionsList = [
             {
-                code: 'reportPublication',
-                title: 'Report Publication',
+                code: 'report',
+                title: 'Report the profile',
                 color: 'red',
-                display: this.props.myProfileId !== this.props.ownerId
+                display: true
             },
             {
-                code: 'deletePublication',
-                title: 'Delete Publication',
+                code: 'unfollow',
+                title: 'Unfollow',
                 color: 'black',
-                display: this.props.myProfileId == this.props.ownerId
+                display: true
             },
             {
-                code: 'blockUser',
-                title: 'Block User',
+                code: 'unfriend',
+                title: 'Unfriend',
                 color: 'black',
-                display: this.props.myProfileId !== this.props.ownerId
+                display: true
             }
         ]
 
@@ -153,7 +153,7 @@ class OptionPublicationModal extends React.Component {
                 />
                 <View style={{ marginVertical: 15 }}>
                     <TouchableOpacity
-                        onPress={() => this.props.toggleReportModal()}
+                        onPress={() => this.props.toggleOptionProfileReportModal()}
                         style={styles.btn_close}>
                         <Text>{I18n.t('CORE.Close')} </Text>
                     </TouchableOpacity>
@@ -165,12 +165,12 @@ class OptionPublicationModal extends React.Component {
     _sentReportWithCategory = (categorySelected) => {
 
         const report = {
-            type: 'feed-publication',
-            id: this.props.publicationId,
+            type: 'profile',
+            id: this.props.Profile._id,
             categorie: [categorySelected]
         }
 
-        return sendReport(report).then(() => this.setState({ menu: 'reportPublicationSent' }))
+        return sendReport(report).then(() => this.setState({ menu: 'reportProfileSent' }))
     }
 
     _reportPublicationView = () => {
@@ -240,7 +240,7 @@ class OptionPublicationModal extends React.Component {
 
                 {this._separatorItem()}
                 <TouchableOpacity
-                    onPress={() => this.props.toggleReportModal()}
+                    onPress={() => this.props.toggleOptionProfileReportModal()}
                     style={styles.container_item_menu}
                 >
                     <Text>{I18n.t('CORE.No')}</Text>
@@ -258,7 +258,7 @@ class OptionPublicationModal extends React.Component {
         )
     }
 
-    _reportPublicationSentView = () => {
+    _reportProfileSentView = () => {
         return (
             <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingVertical: 35 }}>
@@ -292,11 +292,10 @@ class OptionPublicationModal extends React.Component {
 
     _displaySection = () => {
         switch (this.state.menu) {
-            case 'reportPublication': return this._reportPublicationView()
+            case 'report': return this._reportPublicationView()
             case 'blockUser': return this._blockUserView()
-            case 'reportPublicationSent': return this._reportPublicationSentView()
+            case 'reportProfileSent': return this._reportProfileSentView()
             case 'blockUserSent': return this._blockUserSentView()
-            case 'deletePublication': return this._showActionSheetPublicationDeletion()
             default: return this._defaultMenu()
         }
     }
@@ -305,7 +304,7 @@ class OptionPublicationModal extends React.Component {
         switch (index) {
             case 0: {
                 this.props.actions.deleteFeedPublicationById(this.props.publicationId)
-                return this.props.toggleReportModal()
+                return this.props.toggleOptionProfileReportModal()
             }
             default: {
                 return this.setState({ menu: '' })
@@ -317,8 +316,8 @@ class OptionPublicationModal extends React.Component {
         return (
             <View>
                 <Modal
-                    onSwipeComplete={() => this.props.toggleReportModal()}
-                    onBackdropPress={() => this.props.toggleReportModal()}
+                    onSwipeComplete={() => this.props.toggleOptionProfileReportModal()}
+                    onBackdropPress={() => this.props.toggleOptionProfileReportModal()}
                     isVisible={true}
                     transparent={true}
                     animationIn={'bounceInUp'}
@@ -374,7 +373,8 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
-    MyProfile: state.MyProfile.profile
+    MyProfile: state.MyProfile.profile,
+    Profile: state.Profile.profile,
 })
 
 const ActionCreators = Object.assign(
@@ -386,4 +386,4 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(ActionCreators, dispatch),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(OptionPublicationModal)
+export default connect(mapStateToProps, mapDispatchToProps)(OptionProfileModal)

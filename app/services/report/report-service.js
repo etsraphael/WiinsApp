@@ -4,7 +4,7 @@ import { sendError } from './../error/error-service'
 export function sendReport(report) {
     switch (report.type) {
         case 'feed-publication': return sendFeedReport(report)
-        case 'profile': return null
+        case 'profile': return sendFeedReport(report)
         case 'comment-feed-publication': return null
         case 'tube': return null
         case 'comment-playlist-music': return null

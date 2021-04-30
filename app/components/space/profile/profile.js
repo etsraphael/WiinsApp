@@ -15,8 +15,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserPlus, faArrowLeft, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
 import PublicationModalContainer from './../../core/modal/publication-modal-container'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
+import OptionProfileModal from './../../core/modal/option-profile-modal'
 import { faCircle } from '@fortawesome/pro-solid-svg-icons'
-import I18n from '../../../../assets/i18n/i18n'
 import { TabActions } from '@react-navigation/native'
 
 class Profile extends React.Component {
@@ -29,7 +29,8 @@ class Profile extends React.Component {
             publicationLoading: false,
             modal: false,
             reportModal: false,
-            reportModalExist: false,
+            optionProfileModalExist: false,
+            optionProfileModal: false,
             reportPublicationId: null,
             ownerReportPublication: null,
             spaceAvalaible: ['feed']
@@ -96,9 +97,9 @@ class Profile extends React.Component {
                         <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
                             <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>Profile</Text>
                         </View>
-                        <View style={{ flex: 1 }}>
+                        <TouchableOpacity style={{ flex: 1 }} onPress={() => this._toggleOptionProfileReportModal()}>
                             <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={40} />
-                        </View>
+                        </TouchableOpacity>
                     </View>
 
                     {/* Cover Picture */}
@@ -307,6 +308,11 @@ class Profile extends React.Component {
         setTimeout(() => this.setState({ reportModalExist: !this.state.reportModalExist }), 100)
     }
 
+    _toggleOptionProfileReportModal = () => {
+        this.setState({ optionProfileModal: !this.state.optionProfileModal })
+        setTimeout(() => this.setState({ optionProfileModalExist: !this.state.optionProfileModalExist }), 100)
+    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -333,6 +339,15 @@ class Profile extends React.Component {
                         publicationId={this.state.reportPublicationId}
                         myProfileId={this.props.MyProfile.profile._id}
                         ownerId={this.state.ownerReportPublication}
+                    />
+                }
+
+
+                {this.state.optionProfileModal &&
+                    <OptionProfileModal
+                        toggleOptionProfileReportModal={() => this._toggleOptionProfileReportModal()}
+                        isVisible={this.state.optionProfileModal}
+                        profileId={this.props.Profile.profile._id}
                     />
                 }
 
