@@ -149,12 +149,12 @@ class Profile extends React.Component {
 
     _displayBtnFollowing = () => {
 
-        if (!this.props.Profile.profile.follow.following) return null
+        if (!this.props.Profile.profile.follow.following || this.props.Profile.profile.relation == 'friend') return null
 
         return (
             <View style={{ flexDirection: 'row', marginVertical: 7 }}>
                 {this.props.Profile.profile.relation == 'following' ?
-                    <TouchableOpacity style={{ flex: 2 }} onPress={() => this.props.actions.unfollow(this.props.Profile.profile._id)}>
+                    <TouchableOpacity style={{ flex: 2 }}>
                         <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
                             <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Following</Text>
                         </View>

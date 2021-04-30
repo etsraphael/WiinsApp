@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { sendReport } from '../../../services/report/report-service'
 import ActionSheet from 'react-native-actionsheet'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
+import * as ProfileActions from '../../../redux/Profile/actions'
+
 
 const categoriesReport = [
     {
@@ -123,11 +125,17 @@ class OptionProfileModal extends React.Component {
                 code: 'unfollow',
                 title: 'Unfollow',
                 color: 'black',
-                display: true
+                display: this.props.Profile.relation == 'following'
             },
             {
                 code: 'unfriend',
                 title: 'Unfriend',
+                color: 'black',
+                display: this.props.Profile.relation == 'friend'
+            },
+            {
+                code: 'blockUser',
+                title: 'Block User',
                 color: 'black',
                 display: true
             }
@@ -290,14 +298,96 @@ class OptionProfileModal extends React.Component {
         )
     }
 
+    _unfollowConfirmView = () => {
+        return (
+            <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingVertical: 35 }}>
+                    <FontAwesomeIcon icon={faCheckCircle} color={'#33cc33'} secondaryColor={'#f2f2f2'} size={75} />
+                </View>
+                {this._separatorItem()}
+                <View style={{ paddingHorizontal: 15, paddingVertical: 10, marginBottom: 30 }}>
+                    <Text>This account is not in your community anymore</Text>
+                </View>
+            </View>
+        )
+    }
+
     _displaySection = () => {
         switch (this.state.menu) {
             case 'report': return this._reportPublicationView()
             case 'blockUser': return this._blockUserView()
+            case 'unfollow': return this._unfollowView()
+            case 'unfriend': return this._unfriendView()
             case 'reportProfileSent': return this._reportProfileSentView()
             case 'blockUserSent': return this._blockUserSentView()
+            case 'unfriendConfirm':
+            case 'unfollowSentConfirm': return this._unfollowConfirmView()
             default: return this._defaultMenu()
         }
+    }
+
+    _unfollowAction = () => {
+        this.props.actions.unfollow(this.props.Profile._id).then(
+            () => this.setState({ menu: 'unfollowSentConfirm' })
+        )  
+    }
+
+    _unfollowView = () => {
+        return (
+            <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
+
+                {/* Header */}
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 15 }}>
+                    <Text style={{ fontSize: 15, fontWeight: '700' }}>Are you sure to unfollow this profile ? </Text>
+                </View>
+
+                {this._separatorItem()}
+                <TouchableOpacity
+                    onPress={() => this.props.toggleOptionProfileReportModal()}
+                    style={styles.container_item_menu}
+                >
+                    <Text>{I18n.t('CORE.No')}</Text>
+                </TouchableOpacity>
+
+                {this._separatorItem()}
+                <TouchableOpacity
+                    style={styles.container_item_menu}
+                    onPress={() => this._unfollowAction()}
+                >
+                    <Text>{I18n.t('CORE.Yes')}</Text>
+                </TouchableOpacity>
+
+            </View>
+        )
+    }
+
+    _unfriendView = () => {
+        return (
+            <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
+
+                {/* Header */}
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 15 }}>
+                    <Text style={{ fontSize: 15, fontWeight: '700' }}>Are you sure to delete this friend in your friend list ?</Text>
+                </View>
+
+                {this._separatorItem()}
+                <TouchableOpacity
+                    onPress={() => this.props.toggleOptionProfileReportModal()}
+                    style={styles.container_item_menu}
+                >
+                    <Text>{I18n.t('CORE.No')}</Text>
+                </TouchableOpacity>
+
+                {this._separatorItem()}
+                <TouchableOpacity
+                    style={styles.container_item_menu}
+                    onPress={() => this.setState({ menu: 'blockUserSent' })}
+                >
+                    <Text>{I18n.t('CORE.Yes')}</Text>
+                </TouchableOpacity>
+
+            </View>
+        )
     }
 
     _actionSheetDeletionCommand = (index) => {
@@ -379,7 +469,8 @@ const mapStateToProps = state => ({
 
 const ActionCreators = Object.assign(
     {},
-    PublicationFeedActions
+    PublicationFeedActions,
+    ProfileActions
 )
 
 const mapDispatchToProps = dispatch => ({
