@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "प्रशासन द्वारा स्वीकार गर्न",
       "This-feature-requires-verification-to-use.": "यो सुविधा प्रयोग गर्न प्रमाणीकरण आवश्यक छ",
       "Upload-a-photo-holding-t-ID-D": "आजको मिति र कागजातको पानाको साथ आईडी समातिएको फोटो अपलोड गर्नुहोस् र त्यसमा \"वाइन्स\" लेख्छ।",
-      "Upload-yr-password-id-identity-or-driver-license": "तपाईंको पासवर्ड, आईडी परिचय वा ड्राइभर इजाजतपत्र अपलोड गर्नुहोस्।",
       "Verification": "प्रमाणिकरण",
       "Verified-zone": "प्रमाणित क्षेत्र",
       "Y-m-complet-t-following-cdt-t-b-certified": "तपाईंले प्रमाणित हुनका लागि निम्न सर्तहरू पूर्ण गर्नुपर्दछ।",
       "Yr-profil-is-currently-being-checked-D": "तपाईंको प्रोफाइल हाल जाँच भइरहेको छ। हामी तपाईंलाई ईमेल द्वारा hours 48 घण्टा भित्र सम्पर्क गर्नेछौं।",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "निश्चित गर्नुहोस् कार्डको पछाडि अपलोड गर्नुहोस् यदि यो राष्ट्रिय परिचय पत्र हो भने (राष्ट्रिय कार्डका लागि मात्र)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "निश्चित गर्नुहोस् कार्डको पछाडि अपलोड गर्नुहोस् यदि यो राष्ट्रिय परिचय पत्र हो भने (राष्ट्रिय कार्डका लागि मात्र)",
+      "Upload-yr-passport-id-identity-or-driver-license": "तपाईंको पासपोर्ट, आईडी परिचय वा ड्राइभर इजाजतपत्र अपलोड गर्नुहोस्।"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "मेरा प्रकाशनहरू मेरो साथीहरू द्वारा मात्र देख्न सकिन्छ",

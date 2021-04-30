@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "Að taka við stjórninni",
       "This-feature-requires-verification-to-use.": "Þessi aðgerð krefst staðfestingar til að nota",
       "Upload-a-photo-holding-t-ID-D": "Settu inn mynd með auðkenninu með pappír með dagsetningu dagsins og „Wiins“ skrifar á það.",
-      "Upload-yr-password-id-identity-or-driver-license": "Sendu lykilorð þitt, auðkenni eða ökuskírteini.",
       "Verification": "Sannprófun",
       "Verified-zone": "Staðfest svæði",
       "Y-m-complet-t-following-cdt-t-b-certified": "Þú verður að uppfylla eftirfarandi skilyrði til að fá vottun.",
       "Yr-profil-is-currently-being-checked-D": "Nú er verið að athuga prófílinn þinn. Við munum hafa samband við þig innan 48 klukkustunda með tölvupósti.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Gakktu úr skugga um að hlaða upp bakhlið kortsins ef það er ríkisskírteini (aðeins fyrir landsskírteini)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Gakktu úr skugga um að hlaða upp bakhlið kortsins ef það er ríkisskírteini (aðeins fyrir landsskírteini)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Settu inn vegabréf, persónuskilríki eða ökuskírteini."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Rit mín eru aðeins sýnileg af vinum mínum",

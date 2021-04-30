@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "At blive accepteret af administrationen",
       "This-feature-requires-verification-to-use.": "Denne funktion kræver verifikation for at kunne bruges",
       "Upload-a-photo-holding-t-ID-D": "Upload et foto med ID'et med et ark papir med dagens dato, og \"Wiins\" skriver på det.",
-      "Upload-yr-password-id-identity-or-driver-license": "Upload din adgangskode, id-identitet eller kørekort.",
       "Verification": "Verifikation",
       "Verified-zone": "Bekræftet zone",
       "Y-m-complet-t-following-cdt-t-b-certified": "Du skal udfylde følgende betingelser for at blive certificeret.",
       "Yr-profil-is-currently-being-checked-D": "Din profil kontrolleres i øjeblikket. Vi kontakter dig inden for 48 timer via e-mail.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Sørg for at uploade bagsiden af kortet, hvis det er et nationalt id-kort (kun for det nationale kort)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Sørg for at uploade bagsiden af kortet, hvis det er et nationalt id-kort (kun for det nationale kort)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Upload dit pas, id-identitet eller kørekort."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Mine publikationer er kun synlige af mine venner",

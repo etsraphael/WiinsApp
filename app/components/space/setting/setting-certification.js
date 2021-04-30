@@ -322,7 +322,7 @@ class SettingCertification extends React.Component {
                     {this.state.idRectoIsLoading && this._loadingForSectionRender()}
                     {this._uploadIconAndTextRender()}
                     <View style={{ paddingHorizontal: 15 }}>
-                        <Text>{i18n.t('SETTING.verified.Upload-yr-password-id-identity-or-driver-license')}</Text>
+                        <Text>{i18n.t('SETTING.verified.Upload-yr-passport-id-identity-or-driver-license')}</Text>
                     </View>
                 </TouchableOpacity>
 

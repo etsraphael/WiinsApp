@@ -946,11 +946,11 @@
       "T-b-accepted-b-t-administration": "เป็นที่ยอมรับของฝ่ายบริหาร",
       "This-feature-requires-verification-to-use.": "คุณลักษณะนี้ต้องการการตรวจสอบเพื่อใช้งาน",
       "Upload-a-photo-holding-t-ID-D": "อัปโหลดรูปถ่ายที่ถือบัตรประจำตัวด้วยแผ่นกระดาษที่มีวันที่ของวันนี้และ \"Wiins\" เขียนอยู่",
-      "Upload-yr-password-id-identity-or-driver-license": "อัปโหลดรหัสผ่านรหัสประจำตัวหรือใบขับขี่",
       "Verification": "การยืนยัน",
       "Verified-zone": "โซนที่ตรวจสอบแล้ว",
       "Y-m-complet-t-following-cdt-t-b-certified": "คุณต้องทำตามเงื่อนไขต่อไปนี้จึงจะได้รับการรับรอง",
-      "Yr-profil-is-currently-being-checked-D": "กำลังตรวจสอบโปรไฟล์ของคุณ เราจะติดต่อคุณภายใน 48 ชั่วโมงทางอีเมล"
+      "Yr-profil-is-currently-being-checked-D": "กำลังตรวจสอบโปรไฟล์ของคุณ เราจะติดต่อคุณภายใน 48 ชั่วโมงทางอีเมล",
+      "Upload-yr-passport-id-identity-or-driver-license": "อัปโหลดหนังสือเดินทางรหัสประจำตัวหรือใบขับขี่"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "สิ่งพิมพ์ของฉันจะมองเห็นได้โดยเพื่อนของฉันเท่านั้น",

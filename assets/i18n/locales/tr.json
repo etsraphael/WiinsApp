@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "İdare tarafından kabul edilmek",
       "This-feature-requires-verification-to-use.": "Bu özelliğin kullanılması için doğrulama gerekiyor",
       "Upload-a-photo-holding-t-ID-D": "Üzerinde bugünün tarihi olan ve üzerinde \"Wiins\" yazan bir kağıt parçası olan kimliği taşıyan bir fotoğraf yükleyin.",
-      "Upload-yr-password-id-identity-or-driver-license": "Şifrenizi, kimlik kimliğinizi veya ehliyetinizi yükleyin.",
       "Verification": "Doğrulama",
       "Verified-zone": "Doğrulanmış bölge",
       "Y-m-complet-t-following-cdt-t-b-certified": "Sertifika almak için aşağıdaki koşulları yerine getirmelisiniz.",
       "Yr-profil-is-currently-being-checked-D": "Profiliniz şu anda kontrol ediliyor. 48 saat içinde sizinle e-posta yoluyla iletişime geçeceğiz.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ulusal kimlik kartı ise kartın arka yüzünü yüklediğinizden emin olun (sadece ulusal kart için)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ulusal kimlik kartı ise kartın arka yüzünü yüklediğinizden emin olun (sadece ulusal kart için)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Pasaportunuzu, kimlik kimliğinizi veya ehliyetinizi yükleyin."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Yayınlarım sadece arkadaşlarım tarafından görülebilir",

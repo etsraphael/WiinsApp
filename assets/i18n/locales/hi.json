@@ -893,10 +893,10 @@
       "Yr-profil-is-currently-being-checked-D": "आपकी प्रोफ़ाइल वर्तमान में जाँची जा रही है। हम ईमेल द्वारा 48 घंटे के भीतर आपसे संपर्क करेंगे।",
       "Verification": "सत्यापन",
       "Pl-s-t-docs-a-complet-t-form-below": "कृपया आवश्यक दस्तावेज भेजें और नीचे दिए गए फॉर्म को पूरा करें।",
-      "Upload-yr-password-id-identity-or-driver-license": "अपना पासवर्ड, आईडी पहचान या चालक लाइसेंस अपलोड करें।",
       "Upload-a-photo-holding-t-ID-D": "आज की तारीख के साथ कागज की एक शीट के साथ आईडी रखने वाली एक तस्वीर अपलोड करें और उस पर \"वाईन्स\" लिखता है।",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "मैं सहमत हूं कि मेरे खाते की जांच के लिए मेरे डेटा का उपयोग किया जा सकता है।",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "यदि यह राष्ट्रीय आईडी कार्ड है (तो केवल राष्ट्रीय कार्ड के लिए) कार्ड के पीछे की ओर अपलोड करना सुनिश्चित करें"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "यदि यह राष्ट्रीय आईडी कार्ड है (तो केवल राष्ट्रीय कार्ड के लिए) कार्ड के पीछे की ओर अपलोड करना सुनिश्चित करें",
+      "Upload-yr-passport-id-identity-or-driver-license": "अपना पासपोर्ट, आईडी पहचान या चालक लाइसेंस अपलोड करें।"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "चीजों को बदलने की कोशिश के एक साधन के रूप में हिंसा की स्वीकृति",

@@ -893,10 +893,10 @@
       "Yr-profil-is-currently-being-checked-D": "Seu perfil está sendo verificado. Entraremos em contato em até 48 horas por e-mail.",
       "Verification": "Verificação",
       "Pl-s-t-docs-a-complet-t-form-below": "Envie os documentos necessários e preencha o formulário abaixo.",
-      "Upload-yr-password-id-identity-or-driver-license": "Envie sua senha, identidade ou carteira de motorista.",
       "Upload-a-photo-holding-t-ID-D": "Faça upload de uma foto segurando o documento de identidade com uma folha de papel com a data de hoje e \"Wiins\" escrito nela.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "Eu concordo que meus dados podem ser usados para verificar minha conta.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Certifique-se de carregar o verso do cartão se for um cartão de identificação nacional (apenas para o cartão nacional)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Certifique-se de carregar o verso do cartão se for um cartão de identificação nacional (apenas para o cartão nacional)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Carregue seu passaporte, identidade ou carteira de motorista."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "A aceitação da violência como um meio de tentar mudar as coisas",

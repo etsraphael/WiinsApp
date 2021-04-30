@@ -946,11 +946,11 @@
       "T-b-accepted-b-t-administration": "I'w dderbyn gan y weinyddiaeth",
       "This-feature-requires-verification-to-use.": "Mae'r nodwedd hon yn gofyn am ddilysiad i'w ddefnyddio",
       "Upload-a-photo-holding-t-ID-D": "Llwythwch lun yn dal yr ID gyda dalen o bapur gyda dyddiad heddiw ac mae \"Wiins\" yn ysgrifennu arno.",
-      "Upload-yr-password-id-identity-or-driver-license": "Llwythwch i fyny eich cyfrinair, hunaniaeth id neu drwydded yrru.",
       "Verification": "Gwirio",
       "Verified-zone": "Parth wedi'i wirio",
       "Y-m-complet-t-following-cdt-t-b-certified": "Rhaid i chi gwblhau'r amodau canlynol i gael eich ardystio.",
-      "Yr-profil-is-currently-being-checked-D": "Mae'ch proffil yn cael ei wirio ar hyn o bryd. Byddwn yn cysylltu â chi cyn pen 48 awr trwy e-bost."
+      "Yr-profil-is-currently-being-checked-D": "Mae'ch proffil yn cael ei wirio ar hyn o bryd. Byddwn yn cysylltu â chi cyn pen 48 awr trwy e-bost.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Llwythwch i fyny eich pasbort, hunaniaeth id neu'ch trwydded yrru."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Mae fy nghyhoeddiadau i'w gweld gan fy ffrindiau yn unig",

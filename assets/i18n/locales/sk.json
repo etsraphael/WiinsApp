@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "Bude prijatý správou",
       "This-feature-requires-verification-to-use.": "Táto funkcia vyžaduje použitie",
       "Upload-a-photo-holding-t-ID-D": "Nahrajte fotografiu s preukazom totožnosti s listom papiera s dnešným dátumom a nápisom „Wiins“.",
-      "Upload-yr-password-id-identity-or-driver-license": "Vložte svoje heslo, identifikačnú identitu alebo vodičský preukaz.",
       "Verification": "Overenie",
       "Verified-zone": "Overená zóna",
       "Y-m-complet-t-following-cdt-t-b-certified": "Ak chcete získať certifikát, musíte splniť nasledujúce podmienky.",
       "Yr-profil-is-currently-being-checked-D": "Váš profil sa momentálne kontroluje. Budeme vás kontaktovať do 48 hodín e-mailom.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ak je to občiansky preukaz, nahrajte zadnú stranu karty (iba pre národnú kartu)."
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ak je to občiansky preukaz, nahrajte zadnú stranu karty (iba pre národnú kartu).",
+      "Upload-yr-passport-id-identity-or-driver-license": "Vložte svoj pas, identifikačnú totožnosť alebo vodičský preukaz."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Moje publikácie sú viditeľné iba pre mojich priateľov",

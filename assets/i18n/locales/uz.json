@@ -946,11 +946,11 @@
       "T-b-accepted-b-t-administration": "Ma'muriyat tomonidan qabul qilinadi",
       "This-feature-requires-verification-to-use.": "Ushbu xususiyatdan foydalanish uchun tekshirishni talab qiladi",
       "Upload-a-photo-holding-t-ID-D": "Shaxsiy guvohnomani bugungi kun yozilgan varaq bilan qog'ozga yuklang va unga \"Wiins\" yozadi.",
-      "Upload-yr-password-id-identity-or-driver-license": "Parolingizni, identifikatoringizni yoki haydovchilik guvohnomangizni yuklang.",
       "Verification": "Tekshirish",
       "Verified-zone": "Tasdiqlangan zona",
       "Y-m-complet-t-following-cdt-t-b-certified": "Sertifikat olish uchun quyidagi shartlarni bajarishingiz kerak.",
-      "Yr-profil-is-currently-being-checked-D": "Hozirda profilingiz tekshirilmoqda. Siz bilan 48 soat ichida elektron pochta orqali bog'lanamiz."
+      "Yr-profil-is-currently-being-checked-D": "Hozirda profilingiz tekshirilmoqda. Siz bilan 48 soat ichida elektron pochta orqali bog'lanamiz.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Pasportingizni, identifikatoringizni yoki haydovchilik guvohnomangizni yuklang."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Mening nashrlarimni faqat do'stlarim ko'rishadi",

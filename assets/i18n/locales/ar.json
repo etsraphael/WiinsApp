@@ -893,10 +893,10 @@
       "Yr-profil-is-currently-being-checked-D": "ملفك الشخصي قيد التحقق حاليا. سوف نتصل بك في غضون 48 ساعة عبر البريد الإلكتروني.",
       "Verification": "التحقق",
       "Pl-s-t-docs-a-complet-t-form-below": "يرجى إرسال المستندات اللازمة وإكمال النموذج أدناه.",
-      "Upload-yr-password-id-identity-or-driver-license": "قم بتحميل كلمة المرور أو الهوية الشخصية أو رخصة القيادة.",
       "Upload-a-photo-holding-t-ID-D": "قم بتحميل صورة تحمل الهوية مع ورقة عليها تاريخ اليوم وكتب عليها كلمة \"Wiins\"",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "أوافق على استخدام بياناتي للتحقق من حسابي.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "تأكد من تحميل الجانب الخلفي من البطاقة إذا كانت بطاقة الهوية الوطنية (فقط للبطاقة الوطنية)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "تأكد من تحميل الجانب الخلفي من البطاقة إذا كانت بطاقة الهوية الوطنية (فقط للبطاقة الوطنية)",
+      "Upload-yr-passport-id-identity-or-driver-license": "قم بتحميل جواز سفرك أو بطاقة الهوية أو رخصة القيادة."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "قبول العنف كوسيلة لمحاولة تغيير الأمور",

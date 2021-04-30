@@ -946,11 +946,11 @@
       "T-b-accepted-b-t-administration": "Hallinnon on hyväksyttävä",
       "This-feature-requires-verification-to-use.": "Tämän ominaisuuden käyttö vaatii vahvistuksen",
       "Upload-a-photo-holding-t-ID-D": "Lataa valokuva, jossa on henkilötodistus, ja paperi, jossa on tämän päivän päivämäärä ja siihen kirjoitetaan \"Wiins\".",
-      "Upload-yr-password-id-identity-or-driver-license": "Lataa salasanasi, henkilöllisyytesi tai ajokortti.",
       "Verification": "Todentaminen",
       "Verified-zone": "Vahvistettu vyöhyke",
       "Y-m-complet-t-following-cdt-t-b-certified": "Sinun on täytettävä seuraavat ehdot saadaksesi sertifioinnin.",
-      "Yr-profil-is-currently-being-checked-D": "Profiiliasi tarkistetaan parhaillaan. Otamme sinuun yhteyttä 48 tunnin sisällä sähköpostitse."
+      "Yr-profil-is-currently-being-checked-D": "Profiiliasi tarkistetaan parhaillaan. Otamme sinuun yhteyttä 48 tunnin sisällä sähköpostitse.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Lataa passi, henkilöllisyystodistus tai ajokortti."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Ainoastaan ystäväni näkevät julkaisuni",

@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "Administrazioak onartua izateko",
       "This-feature-requires-verification-to-use.": "Ezaugarri honek egiaztapena eskatzen du erabiltzeko",
       "Upload-a-photo-holding-t-ID-D": "Kargatu gaur eguneko data duen IDa duen orri batekin argazki bat eta \"Wiins\" -ek idazten du.",
-      "Upload-yr-password-id-identity-or-driver-license": "Kargatu pasahitza, ID identitatea edo gidabaimena.",
       "Verification": "Egiaztapena",
       "Verified-zone": "Egiaztatutako zona",
       "Y-m-complet-t-following-cdt-t-b-certified": "Ziurtagiria lortzeko honako baldintza hauek bete behar dituzu.",
       "Yr-profil-is-currently-being-checked-D": "Zure profila egiaztatzen ari da. 48 orduko epean zurekin harremanetan jarriko gara posta elektronikoz.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ziurtatu txartelaren atzealdea kargatzen duzula nortasun agiri nazionala bada (txartel nazionalerako soilik)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ziurtatu txartelaren atzealdea kargatzen duzula nortasun agiri nazionala bada (txartel nazionalerako soilik)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Kargatu pasaportea, nortasun agiria edo gidabaimena."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Nire argitalpenak lagunek soilik ikus ditzakete",

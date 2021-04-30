@@ -893,10 +893,10 @@
       "Yr-profil-is-currently-being-checked-D": "귀하의 프로필은 현재 확인 중입니다. 48 시간 이내에 이메일로 연락 드리겠습니다.",
       "Verification": "확인",
       "Pl-s-t-docs-a-complet-t-form-below": "필요한 서류를 보내 주시고 아래 양식을 작성해주십시오.",
-      "Upload-yr-password-id-identity-or-driver-license": "비밀번호, 신분증 또는 운전 면허증을 업로드하세요.",
       "Upload-a-photo-holding-t-ID-D": "오늘 날짜와 \"Wiins\"가 적힌 종이와 함께 신분증이있는 사진을 업로드하세요.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "내 데이터가 내 계정을 확인하는 데 사용될 수 있음에 동의합니다.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "주민등록증 인 경우 카드 뒷면을 반드시 업로드하세요 (국민 카드 만 해당)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "주민등록증 인 경우 카드 뒷면을 반드시 업로드하세요 (국민 카드 만 해당)",
+      "Upload-yr-passport-id-identity-or-driver-license": "여권, 신분증 또는 운전 면허증을 업로드하세요."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "폭력을 변화를 위한 수단으로 받아들이는 것",

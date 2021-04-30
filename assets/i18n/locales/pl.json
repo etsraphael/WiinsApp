@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "Do zaakceptowania przez administrację",
       "This-feature-requires-verification-to-use.": "Ta funkcja wymaga weryfikacji przed użyciem",
       "Upload-a-photo-holding-t-ID-D": "Prześlij zdjęcie z dowodem osobistym wraz z kartką papieru z dzisiejszą datą i napisem „Wiins”.",
-      "Upload-yr-password-id-identity-or-driver-license": "Prześlij swoje hasło, dowód tożsamości lub prawo jazdy.",
       "Verification": "Weryfikacja",
       "Verified-zone": "Strefa zweryfikowana",
       "Y-m-complet-t-following-cdt-t-b-certified": "Aby uzyskać certyfikat, musisz spełnić następujące warunki.",
       "Yr-profil-is-currently-being-checked-D": "Twój profil jest obecnie sprawdzany. W ciągu 48 godzin skontaktujemy się z Tobą mailowo.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Pamiętaj, aby przesłać odwrotną stronę karty, jeśli jest to krajowy dowód tożsamości (tylko w przypadku krajowego dowodu osobistego)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Pamiętaj, aby przesłać odwrotną stronę karty, jeśli jest to krajowy dowód tożsamości (tylko w przypadku krajowego dowodu osobistego)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Prześlij swój paszport, dowód osobisty lub prawo jazdy."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Moje publikacje są widoczne tylko dla moich znajomych",

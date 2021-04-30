@@ -946,11 +946,11 @@
       "T-b-accepted-b-t-administration": "Được chính quyền chấp nhận",
       "This-feature-requires-verification-to-use.": "Tính năng này yêu cầu xác minh để sử dụng",
       "Upload-a-photo-holding-t-ID-D": "Tải lên ảnh chụp ID cùng với một tờ giấy có ghi ngày hôm nay và \"Wiins\" trên đó.",
-      "Upload-yr-password-id-identity-or-driver-license": "Tải lên mật khẩu, danh tính id hoặc giấy phép lái xe của bạn.",
       "Verification": "xác minh",
       "Verified-zone": "Khu vực đã xác minh",
       "Y-m-complet-t-following-cdt-t-b-certified": "Bạn phải hoàn thành các điều kiện sau để được chứng nhận.",
-      "Yr-profil-is-currently-being-checked-D": "Hồ sơ của bạn hiện đang được kiểm tra. Chúng tôi sẽ liên hệ với bạn trong vòng 48 giờ qua email."
+      "Yr-profil-is-currently-being-checked-D": "Hồ sơ của bạn hiện đang được kiểm tra. Chúng tôi sẽ liên hệ với bạn trong vòng 48 giờ qua email.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Tải lên hộ chiếu, danh tính id hoặc bằng lái xe của bạn."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Các ấn phẩm của tôi chỉ được hiển thị bởi bạn bè của tôi",

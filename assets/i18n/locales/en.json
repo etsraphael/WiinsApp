@@ -893,10 +893,10 @@
       "Yr-profil-is-currently-being-checked-D": "Your profile is currently being checked. We will contact you within 48 hours by email.",
       "Verification": "Verification",
       "Pl-s-t-docs-a-complet-t-form-below": "Please send the necessary documents and complete the form below.",
-      "Upload-yr-password-id-identity-or-driver-license": "Upload your password, id identity or driver license.",
       "Upload-a-photo-holding-t-ID-D": "Upload a photo holding the ID with a sheet of paper with today’s date and \"Wiins\" writes on it.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "I agree that my data may be used to check my account.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Make sure to upload the back side of the card if it's the a national id card (only for the national card)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Make sure to upload the back side of the card if it's the a national id card (only for the national card)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Upload your passport, id identity or driver license."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "My publications are visible only by my friends",

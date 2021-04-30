@@ -946,11 +946,11 @@
       "T-b-accepted-b-t-administration": "Da ga prihvati uprava",
       "This-feature-requires-verification-to-use.": "Za korištenje ove značajke potrebna je potvrda",
       "Upload-a-photo-holding-t-ID-D": "Prenesite fotografiju na kojoj se nalazi osobni dokument s listom papira s današnjim datumom i na njemu piše \"Wiins\".",
-      "Upload-yr-password-id-identity-or-driver-license": "Prenesite lozinku, identitet identiteta ili vozačku dozvolu.",
       "Verification": "Verifikacija",
       "Verified-zone": "Provjerena zona",
       "Y-m-complet-t-following-cdt-t-b-certified": "Da biste dobili certifikat, morate ispuniti sljedeće uvjete.",
-      "Yr-profil-is-currently-being-checked-D": "Vaš se profil trenutno provjerava. Kontaktirat ćemo vas u roku od 48 sati putem e-pošte."
+      "Yr-profil-is-currently-being-checked-D": "Vaš se profil trenutno provjerava. Kontaktirat ćemo vas u roku od 48 sati putem e-pošte.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Učitajte putovnicu, identitet ili vozačku dozvolu."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Moje publikacije vide samo moji prijatelji",

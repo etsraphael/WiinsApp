@@ -946,11 +946,11 @@
       "T-b-accepted-b-t-administration": "Të pranohet nga administrata",
       "This-feature-requires-verification-to-use.": "Kjo karakteristikë kërkon verifikimin për t'u përdorur",
       "Upload-a-photo-holding-t-ID-D": "Vendosni një fotografi që mban ID me një fletë letre me datën e sotme dhe \"Wiins\" shkruan mbi të.",
-      "Upload-yr-password-id-identity-or-driver-license": "Vendosni fjalëkalimin, identitetin tuaj ose patentën e shoferit.",
       "Verification": "Verifikimi",
       "Verified-zone": "Zona e verifikuar",
       "Y-m-complet-t-following-cdt-t-b-certified": "Ju duhet të plotësoni kushtet e mëposhtme për t'u çertifikuar.",
-      "Yr-profil-is-currently-being-checked-D": "Profili juaj aktualisht po kontrollohet. Ne do t'ju kontaktojmë brenda 48 orëve me email."
+      "Yr-profil-is-currently-being-checked-D": "Profili juaj aktualisht po kontrollohet. Ne do t'ju kontaktojmë brenda 48 orëve me email.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Ngarko pasaportën, identitetin e identitetit ose patentën e shoferit."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Publikimet e mia janë të dukshme vetëm nga miqtë e mi",

@@ -893,10 +893,10 @@
       "Yr-profil-is-currently-being-checked-D": "আপনার প্রোফাইল বর্তমানে চেক করা হচ্ছে। আমরা আপনাকে ইমেলের মাধ্যমে 48 ঘন্টার মধ্যে যোগাযোগ করব।",
       "Verification": "প্রতিপাদন",
       "Pl-s-t-docs-a-complet-t-form-below": "দয়া করে প্রয়োজনীয় কাগজপত্র প্রেরণ করুন এবং নীচে ফর্মটি পূরণ করুন।",
-      "Upload-yr-password-id-identity-or-driver-license": "আপনার পাসওয়ার্ড, আইডি পরিচয় বা ড্রাইভার লাইসেন্স আপলোড করুন।",
       "Upload-a-photo-holding-t-ID-D": "আজকের তারিখ সহ কাগজের একটি শীটযুক্ত আইডি সম্বলিত একটি ছবি আপলোড করুন এবং এতে \"উইনস\" লিখেছেন।",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "আমি সম্মত হই যে আমার ডেটা আমার অ্যাকাউন্টটি পরীক্ষা করতে ব্যবহৃত হতে পারে।",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "যদি এটি জাতীয় পরিচয়পত্র (কেবল জাতীয় কার্ডের জন্য) থাকে তবে কার্ডটির পিছনের দিকটি আপলোড করতে ভুলবেন না"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "যদি এটি জাতীয় পরিচয়পত্র (কেবল জাতীয় কার্ডের জন্য) থাকে তবে কার্ডটির পিছনের দিকটি আপলোড করতে ভুলবেন না",
+      "Upload-yr-passport-id-identity-or-driver-license": "আপনার পাসপোর্ট, আইডি পরিচয় বা ড্রাইভার লাইসেন্স আপলোড করুন।"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "আমার প্রকাশনাগুলি কেবলমাত্র আমার বন্ধুদের দ্বারা দৃশ্যমান",

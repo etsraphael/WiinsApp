@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "Да га прихвати администрација",
       "This-feature-requires-verification-to-use.": "За коришћење ове функције је потребна верификација",
       "Upload-a-photo-holding-t-ID-D": "Отпремите фотографију на којој се налази лична карта са листом папира са данашњим датумом и на њој пише „Виинс“.",
-      "Upload-yr-password-id-identity-or-driver-license": "Отпремите лозинку, идентитет идентитета или возачку дозволу.",
       "Verification": "Верификација",
       "Verified-zone": "Верификована зона",
       "Y-m-complet-t-following-cdt-t-b-certified": "Морате испунити следеће услове да бисте били сертификовани.",
       "Yr-profil-is-currently-being-checked-D": "Ваш профил се тренутно проверава. Контактираћемо вас у року од 48 сати путем е-поште.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Обавезно отпремите задњу страну картице ако је то национална лична карта (само за националну картицу)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Обавезно отпремите задњу страну картице ако је то национална лична карта (само за националну картицу)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Отпремите пасош, идентитет или возачку дозволу."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Моје публикације виде само моји пријатељи",

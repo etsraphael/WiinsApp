@@ -946,11 +946,11 @@
       "T-b-accepted-b-t-administration": "Le glacadh leis an lucht riaracháin",
       "This-feature-requires-verification-to-use.": "Éilíonn an ghné seo fíorú le húsáid",
       "Upload-a-photo-holding-t-ID-D": "Uaslódáil grianghraf ag a bhfuil an ID le bileog páipéir le dáta an lae inniu agus scríobhann \"Wiins\" air.",
-      "Upload-yr-password-id-identity-or-driver-license": "Uaslódáil do phasfhocal, aitheantas id nó ceadúnas tiomána.",
       "Verification": "Fíorú",
       "Verified-zone": "Crios fíoraithe",
       "Y-m-complet-t-following-cdt-t-b-certified": "Caithfidh tú na coinníollacha seo a leanas a chomhlíonadh chun a dheimhniú.",
-      "Yr-profil-is-currently-being-checked-D": "Tá do phróifíl á seiceáil faoi láthair. Déanfaimid teagmháil leat laistigh de 48 uair an chloig trí ríomhphost."
+      "Yr-profil-is-currently-being-checked-D": "Tá do phróifíl á seiceáil faoi láthair. Déanfaimid teagmháil leat laistigh de 48 uair an chloig trí ríomhphost.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Uaslódáil do phas, d’aitheantas id nó do cheadúnas tiomána."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Níl mo chuid foilseachán le feiceáil ach ag mo chairde",

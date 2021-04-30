@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "Turi būti priimta administracijos",
       "This-feature-requires-verification-to-use.": "Norint naudoti šią funkciją, reikia patikrinti",
       "Upload-a-photo-holding-t-ID-D": "Įkelkite nuotrauką su asmens tapatybės dokumentu su popieriaus lapu su šios dienos data ir „Wiins“.",
-      "Upload-yr-password-id-identity-or-driver-license": "Įkelkite slaptažodį, tapatybę ar vairuotojo pažymėjimą.",
       "Verification": "Patikrinimas",
       "Verified-zone": "Patvirtinta zona",
       "Y-m-complet-t-following-cdt-t-b-certified": "Norėdami būti sertifikuoti, turite įvykdyti šias sąlygas.",
       "Yr-profil-is-currently-being-checked-D": "Jūsų profilis šiuo metu tikrinamas. Mes susisieksime su jumis per 48 valandas el. Paštu.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Būtinai įkelkite galinę kortelės pusę, jei tai yra nacionalinė asmens tapatybės kortelė (skirta tik nacionalinei kortelei)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Būtinai įkelkite galinę kortelės pusę, jei tai yra nacionalinė asmens tapatybės kortelė (skirta tik nacionalinei kortelei)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Įkelkite savo pasą, asmens tapatybę ar vairuotojo pažymėjimą."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Mano leidinius mato tik mano draugai",

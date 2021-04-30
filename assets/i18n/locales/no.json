@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "Å bli akseptert av administrasjonen",
       "This-feature-requires-verification-to-use.": "Denne funksjonen krever bekreftelse for å kunne brukes",
       "Upload-a-photo-holding-t-ID-D": "Last opp et bilde som inneholder ID-en med et ark med dagens dato og \"Wiins\" skriver på den.",
-      "Upload-yr-password-id-identity-or-driver-license": "Last opp passord, ID-identitet eller førerkort.",
       "Verification": "Bekreftelse",
       "Verified-zone": "Bekreftet sone",
       "Y-m-complet-t-following-cdt-t-b-certified": "Du må fullføre følgende betingelser for å bli sertifisert.",
       "Yr-profil-is-currently-being-checked-D": "Profilen din blir nå sjekket. Vi vil kontakte deg innen 48 timer via e-post.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Sørg for å laste opp baksiden av kortet hvis det er et nasjonalt ID-kort (bare for det nasjonale kortet)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Sørg for å laste opp baksiden av kortet hvis det er et nasjonalt ID-kort (bare for det nasjonale kortet)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Last opp pass, ID-identitet eller førerkort."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Publikasjonene mine er bare synlige av vennene mine",

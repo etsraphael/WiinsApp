@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "Να γίνει αποδεκτή από τη διοίκηση",
       "This-feature-requires-verification-to-use.": "Αυτή η λειτουργία απαιτεί επαλήθευση για χρήση",
       "Upload-a-photo-holding-t-ID-D": "Ανεβάστε μια φωτογραφία που περιέχει το αναγνωριστικό με ένα φύλλο χαρτιού με τη σημερινή ημερομηνία και το \"Wiins\" γράφει σε αυτήν.",
-      "Upload-yr-password-id-identity-or-driver-license": "Ανεβάστε τον κωδικό πρόσβασής σας, την ταυτότητα ταυτότητας ή την άδεια οδήγησης.",
       "Verification": "Επαλήθευση",
       "Verified-zone": "Επαληθευμένη ζώνη",
       "Y-m-complet-t-following-cdt-t-b-certified": "Πρέπει να συμπληρώσετε τις ακόλουθες προϋποθέσεις για πιστοποίηση.",
       "Yr-profil-is-currently-being-checked-D": "Το προφίλ σας ελέγχεται αυτήν τη στιγμή. Θα επικοινωνήσουμε μαζί σας εντός 48 ωρών μέσω email.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Φροντίστε να ανεβάσετε την πίσω πλευρά της κάρτας εάν είναι η εθνική ταυτότητα (μόνο για την εθνική κάρτα)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Φροντίστε να ανεβάσετε την πίσω πλευρά της κάρτας εάν είναι η εθνική ταυτότητα (μόνο για την εθνική κάρτα)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Ανεβάστε το διαβατήριό σας, την ταυτότητα ή την άδεια οδήγησης"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Οι δημοσιεύσεις μου είναι ορατές μόνο από τους φίλους μου",

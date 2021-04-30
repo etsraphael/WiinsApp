@@ -946,11 +946,11 @@
       "T-b-accepted-b-t-administration": "Буде прийнятий адміністрацією",
       "This-feature-requires-verification-to-use.": "Для використання цієї функції потрібна перевірка",
       "Upload-a-photo-holding-t-ID-D": "Завантажте фотографію, що тримає посвідчення особи, з аркушем паперу із сьогоднішньою датою та написом \"Wiins\".",
-      "Upload-yr-password-id-identity-or-driver-license": "Завантажте свій пароль, посвідчення особи або водійські права.",
       "Verification": "Перевірка",
       "Verified-zone": "Перевірена зона",
       "Y-m-complet-t-following-cdt-t-b-certified": "Ви повинні виконати наступні умови, щоб пройти сертифікацію.",
-      "Yr-profil-is-currently-being-checked-D": "Ваш профіль зараз перевіряється. Ми зв’яжемося з вами електронною поштою протягом 48 годин."
+      "Yr-profil-is-currently-being-checked-D": "Ваш профіль зараз перевіряється. Ми зв’яжемося з вами електронною поштою протягом 48 годин.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Завантажте паспорт, посвідчення особи або водійські права."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Мої публікації бачать лише мої друзі",

@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "ត្រូវបានទទួលយកដោយរដ្ឋបាល",
       "This-feature-requires-verification-to-use.": "លក្ខណៈពិសេសនេះទាមទារការផ្ទៀងផ្ទាត់ដើម្បីប្រើ",
       "Upload-a-photo-holding-t-ID-D": "បញ្ចូលរូបថតមួយសន្លឹកដែលមានអត្តសញ្ញាណប័ណ្ណមកជាមួយសន្លឹកក្រដាសដែលមានកាលបរិច្ឆេទបច្ចុប្បន្នហើយ \"វ៉ាយវីន\" សរសេរនៅលើនោះ។",
-      "Upload-yr-password-id-identity-or-driver-license": "ផ្ទុកឡើងនូវលេខសម្ងាត់អត្តសញ្ញាណប័ណ្ណឬប័ណ្ណបើកបររបស់អ្នក។",
       "Verification": "ការផ្ទៀងផ្ទាត់",
       "Verified-zone": "តំបន់ដែលបានផ្ទៀងផ្ទាត់",
       "Y-m-complet-t-following-cdt-t-b-certified": "អ្នកត្រូវតែបំពេញលក្ខខណ្ឌដូចខាងក្រោមដើម្បីបញ្ជាក់។",
       "Yr-profil-is-currently-being-checked-D": "ប្រវត្តិរូបរបស់អ្នកកំពុងត្រូវបានត្រួតពិនិត្យ។ យើងនឹងទាក់ទងអ្នកក្នុងរយៈពេល ៤៨ ម៉ោងតាមអ៊ីមែល។",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "ត្រូវប្រាកដថាបញ្ចូលសន្លឹកបៀរខាងក្រោយប្រសិនបើវាជាអត្តសញ្ញាណប័ណ្ណជាតិ (សម្រាប់តែអត្តសញ្ញាណប័ណ្ណ)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "ត្រូវប្រាកដថាបញ្ចូលសន្លឹកបៀរខាងក្រោយប្រសិនបើវាជាអត្តសញ្ញាណប័ណ្ណជាតិ (សម្រាប់តែអត្តសញ្ញាណប័ណ្ណ)",
+      "Upload-yr-passport-id-identity-or-driver-license": "បញ្ចូលលិខិតឆ្លងដែនអត្តសញ្ញាណប័ណ្ណឬប័ណ្ណបើកបរ។"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "ការបោះពុម្ពផ្សាយរបស់ខ្ញុំអាចមើលឃើញដោយមិត្តភក្តិរបស់ខ្ញុំតែប៉ុណ្ណោះ",

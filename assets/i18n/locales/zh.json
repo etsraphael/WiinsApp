@@ -893,10 +893,10 @@
       "Yr-profil-is-currently-being-checked-D": "目前正在检查您的个人资料。我们将在48小时内通过电子邮件与您联系。",
       "Verification": "验证",
       "Pl-s-t-docs-a-complet-t-form-below": "请发送必要的文件并填写以下表格。",
-      "Upload-yr-password-id-identity-or-driver-license": "上传您的密码，ID身份或驾驶执照。",
       "Upload-a-photo-holding-t-ID-D": "上传带有ID的照片和一张带有今天日期的纸，并在上面写上“空白”。",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "我同意我的数据可用于检查我的帐户。",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "如果是身份证，请确保上传卡的背面（仅适用于身份证）"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "如果是身份证，请确保上传卡的背面（仅适用于身份证）",
+      "Upload-yr-passport-id-identity-or-driver-license": "上传您的护照，身份证件或驾驶执照。"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "接受暴力作为试图改变事物的手段",

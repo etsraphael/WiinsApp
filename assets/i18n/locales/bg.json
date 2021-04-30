@@ -945,12 +945,12 @@
       "T-b-accepted-b-t-administration": "Да бъде приет от администрацията",
       "This-feature-requires-verification-to-use.": "Тази функция изисква проверка, за да се използва",
       "Upload-a-photo-holding-t-ID-D": "Качете снимка, съдържаща личната карта, с лист хартия с днешната дата и върху нея пише „Wiins“.",
-      "Upload-yr-password-id-identity-or-driver-license": "Качете вашата парола, самоличност или шофьорска книжка.",
       "Verification": "Проверка",
       "Verified-zone": "Проверена зона",
       "Y-m-complet-t-following-cdt-t-b-certified": "Трябва да изпълните следните условия, за да бъдете сертифицирани.",
       "Yr-profil-is-currently-being-checked-D": "Понастоящем вашият профил се проверява. Ще се свържем с вас в рамките на 48 часа по имейл.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Не забравяйте да качите задната страна на картата, ако това е националната лична карта (само за националната карта)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Не забравяйте да качите задната страна на картата, ако това е националната лична карта (само за националната карта)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Качете паспорта си, самоличност или шофьорска книжка."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Публикациите ми се виждат само от приятелите ми",

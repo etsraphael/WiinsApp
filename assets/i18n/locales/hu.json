@@ -946,11 +946,11 @@
       "T-b-accepted-b-t-administration": "A közigazgatás elfogadja",
       "This-feature-requires-verification-to-use.": "A funkció használatához igazolás szükséges",
       "Upload-a-photo-holding-t-ID-D": "Töltsön fel egy fényképet, amelyen szerepel az igazolvány és egy papírlap a mai dátummal, és a \"Wiins\" írja rá.",
-      "Upload-yr-password-id-identity-or-driver-license": "Töltse fel jelszavát, azonosítóját vagy vezetői engedélyét.",
       "Verification": "Igazolás",
       "Verified-zone": "Ellenőrzött zóna",
       "Y-m-complet-t-following-cdt-t-b-certified": "A tanúsításhoz a következő feltételeket kell teljesítenie.",
-      "Yr-profil-is-currently-being-checked-D": "Profilod ellenőrzése folyamatban van. 48 órán belül e-mailben felvesszük Önnel a kapcsolatot."
+      "Yr-profil-is-currently-being-checked-D": "Profilod ellenőrzése folyamatban van. 48 órán belül e-mailben felvesszük Önnel a kapcsolatot.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Töltse fel útlevelét, személyi igazolványát vagy vezetői engedélyét."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Kiadványaimat csak a barátaim láthatják",
