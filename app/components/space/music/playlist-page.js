@@ -171,6 +171,7 @@ class PlaylistPage extends React.Component {
                         music={item}
                         tracklist={this.props.PlaylistPage.playlist.musicList}
                         index={index}
+                        space={'playlist-page'}
                     />
                 )}
             />

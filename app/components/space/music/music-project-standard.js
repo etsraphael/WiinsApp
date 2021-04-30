@@ -55,6 +55,7 @@ class MusicProjectStandard extends React.Component {
                                 music={item}
                                 tracklist={musicProject.musicList}
                                 index={index}
+                                space={'playlist-page'}
                             />
                         )}
                     />
