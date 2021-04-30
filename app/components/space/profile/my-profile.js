@@ -112,7 +112,7 @@ class MyProfile extends React.Component {
                             </TouchableOpacity>
                         </View>
                         <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>Profile</Text>
+                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>{I18n.t('CORE.Profile')}</Text>
                         </View>
                         <View style={{ flex: 1 }}>
                             <TouchableOpacity onPress={this.showActionSheet}
@@ -158,7 +158,7 @@ class MyProfile extends React.Component {
 
                             <View style={{ position: 'relative', bottom: -15 }}>
                                 <Text style={{ fontSize: 22, color: '#333333', fontFamily: 'Avenir-Heavy' }}>@{this.props.MyProfile.profile._meta.pseudo}</Text>
-                                <Text style={{ color: '#77838F', fontSize: 15, fontFamily: 'Avenir-Book' }}>Community : {this.props.MyProfile.profile.communityTotal}</Text>
+                                <Text style={{ color: '#77838F', fontSize: 15, fontFamily: 'Avenir-Book' }}>{I18n.t('CORE.Community')} : {this.props.MyProfile.profile.communityTotal}</Text>
                             </View>
                         </View>
                     </View>

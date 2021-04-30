@@ -96,7 +96,7 @@ class Profile extends React.Component {
                             </TouchableOpacity>
                         </View>
                         <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>{I18n.t('CORE.Profile')} </Text>
+                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>{I18n.t('CORE.Profile')}</Text>
                         </View>
                         <TouchableOpacity style={{ flex: 1 }} onPress={() => this._toggleOptionProfileReportModal()}>
                             <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={40} />
