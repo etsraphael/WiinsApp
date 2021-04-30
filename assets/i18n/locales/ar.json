@@ -219,7 +219,9 @@
     "Save-in-phone": "حفظ في الهاتف",
     "No": "لا",
     "Yes": "نعم",
-    "Block-t-user": "منع هذا المستخدم"
+    "Block-t-user": "منع هذا المستخدم",
+    "Message": "رسالة",
+    "Friend-request": "طلب صداقة"
   },
   "COUNTRY": {
     "AD": "اندورا",

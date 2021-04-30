@@ -261,7 +261,9 @@
     "Save-in-phone": "Telefonda saqlang",
     "No": "Yo'q",
     "Yes": "Ha",
-    "Block-t-user": "Ushbu foydalanuvchini bloklash"
+    "Block-t-user": "Ushbu foydalanuvchini bloklash",
+    "Message": "Xabar",
+    "Friend-request": "Do'stlik so'rovi"
   },
   "COUNTRY": {
     "AD": "Andorra",

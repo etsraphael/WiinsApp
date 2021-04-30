@@ -261,7 +261,9 @@
     "Save-in-phone": "Telefona kaydet",
     "No": "Hayır",
     "Yes": "Evet",
-    "Block-t-user": "Bu kullanıcıyı engelle"
+    "Block-t-user": "Bu kullanıcıyı engelle",
+    "Message": "İleti",
+    "Friend-request": "Arkadaşlık isteği"
   },
   "COUNTRY": {
     "AD": "Andorra",

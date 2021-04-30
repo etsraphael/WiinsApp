@@ -219,7 +219,9 @@
     "Save-in-phone": "전화에 저장",
     "No": "아니",
     "Yes": "예",
-    "Block-t-user": "이 사용자 차단"
+    "Block-t-user": "이 사용자 차단",
+    "Message": "메시지",
+    "Friend-request": "친구 요청"
   },
   "COUNTRY": {
     "AD": "안도라",

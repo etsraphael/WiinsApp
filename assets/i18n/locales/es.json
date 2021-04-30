@@ -219,7 +219,9 @@
     "Save-in-phone": "Guardar en el teléfono",
     "No": "No",
     "Yes": "sí",
-    "Block-t-user": "Bloquee este usuario"
+    "Block-t-user": "Bloquee este usuario",
+    "Message": "Mensaje",
+    "Friend-request": "Solicitud de amistad"
   },
   "COUNTRY": {
     "AD": "Andorra",

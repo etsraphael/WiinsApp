@@ -261,7 +261,9 @@
     "Save-in-phone": "Lưu trong điện thoại",
     "No": "Không",
     "Yes": "Đúng",
-    "Block-t-user": "Chặn người dùng này"
+    "Block-t-user": "Chặn người dùng này",
+    "Message": "Thông điệp",
+    "Friend-request": "Yêu cầu kết bạn"
   },
   "COUNTRY": {
     "AD": "Andorra",

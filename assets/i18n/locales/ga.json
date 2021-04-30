@@ -261,7 +261,9 @@
     "Save-in-phone": "Sábháil ar an bhfón",
     "No": "Níl",
     "Yes": "Sea",
-    "Block-t-user": "Cuir bac ar an úsáideoir seo"
+    "Block-t-user": "Cuir bac ar an úsáideoir seo",
+    "Message": "Teachtaireacht",
+    "Friend-request": "Iarraidh chara"
   },
   "COUNTRY": {
     "AD": "Andóra",

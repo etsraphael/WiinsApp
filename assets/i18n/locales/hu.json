@@ -261,7 +261,9 @@
     "Save-in-phone": "Mentse a telefonba",
     "No": "Nem",
     "Yes": "Igen",
-    "Block-t-user": "Letiltja ezt a felhasználót"
+    "Block-t-user": "Letiltja ezt a felhasználót",
+    "Message": "Üzenet",
+    "Friend-request": "Baráti felkérés"
   },
   "COUNTRY": {
     "AD": "Andorra",

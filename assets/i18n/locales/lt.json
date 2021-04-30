@@ -261,7 +261,9 @@
     "Save-in-phone": "Išsaugokite telefone",
     "No": "Ne",
     "Yes": "Taip",
-    "Block-t-user": "Blokuoti šį vartotoją"
+    "Block-t-user": "Blokuoti šį vartotoją",
+    "Message": "Pranešimas",
+    "Friend-request": "Kvietimas draugauti"
   },
   "COUNTRY": {
     "AD": "Andora",

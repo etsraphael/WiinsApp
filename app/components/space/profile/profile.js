@@ -18,6 +18,7 @@ import OptionPublicationModal from './../../core/modal/option-publication-modal'
 import OptionProfileModal from './../../core/modal/option-profile-modal'
 import { faCircle } from '@fortawesome/pro-solid-svg-icons'
 import { TabActions } from '@react-navigation/native'
+import I18n from '../../../../assets/i18n/i18n'
 
 class Profile extends React.Component {
 
@@ -73,7 +74,7 @@ class Profile extends React.Component {
                 <TouchableOpacity onPress={() => this.props.actions.confirmFriendRequest(this.props.Profile.profile._id)}
                     style={{ borderRadius: 7, overflow: 'hidden', padding: 12, flexDirection: 'row' }}>
                     <FontAwesomeIcon icon={faUserPlus} color={'white'} size={18} style={[styles.icon_relation, { marginHorizontal: 7 }]} />
-                    <Text style={{ color: 'white', fontWeight: '600' }}>Confirm</Text>
+                    <Text style={{ color: 'white', fontWeight: '600' }}>{I18n.t('CORE.Confirm')}</Text>
                 </TouchableOpacity>
             </LinearGradient>
         )
@@ -95,7 +96,7 @@ class Profile extends React.Component {
                             </TouchableOpacity>
                         </View>
                         <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>Profile</Text>
+                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>{I18n.t('CORE.Profile')} </Text>
                         </View>
                         <TouchableOpacity style={{ flex: 1 }} onPress={() => this._toggleOptionProfileReportModal()}>
                             <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={40} />
@@ -129,7 +130,7 @@ class Profile extends React.Component {
                             {this._displayBtnRelation()}
                             <View style={{ position: 'relative', bottom: -15 }}>
                                 <Text style={{ fontSize: 22, color: '#333333', fontFamily: 'Avenir-Heavy' }}>@{this.props.Profile.profile._meta.pseudo}</Text>
-                                <Text style={{ color: '#77838F', fontSize: 15, fontFamily: 'Avenir-Book' }}>Community : {this.props.Profile.profile.communityTotal}</Text>
+                                <Text style={{ color: '#77838F', fontSize: 15, fontFamily: 'Avenir-Book' }}>{I18n.t('CORE.Community')} : {this.props.Profile.profile.communityTotal}</Text>
                             </View>
                         </View>
                     </View>
@@ -157,13 +158,13 @@ class Profile extends React.Component {
                 {this.props.Profile.profile.relation == 'following' ?
                     <TouchableOpacity style={{ flex: 2 }}>
                         <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Following</Text>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Following')}</Text>
                         </View>
                     </TouchableOpacity>
                     :
                     <TouchableOpacity style={{ flex: 2 }} onPress={() => this.props.actions.follow(this.props.Profile.profile._id)}>
                         <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Follow</Text>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Follow')}</Text>
                         </View>
                     </TouchableOpacity>
                 }
@@ -179,7 +180,7 @@ class Profile extends React.Component {
                 <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity style={{ flex: 2 }} onPress={() => this._openRoomInMessenger()}>
                         <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Message</Text>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Message')}</Text>
                         </View>
                     </TouchableOpacity>
                     <View style={{ flex: 1 }} />
@@ -190,7 +191,7 @@ class Profile extends React.Component {
                 <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity style={{ flex: 4 }} onPress={() => this.props.actions.askFriend(this.props.Profile.profile._id)}>
                         <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Friend request</Text>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Friend-request')}</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -199,7 +200,7 @@ class Profile extends React.Component {
                 <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity style={{ flex: 4 }} onPress={() => this.props.actions.cancelFriendRequest(this.props.Profile.profile._id)}>
                         <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Pending</Text>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Pending')}</Text>
                         </View>
                     </TouchableOpacity>
                 </View>

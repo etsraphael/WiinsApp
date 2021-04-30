@@ -261,7 +261,9 @@
     "Save-in-phone": "Gem i telefonen",
     "No": "Ingen",
     "Yes": "Ja",
-    "Block-t-user": "Bloker denne bruger"
+    "Block-t-user": "Bloker denne bruger",
+    "Message": "Besked",
+    "Friend-request": "Venneanmodning"
   },
   "COUNTRY": {
     "AD": "Andorra",

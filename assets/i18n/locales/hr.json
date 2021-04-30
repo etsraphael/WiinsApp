@@ -261,7 +261,9 @@
     "Save-in-phone": "Spremi u telefon",
     "No": "Ne",
     "Yes": "Da",
-    "Block-t-user": "Blokiraj ovog korisnika"
+    "Block-t-user": "Blokiraj ovog korisnika",
+    "Message": "Poruka",
+    "Friend-request": "Zahtjev za prijateljstvo"
   },
   "COUNTRY": {
     "AD": "Andora",

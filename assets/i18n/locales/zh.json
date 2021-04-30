@@ -219,7 +219,9 @@
     "Save-in-phone": "储存在手机中",
     "No": "不",
     "Yes": "是的",
-    "Block-t-user": "阻止此用户"
+    "Block-t-user": "阻止此用户",
+    "Message": "信息",
+    "Friend-request": "好友请求"
   },
   "COUNTRY": {
     "AD": "安道尔",

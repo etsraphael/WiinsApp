@@ -261,7 +261,9 @@
     "Save-in-phone": "Salvați în telefon",
     "No": "Nu",
     "Yes": "da",
-    "Block-t-user": "Blochează acest utilizator"
+    "Block-t-user": "Blochează acest utilizator",
+    "Message": "Mesaj",
+    "Friend-request": "Cerere de prietenie"
   },
   "COUNTRY": {
     "AD": "Andorra",

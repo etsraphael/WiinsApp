@@ -261,7 +261,9 @@
     "Save-in-phone": "Kurseni në telefon",
     "No": "Jo",
     "Yes": "po",
-    "Block-t-user": "Blloko këtë përdorues"
+    "Block-t-user": "Blloko këtë përdorues",
+    "Message": "Mesazh",
+    "Friend-request": "Kërkesë miqësie"
   },
   "COUNTRY": {
     "AD": "Andorra",

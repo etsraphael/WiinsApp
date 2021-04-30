@@ -261,7 +261,9 @@
     "Save-in-phone": "Spara i telefonen",
     "No": "Nej",
     "Yes": "Ja",
-    "Block-t-user": "Blockera den här användaren"
+    "Block-t-user": "Blockera den här användaren",
+    "Message": "Meddelande",
+    "Friend-request": "Vänförfrågan"
   },
   "COUNTRY": {
     "AD": "andorra",

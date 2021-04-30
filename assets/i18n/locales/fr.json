@@ -219,7 +219,9 @@
     "Url-Copied": "URL copiée",
     "No": "Non",
     "Yes": "Oui",
-    "Block-t-user": "Bloquer cet utilisateur"
+    "Block-t-user": "Bloquer cet utilisateur",
+    "Message": "Un message",
+    "Friend-request": "Demande d'ami"
   },
   "COUNTRY": {
     "AD": "Andorre",

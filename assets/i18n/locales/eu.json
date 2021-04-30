@@ -261,7 +261,9 @@
     "Save-in-phone": "Gorde telefonoan",
     "No": "Ez",
     "Yes": "Bai",
-    "Block-t-user": "Blokeatu erabiltzaile hau"
+    "Block-t-user": "Blokeatu erabiltzaile hau",
+    "Message": "Mezua",
+    "Friend-request": "Lagun-eskaera"
   },
   "COUNTRY": {
     "AD": "Andorra",

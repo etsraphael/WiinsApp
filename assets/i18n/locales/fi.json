@@ -261,7 +261,9 @@
     "Save-in-phone": "Tallenna puhelimeen",
     "No": "Ei",
     "Yes": "Joo",
-    "Block-t-user": "Estä tämä käyttäjä"
+    "Block-t-user": "Estä tämä käyttäjä",
+    "Message": "Viesti",
+    "Friend-request": "Kaveripyyntö"
   },
   "COUNTRY": {
     "AD": "Andorra",

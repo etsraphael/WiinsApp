@@ -261,7 +261,9 @@
     "Save-in-phone": "Cadw mewn ffôn",
     "No": "Na",
     "Yes": "Ydw",
-    "Block-t-user": "Blociwch y defnyddiwr hwn"
+    "Block-t-user": "Blociwch y defnyddiwr hwn",
+    "Message": "Neges",
+    "Friend-request": "Cais ffrind"
   },
   "COUNTRY": {
     "AD": "Andorra",

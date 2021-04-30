@@ -219,7 +219,9 @@
     "Save-in-phone": "電話で保存",
     "No": "番号",
     "Yes": "はい",
-    "Block-t-user": "このユーザーをブロックする"
+    "Block-t-user": "このユーザーをブロックする",
+    "Message": "メッセージ",
+    "Friend-request": "友達リクエスト"
   },
   "COUNTRY": {
     "AD": "アンドラ",

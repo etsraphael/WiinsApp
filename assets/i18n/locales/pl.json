@@ -261,7 +261,9 @@
     "Save-in-phone": "Zapisz w telefonie",
     "No": "Nie",
     "Yes": "tak",
-    "Block-t-user": "Zablokuj tego użytkownika"
+    "Block-t-user": "Zablokuj tego użytkownika",
+    "Message": "Wiadomość",
+    "Friend-request": "Zaproszenie do znajomych"
   },
   "COUNTRY": {
     "AD": "Andora",
