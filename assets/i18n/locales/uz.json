@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Siz o'zingizni qo'sha olmaysiz",
     "T-content-does-not-exist-anymore": "Ushbu tarkib endi mavjud emas",
     "T-publication-no-longer-exists": "Ushbu nashr endi mavjud emas",
-    "Could-not-play-video": "Videoni ijro qilib bo‘lmadi"
+    "Could-not-play-video": "Videoni ijro qilib bo‘lmadi",
+    "No-music-liked-yet": "Hali musiqa yoqmadi"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Surat qabul qilindi",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Ushbu loyihani o'chirib tashlang",
-    "generate-t-id": "Oyoq izini yarating"
+    "generate-t-id": "Oyoq izini yarating",
+    "Uploading-publication": "Nashr yuklanmoqda"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Ushbu xabar haqida xabar berishning sababi nima?",
     "W-is-t-reason-to-report-t-post-D": "Sizning hisobotingiz noma'lum. Iltimos, moratatorlarga yordam berish uchun faqat bitta toifani tanlang",
     "A-y-s-to-unfollow-this-profile": "Ushbu profilni bekor qilishingizga ishonchingiz komilmi?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ushbu do'stingizni do'stlaringiz ro'yxatidan o'chirishga ishonchingiz komilmi?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ushbu do'stingizni do'stlaringiz ro'yxatidan o'chirishga ishonchingiz komilmi?",
+    "A-y-s-to-delete-t-story": "Ushbu hikoyani o'chirishga ishonchingiz komilmi?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Ogohlantirish. To'g'ri manzilga ega ekanligingizga ishonch hosil qiling"
@@ -1440,7 +1443,8 @@
       "Rock": "Tosh",
       "Reggae": "Reggae",
       "Country": "Mamlakat"
-    }
+    },
+    "Playlist-Details": "Pleylist tafsilotlari"
   },
   "WIINS-TUBE": {
     "CREATION": {

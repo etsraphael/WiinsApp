@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Nie możesz dodać siebie",
     "T-content-does-not-exist-anymore": "Ta treść już nie istnieje",
     "T-publication-no-longer-exists": "Ta publikacja już nie istnieje",
-    "Could-not-play-video": "Nie udało się odtworzyć wideo"
+    "Could-not-play-video": "Nie udało się odtworzyć wideo",
+    "No-music-liked-yet": "Nie podobała się jeszcze żadna muzyka"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Zdjęcie zostało odebrane",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Usuń ten projekt",
-    "generate-t-id": "Wygeneruj ślad"
+    "generate-t-id": "Wygeneruj ślad",
+    "Uploading-publication": "Przesyłanie publikacji"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Jaki jest powód zgłoszenia tego posta?",
     "W-is-t-reason-to-report-t-post-D": "Twoje zgłoszenie jest anonimowe. Wybierz tylko kategorię, aby pomóc moratorom",
     "A-y-s-to-unfollow-this-profile": "Czy na pewno chcesz przestać obserwować ten profil?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Czy na pewno chcesz usunąć tego znajomego ze swojej listy znajomych?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Czy na pewno chcesz usunąć tego znajomego ze swojej listy znajomych?",
+    "A-y-s-to-delete-t-story": "Czy na pewno chcesz usunąć tę historię?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Ostrzeżenie. Upewnij się, że masz właściwy adres"
@@ -1440,7 +1443,8 @@
       "Rock": "Skała",
       "Reggae": "Reggae",
       "Country": "Kraj"
-    }
+    },
+    "Playlist-Details": "Szczegóły listy odtwarzania"
   },
   "WIINS-TUBE": {
     "CREATION": {

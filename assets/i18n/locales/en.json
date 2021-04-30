@@ -591,7 +591,8 @@
     "You-cannot-add-yourself": "You cannot add yourself",
     "T-content-does-not-exist-anymore": "This content does not exist anymore",
     "T-publication-no-longer-exists": "This publication no longer exists",
-    "Could-not-play-video": "Could not play video"
+    "Could-not-play-video": "Could not play video",
+    "No-music-liked-yet": "No music liked yet"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "The photo is received",
@@ -728,7 +729,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Delete this project",
-    "generate-t-id": "Generate the footprint"
+    "generate-t-id": "Generate the footprint",
+    "Uploading-publication": "Uploading publication"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -1009,7 +1011,8 @@
     "W-is-t-reason-to-report-t-post": "What is the reason to report this post ?",
     "W-is-t-reason-to-report-t-post-D": "Your report is anonymous. Please choose just a category to help the morators",
     "A-y-s-to-unfollow-this-profile": "Are you sure to unfollow this profile ?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Are you sure to delete this friend in your friend list ?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Are you sure to delete this friend in your friend list ?",
+    "A-y-s-to-delete-t-story": "Are you sure to delete this story ?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Warning. Make sure you have the right address"
@@ -1383,7 +1386,8 @@
       "Rock": "Rock",
       "Reggae": "Reggae",
       "Country": "Country"
-    }
+    },
+    "Playlist-Details": "Playlist Details"
   },
   "WIINS-TUBE": {
     "CREATION": {

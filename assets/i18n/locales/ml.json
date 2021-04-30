@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "നിങ്ങൾക്ക് സ്വയം ചേർക്കാൻ കഴിയില്ല",
     "T-content-does-not-exist-anymore": "ഈ ഉള്ളടക്കം ഇപ്പോൾ നിലവിലില്ല",
     "T-publication-no-longer-exists": "ഈ പ്രസിദ്ധീകരണം നിലവിലില്ല",
-    "Could-not-play-video": "വീഡിയോ പ്ലേ ചെയ്യാൻ കഴിഞ്ഞില്ല"
+    "Could-not-play-video": "വീഡിയോ പ്ലേ ചെയ്യാൻ കഴിഞ്ഞില്ല",
+    "No-music-liked-yet": "സംഗീതമൊന്നും ഇതുവരെ ഇഷ്‌ടപ്പെട്ടില്ല"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ഫോട്ടോ ലഭിച്ചു",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "ഈ പ്രോജക്റ്റ് ഇല്ലാതാക്കുക",
-    "generate-t-id": "കാൽപ്പാടുകൾ സൃഷ്ടിക്കുക"
+    "generate-t-id": "കാൽപ്പാടുകൾ സൃഷ്ടിക്കുക",
+    "Uploading-publication": "പ്രസിദ്ധീകരണം അപ്‌ലോഡുചെയ്യുന്നു"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "ഈ പോസ്റ്റ് റിപ്പോർട്ടുചെയ്യാനുള്ള കാരണം എന്താണ്?",
     "W-is-t-reason-to-report-t-post-D": "നിങ്ങളുടെ റിപ്പോർട്ട് അജ്ഞാതമാണ്. മൊറേറ്റർമാരെ സഹായിക്കാൻ ദയവായി ഒരു വിഭാഗം തിരഞ്ഞെടുക്കുക",
     "A-y-s-to-unfollow-this-profile": "ഈ പ്രൊഫൈൽ പിന്തുടരില്ലെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "നിങ്ങളുടെ ചങ്ങാതി പട്ടികയിൽ‌ ഈ ചങ്ങാതിയെ ഇല്ലാതാക്കുമെന്ന് ഉറപ്പാണോ?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "നിങ്ങളുടെ ചങ്ങാതി പട്ടികയിൽ‌ ഈ ചങ്ങാതിയെ ഇല്ലാതാക്കുമെന്ന് ഉറപ്പാണോ?",
+    "A-y-s-to-delete-t-story": "ഈ സ്റ്റോറി ഇല്ലാതാക്കുമെന്ന് നിങ്ങൾക്ക് ഉറപ്പാണോ?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "മുന്നറിയിപ്പ്. നിങ്ങൾക്ക് ശരിയായ വിലാസമുണ്ടെന്ന് ഉറപ്പാക്കുക"
@@ -1440,7 +1443,8 @@
       "Rock": "പാറ",
       "Reggae": "റെഗ്ഗെ",
       "Country": "രാജ്യം"
-    }
+    },
+    "Playlist-Details": "പ്ലേലിസ്റ്റ് വിശദാംശങ്ങൾ"
   },
   "WIINS-TUBE": {
     "CREATION": {

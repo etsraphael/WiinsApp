@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Не можете да се добавите",
     "T-content-does-not-exist-anymore": "Това съдържание вече не съществува",
     "T-publication-no-longer-exists": "Тази публикация вече не съществува",
-    "Could-not-play-video": "Видеото не можа да се възпроизведе"
+    "Could-not-play-video": "Видеото не можа да се възпроизведе",
+    "No-music-liked-yet": "Все още няма харесвана музика"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Снимката е получена",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Изтрийте този проект",
-    "generate-t-id": "Генерирайте отпечатъка"
+    "generate-t-id": "Генерирайте отпечатъка",
+    "Uploading-publication": "Качване на публикация"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Каква е причината да докладвате за тази публикация?",
     "W-is-t-reason-to-report-t-post-D": "Докладът ви е анонимен. Моля, изберете само категория, за да помогнете на мораторите",
     "A-y-s-to-unfollow-this-profile": "Наистина ли прекратявате следването на този профил?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Наистина ли сте изтрили този приятел в списъка си с приятели?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Наистина ли сте изтрили този приятел в списъка си с приятели?",
+    "A-y-s-to-delete-t-story": "Наистина ли сте изтрили тази история?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Внимание. Уверете се, че имате правилния адрес"
@@ -1440,7 +1443,8 @@
       "Rock": "Рок",
       "Reggae": "Реге",
       "Country": "Държава"
-    }
+    },
+    "Playlist-Details": "Подробности за плейлиста"
   },
   "WIINS-TUBE": {
     "CREATION": {

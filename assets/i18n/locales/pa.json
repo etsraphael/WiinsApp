@@ -591,7 +591,8 @@
     "You-cannot-add-yourself": "ਤੁਸੀਂ ਆਪਣੇ ਆਪ ਨੂੰ ਸ਼ਾਮਲ ਨਹੀਂ ਕਰ ਸਕਦੇ",
     "T-content-does-not-exist-anymore": "ਇਹ ਸਮਗਰੀ ਹੁਣ ਮੌਜੂਦ ਨਹੀਂ ਹੈ",
     "T-publication-no-longer-exists": "ਇਹ ਪ੍ਰਕਾਸ਼ਨ ਹੁਣ ਮੌਜੂਦ ਨਹੀਂ ਹੈ",
-    "Could-not-play-video": "ਵੀਡੀਓ ਚਲਾ ਨਹੀਂ ਸਕਿਆ"
+    "Could-not-play-video": "ਵੀਡੀਓ ਚਲਾ ਨਹੀਂ ਸਕਿਆ",
+    "No-music-liked-yet": "ਅਜੇ ਤੱਕ ਕੋਈ ਸੰਗੀਤ ਪਸੰਦ ਨਹੀਂ ਕੀਤਾ ਗਿਆ"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ਫੋਟੋ ਮਿਲੀ ਹੈ",
@@ -728,7 +729,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "ਇਸ ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਮਿਟਾਓ",
-    "generate-t-id": "ਪੈਰਾਂ ਦੇ ਨਿਸ਼ਾਨ ਤਿਆਰ ਕਰੋ"
+    "generate-t-id": "ਪੈਰਾਂ ਦੇ ਨਿਸ਼ਾਨ ਤਿਆਰ ਕਰੋ",
+    "Uploading-publication": "ਅਪਲੋਡ ਪ੍ਰਕਾਸ਼ਨ"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -1009,7 +1011,8 @@
     "W-is-t-reason-to-report-t-post": "ਇਸ ਪੋਸਟ ਨੂੰ ਰਿਪੋਰਟ ਕਰਨ ਦਾ ਕੀ ਕਾਰਨ ਹੈ?",
     "W-is-t-reason-to-report-t-post-D": "ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਅਗਿਆਤ ਹੈ ਕਿਰਪਾ ਕਰਕੇ ਮੋਟਰਾਂ ਦੀ ਮਦਦ ਲਈ ਸਿਰਫ ਇੱਕ ਸ਼੍ਰੇਣੀ ਚੁਣੋ",
     "A-y-s-to-unfollow-this-profile": "ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਇਸ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਅਨਫਾੱਲ ਕਰਨਾ ਹੈ?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਇਸ ਦੋਸਤ ਨੂੰ ਆਪਣੀ ਦੋਸਤ ਸੂਚੀ ਵਿੱਚ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਇਸ ਦੋਸਤ ਨੂੰ ਆਪਣੀ ਦੋਸਤ ਸੂਚੀ ਵਿੱਚ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?",
+    "A-y-s-to-delete-t-story": "ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਇਸ ਕਹਾਣੀ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "ਚੇਤਾਵਨੀ. ਇਹ ਸੁਨਿਸ਼ਚਿਤ ਕਰੋ ਕਿ ਤੁਹਾਡਾ ਸਹੀ ਪਤਾ ਹੈ"
@@ -1383,7 +1386,8 @@
       "Rock": "ਚੱਟਾਨ",
       "Reggae": "ਰੇਗੀ",
       "Country": "ਦੇਸ਼"
-    }
+    },
+    "Playlist-Details": "ਪਲੇਲਿਸਟ ਵੇਰਵਾ"
   },
   "WIINS-TUBE": {
     "CREATION": {

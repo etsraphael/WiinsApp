@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "உங்களை நீங்களே சேர்க்க முடியாது",
     "T-content-does-not-exist-anymore": "இந்த உள்ளடக்கம் இனி இல்லை",
     "T-publication-no-longer-exists": "இந்த வெளியீடு இனி இல்லை",
-    "Could-not-play-video": "வீடியோவை இயக்க முடியவில்லை"
+    "Could-not-play-video": "வீடியோவை இயக்க முடியவில்லை",
+    "No-music-liked-yet": "எந்த இசையும் இதுவரை பிடிக்கவில்லை"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "புகைப்படம் பெறப்பட்டது",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "இந்த திட்டத்தை நீக்கு",
-    "generate-t-id": "தடம் உருவாக்கவும்"
+    "generate-t-id": "தடம் உருவாக்கவும்",
+    "Uploading-publication": "வெளியீட்டைப் பதிவேற்றுகிறது"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "இந்த இடுகையைப் புகாரளிக்க என்ன காரணம்?",
     "W-is-t-reason-to-report-t-post-D": "உங்கள் அறிக்கை அநாமதேயமானது. தயவுசெய்து ஒரு வகையைத் தேர்வுசெய்க",
     "A-y-s-to-unfollow-this-profile": "இந்த சுயவிவரத்தைப் பின்தொடர்வது உறுதி?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "உங்கள் நண்பர் பட்டியலில் இந்த நண்பரை நீக்குவது உறுதி?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "உங்கள் நண்பர் பட்டியலில் இந்த நண்பரை நீக்குவது உறுதி?",
+    "A-y-s-to-delete-t-story": "இந்த கதையை நீக்குவது உறுதி?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "எச்சரிக்கை. உங்களிடம் சரியான முகவரி இருப்பதை உறுதிப்படுத்திக் கொள்ளுங்கள்"
@@ -1440,7 +1443,8 @@
       "Rock": "பாறை",
       "Reggae": "ரெக்கே",
       "Country": "நாடு"
-    }
+    },
+    "Playlist-Details": "பிளேலிஸ்ட் விவரங்கள்"
   },
   "WIINS-TUBE": {
     "CREATION": {

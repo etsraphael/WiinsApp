@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Du kan ikke tilføje dig selv",
     "T-content-does-not-exist-anymore": "Dette indhold findes ikke længere",
     "T-publication-no-longer-exists": "Denne publikation findes ikke længere",
-    "Could-not-play-video": "Kunne ikke afspille video"
+    "Could-not-play-video": "Kunne ikke afspille video",
+    "No-music-liked-yet": "Ingen musik kunne lide endnu"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Billedet er modtaget",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Slet dette projekt",
-    "generate-t-id": "Generer fodaftryk"
+    "generate-t-id": "Generer fodaftryk",
+    "Uploading-publication": "Uploader publikation"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Hvad er grunden til at rapportere dette indlæg?",
     "W-is-t-reason-to-report-t-post-D": "Din rapport er anonym. Vælg bare en kategori for at hjælpe moratorerne",
     "A-y-s-to-unfollow-this-profile": "Er du sikker på at følge profilen op?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Er du sikker på at slette denne ven på din venneliste?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Er du sikker på at slette denne ven på din venneliste?",
+    "A-y-s-to-delete-t-story": "Er du sikker på at slette denne historie?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Advarsel. Sørg for, at du har den rigtige adresse"
@@ -1440,7 +1443,8 @@
       "Rock": "Klippe",
       "Reggae": "Reggae",
       "Country": "Land"
-    }
+    },
+    "Playlist-Details": "Afspilningslisteoplysninger"
   },
   "WIINS-TUBE": {
     "CREATION": {

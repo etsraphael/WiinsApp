@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Et voi lisätä itseäsi",
     "T-content-does-not-exist-anymore": "Tätä sisältöä ei ole enää olemassa",
     "T-publication-no-longer-exists": "Tätä julkaisua ei ole enää olemassa",
-    "Could-not-play-video": "Videota ei voitu toistaa"
+    "Could-not-play-video": "Videota ei voitu toistaa",
+    "No-music-liked-yet": "Musiikkia ei vielä tykätty"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Kuva on vastaanotettu",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Poista tämä projekti",
-    "generate-t-id": "Luo jalanjälki"
+    "generate-t-id": "Luo jalanjälki",
+    "Uploading-publication": "Ladataan julkaisua"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Mikä on syy ilmoittaa tästä viestistä?",
     "W-is-t-reason-to-report-t-post-D": "Raporttisi on tuntematon. Valitse vain luokka, joka auttaa moratoreja",
     "A-y-s-to-unfollow-this-profile": "Haluatko varmasti poistaa tämän profiilin seuraamisen?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Haluatko varmasti poistaa tämän ystävän ystäväluettelostasi?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Haluatko varmasti poistaa tämän ystävän ystäväluettelostasi?",
+    "A-y-s-to-delete-t-story": "Haluatko varmasti poistaa tämän tarinan?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Varoitus. Varmista, että sinulla on oikea osoite"
@@ -1440,7 +1443,8 @@
       "Rock": "Rock",
       "Reggae": "Reggae",
       "Country": "Maa"
-    }
+    },
+    "Playlist-Details": "Soittolistan tiedot"
   },
   "WIINS-TUBE": {
     "CREATION": {

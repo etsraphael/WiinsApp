@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Nem adhatja hozzá magát",
     "T-content-does-not-exist-anymore": "Ez a tartalom már nem létezik",
     "T-publication-no-longer-exists": "Ez a kiadvány már nem létezik",
-    "Could-not-play-video": "Nem sikerült lejátszani a videót"
+    "Could-not-play-video": "Nem sikerült lejátszani a videót",
+    "No-music-liked-yet": "Még nem tetszett zene"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "A fénykép beérkezett",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Törölje ezt a projektet",
-    "generate-t-id": "Generálja a lábnyomot"
+    "generate-t-id": "Generálja a lábnyomot",
+    "Uploading-publication": "Publikáció feltöltése"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Mi az oka annak, hogy jelentse ezt a bejegyzést?",
     "W-is-t-reason-to-report-t-post-D": "Jelentése névtelen. Kérjük, válasszon csak egy kategóriát a morátorok segítésére",
     "A-y-s-to-unfollow-this-profile": "Biztosan megszünteti a profil követését?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Biztosan törli ezt a barátot a barátlistájáról?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Biztosan törli ezt a barátot a barátlistájáról?",
+    "A-y-s-to-delete-t-story": "Biztosan törli ezt a történetet?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Figyelem. Győződjön meg arról, hogy a megfelelő címet adta meg"
@@ -1440,7 +1443,8 @@
       "Rock": "Szikla",
       "Reggae": "Reggae",
       "Country": "Ország"
-    }
+    },
+    "Playlist-Details": "Lejátszási lista részletei"
   },
   "WIINS-TUBE": {
     "CREATION": {

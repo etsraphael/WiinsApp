@@ -591,7 +591,8 @@
     "You-cannot-add-yourself": "您无法添加自己",
     "T-content-does-not-exist-anymore": "该内容已不存在",
     "T-publication-no-longer-exists": "该出版物不再存在",
-    "Could-not-play-video": "无法播放视频"
+    "Could-not-play-video": "无法播放视频",
+    "No-music-liked-yet": "尚无音乐喜欢"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "收到照片",
@@ -728,7 +729,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "删除此项目",
-    "generate-t-id": "产生足迹"
+    "generate-t-id": "产生足迹",
+    "Uploading-publication": "上载出版物"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -1009,7 +1011,8 @@
     "W-is-t-reason-to-report-t-post": "举报此帖子的原因是什么？",
     "W-is-t-reason-to-report-t-post-D": "您的报告是匿名的。请选择一个类别以帮助the旋者",
     "A-y-s-to-unfollow-this-profile": "您确定要取消关注此个人资料吗？",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "您确定要在朋友列表中删除此朋友吗？"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "您确定要在朋友列表中删除此朋友吗？",
+    "A-y-s-to-delete-t-story": "您确定要删除此故事吗？"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "警告。确保您拥有正确的地址"
@@ -1383,7 +1386,8 @@
       "Rock": "岩石",
       "Reggae": "雷鬼",
       "Country": "国家"
-    }
+    },
+    "Playlist-Details": "播放清单详细资料"
   },
   "WIINS-TUBE": {
     "CREATION": {

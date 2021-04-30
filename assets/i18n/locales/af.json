@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "U kan nie uself byvoeg nie",
     "T-content-does-not-exist-anymore": "Hierdie inhoud bestaan nie meer nie",
     "T-publication-no-longer-exists": "Hierdie publikasie bestaan nie meer nie",
-    "Could-not-play-video": "Kon nie video speel nie"
+    "Could-not-play-video": "Kon nie video speel nie",
+    "No-music-liked-yet": "Nog geen musiek hou nie"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Die foto word ontvang",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Vee hierdie projek uit",
-    "generate-t-id": "Genereer die voetspoor"
+    "generate-t-id": "Genereer die voetspoor",
+    "Uploading-publication": "Laai tans publikasie op"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Wat is die rede om hierdie berig te rapporteer?",
     "W-is-t-reason-to-report-t-post-D": "U verslag is anoniem. Kies slegs 'n kategorie om die morators te help",
     "A-y-s-to-unfollow-this-profile": "Is u seker dat u hierdie profiel sal onttrek?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Is u seker dat u hierdie vriend uit u vriendelys sal uitvee?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Is u seker dat u hierdie vriend uit u vriendelys sal uitvee?",
+    "A-y-s-to-delete-t-story": "Is u seker dat u hierdie storie sal uitvee?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Waarskuwing. Maak seker dat u die regte adres het"
@@ -1440,7 +1443,8 @@
       "Rock": "Rots",
       "Reggae": "Reggae",
       "Country": "Land"
-    }
+    },
+    "Playlist-Details": "Besonderhede van snitlys"
   },
   "WIINS-TUBE": {
     "CREATION": {

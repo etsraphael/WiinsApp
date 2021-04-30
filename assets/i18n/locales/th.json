@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "คุณไม่สามารถเพิ่มตัวเองได้",
     "T-content-does-not-exist-anymore": "ไม่มีเนื้อหานี้อีกต่อไป",
     "T-publication-no-longer-exists": "ไม่มีสิ่งพิมพ์นี้แล้ว",
-    "Could-not-play-video": "ไม่สามารถเล่นวิดีโอ"
+    "Could-not-play-video": "ไม่สามารถเล่นวิดีโอ",
+    "No-music-liked-yet": "ยังไม่มีเพลงที่ชอบ"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ได้รับภาพถ่ายแล้ว",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "ลบโครงการนี้",
-    "generate-t-id": "สร้างรอยเท้า"
+    "generate-t-id": "สร้างรอยเท้า",
+    "Uploading-publication": "กำลังอัปโหลดสิ่งพิมพ์"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "เหตุผลในการรายงานโพสต์นี้คืออะไร?",
     "W-is-t-reason-to-report-t-post-D": "รายงานของคุณไม่ระบุชื่อ โปรดเลือกเพียงหมวดหมู่เพื่อช่วยในการเตือนภัย",
     "A-y-s-to-unfollow-this-profile": "แน่ใจหรือว่าเลิกติดตามโปรไฟล์นี้",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "คุณแน่ใจหรือไม่ว่าจะลบเพื่อนคนนี้ในรายชื่อเพื่อนของคุณ"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "คุณแน่ใจหรือไม่ว่าจะลบเพื่อนคนนี้ในรายชื่อเพื่อนของคุณ",
+    "A-y-s-to-delete-t-story": "แน่ใจไหมว่าจะลบเรื่องราวนี้"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "คำเตือน. ตรวจสอบให้แน่ใจว่าคุณมีที่อยู่ที่ถูกต้อง"
@@ -1440,7 +1443,8 @@
       "Rock": "ร็อค",
       "Reggae": "เร้กเก้",
       "Country": "ประเทศ"
-    }
+    },
+    "Playlist-Details": "รายละเอียดเพลย์ลิสต์"
   },
   "WIINS-TUBE": {
     "CREATION": {

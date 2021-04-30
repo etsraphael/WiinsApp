@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Nemôžete pridať seba",
     "T-content-does-not-exist-anymore": "Tento obsah už neexistuje",
     "T-publication-no-longer-exists": "Táto publikácia už neexistuje",
-    "Could-not-play-video": "Video sa nepodarilo prehrať"
+    "Could-not-play-video": "Video sa nepodarilo prehrať",
+    "No-music-liked-yet": "Zatiaľ sa nepáčila žiadna hudba"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotka je prijatá",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Odstrániť tento projekt",
-    "generate-t-id": "Vytvorte stopu"
+    "generate-t-id": "Vytvorte stopu",
+    "Uploading-publication": "Nahráva sa publikácia"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Aký je dôvod nahlásiť tento príspevok?",
     "W-is-t-reason-to-report-t-post-D": "Vaše hlásenie je anonymné. Vyberte si iba kategóriu, ktorá pomôže moratátorom",
     "A-y-s-to-unfollow-this-profile": "Naozaj chcete prestať sledovať tento profil?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Naozaj chcete odstrániť tohto priateľa zo zoznamu priateľov?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Naozaj chcete odstrániť tohto priateľa zo zoznamu priateľov?",
+    "A-y-s-to-delete-t-story": "Naozaj chcete tento príbeh odstrániť?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Výstraha. Uistite sa, že máte správnu adresu"
@@ -1440,7 +1443,8 @@
       "Rock": "Rock",
       "Reggae": "Reggae",
       "Country": "Krajina"
-    }
+    },
+    "Playlist-Details": "Podrobnosti zoznamu skladieb"
   },
   "WIINS-TUBE": {
     "CREATION": {

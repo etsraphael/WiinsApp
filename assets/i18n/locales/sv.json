@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Du kan inte lägga till dig själv",
     "T-content-does-not-exist-anymore": "Detta innehåll finns inte längre",
     "T-publication-no-longer-exists": "Denna publikation finns inte längre",
-    "Could-not-play-video": "Det gick inte att spela upp video"
+    "Could-not-play-video": "Det gick inte att spela upp video",
+    "No-music-liked-yet": "Ingen musik gillade än"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoet tas emot",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Ta bort detta projekt",
-    "generate-t-id": "Generera fotavtrycket"
+    "generate-t-id": "Generera fotavtrycket",
+    "Uploading-publication": "Laddar upp publikationen"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Vad är anledningen att rapportera detta inlägg?",
     "W-is-t-reason-to-report-t-post-D": "Din rapport är anonym. Välj bara en kategori för att hjälpa moratorerna",
     "A-y-s-to-unfollow-this-profile": "Är du säker på att följa upp den här profilen?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Är du säker på att du tar bort den här kompisen i din vänlista?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Är du säker på att du tar bort den här kompisen i din vänlista?",
+    "A-y-s-to-delete-t-story": "Är du säker på att du raderar den här historien?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Varning. Se till att du har rätt adress"
@@ -1440,7 +1443,8 @@
       "Rock": "Sten",
       "Reggae": "Reggae",
       "Country": "Land"
-    }
+    },
+    "Playlist-Details": "Spellistinformation"
   },
   "WIINS-TUBE": {
     "CREATION": {

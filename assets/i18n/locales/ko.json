@@ -591,7 +591,8 @@
     "You-cannot-add-yourself": "자신을 추가 할 수 없습니다.",
     "T-content-does-not-exist-anymore": "이 콘텐츠는 더 이상 존재하지 않습니다.",
     "T-publication-no-longer-exists": "이 출판물은 더 이상 존재하지 않습니다.",
-    "Could-not-play-video": "비디오를 재생할 수 없습니다"
+    "Could-not-play-video": "비디오를 재생할 수 없습니다",
+    "No-music-liked-yet": "아직 좋아하는 음악이 없습니다."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "사진이 접수되었습니다",
@@ -728,7 +729,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "이 프로젝트 삭제",
-    "generate-t-id": "발자국 생성"
+    "generate-t-id": "발자국 생성",
+    "Uploading-publication": "간행물 업로드"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -1009,7 +1011,8 @@
     "W-is-t-reason-to-report-t-post": "이 게시물을 신고하는 이유는 무엇입니까?",
     "W-is-t-reason-to-report-t-post-D": "귀하의 신고는 익명으로 처리됩니다. morators를 돕기 위해 카테고리를 선택하십시오",
     "A-y-s-to-unfollow-this-profile": "이 프로필을 팔로우 해제 하시겠습니까?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "친구 목록에서이 친구를 삭제 하시겠습니까?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "친구 목록에서이 친구를 삭제 하시겠습니까?",
+    "A-y-s-to-delete-t-story": "이 스토리를 삭제 하시겠습니까?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "경고. 올바른 주소가 있는지 확인"
@@ -1383,7 +1386,8 @@
       "Rock": "록",
       "Reggae": "레게",
       "Country": "국가"
-    }
+    },
+    "Playlist-Details": "재생 목록 세부 정보"
   },
   "WIINS-TUBE": {
     "CREATION": {

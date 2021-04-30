@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Du kan ikke legge deg til",
     "T-content-does-not-exist-anymore": "Dette innholdet eksisterer ikke lenger",
     "T-publication-no-longer-exists": "Denne publikasjonen eksisterer ikke lenger",
-    "Could-not-play-video": "Kunne ikke spille av video"
+    "Could-not-play-video": "Kunne ikke spille av video",
+    "No-music-liked-yet": "Ingen musikk likte ennå"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Bildet er mottatt",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Slett dette prosjektet",
-    "generate-t-id": "Generer fotavtrykket"
+    "generate-t-id": "Generer fotavtrykket",
+    "Uploading-publication": "Laster opp publikasjon"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Hva er grunnen til å rapportere dette innlegget?",
     "W-is-t-reason-to-report-t-post-D": "Rapporten din er anonym. Velg bare en kategori for å hjelpe moratorene",
     "A-y-s-to-unfollow-this-profile": "Er du sikker på at du vil følge denne profilen?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Er du sikker på at du vil slette denne vennen i vennelisten din?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Er du sikker på at du vil slette denne vennen i vennelisten din?",
+    "A-y-s-to-delete-t-story": "Er du sikker på at du vil slette denne historien?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Advarsel. Forsikre deg om at du har riktig adresse"
@@ -1440,7 +1443,8 @@
       "Rock": "Stein",
       "Reggae": "Reggae",
       "Country": "Land"
-    }
+    },
+    "Playlist-Details": "Spillelistedetaljer"
   },
   "WIINS-TUBE": {
     "CREATION": {

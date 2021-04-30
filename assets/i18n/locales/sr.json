@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Не можете да додате себе",
     "T-content-does-not-exist-anymore": "Овај садржај више не постоји",
     "T-publication-no-longer-exists": "Ова публикација више не постоји",
-    "Could-not-play-video": "Репродукција видео записа није успела"
+    "Could-not-play-video": "Репродукција видео записа није успела",
+    "No-music-liked-yet": "Још није волела ниједну музику"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фотографија је примљена",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Избриши овај пројекат",
-    "generate-t-id": "Створите отисак"
+    "generate-t-id": "Створите отисак",
+    "Uploading-publication": "Отпремање публикације"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Који је разлог да пријавим овај пост?",
     "W-is-t-reason-to-report-t-post-D": "Ваша пријава је анонимна. Изаберите само категорију која ће помоћи мораторима",
     "A-y-s-to-unfollow-this-profile": "Да ли сте сигурни да желите престати пратити овај профил?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Да ли сте сигурни да сте овог пријатеља избрисали са листе пријатеља?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Да ли сте сигурни да сте овог пријатеља избрисали са листе пријатеља?",
+    "A-y-s-to-delete-t-story": "Да ли сте сигурни да сте избрисали ову причу?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Упозорење. Уверите се да имате праву адресу"
@@ -1440,7 +1443,8 @@
       "Rock": "Роцк",
       "Reggae": "Реггае",
       "Country": "Цоунтри"
-    }
+    },
+    "Playlist-Details": "Детаљи плејлисте"
   },
   "WIINS-TUBE": {
     "CREATION": {

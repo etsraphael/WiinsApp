@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Jūs negalite pridėti savęs",
     "T-content-does-not-exist-anymore": "Šio turinio nebėra",
     "T-publication-no-longer-exists": "Šio leidinio nebėra",
-    "Could-not-play-video": "Nepavyko paleisti vaizdo įrašo"
+    "Could-not-play-video": "Nepavyko paleisti vaizdo įrašo",
+    "No-music-liked-yet": "Kol kas nepatiko muzika"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Nuotrauka gauta",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Ištrinti šį projektą",
-    "generate-t-id": "Sukurkite pėdsaką"
+    "generate-t-id": "Sukurkite pėdsaką",
+    "Uploading-publication": "Įkeliamas leidinys"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Kokia priežastis pranešti apie šį įrašą?",
     "W-is-t-reason-to-report-t-post-D": "Jūsų pranešimas yra anonimas. Pasirinkite tik kategoriją, kad padėtų moratoriams",
     "A-y-s-to-unfollow-this-profile": "Ar tikrai nebenorite stebėti šio profilio?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ar tikrai ištrinsite šį draugą iš savo draugų sąrašo?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ar tikrai ištrinsite šį draugą iš savo draugų sąrašo?",
+    "A-y-s-to-delete-t-story": "Ar tikrai ištrinsite šią istoriją?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Įspėjimas. Įsitikinkite, kad turite teisingą adresą"
@@ -1440,7 +1443,8 @@
       "Rock": "Rokas",
       "Reggae": "Regis",
       "Country": "Šalis"
-    }
+    },
+    "Playlist-Details": "Išsami grojaraščio informacija"
   },
   "WIINS-TUBE": {
     "CREATION": {

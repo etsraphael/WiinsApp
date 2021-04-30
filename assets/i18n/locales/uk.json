@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Ви не можете додати себе",
     "T-content-does-not-exist-anymore": "Цей вміст уже не існує",
     "T-publication-no-longer-exists": "Ця публікація більше не існує",
-    "Could-not-play-video": "Не вдалося відтворити відео"
+    "Could-not-play-video": "Не вдалося відтворити відео",
+    "No-music-liked-yet": "Поки що музика не сподобалася"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фотографія отримана",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Видалити цей проект",
-    "generate-t-id": "Створити слід"
+    "generate-t-id": "Створити слід",
+    "Uploading-publication": "Завантаження публікації"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Яка причина повідомити про цю публікацію?",
     "W-is-t-reason-to-report-t-post-D": "Ваш звіт анонімний. Будь ласка, виберіть лише категорію, щоб допомогти мораторам",
     "A-y-s-to-unfollow-this-profile": "Дійсно скасувати підписку на цей профіль?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Дійсно видалити цього друга зі свого списку друзів?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Дійсно видалити цього друга зі свого списку друзів?",
+    "A-y-s-to-delete-t-story": "Справді видалити цю історію?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Увага. Переконайтесь, що у вас є правильна адреса"
@@ -1440,7 +1443,8 @@
       "Rock": "Рок",
       "Reggae": "Реггі",
       "Country": "Країна"
-    }
+    },
+    "Playlist-Details": "Подробиці списку відтворення"
   },
   "WIINS-TUBE": {
     "CREATION": {

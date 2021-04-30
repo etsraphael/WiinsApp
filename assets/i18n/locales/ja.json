@@ -591,7 +591,8 @@
     "You-cannot-add-yourself": "自分を追加することはできません",
     "T-content-does-not-exist-anymore": "このコンテンツはもう存在しません",
     "T-publication-no-longer-exists": "この出版物はもう存在しません",
-    "Could-not-play-video": "ビデオを再生できませんでした"
+    "Could-not-play-video": "ビデオを再生できませんでした",
+    "No-music-liked-yet": "まだ好きな音楽はありません"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "写真を受け取りました",
@@ -728,7 +729,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "このプロジェクトを削除",
-    "generate-t-id": "フットプリントを生成"
+    "generate-t-id": "フットプリントを生成",
+    "Uploading-publication": "パブリケーションのアップロード"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -1009,7 +1011,8 @@
     "W-is-t-reason-to-report-t-post": "この投稿を報告する理由は何ですか？",
     "W-is-t-reason-to-report-t-post-D": "あなたの報告は匿名です。モレーターを助けるためにカテゴリーだけを選んでください",
     "A-y-s-to-unfollow-this-profile": "このプロファイルのフォローを解除してもよろしいですか？",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "友達リストからこの友達を削除してもよろしいですか？"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "友達リストからこの友達を削除してもよろしいですか？",
+    "A-y-s-to-delete-t-story": "このストーリーを削除してもよろしいですか？"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "警告。正しいアドレスを持っていることを確認する"
@@ -1383,7 +1386,8 @@
       "Rock": "岩",
       "Reggae": "レゲエ",
       "Country": "国"
-    }
+    },
+    "Playlist-Details": "プレイリストの詳細"
   },
   "WIINS-TUBE": {
     "CREATION": {

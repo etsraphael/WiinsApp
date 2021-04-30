@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Ezin duzu zeure burua gehitu",
     "T-content-does-not-exist-anymore": "Eduki hau ez da existitzen",
     "T-publication-no-longer-exists": "Argitalpen hau jada ez dago",
-    "Could-not-play-video": "Ezin izan da bideoa erreproduzitu"
+    "Could-not-play-video": "Ezin izan da bideoa erreproduzitu",
+    "No-music-liked-yet": "Oraindik ez zaio musika gustatu"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Argazkia jaso da",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Ezabatu proiektu hau",
-    "generate-t-id": "Sortu aztarna"
+    "generate-t-id": "Sortu aztarna",
+    "Uploading-publication": "Argitalpena kargatzen"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Zein da mezu honen berri emateko arrazoia?",
     "W-is-t-reason-to-report-t-post-D": "Zure txostena anonimoa da. Mesedez, aukeratu kategoria bat moratorrei laguntzeko",
     "A-y-s-to-unfollow-this-profile": "Ziur zaude profil honi jarraipena egingo diozula?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ziur zaude lagun hau zure lagunen zerrendan ezabatuko duzula?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ziur zaude lagun hau zure lagunen zerrendan ezabatuko duzula?",
+    "A-y-s-to-delete-t-story": "Ziur istorio hau ezabatuko duzula?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Abisua. Ziurtatu helbide egokia duzula"
@@ -1440,7 +1443,8 @@
       "Rock": "Arroka",
       "Reggae": "Reggaea",
       "Country": "Herrialdea"
-    }
+    },
+    "Playlist-Details": "Erreprodukzio zerrendaren xehetasunak"
   },
   "WIINS-TUBE": {
     "CREATION": {

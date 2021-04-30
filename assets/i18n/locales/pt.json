@@ -591,7 +591,8 @@
     "You-cannot-add-yourself": "Você não pode se adicionar",
     "T-content-does-not-exist-anymore": "Este conteúdo não existe mais",
     "T-publication-no-longer-exists": "Esta publicação não existe mais",
-    "Could-not-play-video": "Não foi possível reproduzir o vídeo"
+    "Could-not-play-video": "Não foi possível reproduzir o vídeo",
+    "No-music-liked-yet": "Nenhuma música gostou ainda"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "A foto é recebida",
@@ -728,7 +729,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Exclua este projeto",
-    "generate-t-id": "Gerar presença"
+    "generate-t-id": "Gerar presença",
+    "Uploading-publication": "Carregando publicação"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -1009,7 +1011,8 @@
     "W-is-t-reason-to-report-t-post": "Qual é a razão para denunciar esta postagem?",
     "W-is-t-reason-to-report-t-post-D": "Seu relatório é anônimo. Por favor, escolha apenas uma categoria para ajudar os moradores",
     "A-y-s-to-unfollow-this-profile": "Tem certeza de que deseja parar de seguir este perfil?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Tem certeza de que deseja excluir este amigo da sua lista de amigos?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Tem certeza de que deseja excluir este amigo da sua lista de amigos?",
+    "A-y-s-to-delete-t-story": "Tem certeza que deseja deletar esta história?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Aviso. Certifique-se de que você tem o endereço certo"
@@ -1383,7 +1386,8 @@
       "Rock": "Rocha",
       "Reggae": "Reggae",
       "Country": "País"
-    }
+    },
+    "Playlist-Details": "Detalhes da lista de reprodução"
   },
   "WIINS-TUBE": {
     "CREATION": {

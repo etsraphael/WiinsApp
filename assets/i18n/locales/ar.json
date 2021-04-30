@@ -591,7 +591,8 @@
     "You-cannot-add-yourself": "لا يمكنك إضافة نفسك",
     "T-content-does-not-exist-anymore": "هذا المحتوى غير موجود بعد الآن",
     "T-publication-no-longer-exists": "هذا المنشور لم يعد موجودا",
-    "Could-not-play-video": "تعذر تشغيل الفيديو"
+    "Could-not-play-video": "تعذر تشغيل الفيديو",
+    "No-music-liked-yet": "لا توجد موسيقى أحبها حتى الآن"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "تم استلام الصورة",
@@ -728,7 +729,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "حذف هذا المشروع",
-    "generate-t-id": "توليد البصمة"
+    "generate-t-id": "توليد البصمة",
+    "Uploading-publication": "تحميل المنشور"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -1009,7 +1011,8 @@
     "W-is-t-reason-to-report-t-post": "ما هو سبب الإبلاغ عن هذا المنشور؟",
     "W-is-t-reason-to-report-t-post-D": "تقريرك مجهول. الرجاء اختيار فئة فقط لمساعدة الوقف",
     "A-y-s-to-unfollow-this-profile": "هل أنت متأكد من إلغاء متابعة هذا الملف الشخصي؟",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "هل أنت متأكد من حذف هذا الصديق من قائمة الأصدقاء الخاصة بك؟"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "هل أنت متأكد من حذف هذا الصديق من قائمة الأصدقاء الخاصة بك؟",
+    "A-y-s-to-delete-t-story": "هل أنت متأكد من حذف هذه القصة؟"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "تحذير. تأكد من أن لديك العنوان الصحيح"
@@ -1383,7 +1386,8 @@
       "Rock": "صخرة",
       "Reggae": "الريغي",
       "Country": "بلد"
-    }
+    },
+    "Playlist-Details": "تفاصيل قائمة التشغيل"
   },
   "WIINS-TUBE": {
     "CREATION": {

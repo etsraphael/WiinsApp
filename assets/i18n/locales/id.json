@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Anda tidak dapat menambahkan diri Anda sendiri",
     "T-content-does-not-exist-anymore": "Konten ini sudah tidak ada",
     "T-publication-no-longer-exists": "Publikasi ini sudah tidak ada",
-    "Could-not-play-video": "Tidak dapat memutar video"
+    "Could-not-play-video": "Tidak dapat memutar video",
+    "No-music-liked-yet": "Belum ada musik yang disukai"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Foto sudah diterima",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Hapus proyek ini",
-    "generate-t-id": "Hasilkan footprint"
+    "generate-t-id": "Hasilkan footprint",
+    "Uploading-publication": "Mengupload publikasi"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Apa alasan untuk melaporkan posting ini?",
     "W-is-t-reason-to-report-t-post-D": "Laporan Anda bersifat anonim. Silakan pilih hanya satu kategori untuk membantu para morator",
     "A-y-s-to-unfollow-this-profile": "Apakah Anda yakin untuk berhenti mengikuti profil ini?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Anda yakin ingin menghapus teman ini dari daftar teman Anda?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Anda yakin ingin menghapus teman ini dari daftar teman Anda?",
+    "A-y-s-to-delete-t-story": "Apakah Anda yakin akan menghapus cerita ini?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Peringatan. Pastikan Anda memiliki alamat yang benar"
@@ -1440,7 +1443,8 @@
       "Rock": "Batu",
       "Reggae": "Reggae",
       "Country": "Negara"
-    }
+    },
+    "Playlist-Details": "Rincian Daftar Putar"
   },
   "WIINS-TUBE": {
     "CREATION": {

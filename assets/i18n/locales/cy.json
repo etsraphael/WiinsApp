@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Ni allwch ychwanegu eich hun",
     "T-content-does-not-exist-anymore": "Nid yw'r cynnwys hwn yn bodoli mwyach",
     "T-publication-no-longer-exists": "Nid yw'r cyhoeddiad hwn yn bodoli mwyach",
-    "Could-not-play-video": "Methu chwarae fideo"
+    "Could-not-play-video": "Methu chwarae fideo",
+    "No-music-liked-yet": "Nid oedd unrhyw gerddoriaeth yn cael ei hoffi eto"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Derbynnir y llun",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Dileu'r prosiect hwn",
-    "generate-t-id": "Cynhyrchwch yr ôl troed"
+    "generate-t-id": "Cynhyrchwch yr ôl troed",
+    "Uploading-publication": "Llwytho cyhoeddiad i fyny"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Beth yw'r rheswm i riportio'r swydd hon?",
     "W-is-t-reason-to-report-t-post-D": "Mae eich adroddiad yn anhysbys. Dewiswch gategori yn unig i helpu'r morators",
     "A-y-s-to-unfollow-this-profile": "Ydych chi'n sicr o ddadorchuddio'r proffil hwn?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ydych chi'n sicr o ddileu'r ffrind hwn yn eich rhestr ffrindiau?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ydych chi'n sicr o ddileu'r ffrind hwn yn eich rhestr ffrindiau?",
+    "A-y-s-to-delete-t-story": "Ydych chi'n sicr o ddileu'r stori hon?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Rhybudd. Sicrhewch fod gennych y cyfeiriad cywir"
@@ -1440,7 +1443,8 @@
       "Rock": "Roc",
       "Reggae": "Reggae",
       "Country": "Gwlad"
-    }
+    },
+    "Playlist-Details": "Manylion Rhestr Chwarae"
   },
   "WIINS-TUBE": {
     "CREATION": {

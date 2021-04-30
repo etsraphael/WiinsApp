@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "तपाईं आफैलाई थप्न सक्नुहुन्न",
     "T-content-does-not-exist-anymore": "यो सामग्री अब अवस्थित छैन",
     "T-publication-no-longer-exists": "यो प्रकाशन अब अवस्थित छैन",
-    "Could-not-play-video": "भिडियो प्ले गर्न सकेन"
+    "Could-not-play-video": "भिडियो प्ले गर्न सकेन",
+    "No-music-liked-yet": "कुनै संगीत मनपरेको छैन"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "फोटो प्राप्त भयो",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "यो परियोजना मेट्नुहोस्",
-    "generate-t-id": "पदचिह्न उत्पन्न गर्नुहोस्"
+    "generate-t-id": "पदचिह्न उत्पन्न गर्नुहोस्",
+    "Uploading-publication": "अपलोड अपलोड गर्दै"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "यो पोष्ट रिपोर्ट गर्न कारण के हो?",
     "W-is-t-reason-to-report-t-post-D": "तपाईंको रिपोर्ट अज्ञात छ। कृपया मोरेटरहरूलाई मद्दत गर्न केवल एक कोटी छान्नुहोस्",
     "A-y-s-to-unfollow-this-profile": "के तपाई पक्का यो प्रोफाइल अनुसरण गर्न पक्का हुनुहुन्छ?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "के तपाइँ पक्का हुनुहुन्छ कि तपाइँ यस मित्रलाई तपाइँको मित्र सूचीमा हटाउनुहुन्छ?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "के तपाइँ पक्का हुनुहुन्छ कि तपाइँ यस मित्रलाई तपाइँको मित्र सूचीमा हटाउनुहुन्छ?",
+    "A-y-s-to-delete-t-story": "के तपाइँ यस कथा मेटाउने बारे निश्चित हुनुहुन्छ?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "चेतावनी। निश्चित गर्नुहोस् कि तपाईंसँग सही ठेगाना छ"
@@ -1440,7 +1443,8 @@
       "Rock": "Rock",
       "Reggae": "रेगे",
       "Country": "देश"
-    }
+    },
+    "Playlist-Details": "प्लेलिस्ट विवरणहरू"
   },
   "WIINS-TUBE": {
     "CREATION": {

@@ -591,7 +591,8 @@
     "You-cannot-add-yourself": "Vous ne pouvez pas vous ajouter",
     "T-content-does-not-exist-anymore": "Ce contenu n'existe plus",
     "T-publication-no-longer-exists": "Cette publication n'existe plus",
-    "Could-not-play-video": "Impossible de lire la vidéo"
+    "Could-not-play-video": "Impossible de lire la vidéo",
+    "No-music-liked-yet": "Aucune musique n'a encore aimé"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "La photo est reçu",
@@ -728,7 +729,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Supprimer ce projet",
-    "generate-t-id": "Générer l'empreinte"
+    "generate-t-id": "Générer l'empreinte",
+    "Uploading-publication": "Téléchargement de la publication"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -1009,7 +1011,8 @@
     "W-is-t-reason-to-report-t-post": "Quelle est la raison de signaler ce message?",
     "W-is-t-reason-to-report-t-post-D": "Votre rapport est anonyme. Veuillez choisir juste une catégorie pour aider les morateurs",
     "A-y-s-to-unfollow-this-profile": "Êtes-vous sûr de ne plus suivre ce profil?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Êtes-vous sûr de supprimer cet ami de votre liste d'amis?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Êtes-vous sûr de supprimer cet ami de votre liste d'amis?",
+    "A-y-s-to-delete-t-story": "Êtes-vous sûr de vouloir supprimer cette histoire?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Attention. Assurez vous d'avoir la bonne adresse"
@@ -1383,7 +1386,8 @@
       "Rock": "Roche",
       "Reggae": "Reggae",
       "Country": "Pays"
-    }
+    },
+    "Playlist-Details": "Détails de la playlist"
   },
   "WIINS-TUBE": {
     "CREATION": {

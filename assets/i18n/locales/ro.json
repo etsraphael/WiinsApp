@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Nu te poți adăuga singur",
     "T-content-does-not-exist-anymore": "Acest conținut nu mai există",
     "T-publication-no-longer-exists": "Această publicație nu mai există",
-    "Could-not-play-video": "Nu s-a putut reda videoclipul"
+    "Could-not-play-video": "Nu s-a putut reda videoclipul",
+    "No-music-liked-yet": "Nici o muzică nu a plăcut încă"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotografia este primită",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Ștergeți acest proiect",
-    "generate-t-id": "Generați amprenta"
+    "generate-t-id": "Generați amprenta",
+    "Uploading-publication": "Se încarcă publicația"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Care este motivul pentru a raporta această postare?",
     "W-is-t-reason-to-report-t-post-D": "Raportul dvs. este anonim. Vă rugăm să alegeți doar o categorie pentru a ajuta moratorii",
     "A-y-s-to-unfollow-this-profile": "Sigur doriți să anulați urmărirea acestui profil?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Sigur ștergeți acest prieten din lista dvs. de prieteni?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Sigur ștergeți acest prieten din lista dvs. de prieteni?",
+    "A-y-s-to-delete-t-story": "Sigur ștergeți această poveste?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Avertizare. Asigurați-vă că aveți adresa corectă"
@@ -1440,7 +1443,8 @@
       "Rock": "Rock",
       "Reggae": "Reggae",
       "Country": "Țară"
-    }
+    },
+    "Playlist-Details": "Detalii playlist"
   },
   "WIINS-TUBE": {
     "CREATION": {

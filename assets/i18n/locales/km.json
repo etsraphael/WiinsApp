@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "អ្នកមិនអាចបន្ថែមខ្លួនឯងបានទេ",
     "T-content-does-not-exist-anymore": "មាតិកានេះមិនមានទៀតទេ",
     "T-publication-no-longer-exists": "ការបោះពុម្ពផ្សាយនេះមិនមានទៀតទេ",
-    "Could-not-play-video": "មិនអាចចាក់វីដេអូបានទេ"
+    "Could-not-play-video": "មិនអាចចាក់វីដេអូបានទេ",
+    "No-music-liked-yet": "មិនទាន់មានតន្ត្រីចូលចិត្តនៅឡើយទេ"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "រូបថតត្រូវបានទទួល",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "លុបគម្រោងនេះ",
-    "generate-t-id": "បង្កើតស្នាមជើង"
+    "generate-t-id": "បង្កើតស្នាមជើង",
+    "Uploading-publication": "ផ្ទុកការបោះពុម្ពផ្សាយឡើង"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "តើមានមូលហេតុអ្វីដើម្បីរាយការណ៍ពីការប្រកាសនេះ?",
     "W-is-t-reason-to-report-t-post-D": "របាយការណ៍របស់អ្នកគឺអនាមិក។ សូមជ្រើសរើសតែប្រភេទមួយដើម្បីជួយអ្នកដែលមានទម្លាប់រំខាន",
     "A-y-s-to-unfollow-this-profile": "តើអ្នកប្រាកដថានឹងផ្តាច់ទម្រង់នេះទេ?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "តើអ្នកប្រាកដជាលុបមិត្តនេះក្នុងបញ្ជីមិត្តរបស់អ្នកឬ?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "តើអ្នកប្រាកដជាលុបមិត្តនេះក្នុងបញ្ជីមិត្តរបស់អ្នកឬ?",
+    "A-y-s-to-delete-t-story": "តើអ្នកប្រាកដជាលុបរឿងនេះចេញឬ?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "ការព្រមាន។ ត្រូវប្រាកដថាអ្នកមានអាសយដ្ឋានត្រឹមត្រូវ"
@@ -1440,7 +1443,8 @@
       "Rock": "រ៉ុក",
       "Reggae": "រីហ្គែ",
       "Country": "ប្រទេស"
-    }
+    },
+    "Playlist-Details": "ព័ត៌មានលម្អិតបញ្ជីចាក់"
   },
   "WIINS-TUBE": {
     "CREATION": {

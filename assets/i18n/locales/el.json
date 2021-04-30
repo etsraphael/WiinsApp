@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Δεν μπορείτε να προσθέσετε τον εαυτό σας",
     "T-content-does-not-exist-anymore": "Αυτό το περιεχόμενο δεν υπάρχει πια",
     "T-publication-no-longer-exists": "Αυτή η δημοσίευση δεν υπάρχει πλέον",
-    "Could-not-play-video": "Δεν ήταν δυνατή η αναπαραγωγή βίντεο"
+    "Could-not-play-video": "Δεν ήταν δυνατή η αναπαραγωγή βίντεο",
+    "No-music-liked-yet": "Δεν άρεσε ακόμη μουσική"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Η φωτογραφία έχει ληφθεί",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Διαγραφή αυτού του έργου",
-    "generate-t-id": "Δημιουργήστε το αποτύπωμα"
+    "generate-t-id": "Δημιουργήστε το αποτύπωμα",
+    "Uploading-publication": "Μεταφόρτωση δημοσίευσης"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Ποιος είναι ο λόγος για την αναφορά αυτής της ανάρτησης;",
     "W-is-t-reason-to-report-t-post-D": "Η αναφορά σας είναι ανώνυμη. Επιλέξτε μόνο μια κατηγορία για να βοηθήσετε τους ανακριτές",
     "A-y-s-to-unfollow-this-profile": "Είστε βέβαιοι ότι θα καταργήσετε την παρακολούθηση αυτού του προφίλ;",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Είστε βέβαιοι ότι θα διαγράψετε αυτόν τον φίλο στη λίστα φίλων σας;"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Είστε βέβαιοι ότι θα διαγράψετε αυτόν τον φίλο στη λίστα φίλων σας;",
+    "A-y-s-to-delete-t-story": "Είστε σίγουροι ότι θα διαγράψετε αυτήν την ιστορία;"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Προειδοποίηση. Βεβαιωθείτε ότι έχετε τη σωστή διεύθυνση"
@@ -1440,7 +1443,8 @@
       "Rock": "Βράχος",
       "Reggae": "Ρέγκε",
       "Country": "Χώρα"
-    }
+    },
+    "Playlist-Details": "Λεπτομέρειες λίστας αναπαραγωγής"
   },
   "WIINS-TUBE": {
     "CREATION": {

@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Bạn không thể thêm chính mình",
     "T-content-does-not-exist-anymore": "Nội dung này không tồn tại nữa",
     "T-publication-no-longer-exists": "Ấn phẩm này không còn tồn tại",
-    "Could-not-play-video": "Không thể phát video"
+    "Could-not-play-video": "Không thể phát video",
+    "No-music-liked-yet": "Chưa có bản nhạc nào được thích"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Ảnh được nhận",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Xóa dự án này",
-    "generate-t-id": "Tạo dấu chân"
+    "generate-t-id": "Tạo dấu chân",
+    "Uploading-publication": "Đang tải lên ấn phẩm"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Lý do để báo cáo bài đăng này là gì?",
     "W-is-t-reason-to-report-t-post-D": "Báo cáo của bạn là ẩn danh. Vui lòng chỉ chọn một danh mục để giúp người động viên",
     "A-y-s-to-unfollow-this-profile": "Bạn có chắc chắn bỏ theo dõi hồ sơ này không?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Bạn có chắc chắn xóa người bạn này trong danh sách bạn bè của mình không?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Bạn có chắc chắn xóa người bạn này trong danh sách bạn bè của mình không?",
+    "A-y-s-to-delete-t-story": "Bạn có chắc chắn để xóa câu chuyện này?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Cảnh báo. Đảm bảo rằng bạn có đúng địa chỉ"
@@ -1440,7 +1443,8 @@
       "Rock": "Đá",
       "Reggae": "Reggae",
       "Country": "Quốc gia"
-    }
+    },
+    "Playlist-Details": "Chi tiết danh sách phát"
   },
   "WIINS-TUBE": {
     "CREATION": {

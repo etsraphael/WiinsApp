@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Ju nuk mund të shtoni veten",
     "T-content-does-not-exist-anymore": "Kjo përmbajtje nuk ekziston më",
     "T-publication-no-longer-exists": "Ky botim nuk ekziston më",
-    "Could-not-play-video": "Videoja nuk mund të luhet"
+    "Could-not-play-video": "Videoja nuk mund të luhet",
+    "No-music-liked-yet": "Asnjë muzikë e pëlqyer akoma"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoja është marrë",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Fshije këtë projekt",
-    "generate-t-id": "Gjeneroni gjurmët e këmbëve"
+    "generate-t-id": "Gjeneroni gjurmët e këmbëve",
+    "Uploading-publication": "Publikimi po ngarkohet"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Cila është arsyeja për të raportuar këtë post?",
     "W-is-t-reason-to-report-t-post-D": "Raporti juaj është anonim. Ju lutemi zgjidhni vetëm një kategori për të ndihmuar moratorët",
     "A-y-s-to-unfollow-this-profile": "Je i sigurt që do ta heqësh këtë profil?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Jeni i sigurt që do ta fshini këtë mik në listën tuaj të miqve?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Jeni i sigurt që do ta fshini këtë mik në listën tuaj të miqve?",
+    "A-y-s-to-delete-t-story": "A jeni i sigurt për të fshirë këtë histori?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Paralajmërim. Sigurohuni që të keni adresën e duhur"
@@ -1440,7 +1443,8 @@
       "Rock": "Shkëmb",
       "Reggae": "Reggae",
       "Country": "Vendi"
-    }
+    },
+    "Playlist-Details": "Detajet e listës për dëgjim"
   },
   "WIINS-TUBE": {
     "CREATION": {

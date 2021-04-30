@@ -633,7 +633,8 @@
     "You-cannot-add-yourself": "Kendini ekleyemezsin",
     "T-content-does-not-exist-anymore": "Bu içerik artık mevcut değil",
     "T-publication-no-longer-exists": "Bu yayın artık mevcut değil",
-    "Could-not-play-video": "Video oynatılamadı"
+    "Could-not-play-video": "Video oynatılamadı",
+    "No-music-liked-yet": "Henüz müzik beğenilmedi"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoğraf alındı",
@@ -770,7 +771,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Bu projeyi sil",
-    "generate-t-id": "Ayak izini oluşturun"
+    "generate-t-id": "Ayak izini oluşturun",
+    "Uploading-publication": "Yayın yükleniyor"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -1066,7 +1068,8 @@
     "W-is-t-reason-to-report-t-post": "Bu gönderiyi bildirmenin nedeni nedir?",
     "W-is-t-reason-to-report-t-post-D": "Raporunuz anonimdir. Lütfen moratorlara yardımcı olacak bir kategori seçin",
     "A-y-s-to-unfollow-this-profile": "Bu profili takip etmeyi bırakacağına emin misin?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Bu arkadaşı arkadaş listenden silmek istediğinden emin misin?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Bu arkadaşı arkadaş listenden silmek istediğinden emin misin?",
+    "A-y-s-to-delete-t-story": "Bu hikayeyi silmek istediğinizden emin misiniz?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Uyarı. Doğru adrese sahip olduğunuzdan emin olun"
@@ -1440,7 +1443,8 @@
       "Rock": "Kaya",
       "Reggae": "Reggae",
       "Country": "Ülke"
-    }
+    },
+    "Playlist-Details": "Oynatma Listesi Ayrıntıları"
   },
   "WIINS-TUBE": {
     "CREATION": {

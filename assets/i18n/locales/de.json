@@ -591,7 +591,8 @@
     "You-cannot-add-yourself": "Sie können sich nicht hinzufügen",
     "T-content-does-not-exist-anymore": "Dieser Inhalt existiert nicht mehr",
     "T-publication-no-longer-exists": "Diese Publikation existiert nicht mehr",
-    "Could-not-play-video": "Video konnte nicht abgespielt werden"
+    "Could-not-play-video": "Video konnte nicht abgespielt werden",
+    "No-music-liked-yet": "Noch keine Musik gefallen"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Das Foto wird empfangen",
@@ -728,7 +729,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Dieses Projekt löschen",
-    "generate-t-id": "Fußabdruck erzeugen"
+    "generate-t-id": "Fußabdruck erzeugen",
+    "Uploading-publication": "Veröffentlichung hochladen"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -1009,7 +1011,8 @@
     "W-is-t-reason-to-report-t-post": "Was ist der Grund, diesen Beitrag zu melden?",
     "W-is-t-reason-to-report-t-post-D": "Ihr Bericht ist anonym. Bitte wählen Sie nur eine Kategorie, um den Moratoren zu helfen",
     "A-y-s-to-unfollow-this-profile": "Sind Sie sicher, dieses Profil zu entfolgen?",
-    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Sind Sie sicher, diesen Freund in Ihrer Freundesliste zu löschen?"
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Sind Sie sicher, diesen Freund in Ihrer Freundesliste zu löschen?",
+    "A-y-s-to-delete-t-story": "Sind Sie sicher, diese Geschichte zu löschen?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Warnung. Stellen Sie sicher, dass Sie die richtige Adresse haben"
@@ -1383,7 +1386,8 @@
       "Rock": "Felsen",
       "Reggae": "Reggae",
       "Country": "Land"
-    }
+    },
+    "Playlist-Details": "Details zur Wiedergabeliste"
   },
   "WIINS-TUBE": {
     "CREATION": {
