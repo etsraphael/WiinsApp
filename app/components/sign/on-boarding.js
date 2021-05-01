@@ -6,11 +6,27 @@ import I18n from '../../../assets/i18n/i18n'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as PlayerMusicActions from '../../redux/Player/actions'
+import { NativeModules, Platform } from 'react-native'
+import { languageList } from './../core/data/language'
+import i18n from 'i18next'
 
 class OnBoarding extends React.Component {
 
     componentDidMount() {
         this.props.actions.resetPlayerActions()
+        this._setLangage()
+    }
+
+
+    _setLangage = () => {
+        let deviceLanguage = Platform.OS === 'ios' ? NativeModules.SettingsManager.settings.AppleLocale ||
+                NativeModules.SettingsManager.settings.AppleLanguages[0] : NativeModules.I18nManager.localeIdentifier;
+        deviceLanguage = deviceLanguage.split('_')[0]
+
+        const found = languageList.map(x => x.code).indexOf(deviceLanguage)
+
+        if(found !== -1) return i18n.changeLanguage(deviceLanguage)
+        else return i18n.changeLanguage('fr')
     }
 
     render() {
