@@ -271,7 +271,11 @@
     "Music-Project": "โครงการดนตรี",
     "Group": "กลุ่ม",
     "Earlier": "ก่อนหน้านี้",
-    "Notifications": "การแจ้งเตือน"
+    "Notifications": "การแจ้งเตือน",
+    "Report-t-profile": "รายงานโปรไฟล์",
+    "Unfollow": "เลิกติดตาม",
+    "Unfriend": "เลิกเป็นเพื่อน",
+    "Block-User": "กีดกันผู้ใช้"
   },
   "COUNTRY": {
     "AD": "อันดอร์รา",

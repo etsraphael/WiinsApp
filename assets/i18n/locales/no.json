@@ -271,7 +271,11 @@
     "Music-Project": "Musikkprosjekt",
     "Group": "Gruppe",
     "Earlier": "Tidligere",
-    "Notifications": "Varsler"
+    "Notifications": "Varsler",
+    "Report-t-profile": "Rapporter profilen",
+    "Unfollow": "Slutte å følge",
+    "Unfriend": "Unfriend",
+    "Block-User": "Blokker bruker"
   },
   "COUNTRY": {
     "AD": "Andorra",

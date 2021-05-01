@@ -229,7 +229,11 @@
     "Music-Project": "음악 프로젝트",
     "Group": "그룹",
     "Earlier": "일찍이",
-    "Notifications": "알림"
+    "Notifications": "알림",
+    "Report-t-profile": "프로필 신고",
+    "Unfollow": "언 팔로우",
+    "Unfriend": "친구 해제",
+    "Block-User": "사용자 차단"
   },
   "COUNTRY": {
     "AD": "안도라",

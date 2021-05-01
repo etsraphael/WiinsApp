@@ -271,7 +271,11 @@
     "Music-Project": "Muzikos projektas",
     "Group": "Grupė",
     "Earlier": "Anksčiau",
-    "Notifications": "Pranešimai"
+    "Notifications": "Pranešimai",
+    "Report-t-profile": "Pranešti apie profilį",
+    "Unfollow": "Nesekti",
+    "Unfriend": "Draugas",
+    "Block-User": "Užblokuoti vartotoją"
   },
   "COUNTRY": {
     "AD": "Andora",

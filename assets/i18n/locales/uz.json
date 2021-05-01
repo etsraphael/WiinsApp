@@ -271,7 +271,11 @@
     "Music-Project": "Musiqiy loyiha",
     "Group": "Guruh",
     "Earlier": "Oldinroq",
-    "Notifications": "Bildirishnomalar"
+    "Notifications": "Bildirishnomalar",
+    "Report-t-profile": "Profil haqida xabar bering",
+    "Unfollow": "Obunani bekor qilish",
+    "Unfriend": "Do'stlashmang",
+    "Block-User": "Foydalanuvchini bloklash"
   },
   "COUNTRY": {
     "AD": "Andorra",

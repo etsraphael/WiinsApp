@@ -271,7 +271,11 @@
     "Music-Project": "இசை திட்டம்",
     "Group": "குழு",
     "Earlier": "முன்னதாக",
-    "Notifications": "அறிவிப்புகள்"
+    "Notifications": "அறிவிப்புகள்",
+    "Report-t-profile": "சுயவிவரத்தைப் புகாரளிக்கவும்",
+    "Unfollow": "பின்தொடரவும்",
+    "Unfriend": "நண்பன்",
+    "Block-User": "பயனரை தடை செய்"
   },
   "COUNTRY": {
     "AD": "அன்டோரா",

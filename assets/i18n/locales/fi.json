@@ -271,7 +271,11 @@
     "Music-Project": "Musiikkiprojekti",
     "Group": "Ryhmä",
     "Earlier": "Aikaisemmin",
-    "Notifications": "Ilmoitukset"
+    "Notifications": "Ilmoitukset",
+    "Report-t-profile": "Ilmoita profiili",
+    "Unfollow": "Älä seuraa",
+    "Unfriend": "Epäystävällinen",
+    "Block-User": "Estä käyttäjä"
   },
   "COUNTRY": {
     "AD": "Andorra",

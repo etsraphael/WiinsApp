@@ -271,7 +271,11 @@
     "Music-Project": "Projekt muzyczny",
     "Group": "Grupa",
     "Earlier": "Wcześniej",
-    "Notifications": "Powiadomienia"
+    "Notifications": "Powiadomienia",
+    "Report-t-profile": "Zgłoś profil",
+    "Unfollow": "Przestań obserwować",
+    "Unfriend": "Nieprzyjaciel",
+    "Block-User": "Zablokować użytkownika"
   },
   "COUNTRY": {
     "AD": "Andora",

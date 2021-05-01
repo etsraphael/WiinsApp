@@ -271,7 +271,11 @@
     "Music-Project": "സംഗീത പ്രോജക്റ്റ്",
     "Group": "ഗ്രൂപ്പ്",
     "Earlier": "നേരത്തെ",
-    "Notifications": "അറിയിപ്പുകൾ"
+    "Notifications": "അറിയിപ്പുകൾ",
+    "Report-t-profile": "പ്രൊഫൈൽ റിപ്പോർട്ടുചെയ്യുക",
+    "Unfollow": "പിന്തുടരരുത്",
+    "Unfriend": "ചങ്ങാതിയല്ല",
+    "Block-User": "ഉപയോക്താവിനെ തടയുക"
   },
   "COUNTRY": {
     "AD": "അൻഡോറ",

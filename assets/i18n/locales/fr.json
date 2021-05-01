@@ -229,7 +229,11 @@
     "Music-Project": "Projet de musique",
     "Group": "Grouper",
     "Earlier": "Plus tôt",
-    "Notifications": "Notifications"
+    "Notifications": "Notifications",
+    "Report-t-profile": "Signaler le profil",
+    "Unfollow": "Se désabonner",
+    "Unfriend": "Un ami",
+    "Block-User": "Bloquer un utilisateur"
   },
   "COUNTRY": {
     "AD": "Andorre",

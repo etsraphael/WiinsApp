@@ -271,7 +271,11 @@
     "Music-Project": "Musiekprojek",
     "Group": "Groep",
     "Earlier": "Vroeër",
-    "Notifications": "Kennisgewings"
+    "Notifications": "Kennisgewings",
+    "Report-t-profile": "Rapporteer die profiel",
+    "Unfollow": "Ontvolg",
+    "Unfriend": "Onvriendin",
+    "Block-User": "Gebruiker blokkeer"
   },
   "COUNTRY": {
     "AD": "Andorra",

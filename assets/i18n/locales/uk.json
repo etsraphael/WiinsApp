@@ -271,7 +271,11 @@
     "Music-Project": "Музичний проект",
     "Group": "Група",
     "Earlier": "Раніше",
-    "Notifications": "Повідомлення"
+    "Notifications": "Повідомлення",
+    "Report-t-profile": "Повідомте про профіль",
+    "Unfollow": "Скасувати підписку",
+    "Unfriend": "Роздружуватися",
+    "Block-User": "Заблокувати користувача"
   },
   "COUNTRY": {
     "AD": "Андорра",

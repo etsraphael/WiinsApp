@@ -271,7 +271,11 @@
     "Music-Project": "Мусиц Пројецт",
     "Group": "Група",
     "Earlier": "Раније",
-    "Notifications": "Обавештења"
+    "Notifications": "Обавештења",
+    "Report-t-profile": "Пријави профил",
+    "Unfollow": "Престани пратити",
+    "Unfriend": "Унфриенд",
+    "Block-User": "Блокирај корисника"
   },
   "COUNTRY": {
     "AD": "Андора",

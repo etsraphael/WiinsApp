@@ -271,7 +271,11 @@
     "Music-Project": "Zenei projekt",
     "Group": "Csoport",
     "Earlier": "Korábban",
-    "Notifications": "Értesítések"
+    "Notifications": "Értesítések",
+    "Report-t-profile": "Jelentse a profilt",
+    "Unfollow": "Követés megszüntetése",
+    "Unfriend": "Baráttalan",
+    "Block-User": "Felhasználó letiltása"
   },
   "COUNTRY": {
     "AD": "Andorra",

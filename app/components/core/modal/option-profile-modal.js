@@ -11,7 +11,6 @@ import ActionSheet from 'react-native-actionsheet'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 import * as ProfileActions from '../../../redux/Profile/actions'
 
-
 const categoriesReport = [
     {
         number: 1,
@@ -117,25 +116,25 @@ class OptionProfileModal extends React.Component {
         const optionsList = [
             {
                 code: 'report',
-                title: 'Report the profile',
+                title: I18n.t('CORE.Report-t-profile'),
                 color: 'red',
                 display: true
             },
             {
                 code: 'unfollow',
-                title: 'Unfollow',
+                title: I18n.t('CORE.Unfollow'),
                 color: 'black',
                 display: this.props.Profile.relation == 'following'
             },
             {
                 code: 'unfriend',
-                title: 'Unfriend',
+                title: I18n.t('CORE.Unfriend'),
                 color: 'black',
                 display: this.props.Profile.relation == 'friend'
             },
             {
                 code: 'blockUser',
-                title: 'Block User',
+                title: I18n.t('CORE.Block-User'),
                 color: 'black',
                 display: true
             }

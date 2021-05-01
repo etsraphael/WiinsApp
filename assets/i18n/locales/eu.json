@@ -271,7 +271,11 @@
     "Music-Project": "Musika Proiektua",
     "Group": "Taldea",
     "Earlier": "Lehenago",
-    "Notifications": "Jakinarazpenak"
+    "Notifications": "Jakinarazpenak",
+    "Report-t-profile": "Profilaren berri eman",
+    "Unfollow": "Utzi",
+    "Unfriend": "Lagun gabea",
+    "Block-User": "Blokeatu erabiltzailea"
   },
   "COUNTRY": {
     "AD": "Andorra",

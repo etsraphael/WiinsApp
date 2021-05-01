@@ -229,7 +229,11 @@
     "Music-Project": "音乐计划",
     "Group": "团体",
     "Earlier": "较早",
-    "Notifications": "通知事项"
+    "Notifications": "通知事项",
+    "Report-t-profile": "报告个人资料",
+    "Unfollow": "取消关注",
+    "Unfriend": "取消交友",
+    "Block-User": "阻止用户"
   },
   "COUNTRY": {
     "AD": "安道尔",

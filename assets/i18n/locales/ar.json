@@ -229,7 +229,11 @@
     "Music-Project": "مشروع الموسيقى",
     "Group": "مجموعة",
     "Earlier": "سابقا",
-    "Notifications": "إشعارات"
+    "Notifications": "إشعارات",
+    "Report-t-profile": "الإبلاغ عن الملف الشخصي",
+    "Unfollow": "الغاء المتابعة",
+    "Unfriend": "الغاء الصداقه",
+    "Block-User": "مستخدم محضور"
   },
   "COUNTRY": {
     "AD": "اندورا",

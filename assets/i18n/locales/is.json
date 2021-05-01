@@ -271,7 +271,11 @@
     "Music-Project": "Tónlistarverkefni",
     "Group": "Hópur",
     "Earlier": "Fyrr",
-    "Notifications": "Tilkynningar"
+    "Notifications": "Tilkynningar",
+    "Report-t-profile": "Tilkynntu um prófílinn",
+    "Unfollow": "Hætta við",
+    "Unfriend": "Óvinur",
+    "Block-User": "Loka á notanda"
   },
   "COUNTRY": {
     "AD": "Andorra",

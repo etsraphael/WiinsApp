@@ -229,7 +229,11 @@
     "Music-Project": "Musikprojekt",
     "Group": "Gruppe",
     "Earlier": "Vorhin",
-    "Notifications": "Benachrichtigungen"
+    "Notifications": "Benachrichtigungen",
+    "Report-t-profile": "Melden Sie das Profil",
+    "Unfollow": "Nicht mehr folgen",
+    "Unfriend": "Unfreund",
+    "Block-User": "Benutzer blockieren"
   },
   "COUNTRY": {
     "AD": "Andorra",

@@ -271,7 +271,11 @@
     "Music-Project": "គម្រោងតន្រ្តី",
     "Group": "ក្រុម",
     "Earlier": "មុននេះ",
-    "Notifications": "ការជូនដំណឹង"
+    "Notifications": "ការជូនដំណឹង",
+    "Report-t-profile": "រាយការណ៍អំពីប្រវត្តិរូប",
+    "Unfollow": "មិនបំពេញ",
+    "Unfriend": "មិនរាក់ទាក់",
+    "Block-User": "អ្នក​ប្រើ​ប្លុក"
   },
   "COUNTRY": {
     "AD": "អង់ដូរ៉ា",

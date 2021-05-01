@@ -271,7 +271,11 @@
     "Music-Project": "Hudobný projekt",
     "Group": "Skupina",
     "Earlier": "Skôr",
-    "Notifications": "Oznámenia"
+    "Notifications": "Oznámenia",
+    "Report-t-profile": "Nahlásiť profil",
+    "Unfollow": "Zrušiť sledovanie",
+    "Unfriend": "Nepriateľ",
+    "Block-User": "Blokovať používateľa"
   },
   "COUNTRY": {
     "AD": "Andorra",

@@ -229,7 +229,11 @@
     "Music-Project": "Музыкальный проект",
     "Group": "Группа",
     "Earlier": "Ранее",
-    "Notifications": "Уведомления"
+    "Notifications": "Уведомления",
+    "Report-t-profile": "Пожаловаться на профиль",
+    "Unfollow": "Отписаться",
+    "Unfriend": "Удалить из друзей",
+    "Block-User": "Заблокировать пользователя"
   },
   "COUNTRY": {
     "AD": "Андорра",

@@ -271,7 +271,11 @@
     "Music-Project": "Müzik Projesi",
     "Group": "Grup",
     "Earlier": "Daha erken",
-    "Notifications": "Bildirimler"
+    "Notifications": "Bildirimler",
+    "Report-t-profile": "Profili bildirin",
+    "Unfollow": "Takibi bırak",
+    "Unfriend": "Arkadaşlıktan Çıkar",
+    "Block-User": "Kullanıcıyı engelle"
   },
   "COUNTRY": {
     "AD": "Andorra",

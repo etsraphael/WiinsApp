@@ -271,7 +271,11 @@
     "Music-Project": "Proyek Musik",
     "Group": "Kelompok",
     "Earlier": "Sebelumnya",
-    "Notifications": "Notifikasi"
+    "Notifications": "Notifikasi",
+    "Report-t-profile": "Laporkan profilnya",
+    "Unfollow": "Berhenti mengikuti",
+    "Unfriend": "Unfriend",
+    "Block-User": "Blokir Pengguna"
   },
   "COUNTRY": {
     "AD": "Andorra",

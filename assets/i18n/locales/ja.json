@@ -229,7 +229,11 @@
     "Music-Project": "音楽プロジェクト",
     "Group": "グループ",
     "Earlier": "ついさっき",
-    "Notifications": "通知"
+    "Notifications": "通知",
+    "Report-t-profile": "プロファイルを報告する",
+    "Unfollow": "フォロー解除",
+    "Unfriend": "友達を外す",
+    "Block-User": "ユーザをブロックする"
   },
   "COUNTRY": {
     "AD": "アンドラ",

@@ -229,7 +229,11 @@
     "Music-Project": "संगीत परियोजना",
     "Group": "समूह",
     "Earlier": "पूर्व",
-    "Notifications": "सूचनाएं"
+    "Notifications": "सूचनाएं",
+    "Report-t-profile": "प्रोफ़ाइल की रिपोर्ट करें",
+    "Unfollow": "करें",
+    "Unfriend": "unfriend",
+    "Block-User": "खंड उपयोगकर्ता"
   },
   "COUNTRY": {
     "AD": "एंडोरा",

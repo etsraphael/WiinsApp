@@ -271,7 +271,11 @@
     "Music-Project": "Dự án âm nhạc",
     "Group": "Nhóm",
     "Earlier": "Sớm hơn",
-    "Notifications": "Thông báo"
+    "Notifications": "Thông báo",
+    "Report-t-profile": "Báo cáo hồ sơ",
+    "Unfollow": "Bỏ theo dõi",
+    "Unfriend": "Hủy kết bạn",
+    "Block-User": "Chặn người dùng"
   },
   "COUNTRY": {
     "AD": "Andorra",

@@ -271,7 +271,11 @@
     "Music-Project": "Musikprojekt",
     "Group": "Grupp",
     "Earlier": "Tidigare",
-    "Notifications": "Meddelanden"
+    "Notifications": "Meddelanden",
+    "Report-t-profile": "Rapportera profilen",
+    "Unfollow": "Sluta följa",
+    "Unfriend": "Ovän",
+    "Block-User": "Blockera användare"
   },
   "COUNTRY": {
     "AD": "andorra",

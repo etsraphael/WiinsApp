@@ -271,7 +271,11 @@
     "Music-Project": "Glazbeni projekt",
     "Group": "Skupina",
     "Earlier": "Ranije",
-    "Notifications": "Obavijesti"
+    "Notifications": "Obavijesti",
+    "Report-t-profile": "Prijavi profil",
+    "Unfollow": "Prestani pratiti",
+    "Unfriend": "Neprijatelj",
+    "Block-User": "Blokirati korisnika"
   },
   "COUNTRY": {
     "AD": "Andora",

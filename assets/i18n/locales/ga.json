@@ -271,7 +271,11 @@
     "Music-Project": "Tionscadal Ceoil",
     "Group": "Grúpa",
     "Earlier": "Níos luaithe",
-    "Notifications": "Fógraí"
+    "Notifications": "Fógraí",
+    "Report-t-profile": "Tuairiscigh an phróifíl",
+    "Unfollow": "Unollow",
+    "Unfriend": "Neamhchara",
+    "Block-User": "Úsáideoir Bloc"
   },
   "COUNTRY": {
     "AD": "Andóra",

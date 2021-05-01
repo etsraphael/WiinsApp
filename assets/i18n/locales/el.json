@@ -271,7 +271,11 @@
     "Music-Project": "Μουσικό έργο",
     "Group": "Ομάδα",
     "Earlier": "Νωρίτερα",
-    "Notifications": "Ειδοποιήσεις"
+    "Notifications": "Ειδοποιήσεις",
+    "Report-t-profile": "Αναφέρετε το προφίλ",
+    "Unfollow": "Κατάργηση παρακολούθησης",
+    "Unfriend": "Φίλε",
+    "Block-User": "Αποκλεισμός χρήστη"
   },
   "COUNTRY": {
     "AD": "Ανδόρα",
