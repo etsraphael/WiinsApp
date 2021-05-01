@@ -35,6 +35,10 @@ export function getStoriesFail(payload) {
 }
 
 export function getStackSuccess(payload, index) {
+    payload = {
+        ...payload,
+        publicationList: payload.publicationList.filter(x => !!x.publication)
+    }
     return { type: ActionTypes.GET_STACK_SUCCESS, payload, index }
 }
 
