@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-    StyleSheet, View, TextInput, Text, TouchableOpacity, Linking,
+    StyleSheet, View, TextInput, Text, TouchableOpacity,
     ActivityIndicator, ScrollView, StatusBar, KeyboardAvoidingView
 } from 'react-native'
 import { connect } from 'react-redux'
@@ -24,15 +24,8 @@ class SignUp extends React.Component {
             pseudo: null,
             password: null,
             registration_success: false,
-            conditionAccepted: false,
-            countDownString: null,
-            counterDone: false,
-            showMore: false
+            conditionAccepted: false
         }
-    }
-
-    componentDidMount() {
-        this._startTimer()
     }
 
     UNSAFE_componentWillReceiveProps(newProps) {
@@ -182,92 +175,7 @@ class SignUp extends React.Component {
         )
     }
 
-    // timer test
-    _startTimer = () => {
-        let countDownDate = new Date('May 1, 2021 00:00:00').getTime()
-
-        let x = setInterval(() => {
-
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            this.setState({ countDownString: days + "d " + hours + "h " + minutes + "m " + seconds + "s " })
-
-            // If the count down is finished, write some text
-            if (distance <= 0) {
-                this.setState({ counterDone: true })
-                clearInterval(x)
-            }
-        }, 1000)
-
-    }
-
-    _renderTimer = () => {
-        return (
-            <LinearGradient
-                colors={['#35D1FE', '#0041C4', '#960CF8']}
-                style={{ paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10, flex: 1 }}
-                locations={[0, 0.5596885789406173, 1]}
-                start={{ x: 0.1, y: 0.09 }}
-                end={{ x: 0.94, y: 0.95 }}
-            >
-                <ScrollView style={{ flex: 1 }}>
-
-                    <View style={{ paddingHorizontal: 15, paddingVertical: 10 }}>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
-                            <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'white'} />
-                        </TouchableOpacity>
-                    </View>
-
-                    {this.state.countDownString ? <View style={{ alignItems: 'center' }}>
-                        <Text style={{ fontSize: 25, color: 'white', fontWeight: '800', backgroundColor: '#5f5f5fb0', padding: 15, borderRadius: 15, overflow: 'hidden' }}>{this.state.countDownString}</Text>
-                    </View> : null}
-
-                    <View style={{ padding: 15, flex: 1 }}>
-
-                        <Text style={styles.textSection}>
-                            {i18n.t('TEMPORARY.On-first-may-d')}
-                            <Text style={{ color: 'yellow' }} onPress={() => this.setState({ showMore: true })}>{i18n.t('TEMPORARY.Tell-m-more')}</Text>
-                        </Text>
-
-                        {this.state.showMore ?
-                            <View>
-                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.Why-this-early-access')}</Text>
-                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.W-does-early-access-offer')}</Text>
-                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.H-lg-ll-t-platform-be-in-early-access')}</Text>
-                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.H-ll-t-full-version-b-diff-frm-t-early-access-version')}</Text>
-                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.H-much-ll-t-full-version-cost-after-Early-Access')}</Text>
-                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.H-d-y-plan-to-involve-t-community-in-t-dev-process')}</Text>
-                                <Text style={[styles.textSection, { color: 'yellow' }]} onPress={() => this.setState({ counterDone: true })}>{i18n.t('TEMPORARY.Ty')}</Text>
-                            </View>
-                            : null}
-
-
-                    </View>
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginBottom: 30, flex: 1 }}>
-                        <TouchableOpacity onPress={() => Linking.openURL('https://discord.gg/bBE6xmR')} style={{ backgroundColor: 'black', padding: 15, borderRadius: 15, overflow: 'hidden' }}>
-                            <Text style={styles.loginText}>{i18n.t('TEMPORARY.Join-us-on-discord')}</Text>
-                        </TouchableOpacity>
-                    </View>
-
-
-                </ScrollView>
-
-            </LinearGradient>
-        )
-    }
-
-    _renderRegistration = () => {
+    render() {
         return (
             <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
                 <View style={{ paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
@@ -310,13 +218,9 @@ class SignUp extends React.Component {
                         )
                     }
                 </View>
-            </ScrollView>)
+            </ScrollView>
+        )
 
-    }
-
-    render() {
-        if (!this.state.counterDone) { return this._renderTimer()
-        } else { return this._renderRegistration() }
     }
 }
 
