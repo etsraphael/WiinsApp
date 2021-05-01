@@ -24,9 +24,9 @@ class OnBoarding extends React.Component {
         deviceLanguage = deviceLanguage.split('_')[0]
 
         const found = languageList.map(x => x.code).indexOf(deviceLanguage)
-
-        if(found !== -1) return i18n.changeLanguage(deviceLanguage)
-        else return i18n.changeLanguage('fr')
+        
+        if(found == -1) return i18n.changeLanguage('en')
+        else return i18n.changeLanguage(deviceLanguage)
     }
 
     render() {

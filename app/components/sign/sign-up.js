@@ -14,6 +14,8 @@ import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import CheckBox from '@react-native-community/checkbox'
 import i18n from './../../../assets/i18n/i18n'
+import { languageList } from './../core/data/language'
+
 
 class SignUp extends React.Component {
 
@@ -53,10 +55,18 @@ class SignUp extends React.Component {
 
         if (!this._verificationTrue()) return null
         else {
+
+            const user = { pseudo: this.state.pseudo, email: this.state.email, password: this.state.password }
+
+            // set the language
             const deviceLanguage = Platform.OS === 'ios' ? NativeModules.SettingsManager.settings.AppleLocale ||
                 NativeModules.SettingsManager.settings.AppleLanguages[0] : NativeModules.I18nManager.localeIdentifier;
-            const user = { pseudo: this.state.pseudo, email: this.state.email, password: this.state.password }
-            const userDetail = { language: deviceLanguage.split('_')[0] }
+            const found = languageList.map(x => x.code).indexOf(deviceLanguage.split('_')[0])
+            let userDetail
+
+            if (found == -1) { userDetail = { language: 'en' } }
+            else userDetail = { language: deviceLanguage.split('_')[0] }
+
             return this.props.actions.register(user, userDetail)
         }
     }
