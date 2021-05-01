@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Níl an t-ábhar seo ann níos mó",
     "T-publication-no-longer-exists": "Níl an foilseachán seo ann a thuilleadh",
     "Could-not-play-video": "Níorbh fhéidir físeán a imirt",
-    "No-music-liked-yet": "Níor thaitin aon cheol go fóill"
+    "No-music-liked-yet": "Níor thaitin aon cheol go fóill",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Níor fíoraíodh tú mar gheall ar do riachtanais. Bain triail as am nua nuair atá tú réidh."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Faightear an grianghraf",
@@ -712,7 +713,12 @@
     "tag-you-in-comment": "clibeáil tú i dtrácht",
     "tag-you-in-playlist": "clibeáil tú i seinmliosta",
     "you-appear-in-project-of": "Tá tú le feiceáil sa tionscadal nua de",
-    "you-have": "tá _ agat"
+    "you-have": "tá _ agat",
+    "Value-comment-yr-publication": "Rinne {{value}} trácht ar d’fhoilseachán",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} cosúil le do thrácht i seinmliosta ceoil",
+    "Value-liked-yr-publication-in-t-feed": "Thaitin {{value}} le d’fhoilseachán sa bheatha",
+    "Value-tagged-you-in-a-publication-in-t-feed": "Chuir {{value}} clib ort i bhfoilseachán sa bheatha",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "Chuir {{value}} clib seinmliosta ceoil ort i bhfoilseachán"
   },
   "PAGE": {
     "Name-page": "Ainm an leathanaigh",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Scriosadh do chuntas",
     "Yr-account-is-activated": "Cuirtear do chuntas i ngníomh! Is féidir leat leas a bhaint anois as feidhmeanna láraithe espace-piin d’fhonn cumarsáid a dhéanamh, siamsaíocht a chur ort féin nó tú féin a chur ar an eolas.",
     "activated-after-15min-payment": "Déanfar d’fheachtas a bhailíochtú i gceann cúig nóiméad déag tar éis an íocaíocht a bhailíochtú.",
-    "update-is-done": "Déantar an nuashonrú"
+    "update-is-done": "Déantar an nuashonrú",
+    "You-h-been-verified-i-t-platform-D": "Fíoraíodh tú san ardán. Is féidir leat taitneamh a bhaint as na rudaí breise go léir anois."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "An bhfuil tú cinnte go n-athróidh tú dáta scaoilte do thionscadail?",

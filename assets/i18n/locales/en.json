@@ -592,7 +592,8 @@
     "T-content-does-not-exist-anymore": "This content does not exist anymore",
     "T-publication-no-longer-exists": "This publication no longer exists",
     "Could-not-play-video": "Could not play video",
-    "No-music-liked-yet": "No music liked yet"
+    "No-music-liked-yet": "No music liked yet",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "You havn't been verified due to your requirements. Try a new time when you're ready."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "The photo is received",
@@ -670,7 +671,12 @@
     "Yr-verification-request-was-accepted": "Your verification request was accepted",
     "Yr-verification-request-was-refused": "Your verification request was refused",
     "Yr-certification-request-was-accepted": "Your certification request was accepted",
-    "Yr-certification-request-was-refused": "Your certification request was refused"
+    "Yr-certification-request-was-refused": "Your certification request was refused",
+    "Value-comment-yr-publication": "{{value}} commented your publication",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} like your comment in a music playlist",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} liked your publication in the feed",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} tagged you in a publication in the feed",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} tagged you in a publication a music playlist"
   },
   "PAGE": {
     "Name-page": "Page name",
@@ -980,7 +986,8 @@
     "Yr-account-has-been-deleted": "Your account has been deleted",
     "Yr-account-is-activated": "Your account is activated! You can now take advantage of the centralized functions of espace-piin's in order to communicate, entertain yourself or make yourself known.",
     "activated-after-15min-payment": "Your campaign will be validated in about fifteen minutes after the validation of the payment.",
-    "update-is-done": "The update is done"
+    "update-is-done": "The update is done",
+    "You-h-been-verified-i-t-platform-D": "You have been verified in the platform. You can enjoy all the extras now."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Are you sure to change the release date of your project ?",

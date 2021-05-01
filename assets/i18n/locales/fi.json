@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Tätä sisältöä ei ole enää olemassa",
     "T-publication-no-longer-exists": "Tätä julkaisua ei ole enää olemassa",
     "Could-not-play-video": "Videota ei voitu toistaa",
-    "No-music-liked-yet": "Musiikkia ei vielä tykätty"
+    "No-music-liked-yet": "Musiikkia ei vielä tykätty",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Sinua ei ole vahvistettu vaatimustenne vuoksi. Kokeile uutta aikaa, kun olet valmis."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Kuva on vastaanotettu",
@@ -712,7 +713,12 @@
     "tag-you-in-comment": "merkitsi sinut kommenttiin",
     "tag-you-in-playlist": "merkitsi sinut soittolistaan",
     "you-appear-in-project-of": "Olet mukana uudessa projektissa",
-    "you-have": "sinulla on"
+    "you-have": "sinulla on",
+    "Value-comment-yr-publication": "{{value}} kommentoi julkaisuasi",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} tykkää kommentistasi musiikin soittolistalla",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} tykkäsi julkaisustasi syötteessä",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} merkitsi sinut syötteen julkaisuun",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} merkitsi sinut julkaisussa musiikin soittolistaan"
   },
   "PAGE": {
     "Name-page": "Sivun nimi",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Tilisi on poistettu",
     "Yr-account-is-activated": "Tilisi on aktivoitu! Nyt voit hyödyntää espace-piin-palvelujen keskitettyjä toimintoja kommunikoida, viihdyttää itseäsi tai tehdä itsestäsi tunnetuksi.",
     "activated-after-15min-payment": "Kampanjasi vahvistetaan noin viidentoista minuutin kuluttua maksun vahvistamisesta.",
-    "update-is-done": "Päivitys on valmis"
+    "update-is-done": "Päivitys on valmis",
+    "You-h-been-verified-i-t-platform-D": "Sinut on vahvistettu alustalla. Voit nauttia kaikista extroista nyt."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Haluatko varmasti muuttaa projektisi julkaisupäivää?",

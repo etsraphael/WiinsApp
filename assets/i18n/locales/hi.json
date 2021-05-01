@@ -592,7 +592,8 @@
     "T-content-does-not-exist-anymore": "यह सामग्री अब मौजूद नहीं है",
     "T-publication-no-longer-exists": "यह प्रकाशन अब मौजूद नहीं है",
     "Could-not-play-video": "वीडियो नहीं चला सका",
-    "No-music-liked-yet": "अभी तक कोई संगीत पसंद नहीं आया"
+    "No-music-liked-yet": "अभी तक कोई संगीत पसंद नहीं आया",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "आपको अपनी आवश्यकताओं के कारण सत्यापित नहीं किया गया है। जब आप तैयार हों तब नया समय आज़माएं।"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "फोटो प्राप्त हुआ",
@@ -670,7 +671,12 @@
     "Yr-verification-request-was-accepted": "आपका सत्यापन अनुरोध स्वीकार कर लिया गया",
     "Yr-verification-request-was-refused": "आपका सत्यापन अनुरोध अस्वीकार कर दिया गया था",
     "Yr-certification-request-was-accepted": "आपका प्रमाणीकरण अनुरोध स्वीकार कर लिया गया",
-    "Yr-certification-request-was-refused": "आपके प्रमाणीकरण अनुरोध को अस्वीकार कर दिया गया था"
+    "Yr-certification-request-was-refused": "आपके प्रमाणीकरण अनुरोध को अस्वीकार कर दिया गया था",
+    "Value-comment-yr-publication": "{{मान}} आपके प्रकाशन पर टिप्पणी की",
+    "Value-like-yr-comment-in-a-music-playlist": "{{मान}} एक संगीत प्लेलिस्ट में आपकी टिप्पणी की तरह",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} फ़ीड में आपके प्रकाशन को पसंद किया",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} ने आपको फ़ीड में एक प्रकाशन में टैग किया है",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} ने आपको प्रकाशन में संगीत प्लेलिस्ट में टैग किया है"
   },
   "PAGE": {
     "Name-page": "पन्ने का नाम",
@@ -980,7 +986,8 @@
     "Yr-account-has-been-deleted": "आपका खाता हटा दिया गया है",
     "Yr-account-is-activated": "आपका खाता सक्रिय है! अब आप संवाद करने, अपने आप को मनोरंजन करने या खुद को ज्ञात करने के लिए ईस्पेस-पिइन के केंद्रीकृत कार्यों का लाभ उठा सकते हैं।",
     "activated-after-15min-payment": "भुगतान के सत्यापन के बाद लगभग पंद्रह मिनट में आपका अभियान मान्य हो जाएगा.",
-    "update-is-done": "अपडेट किया जाता है"
+    "update-is-done": "अपडेट किया जाता है",
+    "You-h-been-verified-i-t-platform-D": "आपको प्लेटफ़ॉर्म में सत्यापित किया गया है। अब आप सभी अतिरिक्त आनंद ले सकते हैं।"
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "क्या आप अपनी परियोजना की रिलीज की तारीख को बदलना सुनिश्चित करते हैं ?",

@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Acest conținut nu mai există",
     "T-publication-no-longer-exists": "Această publicație nu mai există",
     "Could-not-play-video": "Nu s-a putut reda videoclipul",
-    "No-music-liked-yet": "Nici o muzică nu a plăcut încă"
+    "No-music-liked-yet": "Nici o muzică nu a plăcut încă",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Nu ați fost verificat din cauza cerințelor dvs. Încercați o nouă oră când sunteți gata."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotografia este primită",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "Solicitarea dvs. de verificare a fost acceptată",
     "Yr-verification-request-was-refused": "Solicitarea dvs. de verificare a fost refuzată",
     "Yr-certification-request-was-accepted": "Solicitarea dvs. de certificare a fost acceptată",
-    "Yr-certification-request-was-refused": "Solicitarea dvs. de certificare a fost refuzată"
+    "Yr-certification-request-was-refused": "Solicitarea dvs. de certificare a fost refuzată",
+    "Value-comment-yr-publication": "{{value}} a comentat publicația dvs.",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} îți place comentariul dintr-o listă de redare muzicală",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} a apreciat publicarea dvs. în feed",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} v-a etichetat într-o publicație din feed",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} v-a etichetat într-o publicație o listă de redare muzicală"
   },
   "PAGE": {
     "Name-page": "Numele paginii",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Contul dvs. a fost șters",
     "Yr-account-is-activated": "Contul dvs. este activat! Acum puteți profita de funcțiile centralizate ale spațiului-piin pentru a comunica, a vă distra sau a vă face cunoscut.",
     "activated-after-15min-payment": "Campania dvs. va fi validată în aproximativ cincisprezece minute de la validarea plății.",
-    "update-is-done": "Actualizarea este gata"
+    "update-is-done": "Actualizarea este gata",
+    "You-h-been-verified-i-t-platform-D": "Ați fost verificat în platformă. Vă puteți bucura de toate figuranțele acum."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Sigur modificați data lansării proiectului dvs.?",

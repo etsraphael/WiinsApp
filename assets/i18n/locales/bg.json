@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Това съдържание вече не съществува",
     "T-publication-no-longer-exists": "Тази публикация вече не съществува",
     "Could-not-play-video": "Видеото не можа да се възпроизведе",
-    "No-music-liked-yet": "Все още няма харесвана музика"
+    "No-music-liked-yet": "Все още няма харесвана музика",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Не сте проверени поради вашите изисквания. Опитайте ново време, когато сте готови."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Снимката е получена",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "Вашата заявка за потвърждение бе приета",
     "Yr-verification-request-was-refused": "Вашата заявка за потвърждение бе отказана",
     "Yr-certification-request-was-accepted": "Вашата заявка за сертифициране бе приета",
-    "Yr-certification-request-was-refused": "Заявката ви за сертифициране бе отказана"
+    "Yr-certification-request-was-refused": "Заявката ви за сертифициране бе отказана",
+    "Value-comment-yr-publication": "{{value}} коментира вашата публикация",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} като вашия коментар в музикален плейлист",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} хареса публикацията ви в емисията",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} ви маркира в публикация в емисията",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} ви маркира в публикация музикален плейлист"
   },
   "PAGE": {
     "Name-page": "Име на страницата",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Вашият акаунт е изтрит",
     "Yr-account-is-activated": "Вашият акаунт е активиран! Вече можете да се възползвате от централизираните функции на espace-piin's, за да общувате, да се забавлявате или да се изявявате.",
     "activated-after-15min-payment": "Вашата кампания ще бъде потвърдена след около петнадесет минути след потвърждаване на плащането.",
-    "update-is-done": "Актуализацията е направена"
+    "update-is-done": "Актуализацията е направена",
+    "You-h-been-verified-i-t-platform-D": "Вие сте били потвърдени в платформата. Вече можете да се насладите на всички екстри."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Наистина ли сте променили датата на издаване на вашия проект?",

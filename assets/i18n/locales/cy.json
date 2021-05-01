@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Nid yw'r cynnwys hwn yn bodoli mwyach",
     "T-publication-no-longer-exists": "Nid yw'r cyhoeddiad hwn yn bodoli mwyach",
     "Could-not-play-video": "Methu chwarae fideo",
-    "No-music-liked-yet": "Nid oedd unrhyw gerddoriaeth yn cael ei hoffi eto"
+    "No-music-liked-yet": "Nid oedd unrhyw gerddoriaeth yn cael ei hoffi eto",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Ni chawsoch eich gwirio oherwydd eich gofynion. Rhowch gynnig ar amser newydd pan fyddwch chi'n barod."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Derbynnir y llun",
@@ -712,7 +713,12 @@
     "tag-you-in-comment": "tagio chi mewn sylw",
     "tag-you-in-playlist": "tagio chi mewn rhestr chwarae",
     "you-appear-in-project-of": "Rydych chi'n ymddangos yn y prosiect newydd o",
-    "you-have": "mae gennych chi"
+    "you-have": "mae gennych chi",
+    "Value-comment-yr-publication": "Gwnaeth {{value}} sylwadau ar eich cyhoeddiad",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} fel eich sylw mewn rhestr chwarae cerddoriaeth",
+    "Value-liked-yr-publication-in-t-feed": "Roedd {{value}} yn hoffi'ch cyhoeddiad yn y porthiant",
+    "Value-tagged-you-in-a-publication-in-t-feed": "Fe wnaeth {{value}} eich tagio mewn cyhoeddiad yn y porthiant",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "Fe wnaeth {{value}} eich tagio mewn cyhoeddiad rhestr chwarae cerddoriaeth"
   },
   "PAGE": {
     "Name-page": "Enw'r dudalen",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Mae eich cyfrif wedi'i ddileu",
     "Yr-account-is-activated": "Mae eich cyfrif wedi'i actifadu! Nawr gallwch chi fanteisio ar swyddogaethau canolog espace-piin's er mwyn cyfathrebu, difyrru'ch hun neu wneud eich hun yn hysbys.",
     "activated-after-15min-payment": "Bydd eich ymgyrch yn cael ei dilysu ymhen rhyw bymtheg munud ar ôl dilysu'r taliad.",
-    "update-is-done": "Mae'r diweddariad yn cael ei wneud"
+    "update-is-done": "Mae'r diweddariad yn cael ei wneud",
+    "You-h-been-verified-i-t-platform-D": "Rydych chi wedi cael eich gwirio yn y platfform. Gallwch chi fwynhau'r holl bethau ychwanegol nawr."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Ydych chi'n sicr o newid dyddiad rhyddhau eich prosiect?",

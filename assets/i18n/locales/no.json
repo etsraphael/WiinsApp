@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Dette innholdet eksisterer ikke lenger",
     "T-publication-no-longer-exists": "Denne publikasjonen eksisterer ikke lenger",
     "Could-not-play-video": "Kunne ikke spille av video",
-    "No-music-liked-yet": "Ingen musikk likte ennå"
+    "No-music-liked-yet": "Ingen musikk likte ennå",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Du har ikke blitt bekreftet på grunn av dine krav. Prøv en ny tid når du er klar."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Bildet er mottatt",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "Bekreftelsesforespørselen din ble godtatt",
     "Yr-verification-request-was-refused": "Bekreftelsesforespørselen din ble avslått",
     "Yr-certification-request-was-accepted": "Sertifiseringsforespørselen din ble godtatt",
-    "Yr-certification-request-was-refused": "Sertifiseringsforespørselen din ble avslått"
+    "Yr-certification-request-was-refused": "Sertifiseringsforespørselen din ble avslått",
+    "Value-comment-yr-publication": "{{value}} kommenterte publikasjonen din",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} liker kommentaren din i en musikkspilleliste",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} likte publikasjonen din i feeden",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} merket deg i en publikasjon i feeden",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} merket deg en musikkspilleliste i en publikasjon"
   },
   "PAGE": {
     "Name-page": "Sidenavn",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Kontoen din er slettet",
     "Yr-account-is-activated": "Kontoen din er aktivert! Du kan nå dra nytte av de sentraliserte funksjonene til espace-piin for å kommunisere, underholde deg selv eller gjøre deg kjent.",
     "activated-after-15min-payment": "Kampanjen din blir validert om femten minutter etter validering av betalingen.",
-    "update-is-done": "Oppdateringen er ferdig"
+    "update-is-done": "Oppdateringen er ferdig",
+    "You-h-been-verified-i-t-platform-D": "Du er bekreftet på plattformen. Du kan glede deg over alt ekstrautstyret nå."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Er du sikker på å endre utgivelsesdatoen for prosjektet ditt?",

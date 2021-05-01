@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Ovaj sadržaj više ne postoji",
     "T-publication-no-longer-exists": "Ova publikacija više ne postoji",
     "Could-not-play-video": "Reprodukcija videozapisa nije uspjela",
-    "No-music-liked-yet": "Još se nijedna glazba nije svidjela"
+    "No-music-liked-yet": "Još se nijedna glazba nije svidjela",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Niste provjereni zbog vaših zahtjeva. Isprobajte novo vrijeme kad budete spremni."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotografija je primljena",
@@ -712,7 +713,12 @@
     "tag-you-in-comment": "vas je označio u komentaru",
     "tag-you-in-playlist": "označio vas je na popisu za reprodukciju",
     "you-appear-in-project-of": "Pojavljujete se u novom projektu",
-    "you-have": "imaš"
+    "you-have": "imaš",
+    "Value-comment-yr-publication": "{{value}} komentirao je vašu publikaciju",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} poput vašeg komentara na glazbenom popisu za reprodukciju",
+    "Value-liked-yr-publication-in-t-feed": "Korisniku {{value}} svidjela se vaša objava u feedu",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} vas je označio u publikaciji u feedu",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} vas je označio na publikaciji kao glazbeni popis za reprodukciju"
   },
   "PAGE": {
     "Name-page": "Naziv stranice",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Vaš račun je izbrisan",
     "Yr-account-is-activated": "Vaš račun je aktiviran! Sada možete iskoristiti centralizirane funkcije espace-piina kako biste komunicirali, zabavljali se ili bili poznati.",
     "activated-after-15min-payment": "Vaša kampanja bit će potvrđena za otprilike petnaest minuta nakon potvrde plaćanja.",
-    "update-is-done": "Ažuriranje je gotovo"
+    "update-is-done": "Ažuriranje je gotovo",
+    "You-h-been-verified-i-t-platform-D": "Potvrđeni ste na platformi. Sad možete uživati u svim dodacima."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Jeste li sigurni da ste promijenili datum izlaska svog projekta?",

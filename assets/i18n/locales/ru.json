@@ -592,7 +592,8 @@
     "T-content-does-not-exist-anymore": "Этот контент больше не существует",
     "T-publication-no-longer-exists": "Эта публикация больше не существует",
     "Could-not-play-video": "Не удалось воспроизвести видео",
-    "No-music-liked-yet": "Музыка пока не понравилась"
+    "No-music-liked-yet": "Музыка пока не понравилась",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Вы не прошли проверку по вашим требованиям. Попробуйте новое время, когда будете готовы."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фото получено",
@@ -670,7 +671,12 @@
     "Yr-verification-request-was-accepted": "Ваш запрос на подтверждение принят",
     "Yr-verification-request-was-refused": "Ваш запрос на подтверждение был отклонен",
     "Yr-certification-request-was-accepted": "Ваш запрос на сертификацию принят",
-    "Yr-certification-request-was-refused": "Ваш запрос на сертификацию был отклонен"
+    "Yr-certification-request-was-refused": "Ваш запрос на сертификацию был отклонен",
+    "Value-comment-yr-publication": "{{value}} прокомментировал вашу публикацию",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} лайкнул ваш комментарий в музыкальном плейлисте",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} понравилась ваша публикация в фиде",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} отметил вас в публикации в фиде",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} отметил вас в публикации музыкального плейлиста"
   },
   "PAGE": {
     "Name-page": "Название страницы",
@@ -980,7 +986,8 @@
     "Yr-account-has-been-deleted": "Ваша учетная запись была удалена",
     "Yr-account-is-activated": "Ваша учетная запись активирована! Теперь вы можете воспользоваться централизованными функциями espace-piin для того, чтобы общаться, развлекать себя или заставить себя быть известным.",
     "activated-after-15min-payment": "Ваша кампания будет проверена примерно через пятнадцать минут после проверки платежа.",
-    "update-is-done": "Обновление выполнено"
+    "update-is-done": "Обновление выполнено",
+    "You-h-been-verified-i-t-platform-D": "Вы прошли верификацию на платформе. Теперь вы можете пользоваться всеми дополнительными услугами."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Вы уверены, что измените дату релиза вашего проекта ?",

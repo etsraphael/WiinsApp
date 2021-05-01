@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Kandungan ini sudah tidak ada lagi",
     "T-publication-no-longer-exists": "Penerbitan ini tidak lagi wujud",
     "Could-not-play-video": "Tidak dapat memainkan video",
-    "No-music-liked-yet": "Belum ada muzik yang disukai"
+    "No-music-liked-yet": "Belum ada muzik yang disukai",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Anda belum disahkan kerana kehendak anda. Cuba masa baru apabila anda sudah bersedia."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Foto itu diterima",
@@ -712,7 +713,12 @@
     "tag-you-in-comment": "menandakan nama anda dalam komen",
     "tag-you-in-playlist": "menandakan nama anda dalam senarai main",
     "you-appear-in-project-of": "Anda muncul dalam projek baru di",
-    "you-have": "kamu ada"
+    "you-have": "kamu ada",
+    "Value-comment-yr-publication": "{{value}} mengulas penerbitan anda",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} menyukai komen anda dalam senarai main muzik",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} menyukai penerbitan anda di suapan",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} menandai nama anda dalam sebuah penerbitan di feed",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} menandai anda dalam penerbitan senarai main muzik"
   },
   "PAGE": {
     "Name-page": "Nama halaman",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Akaun anda telah dipadamkan",
     "Yr-account-is-activated": "Akaun anda diaktifkan! Anda kini boleh memanfaatkan fungsi terpusat espace-piin untuk berkomunikasi, menghiburkan diri atau mengenali diri anda.",
     "activated-after-15min-payment": "Kempen anda akan disahkan dalam kira-kira lima belas minit setelah pengesahan pembayaran.",
-    "update-is-done": "Kemas kini selesai"
+    "update-is-done": "Kemas kini selesai",
+    "You-h-been-verified-i-t-platform-D": "Anda telah disahkan di platform. Anda boleh menikmati semua tambahan sekarang."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Adakah anda pasti mengubah tarikh pelepasan projek anda?",

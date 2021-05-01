@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Šio turinio nebėra",
     "T-publication-no-longer-exists": "Šio leidinio nebėra",
     "Could-not-play-video": "Nepavyko paleisti vaizdo įrašo",
-    "No-music-liked-yet": "Kol kas nepatiko muzika"
+    "No-music-liked-yet": "Kol kas nepatiko muzika",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Nebuvote patvirtinti dėl jūsų reikalavimų. Išbandykite naują laiką, kai būsite pasirengę."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Nuotrauka gauta",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "Jūsų patvirtinimo užklausa buvo priimta",
     "Yr-verification-request-was-refused": "Jūsų patvirtinimo užklausa buvo atmesta",
     "Yr-certification-request-was-accepted": "Jūsų sertifikavimo užklausa buvo priimta",
-    "Yr-certification-request-was-refused": "Jūsų patvirtinimo užklausa buvo atmesta"
+    "Yr-certification-request-was-refused": "Jūsų patvirtinimo užklausa buvo atmesta",
+    "Value-comment-yr-publication": "{{value}} pakomentavo jūsų leidinį",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} patinka jūsų komentaras muzikos grojaraštyje",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} patiko jūsų leidinys sklaidos kanale",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} priskyrė jums žymą sklaidos kanalo leidinyje",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} leidinyje priskyrė jums žymą muzikos grojaraščiui"
   },
   "PAGE": {
     "Name-page": "Puslapio pavadinimas",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Jūsų paskyra ištrinta",
     "Yr-account-is-activated": "Jūsų paskyra suaktyvinta! Dabar galite pasinaudoti centralizuotomis „espace-piin“ funkcijomis, kad galėtumėte bendrauti, linksmintis ar pranešti apie save.",
     "activated-after-15min-payment": "Patvirtinus mokėjimą, jūsų kampanija bus patvirtinta maždaug po penkiolikos minučių.",
-    "update-is-done": "Atnaujinimas atliktas"
+    "update-is-done": "Atnaujinimas atliktas",
+    "You-h-been-verified-i-t-platform-D": "Jus patvirtino platformoje. Dabar galite mėgautis visais priedais."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Ar tikrai pakeisite savo projekto išleidimo datą?",

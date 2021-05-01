@@ -592,7 +592,8 @@
     "T-content-does-not-exist-anymore": "このコンテンツはもう存在しません",
     "T-publication-no-longer-exists": "この出版物はもう存在しません",
     "Could-not-play-video": "ビデオを再生できませんでした",
-    "No-music-liked-yet": "まだ好きな音楽はありません"
+    "No-music-liked-yet": "まだ好きな音楽はありません",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "要件が原因で確認されていません。準備ができたら、新しい時間を試してください。"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "写真を受け取りました",
@@ -670,7 +671,12 @@
     "Yr-verification-request-was-accepted": "確認リクエストが承認されました",
     "Yr-verification-request-was-refused": "確認リクエストが拒否されました",
     "Yr-certification-request-was-accepted": "認定リクエストが承認されました",
-    "Yr-certification-request-was-refused": "あなたの認証要求は拒否されました"
+    "Yr-certification-request-was-refused": "あなたの認証要求は拒否されました",
+    "Value-comment-yr-publication": "{{value}}があなたの出版物にコメントしました",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}}音楽プレイリストのコメントのように",
+    "Value-liked-yr-publication-in-t-feed": "{{value}}はフィード内のあなたの出版物を高く評価しました",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}}がフィード内のパブリケーションであなたにタグを付けました",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}}が出版物であなたに音楽プレイリストのタグを付けました"
   },
   "PAGE": {
     "Name-page": "ページ名",
@@ -980,7 +986,8 @@
     "Yr-account-has-been-deleted": "アカウントが削除されました",
     "Yr-account-is-activated": "アカウントが有効になります。あなたは今、コミュニケーション、自分自身を楽しませたり、自分自身を知らせるために、espace-piinの集中管理機能を利用することができます。",
     "activated-after-15min-payment": "キャンペーンは、支払いの検証後約 15 分で検証されます。",
-    "update-is-done": "更新が完了しました"
+    "update-is-done": "更新が完了しました",
+    "You-h-been-verified-i-t-platform-D": "プラットフォームで確認されました。あなたは今すべてのエキストラを楽しむことができます。"
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "プロジェクトのリリース日を変更しますか ?",

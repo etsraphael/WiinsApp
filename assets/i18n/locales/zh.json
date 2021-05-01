@@ -592,7 +592,8 @@
     "T-content-does-not-exist-anymore": "该内容已不存在",
     "T-publication-no-longer-exists": "该出版物不再存在",
     "Could-not-play-video": "无法播放视频",
-    "No-music-liked-yet": "尚无音乐喜欢"
+    "No-music-liked-yet": "尚无音乐喜欢",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "由于您的要求，您尚未通过验证。准备好后再尝试新的时间。"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "收到照片",
@@ -670,7 +671,12 @@
     "Yr-verification-request-was-accepted": "您的验证请求已被接受",
     "Yr-verification-request-was-refused": "您的验证请求被拒绝",
     "Yr-certification-request-was-accepted": "您的认证请求已被接受",
-    "Yr-certification-request-was-refused": "您的认证请求被拒绝"
+    "Yr-certification-request-was-refused": "您的认证请求被拒绝",
+    "Value-comment-yr-publication": "{{value}}评论了您的出版物",
+    "Value-like-yr-comment-in-a-music-playlist": "像您在音乐播放列表中的评论一样{{value}}",
+    "Value-liked-yr-publication-in-t-feed": "{{value}}喜欢您在供稿中的出版物",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}}在Feed中的出版物中标记了您",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}}在出版物中为您标记了音乐播放列表"
   },
   "PAGE": {
     "Name-page": "页面名称",
@@ -980,7 +986,8 @@
     "Yr-account-has-been-deleted": "您的帐户已被删除",
     "Yr-account-is-activated": "您的帐户已激活！现在，您可以利用电子空间 piin 的集中功能来沟通、娱乐自己或使自己出名。",
     "activated-after-15min-payment": "您的广告系列将在付款验证后约十五分钟内得到验证。",
-    "update-is-done": "更新已完成"
+    "update-is-done": "更新已完成",
+    "You-h-been-verified-i-t-platform-D": "您已在平台中通过验证。您现在可以享受所有其他功能。"
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "是否确实要更改项目的发布日期 ？",

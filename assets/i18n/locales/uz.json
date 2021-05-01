@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Ushbu tarkib endi mavjud emas",
     "T-publication-no-longer-exists": "Ushbu nashr endi mavjud emas",
     "Could-not-play-video": "Videoni ijro qilib bo‘lmadi",
-    "No-music-liked-yet": "Hali musiqa yoqmadi"
+    "No-music-liked-yet": "Hali musiqa yoqmadi",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Sizning talablaringiz tufayli siz tasdiqlanmadingiz. Tayyor bo'lgach, yangi vaqtni sinab ko'ring."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Surat qabul qilindi",
@@ -712,7 +713,12 @@
     "tag-you-in-comment": "sizni sharhda belgilab qo'ydi",
     "tag-you-in-playlist": "sizni pleylistga qo'shib qo'ydi",
     "you-appear-in-project-of": "Siz yangi loyihada paydo bo'lasiz",
-    "you-have": "senda bor"
+    "you-have": "senda bor",
+    "Value-comment-yr-publication": "{{value}} sizning nashringizga fikr bildirdi",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} musiqiy pleylistdagi sharhingiz kabi",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} tasmaga nashringiz yoqdi",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} sizni tasmada nashrda belgilab qo'ydi",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} sizni nashrda musiqiy pleylist deb belgilab qo'ydi"
   },
   "PAGE": {
     "Name-page": "Sahifa nomi",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Sizning hisob qaydnomangiz o'chirildi",
     "Yr-account-is-activated": "Sizning hisobingiz faollashtirildi! Endi siz muloqot qilish, ko'ngil ochish yoki o'zingizni tanitish uchun espace-piinning markazlashtirilgan funktsiyalaridan foydalanishingiz mumkin.",
     "activated-after-15min-payment": "Sizning kampaniyangiz to'lov tasdiqlangandan keyin taxminan o'n besh daqiqada tasdiqlanadi.",
-    "update-is-done": "Yangilanish tugadi"
+    "update-is-done": "Yangilanish tugadi",
+    "You-h-been-verified-i-t-platform-D": "Siz platformada tasdiqlangansiz. Siz hozirda barcha qo'shimchalardan bahramand bo'lishingiz mumkin."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Loyihangizning chiqish sanasini o'zgartirganingizga ishonchingiz komilmi?",

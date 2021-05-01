@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Αυτό το περιεχόμενο δεν υπάρχει πια",
     "T-publication-no-longer-exists": "Αυτή η δημοσίευση δεν υπάρχει πλέον",
     "Could-not-play-video": "Δεν ήταν δυνατή η αναπαραγωγή βίντεο",
-    "No-music-liked-yet": "Δεν άρεσε ακόμη μουσική"
+    "No-music-liked-yet": "Δεν άρεσε ακόμη μουσική",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Δεν έχετε επαληθευτεί λόγω των απαιτήσεών σας. Δοκιμάστε μια νέα στιγμή όταν είστε έτοιμοι."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Η φωτογραφία έχει ληφθεί",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "Το αίτημα επαλήθευσής σας έγινε αποδεκτό",
     "Yr-verification-request-was-refused": "Το αίτημα επαλήθευσής σας απορρίφθηκε",
     "Yr-certification-request-was-accepted": "Το αίτημα πιστοποίησης έγινε αποδεκτό",
-    "Yr-certification-request-was-refused": "Το αίτημα πιστοποίησης απορρίφθηκε"
+    "Yr-certification-request-was-refused": "Το αίτημα πιστοποίησης απορρίφθηκε",
+    "Value-comment-yr-publication": "Ο χρήστης {{value}} σχολίασε τη δημοσίευσή σας",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} αρέσει το σχόλιό σας σε μια λίστα αναπαραγωγής μουσικής",
+    "Value-liked-yr-publication-in-t-feed": "Ο χρήστης {{value}} άρεσε τη δημοσίευσή σας στη ροή",
+    "Value-tagged-you-in-a-publication-in-t-feed": "Ο χρήστης {{value}} σας επισήμανε σε μια δημοσίευση στη ροή",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "Ο χρήστης {{value}} σας επισήμανε σε μια λίστα αναπαραγωγής μουσικής σε μια δημοσίευση"
   },
   "PAGE": {
     "Name-page": "Όνομα σελίδας",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Ο λογαριασμός σας έχει διαγραφεί",
     "Yr-account-is-activated": "Ο λογαριασμός σας είναι ενεργοποιημένος! Τώρα μπορείτε να επωφεληθείτε από τις κεντρικές λειτουργίες του espace-piin για να επικοινωνήσετε, να διασκεδάσετε ή να κάνετε τον εαυτό σας γνωστό.",
     "activated-after-15min-payment": "Η καμπάνια σας θα επικυρωθεί σε περίπου δεκαπέντε λεπτά μετά την επικύρωση της πληρωμής.",
-    "update-is-done": "Η ενημέρωση ολοκληρώθηκε"
+    "update-is-done": "Η ενημέρωση ολοκληρώθηκε",
+    "You-h-been-verified-i-t-platform-D": "Έχετε επαληθευτεί στην πλατφόρμα. Μπορείτε να απολαύσετε όλα τα πρόσθετα τώρα."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Είστε βέβαιοι ότι θα αλλάξετε την ημερομηνία κυκλοφορίας του έργου σας;",

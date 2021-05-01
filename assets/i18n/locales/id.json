@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Konten ini sudah tidak ada",
     "T-publication-no-longer-exists": "Publikasi ini sudah tidak ada",
     "Could-not-play-video": "Tidak dapat memutar video",
-    "No-music-liked-yet": "Belum ada musik yang disukai"
+    "No-music-liked-yet": "Belum ada musik yang disukai",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Anda belum diverifikasi karena persyaratan Anda. Coba waktu baru saat Anda siap."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Foto sudah diterima",
@@ -712,7 +713,12 @@
     "tag-you-in-comment": "memberi tag Anda pada komentar",
     "tag-you-in-playlist": "menandai Anda di daftar putar",
     "you-appear-in-project-of": "Anda muncul di proyek baru dari",
-    "you-have": "kamu punya"
+    "you-have": "kamu punya",
+    "Value-comment-yr-publication": "{{value}} mengomentari publikasi Anda",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} seperti komentar Anda dalam daftar putar musik",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} menyukai publikasi Anda di feed",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} memberi tag Anda dalam publikasi di umpan",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} memberi tag Anda dalam sebuah publikasi daftar putar musik"
   },
   "PAGE": {
     "Name-page": "Nama halaman",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Akun Anda telah dihapus",
     "Yr-account-is-activated": "Akun Anda diaktifkan! Sekarang Anda dapat memanfaatkan fungsi terpusat dari espace-piin untuk berkomunikasi, menghibur diri sendiri, atau membuat diri Anda dikenal.",
     "activated-after-15min-payment": "Kampanye Anda akan divalidasi dalam waktu sekitar lima belas menit setelah validasi pembayaran.",
-    "update-is-done": "Pembaruan selesai"
+    "update-is-done": "Pembaruan selesai",
+    "You-h-been-verified-i-t-platform-D": "Anda telah diverifikasi di platform. Anda dapat menikmati semua tambahannya sekarang."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Apakah Anda yakin untuk mengubah tanggal rilis proyek Anda?",

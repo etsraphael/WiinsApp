@@ -592,7 +592,8 @@
     "T-content-does-not-exist-anymore": "Dieser Inhalt existiert nicht mehr",
     "T-publication-no-longer-exists": "Diese Publikation existiert nicht mehr",
     "Could-not-play-video": "Video konnte nicht abgespielt werden",
-    "No-music-liked-yet": "Noch keine Musik gefallen"
+    "No-music-liked-yet": "Noch keine Musik gefallen",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Sie wurden aufgrund Ihrer Anforderungen nicht überprüft. Versuchen Sie eine neue Zeit, wenn Sie bereit sind."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Das Foto wird empfangen",
@@ -670,7 +671,12 @@
     "Yr-verification-request-was-accepted": "Ihre Bestätigungsanfrage wurde angenommen",
     "Yr-verification-request-was-refused": "Ihre Bestätigungsanfrage wurde abgelehnt",
     "Yr-certification-request-was-accepted": "Ihre Zertifizierungsanfrage wurde angenommen",
-    "Yr-certification-request-was-refused": "Ihre Zertifizierungsanfrage wurde abgelehnt"
+    "Yr-certification-request-was-refused": "Ihre Zertifizierungsanfrage wurde abgelehnt",
+    "Value-comment-yr-publication": "{{value}} hat Ihre Veröffentlichung kommentiert",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} wie Ihr Kommentar in einer Musikwiedergabeliste",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} hat Ihre Veröffentlichung im Feed gefallen",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} hat Sie in einer Veröffentlichung im Feed markiert",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} hat Ihnen in einer Publikation eine Musikwiedergabeliste markiert"
   },
   "PAGE": {
     "Name-page": "Seitenname",
@@ -980,7 +986,8 @@
     "Yr-account-has-been-deleted": "Ihr Konto wurde gelöscht",
     "Yr-account-is-activated": "Ihr Konto ist aktiviert! Sie können nun die zentralisierten Funktionen von espace-piin es nutzen, um zu kommunizieren, sich zu unterhalten oder sich zu informieren.",
     "activated-after-15min-payment": "Ihre Kampagne wird in etwa 15 Minuten nach der Validierung der Zahlung validiert.",
-    "update-is-done": "Die Aktualisierung erfolgt"
+    "update-is-done": "Die Aktualisierung erfolgt",
+    "You-h-been-verified-i-t-platform-D": "Sie wurden auf der Plattform verifiziert. Sie können jetzt alle Extras genießen."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Sind Sie sicher, das Veröffentlichungsdatum Ihres Projekts zu ändern ?",

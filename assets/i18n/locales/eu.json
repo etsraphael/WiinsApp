@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Eduki hau ez da existitzen",
     "T-publication-no-longer-exists": "Argitalpen hau jada ez dago",
     "Could-not-play-video": "Ezin izan da bideoa erreproduzitu",
-    "No-music-liked-yet": "Oraindik ez zaio musika gustatu"
+    "No-music-liked-yet": "Oraindik ez zaio musika gustatu",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Zure eskakizunak direla eta ez zaituzte egiaztatu. Saiatu denbora berria prest zaudenean."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Argazkia jaso da",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "Zure egiaztapen eskaera onartu da",
     "Yr-verification-request-was-refused": "Zure egiaztapen eskaera ukatu egin da",
     "Yr-certification-request-was-accepted": "Zure ziurtagiri eskaera onartu da",
-    "Yr-certification-request-was-refused": "Zure ziurtagiri eskaera ukatu egin da"
+    "Yr-certification-request-was-refused": "Zure ziurtagiri eskaera ukatu egin da",
+    "Value-comment-yr-publication": "{{value}} -k zure argitalpena iruzkindu du",
+    "Value-like-yr-comment-in-a-music-playlist": "{{balioa}} gustuko duzu musika erreprodukzio-zerrendako zure iruzkina",
+    "Value-liked-yr-publication-in-t-feed": "{{balioa}} -ri gustatu zaio zure jarioko argitalpena",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{balioa}} jarioan publikazio batean etiketatu zaitu",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} -k argitalpen batean musika erreprodukzio-zerrenda etiketatu zaitu"
   },
   "PAGE": {
     "Name-page": "Orriaren izena",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Zure kontua ezabatu da",
     "Yr-account-is-activated": "Zure kontua aktibatuta dago! Espace-piin-en funtzio zentralizatuak aprobetxatu ditzakezu komunikatzeko, entretenitzeko edo zure burua ezagutzera emateko.",
     "activated-after-15min-payment": "Ordainketa balioztatu eta hamabost minutu inguru barru balioztatuko da zure kanpaina.",
-    "update-is-done": "Eguneraketa amaitu da"
+    "update-is-done": "Eguneraketa amaitu da",
+    "You-h-been-verified-i-t-platform-D": "Plataforman egiaztatu zaituzte. Gehigarri guztiak goza ditzakezu orain."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Ziur al zaude zure proiektuaren kaleratze data aldatuko duzula?",

@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "ഈ ഉള്ളടക്കം ഇപ്പോൾ നിലവിലില്ല",
     "T-publication-no-longer-exists": "ഈ പ്രസിദ്ധീകരണം നിലവിലില്ല",
     "Could-not-play-video": "വീഡിയോ പ്ലേ ചെയ്യാൻ കഴിഞ്ഞില്ല",
-    "No-music-liked-yet": "സംഗീതമൊന്നും ഇതുവരെ ഇഷ്‌ടപ്പെട്ടില്ല"
+    "No-music-liked-yet": "സംഗീതമൊന്നും ഇതുവരെ ഇഷ്‌ടപ്പെട്ടില്ല",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "നിങ്ങളുടെ ആവശ്യകതകൾ കാരണം നിങ്ങൾ പരിശോധിച്ചിട്ടില്ല. നിങ്ങൾ തയ്യാറാകുമ്പോൾ ഒരു പുതിയ സമയം പരീക്ഷിക്കുക."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ഫോട്ടോ ലഭിച്ചു",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "നിങ്ങളുടെ സ്ഥിരീകരണ അഭ്യർത്ഥന സ്വീകരിച്ചു",
     "Yr-verification-request-was-refused": "നിങ്ങളുടെ സ്ഥിരീകരണ അഭ്യർത്ഥന നിരസിച്ചു",
     "Yr-certification-request-was-accepted": "നിങ്ങളുടെ സർട്ടിഫിക്കേഷൻ അഭ്യർത്ഥന സ്വീകരിച്ചു",
-    "Yr-certification-request-was-refused": "നിങ്ങളുടെ സർട്ടിഫിക്കേഷൻ അഭ്യർത്ഥന നിരസിച്ചു"
+    "Yr-certification-request-was-refused": "നിങ്ങളുടെ സർട്ടിഫിക്കേഷൻ അഭ്യർത്ഥന നിരസിച്ചു",
+    "Value-comment-yr-publication": "public {മൂല്യം} your നിങ്ങളുടെ പ്രസിദ്ധീകരണം അഭിപ്രായപ്പെട്ടു",
+    "Value-like-yr-comment-in-a-music-playlist": "music {മൂല്യം} a ഒരു സംഗീത പ്ലേലിസ്റ്റിലെ നിങ്ങളുടെ അഭിപ്രായം പോലെ",
+    "Value-liked-yr-publication-in-t-feed": "{{മൂല്യം} the ഫീഡിലെ നിങ്ങളുടെ പ്രസിദ്ധീകരണം ഇഷ്‌ടപ്പെട്ടു",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{മൂല്യം} the ഫീഡിലെ ഒരു പ്രസിദ്ധീകരണത്തിൽ നിങ്ങളെ ടാഗുചെയ്‌തു",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "music {മൂല്യം} a നിങ്ങളെ ഒരു പ്രസിദ്ധീകരണത്തിൽ ഒരു സംഗീത പ്ലേലിസ്റ്റ് ടാഗുചെയ്തു"
   },
   "PAGE": {
     "Name-page": "പേജിന്റെ പേര്",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "നിങ്ങളുടെ അക്കൗണ്ട് ഇല്ലാതാക്കി",
     "Yr-account-is-activated": "നിങ്ങളുടെ അക്കൗണ്ട് സജീവമാക്കി! ആശയവിനിമയം നടത്താനും സ്വയം രസിപ്പിക്കാനും സ്വയം അറിയാനും എസ്പേസ്-പൈനിന്റെ കേന്ദ്രീകൃത പ്രവർത്തനങ്ങൾ നിങ്ങൾക്ക് ഇപ്പോൾ പ്രയോജനപ്പെടുത്താം.",
     "activated-after-15min-payment": "പേയ്‌മെന്റ് സാധൂകരിച്ചതിന് ശേഷം ഏകദേശം പതിനഞ്ച് മിനിറ്റിനുള്ളിൽ നിങ്ങളുടെ കാമ്പെയ്‌ൻ സാധൂകരിക്കപ്പെടും.",
-    "update-is-done": "അപ്‌ഡേറ്റ് ചെയ്‌തു"
+    "update-is-done": "അപ്‌ഡേറ്റ് ചെയ്‌തു",
+    "You-h-been-verified-i-t-platform-D": "നിങ്ങളെ പ്ലാറ്റ്ഫോമിൽ പരിശോധിച്ചു. നിങ്ങൾക്ക് ഇപ്പോൾ എല്ലാ എക്സ്ട്രാകളും ആസ്വദിക്കാം."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "നിങ്ങളുടെ പ്രോജക്റ്റിന്റെ റിലീസ് തീയതി മാറ്റുമെന്ന് ഉറപ്പാണോ?",

@@ -592,7 +592,8 @@
     "T-content-does-not-exist-anymore": "Este conteúdo não existe mais",
     "T-publication-no-longer-exists": "Esta publicação não existe mais",
     "Could-not-play-video": "Não foi possível reproduzir o vídeo",
-    "No-music-liked-yet": "Nenhuma música gostou ainda"
+    "No-music-liked-yet": "Nenhuma música gostou ainda",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Você não foi verificado devido aos seus requisitos. Experimente uma nova hora quando estiver pronto."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "A foto é recebida",
@@ -670,7 +671,12 @@
     "Yr-verification-request-was-accepted": "Sua solicitação de verificação foi aceita",
     "Yr-verification-request-was-refused": "Sua solicitação de verificação foi recusada",
     "Yr-certification-request-was-accepted": "Sua solicitação de certificação foi aceita",
-    "Yr-certification-request-was-refused": "Sua solicitação de certificação foi recusada"
+    "Yr-certification-request-was-refused": "Sua solicitação de certificação foi recusada",
+    "Value-comment-yr-publication": "{{value}} comentou sua publicação",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} curtir seu comentário em uma lista de reprodução de música",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} gostou da sua publicação no feed",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} marcou você em uma publicação no feed",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} marcou você em uma publicação em uma lista de reprodução de música"
   },
   "PAGE": {
     "Name-page": "Nome da página",
@@ -980,7 +986,8 @@
     "Yr-account-has-been-deleted": "Sua conta foi excluída",
     "Yr-account-is-activated": "Sua conta está ativada! Agora você pode aproveitar as funções centralizadas do espace-piin's para se comunicar, entreter-se ou tornar-se conhecido.",
     "activated-after-15min-payment": "Sua campanha será validada em cerca de quinze minutos após a validação do pagamento.",
-    "update-is-done": "A atualização está feita"
+    "update-is-done": "A atualização está feita",
+    "You-h-been-verified-i-t-platform-D": "Você foi verificado na plataforma. Você pode desfrutar de todos os extras agora."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Você tem certeza de mudar a data de lançamento do seu projeto ?",

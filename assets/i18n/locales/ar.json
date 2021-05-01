@@ -592,7 +592,8 @@
     "T-content-does-not-exist-anymore": "هذا المحتوى غير موجود بعد الآن",
     "T-publication-no-longer-exists": "هذا المنشور لم يعد موجودا",
     "Could-not-play-video": "تعذر تشغيل الفيديو",
-    "No-music-liked-yet": "لا توجد موسيقى أحبها حتى الآن"
+    "No-music-liked-yet": "لا توجد موسيقى أحبها حتى الآن",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "لم يتم التحقق منك بسبب متطلباتك. جرب وقتًا جديدًا عندما تكون جاهزًا."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "تم استلام الصورة",
@@ -670,7 +671,12 @@
     "Yr-verification-request-was-accepted": "تم قبول طلب التحقق الخاص بك",
     "Yr-verification-request-was-refused": "تم رفض طلب التحقق الخاص بك",
     "Yr-certification-request-was-accepted": "تم قبول طلب الشهادة الخاص بك",
-    "Yr-certification-request-was-refused": "تم رفض طلب الشهادة الخاص بك"
+    "Yr-certification-request-was-refused": "تم رفض طلب الشهادة الخاص بك",
+    "Value-comment-yr-publication": "علق {{value}} على منشورك",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} إبداء الإعجاب بتعليقك في قائمة تشغيل الموسيقى",
+    "Value-liked-yr-publication-in-t-feed": "أُعجب {{value}} بمنشورك في الخلاصة",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} وضع علامة باسمك في منشور بالخلاصة",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "وضع {{value}} علامة لك في منشور على قائمة تشغيل موسيقى"
   },
   "PAGE": {
     "Name-page": "اسم الصفحة",
@@ -980,7 +986,8 @@
     "Yr-account-has-been-deleted": "تم حذف حسابك您的帐户已被删除",
     "Yr-account-is-activated": "تم تنشيط حسابك! يمكنك الآن الاستفادة من الوظائف المركزية لإسباس بين من أجل التواصل، والترفيه نفسك أو جعل نفسك معروفة.",
     "activated-after-15min-payment": "سيتم التحقق من صحة حملتك بعد حوالي 15 دقيقة من التحقق من صحة الدفع.",
-    "update-is-done": "يتم التحديث"
+    "update-is-done": "يتم التحديث",
+    "You-h-been-verified-i-t-platform-D": "لقد تم التحقق منك في المنصة. يمكنك الاستمتاع بكل الإضافات الآن."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "هل أنت متأكد من تغيير تاريخ الإصدار من المشروع الخاص بك ؟",

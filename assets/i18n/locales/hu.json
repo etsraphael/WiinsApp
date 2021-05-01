@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Ez a tartalom már nem létezik",
     "T-publication-no-longer-exists": "Ez a kiadvány már nem létezik",
     "Could-not-play-video": "Nem sikerült lejátszani a videót",
-    "No-music-liked-yet": "Még nem tetszett zene"
+    "No-music-liked-yet": "Még nem tetszett zene",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Az Ön igényei miatt még nem ellenőrizték. Próbáljon ki egy új időpontot, amikor készen áll."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "A fénykép beérkezett",
@@ -712,7 +713,12 @@
     "tag-you-in-comment": "megjegyzésben megcímkézett",
     "tag-you-in-playlist": "megcímkézett egy lejátszási listában",
     "you-appear-in-project-of": "Megjelenik az új projektben",
-    "you-have": "neked van"
+    "you-have": "neked van",
+    "Value-comment-yr-publication": "{{value}} megjegyzést fűzött a publikációjához",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} kedveli a megjegyzését egy zenei lejátszási listában",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} kedvelte publikációját a hírcsatornában",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} megcímkézett egy hírcsatorna egyik kiadványában",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} egy kiadványban megcímkézett egy zenei lejátszási listát"
   },
   "PAGE": {
     "Name-page": "Oldal neve",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Fiókját töröltük",
     "Yr-account-is-activated": "Fiókja aktiválva van! Mostantól kihasználhatja az espace-piin központosított funkcióinak előnyeit kommunikáció, szórakoztatás vagy önmagunk megismertetése érdekében.",
     "activated-after-15min-payment": "Kampányát a fizetés érvényesítését követően körülbelül tizenöt percen belül érvényesítjük.",
-    "update-is-done": "A frissítés kész"
+    "update-is-done": "A frissítés kész",
+    "You-h-been-verified-i-t-platform-D": "Ellenőrizték a platformon. Most élvezheti az összes extrát."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Biztosan módosítja a projekt megjelenési dátumát?",

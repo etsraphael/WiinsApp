@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Hierdie inhoud bestaan nie meer nie",
     "T-publication-no-longer-exists": "Hierdie publikasie bestaan nie meer nie",
     "Could-not-play-video": "Kon nie video speel nie",
-    "No-music-liked-yet": "Nog geen musiek hou nie"
+    "No-music-liked-yet": "Nog geen musiek hou nie",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "As gevolg van u vereistes, is u nie geverifieer nie. Probeer 'n nuwe tyd wanneer u gereed is."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Die foto word ontvang",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "U verifikasieversoek is aanvaar",
     "Yr-verification-request-was-refused": "U verifikasieversoek is geweier",
     "Yr-certification-request-was-accepted": "U sertifiseringsversoek is aanvaar",
-    "Yr-certification-request-was-refused": "U sertifiseringsversoek is geweier"
+    "Yr-certification-request-was-refused": "U sertifiseringsversoek is geweier",
+    "Value-comment-yr-publication": "{{value}} het 'n opmerking oor u publikasie gemaak",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} hou van u opmerking in 'n musieksnitlys",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} hou van u publikasie in die feed",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} het jou in 'n publikasie in die feed gemerk",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} het in 'n publikasie 'n musieksnitlys gemerk"
   },
   "PAGE": {
     "Name-page": "Bladsynaam",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "U rekening is uitgevee",
     "Yr-account-is-activated": "U rekening is geaktiveer! U kan nou gebruik maak van die sentrale funksies van espace-piin's om te kommunikeer, jouself te vermaak of om u bekend te maak.",
     "activated-after-15min-payment": "U veldtog sal binne vyftien minute na die bekragtiging van die betaling bekragtig word.",
-    "update-is-done": "Die opdatering is gedoen"
+    "update-is-done": "Die opdatering is gedoen",
+    "You-h-been-verified-i-t-platform-D": "U is op die platform geverifieer. U kan nou al die ekstra's geniet."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Is u seker dat u die vrystellingsdatum van u projek sal verander?",

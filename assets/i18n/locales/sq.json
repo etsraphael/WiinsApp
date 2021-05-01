@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Kjo përmbajtje nuk ekziston më",
     "T-publication-no-longer-exists": "Ky botim nuk ekziston më",
     "Could-not-play-video": "Videoja nuk mund të luhet",
-    "No-music-liked-yet": "Asnjë muzikë e pëlqyer akoma"
+    "No-music-liked-yet": "Asnjë muzikë e pëlqyer akoma",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Ju nuk jeni verifikuar për shkak të kërkesave tuaja. Provoni një kohë të re kur të jeni gati."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoja është marrë",
@@ -712,7 +713,12 @@
     "tag-you-in-comment": "ju etiketoi në një koment",
     "tag-you-in-playlist": "ju etiketoi në një listë dëgjimi",
     "you-appear-in-project-of": "Ju paraqiteni në projektin e ri të",
-    "you-have": "ju keni"
+    "you-have": "ju keni",
+    "Value-comment-yr-publication": "{{value}} komentoi publikimin tuaj",
+    "Value-like-yr-comment-in-a-music-playlist": "{{vlera}} pëlqeni komentin tuaj në një listë dëgjimi muzikore",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} pëlqeu botimin tuaj në burim",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} ju etiketoi në një botim në burim",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} ju etiketoi në një botim një listë dëgjimi muzikore"
   },
   "PAGE": {
     "Name-page": "Emri i faqes",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Llogaria juaj është fshirë",
     "Yr-account-is-activated": "Llogaria juaj është aktivizuar! Tani mund të përfitoni nga funksionet e centralizuara të espace-piin's në mënyrë që të komunikoni, të argëtoheni ose të bëheni të njohur.",
     "activated-after-15min-payment": "Fushata juaj do të vërtetohet në rreth pesëmbëdhjetë minuta pas vërtetimit të pagesës.",
-    "update-is-done": "Përditësimi është bërë"
+    "update-is-done": "Përditësimi është bërë",
+    "You-h-been-verified-i-t-platform-D": "Ju jeni verifikuar në platformë. Tani mund t'i shijoni të gjitha shtesat shtesë."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "A jeni i sigurt për të ndryshuar datën e lëshimit të projektit tuaj?",

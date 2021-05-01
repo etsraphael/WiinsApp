@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "यो सामग्री अब अवस्थित छैन",
     "T-publication-no-longer-exists": "यो प्रकाशन अब अवस्थित छैन",
     "Could-not-play-video": "भिडियो प्ले गर्न सकेन",
-    "No-music-liked-yet": "कुनै संगीत मनपरेको छैन"
+    "No-music-liked-yet": "कुनै संगीत मनपरेको छैन",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "तपाईको आवश्यकताको कारण तपाईलाई प्रमाणिकरण गरिएको छैन। एक नयाँ समय कोशिस गर्नुहोस् जब तपाईं तयार हुनुहुन्छ।"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "फोटो प्राप्त भयो",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "तपाईंको प्रमाणिकरण अनुरोध स्वीकार गरियो",
     "Yr-verification-request-was-refused": "तपाईंको प्रमाणिकरण अनुरोध अस्वीकार गरियो",
     "Yr-certification-request-was-accepted": "तपाईंको प्रमाणीकरण अनुरोध स्वीकार गरियो",
-    "Yr-certification-request-was-refused": "तपाईंको प्रमाणीकरण अनुरोध अस्वीकार गरियो"
+    "Yr-certification-request-was-refused": "तपाईंको प्रमाणीकरण अनुरोध अस्वीकार गरियो",
+    "Value-comment-yr-publication": "{{value} तपाईंको प्रकाशन टिप्पणी गरीयो",
+    "Value-like-yr-comment-in-a-music-playlist": "comment {value} एक संगीत प्लेलिस्टमा तपाईंको टिप्पणी जस्तै",
+    "Value-liked-yr-publication-in-t-feed": "{{value} फिडमा तपाईंको प्रकाशन मनपरायो",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value} फिडमा तपाईंलाई एक प्रकाशनमा ट्याग गर्‍यो",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value} तपाईंलाई एक संगीत प्लेलिस्टमा प्रकाशनमा ट्याग गर्दछ"
   },
   "PAGE": {
     "Name-page": "पृष्ठ नाम",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "तपाईंको खाता हटाइएको छ",
     "Yr-account-is-activated": "तपाईंको खाता सक्रिय गरिएको छ! अब तपाई espace-piin को केन्द्रीकृत कार्यको फाइदा लिन सक्नुहुन्छ कुराकानी गर्न, तपाईलाई मनोरन्जन गर्न वा आफैलाई चिन्नको लागि।",
     "activated-after-15min-payment": "तपाईंको अभियान भुक्तानी को वैधता पछि पन्ध्र मिनेटमा मान्य हुनेछ।",
-    "update-is-done": "अद्यावधिक भयो"
+    "update-is-done": "अद्यावधिक भयो",
+    "You-h-been-verified-i-t-platform-D": "तपाईंलाई प्लेटफर्ममा प्रमाणित गरिएको छ। तपाईं अब सबै अतिरिक्त आनन्द लिन सक्नुहुन्छ।"
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "के तपाइँ तपाइँको परियोजनाको रिलीज मिति परिवर्तन गर्न निश्चित हुनुहुन्छ?",

@@ -592,7 +592,8 @@
     "T-content-does-not-exist-anymore": "이 콘텐츠는 더 이상 존재하지 않습니다.",
     "T-publication-no-longer-exists": "이 출판물은 더 이상 존재하지 않습니다.",
     "Could-not-play-video": "비디오를 재생할 수 없습니다",
-    "No-music-liked-yet": "아직 좋아하는 음악이 없습니다."
+    "No-music-liked-yet": "아직 좋아하는 음악이 없습니다.",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "귀하의 요구 사항으로 인해 확인되지 않았습니다. 준비가되면 새로운 시간을 시도하십시오."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "사진이 접수되었습니다",
@@ -670,7 +671,12 @@
     "Yr-verification-request-was-accepted": "확인 요청이 수락되었습니다.",
     "Yr-verification-request-was-refused": "확인 요청이 거부되었습니다.",
     "Yr-certification-request-was-accepted": "인증 요청이 수락되었습니다.",
-    "Yr-certification-request-was-refused": "인증 요청이 거부되었습니다."
+    "Yr-certification-request-was-refused": "인증 요청이 거부되었습니다.",
+    "Value-comment-yr-publication": "{{value}} 님이 게시물에 댓글을 달았습니다.",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} 음악 재생 목록의 댓글에 좋아요 표시",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} 님이 피드에서 귀하의 게시물을 좋아합니다.",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}}이 피드의 간행물에서 나를 태그했습니다.",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}}이 발행물에서 음악 재생 목록에 나를 태그했습니다."
   },
   "PAGE": {
     "Name-page": "페이지 이름",
@@ -980,7 +986,8 @@
     "Yr-account-has-been-deleted": "계정이 삭제되었습니다.",
     "Yr-account-is-activated": "계정이 활성화되었습니다! 이제 espace-piin's의 중앙 집중식 기능을 활용하여 의사 소통을 하거나 즐겁게 하거나 자신을 알 수 있습니다.",
     "activated-after-15min-payment": "결제 확인 후 약 15분 후에 캠페인이 유효성을 검사합니다.",
-    "update-is-done": "업데이트가 완료되었습니다."
+    "update-is-done": "업데이트가 완료되었습니다.",
+    "You-h-been-verified-i-t-platform-D": "플랫폼에서 확인되었습니다. 이제 모든 엑스트라를 즐길 수 있습니다."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "프로젝트의 릴리스 날짜를 변경하시겠습니까 ?",

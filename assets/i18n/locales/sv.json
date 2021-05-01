@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Detta innehåll finns inte längre",
     "T-publication-no-longer-exists": "Denna publikation finns inte längre",
     "Could-not-play-video": "Det gick inte att spela upp video",
-    "No-music-liked-yet": "Ingen musik gillade än"
+    "No-music-liked-yet": "Ingen musik gillade än",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Du har inte verifierats på grund av dina krav. Prova en ny tid när du är redo."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoet tas emot",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "Din verifieringsförfrågan accepterades",
     "Yr-verification-request-was-refused": "Din verifieringsförfrågan avslogs",
     "Yr-certification-request-was-accepted": "Din certifieringsförfrågan accepterades",
-    "Yr-certification-request-was-refused": "Din certifieringsförfrågan avslogs"
+    "Yr-certification-request-was-refused": "Din certifieringsförfrågan avslogs",
+    "Value-comment-yr-publication": "{{value}} kommenterade din publikation",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} gillar din kommentar i en musikspellista",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} gillade din publikation i flödet",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} taggade dig i en publikation i flödet",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} taggade en musikspellista i en publikation"
   },
   "PAGE": {
     "Name-page": "Sidnamn",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Ditt konto har tagits bort",
     "Yr-account-is-activated": "Ditt konto är aktiverat! Du kan nu dra nytta av espace-piins centraliserade funktioner för att kommunicera, underhålla dig själv eller göra dig känd.",
     "activated-after-15min-payment": "Din kampanj kommer att valideras inom cirka femton minuter efter validering av betalningen.",
-    "update-is-done": "Uppdateringen är klar"
+    "update-is-done": "Uppdateringen är klar",
+    "You-h-been-verified-i-t-platform-D": "Du har verifierats på plattformen. Du kan njuta av alla extra nu."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Är du säker på att ändra utgivningsdatumet för ditt projekt?",

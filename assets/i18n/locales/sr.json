@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Овај садржај више не постоји",
     "T-publication-no-longer-exists": "Ова публикација више не постоји",
     "Could-not-play-video": "Репродукција видео записа није успела",
-    "No-music-liked-yet": "Још није волела ниједну музику"
+    "No-music-liked-yet": "Још није волела ниједну музику",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Нисте верификовани због ваших захтева. Испробајте ново време када будете спремни."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фотографија је примљена",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "Ваш захтев за верификацију је прихваћен",
     "Yr-verification-request-was-refused": "Ваш захтев за верификацију је одбијен",
     "Yr-certification-request-was-accepted": "Ваш захтев за сертификацију је прихваћен",
-    "Yr-certification-request-was-refused": "Ваш захтев за сертификацију је одбијен"
+    "Yr-certification-request-was-refused": "Ваш захтев за сертификацију је одбијен",
+    "Value-comment-yr-publication": "{{валуе}} је коментарисао вашу публикацију",
+    "Value-like-yr-comment-in-a-music-playlist": "{{валуе}} попут вашег коментара на музичкој плејлисти",
+    "Value-liked-yr-publication-in-t-feed": "Кориснику {{валуе}} се свидела ваша публикација у фиду",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{валуе}} вас је означио у публикацији у фиду",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{валуе}} вас је означио у некој публикацији музичке плејлисте"
   },
   "PAGE": {
     "Name-page": "Име странице",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Ваш рачун је избрисан",
     "Yr-account-is-activated": "Ваш рачун је активиран! Сада можете да искористите централизоване функције еспаце-пиин-а како бисте комуницирали, забављали се или откривали.",
     "activated-after-15min-payment": "Ваша кампања ће бити потврђена за отприлике петнаест минута након потврде уплате.",
-    "update-is-done": "Ажурирање је завршено"
+    "update-is-done": "Ажурирање је завршено",
+    "You-h-been-verified-i-t-platform-D": "Верификовани сте на платформи. Сада можете уживати у свим додацима."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Да ли сте сигурни да сте променили датум изласка свог пројекта?",

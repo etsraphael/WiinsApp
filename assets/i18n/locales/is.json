@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Þetta innihald er ekki til lengur",
     "T-publication-no-longer-exists": "Þetta rit er ekki lengur til",
     "Could-not-play-video": "Gat ekki spilað myndband",
-    "No-music-liked-yet": "Engri tónlist líkaði ennþá"
+    "No-music-liked-yet": "Engri tónlist líkaði ennþá",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Þú hefur ekki verið staðfestur vegna krafna þinna. Prófaðu nýjan tíma þegar þú ert tilbúinn."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Ljósmyndin er móttekin",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "Staðfestingarbeiðni þín var samþykkt",
     "Yr-verification-request-was-refused": "Staðfestingarbeiðni þinni var hafnað",
     "Yr-certification-request-was-accepted": "Vottunarbeiðni þín var samþykkt",
-    "Yr-certification-request-was-refused": "Vottunarbeiðni þinni var hafnað"
+    "Yr-certification-request-was-refused": "Vottunarbeiðni þinni var hafnað",
+    "Value-comment-yr-publication": "{{value}} skrifaði athugasemd við birtingu þína",
+    "Value-like-yr-comment-in-a-music-playlist": "{{gildi}} eins og athugasemdir þínar á spilunarlista fyrir tónlist",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} líkaði birting þín í straumnum",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} merkti þig í birtingu í straumnum",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} merkti þig við útgáfu á lagalista fyrir tónlist"
   },
   "PAGE": {
     "Name-page": "Síðuheiti",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Reikningnum þínum hefur verið eytt",
     "Yr-account-is-activated": "Reikningurinn þinn er virkur! Þú getur nú nýtt þér miðstýrðu aðgerðir espace-piin til að eiga samskipti, skemmta þér eða láta vita af þér.",
     "activated-after-15min-payment": "Herferð þín verður staðfest eftir um það bil fimmtán mínútur eftir að greiðsla hefur verið staðfest.",
-    "update-is-done": "Uppfærslunni er lokið"
+    "update-is-done": "Uppfærslunni er lokið",
+    "You-h-been-verified-i-t-platform-D": "Þú hefur verið staðfest á pallinum. Þú getur notið allra aukaefna núna."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Ertu viss um að breyta útgáfudegi verkefnis þíns?",

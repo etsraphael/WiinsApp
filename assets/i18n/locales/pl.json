@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Ta treść już nie istnieje",
     "T-publication-no-longer-exists": "Ta publikacja już nie istnieje",
     "Could-not-play-video": "Nie udało się odtworzyć wideo",
-    "No-music-liked-yet": "Nie podobała się jeszcze żadna muzyka"
+    "No-music-liked-yet": "Nie podobała się jeszcze żadna muzyka",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Nie zostałeś zweryfikowany ze względu na Twoje wymagania. Wypróbuj nowy czas, kiedy będziesz gotowy."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Zdjęcie zostało odebrane",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "Twoja prośba o weryfikację została zaakceptowana",
     "Yr-verification-request-was-refused": "Twoja prośba o weryfikację została odrzucona",
     "Yr-certification-request-was-accepted": "Twoja prośba o certyfikat została zaakceptowana",
-    "Yr-certification-request-was-refused": "Twoja prośba o certyfikat została odrzucona"
+    "Yr-certification-request-was-refused": "Twoja prośba o certyfikat została odrzucona",
+    "Value-comment-yr-publication": "{{value}} skomentował Twoją publikację",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} jak Twój komentarz na muzycznej playliście",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} polubił Twoją publikację w kanale",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} oznaczył Cię tagiem w publikacji w kanale",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} oznaczył Cię w publikacji jako playlistę muzyczną"
   },
   "PAGE": {
     "Name-page": "Nazwa strony",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Twoje konto zostało usunięte",
     "Yr-account-is-activated": "Twoje konto jest aktywowane! Możesz teraz skorzystać ze scentralizowanych funkcji espace-piin, aby komunikować się, bawić się lub dać się poznać.",
     "activated-after-15min-payment": "Twoja kampania zostanie zweryfikowana w około piętnaście minut po zatwierdzeniu płatności.",
-    "update-is-done": "Aktualizacja jest zakończona"
+    "update-is-done": "Aktualizacja jest zakończona",
+    "You-h-been-verified-i-t-platform-D": "Zostałeś zweryfikowany na platformie. Możesz teraz cieszyć się wszystkimi dodatkami."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Czy na pewno chcesz zmienić datę wydania swojego projektu?",

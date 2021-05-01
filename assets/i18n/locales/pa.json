@@ -592,7 +592,8 @@
     "T-content-does-not-exist-anymore": "ਇਹ ਸਮਗਰੀ ਹੁਣ ਮੌਜੂਦ ਨਹੀਂ ਹੈ",
     "T-publication-no-longer-exists": "ਇਹ ਪ੍ਰਕਾਸ਼ਨ ਹੁਣ ਮੌਜੂਦ ਨਹੀਂ ਹੈ",
     "Could-not-play-video": "ਵੀਡੀਓ ਚਲਾ ਨਹੀਂ ਸਕਿਆ",
-    "No-music-liked-yet": "ਅਜੇ ਤੱਕ ਕੋਈ ਸੰਗੀਤ ਪਸੰਦ ਨਹੀਂ ਕੀਤਾ ਗਿਆ"
+    "No-music-liked-yet": "ਅਜੇ ਤੱਕ ਕੋਈ ਸੰਗੀਤ ਪਸੰਦ ਨਹੀਂ ਕੀਤਾ ਗਿਆ",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "ਤੁਹਾਡੀਆਂ ਜ਼ਰੂਰਤਾਂ ਦੇ ਕਾਰਨ ਤੁਹਾਨੂੰ ਪ੍ਰਮਾਣਿਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਹੈ. ਜਦੋਂ ਤੁਸੀਂ ਤਿਆਰ ਹੋਵੋ ਤਾਂ ਇੱਕ ਨਵਾਂ ਸਮਾਂ ਅਜ਼ਮਾਓ."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ਫੋਟੋ ਮਿਲੀ ਹੈ",
@@ -670,7 +671,12 @@
     "Yr-verification-request-was-accepted": "ਤੁਹਾਡੀ ਤਸਦੀਕ ਬੇਨਤੀ ਸਵੀਕਾਰ ਕਰ ਲਈ ਗਈ ਸੀ",
     "Yr-verification-request-was-refused": "ਤੁਹਾਡੀ ਤਸਦੀਕ ਬੇਨਤੀ ਨੂੰ ਨਾਮਨਜ਼ੂਰ ਕਰ ਦਿੱਤਾ ਗਿਆ ਸੀ",
     "Yr-certification-request-was-accepted": "ਤੁਹਾਡੀ ਸਰਟੀਫਿਕੇਟ ਬੇਨਤੀ ਸਵੀਕਾਰ ਕਰ ਲਈ ਗਈ ਸੀ",
-    "Yr-certification-request-was-refused": "ਤੁਹਾਡੀ ਸਰਟੀਫਿਕੇਟ ਬੇਨਤੀ ਅਸਵੀਕਾਰ ਕਰ ਦਿੱਤੀ ਗਈ ਸੀ"
+    "Yr-certification-request-was-refused": "ਤੁਹਾਡੀ ਸਰਟੀਫਿਕੇਟ ਬੇਨਤੀ ਅਸਵੀਕਾਰ ਕਰ ਦਿੱਤੀ ਗਈ ਸੀ",
+    "Value-comment-yr-publication": "{{value} ਨੇ ਤੁਹਾਡੀ ਪ੍ਰਕਾਸ਼ਨ ਦੀ ਟਿੱਪਣੀ ਕੀਤੀ",
+    "Value-like-yr-comment-in-a-music-playlist": "ਇੱਕ ਸੰਗੀਤ ਪਲੇਲਿਸਟ ਵਿੱਚ ਤੁਹਾਡੀ ਟਿੱਪਣੀ ਪਸੰਦ. {ਮੁੱਲ}.",
+    "Value-liked-yr-publication-in-t-feed": "ਫੀਡ ਵਿੱਚ ਤੁਹਾਡੀ ਪ੍ਰਕਾਸ਼ਨ ਨੂੰ {{value}} ਪਸੰਦ ਆਇਆ",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value} ਨੇ ਤੁਹਾਨੂੰ ਫੀਡ ਵਿੱਚ ਇੱਕ ਪ੍ਰਕਾਸ਼ਨ ਵਿੱਚ ਟੈਗ ਕੀਤਾ ਹੈ",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value} ਨੇ ਤੁਹਾਨੂੰ ਇੱਕ ਪ੍ਰਕਾਸ਼ਨ ਵਿੱਚ ਇੱਕ ਸੰਗੀਤ ਪਲੇਲਿਸਟ ਵਿੱਚ ਟੈਗ ਕੀਤਾ ਹੈ"
   },
   "PAGE": {
     "Name-page": "ਪੇਜ ਦਾ ਨਾਮ",
@@ -980,7 +986,8 @@
     "Yr-account-has-been-deleted": "ਤੁਹਾਡਾ ਖਾਤਾ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ",
     "Yr-account-is-activated": "ਤੁਹਾਡਾ ਖਾਤਾ ਚਾਲੂ ਹੋ ਗਿਆ ਹੈ! ਸੰਚਾਰ ਕਰਨ, ਆਪਣੇ ਆਪ ਨੂੰ ਮਨੋਰੰਜਨ ਕਰਨ ਜਾਂ ਆਪਣੇ ਆਪ ਨੂੰ ਜਾਣੂ ਕਰਾਉਣ ਲਈ ਤੁਸੀਂ ਹੁਣ ਐਸਪੇਸ ਪਾਇਨਸ ਦੇ ਕੇਂਦਰੀ ਕਾਰਜਾਂ ਦਾ ਲਾਭ ਲੈ ਸਕਦੇ ਹੋ.",
     "activated-after-15min-payment": "ਤੁਹਾਡੀ ਮੁਹਿੰਮ ਭੁਗਤਾਨ ਦੀ ਵੈਧਤਾ ਦੇ ਲਗਭਗ ਪੰਦਰਾਂ ਮਿੰਟਾਂ ਵਿੱਚ ਪ੍ਰਮਾਣਿਤ ਹੋ ਜਾਵੇਗੀ.",
-    "update-is-done": "ਅਪਡੇਟ ਹੋ ਗਿਆ ਹੈ"
+    "update-is-done": "ਅਪਡੇਟ ਹੋ ਗਿਆ ਹੈ",
+    "You-h-been-verified-i-t-platform-D": "ਤੁਹਾਨੂੰ ਪਲੇਟਫਾਰਮ ਵਿੱਚ ਪ੍ਰਮਾਣਿਤ ਕੀਤਾ ਗਿਆ ਹੈ. ਤੁਸੀਂ ਹੁਣ ਸਾਰੇ ਵਾਧੂ ਅਨੰਦ ਲੈ ਸਕਦੇ ਹੋ."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "ਕੀ ਤੁਸੀਂ ਆਪਣੇ ਪ੍ਰੋਜੈਕਟ ਦੀ ਰਿਲੀਜ਼ ਮਿਤੀ ਨੂੰ ਬਦਲਣਾ ਨਿਸ਼ਚਤ ਹੋ ?",

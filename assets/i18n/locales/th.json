@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "ไม่มีเนื้อหานี้อีกต่อไป",
     "T-publication-no-longer-exists": "ไม่มีสิ่งพิมพ์นี้แล้ว",
     "Could-not-play-video": "ไม่สามารถเล่นวิดีโอ",
-    "No-music-liked-yet": "ยังไม่มีเพลงที่ชอบ"
+    "No-music-liked-yet": "ยังไม่มีเพลงที่ชอบ",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "คุณไม่ได้รับการยืนยันเนื่องจากข้อกำหนดของคุณ ลองเวลาใหม่เมื่อคุณพร้อม"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ได้รับภาพถ่ายแล้ว",
@@ -712,7 +713,12 @@
     "tag-you-in-comment": "แท็กคุณในความคิดเห็น",
     "tag-you-in-playlist": "แท็กคุณในเพลย์ลิสต์",
     "you-appear-in-project-of": "คุณปรากฏในโครงการใหม่ของ",
-    "you-have": "คุณมี"
+    "you-have": "คุณมี",
+    "Value-comment-yr-publication": "{{value}} แสดงความคิดเห็นเกี่ยวกับสิ่งพิมพ์ของคุณ",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} ชอบความคิดเห็นของคุณในเพลย์ลิสต์เพลง",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} ชอบสิ่งตีพิมพ์ของคุณในฟีด",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} แท็กคุณในสิ่งพิมพ์ในฟีด",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} แท็กคุณในการเผยแพร่รายการเพลง"
   },
   "PAGE": {
     "Name-page": "ชื่อเพจ",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "บัญชีของคุณถูกลบ",
     "Yr-account-is-activated": "บัญชีของคุณเปิดใช้งานแล้ว! ตอนนี้คุณสามารถใช้ประโยชน์จากฟังก์ชั่นส่วนกลางของ espace-piin เพื่อสื่อสารสร้างความบันเทิงให้ตัวเองหรือทำให้ตัวเองเป็นที่รู้จัก",
     "activated-after-15min-payment": "แคมเปญของคุณจะได้รับการตรวจสอบในเวลาประมาณสิบห้านาทีหลังจากการตรวจสอบการชำระเงิน",
-    "update-is-done": "การอัปเดตเสร็จสิ้น"
+    "update-is-done": "การอัปเดตเสร็จสิ้น",
+    "You-h-been-verified-i-t-platform-D": "คุณได้รับการยืนยันในแพลตฟอร์ม คุณสามารถเพลิดเพลินกับความพิเศษทั้งหมดได้แล้ว"
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "คุณแน่ใจหรือไม่ว่าจะเปลี่ยนวันที่เผยแพร่โครงการของคุณ",

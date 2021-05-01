@@ -592,7 +592,8 @@
     "T-content-does-not-exist-anymore": "এই বিষয়বস্তুর আর অস্তিত্ব নেই",
     "T-publication-no-longer-exists": "এই প্রকাশনা আর বিদ্যমান নেই",
     "Could-not-play-video": "ভিডিও প্লে করতে পারেনি",
-    "No-music-liked-yet": "কোনও সংগীত এখনও পছন্দ হয়নি"
+    "No-music-liked-yet": "কোনও সংগীত এখনও পছন্দ হয়নি",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "আপনার প্রয়োজনীয়তার কারণে আপনাকে যাচাই করা হয়নি। আপনি প্রস্তুত যখন একটি নতুন সময় চেষ্টা করুন।"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ছবিটি প্রাপ্ত হয়েছে",
@@ -670,7 +671,12 @@
     "Yr-verification-request-was-accepted": "আপনার যাচাইয়ের অনুরোধ গৃহীত হয়েছিল",
     "Yr-verification-request-was-refused": "আপনার যাচাইয়ের অনুরোধ প্রত্যাখ্যান করা হয়েছিল",
     "Yr-certification-request-was-accepted": "আপনার শংসাপত্রের অনুরোধ গৃহীত হয়েছিল",
-    "Yr-certification-request-was-refused": "আপনার শংসাপত্রের অনুরোধ প্রত্যাখ্যান করা হয়েছিল"
+    "Yr-certification-request-was-refused": "আপনার শংসাপত্রের অনুরোধ প্রত্যাখ্যান করা হয়েছিল",
+    "Value-comment-yr-publication": "{{মান} your আপনার প্রকাশনায় মন্তব্য করেছে",
+    "Value-like-yr-comment-in-a-music-playlist": "music {মান} একটি সঙ্গীত প্লেলিস্টে আপনার মন্তব্য মত",
+    "Value-liked-yr-publication-in-t-feed": "{{মান} the ফিডে আপনার প্রকাশনা পছন্দ করেছে",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{মান}। আপনাকে ফিডে একটি প্রকাশনায় ট্যাগ করেছে",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{মান}। আপনাকে একটি প্রকাশনায় একটি সঙ্গীত প্লেলিস্টে ট্যাগ করেছে"
   },
   "PAGE": {
     "Name-page": "পৃষ্ঠার নাম",
@@ -980,7 +986,8 @@
     "Yr-account-has-been-deleted": "আপনার অ্যাকাউন্ট মুছে ফেলা হয়েছে",
     "Yr-account-is-activated": "আপনার অ্যাকাউন্ট সক্রিয় করা হয়েছে! যোগাযোগ করার জন্য, নিজেকে বিনোদন দেওয়ার জন্য বা নিজেকে পরিচিত করার জন্য আপনি এখন এসপেস-পাইনের কেন্দ্রিয়করণের ফাংশনগুলির সুবিধা নিতে পারেন।",
     "activated-after-15min-payment": "আপনার প্রচারটি অর্থ প্রদানের বৈধতার পরে প্রায় পনের মিনিটে বৈধ হবে।",
-    "update-is-done": "আপডেট হয়ে গেছে"
+    "update-is-done": "আপডেট হয়ে গেছে",
+    "You-h-been-verified-i-t-platform-D": "প্ল্যাটফর্মে আপনাকে যাচাই করা হয়েছে। আপনি এখন সমস্ত অতিরিক্ত উপভোগ করতে পারেন।"
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "আপনি কি আপনার প্রকল্পের প্রকাশের তারিখটি পরিবর্তন করার বিষয়ে নিশ্চিত ?",

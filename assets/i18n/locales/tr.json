@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Bu içerik artık mevcut değil",
     "T-publication-no-longer-exists": "Bu yayın artık mevcut değil",
     "Could-not-play-video": "Video oynatılamadı",
-    "No-music-liked-yet": "Henüz müzik beğenilmedi"
+    "No-music-liked-yet": "Henüz müzik beğenilmedi",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Gereksinimleriniz nedeniyle doğrulanmadınız. Hazır olduğunuzda yeni bir zaman deneyin."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoğraf alındı",
@@ -712,7 +713,12 @@
     "Yr-verification-request-was-accepted": "Doğrulama talebiniz kabul edildi",
     "Yr-verification-request-was-refused": "Doğrulama talebiniz reddedildi",
     "Yr-certification-request-was-accepted": "Sertifika talebiniz kabul edildi",
-    "Yr-certification-request-was-refused": "Sertifika talebiniz reddedildi"
+    "Yr-certification-request-was-refused": "Sertifika talebiniz reddedildi",
+    "Value-comment-yr-publication": "{{value}} yayınınıza yorum yaptı",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} bir müzik çalma listesindeki yorumunuzu beğenin",
+    "Value-liked-yr-publication-in-t-feed": "{{value}}, yayınınızı feed'de beğendi",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} sizi feed'deki bir yayında etiketledi",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} sizi bir yayında müzik çalma listesinde etiketledi"
   },
   "PAGE": {
     "Name-page": "Sayfa ismi",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "hesabınız silinmiştir",
     "Yr-account-is-activated": "Hesabınız etkinleştirildi! Artık iletişim kurmak, kendinizi eğlendirmek veya kendinizi tanıtmak için espace-piin'in merkezi işlevlerinden yararlanabilirsiniz.",
     "activated-after-15min-payment": "Ödemenizin onaylanmasından sonra yaklaşık on beş dakika içinde kampanyanız doğrulanacaktır.",
-    "update-is-done": "Güncelleme tamamlandı"
+    "update-is-done": "Güncelleme tamamlandı",
+    "You-h-been-verified-i-t-platform-D": "Platformda doğrulandınız. Şimdi tüm ekstraların tadını çıkarabilirsiniz."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Projenizin çıkış tarihini değiştireceğinizden emin misiniz?",

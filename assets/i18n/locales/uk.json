@@ -634,7 +634,8 @@
     "T-content-does-not-exist-anymore": "Цей вміст уже не існує",
     "T-publication-no-longer-exists": "Ця публікація більше не існує",
     "Could-not-play-video": "Не вдалося відтворити відео",
-    "No-music-liked-yet": "Поки що музика не сподобалася"
+    "No-music-liked-yet": "Поки що музика не сподобалася",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Ви не були перевірені відповідно до ваших вимог. Спробуйте новий час, коли будете готові."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фотографія отримана",
@@ -712,7 +713,12 @@
     "tag-you-in-comment": "позначив вас у коментарі",
     "tag-you-in-playlist": "позначив вас у списку відтворення",
     "you-appear-in-project-of": "Ви з'явилися в новому проекті",
-    "you-have": "ти маєш"
+    "you-have": "ти маєш",
+    "Value-comment-yr-publication": "{{value}} прокоментував вашу публікацію",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}}, як ваш коментар у музичному списку відтворення",
+    "Value-liked-yr-publication-in-t-feed": "Користувачеві {{value}} сподобалась ваша публікація у стрічці",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} позначив вас тегом у публікації у стрічці",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} позначив вас у публікації музичним списком відтворення"
   },
   "PAGE": {
     "Name-page": "Назва сторінки",
@@ -1037,7 +1043,8 @@
     "Yr-account-has-been-deleted": "Ваш обліковий запис видалено",
     "Yr-account-is-activated": "Ваш рахунок активовано! Тепер ви можете скористатися централізованими функціями espace-piin's, щоб спілкуватися, розважати себе або давати про себе знати.",
     "activated-after-15min-payment": "Ваша кампанія буде підтверджена приблизно через п’ятнадцять хвилин після підтвердження платежу.",
-    "update-is-done": "Оновлення виконано"
+    "update-is-done": "Оновлення виконано",
+    "You-h-been-verified-i-t-platform-D": "Вас підтвердили на платформі. Ви можете насолоджуватися всіма додатковими послугами вже зараз."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Ви впевнені, що змінили дату випуску свого проекту?",
