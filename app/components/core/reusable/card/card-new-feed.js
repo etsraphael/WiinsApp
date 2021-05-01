@@ -209,12 +209,7 @@ class CardNewFeed extends PureComponent {
         if (publication.page) {
             return (
                 <View style={styles.header_container}>
-                    <LinearGradient
-                        colors={['#00000099', '#0000005c', '#4e4e4e00']}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 0, y: 1 }}
-                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25, width: '100%' }}
-                    >
+                    <View style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, width: '100%' }}>
                         <TouchableOpacity onPress={() => this._goToPage(publication.page._id)} style={{ flexDirection: 'row', flex: 9 }}>
                             <FastImage
                                 style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
@@ -225,20 +220,17 @@ class CardNewFeed extends PureComponent {
                                 resizeMode={FastImage.resizeMode.cover}
                             />
                             <View style={styles.header_info}>
-                                <Text style={{ fontSize: 15, color: 'white', fontWeight: '600' }}>{publication.page.name}</Text>
+                                <Text style={{ fontSize: 15, fontWeight: '600' }}>{publication.page.name}</Text>
                             </View>
                         </TouchableOpacity>
-
-
                         <View style={{ flex: 1 }}>
-                            <TouchableOpacity onPress={() => alert('progressing..')}>
-                                <FontAwesomeIcon icon={faEllipsisV} color={'white'} size={19} />
+                            <TouchableOpacity onPress={() => this.props.toggleReportModal()}>
+                                <FontAwesomeIcon icon={faEllipsisV} color={'grey'} size={19} />
                             </TouchableOpacity>
                         </View>
-
-                    </LinearGradient>
-
                 </View>
+                </View>            
+
             )
         }
     }
