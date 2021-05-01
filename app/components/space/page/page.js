@@ -19,15 +19,13 @@ class Page extends React.Component {
             pagePublication: 1,
             publicationLoading: false
         }
-
-        LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
     }
 
     // to show the publications feed
     _getPublicationList = () => {
         if (!this.props.ProfilePublications.isLoading) {
             this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true })
-            this.props.actions.getByModeProfile(this.state.pagePublication, 'page/' + this.props.navigation.state.params.pageId)
+            this.props.actions.getByModeProfile(this.state.pagePublication, 'page/' + this.props.route.params.pageId)
             setTimeout(() => this.setState({ publicationLoading: false }), 3000);
         }
     }
@@ -37,8 +35,8 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        this.props.actions.getByModeProfile(1, 'page/' + this.props.navigation.state.params.pageId)
-        this.props.actions.getPage(this.props.navigation.state.params.pageId)
+        this.props.actions.getByModeProfile(1, 'page/' + this.props.route.params.pageId)
+        this.props.actions.getPage(this.props.route.params.pageId)
     }
 
     // to display the follow/unfollow button
