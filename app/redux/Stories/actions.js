@@ -65,8 +65,6 @@ export function resetPublication() {
 export function getStoriesActions(page) {
     return async (dispatch) => {
         try {
-            
-
             dispatch(getStoriesStart())
             if (page == 1) dispatch(resetPublication())
             const token = await AsyncStorage.getItem('userToken')
@@ -98,11 +96,9 @@ export function resetStoriesActions() {
 export function getStackActions(id, index) {
     return async (dispatch) => {
         try {
-
             dispatch(getStackStart())
             const token = await AsyncStorage.getItem('userToken')
             const url = `https://wiins-backend.herokuapp.com/stories/getstorystackbyid/${id}`
-
             return fetch(url, {
                 method: 'GET',
                 headers: {
@@ -151,11 +147,9 @@ export function storySeenActions(profileId, storyId) {
 export function refreshStoriesActions() {
     return async (dispatch) => {
         try {
-
             dispatch(refreshStoriesStart())
             const token = await AsyncStorage.getItem('userToken')
             const url = `https://wiins-backend.herokuapp.com/stories/followerAndFriend/8/1`
-
             return fetch(url, {
                 method: 'GET',
                 headers: {
