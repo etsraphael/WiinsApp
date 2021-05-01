@@ -224,7 +224,7 @@ class CardNewFeed extends PureComponent {
                             </View>
                         </TouchableOpacity>
                         <View style={{ flex: 1 }}>
-                            <TouchableOpacity onPress={() => this.props.toggleReportModal()}>
+                            <TouchableOpacity>
                                 <FontAwesomeIcon icon={faEllipsisV} color={'grey'} size={19} />
                             </TouchableOpacity>
                         </View>

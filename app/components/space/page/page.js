@@ -80,7 +80,7 @@ class Page extends React.Component {
                         <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
                             <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>{i18n.t('CORE.Profile')}</Text>
                         </View>
-                        <TouchableOpacity style={{ flex: 1 }} onPress={() => this._toggleOptionProfileReportModal()}>
+                        <TouchableOpacity style={{ flex: 1 }}>
                             <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={40} />
                         </TouchableOpacity>
                     </View>
