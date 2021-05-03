@@ -6,7 +6,7 @@ import {
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import { Platform, NativeModules } from 'react-native'
+import { Platform } from 'react-native'
 import { faLongArrowLeft, faCheckCircle } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Snackbar from 'react-native-snackbar'
@@ -14,8 +14,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import CheckBox from '@react-native-community/checkbox'
 import i18n from './../../../assets/i18n/i18n'
-import { languageList } from './../core/data/language'
-
+import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service'
 
 class SignUp extends React.Component {
 
@@ -57,15 +56,7 @@ class SignUp extends React.Component {
         else {
 
             const user = { pseudo: this.state.pseudo, email: this.state.email, password: this.state.password }
-
-            // set the language
-            const deviceLanguage = Platform.OS === 'ios' ? NativeModules.SettingsManager.settings.AppleLocale ||
-                NativeModules.SettingsManager.settings.AppleLanguages[0] : NativeModules.I18nManager.localeIdentifier;
-            const found = languageList.map(x => x.code).indexOf(deviceLanguage.split('_')[0])
-            let userDetail
-
-            if (found == -1) { userDetail = { language: 'en' } }
-            else userDetail = { language: deviceLanguage.split('_')[0] }
+            const userDetail = { language: getCurrentLanguageOfTheDevice() }
 
             return this.props.actions.register(user, userDetail)
         }
