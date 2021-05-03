@@ -94,7 +94,7 @@ export function followPage(id) {
             })
                 .then((response) => response.json())
                 .then(response => {
-                    if (response.status == 201) return dispatch(followSuccess())
+                    if (response.status == 200) return dispatch(followSuccess())
                     return dispatch(followFail(response.error))
                 })
         } catch (error) {
@@ -119,7 +119,7 @@ export function unfollowPage(id) {
             })
                 .then((response) => response.json())
                 .then(response => {
-                    if (response.status == 201) return dispatch(unfollowSuccess())
+                    if (response.status == 200) return dispatch(unfollowSuccess())
                     return dispatch(unfollowFail(response.error))
                 })
         } catch (error) {

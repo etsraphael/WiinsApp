@@ -9,6 +9,7 @@ import * as PlayerMusicActions from '../../../redux/Player/actions'
 import { listenerMusic } from './../../../services/music/music-service'
 import AsyncStorage from '@react-native-community/async-storage';
 import TrackPlayer from 'react-native-track-player';
+import i18n from 'i18next'
 
 class MainApp extends React.Component {
 
@@ -24,7 +25,12 @@ class MainApp extends React.Component {
         this.musicProgress = listenerMusic(this.props)
 
         const userToken = await AsyncStorage.getItem('userToken')
-        if(!!userToken) { this.setState({userToken}) }
+        if(!!userToken) { 
+            this.setState({userToken})
+            if(!!this.props.MyUser.user){
+                i18n.changeLanguage(this.props.MyUser.user.config.language)
+            }
+        }
 
         this._listenerMusicNotification()
     }

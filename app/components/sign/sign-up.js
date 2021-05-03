@@ -6,7 +6,7 @@ import {
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import { Platform, NativeModules } from 'react-native'
+import { Platform } from 'react-native'
 import { faLongArrowLeft, faCheckCircle } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Snackbar from 'react-native-snackbar'
@@ -14,6 +14,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import CheckBox from '@react-native-community/checkbox'
 import i18n from './../../../assets/i18n/i18n'
+import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service'
 
 class SignUp extends React.Component {
 
@@ -53,10 +54,10 @@ class SignUp extends React.Component {
 
         if (!this._verificationTrue()) return null
         else {
-            const deviceLanguage = Platform.OS === 'ios' ? NativeModules.SettingsManager.settings.AppleLocale ||
-                NativeModules.SettingsManager.settings.AppleLanguages[0] : NativeModules.I18nManager.localeIdentifier;
+
             const user = { pseudo: this.state.pseudo, email: this.state.email, password: this.state.password }
-            const userDetail = { language: deviceLanguage.split('_')[0] }
+            const userDetail = { language: getCurrentLanguageOfTheDevice() }
+
             return this.props.actions.register(user, userDetail)
         }
     }
