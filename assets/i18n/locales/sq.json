@@ -261,7 +261,21 @@
     "Save-in-phone": "Kurseni në telefon",
     "No": "Jo",
     "Yes": "po",
-    "Block-t-user": "Blloko këtë përdorues"
+    "Block-t-user": "Blloko këtë përdorues",
+    "Message": "Mesazh",
+    "Friend-request": "Kërkesë miqësie",
+    "feed": "fluksi",
+    "tube": "tub",
+    "Music": "Muzika",
+    "Page": "Faqja",
+    "Music-Project": "Projekti muzikor",
+    "Group": "Grupi",
+    "Earlier": "Më herët",
+    "Notifications": "Njoftimet",
+    "Report-t-profile": "Raporto profilin",
+    "Unfollow": "Mos ndiq",
+    "Unfriend": "Unfriend",
+    "Block-User": "Blloko përdoruesin"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -622,7 +636,10 @@
     "Date-cannot-be-in-the-past": "Data e lëshimit nuk mund të jetë në të kaluarën",
     "You-cannot-add-yourself": "Ju nuk mund të shtoni veten",
     "T-content-does-not-exist-anymore": "Kjo përmbajtje nuk ekziston më",
-    "T-publication-no-longer-exists": "Ky botim nuk ekziston më"
+    "T-publication-no-longer-exists": "Ky botim nuk ekziston më",
+    "Could-not-play-video": "Videoja nuk mund të luhet",
+    "No-music-liked-yet": "Asnjë muzikë e pëlqyer akoma",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Ju nuk jeni verifikuar për shkak të kërkesave tuaja. Provoni një kohë të re kur të jeni gati."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoja është marrë",
@@ -700,7 +717,12 @@
     "tag-you-in-comment": "ju etiketoi në një koment",
     "tag-you-in-playlist": "ju etiketoi në një listë dëgjimi",
     "you-appear-in-project-of": "Ju paraqiteni në projektin e ri të",
-    "you-have": "ju keni"
+    "you-have": "ju keni",
+    "Value-comment-yr-publication": "{{value}} komentoi publikimin tuaj",
+    "Value-like-yr-comment-in-a-music-playlist": "{{vlera}} pëlqeni komentin tuaj në një listë dëgjimi muzikore",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} pëlqeu botimin tuaj në burim",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} ju etiketoi në një botim në burim",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} ju etiketoi në një botim një listë dëgjimi muzikore"
   },
   "PAGE": {
     "Name-page": "Emri i faqes",
@@ -759,7 +781,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Fshije këtë projekt",
-    "generate-t-id": "Gjeneroni gjurmët e këmbëve"
+    "generate-t-id": "Gjeneroni gjurmët e këmbëve",
+    "Uploading-publication": "Publikimi po ngarkohet"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -935,11 +958,11 @@
       "T-b-accepted-b-t-administration": "Të pranohet nga administrata",
       "This-feature-requires-verification-to-use.": "Kjo karakteristikë kërkon verifikimin për t'u përdorur",
       "Upload-a-photo-holding-t-ID-D": "Vendosni një fotografi që mban ID me një fletë letre me datën e sotme dhe \"Wiins\" shkruan mbi të.",
-      "Upload-yr-password-id-identity-or-driver-license": "Vendosni fjalëkalimin, identitetin tuaj ose patentën e shoferit.",
       "Verification": "Verifikimi",
       "Verified-zone": "Zona e verifikuar",
       "Y-m-complet-t-following-cdt-t-b-certified": "Ju duhet të plotësoni kushtet e mëposhtme për t'u çertifikuar.",
-      "Yr-profil-is-currently-being-checked-D": "Profili juaj aktualisht po kontrollohet. Ne do t'ju kontaktojmë brenda 48 orëve me email."
+      "Yr-profil-is-currently-being-checked-D": "Profili juaj aktualisht po kontrollohet. Ne do t'ju kontaktojmë brenda 48 orëve me email.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Ngarko pasaportën, identitetin e identitetit ose patentën e shoferit."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Publikimet e mia janë të dukshme vetëm nga miqtë e mi",
@@ -1024,7 +1047,8 @@
     "Yr-account-has-been-deleted": "Llogaria juaj është fshirë",
     "Yr-account-is-activated": "Llogaria juaj është aktivizuar! Tani mund të përfitoni nga funksionet e centralizuara të espace-piin's në mënyrë që të komunikoni, të argëtoheni ose të bëheni të njohur.",
     "activated-after-15min-payment": "Fushata juaj do të vërtetohet në rreth pesëmbëdhjetë minuta pas vërtetimit të pagesës.",
-    "update-is-done": "Përditësimi është bërë"
+    "update-is-done": "Përditësimi është bërë",
+    "You-h-been-verified-i-t-platform-D": "Ju jeni verifikuar në platformë. Tani mund t'i shijoni të gjitha shtesat shtesë."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "A jeni i sigurt për të ndryshuar datën e lëshimit të projektit tuaj?",
@@ -1053,7 +1077,10 @@
     "T-content-has-been-reported": "Kjo përmbajtje është raportuar. Moderatorët tanë do të hedhin një vështrim në një vonesë prej 24 orësh për ta shqyrtuar atë. Një sanksion do të zbatohet nëse kjo nuk respekton rregullat e komunitetit.",
     "T-user-has-been-blocked-D": "Ky përdorues është bllokuar nga llogaria juaj. Asnjë përmbajtje e këtij profili nuk do të jetë e dukshme me llogarinë tuaj.",
     "W-is-t-reason-to-report-t-post": "Cila është arsyeja për të raportuar këtë post?",
-    "W-is-t-reason-to-report-t-post-D": "Raporti juaj është anonim. Ju lutemi zgjidhni vetëm një kategori për të ndihmuar moratorët"
+    "W-is-t-reason-to-report-t-post-D": "Raporti juaj është anonim. Ju lutemi zgjidhni vetëm një kategori për të ndihmuar moratorët",
+    "A-y-s-to-unfollow-this-profile": "Je i sigurt që do ta heqësh këtë profil?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Jeni i sigurt që do ta fshini këtë mik në listën tuaj të miqve?",
+    "A-y-s-to-delete-t-story": "A jeni i sigurt për të fshirë këtë histori?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Paralajmërim. Sigurohuni që të keni adresën e duhur"
@@ -1427,7 +1454,8 @@
       "Rock": "Shkëmb",
       "Reggae": "Reggae",
       "Country": "Vendi"
-    }
+    },
+    "Playlist-Details": "Detajet e listës për dëgjim"
   },
   "WIINS-TUBE": {
     "CREATION": {

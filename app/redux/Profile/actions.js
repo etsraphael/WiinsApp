@@ -2,6 +2,21 @@ import * as ActionTypes from './constants';
 import AsyncStorage from '@react-native-community/async-storage';
 import { sendError } from './../../../app/services/error/error-service'
 
+export function unfriendStart() {
+    return { type: ActionTypes.UNFRIEND }
+}
+
+export function unfriendSuccess() {
+    return { type: ActionTypes.UNFRIEND_SUCCESS }
+}
+
+export function unfriendFail(error) {
+    return {
+        type: ActionTypes.UNFRIEND_FAIL,
+        payload: error
+    }
+}
+
 export function getProfileSuccess(profile) {
     return {
         type: ActionTypes.GET_PROFILE_SUCCESS,
@@ -122,9 +137,9 @@ export function getProfile(id, initializeNavBar) {
             })
                 .then((response) => response.json())
                 .then(async (response) => {
-                    if (response.status == 200){
-                         initializeNavBar(response.profile.actifSpace)
-                         return dispatch(getProfileSuccess(response.profile))
+                    if (response.status == 200) {
+                        initializeNavBar(response.profile.actifSpace)
+                        return dispatch(getProfileSuccess(response.profile))
                     }
                     return dispatch(getProfileFail(response.message))
                 })
@@ -198,6 +213,7 @@ export function follow(id) {
             })
                 .then((response) => response.json())
                 .then(response => {
+                    console.log(response)
                     if (response.status == 200) return dispatch(followSuccess())
                     return dispatch(followFail(response.error))
                 })
@@ -222,6 +238,7 @@ export function unfollow(id) {
             })
                 .then((response) => response.json())
                 .then(response => {
+                    console.log(response)
                     if (response.status == 200) return dispatch(unfollowSuccess())
                     return dispatch(unfollowFail(response.error))
                 })
@@ -254,4 +271,28 @@ export function confirmFriendRequest(id) {
             return dispatch(confirmFriendFail(error))
         }
     };
+}
+
+export function unfriendAction(id) {
+    return async (dispatch) => {
+        try {
+            dispatch(unfriendStart())
+            const token = await AsyncStorage.getItem('userToken')
+            return fetch('https://wiins-backend.herokuapp.com/friends/deletefriend/' + id, {
+                method: 'GET',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token,
+                }
+            })
+                .then((response) => response.json())
+                .then(response => {
+                    if (response.status == 200) return dispatch(unfriendSuccess())
+                    return dispatch(followFail(response.error))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(unfriendFail(error))
+        }
+    }
 }

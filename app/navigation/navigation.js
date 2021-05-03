@@ -36,8 +36,7 @@ class MainNavigationContainer extends React.Component {
     }
 
     componentDidMount = async () => {
-       await this.props.actions.getMyProfile()
-        // this.musicProgress = listenerMusic(this.props.actions)
+        this.props.actions.getMyProfile()
     }
 
     _mainTabNavigation = () => (

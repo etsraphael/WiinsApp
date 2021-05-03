@@ -8,6 +8,7 @@ import * as ProfilePublicationActions from '../../../redux/ProfilePublications/a
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 import LinearGradient from 'react-native-linear-gradient'
 import ProfilePublication from './../profile/profile-publication'
+import i18n from '../../../../assets/i18n/i18n'
 
 class Page extends React.Component {
 
@@ -56,7 +57,7 @@ class Page extends React.Component {
             <LinearGradient start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} colors={['#e65c00', '#F9D423']} style={styles.btn_nav}
             style={{ paddingVertical: 12, paddingHorizontal: 12, borderRadius: 8, backgroundColor: '#e6e6e6', alignItems: 'center', justifyContent: 'center', marginHorizontal: 15 }}>
                 <TouchableOpacity onPress={() => this.props.actions.unfollowPage(this.props.Page.page._id)}>
-                    <Text style={{ fontSize: 12, color: 'white', fontWeight: '600' }}>Subscribed</Text>
+                    <Text style={{ fontSize: 12, color: 'white', fontWeight: '600' }}>{i18n.t('CORE.Subscribed')}</Text>
                 </TouchableOpacity>
             </LinearGradient>
         )
@@ -68,7 +69,7 @@ class Page extends React.Component {
             <LinearGradient start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} colors={['#2193b0', '#6dd5ed']} style={styles.btn_nav}
             style={{ paddingVertical: 12, paddingHorizontal: 15, borderRadius: 8, backgroundColor: '#e6e6e6', alignItems: 'center', justifyContent: 'center', marginHorizontal: 15 }}>
                 <TouchableOpacity onPress={() => this.props.actions.followPage(this.props.Page.page._id)}>
-                    <Text style={{ fontSize: 12, color: 'white', fontWeight: '600' }}>Follow</Text>
+                    <Text style={{ fontSize: 12, color: 'white', fontWeight: '600' }}>{i18n.t('CORE.Follow')}</Text>
                 </TouchableOpacity>
             </LinearGradient>
         )

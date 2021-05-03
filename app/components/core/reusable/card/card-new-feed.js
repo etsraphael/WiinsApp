@@ -81,12 +81,12 @@ class CardNewFeed extends PureComponent {
                     colors={background}
                     start={orientation[0]}
                     end={orientation[1]}
-                    style={{ flex: 1, justifyContent: 'center', borderRadius: 15, overflow: 'hidden' }}
+                    style={{ flex: 1, justifyContent: 'center', alignItems: 'center', borderRadius: 15, overflow: 'hidden' }}
                 >
                     <Text style={{
                         paddingBottom: 10,
                         paddingHorizontal: 15,
-                        lineHeight: 25,
+                        lineHeight: 45,
                         fontWeight: '400',
                         fontSize: 25,
                         fontFamily: 'Gill Sans',
@@ -213,7 +213,7 @@ class CardNewFeed extends PureComponent {
                         colors={['#00000099', '#0000005c', '#4e4e4e00']}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 0, y: 1 }}
-                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25, width: '100%' }}
+                        style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 25, paddingVertical: 10, width: '100%' }}
                     >
                         <TouchableOpacity onPress={() => this._goToPage(publication.page._id)} style={{ flexDirection: 'row', flex: 9 }}>
                             <FastImage
@@ -366,7 +366,7 @@ const styles = StyleSheet.create({
         width: '100%',
         zIndex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-around'
+        justifyContent: 'space-around',
     },
     header_info: {
         justifyContent: 'center'

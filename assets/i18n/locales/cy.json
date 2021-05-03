@@ -261,7 +261,21 @@
     "Save-in-phone": "Cadw mewn ffôn",
     "No": "Na",
     "Yes": "Ydw",
-    "Block-t-user": "Blociwch y defnyddiwr hwn"
+    "Block-t-user": "Blociwch y defnyddiwr hwn",
+    "Message": "Neges",
+    "Friend-request": "Cais ffrind",
+    "feed": "fflwcs",
+    "tube": "tiwb",
+    "Music": "Cerddoriaeth",
+    "Page": "Tudalen",
+    "Music-Project": "Prosiect Cerdd",
+    "Group": "Grŵp",
+    "Earlier": "Yn gynharach",
+    "Notifications": "Hysbysiadau",
+    "Report-t-profile": "Riportiwch y proffil",
+    "Unfollow": "Dad-ddadlennu",
+    "Unfriend": "Anghyfeillgar",
+    "Block-User": "Defnyddiwr Bloc"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -622,7 +636,10 @@
     "Date-cannot-be-in-the-past": "Ni all y dyddiad rhyddhau fod yn y gorffennol",
     "You-cannot-add-yourself": "Ni allwch ychwanegu eich hun",
     "T-content-does-not-exist-anymore": "Nid yw'r cynnwys hwn yn bodoli mwyach",
-    "T-publication-no-longer-exists": "Nid yw'r cyhoeddiad hwn yn bodoli mwyach"
+    "T-publication-no-longer-exists": "Nid yw'r cyhoeddiad hwn yn bodoli mwyach",
+    "Could-not-play-video": "Methu chwarae fideo",
+    "No-music-liked-yet": "Nid oedd unrhyw gerddoriaeth yn cael ei hoffi eto",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Ni chawsoch eich gwirio oherwydd eich gofynion. Rhowch gynnig ar amser newydd pan fyddwch chi'n barod."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Derbynnir y llun",
@@ -700,7 +717,12 @@
     "tag-you-in-comment": "tagio chi mewn sylw",
     "tag-you-in-playlist": "tagio chi mewn rhestr chwarae",
     "you-appear-in-project-of": "Rydych chi'n ymddangos yn y prosiect newydd o",
-    "you-have": "mae gennych chi"
+    "you-have": "mae gennych chi",
+    "Value-comment-yr-publication": "Gwnaeth {{value}} sylwadau ar eich cyhoeddiad",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} fel eich sylw mewn rhestr chwarae cerddoriaeth",
+    "Value-liked-yr-publication-in-t-feed": "Roedd {{value}} yn hoffi'ch cyhoeddiad yn y porthiant",
+    "Value-tagged-you-in-a-publication-in-t-feed": "Fe wnaeth {{value}} eich tagio mewn cyhoeddiad yn y porthiant",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "Fe wnaeth {{value}} eich tagio mewn cyhoeddiad rhestr chwarae cerddoriaeth"
   },
   "PAGE": {
     "Name-page": "Enw'r dudalen",
@@ -759,7 +781,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Dileu'r prosiect hwn",
-    "generate-t-id": "Cynhyrchwch yr ôl troed"
+    "generate-t-id": "Cynhyrchwch yr ôl troed",
+    "Uploading-publication": "Llwytho cyhoeddiad i fyny"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -935,11 +958,11 @@
       "T-b-accepted-b-t-administration": "I'w dderbyn gan y weinyddiaeth",
       "This-feature-requires-verification-to-use.": "Mae'r nodwedd hon yn gofyn am ddilysiad i'w ddefnyddio",
       "Upload-a-photo-holding-t-ID-D": "Llwythwch lun yn dal yr ID gyda dalen o bapur gyda dyddiad heddiw ac mae \"Wiins\" yn ysgrifennu arno.",
-      "Upload-yr-password-id-identity-or-driver-license": "Llwythwch i fyny eich cyfrinair, hunaniaeth id neu drwydded yrru.",
       "Verification": "Gwirio",
       "Verified-zone": "Parth wedi'i wirio",
       "Y-m-complet-t-following-cdt-t-b-certified": "Rhaid i chi gwblhau'r amodau canlynol i gael eich ardystio.",
-      "Yr-profil-is-currently-being-checked-D": "Mae'ch proffil yn cael ei wirio ar hyn o bryd. Byddwn yn cysylltu â chi cyn pen 48 awr trwy e-bost."
+      "Yr-profil-is-currently-being-checked-D": "Mae'ch proffil yn cael ei wirio ar hyn o bryd. Byddwn yn cysylltu â chi cyn pen 48 awr trwy e-bost.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Llwythwch i fyny eich pasbort, hunaniaeth id neu'ch trwydded yrru."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Mae fy nghyhoeddiadau i'w gweld gan fy ffrindiau yn unig",
@@ -1024,7 +1047,8 @@
     "Yr-account-has-been-deleted": "Mae eich cyfrif wedi'i ddileu",
     "Yr-account-is-activated": "Mae eich cyfrif wedi'i actifadu! Nawr gallwch chi fanteisio ar swyddogaethau canolog espace-piin's er mwyn cyfathrebu, difyrru'ch hun neu wneud eich hun yn hysbys.",
     "activated-after-15min-payment": "Bydd eich ymgyrch yn cael ei dilysu ymhen rhyw bymtheg munud ar ôl dilysu'r taliad.",
-    "update-is-done": "Mae'r diweddariad yn cael ei wneud"
+    "update-is-done": "Mae'r diweddariad yn cael ei wneud",
+    "You-h-been-verified-i-t-platform-D": "Rydych chi wedi cael eich gwirio yn y platfform. Gallwch chi fwynhau'r holl bethau ychwanegol nawr."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Ydych chi'n sicr o newid dyddiad rhyddhau eich prosiect?",
@@ -1053,7 +1077,10 @@
     "T-content-has-been-reported": "Adroddwyd ar y cynnwys hwn. Bydd ein cymedrolwyr yn edrych mewn oedi o 24 awr i'w adolygu. Rhoddir cosb os nad yw hyn yn parchu rheolau'r gymuned.",
     "T-user-has-been-blocked-D": "Mae'r defnyddiwr hwn wedi'i rwystro o'ch cyfrif. Ni fydd unrhyw gynnwys o'r proffil hwn yn weladwy gyda'ch cyfrif.",
     "W-is-t-reason-to-report-t-post": "Beth yw'r rheswm i riportio'r swydd hon?",
-    "W-is-t-reason-to-report-t-post-D": "Mae eich adroddiad yn anhysbys. Dewiswch gategori yn unig i helpu'r morators"
+    "W-is-t-reason-to-report-t-post-D": "Mae eich adroddiad yn anhysbys. Dewiswch gategori yn unig i helpu'r morators",
+    "A-y-s-to-unfollow-this-profile": "Ydych chi'n sicr o ddadorchuddio'r proffil hwn?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ydych chi'n sicr o ddileu'r ffrind hwn yn eich rhestr ffrindiau?",
+    "A-y-s-to-delete-t-story": "Ydych chi'n sicr o ddileu'r stori hon?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Rhybudd. Sicrhewch fod gennych y cyfeiriad cywir"
@@ -1427,7 +1454,8 @@
       "Rock": "Roc",
       "Reggae": "Reggae",
       "Country": "Gwlad"
-    }
+    },
+    "Playlist-Details": "Manylion Rhestr Chwarae"
   },
   "WIINS-TUBE": {
     "CREATION": {

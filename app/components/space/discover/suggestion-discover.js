@@ -2,12 +2,12 @@ import React from 'react'
 import { StyleSheet, View, Text, FlatList, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
-
 import * as TopHastagActions from '../../../redux/TopHastag/actions'
 import * as DiscoverPublicationActions from '../../../redux/DiscoverPublications/actions'
 import * as SearchBarActions from '../../../redux/SearchBar/actions'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
+import i18n from '../../../../assets/i18n/i18n'
 
 class SuggestionDiscover extends React.Component {
 
@@ -87,7 +87,7 @@ class SuggestionDiscover extends React.Component {
                 </View>
                 <View style={{ flex: 5, justifyContent: 'center' }}>
                     <Text style={{ fontSize: 15, fontWeight: '600', color: '#2c3a4f' }}>{musicProject.name}</Text>
-                    <Text style={{ fontSize: 13, color: 'grey' }}>Music Project</Text>
+                    <Text style={{ fontSize: 13, color: 'grey' }}>{i18n.t('CORE.Music-Project')}</Text>
                 </View>
                 <View style={{ flex: 2 }} />
             </TouchableOpacity>
@@ -106,7 +106,7 @@ class SuggestionDiscover extends React.Component {
                 </View>
                 <View style={{ flex: 5, justifyContent: 'center' }}>
                     <Text style={{ fontSize: 15, fontWeight: '600', color: '#2c3a4f' }}>{music.name}</Text>
-                    <Text style={{ fontSize: 13, color: 'grey' }}>Music</Text>
+                    <Text style={{ fontSize: 13, color: 'grey' }}>{i18n.t('CORE.Music')}</Text>
                 </View>
                 <View style={{ flex: 2 }} />
             </TouchableOpacity>
@@ -126,7 +126,7 @@ class SuggestionDiscover extends React.Component {
                 </View>
                 <View style={{ flex: 5, justifyContent: 'center' }}>
                     <Text style={{ fontSize: 15, fontWeight: '600', color: '#2c3a4f' }}>{profile._meta.pseudo}</Text>
-                    <Text style={{ fontSize: 13, color: 'grey' }}>Profile</Text>
+                    <Text style={{ fontSize: 13, color: 'grey' }}>{i18n.t('CORE.Profile')}</Text>
                 </View>
                 <View style={{ flex: 2 }} />
             </TouchableOpacity>
@@ -146,7 +146,7 @@ class SuggestionDiscover extends React.Component {
                 </View>
                 <View style={{ flex: 5, justifyContent: 'center' }}>
                     <Text style={{ fontSize: 15, fontWeight: '600', color: '#2c3a4f' }}>{page.name}</Text>
-                    <Text style={{ fontSize: 13, color: 'grey' }}>Page</Text>
+                    <Text style={{ fontSize: 13, color: 'grey' }}>{i18n.t('CORE.Page')}</Text>
                 </View>
                 <View style={{ flex: 2 }} />
             </TouchableOpacity>
@@ -165,7 +165,7 @@ class SuggestionDiscover extends React.Component {
                 </View>
                 <View style={{ flex: 5, justifyContent: 'center' }}>
                     <Text style={{ fontSize: 15, fontWeight: '600', color: '#2c3a4f' }}>{group.name}</Text>
-                    <Text style={{ fontSize: 13, color: 'grey' }}>Group</Text>
+                    <Text style={{ fontSize: 13, color: 'grey' }}>{i18n.t('CORE.Group')}</Text>
                 </View>
                 <View style={{ flex: 2 }} />
             </TouchableOpacity>

@@ -261,7 +261,21 @@
     "Save-in-phone": "Gem i telefonen",
     "No": "Ingen",
     "Yes": "Ja",
-    "Block-t-user": "Bloker denne bruger"
+    "Block-t-user": "Bloker denne bruger",
+    "Message": "Besked",
+    "Friend-request": "Venneanmodning",
+    "feed": "strøm",
+    "tube": "rør",
+    "Music": "musik",
+    "Page": "Side",
+    "Music-Project": "Musikprojekt",
+    "Group": "Gruppe",
+    "Earlier": "Tidligere",
+    "Notifications": "Meddelelser",
+    "Report-t-profile": "Rapporter profilen",
+    "Unfollow": "Følg ikke",
+    "Unfriend": "Unfriend",
+    "Block-User": "Bloker bruger"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -622,7 +636,10 @@
     "Date-cannot-be-in-the-past": "Udgivelsesdatoen kan ikke være tidligere",
     "You-cannot-add-yourself": "Du kan ikke tilføje dig selv",
     "T-content-does-not-exist-anymore": "Dette indhold findes ikke længere",
-    "T-publication-no-longer-exists": "Denne publikation findes ikke længere"
+    "T-publication-no-longer-exists": "Denne publikation findes ikke længere",
+    "Could-not-play-video": "Kunne ikke afspille video",
+    "No-music-liked-yet": "Ingen musik kunne lide endnu",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Du er ikke blevet bekræftet på grund af dine krav. Prøv et nyt tidspunkt, når du er klar."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Billedet er modtaget",
@@ -700,7 +717,12 @@
     "Yr-verification-request-was-accepted": "Din bekræftelsesanmodning blev accepteret",
     "Yr-verification-request-was-refused": "Din anmodning om bekræftelse blev afvist",
     "Yr-certification-request-was-accepted": "Din certificeringsanmodning blev accepteret",
-    "Yr-certification-request-was-refused": "Din certificeringsanmodning blev afvist"
+    "Yr-certification-request-was-refused": "Din certificeringsanmodning blev afvist",
+    "Value-comment-yr-publication": "{{value}} kommenterede din publikation",
+    "Value-like-yr-comment-in-a-music-playlist": "{{værdi}} kan lide din kommentar i en musikafspilningsliste",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} kunne lide din publikation i feedet",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} taggede dig i en publikation i feedet",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} taggede dig i en publikation til en musikafspilningsliste"
   },
   "PAGE": {
     "Name-page": "Sidens navn",
@@ -759,7 +781,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Slet dette projekt",
-    "generate-t-id": "Generer fodaftryk"
+    "generate-t-id": "Generer fodaftryk",
+    "Uploading-publication": "Uploader publikation"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -934,12 +957,12 @@
       "T-b-accepted-b-t-administration": "At blive accepteret af administrationen",
       "This-feature-requires-verification-to-use.": "Denne funktion kræver verifikation for at kunne bruges",
       "Upload-a-photo-holding-t-ID-D": "Upload et foto med ID'et med et ark papir med dagens dato, og \"Wiins\" skriver på det.",
-      "Upload-yr-password-id-identity-or-driver-license": "Upload din adgangskode, id-identitet eller kørekort.",
       "Verification": "Verifikation",
       "Verified-zone": "Bekræftet zone",
       "Y-m-complet-t-following-cdt-t-b-certified": "Du skal udfylde følgende betingelser for at blive certificeret.",
       "Yr-profil-is-currently-being-checked-D": "Din profil kontrolleres i øjeblikket. Vi kontakter dig inden for 48 timer via e-mail.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Sørg for at uploade bagsiden af kortet, hvis det er et nationalt id-kort (kun for det nationale kort)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Sørg for at uploade bagsiden af kortet, hvis det er et nationalt id-kort (kun for det nationale kort)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Upload dit pas, id-identitet eller kørekort."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Mine publikationer er kun synlige af mine venner",
@@ -1024,7 +1047,8 @@
     "Yr-account-has-been-deleted": "Din konto er blevet slettet",
     "Yr-account-is-activated": "Din konto er aktiveret! Du kan nu drage fordel af de centraliserede funktioner i espace-piin for at kommunikere, underholde dig selv eller gøre dig kendt.",
     "activated-after-15min-payment": "Din kampagne bliver valideret omkring femten minutter efter validering af betalingen.",
-    "update-is-done": "Opdateringen er færdig"
+    "update-is-done": "Opdateringen er færdig",
+    "You-h-been-verified-i-t-platform-D": "Du er blevet bekræftet på platformen. Du kan nyde alle ekstra nu."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Er du sikker på at ændre udgivelsesdatoen for dit projekt?",
@@ -1053,7 +1077,10 @@
     "T-content-has-been-reported": "Dette indhold er blevet rapporteret. Vores moderatorer tager et kig inden for 24 timer for at gennemgå det. En sanktion anvendes, hvis dette ikke respekterer samfundets regler.",
     "T-user-has-been-blocked-D": "Denne bruger er blevet blokeret fra din konto. Intet indhold af denne profil vil være synligt på din konto.",
     "W-is-t-reason-to-report-t-post": "Hvad er grunden til at rapportere dette indlæg?",
-    "W-is-t-reason-to-report-t-post-D": "Din rapport er anonym. Vælg bare en kategori for at hjælpe moratorerne"
+    "W-is-t-reason-to-report-t-post-D": "Din rapport er anonym. Vælg bare en kategori for at hjælpe moratorerne",
+    "A-y-s-to-unfollow-this-profile": "Er du sikker på at følge profilen op?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Er du sikker på at slette denne ven på din venneliste?",
+    "A-y-s-to-delete-t-story": "Er du sikker på at slette denne historie?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Advarsel. Sørg for, at du har den rigtige adresse"
@@ -1427,7 +1454,8 @@
       "Rock": "Klippe",
       "Reggae": "Reggae",
       "Country": "Land"
-    }
+    },
+    "Playlist-Details": "Afspilningslisteoplysninger"
   },
   "WIINS-TUBE": {
     "CREATION": {

@@ -73,7 +73,7 @@ export function progessTimerActions(position, duration) {
     return (dispatch, props) => {
 
         // control the loops
-        if ( ((Math.round(duration) - Math.round(position)) < 0.5 ) && props().Player.repeatMode == 'music') {
+        if (((Math.round(duration) - Math.round(position)) < 0.5) && props().Player.repeatMode == 'music') {
             TrackPlayer.seekTo(0)
             return null
         }
@@ -125,6 +125,20 @@ export function playMusicActions(music, payload) {
             }
 
             TrackPlayer.setupPlayer().then(async () => {
+                TrackPlayer.updateOptions({
+                    stopWithApp: true,
+                    capabilities: [
+                      TrackPlayer.CAPABILITY_PLAY,
+                      TrackPlayer.CAPABILITY_PAUSE,
+                      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
+                      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+                      TrackPlayer.CAPABILITY_STOP,
+                    ],
+                    compactCapabilities: [
+                      TrackPlayer.CAPABILITY_PLAY,
+                      TrackPlayer.CAPABILITY_PAUSE
+                    ]
+                  });
                 await TrackPlayer.add(tracklist)
                 TrackPlayer.skip(music._id)
                 TrackPlayer.play()
@@ -132,7 +146,7 @@ export function playMusicActions(music, payload) {
 
             return dispatch(playMusic(tracklist[tracklist.map(x => x.id).indexOf(music._id)], tracklist))
 
-        } catch (error) { 
+        } catch (error) {
             sendError(error)
             return null
         }
@@ -182,7 +196,7 @@ export function playRandomMusicInPlaylistActions(payload) {
             })
 
             return dispatch(playMusic(firstMusic, musicListFormat))
-        } catch (error) { 
+        } catch (error) {
             sendError(error)
             return null
         }
@@ -305,15 +319,15 @@ export function followArtist(id) {
     return { type: ActionTypes.FOLLOW_ARTIST, id }
 }
 
-export function followArtistSuccess() {
-    return { type: ActionTypes.FOLLOW_ARTIST_SUCCESS }
+export function followArtistSuccess(profileId) {
+    return { type: ActionTypes.FOLLOW_ARTIST_SUCCESS, profileId }
 }
 
 export function followArtistFail(id) {
     return { type: ActionTypes.FOLLOW_ARTIST_FAIL, id }
 }
 
-export function followArtistActions(musicId, profileId) {
+export function followArtistActions(profileId) {
     return async (dispatch) => {
         try {
             dispatch(followArtist())
@@ -328,7 +342,9 @@ export function followArtistActions(musicId, profileId) {
             })
                 .then((response) => response.json())
                 .then(response => {
-                    if (response.status == 200) return dispatch(followArtistSuccess())
+                    if (response.status == 200) {
+                        return dispatch(followArtistSuccess(profileId))
+                    }
                     dispatch(followArtistFail(response.status))
                 })
 
@@ -370,13 +386,13 @@ export function shuffleMusicsAction() {
 
         // shake the queue
         musicList = musicQueue
-        .map((a) => ({ sort: Math.random(), value: a }))
-        .sort((a, b) => a.sort - b.sort)
-        .map((a) => a.value)
+            .map((a) => ({ sort: Math.random(), value: a }))
+            .sort((a, b) => a.sort - b.sort)
+            .map((a) => a.value)
 
         // update the queue
         await TrackPlayer.add(musicList)
-        
+
         return dispatch(shuffleMusics())
     }
 }
@@ -386,15 +402,15 @@ export function unshuffleMusicsAction() {
 
 
         // get the old queue
-        let musicQueue = await TrackPlayer.getQueue() 
+        let musicQueue = await TrackPlayer.getQueue()
 
         // reset the queue
         await TrackPlayer.removeUpcomingTracks()
 
         // get the rest of the music
         const newList = []
-        for(let music of props().Player.trackList){
-            if(musicQueue.map(x => x.id).indexOf(music._id) !== 1) newList.push(music)
+        for (let music of props().Player.trackList) {
+            if (musicQueue.map(x => x.id).indexOf(music._id) !== 1) newList.push(music)
         }
 
         // update the queue

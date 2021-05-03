@@ -6,9 +6,10 @@ import Modal from 'react-native-modal'
 import I18n from '../../../../assets/i18n/i18n'
 import { faCheckCircle } from '@fortawesome/pro-duotone-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { sendReport } from './../../../services/report/report-service'
+import { sendReport } from '../../../services/report/report-service'
 import ActionSheet from 'react-native-actionsheet'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
+import * as ProfileActions from '../../../redux/Profile/actions'
 
 const categoriesReport = [
     {
@@ -97,7 +98,7 @@ const categoriesReport = [
     }
 ]
 
-class OptionPublicationModal extends React.Component {
+class OptionProfileModal extends React.Component {
 
     constructor(props) {
         super(props)
@@ -114,22 +115,28 @@ class OptionPublicationModal extends React.Component {
 
         const optionsList = [
             {
-                code: 'reportPublication',
-                title: 'Report Publication',
+                code: 'report',
+                title: I18n.t('CORE.Report-t-profile'),
                 color: 'red',
-                display: this.props.myProfileId !== this.props.ownerId
+                display: true
             },
             {
-                code: 'deletePublication',
-                title: 'Delete Publication',
+                code: 'unfollow',
+                title: I18n.t('CORE.Unfollow'),
                 color: 'black',
-                display: this.props.myProfileId == this.props.ownerId
+                display: this.props.Profile.relation == 'following'
+            },
+            {
+                code: 'unfriend',
+                title: I18n.t('CORE.Unfriend'),
+                color: 'black',
+                display: this.props.Profile.relation == 'friend'
             },
             {
                 code: 'blockUser',
-                title: 'Block User',
+                title: I18n.t('CORE.Block-User'),
                 color: 'black',
-                display: this.props.myProfileId !== this.props.ownerId
+                display: true
             }
         ]
 
@@ -153,7 +160,7 @@ class OptionPublicationModal extends React.Component {
                 />
                 <View style={{ marginVertical: 15 }}>
                     <TouchableOpacity
-                        onPress={() => this.props.toggleReportModal()}
+                        onPress={() => this.props.toggleOptionProfileReportModal()}
                         style={styles.btn_close}>
                         <Text>{I18n.t('CORE.Close')} </Text>
                     </TouchableOpacity>
@@ -165,12 +172,12 @@ class OptionPublicationModal extends React.Component {
     _sentReportWithCategory = (categorySelected) => {
 
         const report = {
-            type: 'feed-publication',
-            id: this.props.publicationId,
+            type: 'profile',
+            id: this.props.Profile._id,
             categorie: [categorySelected]
         }
 
-        return sendReport(report).then(() => this.setState({ menu: 'reportPublicationSent' }))
+        return sendReport(report).then(() => this.setState({ menu: 'reportProfileSent' }))
     }
 
     _reportPublicationView = () => {
@@ -240,7 +247,7 @@ class OptionPublicationModal extends React.Component {
 
                 {this._separatorItem()}
                 <TouchableOpacity
-                    onPress={() => this.props.toggleReportModal()}
+                    onPress={() => this.props.toggleOptionProfileReportModal()}
                     style={styles.container_item_menu}
                 >
                     <Text>{I18n.t('CORE.No')}</Text>
@@ -258,7 +265,7 @@ class OptionPublicationModal extends React.Component {
         )
     }
 
-    _reportPublicationSentView = () => {
+    _reportProfileSentView = () => {
         return (
             <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingVertical: 35 }}>
@@ -290,22 +297,109 @@ class OptionPublicationModal extends React.Component {
         )
     }
 
+    _unfollowConfirmView = () => {
+        return (
+            <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', paddingVertical: 35 }}>
+                    <FontAwesomeIcon icon={faCheckCircle} color={'#33cc33'} secondaryColor={'#f2f2f2'} size={75} />
+                </View>
+                {this._separatorItem()}
+                <View style={{ paddingHorizontal: 15, paddingVertical: 10, marginBottom: 30 }}>
+                    <Text>This account is not in your community anymore</Text>
+                </View>
+            </View>
+        )
+    }
+
     _displaySection = () => {
         switch (this.state.menu) {
-            case 'reportPublication': return this._reportPublicationView()
+            case 'report': return this._reportPublicationView()
             case 'blockUser': return this._blockUserView()
-            case 'reportPublicationSent': return this._reportPublicationSentView()
+            case 'unfollow': return this._unfollowView()
+            case 'unfriend': return this._unfriendView()
+            case 'reportProfileSent': return this._reportProfileSentView()
             case 'blockUserSent': return this._blockUserSentView()
-            case 'deletePublication': return this._showActionSheetPublicationDeletion()
+            case 'unfriendConfirm':
+            case 'unfollowSentConfirm': return this._unfollowConfirmView()
             default: return this._defaultMenu()
         }
+    }
+
+    _unfollowAction = () => {
+        this.props.actions.unfollow(this.props.Profile._id).then(
+            () => this.setState({ menu: 'unfollowSentConfirm' })
+        )  
+    }
+
+    _unfriendAction = () => {
+        this.props.actions.unfriendAction(this.props.Profile._id).then(
+            () => this.setState({ menu: 'unfriendConfirm' })
+        ) 
+    }
+
+    _unfollowView = () => {
+        return (
+            <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
+
+                {/* Header */}
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 15 }}>
+                    <Text style={{ fontSize: 15, fontWeight: '700' }}>{I18n.t('VALIDATION.A-y-s-to-unfollow-this-profile')}</Text>
+                </View>
+
+                {this._separatorItem()}
+                <TouchableOpacity
+                    onPress={() => this.props.toggleOptionProfileReportModal()}
+                    style={styles.container_item_menu}
+                >
+                    <Text>{I18n.t('CORE.No')}</Text>
+                </TouchableOpacity>
+
+                {this._separatorItem()}
+                <TouchableOpacity
+                    style={styles.container_item_menu}
+                    onPress={() => this._unfollowAction()}
+                >
+                    <Text>{I18n.t('CORE.Yes')}</Text>
+                </TouchableOpacity>
+
+            </View>
+        )
+    }
+
+    _unfriendView = () => {
+        return (
+            <View style={{ backgroundColor: 'white', marginBottom: 15, borderRadius: 15 }}>
+
+                {/* Header */}
+                <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', padding: 15 }}>
+                    <Text style={{ fontSize: 15, fontWeight: '700' }}>{I18n.t('VALIDATION.A-y-s-to-delete-t-friend-in-yr-friend-list')}</Text>
+                </View>
+
+                {this._separatorItem()}
+                <TouchableOpacity
+                    onPress={() => this.props.toggleOptionProfileReportModal()}
+                    style={styles.container_item_menu}
+                >
+                    <Text>{I18n.t('CORE.No')}</Text>
+                </TouchableOpacity>
+
+                {this._separatorItem()}
+                <TouchableOpacity
+                    style={styles.container_item_menu}
+                    onPress={() => this._unfriendAction()}
+                >
+                    <Text>{I18n.t('CORE.Yes')}</Text>
+                </TouchableOpacity>
+
+            </View>
+        )
     }
 
     _actionSheetDeletionCommand = (index) => {
         switch (index) {
             case 0: {
                 this.props.actions.deleteFeedPublicationById(this.props.publicationId)
-                return this.props.toggleReportModal()
+                return this.props.toggleOptionProfileReportModal()
             }
             default: {
                 return this.setState({ menu: '' })
@@ -317,8 +411,8 @@ class OptionPublicationModal extends React.Component {
         return (
             <View>
                 <Modal
-                    onSwipeComplete={() => this.props.toggleReportModal()}
-                    onBackdropPress={() => this.props.toggleReportModal()}
+                    onSwipeComplete={() => this.props.toggleOptionProfileReportModal()}
+                    onBackdropPress={() => this.props.toggleOptionProfileReportModal()}
                     isVisible={true}
                     transparent={true}
                     animationIn={'bounceInUp'}
@@ -374,16 +468,18 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
-    MyProfile: state.MyProfile.profile
+    MyProfile: state.MyProfile.profile,
+    Profile: state.Profile.profile,
 })
 
 const ActionCreators = Object.assign(
     {},
-    PublicationFeedActions
+    PublicationFeedActions,
+    ProfileActions
 )
 
 const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(ActionCreators, dispatch),
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(OptionPublicationModal)
+export default connect(mapStateToProps, mapDispatchToProps)(OptionProfileModal)

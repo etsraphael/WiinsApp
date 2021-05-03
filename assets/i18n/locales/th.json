@@ -261,7 +261,21 @@
     "Save-in-phone": "บันทึกในโทรศัพท์",
     "No": "ไม่",
     "Yes": "ใช่",
-    "Block-t-user": "บล็อกผู้ใช้นี้"
+    "Block-t-user": "บล็อกผู้ใช้นี้",
+    "Message": "ข้อความ",
+    "Friend-request": "ขอเป็นเพื่อน",
+    "feed": "ฟลักซ์",
+    "tube": "หลอด",
+    "Music": "เพลง",
+    "Page": "หน้า",
+    "Music-Project": "โครงการดนตรี",
+    "Group": "กลุ่ม",
+    "Earlier": "ก่อนหน้านี้",
+    "Notifications": "การแจ้งเตือน",
+    "Report-t-profile": "รายงานโปรไฟล์",
+    "Unfollow": "เลิกติดตาม",
+    "Unfriend": "เลิกเป็นเพื่อน",
+    "Block-User": "กีดกันผู้ใช้"
   },
   "COUNTRY": {
     "AD": "อันดอร์รา",
@@ -622,7 +636,10 @@
     "Date-cannot-be-in-the-past": "วันที่วางจำหน่ายต้องไม่เป็นวันที่ผ่านมา",
     "You-cannot-add-yourself": "คุณไม่สามารถเพิ่มตัวเองได้",
     "T-content-does-not-exist-anymore": "ไม่มีเนื้อหานี้อีกต่อไป",
-    "T-publication-no-longer-exists": "ไม่มีสิ่งพิมพ์นี้แล้ว"
+    "T-publication-no-longer-exists": "ไม่มีสิ่งพิมพ์นี้แล้ว",
+    "Could-not-play-video": "ไม่สามารถเล่นวิดีโอ",
+    "No-music-liked-yet": "ยังไม่มีเพลงที่ชอบ",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "คุณไม่ได้รับการยืนยันเนื่องจากข้อกำหนดของคุณ ลองเวลาใหม่เมื่อคุณพร้อม"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ได้รับภาพถ่ายแล้ว",
@@ -700,7 +717,12 @@
     "tag-you-in-comment": "แท็กคุณในความคิดเห็น",
     "tag-you-in-playlist": "แท็กคุณในเพลย์ลิสต์",
     "you-appear-in-project-of": "คุณปรากฏในโครงการใหม่ของ",
-    "you-have": "คุณมี"
+    "you-have": "คุณมี",
+    "Value-comment-yr-publication": "{{value}} แสดงความคิดเห็นเกี่ยวกับสิ่งพิมพ์ของคุณ",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} ชอบความคิดเห็นของคุณในเพลย์ลิสต์เพลง",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} ชอบสิ่งตีพิมพ์ของคุณในฟีด",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} แท็กคุณในสิ่งพิมพ์ในฟีด",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} แท็กคุณในการเผยแพร่รายการเพลง"
   },
   "PAGE": {
     "Name-page": "ชื่อเพจ",
@@ -759,7 +781,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "ลบโครงการนี้",
-    "generate-t-id": "สร้างรอยเท้า"
+    "generate-t-id": "สร้างรอยเท้า",
+    "Uploading-publication": "กำลังอัปโหลดสิ่งพิมพ์"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -935,11 +958,11 @@
       "T-b-accepted-b-t-administration": "เป็นที่ยอมรับของฝ่ายบริหาร",
       "This-feature-requires-verification-to-use.": "คุณลักษณะนี้ต้องการการตรวจสอบเพื่อใช้งาน",
       "Upload-a-photo-holding-t-ID-D": "อัปโหลดรูปถ่ายที่ถือบัตรประจำตัวด้วยแผ่นกระดาษที่มีวันที่ของวันนี้และ \"Wiins\" เขียนอยู่",
-      "Upload-yr-password-id-identity-or-driver-license": "อัปโหลดรหัสผ่านรหัสประจำตัวหรือใบขับขี่",
       "Verification": "การยืนยัน",
       "Verified-zone": "โซนที่ตรวจสอบแล้ว",
       "Y-m-complet-t-following-cdt-t-b-certified": "คุณต้องทำตามเงื่อนไขต่อไปนี้จึงจะได้รับการรับรอง",
-      "Yr-profil-is-currently-being-checked-D": "กำลังตรวจสอบโปรไฟล์ของคุณ เราจะติดต่อคุณภายใน 48 ชั่วโมงทางอีเมล"
+      "Yr-profil-is-currently-being-checked-D": "กำลังตรวจสอบโปรไฟล์ของคุณ เราจะติดต่อคุณภายใน 48 ชั่วโมงทางอีเมล",
+      "Upload-yr-passport-id-identity-or-driver-license": "อัปโหลดหนังสือเดินทางรหัสประจำตัวหรือใบขับขี่"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "สิ่งพิมพ์ของฉันจะมองเห็นได้โดยเพื่อนของฉันเท่านั้น",
@@ -1024,7 +1047,8 @@
     "Yr-account-has-been-deleted": "บัญชีของคุณถูกลบ",
     "Yr-account-is-activated": "บัญชีของคุณเปิดใช้งานแล้ว! ตอนนี้คุณสามารถใช้ประโยชน์จากฟังก์ชั่นส่วนกลางของ espace-piin เพื่อสื่อสารสร้างความบันเทิงให้ตัวเองหรือทำให้ตัวเองเป็นที่รู้จัก",
     "activated-after-15min-payment": "แคมเปญของคุณจะได้รับการตรวจสอบในเวลาประมาณสิบห้านาทีหลังจากการตรวจสอบการชำระเงิน",
-    "update-is-done": "การอัปเดตเสร็จสิ้น"
+    "update-is-done": "การอัปเดตเสร็จสิ้น",
+    "You-h-been-verified-i-t-platform-D": "คุณได้รับการยืนยันในแพลตฟอร์ม คุณสามารถเพลิดเพลินกับความพิเศษทั้งหมดได้แล้ว"
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "คุณแน่ใจหรือไม่ว่าจะเปลี่ยนวันที่เผยแพร่โครงการของคุณ",
@@ -1053,7 +1077,10 @@
     "T-content-has-been-reported": "มีการรายงานเนื้อหานี้แล้ว ผู้ดูแลของเราจะตรวจสอบล่าช้า 24 ชั่วโมง การลงโทษจะถูกนำไปใช้หากไม่เคารพกฎของชุมชน",
     "T-user-has-been-blocked-D": "ผู้ใช้รายนี้ถูกบล็อกจากบัญชีของคุณ บัญชีของคุณจะไม่เห็นเนื้อหาของโปรไฟล์นี้",
     "W-is-t-reason-to-report-t-post": "เหตุผลในการรายงานโพสต์นี้คืออะไร?",
-    "W-is-t-reason-to-report-t-post-D": "รายงานของคุณไม่ระบุชื่อ โปรดเลือกเพียงหมวดหมู่เพื่อช่วยในการเตือนภัย"
+    "W-is-t-reason-to-report-t-post-D": "รายงานของคุณไม่ระบุชื่อ โปรดเลือกเพียงหมวดหมู่เพื่อช่วยในการเตือนภัย",
+    "A-y-s-to-unfollow-this-profile": "แน่ใจหรือว่าเลิกติดตามโปรไฟล์นี้",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "คุณแน่ใจหรือไม่ว่าจะลบเพื่อนคนนี้ในรายชื่อเพื่อนของคุณ",
+    "A-y-s-to-delete-t-story": "แน่ใจไหมว่าจะลบเรื่องราวนี้"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "คำเตือน. ตรวจสอบให้แน่ใจว่าคุณมีที่อยู่ที่ถูกต้อง"
@@ -1427,7 +1454,8 @@
       "Rock": "ร็อค",
       "Reggae": "เร้กเก้",
       "Country": "ประเทศ"
-    }
+    },
+    "Playlist-Details": "รายละเอียดเพลย์ลิสต์"
   },
   "WIINS-TUBE": {
     "CREATION": {

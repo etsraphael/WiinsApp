@@ -42,7 +42,7 @@ class OneNotification extends React.Component {
 
                 {/* Description */}
                 <View style={{ flex: 5, justifyContent: 'center', marginStart: 10, marginEnd: 15 }}>
-                    <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} comment your publication </Text>
+                    <Text style={{ fontSize: 15 }}>{I18n.t('NOTIFICATIONS.Value-comment-yr-publication', { value: notif.profile._meta.pseudo }) }</Text>
                     <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
                 </View>
 
@@ -62,8 +62,8 @@ class OneNotification extends React.Component {
 
                 {/* Description */}
                 <View style={{ flex: 5, justifyContent: 'center', marginStart: 10, marginEnd: 15 }}>
-                    {notif.accepted && <Text style={{ fontSize: 15 }}>You have been verified in the platform. You can enjoy all the extras now. </Text>}
-                    {!notif.accepted && <Text style={{ fontSize: 15 }}>You havn't been verified due to your requirements. Try a new time when you're ready</Text>}
+                    {notif.accepted && <Text style={{ fontSize: 15 }}>{I18n.t('VALID-MESSAGE.You-h-been-verified-i-t-platform-D')}</Text>}
+                    {!notif.accepted && <Text style={{ fontSize: 15 }}>{I18n.t('ERROR-MESSAGE.You-havnt-been-verified-due-t-yr-requirements-D')}</Text>}
                     <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
                 </View>
 
@@ -83,7 +83,7 @@ class OneNotification extends React.Component {
 
                 {/* Description */}
                 <View style={{ flex: 5, justifyContent: 'center', marginStart: 10, marginEnd: 15 }}>
-                    <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} like your comment in a music playlist </Text>
+                    <Text style={{ fontSize: 15 }}>{I18n.t('NOTIFICATIONS.Value-like-yr-comment-in-a-music-playlist', { value: notif.profile._meta.pseudo })}</Text>
                     <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
                 </View>
 
@@ -106,7 +106,7 @@ class OneNotification extends React.Component {
 
                 {/* Description */}
                 <View style={{ flex: 5, justifyContent: 'center', marginStart: 10, marginEnd: 15 }}>
-                    <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} liked your publication in the feed </Text>
+                    <Text style={{ fontSize: 15 }}>{I18n.t('NOTIFICATIONS.Value-liked-yr-publication-in-t-feed', { value: notif.profile._meta.pseudo })}</Text>
                     <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
                 </View>
 
@@ -130,7 +130,7 @@ class OneNotification extends React.Component {
 
                 {/* Description */}
                 <View style={{ flex: 5, justifyContent: 'center', marginStart: 10, marginEnd: 15 }}>
-                    <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} tagged you in a publication in the feed </Text>
+                    <Text style={{ fontSize: 15 }}>{I18n.t('NOTIFICATIONS.Value-tagged-you-in-a-publication-in-t-feed', { value: notif.profile._meta.pseudo })}</Text>
                     <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
                 </View>
 
@@ -153,7 +153,7 @@ class OneNotification extends React.Component {
 
                 {/* Description */}
                 <View style={{ flex: 5, justifyContent: 'center', marginStart: 10, marginEnd: 15 }}>
-                    <Text style={{ fontSize: 15 }}>{notif.profile._meta.pseudo} tagged you in a publication a music playlist </Text>
+                    <Text style={{ fontSize: 15 }}>{I18n.t('NOTIFICATIONS.Value-tagged-you-in-a-publication-a-music-playlist', { value: notif.profile._meta.pseudo })}</Text>
                     <Text style={{ fontSize: 13, color: 'grey', paddingTop: 2 }}>{getDateTranslated(notif.updatedAt)}</Text>
                 </View>
 

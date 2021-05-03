@@ -108,11 +108,11 @@ class MyProfile extends React.Component {
                         <View style={{ flex: 1, justifyContent: 'flex-start' }}>
                             <TouchableOpacity onPress={() => this.props.navigation.goBack()}
                                 style={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
+                                <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={25} />
                             </TouchableOpacity>
                         </View>
                         <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>Profile</Text>
+                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>{I18n.t('CORE.Profile')}</Text>
                         </View>
                         <View style={{ flex: 1 }}>
                             <TouchableOpacity onPress={this.showActionSheet}
@@ -158,7 +158,7 @@ class MyProfile extends React.Component {
 
                             <View style={{ position: 'relative', bottom: -15 }}>
                                 <Text style={{ fontSize: 22, color: '#333333', fontFamily: 'Avenir-Heavy' }}>@{this.props.MyProfile.profile._meta.pseudo}</Text>
-                                <Text style={{ color: '#77838F', fontSize: 15, fontFamily: 'Avenir-Book' }}>Community : {this.props.MyProfile.profile.communityTotal}</Text>
+                                <Text style={{ color: '#77838F', fontSize: 15, fontFamily: 'Avenir-Book' }}>{I18n.t('CORE.Community')} : {this.props.MyProfile.profile.communityTotal}</Text>
                             </View>
                         </View>
                     </View>
@@ -218,7 +218,7 @@ class MyProfile extends React.Component {
                 renderItem={({ item }) =>
                     <TouchableOpacity style={{paddingVertical: 5, paddingHorizontal: 7, flexDirection: 'row', alignItems: 'center'}} onPress={() => this._changeSpace(item)}>
                         {this.state.space == item && <FontAwesomeIcon style={{margin: 5}} icon={faCircle} color={'#6600ff'} size={10} />}
-                        <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{item}</Text>
+                        <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{I18n.t('CORE.'+item)}</Text>
                     </TouchableOpacity>
                 }
             />

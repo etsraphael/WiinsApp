@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Slider from '@react-native-community/slider';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faPause, faPlay, faRedoAlt } from '@fortawesome/pro-light-svg-icons';
-
+import i18n from '../../../../../assets/i18n/i18n'
 
 class VideoPlayer extends React.Component {
 
@@ -176,7 +176,7 @@ class VideoPlayer extends React.Component {
                     <FontAwesomeIcon icon={faRedoAlt} color={"#FFFFFF"} size={30} />
                 </Animated.View>
                 <Text style={{ color: '#FFFFFF', marginTop: 5, fontSize: 17 }}>
-                    Could not play video
+                    {i18n.t('ERROR-MESSAGE.Could-not-play-video')}
                 </Text>
             </TouchableWithoutFeedback>
         )

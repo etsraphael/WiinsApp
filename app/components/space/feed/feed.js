@@ -97,7 +97,11 @@ class Feed extends React.Component {
                     </TouchableOpacity>
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                    <Image style={{ width: 65, height: 35 }} source={require('../../../../assets/image/wiins-written.png')} />
+                    <Image 
+                        style={{ width: '100%', height: '100%' }} 
+                        source={require('../../../../assets/image/wiins-written.png')} 
+                        resizeMode={'contain'}
+                    />
                 </View>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
                     <View style={{ flexDirection: 'row', paddingHorizontal: 20 }}>

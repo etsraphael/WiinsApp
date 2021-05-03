@@ -261,7 +261,21 @@
     "Save-in-phone": "Telefonda saqlang",
     "No": "Yo'q",
     "Yes": "Ha",
-    "Block-t-user": "Ushbu foydalanuvchini bloklash"
+    "Block-t-user": "Ushbu foydalanuvchini bloklash",
+    "Message": "Xabar",
+    "Friend-request": "Do'stlik so'rovi",
+    "feed": "oqim",
+    "tube": "naycha",
+    "Music": "Musiqa",
+    "Page": "Sahifa",
+    "Music-Project": "Musiqiy loyiha",
+    "Group": "Guruh",
+    "Earlier": "Oldinroq",
+    "Notifications": "Bildirishnomalar",
+    "Report-t-profile": "Profil haqida xabar bering",
+    "Unfollow": "Obunani bekor qilish",
+    "Unfriend": "Do'stlashmang",
+    "Block-User": "Foydalanuvchini bloklash"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -622,7 +636,10 @@
     "Date-cannot-be-in-the-past": "Chiqarish sanasi o'tmishda bo'lishi mumkin emas",
     "You-cannot-add-yourself": "Siz o'zingizni qo'sha olmaysiz",
     "T-content-does-not-exist-anymore": "Ushbu tarkib endi mavjud emas",
-    "T-publication-no-longer-exists": "Ushbu nashr endi mavjud emas"
+    "T-publication-no-longer-exists": "Ushbu nashr endi mavjud emas",
+    "Could-not-play-video": "Videoni ijro qilib bo‘lmadi",
+    "No-music-liked-yet": "Hali musiqa yoqmadi",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Sizning talablaringiz tufayli siz tasdiqlanmadingiz. Tayyor bo'lgach, yangi vaqtni sinab ko'ring."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Surat qabul qilindi",
@@ -700,7 +717,12 @@
     "tag-you-in-comment": "sizni sharhda belgilab qo'ydi",
     "tag-you-in-playlist": "sizni pleylistga qo'shib qo'ydi",
     "you-appear-in-project-of": "Siz yangi loyihada paydo bo'lasiz",
-    "you-have": "senda bor"
+    "you-have": "senda bor",
+    "Value-comment-yr-publication": "{{value}} sizning nashringizga fikr bildirdi",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} musiqiy pleylistdagi sharhingiz kabi",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} tasmaga nashringiz yoqdi",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} sizni tasmada nashrda belgilab qo'ydi",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} sizni nashrda musiqiy pleylist deb belgilab qo'ydi"
   },
   "PAGE": {
     "Name-page": "Sahifa nomi",
@@ -759,7 +781,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Ushbu loyihani o'chirib tashlang",
-    "generate-t-id": "Oyoq izini yarating"
+    "generate-t-id": "Oyoq izini yarating",
+    "Uploading-publication": "Nashr yuklanmoqda"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -935,11 +958,11 @@
       "T-b-accepted-b-t-administration": "Ma'muriyat tomonidan qabul qilinadi",
       "This-feature-requires-verification-to-use.": "Ushbu xususiyatdan foydalanish uchun tekshirishni talab qiladi",
       "Upload-a-photo-holding-t-ID-D": "Shaxsiy guvohnomani bugungi kun yozilgan varaq bilan qog'ozga yuklang va unga \"Wiins\" yozadi.",
-      "Upload-yr-password-id-identity-or-driver-license": "Parolingizni, identifikatoringizni yoki haydovchilik guvohnomangizni yuklang.",
       "Verification": "Tekshirish",
       "Verified-zone": "Tasdiqlangan zona",
       "Y-m-complet-t-following-cdt-t-b-certified": "Sertifikat olish uchun quyidagi shartlarni bajarishingiz kerak.",
-      "Yr-profil-is-currently-being-checked-D": "Hozirda profilingiz tekshirilmoqda. Siz bilan 48 soat ichida elektron pochta orqali bog'lanamiz."
+      "Yr-profil-is-currently-being-checked-D": "Hozirda profilingiz tekshirilmoqda. Siz bilan 48 soat ichida elektron pochta orqali bog'lanamiz.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Pasportingizni, identifikatoringizni yoki haydovchilik guvohnomangizni yuklang."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Mening nashrlarimni faqat do'stlarim ko'rishadi",
@@ -1024,7 +1047,8 @@
     "Yr-account-has-been-deleted": "Sizning hisob qaydnomangiz o'chirildi",
     "Yr-account-is-activated": "Sizning hisobingiz faollashtirildi! Endi siz muloqot qilish, ko'ngil ochish yoki o'zingizni tanitish uchun espace-piinning markazlashtirilgan funktsiyalaridan foydalanishingiz mumkin.",
     "activated-after-15min-payment": "Sizning kampaniyangiz to'lov tasdiqlangandan keyin taxminan o'n besh daqiqada tasdiqlanadi.",
-    "update-is-done": "Yangilanish tugadi"
+    "update-is-done": "Yangilanish tugadi",
+    "You-h-been-verified-i-t-platform-D": "Siz platformada tasdiqlangansiz. Siz hozirda barcha qo'shimchalardan bahramand bo'lishingiz mumkin."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Loyihangizning chiqish sanasini o'zgartirganingizga ishonchingiz komilmi?",
@@ -1053,7 +1077,10 @@
     "T-content-has-been-reported": "Ushbu tarkib haqida xabar berilgan. Moderatorlarimiz uni ko'rib chiqish uchun 24 soat kechiktirishni ko'rib chiqadilar. Agar bu jamiyat qoidalariga rioya qilmasa, sanktsiya qo'llaniladi.",
     "T-user-has-been-blocked-D": "Ushbu foydalanuvchi sizning hisobingizdan bloklangan. Hisobingizda ushbu profilning hech qanday mazmuni ko'rinmaydi.",
     "W-is-t-reason-to-report-t-post": "Ushbu xabar haqida xabar berishning sababi nima?",
-    "W-is-t-reason-to-report-t-post-D": "Sizning hisobotingiz noma'lum. Iltimos, moratatorlarga yordam berish uchun faqat bitta toifani tanlang"
+    "W-is-t-reason-to-report-t-post-D": "Sizning hisobotingiz noma'lum. Iltimos, moratatorlarga yordam berish uchun faqat bitta toifani tanlang",
+    "A-y-s-to-unfollow-this-profile": "Ushbu profilni bekor qilishingizga ishonchingiz komilmi?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ushbu do'stingizni do'stlaringiz ro'yxatidan o'chirishga ishonchingiz komilmi?",
+    "A-y-s-to-delete-t-story": "Ushbu hikoyani o'chirishga ishonchingiz komilmi?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Ogohlantirish. To'g'ri manzilga ega ekanligingizga ishonch hosil qiling"
@@ -1427,7 +1454,8 @@
       "Rock": "Tosh",
       "Reggae": "Reggae",
       "Country": "Mamlakat"
-    }
+    },
+    "Playlist-Details": "Pleylist tafsilotlari"
   },
   "WIINS-TUBE": {
     "CREATION": {

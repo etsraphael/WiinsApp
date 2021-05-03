@@ -261,7 +261,21 @@
     "Save-in-phone": "Telefona kaydet",
     "No": "Hayır",
     "Yes": "Evet",
-    "Block-t-user": "Bu kullanıcıyı engelle"
+    "Block-t-user": "Bu kullanıcıyı engelle",
+    "Message": "İleti",
+    "Friend-request": "Arkadaşlık isteği",
+    "feed": "akı",
+    "tube": "tüp",
+    "Music": "Müzik",
+    "Page": "Sayfa",
+    "Music-Project": "Müzik Projesi",
+    "Group": "Grup",
+    "Earlier": "Daha erken",
+    "Notifications": "Bildirimler",
+    "Report-t-profile": "Profili bildirin",
+    "Unfollow": "Takibi bırak",
+    "Unfriend": "Arkadaşlıktan Çıkar",
+    "Block-User": "Kullanıcıyı engelle"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -622,7 +636,10 @@
     "Date-cannot-be-in-the-past": "Çıkış tarihi geçmiş bir tarih olamaz",
     "You-cannot-add-yourself": "Kendini ekleyemezsin",
     "T-content-does-not-exist-anymore": "Bu içerik artık mevcut değil",
-    "T-publication-no-longer-exists": "Bu yayın artık mevcut değil"
+    "T-publication-no-longer-exists": "Bu yayın artık mevcut değil",
+    "Could-not-play-video": "Video oynatılamadı",
+    "No-music-liked-yet": "Henüz müzik beğenilmedi",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Gereksinimleriniz nedeniyle doğrulanmadınız. Hazır olduğunuzda yeni bir zaman deneyin."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotoğraf alındı",
@@ -700,7 +717,12 @@
     "Yr-verification-request-was-accepted": "Doğrulama talebiniz kabul edildi",
     "Yr-verification-request-was-refused": "Doğrulama talebiniz reddedildi",
     "Yr-certification-request-was-accepted": "Sertifika talebiniz kabul edildi",
-    "Yr-certification-request-was-refused": "Sertifika talebiniz reddedildi"
+    "Yr-certification-request-was-refused": "Sertifika talebiniz reddedildi",
+    "Value-comment-yr-publication": "{{value}} yayınınıza yorum yaptı",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} bir müzik çalma listesindeki yorumunuzu beğenin",
+    "Value-liked-yr-publication-in-t-feed": "{{value}}, yayınınızı feed'de beğendi",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} sizi feed'deki bir yayında etiketledi",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} sizi bir yayında müzik çalma listesinde etiketledi"
   },
   "PAGE": {
     "Name-page": "Sayfa ismi",
@@ -759,7 +781,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Bu projeyi sil",
-    "generate-t-id": "Ayak izini oluşturun"
+    "generate-t-id": "Ayak izini oluşturun",
+    "Uploading-publication": "Yayın yükleniyor"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -934,12 +957,12 @@
       "T-b-accepted-b-t-administration": "İdare tarafından kabul edilmek",
       "This-feature-requires-verification-to-use.": "Bu özelliğin kullanılması için doğrulama gerekiyor",
       "Upload-a-photo-holding-t-ID-D": "Üzerinde bugünün tarihi olan ve üzerinde \"Wiins\" yazan bir kağıt parçası olan kimliği taşıyan bir fotoğraf yükleyin.",
-      "Upload-yr-password-id-identity-or-driver-license": "Şifrenizi, kimlik kimliğinizi veya ehliyetinizi yükleyin.",
       "Verification": "Doğrulama",
       "Verified-zone": "Doğrulanmış bölge",
       "Y-m-complet-t-following-cdt-t-b-certified": "Sertifika almak için aşağıdaki koşulları yerine getirmelisiniz.",
       "Yr-profil-is-currently-being-checked-D": "Profiliniz şu anda kontrol ediliyor. 48 saat içinde sizinle e-posta yoluyla iletişime geçeceğiz.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ulusal kimlik kartı ise kartın arka yüzünü yüklediğinizden emin olun (sadece ulusal kart için)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ulusal kimlik kartı ise kartın arka yüzünü yüklediğinizden emin olun (sadece ulusal kart için)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Pasaportunuzu, kimlik kimliğinizi veya ehliyetinizi yükleyin."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Yayınlarım sadece arkadaşlarım tarafından görülebilir",
@@ -1024,7 +1047,8 @@
     "Yr-account-has-been-deleted": "hesabınız silinmiştir",
     "Yr-account-is-activated": "Hesabınız etkinleştirildi! Artık iletişim kurmak, kendinizi eğlendirmek veya kendinizi tanıtmak için espace-piin'in merkezi işlevlerinden yararlanabilirsiniz.",
     "activated-after-15min-payment": "Ödemenizin onaylanmasından sonra yaklaşık on beş dakika içinde kampanyanız doğrulanacaktır.",
-    "update-is-done": "Güncelleme tamamlandı"
+    "update-is-done": "Güncelleme tamamlandı",
+    "You-h-been-verified-i-t-platform-D": "Platformda doğrulandınız. Şimdi tüm ekstraların tadını çıkarabilirsiniz."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Projenizin çıkış tarihini değiştireceğinizden emin misiniz?",
@@ -1053,7 +1077,10 @@
     "T-content-has-been-reported": "Bu içerik bildirildi. Moderatörlerimiz incelemek için 24 saat sonra göz atacak. Topluluğun kurallarına uymaması halinde bir yaptırım uygulanacaktır.",
     "T-user-has-been-blocked-D": "Bu kullanıcı hesabınızdan engellendi. Bu profilin hiçbir içeriği hesabınızda görünmeyecek.",
     "W-is-t-reason-to-report-t-post": "Bu gönderiyi bildirmenin nedeni nedir?",
-    "W-is-t-reason-to-report-t-post-D": "Raporunuz anonimdir. Lütfen moratorlara yardımcı olacak bir kategori seçin"
+    "W-is-t-reason-to-report-t-post-D": "Raporunuz anonimdir. Lütfen moratorlara yardımcı olacak bir kategori seçin",
+    "A-y-s-to-unfollow-this-profile": "Bu profili takip etmeyi bırakacağına emin misin?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Bu arkadaşı arkadaş listenden silmek istediğinden emin misin?",
+    "A-y-s-to-delete-t-story": "Bu hikayeyi silmek istediğinizden emin misiniz?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Uyarı. Doğru adrese sahip olduğunuzdan emin olun"
@@ -1427,7 +1454,8 @@
       "Rock": "Kaya",
       "Reggae": "Reggae",
       "Country": "Ülke"
-    }
+    },
+    "Playlist-Details": "Oynatma Listesi Ayrıntıları"
   },
   "WIINS-TUBE": {
     "CREATION": {

@@ -147,7 +147,9 @@ class SettingCertification extends React.Component {
                             style={[styles.container_btn_header, this.state.pageSelected == 'c' && this._backgroundBtnHeaderActif()]}
                             onPress={() => this.setState({ pageSelected: 'c' })}
                         >
-                            <Text style={[styles.header_text_btn, this.state.pageSelected == 'c' && this._colorTextBtnHeaderActif()]}>Certification</Text>
+                            <Text style={[styles.header_text_btn, this.state.pageSelected == 'c' && this._colorTextBtnHeaderActif()]}>
+                                {i18n.t('CORE.Certification')}
+                            </Text>
                         </TouchableOpacity>
                     </View>
 
@@ -322,7 +324,7 @@ class SettingCertification extends React.Component {
                     {this.state.idRectoIsLoading && this._loadingForSectionRender()}
                     {this._uploadIconAndTextRender()}
                     <View style={{ paddingHorizontal: 15 }}>
-                        <Text>{i18n.t('SETTING.verified.Upload-yr-password-id-identity-or-driver-license')}</Text>
+                        <Text>{i18n.t('SETTING.verified.Upload-yr-passport-id-identity-or-driver-license')}</Text>
                     </View>
                 </TouchableOpacity>
 

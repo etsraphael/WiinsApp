@@ -50,8 +50,6 @@ class HomeMusic extends React.Component {
         checkNotification(this.props.navigation)
         this.props.actions.getMusicMenu()
         this.props.actions.getMyMusic()
-
-
     }
 
     UNSAFE_componentWillUpdate() {
@@ -193,7 +191,15 @@ class HomeMusic extends React.Component {
                         ItemSeparatorComponent={this._renderSeparator}
                         data={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]}
                         keyExtractor={(item, index) => item[index].id}
-                        renderItem={({ item, index }) => (<OneMusic music={item[index]} tracklist={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]} index={index} />)}
+                        renderItem={({ item, index }) => (
+                            <OneMusic 
+                                music={item[index]}
+                                tracklist={this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected]}
+                                index={index}
+                                space={'home'}
+                                category={this.state.categoryZoneSelected}
+                            />
+                        )}
                         getItemCount={() => this.props.MyMenu.menu.stylesSuggestion[this.state.categoryZoneSelected].length}
                         getItem={(data) => data}
                     />
@@ -271,7 +277,9 @@ class HomeMusic extends React.Component {
             return (
                 <View style={{ justifyContent: 'center', alignItems: 'center', height: '100%' }}>
                     <FontAwesomeIcon icon={faTransporterEmpty} color={'#c7c7c79c'} size={121} />
-                    <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#acb1c0e3', marginTop: 45 }}>No music liked yet</Text>
+                    <Text style={{ fontWeight: 'bold', fontSize: 20, fontFamily: 'Avenir-Heavy', lineHeight: 41, letterSpacing: 1, color: '#acb1c0e3', marginTop: 45 }}>
+                        {I18n.t('ERROR-MESSAGE.No-music-liked-yet')}
+                    </Text>
                 </View>
             )
         }
@@ -286,7 +294,7 @@ class HomeMusic extends React.Component {
                     ItemSeparatorComponent={this._renderSeparator}
                     data={this.props.MyMusic.list}
                     keyExtractor={(item) => item._id.toString()}
-                    renderItem={({ item }) => (<OneMusicFav music={item} tracklist={this.props.MyMusic.list} />)}
+                    renderItem={({ item }) => (<OneMusicFav music={item} tracklist={this.props.MyMusic.list} space={'home'}/>)}
                 />
             </View>
         )

@@ -15,9 +15,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faUserPlus, faArrowLeft, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
 import PublicationModalContainer from './../../core/modal/publication-modal-container'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
+import OptionProfileModal from './../../core/modal/option-profile-modal'
 import { faCircle } from '@fortawesome/pro-solid-svg-icons'
-import I18n from '../../../../assets/i18n/i18n'
 import { TabActions } from '@react-navigation/native'
+import I18n from '../../../../assets/i18n/i18n'
 
 class Profile extends React.Component {
 
@@ -29,7 +30,8 @@ class Profile extends React.Component {
             publicationLoading: false,
             modal: false,
             reportModal: false,
-            reportModalExist: false,
+            optionProfileModalExist: false,
+            optionProfileModal: false,
             reportPublicationId: null,
             ownerReportPublication: null,
             spaceAvalaible: ['feed']
@@ -72,7 +74,7 @@ class Profile extends React.Component {
                 <TouchableOpacity onPress={() => this.props.actions.confirmFriendRequest(this.props.Profile.profile._id)}
                     style={{ borderRadius: 7, overflow: 'hidden', padding: 12, flexDirection: 'row' }}>
                     <FontAwesomeIcon icon={faUserPlus} color={'white'} size={18} style={[styles.icon_relation, { marginHorizontal: 7 }]} />
-                    <Text style={{ color: 'white', fontWeight: '600' }}>Confirm</Text>
+                    <Text style={{ color: 'white', fontWeight: '600' }}>{I18n.t('CORE.Confirm')}</Text>
                 </TouchableOpacity>
             </LinearGradient>
         )
@@ -94,11 +96,11 @@ class Profile extends React.Component {
                             </TouchableOpacity>
                         </View>
                         <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>Profile</Text>
+                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>{I18n.t('CORE.Profile')}</Text>
                         </View>
-                        <View style={{ flex: 1 }}>
+                        <TouchableOpacity style={{ flex: 1 }} onPress={() => this._toggleOptionProfileReportModal()}>
                             <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={40} />
-                        </View>
+                        </TouchableOpacity>
                     </View>
 
                     {/* Cover Picture */}
@@ -124,10 +126,11 @@ class Profile extends React.Component {
                             />
                         </View>
                         <View style={{ flex: 7, paddingLeft: 15, justifyContent: 'space-evenly' }}>
+                            {this._displayBtnFollowing()}
                             {this._displayBtnRelation()}
                             <View style={{ position: 'relative', bottom: -15 }}>
                                 <Text style={{ fontSize: 22, color: '#333333', fontFamily: 'Avenir-Heavy' }}>@{this.props.Profile.profile._meta.pseudo}</Text>
-                                <Text style={{ color: '#77838F', fontSize: 15, fontFamily: 'Avenir-Book' }}>Community : {this.props.Profile.profile.communityTotal}</Text>
+                                <Text style={{ color: '#77838F', fontSize: 15, fontFamily: 'Avenir-Book' }}>{I18n.t('CORE.Community')} : {this.props.Profile.profile.communityTotal}</Text>
                             </View>
                         </View>
                     </View>
@@ -145,49 +148,59 @@ class Profile extends React.Component {
         return this.props.navigation.dispatch(jumpToAction)
     }
 
+    _displayBtnFollowing = () => {
+
+        if (!this.props.Profile.profile.follow.following) return null
+        if (this.props.Profile.profile.relation == 'friend') return null
+
+        return (
+            <View style={{ flexDirection: 'row', marginVertical: 7 }}>
+                {this.props.Profile.profile.relation == 'following' ?
+                    <TouchableOpacity style={{ flex: 2 }}>
+                        <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Following')}</Text>
+                        </View>
+                    </TouchableOpacity>
+                    :
+                    <TouchableOpacity style={{ flex: 2 }} onPress={() => this.props.actions.follow(this.props.Profile.profile._id)}>
+                        <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Follow')}</Text>
+                        </View>
+                    </TouchableOpacity>
+                }
+                <View style={{ flex: 1 }} />
+            </View>
+        )
+
+    }
+
     _displayBtnRelation = () => {
         switch (this.props.Profile.profile.relation) {
-            case 'following': return (
-                <View style={{ flexDirection: 'row' }}>
-                    {this.props.Profile.profile.relationFollowing ?
-                        <TouchableOpacity style={{ flex: 2 }}>
-                            <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                                <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Following</Text>
-                            </View>
-                        </TouchableOpacity> :
-                        <TouchableOpacity style={{ flex: 2 }} onPress={() => this.props.actions.follow(this.props.Profile.profile._id)}>
-                            <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                                <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Follow</Text>
-                            </View>
-                        </TouchableOpacity>
-                    }
-                    <View style={{ flex: 1 }} />
-                </View>
-            )
             case 'friend': return (
                 <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity style={{ flex: 2 }} onPress={() => this._openRoomInMessenger()}>
                         <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Message</Text>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Message')}</Text>
                         </View>
                     </TouchableOpacity>
                     <View style={{ flex: 1 }} />
                 </View>
             )
+            case 'following':
             case 'not-friend': return (
                 <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity style={{ flex: 4 }} onPress={() => this.props.actions.askFriend(this.props.Profile.profile._id)}>
                         <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Friend request</Text>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Friend-request')}</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
             )
-            case 'pendingFromMe':  return (
+            case 'pendingFromMe': return (
                 <View style={{ flexDirection: 'row' }}>
                     <TouchableOpacity style={{ flex: 4 }} onPress={() => this.props.actions.cancelFriendRequest(this.props.Profile.profile._id)}>
                         <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>Pending</Text>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Pending')}</Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -245,7 +258,7 @@ class Profile extends React.Component {
                     renderItem={({ item }) =>
                         <TouchableOpacity style={{ paddingVertical: 5, paddingHorizontal: 7, flexDirection: 'row', alignItems: 'center' }} onPress={() => this._changeSpace(item)}>
                             {this.state.space == item && <FontAwesomeIcon style={{ margin: 5 }} icon={faCircle} color={'#6600ff'} size={10} />}
-                            <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{item}</Text>
+                            <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{I18n.t('CORE.'+item)}</Text>
                         </TouchableOpacity>
                     }
                 />
@@ -283,7 +296,7 @@ class Profile extends React.Component {
                 return (<ProfileMusic />)
             }
             case 'tube': {
-                return (<View/>)
+                return (<View />)
             }
         }
     }
@@ -297,8 +310,12 @@ class Profile extends React.Component {
         setTimeout(() => this.setState({ reportModalExist: !this.state.reportModalExist }), 100)
     }
 
-    render() {
+    _toggleOptionProfileReportModal = () => {
+        this.setState({ optionProfileModal: !this.state.optionProfileModal })
+        setTimeout(() => this.setState({ optionProfileModalExist: !this.state.optionProfileModalExist }), 100)
+    }
 
+    render() {
         return (
             <View style={styles.container}>
                 <ScrollView
@@ -324,6 +341,15 @@ class Profile extends React.Component {
                         publicationId={this.state.reportPublicationId}
                         myProfileId={this.props.MyProfile.profile._id}
                         ownerId={this.state.ownerReportPublication}
+                    />
+                }
+
+
+                {this.state.optionProfileModal &&
+                    <OptionProfileModal
+                        toggleOptionProfileReportModal={() => this._toggleOptionProfileReportModal()}
+                        isVisible={this.state.optionProfileModal}
+                        profileId={this.props.Profile.profile._id}
                     />
                 }
 

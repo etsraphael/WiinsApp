@@ -261,7 +261,21 @@
     "Save-in-phone": "Spremi u telefon",
     "No": "Ne",
     "Yes": "Da",
-    "Block-t-user": "Blokiraj ovog korisnika"
+    "Block-t-user": "Blokiraj ovog korisnika",
+    "Message": "Poruka",
+    "Friend-request": "Zahtjev za prijateljstvo",
+    "feed": "fluks",
+    "tube": "cijev",
+    "Music": "glazba, muzika",
+    "Page": "Stranica",
+    "Music-Project": "Glazbeni projekt",
+    "Group": "Skupina",
+    "Earlier": "Ranije",
+    "Notifications": "Obavijesti",
+    "Report-t-profile": "Prijavi profil",
+    "Unfollow": "Prestani pratiti",
+    "Unfriend": "Neprijatelj",
+    "Block-User": "Blokirati korisnika"
   },
   "COUNTRY": {
     "AD": "Andora",
@@ -622,7 +636,10 @@
     "Date-cannot-be-in-the-past": "Datum izdavanja ne može biti u prošlosti",
     "You-cannot-add-yourself": "Ne možete se dodati",
     "T-content-does-not-exist-anymore": "Ovaj sadržaj više ne postoji",
-    "T-publication-no-longer-exists": "Ova publikacija više ne postoji"
+    "T-publication-no-longer-exists": "Ova publikacija više ne postoji",
+    "Could-not-play-video": "Reprodukcija videozapisa nije uspjela",
+    "No-music-liked-yet": "Još se nijedna glazba nije svidjela",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Niste provjereni zbog vaših zahtjeva. Isprobajte novo vrijeme kad budete spremni."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotografija je primljena",
@@ -700,7 +717,12 @@
     "tag-you-in-comment": "vas je označio u komentaru",
     "tag-you-in-playlist": "označio vas je na popisu za reprodukciju",
     "you-appear-in-project-of": "Pojavljujete se u novom projektu",
-    "you-have": "imaš"
+    "you-have": "imaš",
+    "Value-comment-yr-publication": "{{value}} komentirao je vašu publikaciju",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} poput vašeg komentara na glazbenom popisu za reprodukciju",
+    "Value-liked-yr-publication-in-t-feed": "Korisniku {{value}} svidjela se vaša objava u feedu",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} vas je označio u publikaciji u feedu",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} vas je označio na publikaciji kao glazbeni popis za reprodukciju"
   },
   "PAGE": {
     "Name-page": "Naziv stranice",
@@ -759,7 +781,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Izbriši ovaj projekt",
-    "generate-t-id": "Stvorite otisak"
+    "generate-t-id": "Stvorite otisak",
+    "Uploading-publication": "Učitavanje publikacije"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -935,11 +958,11 @@
       "T-b-accepted-b-t-administration": "Da ga prihvati uprava",
       "This-feature-requires-verification-to-use.": "Za korištenje ove značajke potrebna je potvrda",
       "Upload-a-photo-holding-t-ID-D": "Prenesite fotografiju na kojoj se nalazi osobni dokument s listom papira s današnjim datumom i na njemu piše \"Wiins\".",
-      "Upload-yr-password-id-identity-or-driver-license": "Prenesite lozinku, identitet identiteta ili vozačku dozvolu.",
       "Verification": "Verifikacija",
       "Verified-zone": "Provjerena zona",
       "Y-m-complet-t-following-cdt-t-b-certified": "Da biste dobili certifikat, morate ispuniti sljedeće uvjete.",
-      "Yr-profil-is-currently-being-checked-D": "Vaš se profil trenutno provjerava. Kontaktirat ćemo vas u roku od 48 sati putem e-pošte."
+      "Yr-profil-is-currently-being-checked-D": "Vaš se profil trenutno provjerava. Kontaktirat ćemo vas u roku od 48 sati putem e-pošte.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Učitajte putovnicu, identitet ili vozačku dozvolu."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Moje publikacije vide samo moji prijatelji",
@@ -1024,7 +1047,8 @@
     "Yr-account-has-been-deleted": "Vaš račun je izbrisan",
     "Yr-account-is-activated": "Vaš račun je aktiviran! Sada možete iskoristiti centralizirane funkcije espace-piina kako biste komunicirali, zabavljali se ili bili poznati.",
     "activated-after-15min-payment": "Vaša kampanja bit će potvrđena za otprilike petnaest minuta nakon potvrde plaćanja.",
-    "update-is-done": "Ažuriranje je gotovo"
+    "update-is-done": "Ažuriranje je gotovo",
+    "You-h-been-verified-i-t-platform-D": "Potvrđeni ste na platformi. Sad možete uživati u svim dodacima."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Jeste li sigurni da ste promijenili datum izlaska svog projekta?",
@@ -1053,7 +1077,10 @@
     "T-content-has-been-reported": "Ovaj je sadržaj prijavljen. Naši će ih moderatori pogledati u odgodi od 24 sata kako bi ga pregledali. Primijenit će se sankcija ako se time ne poštuju pravila zajednice.",
     "T-user-has-been-blocked-D": "Ovaj je korisnik blokiran s vašeg računa. Na vašem računu neće biti vidljiv sadržaj ovog profila.",
     "W-is-t-reason-to-report-t-post": "Koji je razlog da prijavim ovaj post?",
-    "W-is-t-reason-to-report-t-post-D": "Vaša prijava je anonimna. Odaberite samo kategoriju koja će pomoći moratorima"
+    "W-is-t-reason-to-report-t-post-D": "Vaša prijava je anonimna. Odaberite samo kategoriju koja će pomoći moratorima",
+    "A-y-s-to-unfollow-this-profile": "Jeste li sigurni da želite prestati pratiti ovaj profil?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Jeste li sigurni da ste ovog prijatelja izbrisali s popisa prijatelja?",
+    "A-y-s-to-delete-t-story": "Jeste li sigurni da ste izbrisali ovu priču?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Upozorenje. Provjerite imate li pravu adresu"
@@ -1427,7 +1454,8 @@
       "Rock": "Rock",
       "Reggae": "Reggae",
       "Country": "Zemlja"
-    }
+    },
+    "Playlist-Details": "Pojedinosti o popisu za reprodukciju"
   },
   "WIINS-TUBE": {
     "CREATION": {

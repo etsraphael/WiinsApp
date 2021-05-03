@@ -261,7 +261,21 @@
     "Save-in-phone": "Sábháil ar an bhfón",
     "No": "Níl",
     "Yes": "Sea",
-    "Block-t-user": "Cuir bac ar an úsáideoir seo"
+    "Block-t-user": "Cuir bac ar an úsáideoir seo",
+    "Message": "Teachtaireacht",
+    "Friend-request": "Iarraidh chara",
+    "feed": "flosc",
+    "tube": "feadán",
+    "Music": "Ceol",
+    "Page": "Leathanach",
+    "Music-Project": "Tionscadal Ceoil",
+    "Group": "Grúpa",
+    "Earlier": "Níos luaithe",
+    "Notifications": "Fógraí",
+    "Report-t-profile": "Tuairiscigh an phróifíl",
+    "Unfollow": "Unollow",
+    "Unfriend": "Neamhchara",
+    "Block-User": "Úsáideoir Bloc"
   },
   "COUNTRY": {
     "AD": "Andóra",
@@ -622,7 +636,10 @@
     "Date-cannot-be-in-the-past": "Ní féidir an dáta scaoilte a bheith ann roimhe seo",
     "You-cannot-add-yourself": "Ní féidir leat tú féin a chur leis",
     "T-content-does-not-exist-anymore": "Níl an t-ábhar seo ann níos mó",
-    "T-publication-no-longer-exists": "Níl an foilseachán seo ann a thuilleadh"
+    "T-publication-no-longer-exists": "Níl an foilseachán seo ann a thuilleadh",
+    "Could-not-play-video": "Níorbh fhéidir físeán a imirt",
+    "No-music-liked-yet": "Níor thaitin aon cheol go fóill",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Níor fíoraíodh tú mar gheall ar do riachtanais. Bain triail as am nua nuair atá tú réidh."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Faightear an grianghraf",
@@ -700,7 +717,12 @@
     "tag-you-in-comment": "clibeáil tú i dtrácht",
     "tag-you-in-playlist": "clibeáil tú i seinmliosta",
     "you-appear-in-project-of": "Tá tú le feiceáil sa tionscadal nua de",
-    "you-have": "tá _ agat"
+    "you-have": "tá _ agat",
+    "Value-comment-yr-publication": "Rinne {{value}} trácht ar d’fhoilseachán",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} cosúil le do thrácht i seinmliosta ceoil",
+    "Value-liked-yr-publication-in-t-feed": "Thaitin {{value}} le d’fhoilseachán sa bheatha",
+    "Value-tagged-you-in-a-publication-in-t-feed": "Chuir {{value}} clib ort i bhfoilseachán sa bheatha",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "Chuir {{value}} clib seinmliosta ceoil ort i bhfoilseachán"
   },
   "PAGE": {
     "Name-page": "Ainm an leathanaigh",
@@ -759,7 +781,8 @@
   },
   "PUBLICATION": {
     "delete-t-project": "Scrios an tionscadal seo",
-    "generate-t-id": "Gin an lorg coise"
+    "generate-t-id": "Gin an lorg coise",
+    "Uploading-publication": "Foilseachán a uaslódáil"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -935,11 +958,11 @@
       "T-b-accepted-b-t-administration": "Le glacadh leis an lucht riaracháin",
       "This-feature-requires-verification-to-use.": "Éilíonn an ghné seo fíorú le húsáid",
       "Upload-a-photo-holding-t-ID-D": "Uaslódáil grianghraf ag a bhfuil an ID le bileog páipéir le dáta an lae inniu agus scríobhann \"Wiins\" air.",
-      "Upload-yr-password-id-identity-or-driver-license": "Uaslódáil do phasfhocal, aitheantas id nó ceadúnas tiomána.",
       "Verification": "Fíorú",
       "Verified-zone": "Crios fíoraithe",
       "Y-m-complet-t-following-cdt-t-b-certified": "Caithfidh tú na coinníollacha seo a leanas a chomhlíonadh chun a dheimhniú.",
-      "Yr-profil-is-currently-being-checked-D": "Tá do phróifíl á seiceáil faoi láthair. Déanfaimid teagmháil leat laistigh de 48 uair an chloig trí ríomhphost."
+      "Yr-profil-is-currently-being-checked-D": "Tá do phróifíl á seiceáil faoi láthair. Déanfaimid teagmháil leat laistigh de 48 uair an chloig trí ríomhphost.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Uaslódáil do phas, d’aitheantas id nó do cheadúnas tiomána."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Níl mo chuid foilseachán le feiceáil ach ag mo chairde",
@@ -1024,7 +1047,8 @@
     "Yr-account-has-been-deleted": "Scriosadh do chuntas",
     "Yr-account-is-activated": "Cuirtear do chuntas i ngníomh! Is féidir leat leas a bhaint anois as feidhmeanna láraithe espace-piin d’fhonn cumarsáid a dhéanamh, siamsaíocht a chur ort féin nó tú féin a chur ar an eolas.",
     "activated-after-15min-payment": "Déanfar d’fheachtas a bhailíochtú i gceann cúig nóiméad déag tar éis an íocaíocht a bhailíochtú.",
-    "update-is-done": "Déantar an nuashonrú"
+    "update-is-done": "Déantar an nuashonrú",
+    "You-h-been-verified-i-t-platform-D": "Fíoraíodh tú san ardán. Is féidir leat taitneamh a bhaint as na rudaí breise go léir anois."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "An bhfuil tú cinnte go n-athróidh tú dáta scaoilte do thionscadail?",
@@ -1053,7 +1077,10 @@
     "T-content-has-been-reported": "Tuairiscíodh an t-ábhar seo. Féachfaidh ár modhnóirí le moill 24 uair an chloig chun é a athbhreithniú. Cuirfear smachtbhanna i bhfeidhm mura n-urramaíonn sé seo rialacha an phobail.",
     "T-user-has-been-blocked-D": "Cuireadh bac ar an úsáideoir seo ó do chuntas. Ní bheidh aon ábhar den phróifíl seo le feiceáil le do chuntas.",
     "W-is-t-reason-to-report-t-post": "Cad é an chúis atá leis an bpost seo a thuairisciú?",
-    "W-is-t-reason-to-report-t-post-D": "Tá do thuairisc gan ainm. Roghnaigh catagóir le do thoil chun cabhrú leis na morators"
+    "W-is-t-reason-to-report-t-post-D": "Tá do thuairisc gan ainm. Roghnaigh catagóir le do thoil chun cabhrú leis na morators",
+    "A-y-s-to-unfollow-this-profile": "An bhfuil tú cinnte an phróifíl seo a nochtadh?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "An bhfuil tú cinnte an cara seo a scriosadh i liosta do chairde?",
+    "A-y-s-to-delete-t-story": "An bhfuil tú cinnte an scéal seo a scriosadh?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Rabhadh. Déan cinnte go bhfuil an seoladh ceart agat"
@@ -1427,7 +1454,8 @@
       "Rock": "Carraig",
       "Reggae": "Reggae",
       "Country": "Tír"
-    }
+    },
+    "Playlist-Details": "Sonraí Seinmliosta"
   },
   "WIINS-TUBE": {
     "CREATION": {
