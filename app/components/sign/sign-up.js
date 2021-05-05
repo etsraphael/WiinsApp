@@ -117,16 +117,18 @@ class SignUp extends React.Component {
                 <View>
                     <Text style={styles.inputLabel}>{i18n.t('PROFILE.Pseudo')}</Text>
                     <TextInput
+                        value={this.state.pseudo}
                         style={styles.input_container}
-                        onChangeText={(val) => this.setState({ pseudo: val })}
+                        onChangeText={(val) => this.setState({ pseudo: val.replace(/\s/g, '') })}
                     />
                 </View>
                 <View>
                     <Text style={styles.inputLabel}>{i18n.t('PROFILE.Email')}</Text>
                     <TextInput
+                        value={this.state.email}
                         autoCompleteType={'email'}
                         style={styles.input_container}
-                        onChangeText={(val) => this.setState({ email: val })}
+                        onChangeText={(val) => this.setState({ email: val.replace(/\s/g, '') })}
                     />
                 </View>
                 <View>
