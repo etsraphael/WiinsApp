@@ -24,6 +24,7 @@ class SignUp extends React.Component {
             email: null,
             pseudo: null,
             password: null,
+            password2: null,
             registration_success: false,
             conditionAccepted: false
         }
@@ -84,6 +85,11 @@ class SignUp extends React.Component {
             return false
         }
 
+        if (this.state.password !== this.state.password2 ) {
+            Snackbar.show({ text: i18n.t('PLACEHOLDER.Password-not-matching'), duration: Snackbar.LENGTH_LONG })
+            return false
+        }
+
         // pseudo validation
         if (this.state.pseudo.length <= 4) {
             Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Your-username-must-have-at-least-4-char'), duration: Snackbar.LENGTH_LONG })
@@ -137,6 +143,15 @@ class SignUp extends React.Component {
                         style={styles.input_container}
                         secureTextEntry={true}
                         onChangeText={(val) => this.setState({ password: val })}
+                    />
+                </View>
+
+                <View>
+                    <Text style={styles.inputLabel}>{i18n.t('PLACEHOLDER.Confirm-your-password')}</Text>
+                    <TextInput
+                        style={styles.input_container}
+                        secureTextEntry={true}
+                        onChangeText={(val) => this.setState({ password2: val })}
                     />
                 </View>
 
