@@ -104,20 +104,20 @@ class MyProfile extends React.Component {
                 <View style={{ flex: 1, position: 'relative' }}>
 
                     {/* Title and btn */}
-                    <View style={{ position: 'absolute', top: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', zIndex: 1, width: '100%' }}>
-                        <View style={{ flex: 1, justifyContent: 'flex-start' }}>
+                    <View style={{ position: 'absolute', top: 30, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', zIndex: 1, width: '100%', paddingHorizontal: 15 }}>
+                        <View style={{  }}>
                             <TouchableOpacity onPress={() => this.props.navigation.goBack()}
                                 style={{ justifyContent: 'center', alignItems: 'center' }}>
-                                <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={25} />
+                                <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={23} />
                             </TouchableOpacity>
                         </View>
-                        <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>{I18n.t('CORE.Profile')}</Text>
+                        <View style={{  }}>
+                            <Text style={{ fontSize: 18, color: 'white', fontWeight: 'bold' }}>{I18n.t('CORE.Profile')}</Text>
                         </View>
-                        <View style={{ flex: 1 }}>
+                        <View style={{  }}>
                             <TouchableOpacity onPress={this.showActionSheet}
                                 style={{ justifyContent: 'flex-end' }}>
-                                <FontAwesomeIcon icon={faUserCog} color={'white'} size={30} />
+                                <FontAwesomeIcon icon={faUserCog} color={'white'} size={25} />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -134,10 +134,10 @@ class MyProfile extends React.Component {
                     <View style={{ backgroundColor: '#0000004d', width: '100%', height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30, position: 'absolute' }} />
 
                     {/* Profile picture and name */}
-                    <View style={{ bottom: -50, width: '100%', flexDirection: 'row', paddingHorizontal: 5, position: 'absolute', paddingHorizontal: 35 }}>
-                        <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center' }}>
+                    <View style={{ bottom: -50, width: '100%', flexDirection: 'row', position: 'absolute', paddingHorizontal: 20 }}>
+                        <View style={{ width: 120, height: 120, justifyContent: 'center', alignItems: 'center' }}>
                             <FastImage
-                                style={{ width: '100%', aspectRatio: 1, borderRadius: 15, borderColor: '#6600ff', borderWidth: 2 }}
+                                style={{ width: '100%', aspectRatio: 1, borderRadius: 60, borderColor: '#eef2f4', borderWidth: 3, backgroundColor: '#D8D8D8' }}
                                 source={{
                                     uri: this.props.MyProfile.profile.pictureprofile,
                                     priority: FastImage.priority.normal,
@@ -149,8 +149,8 @@ class MyProfile extends React.Component {
 
                             <View style={{ flexDirection: 'row' }}>
                                 <TouchableOpacity style={{ flex: 2 }} onPress={this.showActionSheet}>
-                                    <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Setting')}</Text>
+                                    <View style={{ backgroundColor: '#29ACED', borderRadius: 10, justifyContent: 'center', alignItems: 'center', paddingVertical: 7 }}>
+                                        <Text style={{ fontSize: 18, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Setting')}</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <View style={{ flex: 1 }} />
