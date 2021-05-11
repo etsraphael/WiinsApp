@@ -17,6 +17,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import PublicationModalContainer from './../../core/modal/publication-modal-container'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
 import I18n from '../../../../assets/i18n/i18n'
+import { openImageCropper } from './../../../services/pictures/crop-picture-service'
 
 class MyProfile extends React.Component {
 
