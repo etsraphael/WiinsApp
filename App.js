@@ -6,6 +6,7 @@ import MainApp from './app/components/core/home/main-app'
 import { resetCacheForDev } from './app/services/cache/cache-core-service'
 import { configureNotification } from './app/services/notification/notification-service'
 import { initSentry } from './app/services/error/error-service'
+import SplashScreen from './app/components/core/reusable/misc/splash-screen'
 
 // default setting
 const { persistor, store } = configureStore()
@@ -38,7 +39,7 @@ class App extends Component {
     return (
       <>
         <Provider store={this.store}>
-          <PersistGate persistor={this.persistor} onBeforeLift={() => this.onBeforeLift()} loading={null}>
+          <PersistGate persistor={this.persistor} onBeforeLift={() => this.onBeforeLift()} loading={<SplashScreen />}>
             <MainApp />
           </PersistGate>
         </Provider>

@@ -14,6 +14,8 @@ import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { faEllipsisV } from '@fortawesome/pro-solid-svg-icons'
+import reducer from '../../../../redux/MyUser/reducer'
+import { AppTheme } from '../utility/theme-util'
 
 class CardNewFeed extends PureComponent {
 
@@ -184,14 +186,23 @@ class CardNewFeed extends PureComponent {
                         style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, width: '100%' }}
                     >
                         <TouchableOpacity onPress={() => this._goToProfile(publication.profile._id)} style={{ flexDirection: 'row', flex: 9 }}>
-                            <FastImage
-                                style={{ width: 44, height: 44, borderRadius: 44 / 2, resizeMode: 'cover', marginRight: 15 }}
-                                source={{
-                                    uri: publication.profile.pictureprofile,
-                                    priority: FastImage.priority.normal,
-                                }}
-                                resizeMode={FastImage.resizeMode.cover}
-                            />
+                            <LinearGradient
+                                colors={['#ff0047', '#2c34c7']}
+                                start={{ x: 0, y: 0 }}
+                                end={{ x: 1, y: 1 }}
+                                style={{ justifyContent: 'center', alignItems: 'center', width: 42, height: 42, borderRadius: 21, marginRight: 10 }}
+                            >
+                                <View style={{ justifyContent: 'center', alignItems: 'center', width: 38, height: 38, borderRadius: 20, backgroundColor: AppTheme.colors.background }}>
+                                    <FastImage
+                                        style={{ width: 35, height: 35, borderRadius: 44 / 2, resizeMode: 'cover' }}
+                                        source={{
+                                            uri: publication.profile.pictureprofile,
+                                            priority: FastImage.priority.normal,
+                                        }}
+                                        resizeMode={FastImage.resizeMode.cover}
+                                    />
+                                </View>
+                            </LinearGradient>
                             <View style={styles.header_info}>
                                 <Text style={{ fontSize: 15, fontWeight: '600' }}>{publication.profile._meta.pseudo}</Text>
                             </View>
@@ -336,7 +347,13 @@ class CardNewFeed extends PureComponent {
         const { publication } = this.props
 
         return (
-            <View style={[styles.card], { marginBottom: this.props.lastIndex ? 50 : 0, marginTop: this.props.index === 0 ? 20 : 0 }}>
+            <View style={
+                [styles.card], 
+                {
+                    ...(this.props.lastIndex ? { marginBottom: 50 } : { marginBottom: 0, borderBottomColor: '#cecece', borderBottomWidth: 1 })
+                    , marginTop: this.props.index === 0 ? 20 : 0  
+                }
+            }>
                 {this._showHeader(publication)}
                 {this._showTypePublication(publication)}
                 {this._showFooter(publication)}
@@ -348,7 +365,7 @@ class CardNewFeed extends PureComponent {
 
 const styles = StyleSheet.create({
     card: {
-        flex: 1
+        flex: 1,
     },
     container_type: {
         overflow: 'hidden',
@@ -356,6 +373,7 @@ const styles = StyleSheet.create({
     },
     header_container: {
         width: '100%',
+        paddingTop: 25,
         zIndex: 1,
         flexDirection: 'row',
         justifyContent: 'space-around',

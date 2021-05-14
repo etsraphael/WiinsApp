@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faHomeLg, faMusic, faCommentsAlt, faTv, faCompass } from '@fortawesome/pro-light-svg-icons'
 import { StatusBar } from 'react-native'
-import { DefaultTheme, NavigationContainer } from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'
 import FeedNavigation from './feed-navigation'
 import DiscoverNavigation from './discover-navigation'
 import MessengerNavigation from './messenger-navigation'
@@ -12,20 +12,7 @@ import MusicNavigation from './music-navigation'
 import * as MyProfileActions from './../redux/MyProfile/actions'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-
-const MyTheme = {
-    ...DefaultTheme,
-    dark: false,
-    colors: {
-        ...DefaultTheme.colors,
-        primary: 'white',
-        background: '#eef2f4',
-        card: '#191919',
-        text: 'white',
-        border: '#191919',
-        notification: 'white',
-    }
-}
+import { AppTheme } from '../components/core/reusable/utility/theme-util'
 
 const BottomTab = createBottomTabNavigator()
 
@@ -53,7 +40,7 @@ class MainNavigationContainer extends React.Component {
                         overflow: 'hidden',
                         backgroundColor: '#ffffff',
                         position: 'absolute',
-                        border: 0
+                        borderWidth: 0
                     }
                 }
             }
@@ -93,10 +80,10 @@ class MainNavigationContainer extends React.Component {
 
     render = () => {
         return (
-            <NavigationContainer theme={MyTheme}>
+            <NavigationContainer theme={AppTheme}>
                 <StatusBar
                     animated={true}
-                    backgroundColor={MyTheme.colors.background}
+                    backgroundColor={AppTheme.colors.background}
                     barStyle='dark-content'
                     showHideTransition={'fade'}
                     hidden={false}
