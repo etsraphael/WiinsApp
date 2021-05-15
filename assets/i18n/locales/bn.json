@@ -735,7 +735,9 @@
     "my-musics": "আমার সংগীত",
     "my-story": "আমার পোস্ট",
     "my-videos": "আমার ভিডিওগুলো",
-    "only-f-can-see": "কেবল বন্ধুরা প্রকাশনা দেখতে পারে"
+    "only-f-can-see": "কেবল বন্ধুরা প্রকাশনা দেখতে পারে",
+    "Edit-cover-photo": "কভার ফটো সম্পাদনা করুন",
+    "Edit-profile-photo": "প্রোফাইল ফটো সম্পাদনা করুন"
   },
   "PUBLICATION": {
     "delete-t-project": "এই প্রকল্পটি মুছুন",

@@ -735,7 +735,9 @@
     "my-musics": "Mis musicas",
     "my-story": "Mis publicaciones",
     "my-videos": "Mis videos",
-    "only-f-can-see": "Sólo los amigos pueden ver las publicaciones"
+    "only-f-can-see": "Sólo los amigos pueden ver las publicaciones",
+    "Edit-cover-photo": "Editar foto de portada",
+    "Edit-profile-photo": "Editar foto de perfil"
   },
   "PUBLICATION": {
     "delete-t-project": "Eliminar este proyecto",

@@ -735,7 +735,9 @@
     "my-musics": "我的音乐",
     "my-story": "我的帖子",
     "my-videos": "我的影片",
-    "only-f-can-see": "只有朋友才能看到出版物"
+    "only-f-can-see": "只有朋友才能看到出版物",
+    "Edit-cover-photo": "编辑封面照片",
+    "Edit-profile-photo": "编辑个人资料照片"
   },
   "PUBLICATION": {
     "delete-t-project": "删除此项目",

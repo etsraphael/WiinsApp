@@ -777,7 +777,9 @@
     "my-musics": "Moja hudba",
     "my-story": "Moje príspevky",
     "my-videos": "Moje videá",
-    "only-f-can-see": "Publikácie si môžu pozrieť iba priatelia"
+    "only-f-can-see": "Publikácie si môžu pozrieť iba priatelia",
+    "Edit-cover-photo": "Upraviť titulnú fotku",
+    "Edit-profile-photo": "Upraviť profilovú fotografiu"
   },
   "PUBLICATION": {
     "delete-t-project": "Odstrániť tento projekt",

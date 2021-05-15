@@ -30,7 +30,8 @@ class MyProfile extends React.Component {
             reportModalExist: false,
             reportPublicationId: null,
             ownerReportPublication: null,
-            spaceAvalaible: ['feed']
+            spaceAvalaible: ['feed'],
+            dropdownMenu: [I18n.t('PROFILE.Edit-profile-photo'), I18n.t('PROFILE.Edit-cover-photo'), I18n.t('NAVBAR.Logout'), I18n.t('CORE.Cancel')]
         }
     }
 
@@ -54,10 +55,33 @@ class MyProfile extends React.Component {
         this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
+    // save photo edited
+    _savePhotoEdited = (type, config) => {
+        openImageCropper(config).then((image) => {
+            if (!image) return null
+
+            switch (type) {
+                case 'profile': return null
+                case 'cover': return null
+            }
+        })
+    }
+
     // to set the dropdowns actions
     _menuFunctions(index) {
         switch (index) {
-            case 0: return this._logOut()
+            case 0: return this._savePhotoEdited('profile', {
+                width: 400,
+                height: 400,
+                cropping: true,
+                cropperCircleOverlay: true
+            })
+            case 1: return this._savePhotoEdited('cover', {
+                width: 700,
+                height: 400,
+                cropping: true
+            })
+            case 2: return this._logOut()
             default: return null
         }
     }
@@ -238,9 +262,8 @@ class MyProfile extends React.Component {
                 </ScrollView>
                 <ActionSheet
                     ref={o => this.ActionSheet = o}
-                    options={['Deconnexion', 'Cancel']}
-                    cancelButtonIndex={2}
-                    destructiveButtonIndex={1}
+                    options={this.state.dropdownMenu}
+                    cancelButtonIndex={3}
                     onPress={(index) => { this._menuFunctions(index) }}
                 />
 

@@ -777,7 +777,9 @@
     "my-musics": "Muzikat e mia",
     "my-story": "Postimet e mia",
     "my-videos": "Videot e mia",
-    "only-f-can-see": "Vetëm miqtë mund të shohin botimet"
+    "only-f-can-see": "Vetëm miqtë mund të shohin botimet",
+    "Edit-cover-photo": "Redakto foton e kopertinës",
+    "Edit-profile-photo": "Redakto foton e profilit"
   },
   "PUBLICATION": {
     "delete-t-project": "Fshije këtë projekt",

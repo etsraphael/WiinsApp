@@ -777,7 +777,9 @@
     "my-musics": "Min musik",
     "my-story": "Mine indlæg",
     "my-videos": "Mine videoer",
-    "only-f-can-see": "Kun venner kan se publikationerne"
+    "only-f-can-see": "Kun venner kan se publikationerne",
+    "Edit-cover-photo": "Rediger forsidebillede",
+    "Edit-profile-photo": "Rediger profilbillede"
   },
   "PUBLICATION": {
     "delete-t-project": "Slet dette projekt",

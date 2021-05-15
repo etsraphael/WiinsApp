@@ -735,7 +735,9 @@
     "my-musics": "Meine Musik",
     "my-story": "Meine Posts",
     "my-videos": "Meine Videos",
-    "only-f-can-see": "Nur Freunde können die Publikationen sehen"
+    "only-f-can-see": "Nur Freunde können die Publikationen sehen",
+    "Edit-cover-photo": "Titelbild bearbeiten",
+    "Edit-profile-photo": "Profilfoto bearbeiten"
   },
   "PUBLICATION": {
     "delete-t-project": "Dieses Projekt löschen",

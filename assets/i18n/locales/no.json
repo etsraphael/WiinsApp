@@ -777,7 +777,9 @@
     "my-musics": "Musikkene mine",
     "my-story": "Mine innlegg",
     "my-videos": "Mine videoer",
-    "only-f-can-see": "Bare venner kan se publikasjonene"
+    "only-f-can-see": "Bare venner kan se publikasjonene",
+    "Edit-cover-photo": "Rediger forsidebilde",
+    "Edit-profile-photo": "Rediger profilbilde"
   },
   "PUBLICATION": {
     "delete-t-project": "Slett dette prosjektet",

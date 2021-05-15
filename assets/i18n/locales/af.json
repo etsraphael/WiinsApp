@@ -777,7 +777,9 @@
     "my-musics": "My musiek",
     "my-story": "My plasings",
     "my-videos": "My video's",
-    "only-f-can-see": "Slegs vriende kan die publikasies sien"
+    "only-f-can-see": "Slegs vriende kan die publikasies sien",
+    "Edit-cover-photo": "Wysig voorbladfoto",
+    "Edit-profile-photo": "Wysig profielfoto"
   },
   "PUBLICATION": {
     "delete-t-project": "Vee hierdie projek uit",

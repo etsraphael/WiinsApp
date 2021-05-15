@@ -735,7 +735,9 @@
     "my-musics": "موسيقاي",
     "my-story": "مشاركاتي",
     "my-videos": "أشرطة الفيديو الخاصة بي",
-    "only-f-can-see": "يمكن للأصدقاء فقط رؤية المنشورات"
+    "only-f-can-see": "يمكن للأصدقاء فقط رؤية المنشورات",
+    "Edit-cover-photo": "تحرير صورة الغلاف",
+    "Edit-profile-photo": "تحرير صورة الملف الشخصي"
   },
   "PUBLICATION": {
     "delete-t-project": "حذف هذا المشروع",

@@ -777,7 +777,9 @@
     "my-musics": "A zenéim",
     "my-story": "Bejegyzéseim",
     "my-videos": "Saját videóim",
-    "only-f-can-see": "Csak a barátok láthatják a kiadványokat"
+    "only-f-can-see": "Csak a barátok láthatják a kiadványokat",
+    "Edit-cover-photo": "Címlapkép szerkesztése",
+    "Edit-profile-photo": "Profilfotó szerkesztése"
   },
   "PUBLICATION": {
     "delete-t-project": "Törölje ezt a projektet",

@@ -777,7 +777,9 @@
     "my-musics": "Mina musik",
     "my-story": "Mina inlägg",
     "my-videos": "Mina videor",
-    "only-f-can-see": "Endast vänner kan se publikationerna"
+    "only-f-can-see": "Endast vänner kan se publikationerna",
+    "Edit-cover-photo": "Redigera omslagsfoto",
+    "Edit-profile-photo": "Redigera profilfoto"
   },
   "PUBLICATION": {
     "delete-t-project": "Ta bort detta projekt",

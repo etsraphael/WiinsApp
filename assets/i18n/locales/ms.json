@@ -777,7 +777,9 @@
     "my-musics": "Musik saya",
     "my-story": "Catatan saya",
     "my-videos": "Video saya",
-    "only-f-can-see": "Hanya rakan yang dapat melihat penerbitannya"
+    "only-f-can-see": "Hanya rakan yang dapat melihat penerbitannya",
+    "Edit-cover-photo": "Edit foto muka depan",
+    "Edit-profile-photo": "Edit foto profil"
   },
   "PUBLICATION": {
     "delete-t-project": "Padamkan projek ini",

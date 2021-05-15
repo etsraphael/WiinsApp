@@ -735,7 +735,9 @@
     "my-musics": "私の音楽",
     "my-story": "私の投稿",
     "my-videos": "私の動画",
-    "only-f-can-see": "出版物を見ることができるのは友人だけです"
+    "only-f-can-see": "出版物を見ることができるのは友人だけです",
+    "Edit-cover-photo": "カバー写真を編集する",
+    "Edit-profile-photo": "プロフィール写真を編集する"
   },
   "PUBLICATION": {
     "delete-t-project": "このプロジェクトを削除",

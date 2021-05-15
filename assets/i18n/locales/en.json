@@ -735,7 +735,9 @@
     "my-musics": "My musics",
     "my-story": "My posts",
     "my-videos": "My videos",
-    "only-f-can-see": "Only friends can see the publications"
+    "only-f-can-see": "Only friends can see the publications",
+    "Edit-cover-photo": "Edit cover photo",
+    "Edit-profile-photo": "Edit profile photo"
   },
   "PUBLICATION": {
     "delete-t-project": "Delete this project",
