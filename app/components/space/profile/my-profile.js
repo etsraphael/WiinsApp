@@ -41,10 +41,10 @@ class MyProfile extends React.Component {
 
     _initializeNavBar = () => {
         switch (this.props.MyProfile.profile.actifSpace) {
-            case 1: return this.setState({spaceAvalaible: ['feed']})
-            case 2: return this.setState({spaceAvalaible: ['feed', 'music']})
-            case 3: return this.setState({spaceAvalaible: ['feed', 'tube']})
-            case 4: return this.setState({spaceAvalaible: ['feed', 'music', 'tube']})
+            case 1: return this.setState({ spaceAvalaible: ['feed'] })
+            case 2: return this.setState({ spaceAvalaible: ['feed', 'music'] })
+            case 3: return this.setState({ spaceAvalaible: ['feed', 'tube'] })
+            case 4: return this.setState({ spaceAvalaible: ['feed', 'music', 'tube'] })
         }
     }
 
@@ -85,13 +85,13 @@ class MyProfile extends React.Component {
         switch (space) {
             case 'music':
                 this.props.actions.getMymusicProjectList(1)
-                return this.setState({ space: 'music' }) 
+                return this.setState({ space: 'music' })
             case 'feed': {
-                return this.setState({ space: 'feed' }) 
+                return this.setState({ space: 'feed' })
             }
-            case 'tube' :{
-                return this.setState({ space: 'tube' }) 
-            }     
+            case 'tube': {
+                return this.setState({ space: 'tube' })
+            }
             default: return null
         }
     }
@@ -192,7 +192,7 @@ class MyProfile extends React.Component {
                 />
             )
             case 'music': return (<ProfileMusic />)
-            case 'tube': return (<View/>)
+            case 'tube': return (<View />)
         }
     }
 
@@ -206,23 +206,23 @@ class MyProfile extends React.Component {
     }
 
     _actifTextNavbar = (item) => {
-        if(this.state.space == item) return {color: '#6600ff'}
+        if (this.state.space == item) return { color: '#6600ff' }
     }
 
     _navbarRender = () => {
         return (
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <FlatList
-                data={this.state.spaceAvalaible}
-                horizontal={true}
-                keyExtractor={(item) => item.toString()}
-                renderItem={({ item }) =>
-                    <TouchableOpacity style={{paddingVertical: 5, paddingHorizontal: 7, flexDirection: 'row', alignItems: 'center'}} onPress={() => this._changeSpace(item)}>
-                        {this.state.space == item && <FontAwesomeIcon style={{margin: 5}} icon={faCircle} color={'#6600ff'} size={10} />}
-                        <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{I18n.t('CORE.'+item)}</Text>
-                    </TouchableOpacity>
-                }
-            />
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <FlatList
+                    data={this.state.spaceAvalaible}
+                    horizontal={true}
+                    keyExtractor={(item) => item.toString()}
+                    renderItem={({ item }) =>
+                        <TouchableOpacity style={{ paddingVertical: 5, paddingHorizontal: 7, flexDirection: 'row', alignItems: 'center' }} onPress={() => this._changeSpace(item)}>
+                            {this.state.space == item && <FontAwesomeIcon style={{ margin: 5 }} icon={faCircle} color={'#6600ff'} size={10} />}
+                            <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{I18n.t('CORE.' + item)}</Text>
+                        </TouchableOpacity>
+                    }
+                />
             </View>
         )
     }
