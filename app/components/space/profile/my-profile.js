@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView, FlatList } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView, FlatList, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
@@ -9,6 +9,7 @@ import * as ProfilePublicationActions from '../../../redux/ProfilePublications/a
 import * as MusicProjectListActions from '../../../redux/MusicProjectList/actions'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
+import * as MyProfileActions from './../../../redux/MyProfile/actions'
 import ActionSheet from 'react-native-actionsheet'
 import AsyncStorage from '@react-native-community/async-storage';
 import { faArrowLeft, faUserCog } from '@fortawesome/pro-light-svg-icons'
@@ -59,9 +60,8 @@ class MyProfile extends React.Component {
     _savePhotoEdited = (type, config) => {
         openImageCropper(config).then((image) => {
             if (!image) return null
-
             switch (type) {
-                case 'profile': return null
+                case 'profile': return this.props.actions.editPhotoProfile(image.path)
                 case 'cover': return null
             }
         })
@@ -160,7 +160,7 @@ class MyProfile extends React.Component {
 
                     {/* Profile picture and name */}
                     <View style={{ bottom: -50, width: '100%', flexDirection: 'row', paddingHorizontal: 5, position: 'absolute', paddingHorizontal: 35 }}>
-                        <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center' }}>
+                        <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
                             <FastImage
                                 style={{ width: '100%', aspectRatio: 1, borderRadius: 15, borderColor: '#6600ff', borderWidth: 2 }}
                                 source={{
@@ -169,6 +169,15 @@ class MyProfile extends React.Component {
                                 }}
                                 resizeMode={FastImage.resizeMode.cover}
                             />
+
+                            { this.props.MyProfile.photoProfileIsLoading && 
+                                <View style={{justifyContent: 'center', alignItems: 'center', position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}>
+                                    <ActivityIndicator  size='large' color="#ffffff"/>
+                                </View>
+                            }
+
+                            
+
                         </View>
                         <View style={{ flex: 7, paddingLeft: 15, justifyContent: 'space-evenly' }}>
 
@@ -321,11 +330,11 @@ const mapStateToProps = state => ({
 
 const ActionCreators = Object.assign(
     {},
-    // PublicationFeedActions,
     ProfilePublicationActions,
     MusicProjectListActions,
     MyUserActions,
-    PublicationInModalActions
+    PublicationInModalActions,
+    MyProfileActions
 )
 
 const mapDispatchToProps = dispatch => ({

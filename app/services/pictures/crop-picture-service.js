@@ -1,7 +1,5 @@
 import ImagePicker from 'react-native-image-crop-picker';
 
 export function openImageCropper(config) {
-        return ImagePicker.openPicker(config).then(image => {
-                console.log(image);
-        });
+        return ImagePicker.openPicker(config)
 }

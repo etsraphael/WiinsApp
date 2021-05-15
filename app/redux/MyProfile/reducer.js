@@ -24,7 +24,7 @@ export default MyProfileReducer = (state = initialState, action) => {
         error: action.payload
       }
     }
-    case ActionTypes.EDIT_COVER_PHOTO: {
+    case ActionTypes.EDIT_PROFILE_PHOTO: {
       return {
         ...state,
         photoProfileIsLoading: true
@@ -36,7 +36,7 @@ export default MyProfileReducer = (state = initialState, action) => {
         photoCoverIsLoading: true
       }
     }
-    case ActionTypes.EDIT_COVER_PHOTO_FAIL: {
+    case ActionTypes.EDIT_PROFILE_PHOTO_FAIL: {
       return {
         ...state,
         photoProfileIsLoading: false
@@ -48,15 +48,15 @@ export default MyProfileReducer = (state = initialState, action) => {
         photoCoverIsLoading: false
       }
     }
-    case ActionTypes.EDIT_COVER_PHOTO_SUCCESS: {
-      state.profile.pictureprofile = action.payload
+    case ActionTypes.EDIT_PROFILE_PHOTO_SUCCESS: {
+      state.profile.pictureprofile = action.url
       return {
         ...state,
         photoProfileIsLoading: false
       }
     }
     case ActionTypes.EDIT_COVER_PHOTO_SUCCESS: {
-      state.profile.picturecover = action.payload
+      state.profile.picturecover = action.url
       return {
         ...state,
         photoProfileIsLoading: false
