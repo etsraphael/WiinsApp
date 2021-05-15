@@ -90,7 +90,7 @@ export function editPhotoProfile(url) {
 
             const token = await AsyncStorage.getItem('userToken')
             const link = await uploadPicture(url, token, 'eps-file-avatar')
-            if (!link) return null
+            if (!link) return dispatch(editProfilePhotoFail(null));
 
             return fetch('https://wiins-backend.herokuapp.com/profile/updatePicture/avatar', {
                 method: 'POST',
@@ -123,7 +123,7 @@ export function editPhotoCover(url) {
 
             const token = await AsyncStorage.getItem('userToken')
             const link = await uploadPicture(url, token, 'eps-file-cover')
-            if (!link) return null
+            if (!link) return dispatch(editCoverPhotoFail(null))
 
             return fetch('https://wiins-backend.herokuapp.com/profile/updatePicture/cover', {
                 method: 'POST',
