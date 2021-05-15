@@ -154,6 +154,12 @@ class MyProfile extends React.Component {
                         source={{ uri: this.props.MyProfile.profile.picturecover, priority: FastImage.priority.normal }}
                     />
 
+                    { this.props.MyProfile.photoCoverIsLoading && 
+                        <View style={{height: 230, width: '100%', justifyContent:'center', alignItems: 'center', position: 'absolute'}}>
+                            <ActivityIndicator  size='large' color="#ffffff"/>
+                        </View>
+                    }
+
                     {/* Background Filter */}
                     <View style={{ backgroundColor: '#0000004d', width: '100%', height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30, position: 'absolute' }} />
 
