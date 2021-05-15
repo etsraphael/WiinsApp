@@ -184,7 +184,7 @@ class MyProfile extends React.Component {
                             <View style={{ flexDirection: 'row' }}>
                                 <TouchableOpacity style={{ flex: 2 }} onPress={this.showActionSheet}>
                                     <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Setting')}</Text>
+                                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Edit')}</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <View style={{ flex: 1 }} />
