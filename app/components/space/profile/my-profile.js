@@ -62,7 +62,7 @@ class MyProfile extends React.Component {
             if (!image) return null
             switch (type) {
                 case 'profile': return this.props.actions.editPhotoProfile(image.path)
-                case 'cover': return null
+                case 'cover': return this.props.actions.editPhotoCover(image.path)
             }
         })
     }
@@ -146,7 +146,6 @@ class MyProfile extends React.Component {
                             </TouchableOpacity>
                         </View>
                     </View>
-
 
                     {/* Cover Picture */}
                     <FastImage

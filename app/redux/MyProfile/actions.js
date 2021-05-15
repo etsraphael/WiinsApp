@@ -115,6 +115,38 @@ export function editPhotoProfile(url) {
     };
 }
 
+export function editPhotoCover(url) {
+    return async (dispatch) => {
+        try {
+
+            dispatch(editCoverPhotoStart())
+
+            const token = await AsyncStorage.getItem('userToken')
+            const link = await uploadPicture(url, token, 'eps-file-cover')
+            if (!link) return null
+
+            return fetch('https://wiins-backend.herokuapp.com/profile/updatePicture/cover', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json', 'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + token
+                },
+                body: JSON.stringify({ link })
+            })
+                .then((response) => response.json())
+                .then(async (response) => {
+                    if (response.status == 202) {
+                        return dispatch(editCoverPhotoSuccess(url))
+                    }
+                    return dispatch(editCoverPhotoFail(response.message));
+                })
+
+        } catch (error) {
+            sendError(error)
+            return dispatch(editCoverPhotoFail(error));
+        }
+    };
+}
 
 export async function uploadPicture(file, token, bucketName) {
 
