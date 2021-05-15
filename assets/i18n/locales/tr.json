@@ -777,7 +777,9 @@
     "my-musics": "Müziklerim",
     "my-story": "Gönderilerim",
     "my-videos": "Videolarım",
-    "only-f-can-see": "Yayınları sadece arkadaşlar görebilir"
+    "only-f-can-see": "Yayınları sadece arkadaşlar görebilir",
+    "Edit-cover-photo": "Kapak fotoğrafını düzenleyin",
+    "Edit-profile-photo": "Profil fotoğrafını düzenleyin"
   },
   "PUBLICATION": {
     "delete-t-project": "Bu projeyi sil",

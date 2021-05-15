@@ -190,7 +190,7 @@ class CardNewFeed extends PureComponent {
                                 colors={['#ff0047', '#2c34c7']}
                                 start={{ x: 0, y: 0 }}
                                 end={{ x: 1, y: 1 }}
-                                style={{ justifyContent: 'center', alignItems: 'center', width: 42, height: 42, borderRadius: 21, marginRight: 10 }}
+                                style={{ justifyContent: 'center', alignItems: 'center', width: 41, height: 41, borderRadius: 21, marginRight: 10 }}
                             >
                                 <View style={{ justifyContent: 'center', alignItems: 'center', width: 38, height: 38, borderRadius: 20, backgroundColor: AppTheme.colors.background }}>
                                     <FastImage

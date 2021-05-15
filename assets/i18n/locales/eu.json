@@ -777,7 +777,9 @@
     "my-musics": "Nire musikak",
     "my-story": "Nire mezuak",
     "my-videos": "Nire bideoak",
-    "only-f-can-see": "Lagunek soilik ikus ditzakete argitalpenak"
+    "only-f-can-see": "Lagunek soilik ikus ditzakete argitalpenak",
+    "Edit-cover-photo": "Editatu azaleko argazkia",
+    "Edit-profile-photo": "Editatu profileko argazkia"
   },
   "PUBLICATION": {
     "delete-t-project": "Ezabatu proiektu hau",

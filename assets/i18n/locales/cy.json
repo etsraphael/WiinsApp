@@ -777,7 +777,9 @@
     "my-musics": "Fy ngherddoriaeth",
     "my-story": "Fy swyddi",
     "my-videos": "Fy fideos",
-    "only-f-can-see": "Dim ond ffrindiau all weld y cyhoeddiadau"
+    "only-f-can-see": "Dim ond ffrindiau all weld y cyhoeddiadau",
+    "Edit-cover-photo": "Golygu llun clawr",
+    "Edit-profile-photo": "Golygu llun proffil"
   },
   "PUBLICATION": {
     "delete-t-project": "Dileu'r prosiect hwn",

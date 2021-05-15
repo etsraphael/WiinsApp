@@ -777,7 +777,9 @@
     "my-musics": "Nhạc của tôi",
     "my-story": "Bài viết của tôi",
     "my-videos": "Phim của tôi",
-    "only-f-can-see": "Chỉ bạn bè mới có thể xem các ấn phẩm"
+    "only-f-can-see": "Chỉ bạn bè mới có thể xem các ấn phẩm",
+    "Edit-cover-photo": "Chỉnh sửa ảnh bìa",
+    "Edit-profile-photo": "Chỉnh sửa ảnh hồ sơ"
   },
   "PUBLICATION": {
     "delete-t-project": "Xóa dự án này",

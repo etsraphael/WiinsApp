@@ -777,7 +777,9 @@
     "my-musics": "Mening musiqalarim",
     "my-story": "Mening xabarlarim",
     "my-videos": "Mening videolarim",
-    "only-f-can-see": "Nashrlarni faqat do'stlar ko'rishlari mumkin"
+    "only-f-can-see": "Nashrlarni faqat do'stlar ko'rishlari mumkin",
+    "Edit-cover-photo": "Muqova rasmini tahrirlash",
+    "Edit-profile-photo": "Profil fotosuratini tahrirlash"
   },
   "PUBLICATION": {
     "delete-t-project": "Ushbu loyihani o'chirib tashlang",

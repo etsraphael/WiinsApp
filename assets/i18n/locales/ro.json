@@ -777,7 +777,9 @@
     "my-musics": "Muzica mea",
     "my-story": "Postările mele",
     "my-videos": "Videoclipurile mele",
-    "only-f-can-see": "Numai prietenii pot vedea publicațiile"
+    "only-f-can-see": "Numai prietenii pot vedea publicațiile",
+    "Edit-cover-photo": "Editați fotografia de copertă",
+    "Edit-profile-photo": "Editați fotografia de profil"
   },
   "PUBLICATION": {
     "delete-t-project": "Ștergeți acest proiect",

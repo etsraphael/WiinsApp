@@ -777,7 +777,9 @@
     "my-musics": "Mano muzika",
     "my-story": "Mano žinutės",
     "my-videos": "Mano vaizdo įrašai",
-    "only-f-can-see": "Leidinius gali matyti tik draugai"
+    "only-f-can-see": "Leidinius gali matyti tik draugai",
+    "Edit-cover-photo": "Redaguoti viršelio nuotrauką",
+    "Edit-profile-photo": "Redaguoti profilio nuotrauką"
   },
   "PUBLICATION": {
     "delete-t-project": "Ištrinti šį projektą",

@@ -777,7 +777,9 @@
     "my-musics": "Mo cheol",
     "my-story": "Mo phoist",
     "my-videos": "Mo fhíseáin",
-    "only-f-can-see": "Ní féidir ach le cairde na foilseacháin a fheiceáil"
+    "only-f-can-see": "Ní féidir ach le cairde na foilseacháin a fheiceáil",
+    "Edit-cover-photo": "Cuir grianghraf clúdaigh in eagar",
+    "Edit-profile-photo": "Cuir grianghraf próifíle in eagar"
   },
   "PUBLICATION": {
     "delete-t-project": "Scrios an tionscadal seo",

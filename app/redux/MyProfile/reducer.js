@@ -1,15 +1,15 @@
 import { initialState } from './state';
-import { GET_MY_PROFILE, GET_MY_PROFILE_SUCCESS, GET_MY_PROFILE_FAIL } from './constants';
+import * as ActionTypes from './constants'
 
 export default MyProfileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_MY_PROFILE: {
+    case ActionTypes.GET_MY_PROFILE: {
       return {
         ...state,
         isLoading: true
       }
     }
-    case GET_MY_PROFILE_SUCCESS: {
+    case ActionTypes.GET_MY_PROFILE_SUCCESS: {
       return {
         ...state,
         profile: action.payload,
@@ -17,11 +17,49 @@ export default MyProfileReducer = (state = initialState, action) => {
         error: null,
       }
     }
-    case GET_MY_PROFILE_FAIL: {
+    case ActionTypes.GET_MY_PROFILE_FAIL: {
       return {
         ...state,
         isLoading: false,
         error: action.payload
+      }
+    }
+    case ActionTypes.EDIT_PROFILE_PHOTO: {
+      return {
+        ...state,
+        photoProfileIsLoading: true
+      }
+    }
+    case ActionTypes.EDIT_COVER_PHOTO: {
+      return {
+        ...state,
+        photoCoverIsLoading: true
+      }
+    }
+    case ActionTypes.EDIT_PROFILE_PHOTO_FAIL: {
+      return {
+        ...state,
+        photoProfileIsLoading: false
+      }
+    }
+    case ActionTypes.EDIT_COVER_PHOTO_FAIL: {
+      return {
+        ...state,
+        photoCoverIsLoading: false
+      }
+    }
+    case ActionTypes.EDIT_PROFILE_PHOTO_SUCCESS: {
+      state.profile.pictureprofile = action.url
+      return {
+        ...state,
+        photoProfileIsLoading: false
+      }
+    }
+    case ActionTypes.EDIT_COVER_PHOTO_SUCCESS: {
+      state.profile.picturecover = action.url
+      return {
+        ...state,
+        photoProfileIsLoading: false
       }
     }
     default: return { ...state }

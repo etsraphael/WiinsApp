@@ -777,7 +777,9 @@
     "my-musics": "Moja muzika",
     "my-story": "Moji postovi",
     "my-videos": "Moji videozapisi",
-    "only-f-can-see": "Publikacije mogu vidjeti samo prijatelji"
+    "only-f-can-see": "Publikacije mogu vidjeti samo prijatelji",
+    "Edit-cover-photo": "Uredi naslovnu fotografiju",
+    "Edit-profile-photo": "Uredi fotografiju profila"
   },
   "PUBLICATION": {
     "delete-t-project": "Izbriši ovaj projekt",

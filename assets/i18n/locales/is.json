@@ -777,7 +777,9 @@
     "my-musics": "Tónlistin mín",
     "my-story": "Færslurnar mínar",
     "my-videos": "Vídeóin mín",
-    "only-f-can-see": "Aðeins vinir geta séð ritin"
+    "only-f-can-see": "Aðeins vinir geta séð ritin",
+    "Edit-cover-photo": "Breyttu forsíðumynd",
+    "Edit-profile-photo": "Breyttu prófílmynd"
   },
   "PUBLICATION": {
     "delete-t-project": "Eyða þessu verkefni",

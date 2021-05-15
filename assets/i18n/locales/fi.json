@@ -777,7 +777,9 @@
     "my-musics": "Minun musiikkini",
     "my-story": "Omat viestit",
     "my-videos": "Omat videot",
-    "only-f-can-see": "Vain ystävät näkevät julkaisut"
+    "only-f-can-see": "Vain ystävät näkevät julkaisut",
+    "Edit-cover-photo": "Muokkaa kansikuvaa",
+    "Edit-profile-photo": "Muokkaa profiilikuvaa"
   },
   "PUBLICATION": {
     "delete-t-project": "Poista tämä projekti",

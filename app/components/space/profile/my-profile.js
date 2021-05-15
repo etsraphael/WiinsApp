@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView, FlatList } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView, FlatList, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
@@ -9,6 +9,7 @@ import * as ProfilePublicationActions from '../../../redux/ProfilePublications/a
 import * as MusicProjectListActions from '../../../redux/MusicProjectList/actions'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
+import * as MyProfileActions from './../../../redux/MyProfile/actions'
 import ActionSheet from 'react-native-actionsheet'
 import AsyncStorage from '@react-native-community/async-storage';
 import { faArrowLeft, faUserCog } from '@fortawesome/pro-light-svg-icons'
@@ -30,7 +31,8 @@ class MyProfile extends React.Component {
             reportModalExist: false,
             reportPublicationId: null,
             ownerReportPublication: null,
-            spaceAvalaible: ['feed']
+            spaceAvalaible: ['feed'],
+            dropdownMenu: [I18n.t('PROFILE.Edit-profile-photo'), I18n.t('PROFILE.Edit-cover-photo'), I18n.t('NAVBAR.Logout'), I18n.t('CORE.Cancel')]
         }
     }
 
@@ -41,10 +43,10 @@ class MyProfile extends React.Component {
 
     _initializeNavBar = () => {
         switch (this.props.MyProfile.profile.actifSpace) {
-            case 1: return this.setState({spaceAvalaible: ['feed']})
-            case 2: return this.setState({spaceAvalaible: ['feed', 'music']})
-            case 3: return this.setState({spaceAvalaible: ['feed', 'tube']})
-            case 4: return this.setState({spaceAvalaible: ['feed', 'music', 'tube']})
+            case 1: return this.setState({ spaceAvalaible: ['feed'] })
+            case 2: return this.setState({ spaceAvalaible: ['feed', 'music'] })
+            case 3: return this.setState({ spaceAvalaible: ['feed', 'tube'] })
+            case 4: return this.setState({ spaceAvalaible: ['feed', 'music', 'tube'] })
         }
     }
 
@@ -54,10 +56,32 @@ class MyProfile extends React.Component {
         this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
+    // save photo edited
+    _savePhotoEdited = (type, config) => {
+        openImageCropper(config).then((image) => {
+            if (!image) return null
+            switch (type) {
+                case 'profile': return this.props.actions.editPhotoProfile(image.path)
+                case 'cover': return this.props.actions.editPhotoCover(image.path)
+            }
+        })
+    }
+
     // to set the dropdowns actions
     _menuFunctions(index) {
         switch (index) {
-            case 0: return this._logOut()
+            case 0: return this._savePhotoEdited('profile', {
+                width: 400,
+                height: 400,
+                cropping: true,
+                cropperCircleOverlay: true
+            })
+            case 1: return this._savePhotoEdited('cover', {
+                width: 700,
+                height: 400,
+                cropping: true
+            })
+            case 2: return this._logOut()
             default: return null
         }
     }
@@ -85,13 +109,13 @@ class MyProfile extends React.Component {
         switch (space) {
             case 'music':
                 this.props.actions.getMymusicProjectList(1)
-                return this.setState({ space: 'music' }) 
+                return this.setState({ space: 'music' })
             case 'feed': {
-                return this.setState({ space: 'feed' }) 
+                return this.setState({ space: 'feed' })
             }
-            case 'tube' :{
-                return this.setState({ space: 'tube' }) 
-            }     
+            case 'tube': {
+                return this.setState({ space: 'tube' })
+            }
             default: return null
         }
     }
@@ -123,7 +147,6 @@ class MyProfile extends React.Component {
                         </View>
                     </View>
 
-
                     {/* Cover Picture */}
                     <FastImage
                         style={{ height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30 }}
@@ -131,12 +154,23 @@ class MyProfile extends React.Component {
                         source={{ uri: this.props.MyProfile.profile.picturecover, priority: FastImage.priority.normal }}
                     />
 
+                    { this.props.MyProfile.photoCoverIsLoading && 
+                        <View style={{height: 230, width: '100%', justifyContent:'center', alignItems: 'center', position: 'absolute'}}>
+                            <ActivityIndicator  size='large' color="#ffffff"/>
+                        </View>
+                    }
+
                     {/* Background Filter */}
                     <View style={{ backgroundColor: '#0000004d', width: '100%', height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30, position: 'absolute' }} />
 
                     {/* Profile picture and name */}
+<<<<<<< HEAD
                     <View style={{ bottom: -50, width: '100%', flexDirection: 'row', position: 'absolute', paddingHorizontal: 20 }}>
                         <View style={{ width: 120, height: 120, justifyContent: 'center', alignItems: 'center' }}>
+=======
+                    <View style={{ bottom: -50, width: '100%', flexDirection: 'row', paddingHorizontal: 5, position: 'absolute', paddingHorizontal: 35 }}>
+                        <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
+>>>>>>> 8ef7eca773cbb6897812d42bec49c611f5f722b4
                             <FastImage
                                 style={{ width: '100%', aspectRatio: 1, borderRadius: 60, borderColor: '#eef2f4', borderWidth: 3, backgroundColor: '#D8D8D8' }}
                                 source={{
@@ -145,6 +179,15 @@ class MyProfile extends React.Component {
                                 }}
                                 resizeMode={FastImage.resizeMode.cover}
                             />
+
+                            { this.props.MyProfile.photoProfileIsLoading && 
+                                <View style={{justifyContent: 'center', alignItems: 'center', position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}>
+                                    <ActivityIndicator  size='large' color="#ffffff"/>
+                                </View>
+                            }
+
+                            
+
                         </View>
                         <View style={{ flex: 7, paddingLeft: 15, justifyContent: 'space-evenly' }}>
 
@@ -152,6 +195,9 @@ class MyProfile extends React.Component {
                                 <TouchableOpacity style={{ flex: 2 }} onPress={this.showActionSheet}>
                                     <View style={{ backgroundColor: '#29ACED', borderRadius: 10, justifyContent: 'center', alignItems: 'center', paddingVertical: 7 }}>
                                         <Text style={{ fontSize: 18, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Setting')}</Text>
+                                    </View>
+                                    <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Edit')}</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <View style={{ flex: 1 }} />
@@ -192,7 +238,7 @@ class MyProfile extends React.Component {
                 />
             )
             case 'music': return (<ProfileMusic />)
-            case 'tube': return (<View/>)
+            case 'tube': return (<View />)
         }
     }
 
@@ -206,23 +252,23 @@ class MyProfile extends React.Component {
     }
 
     _actifTextNavbar = (item) => {
-        if(this.state.space == item) return {color: '#6600ff'}
+        if (this.state.space == item) return { color: '#6600ff' }
     }
 
     _navbarRender = () => {
         return (
-            <View style={{justifyContent: 'center', alignItems: 'center'}}>
-            <FlatList
-                data={this.state.spaceAvalaible}
-                horizontal={true}
-                keyExtractor={(item) => item.toString()}
-                renderItem={({ item }) =>
-                    <TouchableOpacity style={{paddingVertical: 5, paddingHorizontal: 7, flexDirection: 'row', alignItems: 'center'}} onPress={() => this._changeSpace(item)}>
-                        {this.state.space == item && <FontAwesomeIcon style={{margin: 5}} icon={faCircle} color={'#6600ff'} size={10} />}
-                        <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{I18n.t('CORE.'+item)}</Text>
-                    </TouchableOpacity>
-                }
-            />
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <FlatList
+                    data={this.state.spaceAvalaible}
+                    horizontal={true}
+                    keyExtractor={(item) => item.toString()}
+                    renderItem={({ item }) =>
+                        <TouchableOpacity style={{ paddingVertical: 5, paddingHorizontal: 7, flexDirection: 'row', alignItems: 'center' }} onPress={() => this._changeSpace(item)}>
+                            {this.state.space == item && <FontAwesomeIcon style={{ margin: 5 }} icon={faCircle} color={'#6600ff'} size={10} />}
+                            <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{I18n.t('CORE.' + item)}</Text>
+                        </TouchableOpacity>
+                    }
+                />
             </View>
         )
     }
@@ -238,9 +284,8 @@ class MyProfile extends React.Component {
                 </ScrollView>
                 <ActionSheet
                     ref={o => this.ActionSheet = o}
-                    options={['Deconnexion', 'Cancel']}
-                    cancelButtonIndex={2}
-                    destructiveButtonIndex={1}
+                    options={this.state.dropdownMenu}
+                    cancelButtonIndex={3}
                     onPress={(index) => { this._menuFunctions(index) }}
                 />
 
@@ -298,11 +343,11 @@ const mapStateToProps = state => ({
 
 const ActionCreators = Object.assign(
     {},
-    // PublicationFeedActions,
     ProfilePublicationActions,
     MusicProjectListActions,
     MyUserActions,
-    PublicationInModalActions
+    PublicationInModalActions,
+    MyProfileActions
 )
 
 const mapDispatchToProps = dispatch => ({
