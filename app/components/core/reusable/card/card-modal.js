@@ -151,13 +151,13 @@ class CardModal extends React.Component {
     _footer(publication) {
         return (
             <View style={styles.container_footer}>
-                <View style={{ flex: 1, flexDirection: 'row', height: 'auto', paddingHorizontal: 10 }}>
-                    <View style={{ flexDirection: 'row', flex: 7, backgroundColor: '#464646a8', borderRadius: 20 }}>
+                <View style={{ height: 100, flexDirection: 'row', paddingHorizontal: 10 }}>
+                    <View style={{ position: 'relative', width: '100%', height: '100%', backgroundColor: '#464646a8', borderRadius: 20, borderWidth: 1, borderColor: '#d3d3d33a' }}>
                         <TextInput
                             placeholder={I18n.t('PLACEHOLDER.Your-Comment')}
-                            placeholderTextColor="#FFFFFF"
+                            placeholderTextColor="#d3d3d3d5"
                             value={this.state.textComment}
-                            style={{ flex: 9, padding: 15, paddingTop: 20, color: "#FFFFFF", borderRadius: 17, height: '100%', minHeight: 55, fontSize: 16 }}
+                            style={{ flex: 1, padding: 15, paddingRight: 55, color: "#FFFFFF", height: '100%', fontSize: 16 }}
                             onChangeText={(val) => this._writteComment(val)}
                             onSubmitEditing={() => this.sendComment()}
                             blurOnSubmit={true}
@@ -165,33 +165,32 @@ class CardModal extends React.Component {
                             numberOfLines={10}
                         />
 
-                        {this.state.textComment.length > 10 ?
-                            <TouchableOpacity onPress={() => this.sendComment()}
-                                style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
-                                <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={19} />
-                            </TouchableOpacity>
-                            :
+                        <View style={{ position: 'absolute', right: 0, height: '100%', justifyContent: 'center', marginRight: 10 }}>{ 
+                            this.state.textComment.length > 10 ? (
+                                <View style={[styles.centerContent, { flex: 1, paddingHorizontal: 10, borderLeftWidth: 1, borderColor: '#d3d3d34a' }]}>
+                                    <TouchableOpacity 
+                                        onPress={() => this.sendComment()}>
+                                        <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={19} />
+                                    </TouchableOpacity>
+                                </View>
+                            ) : (
+                                <View style={styles.rowBox}>
+                                    <TouchableOpacity
+                                        style={[styles.centerContent, styles.rowBox, { marginHorizontal: 5 }]}
+                                        onPress={() => this._toggleComment()}>
+                                        <FontAwesomeIcon icon={faCommentLines} color={'white'} size={19} />
+                                        <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
+                                    </TouchableOpacity>
 
-                            <View style={{ flex: 6, flexDirection: 'row' }}>
-   
-                                <TouchableOpacity
-                                    style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}
-                                    onPress={() => this._toggleComment()}
-                                >
-                                    <FontAwesomeIcon icon={faCommentLines} color={'white'} size={19} />
-                                    <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
-                                </TouchableOpacity>
-
-                                <TouchableOpacity
-                                    onPress={() => this._likeBtn()}
-                                    style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}>
-                                    <FontAwesomeIcon icon={faHeart} color={this._displayIconLikeColor()} size={19} />
-                                    <Text style={{ fontSize: 15, color: 'white', paddingLeft: 7 }}>{publication.like.likeNumber}</Text>
-                                </TouchableOpacity>
-                            
-                            </View>
-                        }
-
+                                    <TouchableOpacity
+                                        onPress={() => this._likeBtn()}
+                                        style={[styles.centerContent, styles.rowBox, { marginHorizontal: 5 }]}>
+                                        <FontAwesomeIcon icon={faHeart} color={this._displayIconLikeColor()} size={19} />
+                                        <Text style={{ fontSize: 15, color: 'white', paddingLeft: 7 }}>{publication.like.likeNumber}</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            )
+                        }</View>
                     </View>
 {/* 
 
@@ -533,6 +532,17 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 75,
         zIndex: 1,
+    },
+    // Utility
+    rowBox: {
+        flexDirection: 'row'
+    },
+    fillRemainingSpace: {
+        flex: 1,
+    },
+    centerContent: {
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 })
 

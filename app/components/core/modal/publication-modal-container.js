@@ -1,5 +1,5 @@
 import React from 'react'
-import { View } from 'react-native'
+import { BackHandler, StatusBar, View } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Modal from 'react-native-modal'
@@ -26,9 +26,26 @@ class PublicationModalContainer extends React.Component {
         }
     }
 
+    componentDidMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.handleBackPress);
+    }
+
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.handleBackPress);
+    }
+
+    handleBackPress = () => {
+        console.log(this.props.actions)
+        this.props.actions.resetPublicationInModal();
+        return true;
+    }
+
     render() {
         return (
             <View>
+                <StatusBar
+                    hidden={true}
+                />
                 <Modal
                     onSwipeComplete={() => this.props.actions.resetPublicationInModalActions()}
                     isVisible={true}

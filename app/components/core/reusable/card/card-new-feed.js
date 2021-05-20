@@ -16,6 +16,7 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { faEllipsisV } from '@fortawesome/pro-solid-svg-icons'
 import reducer from '../../../../redux/MyUser/reducer'
 import { AppTheme } from '../utility/theme-util'
+import GradientBorderCircle from '../misc/gradient-border'
 
 class CardNewFeed extends PureComponent {
 
@@ -186,15 +187,10 @@ class CardNewFeed extends PureComponent {
                         style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, width: '100%' }}
                     >
                         <TouchableOpacity onPress={() => this._goToProfile(publication.profile._id)} style={{ flexDirection: 'row', flex: 9 }}>
-                            <LinearGradient
-                                colors={['#ff0047', '#2c34c7']}
-                                start={{ x: 0, y: 0 }}
-                                end={{ x: 1, y: 1 }}
-                                style={{ justifyContent: 'center', alignItems: 'center', width: 41, height: 41, borderRadius: 21, marginRight: 10 }}
-                            >
-                                <View style={{ justifyContent: 'center', alignItems: 'center', width: 38, height: 38, borderRadius: 20, backgroundColor: AppTheme.colors.background }}>
+                            <GradientBorderCircle size={41} style={{ marginRight: 10 }} padding={5}>
+                                <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                                     <FastImage
-                                        style={{ width: 35, height: 35, borderRadius: 44 / 2, resizeMode: 'cover' }}
+                                        style={{ width: '100%', height: '100%', borderRadius: 44 / 2, resizeMode: 'cover' }}
                                         source={{
                                             uri: publication.profile.pictureprofile,
                                             priority: FastImage.priority.normal,
@@ -202,7 +198,7 @@ class CardNewFeed extends PureComponent {
                                         resizeMode={FastImage.resizeMode.cover}
                                     />
                                 </View>
-                            </LinearGradient>
+                            </GradientBorderCircle>
                             <View style={styles.header_info}>
                                 <Text style={{ fontSize: 15, fontWeight: '600' }}>{publication.profile._meta.pseudo}</Text>
                             </View>

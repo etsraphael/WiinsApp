@@ -164,13 +164,8 @@ class MyProfile extends React.Component {
                     <View style={{ backgroundColor: '#0000004d', width: '100%', height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30, position: 'absolute' }} />
 
                     {/* Profile picture and name */}
-<<<<<<< HEAD
                     <View style={{ bottom: -50, width: '100%', flexDirection: 'row', position: 'absolute', paddingHorizontal: 20 }}>
                         <View style={{ width: 120, height: 120, justifyContent: 'center', alignItems: 'center' }}>
-=======
-                    <View style={{ bottom: -50, width: '100%', flexDirection: 'row', paddingHorizontal: 5, position: 'absolute', paddingHorizontal: 35 }}>
-                        <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
->>>>>>> 8ef7eca773cbb6897812d42bec49c611f5f722b4
                             <FastImage
                                 style={{ width: '100%', aspectRatio: 1, borderRadius: 60, borderColor: '#eef2f4', borderWidth: 3, backgroundColor: '#D8D8D8' }}
                                 source={{
@@ -195,9 +190,6 @@ class MyProfile extends React.Component {
                                 <TouchableOpacity style={{ flex: 2 }} onPress={this.showActionSheet}>
                                     <View style={{ backgroundColor: '#29ACED', borderRadius: 10, justifyContent: 'center', alignItems: 'center', paddingVertical: 7 }}>
                                         <Text style={{ fontSize: 18, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Setting')}</Text>
-                                    </View>
-                                    <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
-                                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Edit')}</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <View style={{ flex: 1 }} />
@@ -274,7 +266,6 @@ class MyProfile extends React.Component {
     }
 
     render() {
-
         return (
             <View style={styles.container}>
                 <ScrollView>
