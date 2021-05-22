@@ -19,6 +19,7 @@ import SuggestionDiscover from './suggestion-discover'
 import I18n from './../../../../assets/i18n/i18n'
 import PublicationModalContainer from '../../core/modal/publication-modal-container'
 import { checkNotification } from './../../../services/notification/action-notification-service'
+import SearchView from '../../core/reusable/misc/search-view'
 
 class Discover extends React.Component {
 
@@ -71,8 +72,9 @@ class Discover extends React.Component {
 
     // to search suggestion
     searchSuggest = (name) => {
+        console.log(name)
         this.setState({ search: name })
-        if (name.length > 3) {
+        if (name.length > 2) {
             switch (this.state.actifCategory) {
                 case 'All categories': this.props.actions.discoverSearch(name); break;
                 case 'Profile': this.props.actions.discoverSearchWithCategory(name, 'ProfileSuggestion'); break;
@@ -85,39 +87,18 @@ class Discover extends React.Component {
         }
     }
 
-    // display the search bar icon
-    _displayOptionSearchBar = () => {
-        if (this.state.search.length <= 2) {
-            return (
-                <TouchableOpacity style={{ position: 'absolute', right: 25, justifyContent: 'center', alignItems: 'center' }}>
-                    <FontAwesomeIcon icon={faSearch} color={'grey'} size={21} style={{ opacity: 0.8 }} />
-                </TouchableOpacity>
-            )
-        } else {
-            return (
-                <TouchableOpacity onPress={() => this.setState({ search: '' })} style={{ position: 'absolute', right: 25, justifyContent: 'center', alignItems: 'center' }}>
-                    <FontAwesomeIcon icon={faTimes} color={'grey'} size={21} style={{ opacity: 0.8 }} />
-                </TouchableOpacity>
-            )
-        }
-    }
-
     // to display the header view of the screen
     _header = () => {
         return (
             <View style={styles.header_container}>
                 {/* search bar */}
-                <View style={styles.container_search_bar}>
-                    <TextInput
-                        placeholder={I18n.t('CORE.Search')}
-                        style={styles.search_bar}
-                        placeholderTextColor="#737373"
-                        onChangeText={(val) => this.searchSuggest(val)}
-                        value={this.state.search}
-                        blurOnSubmit={true}
-                    />
-                    {this._displayOptionSearchBar()}
-                </View>
+                <SearchView
+                    placeholder={I18n.t('CORE.Search')}
+                    placeholderTextColor="#737373"
+                    onChangeText={(val) => this.searchSuggest(val)}
+                    value={this.state.search}
+                    blurOnSubmit={true}
+                    searchTermLimit={2} />
             </View>
         )
     }
@@ -306,9 +287,6 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 25,
         borderBottomLeftRadius: 25,
         position: 'relative',
-        borderWidth: 1,
-        borderTopWidth: 0,
-        borderColor: '#c3c3c36e'
     },
     container_search_bar: {
         height: 45,

@@ -13,6 +13,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { TubesCategories } from './../../core/data/tubes'
 import * as TubeMenuActions from '../../../redux/TubeMenu/actions'
 import I18n from '../../../../assets/i18n/i18n'
+import SearchView from '../../core/reusable/misc/search-view'
 
 class HomeTube extends React.Component {
 
@@ -36,15 +37,12 @@ class HomeTube extends React.Component {
         return (
             <View style={styles.header_container}>
                 {/* search bar */}
-                <View style={styles.container_search_bar}>
-                    <TextInput
-                        placeholder={I18n.t('CORE.Search')}
-                        style={styles.search_bar}
-                        placeholderTextColor="#737373"
-                        value={this.state.search}
-                        blurOnSubmit={true}
-                    />
-                </View>
+                <SearchView
+                    placeholder={I18n.t('CORE.Search')}
+                    placeholderTextColor="#737373"
+                    value={this.state.search}
+                    blurOnSubmit={true}
+                    searchTermLimit={2} />
             </View>
         )
     }
