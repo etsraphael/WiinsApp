@@ -54,7 +54,7 @@ class SettingLanguage extends React.Component {
         return (
             <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                 <TouchableOpacity style={styles.container_confirm_btn}>
-                    <Text style={styles.text_confirm}>Confirm</Text>
+                    <Text style={styles.text_confirm}>{i18n.t('CORE.Confirm')}</Text>
                 </TouchableOpacity>
             </View>
         )
