@@ -43,6 +43,15 @@ export function logOutAction() {
     return { type: ActionTypes.LOGOUT }
 }
 
+export function setUpLanguage(payload){
+    return { type: ActionTypes.SET_UP_LANGUAGE_CONFIG, payload }
+}
+
+export function setUpLanguageActions(lgCode) {
+    return (dispatch) => dispatch(setUpLanguage(lgCode)) 
+}
+
+
 export function login(email, password) {
     return async (dispatch) => {
         try {

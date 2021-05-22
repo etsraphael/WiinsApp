@@ -9,6 +9,8 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-duotone-svg-icons'
 import { languageList } from './../../core/data/language'
+import Snackbar from 'react-native-snackbar'
+import AsyncStorage from '@react-native-community/async-storage'
 
 class SettingLanguage extends React.Component {
 
@@ -22,6 +24,32 @@ class SettingLanguage extends React.Component {
 
     componentDidMount = () => {
         this.setState({ languageSelected: this.props.MyUser.user.config.language })
+    }
+
+    _setUpTheLanguage = async () => {
+        this.props.actions.setUpLanguageActions(this.state.languageSelected)
+
+        return null 
+        return fetch('https://wiins-backend.herokuapp.com/admin/createCertificationProfile', {
+            method: 'GET',
+            headers: {
+                Accept: 'application/json', 'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            }
+        })
+            .then((response) => response.json())
+            .then((response) => {
+                if (response.status == 201) {
+
+                    Snackbar.show({ text: i18n.t('VALID-MESSAGE.update-is-done'), duration: Snackbar.LENGTH_LONG })
+
+                    // set the store
+                } else {
+                    return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.A-err-has-occurred'), duration: Snackbar.LENGTH_LONG })
+                }
+            }).catch(() => {
+                return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.A-err-has-occurred'), duration: Snackbar.LENGTH_LONG })
+            })
     }
 
     _renderHeader = () => {
@@ -53,7 +81,7 @@ class SettingLanguage extends React.Component {
     _confirmBtnView = () => {
         return (
             <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                <TouchableOpacity style={styles.container_confirm_btn}>
+                <TouchableOpacity style={styles.container_confirm_btn} onPress={() => this._setUpTheLanguage()}>
                     <Text style={styles.text_confirm}>{i18n.t('CORE.Confirm')}</Text>
                 </TouchableOpacity>
             </View>
