@@ -312,7 +312,6 @@ const styles = StyleSheet.create({
     headerTitle: {
         height: 50,
         flex: 1,
-        // alignItems: 'center',
         justifyContent: 'center',
         paddingLeft: 24
     },
@@ -325,11 +324,7 @@ const styles = StyleSheet.create({
     header_container: {
         paddingBottom: 15,
         paddingHorizontal: 25,
-        // borderBottomRightRadius: 25,
-        // borderBottomLeftRadius: 25,
         position: 'relative',
-        // borderWidth: 0.3,
-        // borderColor: '#c3c3c36e'
     },
     overall_header: {
         paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10,

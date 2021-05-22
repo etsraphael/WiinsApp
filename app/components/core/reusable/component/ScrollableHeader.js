@@ -92,7 +92,6 @@ const styles = StyleSheet.create({
       bar: {
         height: HEADER_MAX_HEIGHT,
         flex: 1,
-        // alignItems: 'center',
         justifyContent: 'center',
         paddingLeft: 24
       },
@@ -103,6 +102,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
       },
       scrollViewContent: {
-        marginTop: HEADER_MAX_HEIGHT + 70,
+        marginTop: HEADER_MAX_HEIGHT + 70
       },
   });
