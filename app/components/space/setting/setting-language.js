@@ -5,6 +5,10 @@ import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { Picker } from '@react-native-picker/picker';
 import i18n from '../../../../assets/i18n/i18n'
+
+import I18n from 'i18next'
+
+
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft } from '@fortawesome/pro-duotone-svg-icons'
@@ -18,7 +22,8 @@ class SettingLanguage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            languageSelected: null
+            languageSelected: null,
+            setUpLgIsLoading: false
         }
     }
 
@@ -28,9 +33,11 @@ class SettingLanguage extends React.Component {
 
     _setUpTheLanguage = async () => {
 
+        this.setState({ setUpLgIsLoading: true })
+
         const token = await AsyncStorage.getItem('userToken')
 
-        return fetch('https://wiins-backend.herokuapp.com/configuration/lang/' + this.state.languageSelected , {
+        return fetch('https://wiins-backend.herokuapp.com/configuration/lang/' + this.state.languageSelected, {
             method: 'GET',
             headers: {
                 Accept: 'application/json', 'Content-Type': 'application/json',
@@ -39,13 +46,16 @@ class SettingLanguage extends React.Component {
         })
             .then((response) => response.json())
             .then((response) => {
-                if (response.status == 201) {                    
+                this.setState({ setUpLgIsLoading: false })
+                if (response.status == 201) {
+                    I18n.changeLanguage(this.state.languageSelected)
                     Snackbar.show({ text: i18n.t('VALID-MESSAGE.update-is-done'), duration: Snackbar.LENGTH_LONG })
                     return this.props.actions.setUpLanguageActions(this.state.languageSelected)
                 } else {
                     return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.A-err-has-occurred'), duration: Snackbar.LENGTH_LONG })
                 }
             }).catch(() => {
+                this.setState({ setUpLgIsLoading: false })
                 return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.A-err-has-occurred'), duration: Snackbar.LENGTH_LONG })
             })
     }
@@ -79,9 +89,13 @@ class SettingLanguage extends React.Component {
     _confirmBtnView = () => {
         return (
             <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                <TouchableOpacity style={styles.container_confirm_btn} onPress={() => this._setUpTheLanguage()}>
-                    <Text style={styles.text_confirm}>{i18n.t('CORE.Confirm')}</Text>
-                </TouchableOpacity>
+                {this.state.setUpLgIsLoading ?
+                    <ActivityIndicator size='large' color="grey" />
+                    :
+                    <TouchableOpacity style={styles.container_confirm_btn} onPress={() => this._setUpTheLanguage()}>
+                        <Text style={styles.text_confirm}>{i18n.t('CORE.Confirm')}</Text>
+                    </TouchableOpacity>
+                }
             </View>
         )
     }
