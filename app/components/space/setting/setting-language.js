@@ -27,10 +27,10 @@ class SettingLanguage extends React.Component {
     }
 
     _setUpTheLanguage = async () => {
-        this.props.actions.setUpLanguageActions(this.state.languageSelected)
 
-        return null 
-        return fetch('https://wiins-backend.herokuapp.com/admin/createCertificationProfile', {
+        const token = await AsyncStorage.getItem('userToken')
+
+        return fetch('https://wiins-backend.herokuapp.com/configuration/lang/' + this.state.languageSelected , {
             method: 'GET',
             headers: {
                 Accept: 'application/json', 'Content-Type': 'application/json',
@@ -39,11 +39,9 @@ class SettingLanguage extends React.Component {
         })
             .then((response) => response.json())
             .then((response) => {
-                if (response.status == 201) {
-
+                if (response.status == 201) {                    
                     Snackbar.show({ text: i18n.t('VALID-MESSAGE.update-is-done'), duration: Snackbar.LENGTH_LONG })
-
-                    // set the store
+                    return this.props.actions.setUpLanguageActions(this.state.languageSelected)
                 } else {
                     return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.A-err-has-occurred'), duration: Snackbar.LENGTH_LONG })
                 }
