@@ -219,7 +219,21 @@
     "Save-in-phone": "Im Telefon speichern",
     "No": "Nein",
     "Yes": "Ja",
-    "Block-t-user": "Diesen Benutzer sperren"
+    "Block-t-user": "Diesen Benutzer sperren",
+    "Message": "Botschaft",
+    "Friend-request": "Freundschaftsanfrage",
+    "feed": "Fluss",
+    "tube": "Tube",
+    "Music": "Musik",
+    "Page": "Seite",
+    "Music-Project": "Musikprojekt",
+    "Group": "Gruppe",
+    "Earlier": "Vorhin",
+    "Notifications": "Benachrichtigungen",
+    "Report-t-profile": "Melden Sie das Profil",
+    "Unfollow": "Nicht mehr folgen",
+    "Unfriend": "Unfreund",
+    "Block-User": "Benutzer blockieren"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -580,7 +594,10 @@
     "Date-cannot-be-in-the-past": "Das Veröffentlichungsdatum kann nicht in der Vergangenheit liegen",
     "You-cannot-add-yourself": "Sie können sich nicht hinzufügen",
     "T-content-does-not-exist-anymore": "Dieser Inhalt existiert nicht mehr",
-    "T-publication-no-longer-exists": "Diese Publikation existiert nicht mehr"
+    "T-publication-no-longer-exists": "Diese Publikation existiert nicht mehr",
+    "Could-not-play-video": "Video konnte nicht abgespielt werden",
+    "No-music-liked-yet": "Noch keine Musik gefallen",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Sie wurden aufgrund Ihrer Anforderungen nicht überprüft. Versuchen Sie eine neue Zeit, wenn Sie bereit sind."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Das Foto wird empfangen",
@@ -658,7 +675,12 @@
     "Yr-verification-request-was-accepted": "Ihre Bestätigungsanfrage wurde angenommen",
     "Yr-verification-request-was-refused": "Ihre Bestätigungsanfrage wurde abgelehnt",
     "Yr-certification-request-was-accepted": "Ihre Zertifizierungsanfrage wurde angenommen",
-    "Yr-certification-request-was-refused": "Ihre Zertifizierungsanfrage wurde abgelehnt"
+    "Yr-certification-request-was-refused": "Ihre Zertifizierungsanfrage wurde abgelehnt",
+    "Value-comment-yr-publication": "{{value}} hat Ihre Veröffentlichung kommentiert",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} wie Ihr Kommentar in einer Musikwiedergabeliste",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} hat Ihre Veröffentlichung im Feed gefallen",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} hat Sie in einer Veröffentlichung im Feed markiert",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} hat Ihnen in einer Publikation eine Musikwiedergabeliste markiert"
   },
   "PAGE": {
     "Name-page": "Seitenname",
@@ -713,11 +735,14 @@
     "my-musics": "Meine Musik",
     "my-story": "Meine Posts",
     "my-videos": "Meine Videos",
-    "only-f-can-see": "Nur Freunde können die Publikationen sehen"
+    "only-f-can-see": "Nur Freunde können die Publikationen sehen",
+    "Edit-cover-photo": "Titelbild bearbeiten",
+    "Edit-profile-photo": "Profilfoto bearbeiten"
   },
   "PUBLICATION": {
     "delete-t-project": "Dieses Projekt löschen",
-    "generate-t-id": "Fußabdruck erzeugen"
+    "generate-t-id": "Fußabdruck erzeugen",
+    "Uploading-publication": "Veröffentlichung hochladen"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -882,10 +907,10 @@
       "Yr-profil-is-currently-being-checked-D": "Ihr Profil wird derzeit überprüft. Wir werden Sie innerhalb von 48 Stunden per E-Mail kontaktieren.",
       "Verification": "Überprüfung",
       "Pl-s-t-docs-a-complet-t-form-below": "Bitte senden Sie die erforderlichen Unterlagen und füllen Sie das unten stehende Formular aus.",
-      "Upload-yr-password-id-identity-or-driver-license": "Laden Sie Ihr Passwort, Ihre ID-Identität oder Ihren Führerschein hoch.",
       "Upload-a-photo-holding-t-ID-D": "Laden Sie ein Foto mit dem Ausweis mit einem Blatt Papier mit dem heutigen Datum hoch und \"Wiins\" schreibt darauf.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "Ich bin damit einverstanden, dass meine Daten zur Überprüfung meines Kontos verwendet werden.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Stellen Sie sicher, dass Sie die Rückseite der Karte hochladen, wenn es sich um einen nationalen Personalausweis handelt (nur für den nationalen Ausweis)."
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Stellen Sie sicher, dass Sie die Rückseite der Karte hochladen, wenn es sich um einen nationalen Personalausweis handelt (nur für den nationalen Ausweis).",
+      "Upload-yr-passport-id-identity-or-driver-license": "Laden Sie Ihren Reisepass, Ihre ID-Identität oder Ihren Führerschein hoch."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Die Akzeptanz von Gewalt als Mittel, um Dinge zu verändern",
@@ -967,7 +992,8 @@
     "Yr-account-has-been-deleted": "Ihr Konto wurde gelöscht",
     "Yr-account-is-activated": "Ihr Konto ist aktiviert! Sie können nun die zentralisierten Funktionen von espace-piin es nutzen, um zu kommunizieren, sich zu unterhalten oder sich zu informieren.",
     "activated-after-15min-payment": "Ihre Kampagne wird in etwa 15 Minuten nach der Validierung der Zahlung validiert.",
-    "update-is-done": "Die Aktualisierung erfolgt"
+    "update-is-done": "Die Aktualisierung erfolgt",
+    "You-h-been-verified-i-t-platform-D": "Sie wurden auf der Plattform verifiziert. Sie können jetzt alle Extras genießen."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Sind Sie sicher, das Veröffentlichungsdatum Ihres Projekts zu ändern ?",
@@ -996,7 +1022,10 @@
     "T-content-has-been-reported": "Dieser Inhalt wurde gemeldet. Unsere Moderatoren werden innerhalb von 24 Stunden einen Blick darauf werfen, um dies zu überprüfen. Eine Sanktion wird verhängt, wenn dies nicht den Regeln der Gemeinschaft entspricht.",
     "T-user-has-been-blocked-D": "Dieser Benutzer wurde von Ihrem Konto gesperrt. In Ihrem Konto ist kein Inhalt dieses Profils sichtbar.",
     "W-is-t-reason-to-report-t-post": "Was ist der Grund, diesen Beitrag zu melden?",
-    "W-is-t-reason-to-report-t-post-D": "Ihr Bericht ist anonym. Bitte wählen Sie nur eine Kategorie, um den Moratoren zu helfen"
+    "W-is-t-reason-to-report-t-post-D": "Ihr Bericht ist anonym. Bitte wählen Sie nur eine Kategorie, um den Moratoren zu helfen",
+    "A-y-s-to-unfollow-this-profile": "Sind Sie sicher, dieses Profil zu entfolgen?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Sind Sie sicher, diesen Freund in Ihrer Freundesliste zu löschen?",
+    "A-y-s-to-delete-t-story": "Sind Sie sicher, diese Geschichte zu löschen?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Warnung. Stellen Sie sicher, dass Sie die richtige Adresse haben"
@@ -1370,7 +1399,8 @@
       "Rock": "Felsen",
       "Reggae": "Reggae",
       "Country": "Land"
-    }
+    },
+    "Playlist-Details": "Details zur Wiedergabeliste"
   },
   "WIINS-TUBE": {
     "CREATION": {

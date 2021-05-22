@@ -8,6 +8,7 @@ import { faAngleLeft, faTimes } from '@fortawesome/pro-light-svg-icons'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import MinPublication from './../../core/miniature/min-publication'
 import { DotIndicator } from 'react-native-indicators';
+import i18n from '../../../../assets/i18n/i18n'
 
 class PendingPublication extends React.Component {
 
@@ -22,7 +23,7 @@ class PendingPublication extends React.Component {
           <TouchableOpacity style={{ flexDirection: 'row', alignItems: 'center' }}
             onPress={() => this.props.navigation.goBack(null)}>
             <FontAwesomeIcon icon={faAngleLeft} color={'#b1b1b1'} size={39} />
-            <Text style={{ fontSize: 19, color: '#1a73e8', fontWeight: '400' }}> Uploading publication </Text>
+            <Text style={{ fontSize: 19, color: '#1a73e8', fontWeight: '400' }}>{i18n.t('PUBLICATION.Uploading-publication')}</Text>
           </TouchableOpacity>
         </View>
         <View style={{ flex: 11 }}>

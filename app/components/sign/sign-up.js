@@ -1,12 +1,12 @@
 import React from 'react'
 import {
-    StyleSheet, View, TextInput, Text, TouchableOpacity, Linking,
+    StyleSheet, View, TextInput, Text, TouchableOpacity,
     ActivityIndicator, ScrollView, StatusBar, KeyboardAvoidingView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import { Platform, NativeModules } from 'react-native'
+import { Platform } from 'react-native'
 import { faLongArrowLeft, faCheckCircle } from '@fortawesome/pro-light-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Snackbar from 'react-native-snackbar'
@@ -14,6 +14,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import CheckBox from '@react-native-community/checkbox'
 import i18n from './../../../assets/i18n/i18n'
+import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service'
 
 class SignUp extends React.Component {
 
@@ -23,16 +24,10 @@ class SignUp extends React.Component {
             email: null,
             pseudo: null,
             password: null,
+            password2: null,
             registration_success: false,
-            conditionAccepted: false,
-            countDownString: null,
-            counterDone: false,
-            showMore: false
+            conditionAccepted: false
         }
-    }
-
-    componentDidMount() {
-        this._startTimer()
     }
 
     UNSAFE_componentWillReceiveProps(newProps) {
@@ -60,10 +55,10 @@ class SignUp extends React.Component {
 
         if (!this._verificationTrue()) return null
         else {
-            const deviceLanguage = Platform.OS === 'ios' ? NativeModules.SettingsManager.settings.AppleLocale ||
-                NativeModules.SettingsManager.settings.AppleLanguages[0] : NativeModules.I18nManager.localeIdentifier;
+
             const user = { pseudo: this.state.pseudo, email: this.state.email, password: this.state.password }
-            const userDetail = { language: deviceLanguage.split('_')[0] }
+            const userDetail = { language: getCurrentLanguageOfTheDevice() }
+
             return this.props.actions.register(user, userDetail)
         }
     }
@@ -87,6 +82,11 @@ class SignUp extends React.Component {
         // password validation
         if (this.state.password.length <= 4) {
             Snackbar.show({ text: i18n.t('SETTING.password.Error-min-5-char'), duration: Snackbar.LENGTH_LONG })
+            return false
+        }
+
+        if (this.state.password !== this.state.password2 ) {
+            Snackbar.show({ text: i18n.t('PLACEHOLDER.Password-not-matching'), duration: Snackbar.LENGTH_LONG })
             return false
         }
 
@@ -123,16 +123,18 @@ class SignUp extends React.Component {
                 <View>
                     <Text style={styles.inputLabel}>{i18n.t('PROFILE.Pseudo')}</Text>
                     <TextInput
+                        value={this.state.pseudo}
                         style={styles.input_container}
-                        onChangeText={(val) => this.setState({ pseudo: val })}
+                        onChangeText={(val) => this.setState({ pseudo: val.replace(/\s/g, '') })}
                     />
                 </View>
                 <View>
                     <Text style={styles.inputLabel}>{i18n.t('PROFILE.Email')}</Text>
                     <TextInput
+                        value={this.state.email}
                         autoCompleteType={'email'}
                         style={styles.input_container}
-                        onChangeText={(val) => this.setState({ email: val })}
+                        onChangeText={(val) => this.setState({ email: val.replace(/\s/g, '') })}
                     />
                 </View>
                 <View>
@@ -141,6 +143,15 @@ class SignUp extends React.Component {
                         style={styles.input_container}
                         secureTextEntry={true}
                         onChangeText={(val) => this.setState({ password: val })}
+                    />
+                </View>
+
+                <View>
+                    <Text style={styles.inputLabel}>{i18n.t('PLACEHOLDER.Confirm-your-password')}</Text>
+                    <TextInput
+                        style={styles.input_container}
+                        secureTextEntry={true}
+                        onChangeText={(val) => this.setState({ password2: val })}
                     />
                 </View>
 
@@ -182,92 +193,7 @@ class SignUp extends React.Component {
         )
     }
 
-    // timer test
-    _startTimer = () => {
-        let countDownDate = new Date('May 1, 2021 00:00:00').getTime()
-
-        let x = setInterval(() => {
-
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            this.setState({ countDownString: days + "d " + hours + "h " + minutes + "m " + seconds + "s " })
-
-            // If the count down is finished, write some text
-            if (distance <= 0) {
-                this.setState({ counterDone: true })
-                clearInterval(x)
-            }
-        }, 1000)
-
-    }
-
-    _renderTimer = () => {
-        return (
-            <LinearGradient
-                colors={['#35D1FE', '#0041C4', '#960CF8']}
-                style={{ paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10, flex: 1 }}
-                locations={[0, 0.5596885789406173, 1]}
-                start={{ x: 0.1, y: 0.09 }}
-                end={{ x: 0.94, y: 0.95 }}
-            >
-                <ScrollView style={{ flex: 1 }}>
-
-                    <View style={{ paddingHorizontal: 15, paddingVertical: 10 }}>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
-                            <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'white'} />
-                        </TouchableOpacity>
-                    </View>
-
-                    {this.state.countDownString ? <View style={{ alignItems: 'center' }}>
-                        <Text style={{ fontSize: 25, color: 'white', fontWeight: '800', backgroundColor: '#5f5f5fb0', padding: 15, borderRadius: 15, overflow: 'hidden' }}>{this.state.countDownString}</Text>
-                    </View> : null}
-
-                    <View style={{ padding: 15, flex: 1 }}>
-
-                        <Text style={styles.textSection}>
-                            {i18n.t('TEMPORARY.On-first-may-d')}
-                            <Text style={{ color: 'yellow' }} onPress={() => this.setState({ showMore: true })}>{i18n.t('TEMPORARY.Tell-m-more')}</Text>
-                        </Text>
-
-                        {this.state.showMore ?
-                            <View>
-                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.Why-this-early-access')}</Text>
-                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.W-does-early-access-offer')}</Text>
-                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.H-lg-ll-t-platform-be-in-early-access')}</Text>
-                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.H-ll-t-full-version-b-diff-frm-t-early-access-version')}</Text>
-                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.H-much-ll-t-full-version-cost-after-Early-Access')}</Text>
-                                <Text style={styles.textSection}>{i18n.t('TEMPORARY.H-d-y-plan-to-involve-t-community-in-t-dev-process')}</Text>
-                                <Text style={[styles.textSection, { color: 'yellow' }]} onPress={() => this.setState({ counterDone: true })}>{i18n.t('TEMPORARY.Ty')}</Text>
-                            </View>
-                            : null}
-
-
-                    </View>
-
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginBottom: 30, flex: 1 }}>
-                        <TouchableOpacity onPress={() => Linking.openURL('https://discord.gg/bBE6xmR')} style={{ backgroundColor: 'black', padding: 15, borderRadius: 15, overflow: 'hidden' }}>
-                            <Text style={styles.loginText}>{i18n.t('TEMPORARY.Join-us-on-discord')}</Text>
-                        </TouchableOpacity>
-                    </View>
-
-
-                </ScrollView>
-
-            </LinearGradient>
-        )
-    }
-
-    _renderRegistration = () => {
+    render() {
         return (
             <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
                 <View style={{ paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
@@ -310,13 +236,9 @@ class SignUp extends React.Component {
                         )
                     }
                 </View>
-            </ScrollView>)
+            </ScrollView>
+        )
 
-    }
-
-    render() {
-        if (!this.state.counterDone) { return this._renderTimer()
-        } else { return this._renderRegistration() }
     }
 }
 

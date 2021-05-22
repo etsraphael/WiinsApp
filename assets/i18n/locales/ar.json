@@ -219,7 +219,21 @@
     "Save-in-phone": "حفظ في الهاتف",
     "No": "لا",
     "Yes": "نعم",
-    "Block-t-user": "منع هذا المستخدم"
+    "Block-t-user": "منع هذا المستخدم",
+    "Message": "رسالة",
+    "Friend-request": "طلب صداقة",
+    "feed": "تدفق",
+    "tube": "الة النفخ",
+    "Music": "موسيقى",
+    "Page": "صفحة",
+    "Music-Project": "مشروع الموسيقى",
+    "Group": "مجموعة",
+    "Earlier": "سابقا",
+    "Notifications": "إشعارات",
+    "Report-t-profile": "الإبلاغ عن الملف الشخصي",
+    "Unfollow": "الغاء المتابعة",
+    "Unfriend": "الغاء الصداقه",
+    "Block-User": "مستخدم محضور"
   },
   "COUNTRY": {
     "AD": "اندورا",
@@ -580,7 +594,10 @@
     "Date-cannot-be-in-the-past": "لا يمكن أن يكون تاريخ الإصدار في الماضي",
     "You-cannot-add-yourself": "لا يمكنك إضافة نفسك",
     "T-content-does-not-exist-anymore": "هذا المحتوى غير موجود بعد الآن",
-    "T-publication-no-longer-exists": "هذا المنشور لم يعد موجودا"
+    "T-publication-no-longer-exists": "هذا المنشور لم يعد موجودا",
+    "Could-not-play-video": "تعذر تشغيل الفيديو",
+    "No-music-liked-yet": "لا توجد موسيقى أحبها حتى الآن",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "لم يتم التحقق منك بسبب متطلباتك. جرب وقتًا جديدًا عندما تكون جاهزًا."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "تم استلام الصورة",
@@ -658,7 +675,12 @@
     "Yr-verification-request-was-accepted": "تم قبول طلب التحقق الخاص بك",
     "Yr-verification-request-was-refused": "تم رفض طلب التحقق الخاص بك",
     "Yr-certification-request-was-accepted": "تم قبول طلب الشهادة الخاص بك",
-    "Yr-certification-request-was-refused": "تم رفض طلب الشهادة الخاص بك"
+    "Yr-certification-request-was-refused": "تم رفض طلب الشهادة الخاص بك",
+    "Value-comment-yr-publication": "علق {{value}} على منشورك",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} إبداء الإعجاب بتعليقك في قائمة تشغيل الموسيقى",
+    "Value-liked-yr-publication-in-t-feed": "أُعجب {{value}} بمنشورك في الخلاصة",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} وضع علامة باسمك في منشور بالخلاصة",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "وضع {{value}} علامة لك في منشور على قائمة تشغيل موسيقى"
   },
   "PAGE": {
     "Name-page": "اسم الصفحة",
@@ -713,11 +735,14 @@
     "my-musics": "موسيقاي",
     "my-story": "مشاركاتي",
     "my-videos": "أشرطة الفيديو الخاصة بي",
-    "only-f-can-see": "يمكن للأصدقاء فقط رؤية المنشورات"
+    "only-f-can-see": "يمكن للأصدقاء فقط رؤية المنشورات",
+    "Edit-cover-photo": "تحرير صورة الغلاف",
+    "Edit-profile-photo": "تحرير صورة الملف الشخصي"
   },
   "PUBLICATION": {
     "delete-t-project": "حذف هذا المشروع",
-    "generate-t-id": "توليد البصمة"
+    "generate-t-id": "توليد البصمة",
+    "Uploading-publication": "تحميل المنشور"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -882,10 +907,10 @@
       "Yr-profil-is-currently-being-checked-D": "ملفك الشخصي قيد التحقق حاليا. سوف نتصل بك في غضون 48 ساعة عبر البريد الإلكتروني.",
       "Verification": "التحقق",
       "Pl-s-t-docs-a-complet-t-form-below": "يرجى إرسال المستندات اللازمة وإكمال النموذج أدناه.",
-      "Upload-yr-password-id-identity-or-driver-license": "قم بتحميل كلمة المرور أو الهوية الشخصية أو رخصة القيادة.",
       "Upload-a-photo-holding-t-ID-D": "قم بتحميل صورة تحمل الهوية مع ورقة عليها تاريخ اليوم وكتب عليها كلمة \"Wiins\"",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "أوافق على استخدام بياناتي للتحقق من حسابي.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "تأكد من تحميل الجانب الخلفي من البطاقة إذا كانت بطاقة الهوية الوطنية (فقط للبطاقة الوطنية)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "تأكد من تحميل الجانب الخلفي من البطاقة إذا كانت بطاقة الهوية الوطنية (فقط للبطاقة الوطنية)",
+      "Upload-yr-passport-id-identity-or-driver-license": "قم بتحميل جواز سفرك أو بطاقة الهوية أو رخصة القيادة."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "قبول العنف كوسيلة لمحاولة تغيير الأمور",
@@ -967,7 +992,8 @@
     "Yr-account-has-been-deleted": "تم حذف حسابك您的帐户已被删除",
     "Yr-account-is-activated": "تم تنشيط حسابك! يمكنك الآن الاستفادة من الوظائف المركزية لإسباس بين من أجل التواصل، والترفيه نفسك أو جعل نفسك معروفة.",
     "activated-after-15min-payment": "سيتم التحقق من صحة حملتك بعد حوالي 15 دقيقة من التحقق من صحة الدفع.",
-    "update-is-done": "يتم التحديث"
+    "update-is-done": "يتم التحديث",
+    "You-h-been-verified-i-t-platform-D": "لقد تم التحقق منك في المنصة. يمكنك الاستمتاع بكل الإضافات الآن."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "هل أنت متأكد من تغيير تاريخ الإصدار من المشروع الخاص بك ؟",
@@ -996,7 +1022,10 @@
     "T-content-has-been-reported": "تم الإبلاغ عن هذا المحتوى. سيقوم المشرفون لدينا بإلقاء نظرة خلال 24 ساعة تأخير لمراجعتها. سيتم تطبيق عقوبة إذا كان هذا لا يحترم قواعد المجتمع.",
     "T-user-has-been-blocked-D": "تم حظر هذا المستخدم من حسابك. لن يكون أي محتوى لهذا الملف الشخصي مرئيًا في حسابك.",
     "W-is-t-reason-to-report-t-post": "ما هو سبب الإبلاغ عن هذا المنشور؟",
-    "W-is-t-reason-to-report-t-post-D": "تقريرك مجهول. الرجاء اختيار فئة فقط لمساعدة الوقف"
+    "W-is-t-reason-to-report-t-post-D": "تقريرك مجهول. الرجاء اختيار فئة فقط لمساعدة الوقف",
+    "A-y-s-to-unfollow-this-profile": "هل أنت متأكد من إلغاء متابعة هذا الملف الشخصي؟",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "هل أنت متأكد من حذف هذا الصديق من قائمة الأصدقاء الخاصة بك؟",
+    "A-y-s-to-delete-t-story": "هل أنت متأكد من حذف هذه القصة؟"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "تحذير. تأكد من أن لديك العنوان الصحيح"
@@ -1370,7 +1399,8 @@
       "Rock": "صخرة",
       "Reggae": "الريغي",
       "Country": "بلد"
-    }
+    },
+    "Playlist-Details": "تفاصيل قائمة التشغيل"
   },
   "WIINS-TUBE": {
     "CREATION": {

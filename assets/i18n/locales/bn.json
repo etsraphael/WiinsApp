@@ -219,7 +219,21 @@
     "Save-in-phone": "ফোনে সংরক্ষণ করুন",
     "No": "না",
     "Yes": "হ্যাঁ",
-    "Block-t-user": "এই ব্যবহারকারীকে অবরুদ্ধ করুন"
+    "Block-t-user": "এই ব্যবহারকারীকে অবরুদ্ধ করুন",
+    "Message": "বার্তা",
+    "Friend-request": "বন্ধুর অনুরোধ",
+    "feed": "প্রবাহ",
+    "tube": "নল",
+    "Music": "সংগীত",
+    "Page": "পৃষ্ঠা",
+    "Music-Project": "সঙ্গীত প্রকল্প",
+    "Group": "দল",
+    "Earlier": "আগে",
+    "Notifications": "বিজ্ঞপ্তি",
+    "Report-t-profile": "প্রোফাইল রিপোর্ট করুন",
+    "Unfollow": "অনুসরণ",
+    "Unfriend": "বন্ধুত্ব",
+    "Block-User": "নিষিদ্ধ ব্যবহারকারী"
   },
   "COUNTRY": {
     "AD": " এ্যান্ডোরা",
@@ -580,7 +594,10 @@
     "Date-cannot-be-in-the-past": "মুক্তির তারিখ অতীতে হতে পারে না",
     "You-cannot-add-yourself": "আপনি নিজেকে যুক্ত করতে পারবেন না",
     "T-content-does-not-exist-anymore": "এই বিষয়বস্তুর আর অস্তিত্ব নেই",
-    "T-publication-no-longer-exists": "এই প্রকাশনা আর বিদ্যমান নেই"
+    "T-publication-no-longer-exists": "এই প্রকাশনা আর বিদ্যমান নেই",
+    "Could-not-play-video": "ভিডিও প্লে করতে পারেনি",
+    "No-music-liked-yet": "কোনও সংগীত এখনও পছন্দ হয়নি",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "আপনার প্রয়োজনীয়তার কারণে আপনাকে যাচাই করা হয়নি। আপনি প্রস্তুত যখন একটি নতুন সময় চেষ্টা করুন।"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ছবিটি প্রাপ্ত হয়েছে",
@@ -658,7 +675,12 @@
     "Yr-verification-request-was-accepted": "আপনার যাচাইয়ের অনুরোধ গৃহীত হয়েছিল",
     "Yr-verification-request-was-refused": "আপনার যাচাইয়ের অনুরোধ প্রত্যাখ্যান করা হয়েছিল",
     "Yr-certification-request-was-accepted": "আপনার শংসাপত্রের অনুরোধ গৃহীত হয়েছিল",
-    "Yr-certification-request-was-refused": "আপনার শংসাপত্রের অনুরোধ প্রত্যাখ্যান করা হয়েছিল"
+    "Yr-certification-request-was-refused": "আপনার শংসাপত্রের অনুরোধ প্রত্যাখ্যান করা হয়েছিল",
+    "Value-comment-yr-publication": "{{মান} your আপনার প্রকাশনায় মন্তব্য করেছে",
+    "Value-like-yr-comment-in-a-music-playlist": "music {মান} একটি সঙ্গীত প্লেলিস্টে আপনার মন্তব্য মত",
+    "Value-liked-yr-publication-in-t-feed": "{{মান} the ফিডে আপনার প্রকাশনা পছন্দ করেছে",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{মান}। আপনাকে ফিডে একটি প্রকাশনায় ট্যাগ করেছে",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{মান}। আপনাকে একটি প্রকাশনায় একটি সঙ্গীত প্লেলিস্টে ট্যাগ করেছে"
   },
   "PAGE": {
     "Name-page": "পৃষ্ঠার নাম",
@@ -713,11 +735,14 @@
     "my-musics": "আমার সংগীত",
     "my-story": "আমার পোস্ট",
     "my-videos": "আমার ভিডিওগুলো",
-    "only-f-can-see": "কেবল বন্ধুরা প্রকাশনা দেখতে পারে"
+    "only-f-can-see": "কেবল বন্ধুরা প্রকাশনা দেখতে পারে",
+    "Edit-cover-photo": "কভার ফটো সম্পাদনা করুন",
+    "Edit-profile-photo": "প্রোফাইল ফটো সম্পাদনা করুন"
   },
   "PUBLICATION": {
     "delete-t-project": "এই প্রকল্পটি মুছুন",
-    "generate-t-id": "পদচিহ্ন তৈরি করুন"
+    "generate-t-id": "পদচিহ্ন তৈরি করুন",
+    "Uploading-publication": "প্রকাশনা আপলোড হচ্ছে"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -882,10 +907,10 @@
       "Yr-profil-is-currently-being-checked-D": "আপনার প্রোফাইল বর্তমানে চেক করা হচ্ছে। আমরা আপনাকে ইমেলের মাধ্যমে 48 ঘন্টার মধ্যে যোগাযোগ করব।",
       "Verification": "প্রতিপাদন",
       "Pl-s-t-docs-a-complet-t-form-below": "দয়া করে প্রয়োজনীয় কাগজপত্র প্রেরণ করুন এবং নীচে ফর্মটি পূরণ করুন।",
-      "Upload-yr-password-id-identity-or-driver-license": "আপনার পাসওয়ার্ড, আইডি পরিচয় বা ড্রাইভার লাইসেন্স আপলোড করুন।",
       "Upload-a-photo-holding-t-ID-D": "আজকের তারিখ সহ কাগজের একটি শীটযুক্ত আইডি সম্বলিত একটি ছবি আপলোড করুন এবং এতে \"উইনস\" লিখেছেন।",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "আমি সম্মত হই যে আমার ডেটা আমার অ্যাকাউন্টটি পরীক্ষা করতে ব্যবহৃত হতে পারে।",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "যদি এটি জাতীয় পরিচয়পত্র (কেবল জাতীয় কার্ডের জন্য) থাকে তবে কার্ডটির পিছনের দিকটি আপলোড করতে ভুলবেন না"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "যদি এটি জাতীয় পরিচয়পত্র (কেবল জাতীয় কার্ডের জন্য) থাকে তবে কার্ডটির পিছনের দিকটি আপলোড করতে ভুলবেন না",
+      "Upload-yr-passport-id-identity-or-driver-license": "আপনার পাসপোর্ট, আইডি পরিচয় বা ড্রাইভার লাইসেন্স আপলোড করুন।"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "আমার প্রকাশনাগুলি কেবলমাত্র আমার বন্ধুদের দ্বারা দৃশ্যমান",
@@ -967,7 +992,8 @@
     "Yr-account-has-been-deleted": "আপনার অ্যাকাউন্ট মুছে ফেলা হয়েছে",
     "Yr-account-is-activated": "আপনার অ্যাকাউন্ট সক্রিয় করা হয়েছে! যোগাযোগ করার জন্য, নিজেকে বিনোদন দেওয়ার জন্য বা নিজেকে পরিচিত করার জন্য আপনি এখন এসপেস-পাইনের কেন্দ্রিয়করণের ফাংশনগুলির সুবিধা নিতে পারেন।",
     "activated-after-15min-payment": "আপনার প্রচারটি অর্থ প্রদানের বৈধতার পরে প্রায় পনের মিনিটে বৈধ হবে।",
-    "update-is-done": "আপডেট হয়ে গেছে"
+    "update-is-done": "আপডেট হয়ে গেছে",
+    "You-h-been-verified-i-t-platform-D": "প্ল্যাটফর্মে আপনাকে যাচাই করা হয়েছে। আপনি এখন সমস্ত অতিরিক্ত উপভোগ করতে পারেন।"
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "আপনি কি আপনার প্রকল্পের প্রকাশের তারিখটি পরিবর্তন করার বিষয়ে নিশ্চিত ?",
@@ -996,7 +1022,10 @@
     "T-content-has-been-reported": "এই বিষয়বস্তু রিপোর্ট করা হয়েছে। আমাদের মডারেটররা এটি পর্যালোচনা করতে 24 ঘন্টা দেরি করে একবার দেখে নেবে। যদি এই সম্প্রদায়ের নিয়মকে সম্মান না করে তবে একটি অনুমোদন প্রয়োগ করা হবে।",
     "T-user-has-been-blocked-D": "এই অ্যাকাউন্টটি আপনার অ্যাকাউন্ট থেকে অবরুদ্ধ করা হয়েছে। আপনার অ্যাকাউন্টের সাথে এই প্রোফাইলের কোনও সামগ্রী দৃশ্যমান হবে না।",
     "W-is-t-reason-to-report-t-post": "এই পোস্টটি রিপোর্ট করার কারণ কী?",
-    "W-is-t-reason-to-report-t-post-D": "আপনার প্রতিবেদন বেনামে। মোরেটারদের সহায়তা করার জন্য দয়া করে কেবল একটি বিভাগ নির্বাচন করুন"
+    "W-is-t-reason-to-report-t-post-D": "আপনার প্রতিবেদন বেনামে। মোরেটারদের সহায়তা করার জন্য দয়া করে কেবল একটি বিভাগ নির্বাচন করুন",
+    "A-y-s-to-unfollow-this-profile": "আপনি কি এই প্রোফাইল অনুসরণ করা নিশ্চিত?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "আপনি কি এই বন্ধুটিকে আপনার বন্ধু তালিকায় মুছে ফেলার বিষয়ে নিশ্চিত?",
+    "A-y-s-to-delete-t-story": "আপনি কি এই গল্পটি মুছে ফেলার বিষয়ে নিশ্চিত?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "সতর্কবাণী। আপনার সঠিক ঠিকানা আছে তা নিশ্চিত করুন"
@@ -1370,7 +1399,8 @@
       "Rock": "রক",
       "Reggae": "রেগ",
       "Country": "দেশ"
-    }
+    },
+    "Playlist-Details": "প্লেলিস্টের বিশদ"
   },
   "WIINS-TUBE": {
     "CREATION": {

@@ -219,7 +219,21 @@
     "Url-Copied": "URL copiée",
     "No": "Non",
     "Yes": "Oui",
-    "Block-t-user": "Bloquer cet utilisateur"
+    "Block-t-user": "Bloquer cet utilisateur",
+    "Message": "Un message",
+    "Friend-request": "Demande d'ami",
+    "feed": "flux",
+    "tube": "tube",
+    "Music": "Musique",
+    "Page": "Page",
+    "Music-Project": "Projet de musique",
+    "Group": "Grouper",
+    "Earlier": "Plus tôt",
+    "Notifications": "Notifications",
+    "Report-t-profile": "Signaler le profil",
+    "Unfollow": "Se désabonner",
+    "Unfriend": "Un ami",
+    "Block-User": "Bloquer un utilisateur"
   },
   "COUNTRY": {
     "AD": "Andorre",
@@ -580,7 +594,10 @@
     "Date-cannot-be-in-the-past": "La date de sortie ne peut pas être dans le passé",
     "You-cannot-add-yourself": "Vous ne pouvez pas vous ajouter",
     "T-content-does-not-exist-anymore": "Ce contenu n'existe plus",
-    "T-publication-no-longer-exists": "Cette publication n'existe plus"
+    "T-publication-no-longer-exists": "Cette publication n'existe plus",
+    "Could-not-play-video": "Impossible de lire la vidéo",
+    "No-music-liked-yet": "Aucune musique n'a encore aimé",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Vous n'avez pas été vérifié en raison de vos exigences. Essayez une nouvelle fois lorsque vous êtes prêt."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "La photo est reçu",
@@ -658,7 +675,12 @@
     "Yr-verification-request-was-accepted": "Votre demande de vérification a été acceptée",
     "Yr-verification-request-was-refused": "Votre demande de vérification a été refusée",
     "Yr-certification-request-was-accepted": "Votre demande de certification a été acceptée",
-    "Yr-certification-request-was-refused": "Votre demande de certification a été refusée"
+    "Yr-certification-request-was-refused": "Votre demande de certification a été refusée",
+    "Value-comment-yr-publication": "{{value}} a commenté votre publication",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} comme votre commentaire dans une playlist musicale",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} a aimé votre publication dans le flux",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} vous a tagué dans une publication du flux",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} vous a tagué dans une publication, une playlist de musique"
   },
   "PAGE": {
     "Name-page": "Nom de la page",
@@ -713,11 +735,14 @@
     "my-musics": "Mes musiques",
     "my-story": "Mes publications",
     "my-videos": "Mes vidéos",
-    "only-f-can-see": "Seul les amis peuvent voir les publications"
+    "only-f-can-see": "Seul les amis peuvent voir les publications",
+    "Edit-cover-photo": "Modifier la photo de couverture",
+    "Edit-profile-photo": "Modifier la photo de profil"
   },
   "PUBLICATION": {
     "delete-t-project": "Supprimer ce projet",
-    "generate-t-id": "Générer l'empreinte"
+    "generate-t-id": "Générer l'empreinte",
+    "Uploading-publication": "Téléchargement de la publication"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -882,10 +907,10 @@
       "Yr-profil-is-currently-being-checked-D": "Votre profil est en cours de vérification. Nous vous contacterons sous 48h par email.",
       "Verification": "Vérification",
       "Pl-s-t-docs-a-complet-t-form-below": "Veuillez envoyer les documents nécessaires et remplir le formulaire ci-dessous.",
-      "Upload-yr-password-id-identity-or-driver-license": "Téléchargez votre mot de passe, votre identifiant ou votre permis de conduire.",
       "Upload-a-photo-holding-t-ID-D": "Téléchargez une photo contenant la pièce d'identité avec une feuille de papier avec la date du jour et l'inscription \"Wiins\" dessus.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "J'accepte que mes données soient utilisées pour vérifier mon compte.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Assurez-vous de télécharger le verso de la carte s'il s'agit d'une carte d'identité nationale (uniquement pour la carte nationale)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Assurez-vous de télécharger le verso de la carte s'il s'agit d'une carte d'identité nationale (uniquement pour la carte nationale)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Téléchargez votre passeport, votre pièce d'identité ou votre permis de conduire."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Mes publications sont visible uniquement par mes amis",
@@ -967,7 +992,8 @@
     "Yr-account-has-been-deleted": "Votre compte a été supprimé",
     "Yr-account-is-activated": "Votre compte est activé ! Vous pouvez désormais profiter des fonctions centralisés d'Espace-piin's afin de communiquer, vous divertir ou vous faire connaitre.",
     "activated-after-15min-payment": "Votre campagne sera validé dans une quinzaine de minutes après la validation du paiement.",
-    "update-is-done": "La mise à jour est faite"
+    "update-is-done": "La mise à jour est faite",
+    "You-h-been-verified-i-t-platform-D": "Vous avez été vérifié sur la plateforme. Vous pouvez maintenant profiter de tous les extras."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Êtes vous sûre de changer la date de sortie de votre projet ?",
@@ -996,7 +1022,10 @@
     "T-content-has-been-reported": "Ce contenu a été signalé. Nos modérateurs jetteront un œil dans un délai de 24 heures pour l'examiner. Une sanction sera appliquée si cela ne respecte pas les règles de la communauté.",
     "T-user-has-been-blocked-D": "Cet utilisateur a été bloqué de votre compte. Aucun contenu de ce profil ne sera visible avec votre compte.",
     "W-is-t-reason-to-report-t-post": "Quelle est la raison de signaler ce message?",
-    "W-is-t-reason-to-report-t-post-D": "Votre rapport est anonyme. Veuillez choisir juste une catégorie pour aider les morateurs"
+    "W-is-t-reason-to-report-t-post-D": "Votre rapport est anonyme. Veuillez choisir juste une catégorie pour aider les morateurs",
+    "A-y-s-to-unfollow-this-profile": "Êtes-vous sûr de ne plus suivre ce profil?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Êtes-vous sûr de supprimer cet ami de votre liste d'amis?",
+    "A-y-s-to-delete-t-story": "Êtes-vous sûr de vouloir supprimer cette histoire?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Attention. Assurez vous d'avoir la bonne adresse"
@@ -1370,7 +1399,8 @@
       "Rock": "Roche",
       "Reggae": "Reggae",
       "Country": "Pays"
-    }
+    },
+    "Playlist-Details": "Détails de la playlist"
   },
   "WIINS-TUBE": {
     "CREATION": {

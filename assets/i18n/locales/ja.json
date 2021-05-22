@@ -219,7 +219,21 @@
     "Save-in-phone": "電話で保存",
     "No": "番号",
     "Yes": "はい",
-    "Block-t-user": "このユーザーをブロックする"
+    "Block-t-user": "このユーザーをブロックする",
+    "Message": "メッセージ",
+    "Friend-request": "友達リクエスト",
+    "feed": "フラックス",
+    "tube": "チューブ",
+    "Music": "音楽",
+    "Page": "ページ",
+    "Music-Project": "音楽プロジェクト",
+    "Group": "グループ",
+    "Earlier": "ついさっき",
+    "Notifications": "通知",
+    "Report-t-profile": "プロファイルを報告する",
+    "Unfollow": "フォロー解除",
+    "Unfriend": "友達を外す",
+    "Block-User": "ユーザをブロックする"
   },
   "COUNTRY": {
     "AD": "アンドラ",
@@ -580,7 +594,10 @@
     "Date-cannot-be-in-the-past": "リリース日は過去にすることはできません",
     "You-cannot-add-yourself": "自分を追加することはできません",
     "T-content-does-not-exist-anymore": "このコンテンツはもう存在しません",
-    "T-publication-no-longer-exists": "この出版物はもう存在しません"
+    "T-publication-no-longer-exists": "この出版物はもう存在しません",
+    "Could-not-play-video": "ビデオを再生できませんでした",
+    "No-music-liked-yet": "まだ好きな音楽はありません",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "要件が原因で確認されていません。準備ができたら、新しい時間を試してください。"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "写真を受け取りました",
@@ -658,7 +675,12 @@
     "Yr-verification-request-was-accepted": "確認リクエストが承認されました",
     "Yr-verification-request-was-refused": "確認リクエストが拒否されました",
     "Yr-certification-request-was-accepted": "認定リクエストが承認されました",
-    "Yr-certification-request-was-refused": "あなたの認証要求は拒否されました"
+    "Yr-certification-request-was-refused": "あなたの認証要求は拒否されました",
+    "Value-comment-yr-publication": "{{value}}があなたの出版物にコメントしました",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}}音楽プレイリストのコメントのように",
+    "Value-liked-yr-publication-in-t-feed": "{{value}}はフィード内のあなたの出版物を高く評価しました",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}}がフィード内のパブリケーションであなたにタグを付けました",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}}が出版物であなたに音楽プレイリストのタグを付けました"
   },
   "PAGE": {
     "Name-page": "ページ名",
@@ -713,11 +735,14 @@
     "my-musics": "私の音楽",
     "my-story": "私の投稿",
     "my-videos": "私の動画",
-    "only-f-can-see": "出版物を見ることができるのは友人だけです"
+    "only-f-can-see": "出版物を見ることができるのは友人だけです",
+    "Edit-cover-photo": "カバー写真を編集する",
+    "Edit-profile-photo": "プロフィール写真を編集する"
   },
   "PUBLICATION": {
     "delete-t-project": "このプロジェクトを削除",
-    "generate-t-id": "フットプリントを生成"
+    "generate-t-id": "フットプリントを生成",
+    "Uploading-publication": "パブリケーションのアップロード"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -882,10 +907,10 @@
       "Yr-profil-is-currently-being-checked-D": "あなたのプロフィールは現在チェック中です。 48時間以内にメールでご連絡いたします。",
       "Verification": "検証",
       "Pl-s-t-docs-a-complet-t-form-below": "必要書類を送付し、以下のフォームにご記入ください。",
-      "Upload-yr-password-id-identity-or-driver-license": "パスワード、ID ID、または運転免許証をアップロードします。",
       "Upload-a-photo-holding-t-ID-D": "IDを保持している写真を、今日の日付と「Wiins」と書かれた紙にアップロードします。",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "私のデータが私のアカウントのチェックに使用される可能性があることに同意します。",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "国民IDカードの場合は、必ずカードの裏面をアップロードしてください（国民カードのみ）"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "国民IDカードの場合は、必ずカードの裏面をアップロードしてください（国民カードのみ）",
+      "Upload-yr-passport-id-identity-or-driver-license": "パスポート、ID ID、または運転免許証をアップロードします。"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "物事を変えようとする手段としての暴力の受け入れ",
@@ -967,7 +992,8 @@
     "Yr-account-has-been-deleted": "アカウントが削除されました",
     "Yr-account-is-activated": "アカウントが有効になります。あなたは今、コミュニケーション、自分自身を楽しませたり、自分自身を知らせるために、espace-piinの集中管理機能を利用することができます。",
     "activated-after-15min-payment": "キャンペーンは、支払いの検証後約 15 分で検証されます。",
-    "update-is-done": "更新が完了しました"
+    "update-is-done": "更新が完了しました",
+    "You-h-been-verified-i-t-platform-D": "プラットフォームで確認されました。あなたは今すべてのエキストラを楽しむことができます。"
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "プロジェクトのリリース日を変更しますか ?",
@@ -996,7 +1022,10 @@
     "T-content-has-been-reported": "このコンテンツは報告されています。モデレーターは24時間遅れて確認します。これがコミュニティの規則を尊重しない場合、制裁が適用されます。",
     "T-user-has-been-blocked-D": "このユーザーはあなたのアカウントからブロックされています。このプロファイルのコンテンツは、アカウントに表示されません。",
     "W-is-t-reason-to-report-t-post": "この投稿を報告する理由は何ですか？",
-    "W-is-t-reason-to-report-t-post-D": "あなたの報告は匿名です。モレーターを助けるためにカテゴリーだけを選んでください"
+    "W-is-t-reason-to-report-t-post-D": "あなたの報告は匿名です。モレーターを助けるためにカテゴリーだけを選んでください",
+    "A-y-s-to-unfollow-this-profile": "このプロファイルのフォローを解除してもよろしいですか？",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "友達リストからこの友達を削除してもよろしいですか？",
+    "A-y-s-to-delete-t-story": "このストーリーを削除してもよろしいですか？"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "警告。正しいアドレスを持っていることを確認する"
@@ -1370,7 +1399,8 @@
       "Rock": "岩",
       "Reggae": "レゲエ",
       "Country": "国"
-    }
+    },
+    "Playlist-Details": "プレイリストの詳細"
   },
   "WIINS-TUBE": {
     "CREATION": {

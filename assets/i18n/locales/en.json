@@ -219,7 +219,21 @@
     "Save-in-phone": "Save in phone",
     "No": "No",
     "Yes": "Yes",
-    "Block-t-user": "Block this user"
+    "Block-t-user": "Block this user",
+    "Message": "Message",
+    "Friend-request": "Friend request ",
+    "feed": "flux",
+    "tube": "tube",
+    "Music": "Music",
+    "Page": "Page",
+    "Music-Project": "Music Project",
+    "Group": "Group",
+    "Earlier": "Earlier",
+    "Notifications": "Notifications",
+    "Report-t-profile": "Report the profile",
+    "Unfollow": "Unfollow",
+    "Unfriend": "Unfriend",
+    "Block-User": "Block User"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -580,7 +594,10 @@
     "Date-cannot-be-in-the-past": "The release date cannot be in the past",
     "You-cannot-add-yourself": "You cannot add yourself",
     "T-content-does-not-exist-anymore": "This content does not exist anymore",
-    "T-publication-no-longer-exists": "This publication no longer exists"
+    "T-publication-no-longer-exists": "This publication no longer exists",
+    "Could-not-play-video": "Could not play video",
+    "No-music-liked-yet": "No music liked yet",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "You havn't been verified due to your requirements. Try a new time when you're ready."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "The photo is received",
@@ -658,7 +675,12 @@
     "Yr-verification-request-was-accepted": "Your verification request was accepted",
     "Yr-verification-request-was-refused": "Your verification request was refused",
     "Yr-certification-request-was-accepted": "Your certification request was accepted",
-    "Yr-certification-request-was-refused": "Your certification request was refused"
+    "Yr-certification-request-was-refused": "Your certification request was refused",
+    "Value-comment-yr-publication": "{{value}} commented your publication",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} like your comment in a music playlist",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} liked your publication in the feed",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} tagged you in a publication in the feed",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} tagged you in a publication a music playlist"
   },
   "PAGE": {
     "Name-page": "Page name",
@@ -713,11 +735,14 @@
     "my-musics": "My musics",
     "my-story": "My posts",
     "my-videos": "My videos",
-    "only-f-can-see": "Only friends can see the publications"
+    "only-f-can-see": "Only friends can see the publications",
+    "Edit-cover-photo": "Edit cover photo",
+    "Edit-profile-photo": "Edit profile photo"
   },
   "PUBLICATION": {
     "delete-t-project": "Delete this project",
-    "generate-t-id": "Generate the footprint"
+    "generate-t-id": "Generate the footprint",
+    "Uploading-publication": "Uploading publication"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -882,10 +907,10 @@
       "Yr-profil-is-currently-being-checked-D": "Your profile is currently being checked. We will contact you within 48 hours by email.",
       "Verification": "Verification",
       "Pl-s-t-docs-a-complet-t-form-below": "Please send the necessary documents and complete the form below.",
-      "Upload-yr-password-id-identity-or-driver-license": "Upload your password, id identity or driver license.",
       "Upload-a-photo-holding-t-ID-D": "Upload a photo holding the ID with a sheet of paper with today’s date and \"Wiins\" writes on it.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "I agree that my data may be used to check my account.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Make sure to upload the back side of the card if it's the a national id card (only for the national card)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Make sure to upload the back side of the card if it's the a national id card (only for the national card)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Upload your passport, id identity or driver license."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "My publications are visible only by my friends",
@@ -967,7 +992,8 @@
     "Yr-account-has-been-deleted": "Your account has been deleted",
     "Yr-account-is-activated": "Your account is activated! You can now take advantage of the centralized functions of espace-piin's in order to communicate, entertain yourself or make yourself known.",
     "activated-after-15min-payment": "Your campaign will be validated in about fifteen minutes after the validation of the payment.",
-    "update-is-done": "The update is done"
+    "update-is-done": "The update is done",
+    "You-h-been-verified-i-t-platform-D": "You have been verified in the platform. You can enjoy all the extras now."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Are you sure to change the release date of your project ?",
@@ -996,7 +1022,10 @@
     "T-content-has-been-reported": "This content has been reported. Our moderators will take a look in a 24 hours delay to review it. A sanction will be applied if this does not respect the rules of the community.",
     "T-user-has-been-blocked-D": "This user has been blocked from your account. No content of this profile will be visible with your account.",
     "W-is-t-reason-to-report-t-post": "What is the reason to report this post ?",
-    "W-is-t-reason-to-report-t-post-D": "Your report is anonymous. Please choose just a category to help the morators"
+    "W-is-t-reason-to-report-t-post-D": "Your report is anonymous. Please choose just a category to help the morators",
+    "A-y-s-to-unfollow-this-profile": "Are you sure to unfollow this profile ?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Are you sure to delete this friend in your friend list ?",
+    "A-y-s-to-delete-t-story": "Are you sure to delete this story ?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Warning. Make sure you have the right address"
@@ -1370,7 +1399,8 @@
       "Rock": "Rock",
       "Reggae": "Reggae",
       "Country": "Country"
-    }
+    },
+    "Playlist-Details": "Playlist Details"
   },
   "WIINS-TUBE": {
     "CREATION": {

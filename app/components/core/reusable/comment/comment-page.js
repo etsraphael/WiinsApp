@@ -380,7 +380,7 @@ class CommentPage extends React.Component {
                         onPress={() => this.setState({ baseComment: null })}
                         style={styles.container_badge_response}>
                         <FontAwesomeIcon style={{ marginRight: 5 }} icon={faReply} transform={{ rotate: 180 }} color={'#784BEA'} size={15} />
-                        <Text style={{ fontSize: 17, color: '#1E2022' }}>{this.state.baseComment.idProfil._meta.pseudo}<Text style={{ color: '#7055E8', fontWeight: '600' }}> Cancel</Text> </Text>
+                        <Text style={{ fontSize: 17, color: '#1E2022' }}>{this.state.baseComment.idProfil._meta.pseudo}<Text style={{ color: '#7055E8', fontWeight: '600' }}>{i18n.t('CORE.Cancel')}</Text> </Text>
                     </TouchableOpacity>
                     : null}
 

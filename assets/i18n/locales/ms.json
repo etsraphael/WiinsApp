@@ -261,7 +261,21 @@
     "Save-in-phone": "Simpan dalam telefon",
     "No": "Tidak",
     "Yes": "Ya",
-    "Block-t-user": "Sekat pengguna ini"
+    "Block-t-user": "Sekat pengguna ini",
+    "Message": "Mesej",
+    "Friend-request": "Permintaan rakan",
+    "feed": "fluks",
+    "tube": "tiub",
+    "Music": "Muzik",
+    "Page": "Halaman",
+    "Music-Project": "Projek Muzik",
+    "Group": "Kumpulan",
+    "Earlier": "Lebih awal",
+    "Notifications": "Pemberitahuan",
+    "Report-t-profile": "Laporkan profil",
+    "Unfollow": "Berhenti mengikut",
+    "Unfriend": "Tidak berteman",
+    "Block-User": "Sekat Pengguna"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -622,7 +636,10 @@
     "Date-cannot-be-in-the-past": "Tarikh pelepasan tidak boleh berlalu",
     "You-cannot-add-yourself": "Anda tidak boleh menambah diri anda",
     "T-content-does-not-exist-anymore": "Kandungan ini sudah tidak ada lagi",
-    "T-publication-no-longer-exists": "Penerbitan ini tidak lagi wujud"
+    "T-publication-no-longer-exists": "Penerbitan ini tidak lagi wujud",
+    "Could-not-play-video": "Tidak dapat memainkan video",
+    "No-music-liked-yet": "Belum ada muzik yang disukai",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Anda belum disahkan kerana kehendak anda. Cuba masa baru apabila anda sudah bersedia."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Foto itu diterima",
@@ -700,7 +717,12 @@
     "tag-you-in-comment": "menandakan nama anda dalam komen",
     "tag-you-in-playlist": "menandakan nama anda dalam senarai main",
     "you-appear-in-project-of": "Anda muncul dalam projek baru di",
-    "you-have": "kamu ada"
+    "you-have": "kamu ada",
+    "Value-comment-yr-publication": "{{value}} mengulas penerbitan anda",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} menyukai komen anda dalam senarai main muzik",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} menyukai penerbitan anda di suapan",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} menandai nama anda dalam sebuah penerbitan di feed",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} menandai anda dalam penerbitan senarai main muzik"
   },
   "PAGE": {
     "Name-page": "Nama halaman",
@@ -755,11 +777,14 @@
     "my-musics": "Musik saya",
     "my-story": "Catatan saya",
     "my-videos": "Video saya",
-    "only-f-can-see": "Hanya rakan yang dapat melihat penerbitannya"
+    "only-f-can-see": "Hanya rakan yang dapat melihat penerbitannya",
+    "Edit-cover-photo": "Edit foto muka depan",
+    "Edit-profile-photo": "Edit foto profil"
   },
   "PUBLICATION": {
     "delete-t-project": "Padamkan projek ini",
-    "generate-t-id": "Hasilkan jejak kaki"
+    "generate-t-id": "Hasilkan jejak kaki",
+    "Uploading-publication": "Memuat naik penerbitan"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -935,11 +960,11 @@
       "T-b-accepted-b-t-administration": "Untuk diterima oleh pihak pentadbiran",
       "This-feature-requires-verification-to-use.": "Ciri ini memerlukan pengesahan untuk digunakan",
       "Upload-a-photo-holding-t-ID-D": "Muat naik foto yang memegang ID dengan sehelai kertas dengan tarikh hari ini dan \"Wiins\" menulis di atasnya.",
-      "Upload-yr-password-id-identity-or-driver-license": "Muat naik kata laluan, identiti id atau lesen memandu anda.",
       "Verification": "Pengesahan",
       "Verified-zone": "Zon yang disahkan",
       "Y-m-complet-t-following-cdt-t-b-certified": "Anda mesti melengkapkan syarat berikut untuk disahkan.",
-      "Yr-profil-is-currently-being-checked-D": "Profil anda sedang diperiksa. Kami akan menghubungi anda dalam masa 48 jam melalui e-mel."
+      "Yr-profil-is-currently-being-checked-D": "Profil anda sedang diperiksa. Kami akan menghubungi anda dalam masa 48 jam melalui e-mel.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Muat naik pasport, identiti id atau lesen memandu anda."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Penerbitan saya hanya dapat dilihat oleh rakan-rakan saya",
@@ -1024,7 +1049,8 @@
     "Yr-account-has-been-deleted": "Akaun anda telah dipadamkan",
     "Yr-account-is-activated": "Akaun anda diaktifkan! Anda kini boleh memanfaatkan fungsi terpusat espace-piin untuk berkomunikasi, menghiburkan diri atau mengenali diri anda.",
     "activated-after-15min-payment": "Kempen anda akan disahkan dalam kira-kira lima belas minit setelah pengesahan pembayaran.",
-    "update-is-done": "Kemas kini selesai"
+    "update-is-done": "Kemas kini selesai",
+    "You-h-been-verified-i-t-platform-D": "Anda telah disahkan di platform. Anda boleh menikmati semua tambahan sekarang."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Adakah anda pasti mengubah tarikh pelepasan projek anda?",
@@ -1053,7 +1079,10 @@
     "T-content-has-been-reported": "Kandungan ini telah dilaporkan. Penyederhana kami akan melihat kelewatan 24 jam untuk meninjaunya. Sekatan akan dikenakan sekiranya ini tidak mematuhi peraturan masyarakat.",
     "T-user-has-been-blocked-D": "Pengguna ini telah disekat dari akaun anda. Tiada kandungan profil ini yang dapat dilihat dengan akaun anda.",
     "W-is-t-reason-to-report-t-post": "Apakah sebab untuk melaporkan catatan ini?",
-    "W-is-t-reason-to-report-t-post-D": "Laporan anda tidak dikenali. Tolong pilih kategori untuk menolong para pengganas"
+    "W-is-t-reason-to-report-t-post-D": "Laporan anda tidak dikenali. Tolong pilih kategori untuk menolong para pengganas",
+    "A-y-s-to-unfollow-this-profile": "Adakah anda pasti berhenti mengikuti profil ini?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Adakah anda pasti menghapus rakan ini dalam senarai rakan anda?",
+    "A-y-s-to-delete-t-story": "Adakah anda pasti memadamkan cerita ini?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Amaran. Pastikan anda mempunyai alamat yang betul"
@@ -1427,7 +1456,8 @@
       "Rock": "Batu",
       "Reggae": "Reggae",
       "Country": "Negara"
-    }
+    },
+    "Playlist-Details": "Butiran Senarai Main"
   },
   "WIINS-TUBE": {
     "CREATION": {

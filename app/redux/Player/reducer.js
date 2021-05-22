@@ -57,13 +57,29 @@ export default PlayerReducer = (state = initialState, action) => {
       return { ...state }
     }
     case ActionTypes.FOLLOW_ARTIST_SUCCESS: {
-      return { 
+
+      const newTrackList = [...state.trackList]
+
+      for (let [i, music] of newTrackList.entries()) {
+        if(music.profile._id == action.profileId){
+          newTrackList[i] = {
+            ...music,
+            profile: {
+              ...music.profile,
+              relation: 'following'
+            }
+          }
+        }
+      }
+
+      return {
         ...state,
+        trackList: newTrackList,
         musicIsPlaying: {
           ...state.musicIsPlaying,
           music: {
             ...state.musicIsPlaying.music,
-            profile : {
+            profile: {
               ...state.musicIsPlaying.music.profile,
               relation: 'following'
             }

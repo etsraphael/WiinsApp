@@ -116,7 +116,7 @@ class CardModal extends React.Component {
                 space: 'feed-publication'
             }
 
-            this.props.actions.sendCommentToProfile(comment, this.props.PublicationsInModal.space, () => this.setState({textComment: ''}))
+            this.props.actions.sendCommentToProfile(comment, this.props.PublicationsInModal.space, () => this.setState({ textComment: '' }))
         }
 
         if (this.props.PublicationsInModal.publication.page) {
@@ -131,7 +131,7 @@ class CardModal extends React.Component {
                 space: 'feed-publication'
             }
 
-            this.props.actions.sendCommentToPage(comment, this.props.PublicationsInModal.space,() => this.setState({textComment: ''}))
+            this.props.actions.sendCommentToPage(comment, this.props.PublicationsInModal.space, () => this.setState({ textComment: '' }))
         }
 
         this.setState({ textComment: '' })
@@ -151,7 +151,7 @@ class CardModal extends React.Component {
     _footer(publication) {
         return (
             <View style={styles.container_footer}>
-                <View style={{ flex: 1, flexDirection: 'row', height: 'auto', paddingHorizontal: 25 }}>
+                <View style={{ flex: 1, flexDirection: 'row', height: 'auto', paddingHorizontal: 10 }}>
                     <View style={{ flexDirection: 'row', flex: 7, backgroundColor: '#464646a8', borderRadius: 20 }}>
                         <TextInput
                             placeholder={I18n.t('PLACEHOLDER.Your-Comment')}
@@ -160,7 +160,7 @@ class CardModal extends React.Component {
                             style={{ flex: 9, padding: 15, paddingTop: 20, color: "#FFFFFF", borderRadius: 17, height: '100%', minHeight: 55, fontSize: 16 }}
                             onChangeText={(val) => this._writteComment(val)}
                             onSubmitEditing={() => this.sendComment()}
-                            blurOnSubmit = {true}
+                            blurOnSubmit={true}
                             multiline={true}
                             numberOfLines={10}
                         />
@@ -171,14 +171,29 @@ class CardModal extends React.Component {
                                 <FontAwesomeIcon icon={faPaperPlane} color={'white'} size={19} />
                             </TouchableOpacity>
                             :
-                            <TouchableOpacity onPress={() => this._likeBtn()}
-                                style={{ flex: 3, justifyContent: 'center', alignItems: 'center', borderLeftWidth: 1, borderColor: '#d3d3d34a' }}>
-                                <FontAwesomeIcon icon={faHeart} color={this._displayIconLikeColor()} size={19} />
-                            </TouchableOpacity>
+
+                            <View style={{ flex: 6, flexDirection: 'row' }}>
+   
+                                <TouchableOpacity
+                                    style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}
+                                    onPress={() => this._toggleComment()}
+                                >
+                                    <FontAwesomeIcon icon={faCommentLines} color={'white'} size={19} />
+                                    <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
+                                </TouchableOpacity>
+
+                                <TouchableOpacity
+                                    onPress={() => this._likeBtn()}
+                                    style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}>
+                                    <FontAwesomeIcon icon={faHeart} color={this._displayIconLikeColor()} size={19} />
+                                    <Text style={{ fontSize: 15, color: 'white', paddingLeft: 7 }}>{publication.like.likeNumber}</Text>
+                                </TouchableOpacity>
+                            
+                            </View>
                         }
 
                     </View>
-
+{/* 
 
                     {this.state.textComment.length > 20 ? null :
                         <View style={{ flex: 2, paddingLeft: 25, alignItems: 'center' }}>
@@ -188,14 +203,14 @@ class CardModal extends React.Component {
                                     <Text style={{ marginLeft: 5, fontSize: 15, color: 'white' }}>{publication.commentNumber}</Text>
                                 </TouchableOpacity>
                                 <TouchableOpacity
-                                     onPress={() => this._likeBtn()}
-                                     style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}>
+                                    onPress={() => this._likeBtn()}
+                                    style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginHorizontal: 5 }}>
                                     <FontAwesomeIcon icon={faHeartEmpty} color={'white'} size={19} />
                                     <Text style={{ fontSize: 15, color: 'white', paddingLeft: 7 }}>{publication.like.likeNumber}</Text>
                                 </TouchableOpacity>
                             </View>
                         </View>
-                    }
+                    } */}
 
                 </View>
             </View>

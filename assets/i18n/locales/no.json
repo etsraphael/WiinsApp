@@ -261,7 +261,21 @@
     "Save-in-phone": "Lagre i telefonen",
     "No": "Nei",
     "Yes": "Ja",
-    "Block-t-user": "Blokker denne brukeren"
+    "Block-t-user": "Blokker denne brukeren",
+    "Message": "Beskjed",
+    "Friend-request": "Venneforespørsel",
+    "feed": "fluks",
+    "tube": "rør",
+    "Music": "Musikk",
+    "Page": "Side",
+    "Music-Project": "Musikkprosjekt",
+    "Group": "Gruppe",
+    "Earlier": "Tidligere",
+    "Notifications": "Varsler",
+    "Report-t-profile": "Rapporter profilen",
+    "Unfollow": "Slutte å følge",
+    "Unfriend": "Unfriend",
+    "Block-User": "Blokker bruker"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -622,7 +636,10 @@
     "Date-cannot-be-in-the-past": "Utgivelsesdatoen kan ikke være tidligere",
     "You-cannot-add-yourself": "Du kan ikke legge deg til",
     "T-content-does-not-exist-anymore": "Dette innholdet eksisterer ikke lenger",
-    "T-publication-no-longer-exists": "Denne publikasjonen eksisterer ikke lenger"
+    "T-publication-no-longer-exists": "Denne publikasjonen eksisterer ikke lenger",
+    "Could-not-play-video": "Kunne ikke spille av video",
+    "No-music-liked-yet": "Ingen musikk likte ennå",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Du har ikke blitt bekreftet på grunn av dine krav. Prøv en ny tid når du er klar."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Bildet er mottatt",
@@ -700,7 +717,12 @@
     "Yr-verification-request-was-accepted": "Bekreftelsesforespørselen din ble godtatt",
     "Yr-verification-request-was-refused": "Bekreftelsesforespørselen din ble avslått",
     "Yr-certification-request-was-accepted": "Sertifiseringsforespørselen din ble godtatt",
-    "Yr-certification-request-was-refused": "Sertifiseringsforespørselen din ble avslått"
+    "Yr-certification-request-was-refused": "Sertifiseringsforespørselen din ble avslått",
+    "Value-comment-yr-publication": "{{value}} kommenterte publikasjonen din",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} liker kommentaren din i en musikkspilleliste",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} likte publikasjonen din i feeden",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} merket deg i en publikasjon i feeden",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} merket deg en musikkspilleliste i en publikasjon"
   },
   "PAGE": {
     "Name-page": "Sidenavn",
@@ -755,11 +777,14 @@
     "my-musics": "Musikkene mine",
     "my-story": "Mine innlegg",
     "my-videos": "Mine videoer",
-    "only-f-can-see": "Bare venner kan se publikasjonene"
+    "only-f-can-see": "Bare venner kan se publikasjonene",
+    "Edit-cover-photo": "Rediger forsidebilde",
+    "Edit-profile-photo": "Rediger profilbilde"
   },
   "PUBLICATION": {
     "delete-t-project": "Slett dette prosjektet",
-    "generate-t-id": "Generer fotavtrykket"
+    "generate-t-id": "Generer fotavtrykket",
+    "Uploading-publication": "Laster opp publikasjon"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -934,12 +959,12 @@
       "T-b-accepted-b-t-administration": "Å bli akseptert av administrasjonen",
       "This-feature-requires-verification-to-use.": "Denne funksjonen krever bekreftelse for å kunne brukes",
       "Upload-a-photo-holding-t-ID-D": "Last opp et bilde som inneholder ID-en med et ark med dagens dato og \"Wiins\" skriver på den.",
-      "Upload-yr-password-id-identity-or-driver-license": "Last opp passord, ID-identitet eller førerkort.",
       "Verification": "Bekreftelse",
       "Verified-zone": "Bekreftet sone",
       "Y-m-complet-t-following-cdt-t-b-certified": "Du må fullføre følgende betingelser for å bli sertifisert.",
       "Yr-profil-is-currently-being-checked-D": "Profilen din blir nå sjekket. Vi vil kontakte deg innen 48 timer via e-post.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Sørg for å laste opp baksiden av kortet hvis det er et nasjonalt ID-kort (bare for det nasjonale kortet)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Sørg for å laste opp baksiden av kortet hvis det er et nasjonalt ID-kort (bare for det nasjonale kortet)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Last opp pass, ID-identitet eller førerkort."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Publikasjonene mine er bare synlige av vennene mine",
@@ -1024,7 +1049,8 @@
     "Yr-account-has-been-deleted": "Kontoen din er slettet",
     "Yr-account-is-activated": "Kontoen din er aktivert! Du kan nå dra nytte av de sentraliserte funksjonene til espace-piin for å kommunisere, underholde deg selv eller gjøre deg kjent.",
     "activated-after-15min-payment": "Kampanjen din blir validert om femten minutter etter validering av betalingen.",
-    "update-is-done": "Oppdateringen er ferdig"
+    "update-is-done": "Oppdateringen er ferdig",
+    "You-h-been-verified-i-t-platform-D": "Du er bekreftet på plattformen. Du kan glede deg over alt ekstrautstyret nå."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Er du sikker på å endre utgivelsesdatoen for prosjektet ditt?",
@@ -1053,7 +1079,10 @@
     "T-content-has-been-reported": "Dette innholdet er rapportert. Moderatorene våre tar en titt i løpet av 24 timer for å gjennomgå det. En sanksjon vil bli brukt hvis dette ikke respekterer samfunnets regler.",
     "T-user-has-been-blocked-D": "Denne brukeren er blokkert fra kontoen din. Intet innhold i denne profilen vil være synlig på kontoen din.",
     "W-is-t-reason-to-report-t-post": "Hva er grunnen til å rapportere dette innlegget?",
-    "W-is-t-reason-to-report-t-post-D": "Rapporten din er anonym. Velg bare en kategori for å hjelpe moratorene"
+    "W-is-t-reason-to-report-t-post-D": "Rapporten din er anonym. Velg bare en kategori for å hjelpe moratorene",
+    "A-y-s-to-unfollow-this-profile": "Er du sikker på at du vil følge denne profilen?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Er du sikker på at du vil slette denne vennen i vennelisten din?",
+    "A-y-s-to-delete-t-story": "Er du sikker på at du vil slette denne historien?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Advarsel. Forsikre deg om at du har riktig adresse"
@@ -1427,7 +1456,8 @@
       "Rock": "Stein",
       "Reggae": "Reggae",
       "Country": "Land"
-    }
+    },
+    "Playlist-Details": "Spillelistedetaljer"
   },
   "WIINS-TUBE": {
     "CREATION": {

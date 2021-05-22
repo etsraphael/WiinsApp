@@ -261,7 +261,21 @@
     "Save-in-phone": "Salvați în telefon",
     "No": "Nu",
     "Yes": "da",
-    "Block-t-user": "Blochează acest utilizator"
+    "Block-t-user": "Blochează acest utilizator",
+    "Message": "Mesaj",
+    "Friend-request": "Cerere de prietenie",
+    "feed": "flux",
+    "tube": "tub",
+    "Music": "Muzică",
+    "Page": "Pagină",
+    "Music-Project": "Proiect muzical",
+    "Group": "grup",
+    "Earlier": "Mai devreme",
+    "Notifications": "Notificări",
+    "Report-t-profile": "Raportați profilul",
+    "Unfollow": "Abandonați-vă",
+    "Unfriend": "Prieten",
+    "Block-User": "Blocați utilizatorul"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -622,7 +636,10 @@
     "Date-cannot-be-in-the-past": "Data lansării nu poate fi trecută",
     "You-cannot-add-yourself": "Nu te poți adăuga singur",
     "T-content-does-not-exist-anymore": "Acest conținut nu mai există",
-    "T-publication-no-longer-exists": "Această publicație nu mai există"
+    "T-publication-no-longer-exists": "Această publicație nu mai există",
+    "Could-not-play-video": "Nu s-a putut reda videoclipul",
+    "No-music-liked-yet": "Nici o muzică nu a plăcut încă",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Nu ați fost verificat din cauza cerințelor dvs. Încercați o nouă oră când sunteți gata."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Fotografia este primită",
@@ -700,7 +717,12 @@
     "Yr-verification-request-was-accepted": "Solicitarea dvs. de verificare a fost acceptată",
     "Yr-verification-request-was-refused": "Solicitarea dvs. de verificare a fost refuzată",
     "Yr-certification-request-was-accepted": "Solicitarea dvs. de certificare a fost acceptată",
-    "Yr-certification-request-was-refused": "Solicitarea dvs. de certificare a fost refuzată"
+    "Yr-certification-request-was-refused": "Solicitarea dvs. de certificare a fost refuzată",
+    "Value-comment-yr-publication": "{{value}} a comentat publicația dvs.",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} îți place comentariul dintr-o listă de redare muzicală",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} a apreciat publicarea dvs. în feed",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} v-a etichetat într-o publicație din feed",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} v-a etichetat într-o publicație o listă de redare muzicală"
   },
   "PAGE": {
     "Name-page": "Numele paginii",
@@ -755,11 +777,14 @@
     "my-musics": "Muzica mea",
     "my-story": "Postările mele",
     "my-videos": "Videoclipurile mele",
-    "only-f-can-see": "Numai prietenii pot vedea publicațiile"
+    "only-f-can-see": "Numai prietenii pot vedea publicațiile",
+    "Edit-cover-photo": "Editați fotografia de copertă",
+    "Edit-profile-photo": "Editați fotografia de profil"
   },
   "PUBLICATION": {
     "delete-t-project": "Ștergeți acest proiect",
-    "generate-t-id": "Generați amprenta"
+    "generate-t-id": "Generați amprenta",
+    "Uploading-publication": "Se încarcă publicația"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -934,12 +959,12 @@
       "T-b-accepted-b-t-administration": "Să fie acceptat de administrație",
       "This-feature-requires-verification-to-use.": "Această caracteristică necesită verificare pentru utilizare",
       "Upload-a-photo-holding-t-ID-D": "Încărcați o fotografie care conține codul de identitate cu o foaie de hârtie cu data de astăzi și „Wiins” scrie pe ea.",
-      "Upload-yr-password-id-identity-or-driver-license": "Încărcați parola, identitatea de identificare sau permisul de conducere.",
       "Verification": "Verificare",
       "Verified-zone": "Zona verificată",
       "Y-m-complet-t-following-cdt-t-b-certified": "Trebuie să îndepliniți următoarele condiții pentru a fi certificat.",
       "Yr-profil-is-currently-being-checked-D": "Profilul dvs. este în prezent verificat. Vă vom contacta în 48 de ore prin e-mail.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Asigurați-vă că încărcați partea din spate a cardului dacă este o carte de identitate națională (numai pentru cardul național)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Asigurați-vă că încărcați partea din spate a cardului dacă este o carte de identitate națională (numai pentru cardul național)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Încărcați pașaportul, identitatea de identitate sau permisul de conducere."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Publicațiile mele sunt vizibile doar de prietenii mei",
@@ -1024,7 +1049,8 @@
     "Yr-account-has-been-deleted": "Contul dvs. a fost șters",
     "Yr-account-is-activated": "Contul dvs. este activat! Acum puteți profita de funcțiile centralizate ale spațiului-piin pentru a comunica, a vă distra sau a vă face cunoscut.",
     "activated-after-15min-payment": "Campania dvs. va fi validată în aproximativ cincisprezece minute de la validarea plății.",
-    "update-is-done": "Actualizarea este gata"
+    "update-is-done": "Actualizarea este gata",
+    "You-h-been-verified-i-t-platform-D": "Ați fost verificat în platformă. Vă puteți bucura de toate figuranțele acum."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Sigur modificați data lansării proiectului dvs.?",
@@ -1053,7 +1079,10 @@
     "T-content-has-been-reported": "Acest conținut a fost raportat. Moderatorii noștri vor arunca o privire într-o întârziere de 24 de ore pentru a o examina. Se va aplica o sancțiune dacă aceasta nu respectă regulile comunității.",
     "T-user-has-been-blocked-D": "Acest utilizator a fost blocat din contul dvs. Niciun conținut al acestui profil nu va fi vizibil în contul dvs.",
     "W-is-t-reason-to-report-t-post": "Care este motivul pentru a raporta această postare?",
-    "W-is-t-reason-to-report-t-post-D": "Raportul dvs. este anonim. Vă rugăm să alegeți doar o categorie pentru a ajuta moratorii"
+    "W-is-t-reason-to-report-t-post-D": "Raportul dvs. este anonim. Vă rugăm să alegeți doar o categorie pentru a ajuta moratorii",
+    "A-y-s-to-unfollow-this-profile": "Sigur doriți să anulați urmărirea acestui profil?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Sigur ștergeți acest prieten din lista dvs. de prieteni?",
+    "A-y-s-to-delete-t-story": "Sigur ștergeți această poveste?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Avertizare. Asigurați-vă că aveți adresa corectă"
@@ -1427,7 +1456,8 @@
       "Rock": "Rock",
       "Reggae": "Reggae",
       "Country": "Țară"
-    }
+    },
+    "Playlist-Details": "Detalii playlist"
   },
   "WIINS-TUBE": {
     "CREATION": {

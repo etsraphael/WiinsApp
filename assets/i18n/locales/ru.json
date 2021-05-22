@@ -219,7 +219,21 @@
     "Save-in-phone": "Сохранить в телефоне",
     "No": "Нет",
     "Yes": "да",
-    "Block-t-user": "Заблокировать этого пользователя"
+    "Block-t-user": "Заблокировать этого пользователя",
+    "Message": "Сообщение",
+    "Friend-request": "Запрос в друзья",
+    "feed": "поток",
+    "tube": "трубка",
+    "Music": "Музыка",
+    "Page": "Страница",
+    "Music-Project": "Музыкальный проект",
+    "Group": "Группа",
+    "Earlier": "Ранее",
+    "Notifications": "Уведомления",
+    "Report-t-profile": "Пожаловаться на профиль",
+    "Unfollow": "Отписаться",
+    "Unfriend": "Удалить из друзей",
+    "Block-User": "Заблокировать пользователя"
   },
   "COUNTRY": {
     "AD": "Андорра",
@@ -580,7 +594,10 @@
     "Date-cannot-be-in-the-past": "Дата выхода не может быть в прошлом",
     "You-cannot-add-yourself": "Вы не можете добавить себя",
     "T-content-does-not-exist-anymore": "Этот контент больше не существует",
-    "T-publication-no-longer-exists": "Эта публикация больше не существует"
+    "T-publication-no-longer-exists": "Эта публикация больше не существует",
+    "Could-not-play-video": "Не удалось воспроизвести видео",
+    "No-music-liked-yet": "Музыка пока не понравилась",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Вы не прошли проверку по вашим требованиям. Попробуйте новое время, когда будете готовы."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фото получено",
@@ -658,7 +675,12 @@
     "Yr-verification-request-was-accepted": "Ваш запрос на подтверждение принят",
     "Yr-verification-request-was-refused": "Ваш запрос на подтверждение был отклонен",
     "Yr-certification-request-was-accepted": "Ваш запрос на сертификацию принят",
-    "Yr-certification-request-was-refused": "Ваш запрос на сертификацию был отклонен"
+    "Yr-certification-request-was-refused": "Ваш запрос на сертификацию был отклонен",
+    "Value-comment-yr-publication": "{{value}} прокомментировал вашу публикацию",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} лайкнул ваш комментарий в музыкальном плейлисте",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} понравилась ваша публикация в фиде",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} отметил вас в публикации в фиде",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} отметил вас в публикации музыкального плейлиста"
   },
   "PAGE": {
     "Name-page": "Название страницы",
@@ -713,11 +735,14 @@
     "my-musics": "Моя музыка",
     "my-story": "Мои посты",
     "my-videos": "Мои видео",
-    "only-f-can-see": "Только друзья могут видеть публикации"
+    "only-f-can-see": "Только друзья могут видеть публикации",
+    "Edit-cover-photo": "Изменить обложку",
+    "Edit-profile-photo": "Редактировать фото профиля"
   },
   "PUBLICATION": {
     "delete-t-project": "Удалить этот проект",
-    "generate-t-id": "Создать след"
+    "generate-t-id": "Создать след",
+    "Uploading-publication": "Загрузка публикации"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -882,10 +907,10 @@
       "Yr-profil-is-currently-being-checked-D": "Ваш профиль в настоящее время проверяется. Мы свяжемся с вами в течение 48 часов по электронной почте.",
       "Verification": "Проверка",
       "Pl-s-t-docs-a-complet-t-form-below": "Отправьте необходимые документы и заполните форму ниже.",
-      "Upload-yr-password-id-identity-or-driver-license": "Загрузите свой пароль, удостоверение личности или водительские права.",
       "Upload-a-photo-holding-t-ID-D": "Загрузите фотографию с удостоверением личности с листом бумаги с сегодняшней датой и надписью «Wiins».",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "Я согласен с тем, что мои данные могут быть использованы для проверки моей учетной записи.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Не забудьте загрузить обратную сторону карты, если это национальная идентификационная карта (только для национальной карты)."
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Не забудьте загрузить обратную сторону карты, если это национальная идентификационная карта (только для национальной карты).",
+      "Upload-yr-passport-id-identity-or-driver-license": "Загрузите свой паспорт, удостоверение личности или водительские права."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Принятие насилия как средства, пытаясь изменить ситуацию",
@@ -967,7 +992,8 @@
     "Yr-account-has-been-deleted": "Ваша учетная запись была удалена",
     "Yr-account-is-activated": "Ваша учетная запись активирована! Теперь вы можете воспользоваться централизованными функциями espace-piin для того, чтобы общаться, развлекать себя или заставить себя быть известным.",
     "activated-after-15min-payment": "Ваша кампания будет проверена примерно через пятнадцать минут после проверки платежа.",
-    "update-is-done": "Обновление выполнено"
+    "update-is-done": "Обновление выполнено",
+    "You-h-been-verified-i-t-platform-D": "Вы прошли верификацию на платформе. Теперь вы можете пользоваться всеми дополнительными услугами."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Вы уверены, что измените дату релиза вашего проекта ?",
@@ -996,7 +1022,10 @@
     "T-content-has-been-reported": "Об этом содержании было сообщено. Наши модераторы рассмотрят его с задержкой в 24 часа. Санкция будет применена, если это не соответствует правилам сообщества.",
     "T-user-has-been-blocked-D": "Этот пользователь заблокирован для входа в вашу учетную запись. Никакое содержимое этого профиля не будет отображаться в вашей учетной записи.",
     "W-is-t-reason-to-report-t-post": "По какой причине пожаловаться на это сообщение?",
-    "W-is-t-reason-to-report-t-post-D": "Ваш отчет анонимен. Пожалуйста, выберите категорию, чтобы помочь мораторам"
+    "W-is-t-reason-to-report-t-post-D": "Ваш отчет анонимен. Пожалуйста, выберите категорию, чтобы помочь мораторам",
+    "A-y-s-to-unfollow-this-profile": "Вы уверены, что откажетесь от подписки на этот профиль?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Вы действительно хотите удалить этого друга из списка друзей?",
+    "A-y-s-to-delete-t-story": "Вы уверены, что хотите удалить эту историю?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Предупреждение. Убедитесь, что у вас есть правильный адрес"
@@ -1370,7 +1399,8 @@
       "Rock": "рок",
       "Reggae": "Регги",
       "Country": "Страна"
-    }
+    },
+    "Playlist-Details": "Подробная информация о плейлисте"
   },
   "WIINS-TUBE": {
     "CREATION": {

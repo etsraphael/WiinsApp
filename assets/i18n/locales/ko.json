@@ -219,7 +219,21 @@
     "Save-in-phone": "전화에 저장",
     "No": "아니",
     "Yes": "예",
-    "Block-t-user": "이 사용자 차단"
+    "Block-t-user": "이 사용자 차단",
+    "Message": "메시지",
+    "Friend-request": "친구 요청",
+    "feed": "유량",
+    "tube": "튜브",
+    "Music": "음악",
+    "Page": "페이지",
+    "Music-Project": "음악 프로젝트",
+    "Group": "그룹",
+    "Earlier": "일찍이",
+    "Notifications": "알림",
+    "Report-t-profile": "프로필 신고",
+    "Unfollow": "언 팔로우",
+    "Unfriend": "친구 해제",
+    "Block-User": "사용자 차단"
   },
   "COUNTRY": {
     "AD": "안도라",
@@ -580,7 +594,10 @@
     "Date-cannot-be-in-the-past": "출시일은 과거 일 수 없습니다.",
     "You-cannot-add-yourself": "자신을 추가 할 수 없습니다.",
     "T-content-does-not-exist-anymore": "이 콘텐츠는 더 이상 존재하지 않습니다.",
-    "T-publication-no-longer-exists": "이 출판물은 더 이상 존재하지 않습니다."
+    "T-publication-no-longer-exists": "이 출판물은 더 이상 존재하지 않습니다.",
+    "Could-not-play-video": "비디오를 재생할 수 없습니다",
+    "No-music-liked-yet": "아직 좋아하는 음악이 없습니다.",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "귀하의 요구 사항으로 인해 확인되지 않았습니다. 준비가되면 새로운 시간을 시도하십시오."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "사진이 접수되었습니다",
@@ -658,7 +675,12 @@
     "Yr-verification-request-was-accepted": "확인 요청이 수락되었습니다.",
     "Yr-verification-request-was-refused": "확인 요청이 거부되었습니다.",
     "Yr-certification-request-was-accepted": "인증 요청이 수락되었습니다.",
-    "Yr-certification-request-was-refused": "인증 요청이 거부되었습니다."
+    "Yr-certification-request-was-refused": "인증 요청이 거부되었습니다.",
+    "Value-comment-yr-publication": "{{value}} 님이 게시물에 댓글을 달았습니다.",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} 음악 재생 목록의 댓글에 좋아요 표시",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} 님이 피드에서 귀하의 게시물을 좋아합니다.",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}}이 피드의 간행물에서 나를 태그했습니다.",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}}이 발행물에서 음악 재생 목록에 나를 태그했습니다."
   },
   "PAGE": {
     "Name-page": "페이지 이름",
@@ -713,11 +735,14 @@
     "my-musics": "내 음악",
     "my-story": "내 게시물",
     "my-videos": "내 동영상",
-    "only-f-can-see": "친구만 출판물을 볼 수 있습니다."
+    "only-f-can-see": "친구만 출판물을 볼 수 있습니다.",
+    "Edit-cover-photo": "표지 사진 수정",
+    "Edit-profile-photo": "프로필 사진 수정"
   },
   "PUBLICATION": {
     "delete-t-project": "이 프로젝트 삭제",
-    "generate-t-id": "발자국 생성"
+    "generate-t-id": "발자국 생성",
+    "Uploading-publication": "간행물 업로드"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -882,10 +907,10 @@
       "Yr-profil-is-currently-being-checked-D": "귀하의 프로필은 현재 확인 중입니다. 48 시간 이내에 이메일로 연락 드리겠습니다.",
       "Verification": "확인",
       "Pl-s-t-docs-a-complet-t-form-below": "필요한 서류를 보내 주시고 아래 양식을 작성해주십시오.",
-      "Upload-yr-password-id-identity-or-driver-license": "비밀번호, 신분증 또는 운전 면허증을 업로드하세요.",
       "Upload-a-photo-holding-t-ID-D": "오늘 날짜와 \"Wiins\"가 적힌 종이와 함께 신분증이있는 사진을 업로드하세요.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "내 데이터가 내 계정을 확인하는 데 사용될 수 있음에 동의합니다.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "주민등록증 인 경우 카드 뒷면을 반드시 업로드하세요 (국민 카드 만 해당)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "주민등록증 인 경우 카드 뒷면을 반드시 업로드하세요 (국민 카드 만 해당)",
+      "Upload-yr-passport-id-identity-or-driver-license": "여권, 신분증 또는 운전 면허증을 업로드하세요."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "폭력을 변화를 위한 수단으로 받아들이는 것",
@@ -967,7 +992,8 @@
     "Yr-account-has-been-deleted": "계정이 삭제되었습니다.",
     "Yr-account-is-activated": "계정이 활성화되었습니다! 이제 espace-piin's의 중앙 집중식 기능을 활용하여 의사 소통을 하거나 즐겁게 하거나 자신을 알 수 있습니다.",
     "activated-after-15min-payment": "결제 확인 후 약 15분 후에 캠페인이 유효성을 검사합니다.",
-    "update-is-done": "업데이트가 완료되었습니다."
+    "update-is-done": "업데이트가 완료되었습니다.",
+    "You-h-been-verified-i-t-platform-D": "플랫폼에서 확인되었습니다. 이제 모든 엑스트라를 즐길 수 있습니다."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "프로젝트의 릴리스 날짜를 변경하시겠습니까 ?",
@@ -996,7 +1022,10 @@
     "T-content-has-been-reported": "이 콘텐츠는 신고되었습니다. 중재자는 검토를 위해 24 시간 후에 검토 할 것입니다. 커뮤니티 규칙을 준수하지 않는 경우 제재가 적용됩니다.",
     "T-user-has-been-blocked-D": "이 사용자는 귀하의 계정에서 차단되었습니다. 이 프로필의 내용은 계정에 표시되지 않습니다.",
     "W-is-t-reason-to-report-t-post": "이 게시물을 신고하는 이유는 무엇입니까?",
-    "W-is-t-reason-to-report-t-post-D": "귀하의 신고는 익명으로 처리됩니다. morators를 돕기 위해 카테고리를 선택하십시오"
+    "W-is-t-reason-to-report-t-post-D": "귀하의 신고는 익명으로 처리됩니다. morators를 돕기 위해 카테고리를 선택하십시오",
+    "A-y-s-to-unfollow-this-profile": "이 프로필을 팔로우 해제 하시겠습니까?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "친구 목록에서이 친구를 삭제 하시겠습니까?",
+    "A-y-s-to-delete-t-story": "이 스토리를 삭제 하시겠습니까?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "경고. 올바른 주소가 있는지 확인"
@@ -1370,7 +1399,8 @@
       "Rock": "록",
       "Reggae": "레게",
       "Country": "국가"
-    }
+    },
+    "Playlist-Details": "재생 목록 세부 정보"
   },
   "WIINS-TUBE": {
     "CREATION": {
