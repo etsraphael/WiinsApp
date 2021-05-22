@@ -395,6 +395,8 @@ PODS:
     - React-Core
   - RNCMaskedView (0.1.11):
     - React
+  - RNCPicker (1.16.0):
+    - React-Core
   - RNCPushNotificationIOS (1.8.0):
     - React-Core
   - RNDateTimePicker (3.4.7):
@@ -500,6 +502,7 @@ DEPENDENCIES:
   - "RNCCheckbox (from `../node_modules/@react-native-community/checkbox`)"
   - "RNCClipboard (from `../node_modules/@react-native-community/clipboard`)"
   - "RNCMaskedView (from `../node_modules/@react-native-community/masked-view`)"
+  - "RNCPicker (from `../node_modules/@react-native-picker/picker`)"
   - "RNCPushNotificationIOS (from `../node_modules/@react-native-community/push-notification-ios`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNFastImage (from `../node_modules/react-native-fast-image`)
@@ -624,6 +627,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/clipboard"
   RNCMaskedView:
     :path: "../node_modules/@react-native-community/masked-view"
+  RNCPicker:
+    :path: "../node_modules/@react-native-picker/picker"
   RNCPushNotificationIOS:
     :path: "../node_modules/@react-native-community/push-notification-ios"
   RNDateTimePicker:
@@ -715,6 +720,7 @@ SPEC CHECKSUMS:
   RNCCheckbox: d1749e6a92178ce5dbc31e63becd1f34f0c76bbd
   RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
   RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
+  RNCPicker: 918e98b54a141791e99614b1c320ef2e58300490
   RNCPushNotificationIOS: 61a7c72bd1ebad3568025957d001e0f0e7b32191
   RNDateTimePicker: 8dcfab802edece406f4f4780130974a0e04213b4
   RNFastImage: d4870d58f5936111c56218dbd7fcfc18e65b58ff
