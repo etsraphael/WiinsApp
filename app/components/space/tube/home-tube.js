@@ -13,6 +13,9 @@ import LinearGradient from 'react-native-linear-gradient'
 import { TubesCategories } from './../../core/data/tubes'
 import * as TubeMenuActions from '../../../redux/TubeMenu/actions'
 import I18n from '../../../../assets/i18n/i18n'
+import ScrollableHeader from './../../core/reusable/component/ScrollableHeader'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faSearch } from '@fortawesome/pro-light-svg-icons'
 
 class HomeTube extends React.Component {
 
@@ -29,6 +32,15 @@ class HomeTube extends React.Component {
 
     UNSAFE_componentWillMount = () => {
         this.props.actions.getTubeMenuActions()
+    }
+
+    // display the search bar icon
+    _displayOptionSearchBar = () => {
+        return (
+            <TouchableOpacity style={{ position: 'absolute', right: 25, justifyContent: 'center', alignItems: 'center' }}>
+                <FontAwesomeIcon icon={faSearch} color={'grey'} size={21} style={{ opacity: 0.8 }} />
+            </TouchableOpacity>
+        )
     }
 
     // to display the header view of the screen
@@ -259,13 +271,7 @@ class HomeTube extends React.Component {
             )
         } else {
             return (
-                <ScrollView
-                    refreshControl={
-                        <RefreshControl
-                            refreshing={this.props.TubeMenu.isRefreshing}
-                            onRefresh={this._refreshPage}
-                        />
-                    }>
+                <View>
                     {this._tubeListBySection(this.props.TubeMenu.trending, I18n.t('TUBE.Categorie.Trending'), { fontWeight: 'bold' }, true)}
 
                     {/* {this._categorieViews()} */}
@@ -274,16 +280,35 @@ class HomeTube extends React.Component {
                     {this._tubeListBySection(this.props.TubeMenu.suggestions, 'Suggestion')} */}
 
                     {this._tubeListDownloaded(this.props.TubeMenu.downloaded, I18n.t('CORE.Downloaded'), { fontWeight: 'bold' }, true)}
-                </ScrollView>)
+                </View>)
         }
     }
 
+    _headerTitle = () => (
+        <View style={styles.headerTitle}>
+            <Text style={styles.title}>{ 'Tube' }</Text>
+        </View>
+    )
+
     render() {
         return (
-            <View style={styles.main_container}>
-                {this._header()}
-                {this._bodyRender()}
-            </View>
+            <ScrollableHeader 
+                title="Tube" 
+                refreshControl={
+                    <RefreshControl
+                        progressViewOffset={110}
+                        refreshing={this.props.TubeMenu.isRefreshing}
+                        onRefresh={this._refreshPage}
+                    />
+                }
+                subHeaderNode={this._header()}
+                headerNode={this._headerTitle()}
+                headerStyle={styles.overall_header}
+            >
+                <View style={styles.main_container}>
+                    {this._bodyRender()}
+                </View>
+            </ScrollableHeader>
         )
     }
 }
@@ -293,16 +318,32 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#eef2f4'
     },
-    header_container: {
+    headerTitle: {
+        height: 50,
+        flex: 1,
+        // alignItems: 'center',
+        justifyContent: 'center',
+        paddingLeft: 24
+    },
+    title: {
+        backgroundColor: 'transparent',
+        color: 'black',
+        fontSize: 24,
+        fontWeight: 'bold'
+    },
+    overall_header: {
         paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10,
-        paddingBottom: 15,
-        paddingHorizontal: 25,
         backgroundColor: '#f9fafc',
         borderBottomRightRadius: 25,
         borderBottomLeftRadius: 25,
+    },
+    header_container: {
+        // paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10,
+        paddingBottom: 15,
+        paddingHorizontal: 25,
         position: 'relative',
-        borderWidth: 0.3,
-        borderColor: '#c3c3c36e'
+        // borderWidth: 0.3,
+        // borderColor: '#c3c3c36e'
     },
     container_search_bar: {
         height: 45,
