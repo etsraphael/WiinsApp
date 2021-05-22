@@ -151,7 +151,7 @@ class CardModal extends React.Component {
     _footer(publication) {
         return (
             <View style={styles.container_footer}>
-                <View style={{ height: 100, flexDirection: 'row', paddingHorizontal: 10 }}>
+                <View style={{ height: 60, flexDirection: 'row', paddingHorizontal: 10 }}>
                     <View style={{ position: 'relative', width: '100%', height: '100%', backgroundColor: '#464646a8', borderRadius: 20, borderWidth: 1, borderColor: '#d3d3d33a' }}>
                         <TextInput
                             placeholder={I18n.t('PLACEHOLDER.Your-Comment')}

@@ -3,8 +3,8 @@ import React from 'react';
 import Svg, { Defs, Stop, Path, LinearGradient } from "react-native-svg";
 
 const { PI, cos, sin } = Math;
-const GradientBorderCircle = ({ children, style={}, size=41, padding=5, palette=['#ff5722', '#3f51b5'] }) => {
-    const strokeWidth = 2;
+const GradientBorderCircle = ({ children, style={}, size=41, padding=4, palette=['#F78361', '#F54B64'] }) => {
+    const strokeWidth = 1.5;
     const r = size / 2 - strokeWidth / 2;
     const cx = size / 2, cy = size / 2;
     const x = (a) => cx - r * cos(a);

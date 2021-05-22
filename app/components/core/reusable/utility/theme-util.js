@@ -12,6 +12,9 @@ const AppTheme = {
         text: 'white',
         border: '#191919',
         notification: 'white',
+
+        primaryAction: '#F54B64',
+        primaryBlur: '#5C5C5C'
     }
 }
 

@@ -40,7 +40,9 @@ class MainNavigationContainer extends React.Component {
                         overflow: 'hidden',
                         backgroundColor: '#ffffff',
                         position: 'absolute',
-                        borderWidth: 0
+                        borderWidth: 1,
+                        borderColor: 'transparent',
+                        elevation: 0,
                     }
                 }
             }

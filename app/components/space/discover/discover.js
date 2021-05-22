@@ -306,7 +306,8 @@ const styles = StyleSheet.create({
         borderBottomRightRadius: 25,
         borderBottomLeftRadius: 25,
         position: 'relative',
-        borderWidth: 0.3,
+        borderWidth: 1,
+        borderTopWidth: 0,
         borderColor: '#c3c3c36e'
     },
     container_search_bar: {

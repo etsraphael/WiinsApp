@@ -9,11 +9,11 @@ import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faPlay, faCommentLines } from '@fortawesome/pro-light-svg-icons'
+import { faPlay, faCommentLines, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
-import { faEllipsisV } from '@fortawesome/pro-solid-svg-icons'
+// import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons'
 import reducer from '../../../../redux/MyUser/reducer'
 import { AppTheme } from '../utility/theme-util'
 import GradientBorderCircle from '../misc/gradient-border'
@@ -187,7 +187,7 @@ class CardNewFeed extends PureComponent {
                         style={{ height: '100%', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 15, width: '100%' }}
                     >
                         <TouchableOpacity onPress={() => this._goToProfile(publication.profile._id)} style={{ flexDirection: 'row', flex: 9 }}>
-                            <GradientBorderCircle size={41} style={{ marginRight: 10 }} padding={5}>
+                            <GradientBorderCircle size={41} style={{ marginRight: 10 }} padding={4}>
                                 <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                                     <FastImage
                                         style={{ width: '100%', height: '100%', borderRadius: 44 / 2, resizeMode: 'cover' }}
@@ -205,7 +205,7 @@ class CardNewFeed extends PureComponent {
                         </TouchableOpacity>
                         <View style={{ flex: 1 }}>
                             <TouchableOpacity onPress={() => this.props.toggleReportModal()}>
-                                <FontAwesomeIcon icon={faEllipsisV} color={'grey'} size={19} />
+                                <FontAwesomeIcon icon={faEllipsisH} color={'grey'} size={30} />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -232,7 +232,7 @@ class CardNewFeed extends PureComponent {
                         </TouchableOpacity>
                         <View style={{ flex: 1 }}>
                             <TouchableOpacity>
-                                <FontAwesomeIcon icon={faEllipsisV} color={'grey'} size={19} />
+                                <FontAwesomeIcon icon={faEllipsisH} color={AppTheme.colors.primaryBlur} size={19} />
                             </TouchableOpacity>
                         </View>
                 </View>
@@ -245,10 +245,10 @@ class CardNewFeed extends PureComponent {
     // to select like icon
     _displayIconLike() {
         if (!this.props.publication.like.isLike) {
-            return (<FontAwesomeIcon icon={faHeartEmpty} color={'#5C5C5C'} size={25} />)
+            return (<FontAwesomeIcon icon={faHeartEmpty} color={AppTheme.colors.primaryBlur} size={25} />)
         }
         else {
-            return (<FontAwesomeIcon icon={faHeartFull} color={'red'} size={25} />)
+            return (<FontAwesomeIcon icon={faHeartFull} color={AppTheme.colors.primaryAction} size={25} />)
         }
     }
 
@@ -346,7 +346,7 @@ class CardNewFeed extends PureComponent {
             <View style={
                 [styles.card], 
                 {
-                    ...(this.props.lastIndex ? { marginBottom: 50 } : { marginBottom: 0, borderBottomColor: '#cecece', borderBottomWidth: 1 })
+                    ...(this.props.lastIndex ? { marginBottom: 50 } : { marginBottom: 0, borderBottomColor: '#dedede', borderBottomWidth: 1 })
                     , marginTop: this.props.index === 0 ? 20 : 0  
                 }
             }>
@@ -380,6 +380,7 @@ const styles = StyleSheet.create({
     container_footer: {
         width: '100%',
         marginBottom: 25,
+        marginTop: 10,
         paddingHorizontal: 15
     },
     comment_icon: {
@@ -398,7 +399,7 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 3,
+        elevation: 2,
         borderRadius: 15
     }
 })
