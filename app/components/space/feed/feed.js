@@ -171,7 +171,7 @@ class Feed extends React.Component {
                     keyExtractor={(item, index) => item[index]._id}
                     getItemCount={() => this.props.FeedPublications.publications.length}
                     getItem={(data) => data}
-                    scrollEventThrottle={5}
+                    scrollEventThrottle={1}
                     onMomentumScrollEnd={() => this._getPublicationList()}
                 />
             </SafeAreaView>

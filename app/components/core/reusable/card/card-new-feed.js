@@ -17,6 +17,7 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import reducer from '../../../../redux/MyUser/reducer'
 import { AppTheme } from '../utility/theme-util'
 import GradientBorderCircle from '../misc/gradient-border'
+import ImageView from '../misc/image-view'
 
 class CardNewFeed extends PureComponent {
 
@@ -115,7 +116,14 @@ class CardNewFeed extends PureComponent {
                 <View style={styles.container_render_picture}
                     onLayout={(event) => { this.setState({ cardWidth: event.nativeEvent.layout.width }) }}
                 >
-                    <FastImage
+                    {/* <FastImage
+                        style={{ flex: 1, width: '100%', height: this.state.imageHeight || 400, borderRadius: 15 }}
+                        source={{ uri: publication.file, priority: FastImage.priority.normal }}
+                        resizeMode={FastImage.resizeMode.cover}
+                        onLoad={this.onImageLoaded}
+                    /> */}
+
+                    <ImageView
                         style={{ flex: 1, width: '100%', height: this.state.imageHeight || 400, borderRadius: 15 }}
                         source={{ uri: publication.file, priority: FastImage.priority.normal }}
                         resizeMode={FastImage.resizeMode.cover}
