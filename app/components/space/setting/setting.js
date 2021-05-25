@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft, faCertificate, faSignOut, faUserShield } from '@fortawesome/pro-duotone-svg-icons'
+import { faArrowLeft, faCertificate, faSignOut, faUserShield, faLanguage } from '@fortawesome/pro-duotone-svg-icons'
 import { faAngleRight } from '@fortawesome/pro-light-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
@@ -62,6 +62,7 @@ class Setting extends React.Component {
             case 'SettingCertification': return this.props.navigation.navigate('SettingCertification')
             case 'SettingOther': return this.props.navigation.navigate('SettingOther')
             case 'SettingPrivacy': return this.props.navigation.navigate('SettingPrivacy')
+            case 'SettingLanguage': return this.props.navigation.navigate('SettingLanguage')
             case 'Logout': return this._logOut()
         }
     }
@@ -76,6 +77,7 @@ class Setting extends React.Component {
             // { title: I18n.t('CORE.Others'), code: 'SettingOther', icon: <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} /> },
             { title: I18n.t('CORE.Certification'), code: 'SettingCertification', icon: <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} /> },
             { title: 'Privacy', code: 'SettingPrivacy', icon: <FontAwesomeIcon icon={faUserShield} color={'#808080a3'} size={30} /> },
+            { title: I18n.t('SIDEBAR-SETTING.Language'), code: 'SettingLanguage', icon: <FontAwesomeIcon icon={faLanguage} color={'#808080a3'} size={30} /> },
             { title: I18n.t('NAVBAR.Logout'), code: 'Logout', icon: <FontAwesomeIcon icon={faSignOut} color={'#808080a3'} size={30} /> }
         ]
 

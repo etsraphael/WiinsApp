@@ -33,6 +33,18 @@ export default MyUserReducer = (state = initialState, action) => {
         message: action.message
       }
     }
+    case ActionTypes.SET_UP_LANGUAGE_CONFIG: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          config: {
+            ...state.user.config,
+            language: action.payload
+          }
+        }
+      }
+    }
     case ActionTypes.LOGOUT: return initialState
     default: return state
   }
