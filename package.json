@@ -42,7 +42,6 @@
     "react-native-camera": "git+https://git@github.com/react-native-community/react-native-camera.git",
     "react-native-fast-image": "^8.3.4",
     "react-native-ffmpeg": "^0.5.1",
-    "react-native-flipper": "^0.91.2",
     "react-native-fs": "^2.18.0",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-image-crop-picker": "^0.36.2",
