@@ -187,12 +187,11 @@ class MyProfile extends React.Component {
                         <View style={{ flex: 7, paddingLeft: 15, justifyContent: 'space-evenly' }}>
 
                             <View style={{ flexDirection: 'row' }}>
-                                <TouchableOpacity style={{ flex: 2 }} onPress={this.showActionSheet}>
+                                <TouchableOpacity style={{ flex: 1 }} onPress={this.showActionSheet}>
                                     <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
                                         <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Edit')}</Text>
                                     </View>
                                 </TouchableOpacity>
-                                <View style={{ flex: 1 }} />
                             </View>
 
                             <View style={{ position: 'relative', bottom: -15 }}>
