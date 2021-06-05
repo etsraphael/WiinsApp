@@ -289,7 +289,7 @@ export function likeMusicFromPlayerAction(music) {
     }
 }
 
-export function dislikeMusicFromPlayerAction(id) {
+export function dislikeMusicFromPlayerAction(id, space, category) {
     return async (dispatch) => {
         try {
 
@@ -309,8 +309,16 @@ export function dislikeMusicFromPlayerAction(id) {
                     if (response.status == 200) {
 
                         // update the music in the playlist
-                        // to fix
-                        dispatch(dislikeMusicSuccess(id))
+                        switch (space) {
+                            case 'playlist-page': {
+                                dispatch(dislikeMusicSuccess(id))
+                                break;
+                            }
+                            case 'home': {
+                                dispatch(dislikeMusicFromHomeMusic(id, category))
+                                break;
+                            }
+                        }       
 
                         // add the music in the favorite playlist
                         dispatch(pullMusicAfterDisliked(id))

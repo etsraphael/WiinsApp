@@ -27,6 +27,16 @@ class MiniPlayer extends React.Component {
         await this.props.actions.likeMusicFromPlayerAction(this.props.Player.musicIsPlaying.music)
     }
 
+    _dislikeMusic = () => {
+        // send the request
+        return this.props.actions.dislikeMusicFromPlayerAction(
+            this.props.Player.musicIsPlaying.id,
+            this.props.Player.musicIsPlaying.music.space,
+            this.props.Player.musicIsPlaying.music.category
+        )
+    }
+
+
     // to pause the music
     _pause = () => {
         this.props.actions.pausePlayerActions()
@@ -184,7 +194,7 @@ class MiniPlayer extends React.Component {
                         {/* Like Btn */}
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
                             {this.props.Player.musicIsPlaying.isLiked ?
-                                <TouchableOpacity onPress={() => this.props.actions.dislikeMusicFromPlayerAction(this.props.Player.musicIsPlaying.id)} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                <TouchableOpacity onPress={() => this._dislikeMusic()} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
                                     <FontAwesomeIcon icon={faHeart} color={'red'} size={17} />
                                 </TouchableOpacity>
                                 :
