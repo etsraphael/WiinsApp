@@ -29,11 +29,18 @@ class OneMusic extends React.Component {
     // to plauy a music
     _playMusic = async (music, tracklist) => {
 
+        tracklist.forEach((music, index) => tracklist[index] = { 
+            ...music, 
+            space: this.props.space, 
+            category: this.props.category
+        })
+
         const list = [...tracklist]
 
         if (this.props.Player.isPlayling) {
             await this.props.actions.resetPlayerActions()
         }
+
         return this.props.actions.playMusicActions(music, list)
     }
 
@@ -48,8 +55,8 @@ class OneMusic extends React.Component {
     _displayLikeIcon = (liked) => {
         if (liked) {
             return (
-                <TouchableOpacity 
-                    onPress={() => this.props.actions.dislikeMusicAction(this.props.music._id, this.props.music, this.props.space, this.props.category)} 
+                <TouchableOpacity
+                    onPress={() => this.props.actions.dislikeMusicAction(this.props.music._id, this.props.music, this.props.space, this.props.category)}
                     style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <View style={{ borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
                         <FontAwesomeIcon icon={faHeartFull} size={17} color={'red'} />
