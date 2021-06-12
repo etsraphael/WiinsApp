@@ -3,6 +3,14 @@ import AsyncStorage from '@react-native-community/async-storage'
 import { verificationMusicCacheFormat } from './../../../app/services/cache/cache-music-service'
 import { sendError } from './../../../app/services/error/error-service'
 
+export function likeMusicFromHomeMusic(id, category) {
+    return { type: ActionTypes.LIKE_MUSIC_FROM_HOME_MUSIC, id, category }
+}
+
+export function dislikeMusicFromHomeMusic(id, category) {
+    return { type: ActionTypes.DISLIKE_MUSIC_FROM_HOME_MUSIC, id, category }
+}
+
 export function refreshMusicMenuSuccess(menu, rapList) {
     return { 
         type: ActionTypes.REFRESH_MUSIC_MENU_SUCCESS,

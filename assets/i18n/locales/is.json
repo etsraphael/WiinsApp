@@ -93,7 +93,8 @@
     "Enable-notification": "Virkja tilkynningar",
     "Group-creation": "Sköpun hópsins",
     "Mute": "Þagga niður",
-    "Send": "Senda"
+    "Send": "Senda",
+    "days-message-delete-two-weeks": "Skilaboðunum þínum er sjálfkrafa eytt eftir 14 daga"
   },
   "CONFIRMATION": {
     "Delete-Room": "Ertu viss um að eyða þessari umræðu?"
@@ -260,7 +261,21 @@
     "Save-in-phone": "Vista í símanum",
     "No": "Nei",
     "Yes": "Já",
-    "Block-t-user": "Loka á þennan notanda"
+    "Block-t-user": "Loka á þennan notanda",
+    "Message": "Skilaboð",
+    "Friend-request": "Vinabeiðni",
+    "feed": "flæði",
+    "tube": "rör",
+    "Music": "Tónlist",
+    "Page": "Bls",
+    "Music-Project": "Tónlistarverkefni",
+    "Group": "Hópur",
+    "Earlier": "Fyrr",
+    "Notifications": "Tilkynningar",
+    "Report-t-profile": "Tilkynntu um prófílinn",
+    "Unfollow": "Hætta við",
+    "Unfriend": "Óvinur",
+    "Block-User": "Loka á notanda"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -620,7 +635,11 @@
     "Y-dont-have-a-conversation-yet": "Þú átt ekki samtal ennþá.",
     "Date-cannot-be-in-the-past": "Útgáfudagur getur ekki verið í fortíðinni",
     "You-cannot-add-yourself": "Þú getur ekki bætt þér við",
-    "T-content-does-not-exist-anymore": "Þetta innihald er ekki til lengur"
+    "T-content-does-not-exist-anymore": "Þetta innihald er ekki til lengur",
+    "T-publication-no-longer-exists": "Þetta rit er ekki lengur til",
+    "Could-not-play-video": "Gat ekki spilað myndband",
+    "No-music-liked-yet": "Engri tónlist líkaði ennþá",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Þú hefur ekki verið staðfestur vegna krafna þinna. Prófaðu nýjan tíma þegar þú ert tilbúinn."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Ljósmyndin er móttekin",
@@ -698,7 +717,12 @@
     "Yr-verification-request-was-accepted": "Staðfestingarbeiðni þín var samþykkt",
     "Yr-verification-request-was-refused": "Staðfestingarbeiðni þinni var hafnað",
     "Yr-certification-request-was-accepted": "Vottunarbeiðni þín var samþykkt",
-    "Yr-certification-request-was-refused": "Vottunarbeiðni þinni var hafnað"
+    "Yr-certification-request-was-refused": "Vottunarbeiðni þinni var hafnað",
+    "Value-comment-yr-publication": "{{value}} skrifaði athugasemd við birtingu þína",
+    "Value-like-yr-comment-in-a-music-playlist": "{{gildi}} eins og athugasemdir þínar á spilunarlista fyrir tónlist",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} líkaði birting þín í straumnum",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} merkti þig í birtingu í straumnum",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} merkti þig við útgáfu á lagalista fyrir tónlist"
   },
   "PAGE": {
     "Name-page": "Síðuheiti",
@@ -753,11 +777,14 @@
     "my-musics": "Tónlistin mín",
     "my-story": "Færslurnar mínar",
     "my-videos": "Vídeóin mín",
-    "only-f-can-see": "Aðeins vinir geta séð ritin"
+    "only-f-can-see": "Aðeins vinir geta séð ritin",
+    "Edit-cover-photo": "Breyttu forsíðumynd",
+    "Edit-profile-photo": "Breyttu prófílmynd"
   },
   "PUBLICATION": {
     "delete-t-project": "Eyða þessu verkefni",
-    "generate-t-id": "Búðu til fótspor"
+    "generate-t-id": "Búðu til fótspor",
+    "Uploading-publication": "Hleður inn birtingu"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -932,12 +959,12 @@
       "T-b-accepted-b-t-administration": "Að taka við stjórninni",
       "This-feature-requires-verification-to-use.": "Þessi aðgerð krefst staðfestingar til að nota",
       "Upload-a-photo-holding-t-ID-D": "Settu inn mynd með auðkenninu með pappír með dagsetningu dagsins og „Wiins“ skrifar á það.",
-      "Upload-yr-password-id-identity-or-driver-license": "Sendu lykilorð þitt, auðkenni eða ökuskírteini.",
       "Verification": "Sannprófun",
       "Verified-zone": "Staðfest svæði",
       "Y-m-complet-t-following-cdt-t-b-certified": "Þú verður að uppfylla eftirfarandi skilyrði til að fá vottun.",
       "Yr-profil-is-currently-being-checked-D": "Nú er verið að athuga prófílinn þinn. Við munum hafa samband við þig innan 48 klukkustunda með tölvupósti.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Gakktu úr skugga um að hlaða upp bakhlið kortsins ef það er ríkisskírteini (aðeins fyrir landsskírteini)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Gakktu úr skugga um að hlaða upp bakhlið kortsins ef það er ríkisskírteini (aðeins fyrir landsskírteini)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Settu inn vegabréf, persónuskilríki eða ökuskírteini."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Rit mín eru aðeins sýnileg af vinum mínum",
@@ -1022,7 +1049,8 @@
     "Yr-account-has-been-deleted": "Reikningnum þínum hefur verið eytt",
     "Yr-account-is-activated": "Reikningurinn þinn er virkur! Þú getur nú nýtt þér miðstýrðu aðgerðir espace-piin til að eiga samskipti, skemmta þér eða láta vita af þér.",
     "activated-after-15min-payment": "Herferð þín verður staðfest eftir um það bil fimmtán mínútur eftir að greiðsla hefur verið staðfest.",
-    "update-is-done": "Uppfærslunni er lokið"
+    "update-is-done": "Uppfærslunni er lokið",
+    "You-h-been-verified-i-t-platform-D": "Þú hefur verið staðfest á pallinum. Þú getur notið allra aukaefna núna."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Ertu viss um að breyta útgáfudegi verkefnis þíns?",
@@ -1051,7 +1079,10 @@
     "T-content-has-been-reported": "Greint hefur verið frá þessu efni. Stjórnendur okkar munu líta við í 24 tíma fresti til að fara yfir það. Viðurlögum verður beitt ef þetta virðir ekki reglur samfélagsins.",
     "T-user-has-been-blocked-D": "Þessum notanda hefur verið lokað á reikninginn þinn. Ekkert innihald þessa prófíls verður sýnilegt á reikningnum þínum.",
     "W-is-t-reason-to-report-t-post": "Hver er ástæða þess að tilkynna þessa færslu?",
-    "W-is-t-reason-to-report-t-post-D": "Skýrsla þín er nafnlaus. Vinsamlegast veldu bara flokk til að hjálpa skaðræðismönnunum"
+    "W-is-t-reason-to-report-t-post-D": "Skýrsla þín er nafnlaus. Vinsamlegast veldu bara flokk til að hjálpa skaðræðismönnunum",
+    "A-y-s-to-unfollow-this-profile": "Ertu viss um að hætta við þennan prófíl?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ertu viss um að eyða þessum vini á vinalistanum þínum?",
+    "A-y-s-to-delete-t-story": "Ertu viss um að eyða þessari sögu?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Viðvörun. Gakktu úr skugga um að þú hafir rétt heimilisfang"
@@ -1425,7 +1456,8 @@
       "Rock": "Berg",
       "Reggae": "Reggae",
       "Country": "Land"
-    }
+    },
+    "Playlist-Details": "Upplýsingar um lagalista"
   },
   "WIINS-TUBE": {
     "CREATION": {

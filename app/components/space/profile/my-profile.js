@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, TouchableOpacity, ScrollView } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, ScrollView, FlatList, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
@@ -9,11 +9,16 @@ import * as ProfilePublicationActions from '../../../redux/ProfilePublications/a
 import * as MusicProjectListActions from '../../../redux/MusicProjectList/actions'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
+import * as MyProfileActions from './../../../redux/MyProfile/actions'
 import ActionSheet from 'react-native-actionsheet'
 import AsyncStorage from '@react-native-community/async-storage';
-import { faNewspaper, faMusic, faVideo, faArrowLeft, faUserCog } from '@fortawesome/pro-light-svg-icons'
+import { faArrowLeft, faUserCog } from '@fortawesome/pro-light-svg-icons'
+import { faCircle } from '@fortawesome/pro-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import PublicationModalContainer from './../../core/modal/publication-modal-container'
+import OptionPublicationModal from './../../core/modal/option-publication-modal'
+import I18n from '../../../../assets/i18n/i18n'
+import { openImageCropper } from './../../../services/pictures/crop-picture-service'
 
 class MyProfile extends React.Component {
 
@@ -21,12 +26,28 @@ class MyProfile extends React.Component {
         super(props)
         this.state = {
             space: 'feed',
-            modal: false
+            modal: false,
+            reportModal: false,
+            reportModalExist: false,
+            reportPublicationId: null,
+            ownerReportPublication: null,
+            spaceAvalaible: ['feed'],
+            dropdownMenu: [I18n.t('PROFILE.Edit-profile-photo'), I18n.t('PROFILE.Edit-cover-photo'), I18n.t('NAVBAR.Logout'), I18n.t('CORE.Cancel')]
         }
     }
 
     componentDidMount() {
         this.props.actions.getByModeProfile(1, 'myfeedpublication')
+        this._initializeNavBar()
+    }
+
+    _initializeNavBar = () => {
+        switch (this.props.MyProfile.profile.actifSpace) {
+            case 1: return this.setState({ spaceAvalaible: ['feed'] })
+            case 2: return this.setState({ spaceAvalaible: ['feed', 'music'] })
+            case 3: return this.setState({ spaceAvalaible: ['feed', 'tube'] })
+            case 4: return this.setState({ spaceAvalaible: ['feed', 'music', 'tube'] })
+        }
     }
 
     _toggleModal = (event) => {
@@ -35,10 +56,32 @@ class MyProfile extends React.Component {
         this.setState({ modal: !this.state.modal, PublicationModal: event })
     }
 
+    // save photo edited
+    _savePhotoEdited = (type, config) => {
+        openImageCropper(config).then((image) => {
+            if (!image) return null
+            switch (type) {
+                case 'profile': return this.props.actions.editPhotoProfile(image.path)
+                case 'cover': return this.props.actions.editPhotoCover(image.path)
+            }
+        })
+    }
+
     // to set the dropdowns actions
     _menuFunctions(index) {
         switch (index) {
-            case 0: return this._logOut()
+            case 0: return this._savePhotoEdited('profile', {
+                width: 400,
+                height: 400,
+                cropping: true,
+                cropperCircleOverlay: true
+            })
+            case 1: return this._savePhotoEdited('cover', {
+                width: 700,
+                height: 400,
+                cropping: true
+            })
+            case 2: return this._logOut()
             default: return null
         }
     }
@@ -62,48 +105,18 @@ class MyProfile extends React.Component {
         }
     }
 
-    // display nav bar profile
-    _renderNavBarProfile = () => {
-        switch (this.props.MyProfile.profile.actifSpace) {
-            // default
-            case 1: return null
-            // music
-            case 2: return (
-                <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <TouchableOpacity onPress={() => this.setState({ space: 'feed' })}
-                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25} />
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => { this.setState({ space: 'music' }); this.props.actions.getMymusicProjectList(1) }}
-                        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faMusic} color={this._spaceSelected('music')} size={25} />
-                    </TouchableOpacity>
-                </View>
-            )
-            // tube
-            case 3: return (
-                <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faVideo} color={this._spaceSelected('tube')} size={25} />
-                    </TouchableOpacity>
-                </View>
-            )
-            // music and tube
-            case 4: return (
-                <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faNewspaper} color={this._spaceSelected('feed')} size={25} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faVideo} color={this._spaceSelected('tube')} size={25} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faMusic} color={this._spaceSelected('music')} size={25} />
-                    </TouchableOpacity>
-                </View>)
+    _changeSpace = (space) => {
+        switch (space) {
+            case 'music':
+                this.props.actions.getMymusicProjectList(1)
+                return this.setState({ space: 'music' })
+            case 'feed': {
+                return this.setState({ space: 'feed' })
+            }
+            case 'tube': {
+                return this.setState({ space: 'tube' })
+            }
+            default: return null
         }
     }
 
@@ -115,52 +128,82 @@ class MyProfile extends React.Component {
 
                 <View style={{ flex: 1, position: 'relative' }}>
 
-                    {/* Back Btn */}
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}
-                        style={{ position: 'absolute', left: 25, width: 35, height: 35, top: 55, zIndex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
-                    </TouchableOpacity>
-
-                    {/* Dropdown Btn */}
-                    <TouchableOpacity onPress={this.showActionSheet}
-                        style={{ position: 'absolute', right: 25, width: 35, height: 35, top: 55, zIndex: 1 }}>
-                        <FontAwesomeIcon icon={faUserCog} color={'white'} size={30} />
-                    </TouchableOpacity>
+                    {/* Title and btn */}
+                    <View style={{ position: 'absolute', top: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', zIndex: 1, width: '100%' }}>
+                        <View style={{ flex: 1, justifyContent: 'flex-start' }}>
+                            <TouchableOpacity onPress={() => this.props.navigation.goBack()}
+                                style={{ justifyContent: 'center', alignItems: 'center' }}>
+                                <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>{I18n.t('CORE.Profile')}</Text>
+                        </View>
+                        <View style={{ flex: 1 }}>
+                            <TouchableOpacity onPress={this.showActionSheet}
+                                style={{ justifyContent: 'flex-end' }}>
+                                <FontAwesomeIcon icon={faUserCog} color={'white'} size={30} />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
 
                     {/* Cover Picture */}
                     <FastImage
-                        style={{ height: 200 }}
+                        style={{ height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30 }}
                         resizeMode={FastImage.resizeMode.cover}
                         source={{ uri: this.props.MyProfile.profile.picturecover, priority: FastImage.priority.normal }}
                     />
 
+                    { this.props.MyProfile.photoCoverIsLoading && 
+                        <View style={{height: 230, width: '100%', justifyContent:'center', alignItems: 'center', position: 'absolute'}}>
+                            <ActivityIndicator  size='large' color="#ffffff"/>
+                        </View>
+                    }
+
                     {/* Background Filter */}
-                    <View style={{ backgroundColor: '#0000004d', width: '100%', height: 200, position: 'absolute' }} />
+                    <View style={{ backgroundColor: '#0000004d', width: '100%', height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30, position: 'absolute' }} />
 
                     {/* Profile picture and name */}
-                    <View style={{ position: 'absolute', top: 110, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
-                        <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
+                    <View style={{ bottom: -50, width: '100%', flexDirection: 'row', paddingHorizontal: 5, position: 'absolute', paddingHorizontal: 35 }}>
+                        <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
                             <FastImage
-                                style={{ height: 66, width: 66, borderRadius: 66 }}
+                                style={{ width: '100%', aspectRatio: 1, borderRadius: 15, borderColor: '#6600ff', borderWidth: 2 }}
                                 source={{
                                     uri: this.props.MyProfile.profile.pictureprofile,
                                     priority: FastImage.priority.normal,
                                 }}
                                 resizeMode={FastImage.resizeMode.cover}
                             />
+
+                            { this.props.MyProfile.photoProfileIsLoading && 
+                                <View style={{justifyContent: 'center', alignItems: 'center', position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}>
+                                    <ActivityIndicator  size='large' color="#ffffff"/>
+                                </View>
+                            }
+
+                            
+
                         </View>
-                        <View style={{ flex: 7, paddingLeft: 5, justifyContent: 'center' }}>
-                            <Text style={{ fontSize: 22, color: 'white', fontFamily: 'Avenir-Heavy' }}>@{this.props.MyProfile.profile._meta.pseudo}</Text>
-                            <Text style={{ color: 'white', fontSize: 15, fontFamily: 'Avenir-Book' }}>Community : {this.props.MyProfile.profile.communityTotal}</Text>
+                        <View style={{ flex: 7, paddingLeft: 15, justifyContent: 'space-evenly' }}>
+
+                            <View style={{ flexDirection: 'row' }}>
+                                <TouchableOpacity style={{ flex: 1 }} onPress={this.showActionSheet}>
+                                    <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                                        <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{I18n.t('CORE.Edit')}</Text>
+                                    </View>
+                                </TouchableOpacity>
+                            </View>
+
+                            <View style={{ position: 'relative', bottom: -15 }}>
+                                <Text style={{ fontSize: 22, color: '#333333', fontFamily: 'Avenir-Heavy' }}>@{this.props.MyProfile.profile._meta.pseudo}</Text>
+                                <Text style={{ color: '#77838F', fontSize: 15, fontFamily: 'Avenir-Book' }}>{I18n.t('CORE.Community')} : {this.props.MyProfile.profile.communityTotal}</Text>
+                            </View>
                         </View>
                     </View>
 
-                    {/* Navbar */}
-                    {this._renderNavBarProfile()}
-
                 </View>
 
-
+                <View style={{ height: 75 }} />
 
             </View>
         )
@@ -179,38 +222,82 @@ class MyProfile extends React.Component {
     // to display the content of the profile
     _listContent = () => {
         switch (this.state.space) {
-            case 'feed': return (<ProfilePublication toggleModal={(event) => this._toggleModal(event)} />)
+            case 'feed': return (
+                <ProfilePublication
+                    toggleModal={(event) => this._toggleModal(event)}
+                    toggleReportModal={(id, ownerId) => this._toggleReportModal(id, ownerId)}
+                />
+            )
             case 'music': return (<ProfileMusic />)
+            case 'tube': return (<View />)
         }
+    }
+
+    _toggleReportModal = (id, ownerId) => {
+        this.setState({ reportModal: !this.state.reportModal, reportPublicationId: id, ownerReportPublication: ownerId })
+        setTimeout(() => this.setState({ reportModalExist: !this.state.reportModalExist }), 100)
     }
 
     _goToProfile = () => {
         this.setState({ modal: false, PublicationModal: null })
     }
-    
+
+    _actifTextNavbar = (item) => {
+        if (this.state.space == item) return { color: '#6600ff' }
+    }
+
+    _navbarRender = () => {
+        return (
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                <FlatList
+                    data={this.state.spaceAvalaible}
+                    horizontal={true}
+                    keyExtractor={(item) => item.toString()}
+                    renderItem={({ item }) =>
+                        <TouchableOpacity style={{ paddingVertical: 5, paddingHorizontal: 7, flexDirection: 'row', alignItems: 'center' }} onPress={() => this._changeSpace(item)}>
+                            {this.state.space == item && <FontAwesomeIcon style={{ margin: 5 }} icon={faCircle} color={'#6600ff'} size={10} />}
+                            <Text style={[styles.text_navbar, this._actifTextNavbar(item)]}>{I18n.t('CORE.' + item)}</Text>
+                        </TouchableOpacity>
+                    }
+                />
+            </View>
+        )
+    }
+
     render() {
 
         return (
             <View style={styles.container}>
                 <ScrollView>
                     {this._renderHeader()}
+                    {this._navbarRender()}
                     {this._renderBody()}
                 </ScrollView>
                 <ActionSheet
                     ref={o => this.ActionSheet = o}
-                    options={['Deconnexion', 'Cancel']}
-                    cancelButtonIndex={2}
-                    destructiveButtonIndex={1}
+                    options={this.state.dropdownMenu}
+                    cancelButtonIndex={3}
                     onPress={(index) => { this._menuFunctions(index) }}
                 />
 
-                {this.state.modal ?
+                {this.state.modal &&
                     <PublicationModalContainer
                         publicationModal={this.state.PublicationModal}
                         toggleModal={(event) => this._toggleModal(event)}
                         goToProfile={(payload) => this._goToProfile(payload)}
                         pageName={'Profile'}
-                    /> : null}
+                    />
+                }
+
+                {this.state.reportModal &&
+                    <OptionPublicationModal
+                        toggleReportModal={(event) => this._toggleReportModal(event)}
+                        isVisible={this.state.reportModal}
+                        publicationId={this.state.reportPublicationId}
+                        myProfileId={this.props.MyProfile.profile._id}
+                        ownerId={this.state.ownerReportPublication}
+                    />
+                }
             </View>
         )
     }
@@ -233,6 +320,11 @@ const styles = StyleSheet.create({
     },
     body_container: {
         paddingTop: 5
+    },
+    text_navbar: {
+        color: '#77838F',
+        fontSize: 19,
+        fontWeight: '600'
     }
 })
 
@@ -242,11 +334,11 @@ const mapStateToProps = state => ({
 
 const ActionCreators = Object.assign(
     {},
-    // PublicationFeedActions,
     ProfilePublicationActions,
     MusicProjectListActions,
     MyUserActions,
-    PublicationInModalActions
+    PublicationInModalActions,
+    MyProfileActions
 )
 
 const mapDispatchToProps = dispatch => ({

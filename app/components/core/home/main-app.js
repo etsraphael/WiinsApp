@@ -8,6 +8,8 @@ import SignNavigation from './../../../navigation/sign-naviation'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
 import { listenerMusic } from './../../../services/music/music-service'
 import AsyncStorage from '@react-native-community/async-storage';
+import TrackPlayer from 'react-native-track-player';
+import i18n from 'i18next'
 
 class MainApp extends React.Component {
 
@@ -20,12 +22,41 @@ class MainApp extends React.Component {
     }
 
     componentDidMount = async () => {
-        this.musicProgress = listenerMusic(this.props.actions)
+        this.musicProgress = listenerMusic(this.props)
 
         const userToken = await AsyncStorage.getItem('userToken')
-        if(!!userToken) { this.setState({userToken}) }
+        if(!!userToken) { 
+            this.setState({userToken})
+            if(!!this.props.MyUser.user){
+                i18n.changeLanguage(this.props.MyUser.user.config.language)
+            }
+        }
 
+        this._listenerMusicNotification()
     }
+
+    _listenerMusicNotification = () => {
+
+        TrackPlayer.addEventListener('remote-play', () => {
+            this.props.actions.continuePlayerActions()
+        })
+    
+        TrackPlayer.addEventListener('remote-pause', () => {
+            this.props.actions.pausePlayerActions()
+        })
+    
+        TrackPlayer.addEventListener('remote-previous', () => {            
+            if (this.props.Player.trackList.map(x => x.id).indexOf(this.props.Player.musicIsPlaying.id) !== 0) {
+                this.props.actions.previousMusicActions()
+            }
+        })
+    
+        TrackPlayer.addEventListener('remote-next', () => {
+            const indexNextMusic = this.props.Player.trackList.map(x => x.id).indexOf(this.props.Player.musicIsPlaying.id) + 1
+            const limit = this.props.Player.trackList.length - 1
+            if (indexNextMusic <= limit) this.props.actions.nextMusicActions()
+        })
+    } 
 
     componentWillUnmount = async () => {
         this.musicProgress.remove()

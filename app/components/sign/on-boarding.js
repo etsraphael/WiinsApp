@@ -6,11 +6,13 @@ import I18n from '../../../assets/i18n/i18n'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as PlayerMusicActions from '../../redux/Player/actions'
+import { setTheLanguageOfTheDeviceByDefault } from './../../services/translation/translation-service'
 
 class OnBoarding extends React.Component {
 
     componentDidMount() {
         this.props.actions.resetPlayerActions()
+        setTheLanguageOfTheDeviceByDefault()
     }
 
     render() {

@@ -3,12 +3,11 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
-
 import * as PlayerMusicActions from '../../../redux/Player/actions'
 import * as PlaylistPageActions from '../../../redux/PlaylistMusicPage/actions'
 import FastImage from 'react-native-fast-image'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faHeart as faHeartEmpty, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
+import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull, faArrowDown } from '@fortawesome/pro-solid-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 import Spinner from 'react-native-spinkit'
@@ -23,18 +22,25 @@ class OneMusic extends React.Component {
 
     // like action
     _likeAction = async () => {
-        await this.props.actions.likeMusicAction(this.props.music._id, this.props.music)
-        cacheOneMusic(this.props.music, this.props.actions)
+        await this.props.actions.likeMusicAction(this.props.music._id, this.props.music, this.props.space, this.props.category)
+        cacheOneMusic(this.props.music, this.props.actions, this.props.space)
     }
 
     // to plauy a music
     _playMusic = async (music, tracklist) => {
+
+        tracklist.forEach((music, index) => tracklist[index] = { 
+            ...music, 
+            space: this.props.space, 
+            category: this.props.category
+        })
 
         const list = [...tracklist]
 
         if (this.props.Player.isPlayling) {
             await this.props.actions.resetPlayerActions()
         }
+
         return this.props.actions.playMusicActions(music, list)
     }
 
@@ -49,7 +55,9 @@ class OneMusic extends React.Component {
     _displayLikeIcon = (liked) => {
         if (liked) {
             return (
-                <TouchableOpacity onPress={() => this.props.actions.dislikeMusicAction(this.props.music._id, this.props.music)} style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                <TouchableOpacity
+                    onPress={() => this.props.actions.dislikeMusicAction(this.props.music._id, this.props.music, this.props.space, this.props.category)}
+                    style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                     <View style={{ borderRadius: 35, overflow: 'hidden', padding: 6, paddingTop: 7 }}>
                         <FontAwesomeIcon icon={faHeartFull} size={17} color={'red'} />
                     </View>
@@ -96,7 +104,7 @@ class OneMusic extends React.Component {
                 <View style={styles.description_container}>
                     <FastImage
                         style={styles.image_container} resizeMode={FastImage.resizeMode.cover}
-                        source={{ uri: music.profile.pictureprofile, priority: FastImage.priority.normal }}
+                        source={{ uri: music.imgUrl, priority: FastImage.priority.normal }}
                     />
                     <View style={{ paddingLeft: 15, justifyContent: 'center' }}>
                         <Text style={styles.title_text}>{music.name}</Text>
@@ -117,9 +125,9 @@ class OneMusic extends React.Component {
                 {/* Option Btn */}
                 <View style={{ flex: 2, flexDirection: 'row' }}>
                     {this._displayLikeIcon(music.isLiked)}
-                    <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                    {/* <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faEllipsisH} size={28} color={'#b3b3b3'} />
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
 
             </TouchableOpacity>
@@ -141,7 +149,7 @@ class OneMusic extends React.Component {
                     <View style={styles.description_container}>
                         <FastImage
                             style={styles.image_container} resizeMode={FastImage.resizeMode.cover}
-                            source={{ uri: music.profile.pictureprofile, priority: FastImage.priority.normal }}
+                            source={{ uri: music.imgUrl, priority: FastImage.priority.normal }}
                         />
                         <View style={{ paddingLeft: 15, justifyContent: 'center' }}>
                             <Text style={[styles.title_text, { color: 'white' }]}>{music.name}</Text>
@@ -165,9 +173,9 @@ class OneMusic extends React.Component {
                     {/* Option Btn */}
                     <View style={{ flex: 2, flexDirection: 'row' }}>
                         {this._displayLikeIconWhenMusicPlaying(music.isLiked)}
-                        <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                        {/* <TouchableOpacity style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                             <FontAwesomeIcon icon={faEllipsisH} size={28} color={'white'} />
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </View>
 
                 </TouchableOpacity>

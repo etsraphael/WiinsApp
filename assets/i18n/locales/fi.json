@@ -93,7 +93,8 @@
     "Enable-notification": "Salli ilmoitukset",
     "Group-creation": "Ryhmän luominen",
     "Mute": "Mykistää",
-    "Send": "Lähettää"
+    "Send": "Lähettää",
+    "days-message-delete-two-weeks": "Viestisi poistetaan automaattisesti 14 päivän kuluttua"
   },
   "CONFIRMATION": {
     "Delete-Room": "Haluatko varmasti poistaa tämän keskustelun?"
@@ -260,7 +261,21 @@
     "Save-in-phone": "Tallenna puhelimeen",
     "No": "Ei",
     "Yes": "Joo",
-    "Block-t-user": "Estä tämä käyttäjä"
+    "Block-t-user": "Estä tämä käyttäjä",
+    "Message": "Viesti",
+    "Friend-request": "Kaveripyyntö",
+    "feed": "virtaus",
+    "tube": "putki",
+    "Music": "Musiikki",
+    "Page": "Sivu",
+    "Music-Project": "Musiikkiprojekti",
+    "Group": "Ryhmä",
+    "Earlier": "Aikaisemmin",
+    "Notifications": "Ilmoitukset",
+    "Report-t-profile": "Ilmoita profiili",
+    "Unfollow": "Älä seuraa",
+    "Unfriend": "Epäystävällinen",
+    "Block-User": "Estä käyttäjä"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -620,7 +635,11 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Sinun on ylennettävä johtaja ennen ryhmästä poistumista",
     "Date-cannot-be-in-the-past": "Julkaisupäivä ei voi olla menneisyydessä",
     "You-cannot-add-yourself": "Et voi lisätä itseäsi",
-    "T-content-does-not-exist-anymore": "Tätä sisältöä ei ole enää olemassa"
+    "T-content-does-not-exist-anymore": "Tätä sisältöä ei ole enää olemassa",
+    "T-publication-no-longer-exists": "Tätä julkaisua ei ole enää olemassa",
+    "Could-not-play-video": "Videota ei voitu toistaa",
+    "No-music-liked-yet": "Musiikkia ei vielä tykätty",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Sinua ei ole vahvistettu vaatimustenne vuoksi. Kokeile uutta aikaa, kun olet valmis."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Kuva on vastaanotettu",
@@ -698,7 +717,12 @@
     "tag-you-in-comment": "merkitsi sinut kommenttiin",
     "tag-you-in-playlist": "merkitsi sinut soittolistaan",
     "you-appear-in-project-of": "Olet mukana uudessa projektissa",
-    "you-have": "sinulla on"
+    "you-have": "sinulla on",
+    "Value-comment-yr-publication": "{{value}} kommentoi julkaisuasi",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} tykkää kommentistasi musiikin soittolistalla",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} tykkäsi julkaisustasi syötteessä",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} merkitsi sinut syötteen julkaisuun",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} merkitsi sinut julkaisussa musiikin soittolistaan"
   },
   "PAGE": {
     "Name-page": "Sivun nimi",
@@ -753,11 +777,14 @@
     "my-musics": "Minun musiikkini",
     "my-story": "Omat viestit",
     "my-videos": "Omat videot",
-    "only-f-can-see": "Vain ystävät näkevät julkaisut"
+    "only-f-can-see": "Vain ystävät näkevät julkaisut",
+    "Edit-cover-photo": "Muokkaa kansikuvaa",
+    "Edit-profile-photo": "Muokkaa profiilikuvaa"
   },
   "PUBLICATION": {
     "delete-t-project": "Poista tämä projekti",
-    "generate-t-id": "Luo jalanjälki"
+    "generate-t-id": "Luo jalanjälki",
+    "Uploading-publication": "Ladataan julkaisua"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -933,11 +960,11 @@
       "T-b-accepted-b-t-administration": "Hallinnon on hyväksyttävä",
       "This-feature-requires-verification-to-use.": "Tämän ominaisuuden käyttö vaatii vahvistuksen",
       "Upload-a-photo-holding-t-ID-D": "Lataa valokuva, jossa on henkilötodistus, ja paperi, jossa on tämän päivän päivämäärä ja siihen kirjoitetaan \"Wiins\".",
-      "Upload-yr-password-id-identity-or-driver-license": "Lataa salasanasi, henkilöllisyytesi tai ajokortti.",
       "Verification": "Todentaminen",
       "Verified-zone": "Vahvistettu vyöhyke",
       "Y-m-complet-t-following-cdt-t-b-certified": "Sinun on täytettävä seuraavat ehdot saadaksesi sertifioinnin.",
-      "Yr-profil-is-currently-being-checked-D": "Profiiliasi tarkistetaan parhaillaan. Otamme sinuun yhteyttä 48 tunnin sisällä sähköpostitse."
+      "Yr-profil-is-currently-being-checked-D": "Profiiliasi tarkistetaan parhaillaan. Otamme sinuun yhteyttä 48 tunnin sisällä sähköpostitse.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Lataa passi, henkilöllisyystodistus tai ajokortti."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Ainoastaan ystäväni näkevät julkaisuni",
@@ -1022,7 +1049,8 @@
     "Yr-account-has-been-deleted": "Tilisi on poistettu",
     "Yr-account-is-activated": "Tilisi on aktivoitu! Nyt voit hyödyntää espace-piin-palvelujen keskitettyjä toimintoja kommunikoida, viihdyttää itseäsi tai tehdä itsestäsi tunnetuksi.",
     "activated-after-15min-payment": "Kampanjasi vahvistetaan noin viidentoista minuutin kuluttua maksun vahvistamisesta.",
-    "update-is-done": "Päivitys on valmis"
+    "update-is-done": "Päivitys on valmis",
+    "You-h-been-verified-i-t-platform-D": "Sinut on vahvistettu alustalla. Voit nauttia kaikista extroista nyt."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Haluatko varmasti muuttaa projektisi julkaisupäivää?",
@@ -1051,7 +1079,10 @@
     "T-content-has-been-reported": "Tästä sisällöstä on raportoitu. Moderaattorimme tarkistavat sen 24 tunnin viiveellä. Seuraamusta sovelletaan, jos se ei noudata yhteisön sääntöjä.",
     "T-user-has-been-blocked-D": "Tämä käyttäjä on estetty tililtäsi. Mikään tämän profiilin sisältö ei ole näkyvissä tililläsi.",
     "W-is-t-reason-to-report-t-post": "Mikä on syy ilmoittaa tästä viestistä?",
-    "W-is-t-reason-to-report-t-post-D": "Raporttisi on tuntematon. Valitse vain luokka, joka auttaa moratoreja"
+    "W-is-t-reason-to-report-t-post-D": "Raporttisi on tuntematon. Valitse vain luokka, joka auttaa moratoreja",
+    "A-y-s-to-unfollow-this-profile": "Haluatko varmasti poistaa tämän profiilin seuraamisen?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Haluatko varmasti poistaa tämän ystävän ystäväluettelostasi?",
+    "A-y-s-to-delete-t-story": "Haluatko varmasti poistaa tämän tarinan?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Varoitus. Varmista, että sinulla on oikea osoite"
@@ -1425,7 +1456,8 @@
       "Rock": "Rock",
       "Reggae": "Reggae",
       "Country": "Maa"
-    }
+    },
+    "Playlist-Details": "Soittolistan tiedot"
   },
   "WIINS-TUBE": {
     "CREATION": {

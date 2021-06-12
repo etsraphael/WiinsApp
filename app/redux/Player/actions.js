@@ -3,6 +3,7 @@ import TrackPlayer from 'react-native-track-player'
 import AsyncStorage from '@react-native-community/async-storage'
 import { likeMusicSuccess, dislikeMusicSuccess } from './../PlaylistMusicPage/actions'
 import { addMusicAfterLiked, pullMusicAfterDisliked } from './../MyFavMusic/actions'
+import { likeMusicFromHomeMusic, dislikeMusicFromHomeMusic } from './../MusicMenu/actions'
 import { sendError } from './../../../app/services/error/error-service'
 
 export function continueMusic() {
@@ -73,7 +74,7 @@ export function progessTimerActions(position, duration) {
     return (dispatch, props) => {
 
         // control the loops
-        if ( ((Math.round(duration) - Math.round(position)) < 0.5 ) && props().Player.repeatMode == 'music') {
+        if (((Math.round(duration) - Math.round(position)) < 0.5) && props().Player.repeatMode == 'music') {
             TrackPlayer.seekTo(0)
             return null
         }
@@ -125,6 +126,20 @@ export function playMusicActions(music, payload) {
             }
 
             TrackPlayer.setupPlayer().then(async () => {
+                TrackPlayer.updateOptions({
+                    stopWithApp: true,
+                    capabilities: [
+                        TrackPlayer.CAPABILITY_PLAY,
+                        TrackPlayer.CAPABILITY_PAUSE,
+                        TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
+                        TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+                        TrackPlayer.CAPABILITY_STOP,
+                    ],
+                    compactCapabilities: [
+                        TrackPlayer.CAPABILITY_PLAY,
+                        TrackPlayer.CAPABILITY_PAUSE
+                    ]
+                });
                 await TrackPlayer.add(tracklist)
                 TrackPlayer.skip(music._id)
                 TrackPlayer.play()
@@ -132,7 +147,7 @@ export function playMusicActions(music, payload) {
 
             return dispatch(playMusic(tracklist[tracklist.map(x => x.id).indexOf(music._id)], tracklist))
 
-        } catch (error) { 
+        } catch (error) {
             sendError(error)
             return null
         }
@@ -182,7 +197,7 @@ export function playRandomMusicInPlaylistActions(payload) {
             })
 
             return dispatch(playMusic(firstMusic, musicListFormat))
-        } catch (error) { 
+        } catch (error) {
             sendError(error)
             return null
         }
@@ -249,7 +264,16 @@ export function likeMusicFromPlayerAction(music) {
                     if (response.status == 200) {
 
                         // update the music in the playlist
-                        dispatch(likeMusicSuccess(music._id))
+                        switch (music.space) {
+                            case 'playlist-page': {
+                                dispatch(likeMusicSuccess(music._id))
+                                break
+                            }
+                            case 'home': {
+                                dispatch(likeMusicFromHomeMusic(music._id, music.category))
+                                break
+                            }
+                        }
 
                         // add the music in the favorite playlist
                         dispatch(addMusicAfterLiked(music))
@@ -265,7 +289,7 @@ export function likeMusicFromPlayerAction(music) {
     }
 }
 
-export function dislikeMusicFromPlayerAction(id) {
+export function dislikeMusicFromPlayerAction(id, space, category) {
     return async (dispatch) => {
         try {
 
@@ -285,7 +309,16 @@ export function dislikeMusicFromPlayerAction(id) {
                     if (response.status == 200) {
 
                         // update the music in the playlist
-                        dispatch(dislikeMusicSuccess(id))
+                        switch (space) {
+                            case 'playlist-page': {
+                                dispatch(dislikeMusicSuccess(id))
+                                break;
+                            }
+                            case 'home': {
+                                dispatch(dislikeMusicFromHomeMusic(id, category))
+                                break;
+                            }
+                        }       
 
                         // add the music in the favorite playlist
                         dispatch(pullMusicAfterDisliked(id))
@@ -305,15 +338,15 @@ export function followArtist(id) {
     return { type: ActionTypes.FOLLOW_ARTIST, id }
 }
 
-export function followArtistSuccess() {
-    return { type: ActionTypes.FOLLOW_ARTIST_SUCCESS }
+export function followArtistSuccess(profileId) {
+    return { type: ActionTypes.FOLLOW_ARTIST_SUCCESS, profileId }
 }
 
 export function followArtistFail(id) {
     return { type: ActionTypes.FOLLOW_ARTIST_FAIL, id }
 }
 
-export function followArtistActions(musicId, profileId) {
+export function followArtistActions(profileId) {
     return async (dispatch) => {
         try {
             dispatch(followArtist())
@@ -328,7 +361,9 @@ export function followArtistActions(musicId, profileId) {
             })
                 .then((response) => response.json())
                 .then(response => {
-                    if (response.status == 200) return dispatch(followArtistSuccess())
+                    if (response.status == 200) {
+                        return dispatch(followArtistSuccess(profileId))
+                    }
                     dispatch(followArtistFail(response.status))
                 })
 
@@ -370,13 +405,13 @@ export function shuffleMusicsAction() {
 
         // shake the queue
         musicList = musicQueue
-        .map((a) => ({ sort: Math.random(), value: a }))
-        .sort((a, b) => a.sort - b.sort)
-        .map((a) => a.value)
+            .map((a) => ({ sort: Math.random(), value: a }))
+            .sort((a, b) => a.sort - b.sort)
+            .map((a) => a.value)
 
         // update the queue
         await TrackPlayer.add(musicList)
-        
+
         return dispatch(shuffleMusics())
     }
 }
@@ -386,15 +421,15 @@ export function unshuffleMusicsAction() {
 
 
         // get the old queue
-        let musicQueue = await TrackPlayer.getQueue() 
+        let musicQueue = await TrackPlayer.getQueue()
 
         // reset the queue
         await TrackPlayer.removeUpcomingTracks()
 
         // get the rest of the music
         const newList = []
-        for(let music of props().Player.trackList){
-            if(musicQueue.map(x => x.id).indexOf(music._id) !== 1) newList.push(music)
+        for (let music of props().Player.trackList) {
+            if (musicQueue.map(x => x.id).indexOf(music._id) !== 1) newList.push(music)
         }
 
         // update the queue

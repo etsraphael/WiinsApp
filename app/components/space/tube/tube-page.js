@@ -203,7 +203,7 @@ class TubePage extends React.Component {
                 <View style={{ paddingHorizontal: 25, paddingTop: 15 }}>
                     <View style={{ flexWrap: 'wrap' }}>
                         <Text style={{ fontSize: 22, fontFamily: 'Avenir-Heavy', letterSpacing: 1, color: '#1E2432', paddingHorizontal: 5 }}>{title}</Text>
-                        <View>
+                        <View style={{ marginTop: 5 }}>
                             <LinearGradient colors={['#31B3D8', '#784BEA']} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={{ height: 3, width: '100%', borderRadius: 35 }} />
                         </View>
                     </View>

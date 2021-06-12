@@ -51,7 +51,8 @@
     "Enable-notification": "ਸੂਚਨਾਵਾਂ ਨੂੰ ਸਮਰੱਥ ਕਰੋ",
     "Group-creation": "ਸਮੂਹ ਦੀ ਸਿਰਜਣਾ",
     "Mute": "ਚੁੱਪ",
-    "Send": "ਭੇਜੋ"
+    "Send": "ਭੇਜੋ",
+    "days-message-delete-two-weeks": "ਤੁਹਾਡੇ ਸੁਨੇਹੇ 14 ਦਿਨਾਂ ਬਾਅਦ ਆਪਣੇ ਆਪ ਹਟਾਏ ਜਾਣਗੇ"
   },
   "CONFIRMATION": {
     "Delete-Room": "ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਇਸ ਵਿਚਾਰ ਵਟਾਂਦਰੇ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ ?"
@@ -218,7 +219,21 @@
     "Save-in-phone": "ਫੋਨ ਵਿੱਚ ਸੇਵ ਕਰੋ",
     "No": "ਨਹੀਂ",
     "Yes": "ਹਾਂ",
-    "Block-t-user": "ਇਸ ਉਪਭੋਗਤਾ ਨੂੰ ਬਲੌਕ ਕਰੋ"
+    "Block-t-user": "ਇਸ ਉਪਭੋਗਤਾ ਨੂੰ ਬਲੌਕ ਕਰੋ",
+    "Message": "ਸੁਨੇਹਾ",
+    "Friend-request": "ਦੋਸਤ ਦੀ ਬੇਨਤੀ",
+    "feed": "ਪ੍ਰਵਾਹ",
+    "tube": "ਟਿਊਬ",
+    "Music": "ਸੰਗੀਤ",
+    "Page": "ਪੇਜ",
+    "Music-Project": "ਸੰਗੀਤ ਪ੍ਰੋਜੈਕਟ",
+    "Group": "ਸਮੂਹ",
+    "Earlier": "ਪਹਿਲਾਂ",
+    "Notifications": "ਨੋਟੀਫਿਕੇਸ਼ਨ",
+    "Report-t-profile": "ਪ੍ਰੋਫਾਈਲ ਦੀ ਰਿਪੋਰਟ ਕਰੋ",
+    "Unfollow": "ਅਣਜਾਣ",
+    "Unfriend": "ਅਨਫ੍ਰੈਂਡ",
+    "Block-User": "ਬਲਾਕ ਉਪਭੋਗਤਾ"
   },
   "COUNTRY": {
     "AD": " ਅੰਡੋਰਾ",
@@ -578,7 +593,11 @@
     "Y-dont-have-a-conversation-yet": "ਤੁਹਾਡੇ ਕੋਲ ਅਜੇ ਗੱਲਬਾਤ ਨਹੀਂ ਹੈ.",
     "Date-cannot-be-in-the-past": "ਰੀਲੀਜ਼ ਦੀ ਤਾਰੀਖ ਅਤੀਤ ਵਿੱਚ ਨਹੀਂ ਹੋ ਸਕਦੀ",
     "You-cannot-add-yourself": "ਤੁਸੀਂ ਆਪਣੇ ਆਪ ਨੂੰ ਸ਼ਾਮਲ ਨਹੀਂ ਕਰ ਸਕਦੇ",
-    "T-content-does-not-exist-anymore": "ਇਹ ਸਮਗਰੀ ਹੁਣ ਮੌਜੂਦ ਨਹੀਂ ਹੈ"
+    "T-content-does-not-exist-anymore": "ਇਹ ਸਮਗਰੀ ਹੁਣ ਮੌਜੂਦ ਨਹੀਂ ਹੈ",
+    "T-publication-no-longer-exists": "ਇਹ ਪ੍ਰਕਾਸ਼ਨ ਹੁਣ ਮੌਜੂਦ ਨਹੀਂ ਹੈ",
+    "Could-not-play-video": "ਵੀਡੀਓ ਚਲਾ ਨਹੀਂ ਸਕਿਆ",
+    "No-music-liked-yet": "ਅਜੇ ਤੱਕ ਕੋਈ ਸੰਗੀਤ ਪਸੰਦ ਨਹੀਂ ਕੀਤਾ ਗਿਆ",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "ਤੁਹਾਡੀਆਂ ਜ਼ਰੂਰਤਾਂ ਦੇ ਕਾਰਨ ਤੁਹਾਨੂੰ ਪ੍ਰਮਾਣਿਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ ਹੈ. ਜਦੋਂ ਤੁਸੀਂ ਤਿਆਰ ਹੋਵੋ ਤਾਂ ਇੱਕ ਨਵਾਂ ਸਮਾਂ ਅਜ਼ਮਾਓ."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "ਫੋਟੋ ਮਿਲੀ ਹੈ",
@@ -656,7 +675,12 @@
     "Yr-verification-request-was-accepted": "ਤੁਹਾਡੀ ਤਸਦੀਕ ਬੇਨਤੀ ਸਵੀਕਾਰ ਕਰ ਲਈ ਗਈ ਸੀ",
     "Yr-verification-request-was-refused": "ਤੁਹਾਡੀ ਤਸਦੀਕ ਬੇਨਤੀ ਨੂੰ ਨਾਮਨਜ਼ੂਰ ਕਰ ਦਿੱਤਾ ਗਿਆ ਸੀ",
     "Yr-certification-request-was-accepted": "ਤੁਹਾਡੀ ਸਰਟੀਫਿਕੇਟ ਬੇਨਤੀ ਸਵੀਕਾਰ ਕਰ ਲਈ ਗਈ ਸੀ",
-    "Yr-certification-request-was-refused": "ਤੁਹਾਡੀ ਸਰਟੀਫਿਕੇਟ ਬੇਨਤੀ ਅਸਵੀਕਾਰ ਕਰ ਦਿੱਤੀ ਗਈ ਸੀ"
+    "Yr-certification-request-was-refused": "ਤੁਹਾਡੀ ਸਰਟੀਫਿਕੇਟ ਬੇਨਤੀ ਅਸਵੀਕਾਰ ਕਰ ਦਿੱਤੀ ਗਈ ਸੀ",
+    "Value-comment-yr-publication": "{{value} ਨੇ ਤੁਹਾਡੀ ਪ੍ਰਕਾਸ਼ਨ ਦੀ ਟਿੱਪਣੀ ਕੀਤੀ",
+    "Value-like-yr-comment-in-a-music-playlist": "ਇੱਕ ਸੰਗੀਤ ਪਲੇਲਿਸਟ ਵਿੱਚ ਤੁਹਾਡੀ ਟਿੱਪਣੀ ਪਸੰਦ. {ਮੁੱਲ}.",
+    "Value-liked-yr-publication-in-t-feed": "ਫੀਡ ਵਿੱਚ ਤੁਹਾਡੀ ਪ੍ਰਕਾਸ਼ਨ ਨੂੰ {{value}} ਪਸੰਦ ਆਇਆ",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value} ਨੇ ਤੁਹਾਨੂੰ ਫੀਡ ਵਿੱਚ ਇੱਕ ਪ੍ਰਕਾਸ਼ਨ ਵਿੱਚ ਟੈਗ ਕੀਤਾ ਹੈ",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value} ਨੇ ਤੁਹਾਨੂੰ ਇੱਕ ਪ੍ਰਕਾਸ਼ਨ ਵਿੱਚ ਇੱਕ ਸੰਗੀਤ ਪਲੇਲਿਸਟ ਵਿੱਚ ਟੈਗ ਕੀਤਾ ਹੈ"
   },
   "PAGE": {
     "Name-page": "ਪੇਜ ਦਾ ਨਾਮ",
@@ -711,11 +735,14 @@
     "my-musics": "ਮੇਰੀ ਮਿicsਜ਼ਿਕ",
     "my-story": "ਮੇਰੀਆਂ ਪੋਸਟਾਂ",
     "my-videos": "ਮੇਰੇ ਵੀਡੀਓ",
-    "only-f-can-see": "ਸਿਰਫ਼ ਦੋਸਤ ਹੀ ਪ੍ਰਕਾਸ਼ਨ ਦੇਖ ਸਕਦੇ ਹਨ"
+    "only-f-can-see": "ਸਿਰਫ਼ ਦੋਸਤ ਹੀ ਪ੍ਰਕਾਸ਼ਨ ਦੇਖ ਸਕਦੇ ਹਨ",
+    "Edit-cover-photo": "ਕਵਰ ਫੋਟੋ ਸੋਧੋ",
+    "Edit-profile-photo": "ਪ੍ਰੋਫਾਈਲ ਫੋਟੋ ਨੂੰ ਸੋਧੋ"
   },
   "PUBLICATION": {
     "delete-t-project": "ਇਸ ਪ੍ਰੋਜੈਕਟ ਨੂੰ ਮਿਟਾਓ",
-    "generate-t-id": "ਪੈਰਾਂ ਦੇ ਨਿਸ਼ਾਨ ਤਿਆਰ ਕਰੋ"
+    "generate-t-id": "ਪੈਰਾਂ ਦੇ ਨਿਸ਼ਾਨ ਤਿਆਰ ਕਰੋ",
+    "Uploading-publication": "ਅਪਲੋਡ ਪ੍ਰਕਾਸ਼ਨ"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -880,10 +907,10 @@
       "Yr-profil-is-currently-being-checked-D": "ਤੁਹਾਡੀ ਪ੍ਰੋਫਾਈਲ ਇਸ ਸਮੇਂ ਜਾਂਚੀ ਜਾ ਰਹੀ ਹੈ. ਅਸੀਂ ਤੁਹਾਡੇ ਨਾਲ ਈਮੇਲ ਦੁਆਰਾ 48 ਘੰਟਿਆਂ ਦੇ ਅੰਦਰ ਸੰਪਰਕ ਕਰਾਂਗੇ.",
       "Verification": "ਤਸਦੀਕ",
       "Pl-s-t-docs-a-complet-t-form-below": "ਕਿਰਪਾ ਕਰਕੇ ਜ਼ਰੂਰੀ ਦਸਤਾਵੇਜ਼ ਭੇਜੋ ਅਤੇ ਹੇਠਾਂ ਦਿੱਤੇ ਫਾਰਮ ਨੂੰ ਭਰੋ.",
-      "Upload-yr-password-id-identity-or-driver-license": "ਆਪਣਾ ਪਾਸਵਰਡ, ਆਈਡੀ ਪਛਾਣ ਜਾਂ ਡਰਾਈਵਰ ਲਾਇਸੈਂਸ ਅਪਲੋਡ ਕਰੋ.",
       "Upload-a-photo-holding-t-ID-D": "ਅੱਜ ਦੀ ਮਿਤੀ ਦੇ ਨਾਲ ਕਾਗਜ਼ ਦੀ ਸ਼ੀਟ ਨਾਲ ਆਈਡੀ ਵਾਲੀ ਫੋਟੋ ਨੂੰ ਅਪਲੋਡ ਕਰੋ ਅਤੇ ਇਸ 'ਤੇ \"ਵਿਨਜ਼\" ਲਿਖਦੇ ਹਨ.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "ਮੈਂ ਸਹਿਮਤ ਹਾਂ ਕਿ ਮੇਰਾ ਡਾਟਾ ਮੇਰੇ ਖਾਤੇ ਦੀ ਜਾਂਚ ਕਰਨ ਲਈ ਵਰਤਿਆ ਜਾ ਸਕਦਾ ਹੈ.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "ਕਾਰਡ ਦੇ ਪਿਛਲੇ ਪਾਸੇ ਅਪਲੋਡ ਕਰਨਾ ਨਿਸ਼ਚਤ ਕਰੋ ਜੇ ਇਹ ਰਾਸ਼ਟਰੀ ਆਈਡੀ ਕਾਰਡ ਹੈ (ਸਿਰਫ ਰਾਸ਼ਟਰੀ ਕਾਰਡ ਲਈ)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "ਕਾਰਡ ਦੇ ਪਿਛਲੇ ਪਾਸੇ ਅਪਲੋਡ ਕਰਨਾ ਨਿਸ਼ਚਤ ਕਰੋ ਜੇ ਇਹ ਰਾਸ਼ਟਰੀ ਆਈਡੀ ਕਾਰਡ ਹੈ (ਸਿਰਫ ਰਾਸ਼ਟਰੀ ਕਾਰਡ ਲਈ)",
+      "Upload-yr-passport-id-identity-or-driver-license": "ਆਪਣਾ ਪਾਸਪੋਰਟ, ID ਪਛਾਣ ਜਾਂ ਡਰਾਈਵਰ ਲਾਇਸੈਂਸ ਅਪਲੋਡ ਕਰੋ."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "ਮੇਰੇ ਪ੍ਰਕਾਸ਼ਨ ਸਿਰਫ ਮੇਰੇ ਦੋਸਤਾਂ ਦੁਆਰਾ ਦ੍ਰਿਸ਼ਮਾਨ ਹਨ",
@@ -965,7 +992,8 @@
     "Yr-account-has-been-deleted": "ਤੁਹਾਡਾ ਖਾਤਾ ਮਿਟਾ ਦਿੱਤਾ ਗਿਆ ਹੈ",
     "Yr-account-is-activated": "ਤੁਹਾਡਾ ਖਾਤਾ ਚਾਲੂ ਹੋ ਗਿਆ ਹੈ! ਸੰਚਾਰ ਕਰਨ, ਆਪਣੇ ਆਪ ਨੂੰ ਮਨੋਰੰਜਨ ਕਰਨ ਜਾਂ ਆਪਣੇ ਆਪ ਨੂੰ ਜਾਣੂ ਕਰਾਉਣ ਲਈ ਤੁਸੀਂ ਹੁਣ ਐਸਪੇਸ ਪਾਇਨਸ ਦੇ ਕੇਂਦਰੀ ਕਾਰਜਾਂ ਦਾ ਲਾਭ ਲੈ ਸਕਦੇ ਹੋ.",
     "activated-after-15min-payment": "ਤੁਹਾਡੀ ਮੁਹਿੰਮ ਭੁਗਤਾਨ ਦੀ ਵੈਧਤਾ ਦੇ ਲਗਭਗ ਪੰਦਰਾਂ ਮਿੰਟਾਂ ਵਿੱਚ ਪ੍ਰਮਾਣਿਤ ਹੋ ਜਾਵੇਗੀ.",
-    "update-is-done": "ਅਪਡੇਟ ਹੋ ਗਿਆ ਹੈ"
+    "update-is-done": "ਅਪਡੇਟ ਹੋ ਗਿਆ ਹੈ",
+    "You-h-been-verified-i-t-platform-D": "ਤੁਹਾਨੂੰ ਪਲੇਟਫਾਰਮ ਵਿੱਚ ਪ੍ਰਮਾਣਿਤ ਕੀਤਾ ਗਿਆ ਹੈ. ਤੁਸੀਂ ਹੁਣ ਸਾਰੇ ਵਾਧੂ ਅਨੰਦ ਲੈ ਸਕਦੇ ਹੋ."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "ਕੀ ਤੁਸੀਂ ਆਪਣੇ ਪ੍ਰੋਜੈਕਟ ਦੀ ਰਿਲੀਜ਼ ਮਿਤੀ ਨੂੰ ਬਦਲਣਾ ਨਿਸ਼ਚਤ ਹੋ ?",
@@ -994,7 +1022,10 @@
     "T-content-has-been-reported": "ਇਸ ਸਮਗਰੀ ਦੀ ਰਿਪੋਰਟ ਕੀਤੀ ਗਈ ਹੈ. ਸਾਡੇ ਸੰਚਾਲਕ ਇਸ ਦੀ ਸਮੀਖਿਆ ਕਰਨ ਲਈ 24 ਘੰਟਿਆਂ ਦੀ ਦੇਰੀ ਤੇ ਨਜ਼ਰ ਮਾਰਨਗੇ. ਇੱਕ ਮਨਜੂਰੀ ਲਾਗੂ ਕੀਤੀ ਜਾਏਗੀ ਜੇ ਇਹ ਕਮਿ communityਨਿਟੀ ਦੇ ਨਿਯਮਾਂ ਦਾ ਸਤਿਕਾਰ ਨਹੀਂ ਕਰਦਾ.",
     "T-user-has-been-blocked-D": "ਇਹ ਉਪਭੋਗਤਾ ਤੁਹਾਡੇ ਖਾਤੇ ਤੋਂ ਬਲੌਕ ਕੀਤਾ ਗਿਆ ਹੈ. ਤੁਹਾਡੇ ਖਾਤੇ ਨਾਲ ਇਸ ਪ੍ਰੋਫਾਈਲ ਦੀ ਕੋਈ ਸਮੱਗਰੀ ਨਹੀਂ ਦਿਖਾਈ ਦੇਵੇਗੀ.",
     "W-is-t-reason-to-report-t-post": "ਇਸ ਪੋਸਟ ਨੂੰ ਰਿਪੋਰਟ ਕਰਨ ਦਾ ਕੀ ਕਾਰਨ ਹੈ?",
-    "W-is-t-reason-to-report-t-post-D": "ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਅਗਿਆਤ ਹੈ ਕਿਰਪਾ ਕਰਕੇ ਮੋਟਰਾਂ ਦੀ ਮਦਦ ਲਈ ਸਿਰਫ ਇੱਕ ਸ਼੍ਰੇਣੀ ਚੁਣੋ"
+    "W-is-t-reason-to-report-t-post-D": "ਤੁਹਾਡੀ ਰਿਪੋਰਟ ਅਗਿਆਤ ਹੈ ਕਿਰਪਾ ਕਰਕੇ ਮੋਟਰਾਂ ਦੀ ਮਦਦ ਲਈ ਸਿਰਫ ਇੱਕ ਸ਼੍ਰੇਣੀ ਚੁਣੋ",
+    "A-y-s-to-unfollow-this-profile": "ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਇਸ ਪ੍ਰੋਫਾਈਲ ਨੂੰ ਅਨਫਾੱਲ ਕਰਨਾ ਹੈ?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਇਸ ਦੋਸਤ ਨੂੰ ਆਪਣੀ ਦੋਸਤ ਸੂਚੀ ਵਿੱਚ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?",
+    "A-y-s-to-delete-t-story": "ਕੀ ਤੁਸੀਂ ਯਕੀਨਨ ਇਸ ਕਹਾਣੀ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "ਚੇਤਾਵਨੀ. ਇਹ ਸੁਨਿਸ਼ਚਿਤ ਕਰੋ ਕਿ ਤੁਹਾਡਾ ਸਹੀ ਪਤਾ ਹੈ"
@@ -1368,7 +1399,8 @@
       "Rock": "ਚੱਟਾਨ",
       "Reggae": "ਰੇਗੀ",
       "Country": "ਦੇਸ਼"
-    }
+    },
+    "Playlist-Details": "ਪਲੇਲਿਸਟ ਵੇਰਵਾ"
   },
   "WIINS-TUBE": {
     "CREATION": {

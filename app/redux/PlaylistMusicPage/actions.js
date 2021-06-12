@@ -2,6 +2,7 @@ import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage'
 import { verificationMusicCacheFormat } from  './../../../app/services/cache/cache-music-service'
 import { addMusicAfterLiked, pullMusicAfterDisliked } from './../MyFavMusic/actions'
+import { likeMusicFromHomeMusic, dislikeMusicFromHomeMusic } from './../MusicMenu/actions'
 import { sendError } from './../../../app/services/error/error-service'
 
 export function startOfUpload() {
@@ -114,10 +115,9 @@ export function likeMusicFail(id) {
     return { type: ActionTypes.LIKE_MUSIC_FAIL, id }
 }
 
-export function likeMusicAction(id, music) {
+export function likeMusicAction(id, music, space, category) {
     return async (dispatch) => {
         try {
-
             dispatch(likeMusic(id))
             const url = 'https://wiins-backend.herokuapp.com/music/liked/' + id
             const token = await AsyncStorage.getItem('userToken')
@@ -133,13 +133,17 @@ export function likeMusicAction(id, music) {
                 .then(async (response) => {
                     if (response.status == 200) {
                         dispatch(addMusicAfterLiked(music))
-                        return dispatch(likeMusicSuccess(id))
+                        switch (space) {
+                            case 'playlist-page': return dispatch(likeMusicSuccess(id))
+                            case 'home': return dispatch(likeMusicFromHomeMusic(id, category))
+                            default: return null
+                        }
                     }
                     return dispatch(likeMusicFail(id))
                 })
         } catch (error) {
             sendError(error)
-            return dispatch(likeMusic(id));
+            return dispatch(likeMusicFail(id));
         }
     }
 }
@@ -156,10 +160,9 @@ export function dislikeMusicFail(id) {
     return { type: ActionTypes.DISLIKE_MUSIC_FAIL, id }
 }
 
-export function dislikeMusicAction(id) {
+export function dislikeMusicAction(id, playlist, space, category) {
     return async (dispatch) => {
         try {
-
             dispatch(dislikeMusic(id))
             const url = 'https://wiins-backend.herokuapp.com/music/dislike/' + id
             const token = await AsyncStorage.getItem('userToken')
@@ -175,13 +178,18 @@ export function dislikeMusicAction(id) {
                 .then(async (response) => {
                     if (response.status == 200) {
                         dispatch(pullMusicAfterDisliked(id))
-                        return dispatch(dislikeMusicSuccess(id))
+
+                        switch (space) {
+                            case 'playlist-page': return dispatch(dislikeMusicSuccess(id))
+                            case 'home': return dispatch(dislikeMusicFromHomeMusic(id, category))
+                            default: return null
+                        }                          
                     }
                     return dispatch(dislikeMusicFail(id))
                 })
         } catch (error) {
             sendError(error)
-            return dispatch(dislikeMusic(id));
+            return dispatch(dislikeMusicFail(id))
         }
     }
 }

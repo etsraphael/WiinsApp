@@ -10,6 +10,7 @@ import { faTimes, faEye, faTrash } from '@fortawesome/pro-light-svg-icons'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import Video from 'react-native-video'
 import Modal from 'react-native-modal'
+import i18n from '../../../../assets/i18n/i18n'
 
 class MyStory extends React.Component {
 
@@ -259,7 +260,7 @@ class MyStory extends React.Component {
       <View style={{ flex: 1 }}>
 
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-          <Text style={{ fontSize: 18, color: '#555555' }}>Are you sure to delete this story ?</Text>
+          <Text style={{ fontSize: 18, color: '#555555' }}>{i18n.t('VALIDATION.A-y-s-to-delete-t-story')}</Text>
         </View>
         <View style={{ flex: 1, flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>
@@ -267,7 +268,7 @@ class MyStory extends React.Component {
               style={{ backgroundColor: '#4fabc8a3', marginHorizontal: 15, alignItems: 'center', paddingVertical: 10, borderRadius: 20 }}
               onPress={() => this._deleteStory()}
             >
-              <Text style={{ fontSize: 18, color: 'white' }}>Confirm</Text>
+              <Text style={{ fontSize: 18, color: 'white' }}>{i18n.t('CORE.Confirm')}</Text>
             </TouchableOpacity>
           </View>
           <View style={{ flex: 1 }}>
@@ -275,7 +276,7 @@ class MyStory extends React.Component {
               style={{ backgroundColor: '#cecece', marginHorizontal: 15, alignItems: 'center', paddingVertical: 10, borderRadius: 20 }}
               onPress={() => this.setState({ deleteModal: false })}
             >
-              <Text style={{ fontSize: 18, color: 'white' }}>Cancel</Text>
+              <Text style={{ fontSize: 18, color: 'white' }}>{i18n.t('CORE.Cancel')}</Text>
             </TouchableOpacity>
           </View>
         </View>

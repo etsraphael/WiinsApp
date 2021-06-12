@@ -93,7 +93,8 @@
     "Enable-notification": "Увімкнути сповіщення",
     "Group-creation": "Створення групи",
     "Mute": "Без звуку",
-    "Send": "Надіслати"
+    "Send": "Надіслати",
+    "days-message-delete-two-weeks": "Ваші повідомлення автоматично видаляються через 14 днів"
   },
   "CONFIRMATION": {
     "Delete-Room": "Справді видалити це обговорення?"
@@ -260,7 +261,21 @@
     "Save-in-phone": "Зберегти в телефоні",
     "No": "Ні",
     "Yes": "Так",
-    "Block-t-user": "Заблокувати цього користувача"
+    "Block-t-user": "Заблокувати цього користувача",
+    "Message": "повідомлення",
+    "Friend-request": "Запит друга",
+    "feed": "потік",
+    "tube": "трубки",
+    "Music": "Музика",
+    "Page": "Сторінка",
+    "Music-Project": "Музичний проект",
+    "Group": "Група",
+    "Earlier": "Раніше",
+    "Notifications": "Повідомлення",
+    "Report-t-profile": "Повідомте про профіль",
+    "Unfollow": "Скасувати підписку",
+    "Unfriend": "Роздружуватися",
+    "Block-User": "Заблокувати користувача"
   },
   "COUNTRY": {
     "AD": "Андорра",
@@ -620,7 +635,11 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Ви повинні просувати менеджера перед тим, як вийти з групи",
     "Date-cannot-be-in-the-past": "Дата випуску не може бути минулою",
     "You-cannot-add-yourself": "Ви не можете додати себе",
-    "T-content-does-not-exist-anymore": "Цей вміст уже не існує"
+    "T-content-does-not-exist-anymore": "Цей вміст уже не існує",
+    "T-publication-no-longer-exists": "Ця публікація більше не існує",
+    "Could-not-play-video": "Не вдалося відтворити відео",
+    "No-music-liked-yet": "Поки що музика не сподобалася",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Ви не були перевірені відповідно до ваших вимог. Спробуйте новий час, коли будете готові."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Фотографія отримана",
@@ -698,7 +717,12 @@
     "tag-you-in-comment": "позначив вас у коментарі",
     "tag-you-in-playlist": "позначив вас у списку відтворення",
     "you-appear-in-project-of": "Ви з'явилися в новому проекті",
-    "you-have": "ти маєш"
+    "you-have": "ти маєш",
+    "Value-comment-yr-publication": "{{value}} прокоментував вашу публікацію",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}}, як ваш коментар у музичному списку відтворення",
+    "Value-liked-yr-publication-in-t-feed": "Користувачеві {{value}} сподобалась ваша публікація у стрічці",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} позначив вас тегом у публікації у стрічці",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} позначив вас у публікації музичним списком відтворення"
   },
   "PAGE": {
     "Name-page": "Назва сторінки",
@@ -753,11 +777,14 @@
     "my-musics": "Моя музика",
     "my-story": "Мої публікації",
     "my-videos": "Мої відео",
-    "only-f-can-see": "Публікації можуть бачити лише друзі"
+    "only-f-can-see": "Публікації можуть бачити лише друзі",
+    "Edit-cover-photo": "Редагувати обкладинку",
+    "Edit-profile-photo": "Редагувати фотографію профілю"
   },
   "PUBLICATION": {
     "delete-t-project": "Видалити цей проект",
-    "generate-t-id": "Створити слід"
+    "generate-t-id": "Створити слід",
+    "Uploading-publication": "Завантаження публікації"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -933,11 +960,11 @@
       "T-b-accepted-b-t-administration": "Буде прийнятий адміністрацією",
       "This-feature-requires-verification-to-use.": "Для використання цієї функції потрібна перевірка",
       "Upload-a-photo-holding-t-ID-D": "Завантажте фотографію, що тримає посвідчення особи, з аркушем паперу із сьогоднішньою датою та написом \"Wiins\".",
-      "Upload-yr-password-id-identity-or-driver-license": "Завантажте свій пароль, посвідчення особи або водійські права.",
       "Verification": "Перевірка",
       "Verified-zone": "Перевірена зона",
       "Y-m-complet-t-following-cdt-t-b-certified": "Ви повинні виконати наступні умови, щоб пройти сертифікацію.",
-      "Yr-profil-is-currently-being-checked-D": "Ваш профіль зараз перевіряється. Ми зв’яжемося з вами електронною поштою протягом 48 годин."
+      "Yr-profil-is-currently-being-checked-D": "Ваш профіль зараз перевіряється. Ми зв’яжемося з вами електронною поштою протягом 48 годин.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Завантажте паспорт, посвідчення особи або водійські права."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Мої публікації бачать лише мої друзі",
@@ -1022,7 +1049,8 @@
     "Yr-account-has-been-deleted": "Ваш обліковий запис видалено",
     "Yr-account-is-activated": "Ваш рахунок активовано! Тепер ви можете скористатися централізованими функціями espace-piin's, щоб спілкуватися, розважати себе або давати про себе знати.",
     "activated-after-15min-payment": "Ваша кампанія буде підтверджена приблизно через п’ятнадцять хвилин після підтвердження платежу.",
-    "update-is-done": "Оновлення виконано"
+    "update-is-done": "Оновлення виконано",
+    "You-h-been-verified-i-t-platform-D": "Вас підтвердили на платформі. Ви можете насолоджуватися всіма додатковими послугами вже зараз."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Ви впевнені, що змінили дату випуску свого проекту?",
@@ -1051,7 +1079,10 @@
     "T-content-has-been-reported": "Цей вміст повідомлено. Наші модератори переглянуть його за 24 години затримки. Санкція буде застосована, якщо це не відповідає правилам громади.",
     "T-user-has-been-blocked-D": "Цього користувача заблоковано у вашому обліковому записі. Жоден вміст цього профілю не буде видимим у вашому обліковому записі.",
     "W-is-t-reason-to-report-t-post": "Яка причина повідомити про цю публікацію?",
-    "W-is-t-reason-to-report-t-post-D": "Ваш звіт анонімний. Будь ласка, виберіть лише категорію, щоб допомогти мораторам"
+    "W-is-t-reason-to-report-t-post-D": "Ваш звіт анонімний. Будь ласка, виберіть лише категорію, щоб допомогти мораторам",
+    "A-y-s-to-unfollow-this-profile": "Дійсно скасувати підписку на цей профіль?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Дійсно видалити цього друга зі свого списку друзів?",
+    "A-y-s-to-delete-t-story": "Справді видалити цю історію?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Увага. Переконайтесь, що у вас є правильна адреса"
@@ -1425,7 +1456,8 @@
       "Rock": "Рок",
       "Reggae": "Реггі",
       "Country": "Країна"
-    }
+    },
+    "Playlist-Details": "Подробиці списку відтворення"
   },
   "WIINS-TUBE": {
     "CREATION": {

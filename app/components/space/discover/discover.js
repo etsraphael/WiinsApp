@@ -31,19 +31,12 @@ class Discover extends React.Component {
             publicationLoading: false,
             hastagSelected: 'trend',
             isRefreshing: false,
-            actifCategory: 'All categories',
-            modal: false,
-            PublicationModal: null
+            actifCategory: 'All categories'
         }
     }
 
-    // to display the modal view
-    _toggleModal = (event) => {
-        if (!!event) { this.props.actions.putPublicationInModalActions(event.publication) }
-        this.setState({ modal: !this.state.modal, PublicationModal: event })
-    }
-
     componentDidMount() {
+        this.props.actions.resetPublicationInModalActions()
         checkNotification(this.props.navigation)
         this.props.actions.getTopHastag()
         this._getPublicationList()
@@ -158,17 +151,18 @@ class Discover extends React.Component {
     // to display the top of the hastag
     _hastagView = () => {
         if (this.state.isHeaderVisible && this.props.TopHastag.top.length > 1) {
+            const hashTags = ['trend', ...this.props.TopHastag.top]
             return (
                 <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                     <FlatList
                         horizontal={true}
                         showsHorizontalScrollIndicator={false}
                         style={{ flexDirection: 'row', flexWrap: 'wrap', marginTop: 7, paddingLeft: 15 }}
-                        data={['trend', ...this.props.TopHastag.top]}
+                        data={hashTags}
                         keyExtractor={(item) => item.toString()}
-                        renderItem={({ item }) => (
-                            <TouchableOpacity style={styles.one_hastag} onPress={() => this._changeHastag(item)}>
-                                <Text style={[{ fontWeight: 'bold', fontSize: 15, lineHeight: 41, letterSpacing: 1, color: '#8E8E8E' }, this._selectedHastag(item)]}>#{item}</Text>
+                        renderItem={({ item, index }) => (
+                            <TouchableOpacity style={{ ...styles.one_hastag, marginEnd: hashTags.length - 1 === index ? 70 : 0 }} onPress={() => this._changeHastag(item)}>
+                                <Text style={[{ fontWeight: 'bold', fontSize: 15, paddingHorizontal: 10, paddingVertical: 15, letterSpacing: 1, color: '#8E8E8E' }, this._selectedHastag(item)]}>#{item}</Text>
                             </TouchableOpacity>
                         )}
                     />
@@ -200,7 +194,14 @@ class Discover extends React.Component {
 
         const mapPublication = (items) => (
             items.map((item, index) => (
-                <CardNewFeedMasonry key={`pub-item-${index}-01`} isLastElem={items.length - 1 === index} index={index} navigation={this.props.navigation} publication={item} space={'discover'} toggleModal={(event) => this._toggleModal(event)} />
+                <CardNewFeedMasonry 
+                    key={`pub-item-${index}-01`}
+                    isLastElem={items.length - 1 === index}
+                    index={index}
+                    navigation={this.props.navigation}
+                    publication={item}
+                    space={'discover'}
+                />
             ))
         )
 
@@ -260,12 +261,13 @@ class Discover extends React.Component {
 
     _goToProfile = (payload) => {
 
-        this.setState({ modal: false, PublicationModal: null })
+        this.props.actions.resetPublicationInModalActions()
 
         if (payload.pageName == 'Profile') return null
 
         if (payload.profileId !== this.props.MyProfile._id) {
             this.props.navigation.navigate('Profile', { profileId: payload.profileId })
+            
         }
         else {
             this.props.navigation.navigate('MyProfile')
@@ -279,13 +281,12 @@ class Discover extends React.Component {
                 {this.state.search.length <= 2 ? this._displayDiscoverView() : null}
                 {this.state.search.length > 2 ? this._displaySuggestionView() : null}
 
-                {this.state.modal ?
+                {!!this.props.PublicationsInModal.publication &&
                     <PublicationModalContainer
-                        publicationModal={this.state.PublicationModal}
-                        toggleModal={(event) => this._toggleModal(event)}
                         goToProfile={(profileId) => this._goToProfile(profileId)}
                         pageName={'Discover'}
-                    /> : null}
+                    />
+                }
 
             </View>
         );
@@ -345,7 +346,8 @@ const mapStateToProps = state => ({
     MyProfile: state.MyProfile,
     MyUser: state.MyUser,
     TopHastag: state.TopHastag,
-    DiscoverPublications: state.DiscoverPublications
+    DiscoverPublications: state.DiscoverPublications,
+    PublicationsInModal: state.PublicationsInModal
 })
 
 const ActionCreators = Object.assign(

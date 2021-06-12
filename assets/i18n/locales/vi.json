@@ -93,7 +93,8 @@
     "Enable-notification": "Bật thông báo",
     "Group-creation": "Thành lập nhóm",
     "Mute": "Tắt tiếng",
-    "Send": "Gửi"
+    "Send": "Gửi",
+    "days-message-delete-two-weeks": "Tin nhắn của bạn sẽ tự động bị xóa sau 14 ngày"
   },
   "CONFIRMATION": {
     "Delete-Room": "Bạn có chắc chắn xóa cuộc thảo luận này không?"
@@ -260,7 +261,21 @@
     "Save-in-phone": "Lưu trong điện thoại",
     "No": "Không",
     "Yes": "Đúng",
-    "Block-t-user": "Chặn người dùng này"
+    "Block-t-user": "Chặn người dùng này",
+    "Message": "Thông điệp",
+    "Friend-request": "Yêu cầu kết bạn",
+    "feed": "tuôn ra",
+    "tube": "ống",
+    "Music": "Âm nhạc",
+    "Page": "Trang",
+    "Music-Project": "Dự án âm nhạc",
+    "Group": "Nhóm",
+    "Earlier": "Sớm hơn",
+    "Notifications": "Thông báo",
+    "Report-t-profile": "Báo cáo hồ sơ",
+    "Unfollow": "Bỏ theo dõi",
+    "Unfriend": "Hủy kết bạn",
+    "Block-User": "Chặn người dùng"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -620,7 +635,11 @@
     "you-hav-to-upgrad-a-manager-before-leave": "Bạn phải thăng chức một người quản lý trước khi rời nhóm",
     "Date-cannot-be-in-the-past": "Ngày phát hành không được trong quá khứ",
     "You-cannot-add-yourself": "Bạn không thể thêm chính mình",
-    "T-content-does-not-exist-anymore": "Nội dung này không tồn tại nữa"
+    "T-content-does-not-exist-anymore": "Nội dung này không tồn tại nữa",
+    "T-publication-no-longer-exists": "Ấn phẩm này không còn tồn tại",
+    "Could-not-play-video": "Không thể phát video",
+    "No-music-liked-yet": "Chưa có bản nhạc nào được thích",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Bạn chưa được xác minh do yêu cầu của bạn. Hãy thử một thời gian mới khi bạn đã sẵn sàng."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Ảnh được nhận",
@@ -698,7 +717,12 @@
     "tag-you-in-comment": "đã gắn thẻ bạn trong một bình luận",
     "tag-you-in-playlist": "đã gắn thẻ bạn trong một danh sách phát",
     "you-appear-in-project-of": "Bạn xuất hiện trong dự án mới của",
-    "you-have": "bạn có"
+    "you-have": "bạn có",
+    "Value-comment-yr-publication": "{{value}} đã nhận xét ấn phẩm của bạn",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} thích nhận xét của bạn trong danh sách phát nhạc",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} đã thích xuất bản của bạn trong nguồn cấp dữ liệu",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} đã gắn thẻ bạn trong một ấn phẩm trong nguồn cấp dữ liệu",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} đã gắn thẻ bạn trong danh sách phát nhạc của một ấn phẩm"
   },
   "PAGE": {
     "Name-page": "Tên trang",
@@ -753,11 +777,14 @@
     "my-musics": "Nhạc của tôi",
     "my-story": "Bài viết của tôi",
     "my-videos": "Phim của tôi",
-    "only-f-can-see": "Chỉ bạn bè mới có thể xem các ấn phẩm"
+    "only-f-can-see": "Chỉ bạn bè mới có thể xem các ấn phẩm",
+    "Edit-cover-photo": "Chỉnh sửa ảnh bìa",
+    "Edit-profile-photo": "Chỉnh sửa ảnh hồ sơ"
   },
   "PUBLICATION": {
     "delete-t-project": "Xóa dự án này",
-    "generate-t-id": "Tạo dấu chân"
+    "generate-t-id": "Tạo dấu chân",
+    "Uploading-publication": "Đang tải lên ấn phẩm"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -933,11 +960,11 @@
       "T-b-accepted-b-t-administration": "Được chính quyền chấp nhận",
       "This-feature-requires-verification-to-use.": "Tính năng này yêu cầu xác minh để sử dụng",
       "Upload-a-photo-holding-t-ID-D": "Tải lên ảnh chụp ID cùng với một tờ giấy có ghi ngày hôm nay và \"Wiins\" trên đó.",
-      "Upload-yr-password-id-identity-or-driver-license": "Tải lên mật khẩu, danh tính id hoặc giấy phép lái xe của bạn.",
       "Verification": "xác minh",
       "Verified-zone": "Khu vực đã xác minh",
       "Y-m-complet-t-following-cdt-t-b-certified": "Bạn phải hoàn thành các điều kiện sau để được chứng nhận.",
-      "Yr-profil-is-currently-being-checked-D": "Hồ sơ của bạn hiện đang được kiểm tra. Chúng tôi sẽ liên hệ với bạn trong vòng 48 giờ qua email."
+      "Yr-profil-is-currently-being-checked-D": "Hồ sơ của bạn hiện đang được kiểm tra. Chúng tôi sẽ liên hệ với bạn trong vòng 48 giờ qua email.",
+      "Upload-yr-passport-id-identity-or-driver-license": "Tải lên hộ chiếu, danh tính id hoặc bằng lái xe của bạn."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Các ấn phẩm của tôi chỉ được hiển thị bởi bạn bè của tôi",
@@ -1022,7 +1049,8 @@
     "Yr-account-has-been-deleted": "Tài khoản của bạn đã bị xóa",
     "Yr-account-is-activated": "Tài khoản của bạn đã được kích hoạt! Giờ đây, bạn có thể tận dụng các chức năng tập trung của espace-piin để giao tiếp, giải trí hoặc làm cho bản thân được biết đến.",
     "activated-after-15min-payment": "Chiến dịch của bạn sẽ được xác thực trong khoảng mười lăm phút sau khi xác thực thanh toán.",
-    "update-is-done": "Cập nhật xong"
+    "update-is-done": "Cập nhật xong",
+    "You-h-been-verified-i-t-platform-D": "Bạn đã được xác minh trong nền tảng. Bạn có thể tận hưởng tất cả các tính năng bổ sung ngay bây giờ."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Bạn có chắc chắn thay đổi ngày phát hành dự án của mình không?",
@@ -1051,7 +1079,10 @@
     "T-content-has-been-reported": "Nội dung này đã được báo cáo. Người kiểm duyệt của chúng tôi sẽ xem xét trong vòng 24 giờ để xem xét nó. Một hình phạt sẽ được áp dụng nếu điều này không tôn trọng các quy tắc của cộng đồng.",
     "T-user-has-been-blocked-D": "Người dùng này đã bị chặn khỏi tài khoản của bạn. Không có nội dung của hồ sơ này sẽ được hiển thị với tài khoản của bạn.",
     "W-is-t-reason-to-report-t-post": "Lý do để báo cáo bài đăng này là gì?",
-    "W-is-t-reason-to-report-t-post-D": "Báo cáo của bạn là ẩn danh. Vui lòng chỉ chọn một danh mục để giúp người động viên"
+    "W-is-t-reason-to-report-t-post-D": "Báo cáo của bạn là ẩn danh. Vui lòng chỉ chọn một danh mục để giúp người động viên",
+    "A-y-s-to-unfollow-this-profile": "Bạn có chắc chắn bỏ theo dõi hồ sơ này không?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Bạn có chắc chắn xóa người bạn này trong danh sách bạn bè của mình không?",
+    "A-y-s-to-delete-t-story": "Bạn có chắc chắn để xóa câu chuyện này?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Cảnh báo. Đảm bảo rằng bạn có đúng địa chỉ"
@@ -1425,7 +1456,8 @@
       "Rock": "Đá",
       "Reggae": "Reggae",
       "Country": "Quốc gia"
-    }
+    },
+    "Playlist-Details": "Chi tiết danh sách phát"
   },
   "WIINS-TUBE": {
     "CREATION": {

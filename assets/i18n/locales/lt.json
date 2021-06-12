@@ -93,7 +93,8 @@
     "Enable-notification": "Įgalinti pranešimus",
     "Group-creation": "Grupės sukūrimas",
     "Mute": "Nutildyti",
-    "Send": "Siųsti"
+    "Send": "Siųsti",
+    "days-message-delete-two-weeks": "Jūsų pranešimai automatiškai ištrinami po 14 dienų"
   },
   "CONFIRMATION": {
     "Delete-Room": "Ar tikrai ištrinsite šią diskusiją?"
@@ -260,7 +261,21 @@
     "Save-in-phone": "Išsaugokite telefone",
     "No": "Ne",
     "Yes": "Taip",
-    "Block-t-user": "Blokuoti šį vartotoją"
+    "Block-t-user": "Blokuoti šį vartotoją",
+    "Message": "Pranešimas",
+    "Friend-request": "Kvietimas draugauti",
+    "feed": "srautas",
+    "tube": "vamzdelis",
+    "Music": "Muzika",
+    "Page": "Puslapis",
+    "Music-Project": "Muzikos projektas",
+    "Group": "Grupė",
+    "Earlier": "Anksčiau",
+    "Notifications": "Pranešimai",
+    "Report-t-profile": "Pranešti apie profilį",
+    "Unfollow": "Nesekti",
+    "Unfriend": "Draugas",
+    "Block-User": "Užblokuoti vartotoją"
   },
   "COUNTRY": {
     "AD": "Andora",
@@ -620,7 +635,11 @@
     "Y-dont-have-a-conversation-yet": "Jūs dar neturite pokalbio.",
     "Date-cannot-be-in-the-past": "Išleidimo data negali būti praeityje",
     "You-cannot-add-yourself": "Jūs negalite pridėti savęs",
-    "T-content-does-not-exist-anymore": "Šio turinio nebėra"
+    "T-content-does-not-exist-anymore": "Šio turinio nebėra",
+    "T-publication-no-longer-exists": "Šio leidinio nebėra",
+    "Could-not-play-video": "Nepavyko paleisti vaizdo įrašo",
+    "No-music-liked-yet": "Kol kas nepatiko muzika",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Nebuvote patvirtinti dėl jūsų reikalavimų. Išbandykite naują laiką, kai būsite pasirengę."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Nuotrauka gauta",
@@ -698,7 +717,12 @@
     "Yr-verification-request-was-accepted": "Jūsų patvirtinimo užklausa buvo priimta",
     "Yr-verification-request-was-refused": "Jūsų patvirtinimo užklausa buvo atmesta",
     "Yr-certification-request-was-accepted": "Jūsų sertifikavimo užklausa buvo priimta",
-    "Yr-certification-request-was-refused": "Jūsų patvirtinimo užklausa buvo atmesta"
+    "Yr-certification-request-was-refused": "Jūsų patvirtinimo užklausa buvo atmesta",
+    "Value-comment-yr-publication": "{{value}} pakomentavo jūsų leidinį",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} patinka jūsų komentaras muzikos grojaraštyje",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} patiko jūsų leidinys sklaidos kanale",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} priskyrė jums žymą sklaidos kanalo leidinyje",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} leidinyje priskyrė jums žymą muzikos grojaraščiui"
   },
   "PAGE": {
     "Name-page": "Puslapio pavadinimas",
@@ -753,11 +777,14 @@
     "my-musics": "Mano muzika",
     "my-story": "Mano žinutės",
     "my-videos": "Mano vaizdo įrašai",
-    "only-f-can-see": "Leidinius gali matyti tik draugai"
+    "only-f-can-see": "Leidinius gali matyti tik draugai",
+    "Edit-cover-photo": "Redaguoti viršelio nuotrauką",
+    "Edit-profile-photo": "Redaguoti profilio nuotrauką"
   },
   "PUBLICATION": {
     "delete-t-project": "Ištrinti šį projektą",
-    "generate-t-id": "Sukurkite pėdsaką"
+    "generate-t-id": "Sukurkite pėdsaką",
+    "Uploading-publication": "Įkeliamas leidinys"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -932,12 +959,12 @@
       "T-b-accepted-b-t-administration": "Turi būti priimta administracijos",
       "This-feature-requires-verification-to-use.": "Norint naudoti šią funkciją, reikia patikrinti",
       "Upload-a-photo-holding-t-ID-D": "Įkelkite nuotrauką su asmens tapatybės dokumentu su popieriaus lapu su šios dienos data ir „Wiins“.",
-      "Upload-yr-password-id-identity-or-driver-license": "Įkelkite slaptažodį, tapatybę ar vairuotojo pažymėjimą.",
       "Verification": "Patikrinimas",
       "Verified-zone": "Patvirtinta zona",
       "Y-m-complet-t-following-cdt-t-b-certified": "Norėdami būti sertifikuoti, turite įvykdyti šias sąlygas.",
       "Yr-profil-is-currently-being-checked-D": "Jūsų profilis šiuo metu tikrinamas. Mes susisieksime su jumis per 48 valandas el. Paštu.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Būtinai įkelkite galinę kortelės pusę, jei tai yra nacionalinė asmens tapatybės kortelė (skirta tik nacionalinei kortelei)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Būtinai įkelkite galinę kortelės pusę, jei tai yra nacionalinė asmens tapatybės kortelė (skirta tik nacionalinei kortelei)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Įkelkite savo pasą, asmens tapatybę ar vairuotojo pažymėjimą."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Mano leidinius mato tik mano draugai",
@@ -1022,7 +1049,8 @@
     "Yr-account-has-been-deleted": "Jūsų paskyra ištrinta",
     "Yr-account-is-activated": "Jūsų paskyra suaktyvinta! Dabar galite pasinaudoti centralizuotomis „espace-piin“ funkcijomis, kad galėtumėte bendrauti, linksmintis ar pranešti apie save.",
     "activated-after-15min-payment": "Patvirtinus mokėjimą, jūsų kampanija bus patvirtinta maždaug po penkiolikos minučių.",
-    "update-is-done": "Atnaujinimas atliktas"
+    "update-is-done": "Atnaujinimas atliktas",
+    "You-h-been-verified-i-t-platform-D": "Jus patvirtino platformoje. Dabar galite mėgautis visais priedais."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Ar tikrai pakeisite savo projekto išleidimo datą?",
@@ -1051,7 +1079,10 @@
     "T-content-has-been-reported": "Pranešta apie šį turinį. Mūsų moderatoriai peržiūrės per 24 valandas. Jei nebus paisoma bendruomenės taisyklių, bus taikoma sankcija.",
     "T-user-has-been-blocked-D": "Šis vartotojas buvo užblokuotas jūsų paskyroje. Joks šio profilio turinys nebus matomas jūsų paskyroje.",
     "W-is-t-reason-to-report-t-post": "Kokia priežastis pranešti apie šį įrašą?",
-    "W-is-t-reason-to-report-t-post-D": "Jūsų pranešimas yra anonimas. Pasirinkite tik kategoriją, kad padėtų moratoriams"
+    "W-is-t-reason-to-report-t-post-D": "Jūsų pranešimas yra anonimas. Pasirinkite tik kategoriją, kad padėtų moratoriams",
+    "A-y-s-to-unfollow-this-profile": "Ar tikrai nebenorite stebėti šio profilio?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ar tikrai ištrinsite šį draugą iš savo draugų sąrašo?",
+    "A-y-s-to-delete-t-story": "Ar tikrai ištrinsite šią istoriją?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Įspėjimas. Įsitikinkite, kad turite teisingą adresą"
@@ -1425,7 +1456,8 @@
       "Rock": "Rokas",
       "Reggae": "Regis",
       "Country": "Šalis"
-    }
+    },
+    "Playlist-Details": "Išsami grojaraščio informacija"
   },
   "WIINS-TUBE": {
     "CREATION": {

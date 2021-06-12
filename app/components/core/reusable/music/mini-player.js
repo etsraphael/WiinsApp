@@ -9,7 +9,7 @@ import FastImage from 'react-native-fast-image'
 import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import * as PlaylistPageActions from '../../../../redux/PlaylistMusicPage/actions'
 import { faMusic, faAngleDown, faRepeat } from '@fortawesome/pro-light-svg-icons'
-import { faHeart, faPause, faUserPlus, faStepBackward, faStepForward, faRandom, faPlay, faRepeat1Alt } from '@fortawesome/pro-solid-svg-icons'
+import { faHeart, faPause, faUserPlus, faStepBackward, faStepForward, faRandom, faPlay, faRepeat1Alt, faUserCheck } from '@fortawesome/pro-solid-svg-icons'
 
 import ProgressBar from '../../../space/music/progress-bar'
 
@@ -26,6 +26,16 @@ class MiniPlayer extends React.Component {
         // send the request
         await this.props.actions.likeMusicFromPlayerAction(this.props.Player.musicIsPlaying.music)
     }
+
+    _dislikeMusic = () => {
+        // send the request
+        return this.props.actions.dislikeMusicFromPlayerAction(
+            this.props.Player.musicIsPlaying.id,
+            this.props.Player.musicIsPlaying.music.space,
+            this.props.Player.musicIsPlaying.music.category
+        )
+    }
+
 
     // to pause the music
     _pause = () => {
@@ -113,19 +123,23 @@ class MiniPlayer extends React.Component {
         )
     }
 
+    _followArtist = (profileId) => {
+        return this.props.actions.followArtistActions(profileId)
+    }
+
     // to show relation icon
     _displayRelationIcon = () => {
         switch (true) {
             case (this.props.Player.musicIsPlaying.music.profile.relation == 'friend' || this.props.Player.musicIsPlaying.music.profile.relation == 'following'):
                 return (
                     <TouchableOpacity style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
-                        <FontAwesomeIcon icon={faUserPlus} color={'#0066cc'} size={19} />
+                        <FontAwesomeIcon icon={faUserCheck} color={'green'} size={19} />
                     </TouchableOpacity>
                 )
             case (this.props.Player.musicIsPlaying.music.profile == this.props.MyUser.user.profile): return null
             default:
                 return (
-                    <TouchableOpacity onPress={() => this.props.actions.followArtistActions(this.props.Player.musicIsPlaying.music._id, this.props.Player.musicIsPlaying.music.profile._id)}
+                    <TouchableOpacity onPress={() => this._followArtist(this.props.Player.musicIsPlaying.music.profile._id)}
                         style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
                         <FontAwesomeIcon icon={faUserPlus} color={'grey'} size={19} />
                     </TouchableOpacity>
@@ -180,7 +194,7 @@ class MiniPlayer extends React.Component {
                         {/* Like Btn */}
                         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
                             {this.props.Player.musicIsPlaying.isLiked ?
-                                <TouchableOpacity onPress={() => this.props.actions.dislikeMusicFromPlayerAction(this.props.Player.musicIsPlaying.id)} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
+                                <TouchableOpacity onPress={() => this._dislikeMusic()} style={{ backgroundColor: '#cdcdcd54', borderRadius: 50, padding: 10 }}>
                                     <FontAwesomeIcon icon={faHeart} color={'red'} size={17} />
                                 </TouchableOpacity>
                                 :

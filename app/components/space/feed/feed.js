@@ -1,10 +1,11 @@
 import React from 'react'
-import { StyleSheet, View, FlatList, TouchableOpacity, Image, SafeAreaView, VirtualizedList } from 'react-native'
+import { StyleSheet, View, FlatList, TouchableOpacity, Image, SafeAreaView, VirtualizedList, Text } from 'react-native'
 import { connect } from 'react-redux'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
 import * as SearchActions from '../../../redux/SearchBar/actions'
 import * as PublicationInModalActions from '../../../redux/PublicationInModal/actions'
 import * as StoriesActions from '../../../redux/Stories/actions'
+import * as NotificationsActions from '../../../redux/Notifications/actions'
 import { bindActionCreators } from 'redux'
 import PublicationStoryHeader from './stories/publication-story-header'
 import StantardSuggest from '../../core/reusable/suggest/stantard-suggest'
@@ -13,7 +14,7 @@ import MainPublication from '../publication/main-publication'
 import StoriesTrend from './stories/stories-trend'
 import OptionPublicationModal from './../../core/modal/option-publication-modal'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faUserCircle, faCog } from '@fortawesome/pro-light-svg-icons'
+import { faUserCircle, faCog, faBell } from '@fortawesome/pro-light-svg-icons'
 import CardNewFeed from './../../core/reusable/card/card-new-feed'
 import { checkNotification } from './../../../services/notification/action-notification-service'
 
@@ -25,8 +26,6 @@ class Feed extends React.Component {
             isHeaderVisible: true,
             search: '',
             pagePublication: 1,
-            modal: false,
-            PublicationModal: null,
             publicationMode: false,
             publicationModeExist: false,
             storysModal: false,
@@ -40,24 +39,25 @@ class Feed extends React.Component {
 
     UNSAFE_componentWillMount() {
         this.props.actions.resetPublicationActions()
+        this.props.actions.resetPublicationInModalActions()
+        this.props.actions.getNotificationsNumberAction()
         this._getPublicationList()
     }
 
     componentDidMount() {
-        checkNotification(this.props.navigation)
-    }
+        checkNotification(this.props.navigation, {
+            openToggleModal: (event) => this._toggleModal(event)
+        })
 
-    // to display the modal view
-    _toggleModal = (event) => {
-        if (!!event) { this.props.actions.putPublicationInModalActions(event.publication) }
-        else { this.props.actions.resetPublicationInModalActions() }
-        this.setState({ modal: !this.state.modal, PublicationModal: event })
+        if (!!this.props.params) {
+            console.log(this.props.params.notification)
+        }
     }
 
     // go to profile
     _goToProfile = (payload) => {
 
-        this.setState({ modal: false, PublicationModal: null })
+        this.props.actions.resetPublicationInModalActions()
 
         if (payload.pageName == 'Profile') return null
 
@@ -92,19 +92,45 @@ class Feed extends React.Component {
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-start' }}>
                     <TouchableOpacity
                         onPress={() => this.props.navigation.navigate('Setting')}
-                        style={{ justifyContent: 'center', alignItems: 'center' }}>
+                        style={{ justifyContent: 'center', alignItems: 'center', paddingLeft: 25 }}>
                         <FontAwesomeIcon icon={faCog} size={24} color={'#aeaeae'} />
                     </TouchableOpacity>
                 </View>
                 <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                    <Image style={{ width: 65, height: 35 }} source={require('../../../../assets/image/wiins-written.png')} />
+                    <Image 
+                        style={{ width: '100%', height: '100%' }} 
+                        source={require('../../../../assets/image/wiins-written.png')} 
+                        resizeMode={'contain'}
+                    />
                 </View>
                 <View style={{ flex: 1, justifyContent: 'center', alignItems: 'flex-end' }}>
-                    <TouchableOpacity
-                        onPress={() => this.props.navigation.navigate('MyProfile')}
-                        style={{ justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faUserCircle} size={27} color={'#aeaeae'} />
-                    </TouchableOpacity>
+                    <View style={{ flexDirection: 'row', paddingHorizontal: 20 }}>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('Notification')}
+                            style={{ justifyContent: 'center', alignItems: 'center', paddingHorizontal: 10 }}>
+                            <FontAwesomeIcon icon={faBell} size={27} color={'#aeaeae'} />
+                            {this.props.Notifications.requestNumber + this.props.Notifications.activityNumber > 0 && 
+                            <View style={{
+                                position: 'absolute',
+                                backgroundColor: 'red',
+                                width: 20,
+                                height: 20,
+                                borderRadius: 50,
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                top: -9,
+                                left: 25
+                                
+                            }}>
+                                <Text style={{ color: 'white' }}>{this.props.Notifications.requestNumber + this.props.Notifications.activityNumber}</Text>
+                            </View>}
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('MyProfile')}
+                            style={{ justifyContent: 'center', alignItems: 'center', paddingHorizontal: 10 }}>
+                            <FontAwesomeIcon icon={faUserCircle} size={27} color={'#aeaeae'} />
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         )
@@ -119,10 +145,10 @@ class Feed extends React.Component {
         return (<CardNewFeed
             toggleReportModal={() => this._toggleReportModal(item._id, this._getItemOwner(item))}
             index={index}
+            lastIndex={index === this.props.FeedPublications.publications.length - 1 | false}
             navigation={this.props.navigation}
             publication={item}
             space={'feed'}
-            toggleModal={(event) => this._toggleModal(event)}
         />)
     }
 
@@ -133,7 +159,7 @@ class Feed extends React.Component {
 
     _publicationList = () => {
         return (
-            <SafeAreaView style={{ borderTopLeftRadius: 35, borderTopRightRadius: 35, borderColor: 'white', flex: 1, overflow: 'hidden' }}>
+            <SafeAreaView style={{ flex: 1, overflow: 'hidden' }}>
                 <VirtualizedList
                     onRefresh={this._refreshPage}
                     refreshing={this.props.Stories.isRefreshing || this.props.FeedPublications.isRefreshing}
@@ -194,7 +220,6 @@ class Feed extends React.Component {
         setTimeout(() => this.setState({ reportModalExist: !this.state.reportModalExist }), 100)
     }
 
-
     render = () => {
         return (
             <SafeAreaView style={{ flex: 1 }}>
@@ -211,13 +236,12 @@ class Feed extends React.Component {
                             isVisible={this.state.publicationMode}
                         /> : null}
 
-                    {this.state.modal ?
+                    {!!this.props.PublicationsInModal.publication &&
                         <PublicationModalContainer
-                            publicationModal={this.state.PublicationModal}
-                            toggleModal={(event) => this._toggleModal(event)}
                             goToProfile={(payload) => this._goToProfile(payload)}
                             pageName={'Feed'}
-                        /> : null}
+                        />
+                    }
 
                     {this.state.storysModalExist ?
                         <StoriesTrend
@@ -250,7 +274,6 @@ const styles = StyleSheet.create({
         position: 'relative',
         flexDirection: 'row',
         marginVertical: 5,
-        paddingHorizontal: 30,
         height: 38
     },
     search_bar: {
@@ -270,15 +293,18 @@ const mapStateToProps = state => ({
     MyUser: state.MyUser,
     SearchList: state.Search,
     MyProfile: state.MyProfile,
-    Stories: state.Stories
+    Stories: state.Stories,
+    PublicationsInModal: state.PublicationsInModal,
+    Notifications: state.Notifications
 })
 
 const ActionCreators = Object.assign(
     {},
+    PublicationInModalActions,
     PublicationFeedActions,
     SearchActions,
-    PublicationInModalActions,
-    StoriesActions
+    StoriesActions,
+    NotificationsActions
 )
 
 const mapDispatchToProps = dispatch => ({

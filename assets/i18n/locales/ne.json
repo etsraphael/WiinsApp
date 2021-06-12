@@ -93,7 +93,8 @@
     "Enable-notification": "सूचनाहरू सक्षम गर्नुहोस्",
     "Group-creation": "समूहको निर्माण",
     "Mute": "म्यूट गर्नुहोस्",
-    "Send": "पठाउनुहोस्"
+    "Send": "पठाउनुहोस्",
+    "days-message-delete-two-weeks": "तपाईंको सन्देशहरू स्वचालित रूपमा १ days दिन पछि हटाइनेछ"
   },
   "CONFIRMATION": {
     "Delete-Room": "के तपाइँ पक्का हुनुहुन्छ कि यस छलफललाई हटाउनु हुन्छ?"
@@ -260,7 +261,21 @@
     "Save-in-phone": "फोनमा बचत गर्नुहोस्",
     "No": "होईन",
     "Yes": "हो",
-    "Block-t-user": "यस प्रयोगकर्तालाई रोक्नुहोस्"
+    "Block-t-user": "यस प्रयोगकर्तालाई रोक्नुहोस्",
+    "Message": "सन्देश",
+    "Friend-request": "साथी बन्नका लागि अनुरोध",
+    "feed": "प्रवाह",
+    "tube": "ट्यूब",
+    "Music": "संगीत",
+    "Page": "पृष्ठ",
+    "Music-Project": "संगीत परियोजना",
+    "Group": "समूह",
+    "Earlier": "पहिले",
+    "Notifications": "सूचनाहरू",
+    "Report-t-profile": "प्रोफाइल रिपोर्ट गर्नुहोस्",
+    "Unfollow": "अनब्लक",
+    "Unfriend": "अनफ्रेंड",
+    "Block-User": "ब्लक प्रयोगकर्ता"
   },
   "COUNTRY": {
     "AD": "अन्डोरा",
@@ -620,7 +635,11 @@
     "Y-dont-have-a-conversation-yet": "तपाईंसँग अहिलेसम्म कुराकानी छैन।",
     "Date-cannot-be-in-the-past": "विमोचन मिति विगतमा हुन सक्दैन",
     "You-cannot-add-yourself": "तपाईं आफैलाई थप्न सक्नुहुन्न",
-    "T-content-does-not-exist-anymore": "यो सामग्री अब अवस्थित छैन"
+    "T-content-does-not-exist-anymore": "यो सामग्री अब अवस्थित छैन",
+    "T-publication-no-longer-exists": "यो प्रकाशन अब अवस्थित छैन",
+    "Could-not-play-video": "भिडियो प्ले गर्न सकेन",
+    "No-music-liked-yet": "कुनै संगीत मनपरेको छैन",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "तपाईको आवश्यकताको कारण तपाईलाई प्रमाणिकरण गरिएको छैन। एक नयाँ समय कोशिस गर्नुहोस् जब तपाईं तयार हुनुहुन्छ।"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "फोटो प्राप्त भयो",
@@ -698,7 +717,12 @@
     "Yr-verification-request-was-accepted": "तपाईंको प्रमाणिकरण अनुरोध स्वीकार गरियो",
     "Yr-verification-request-was-refused": "तपाईंको प्रमाणिकरण अनुरोध अस्वीकार गरियो",
     "Yr-certification-request-was-accepted": "तपाईंको प्रमाणीकरण अनुरोध स्वीकार गरियो",
-    "Yr-certification-request-was-refused": "तपाईंको प्रमाणीकरण अनुरोध अस्वीकार गरियो"
+    "Yr-certification-request-was-refused": "तपाईंको प्रमाणीकरण अनुरोध अस्वीकार गरियो",
+    "Value-comment-yr-publication": "{{value} तपाईंको प्रकाशन टिप्पणी गरीयो",
+    "Value-like-yr-comment-in-a-music-playlist": "comment {value} एक संगीत प्लेलिस्टमा तपाईंको टिप्पणी जस्तै",
+    "Value-liked-yr-publication-in-t-feed": "{{value} फिडमा तपाईंको प्रकाशन मनपरायो",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value} फिडमा तपाईंलाई एक प्रकाशनमा ट्याग गर्‍यो",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value} तपाईंलाई एक संगीत प्लेलिस्टमा प्रकाशनमा ट्याग गर्दछ"
   },
   "PAGE": {
     "Name-page": "पृष्ठ नाम",
@@ -753,11 +777,14 @@
     "my-musics": "मेरो संगीत",
     "my-story": "मेरो पोष्टहरू",
     "my-videos": "मेरो भिडियोहरू",
-    "only-f-can-see": "केवल साथीहरूले प्रकाशनहरू देख्न सक्छन्"
+    "only-f-can-see": "केवल साथीहरूले प्रकाशनहरू देख्न सक्छन्",
+    "Edit-cover-photo": "आवरण फोटो सम्पादन गर्नुहोस्",
+    "Edit-profile-photo": "प्रोफाइल फोटो सम्पादन गर्नुहोस्"
   },
   "PUBLICATION": {
     "delete-t-project": "यो परियोजना मेट्नुहोस्",
-    "generate-t-id": "पदचिह्न उत्पन्न गर्नुहोस्"
+    "generate-t-id": "पदचिह्न उत्पन्न गर्नुहोस्",
+    "Uploading-publication": "अपलोड अपलोड गर्दै"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -932,12 +959,12 @@
       "T-b-accepted-b-t-administration": "प्रशासन द्वारा स्वीकार गर्न",
       "This-feature-requires-verification-to-use.": "यो सुविधा प्रयोग गर्न प्रमाणीकरण आवश्यक छ",
       "Upload-a-photo-holding-t-ID-D": "आजको मिति र कागजातको पानाको साथ आईडी समातिएको फोटो अपलोड गर्नुहोस् र त्यसमा \"वाइन्स\" लेख्छ।",
-      "Upload-yr-password-id-identity-or-driver-license": "तपाईंको पासवर्ड, आईडी परिचय वा ड्राइभर इजाजतपत्र अपलोड गर्नुहोस्।",
       "Verification": "प्रमाणिकरण",
       "Verified-zone": "प्रमाणित क्षेत्र",
       "Y-m-complet-t-following-cdt-t-b-certified": "तपाईंले प्रमाणित हुनका लागि निम्न सर्तहरू पूर्ण गर्नुपर्दछ।",
       "Yr-profil-is-currently-being-checked-D": "तपाईंको प्रोफाइल हाल जाँच भइरहेको छ। हामी तपाईंलाई ईमेल द्वारा hours 48 घण्टा भित्र सम्पर्क गर्नेछौं।",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "निश्चित गर्नुहोस् कार्डको पछाडि अपलोड गर्नुहोस् यदि यो राष्ट्रिय परिचय पत्र हो भने (राष्ट्रिय कार्डका लागि मात्र)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "निश्चित गर्नुहोस् कार्डको पछाडि अपलोड गर्नुहोस् यदि यो राष्ट्रिय परिचय पत्र हो भने (राष्ट्रिय कार्डका लागि मात्र)",
+      "Upload-yr-passport-id-identity-or-driver-license": "तपाईंको पासपोर्ट, आईडी परिचय वा ड्राइभर इजाजतपत्र अपलोड गर्नुहोस्।"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "मेरा प्रकाशनहरू मेरो साथीहरू द्वारा मात्र देख्न सकिन्छ",
@@ -1022,7 +1049,8 @@
     "Yr-account-has-been-deleted": "तपाईंको खाता हटाइएको छ",
     "Yr-account-is-activated": "तपाईंको खाता सक्रिय गरिएको छ! अब तपाई espace-piin को केन्द्रीकृत कार्यको फाइदा लिन सक्नुहुन्छ कुराकानी गर्न, तपाईलाई मनोरन्जन गर्न वा आफैलाई चिन्नको लागि।",
     "activated-after-15min-payment": "तपाईंको अभियान भुक्तानी को वैधता पछि पन्ध्र मिनेटमा मान्य हुनेछ।",
-    "update-is-done": "अद्यावधिक भयो"
+    "update-is-done": "अद्यावधिक भयो",
+    "You-h-been-verified-i-t-platform-D": "तपाईंलाई प्लेटफर्ममा प्रमाणित गरिएको छ। तपाईं अब सबै अतिरिक्त आनन्द लिन सक्नुहुन्छ।"
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "के तपाइँ तपाइँको परियोजनाको रिलीज मिति परिवर्तन गर्न निश्चित हुनुहुन्छ?",
@@ -1051,7 +1079,10 @@
     "T-content-has-been-reported": "यो सामग्री रिपोर्ट गरिएको छ। हाम्रो मध्यस्थकर्ताले यसलाई समीक्षा गर्न २ 24 घण्टा ढिलाइमा हेर्नेछ। स्वीकृति लागू हुनेछ यदि यसले समुदायको नियमलाई सम्मान गर्दैन।",
     "T-user-has-been-blocked-D": "यस प्रयोगकर्तालाई तपाईंको खाताबाट ब्लक गरिएको छ। यस प्रोफाइलको कुनै पनि सामग्री तपाइँको खातासँग दृश्यात्मक हुनेछ।",
     "W-is-t-reason-to-report-t-post": "यो पोष्ट रिपोर्ट गर्न कारण के हो?",
-    "W-is-t-reason-to-report-t-post-D": "तपाईंको रिपोर्ट अज्ञात छ। कृपया मोरेटरहरूलाई मद्दत गर्न केवल एक कोटी छान्नुहोस्"
+    "W-is-t-reason-to-report-t-post-D": "तपाईंको रिपोर्ट अज्ञात छ। कृपया मोरेटरहरूलाई मद्दत गर्न केवल एक कोटी छान्नुहोस्",
+    "A-y-s-to-unfollow-this-profile": "के तपाई पक्का यो प्रोफाइल अनुसरण गर्न पक्का हुनुहुन्छ?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "के तपाइँ पक्का हुनुहुन्छ कि तपाइँ यस मित्रलाई तपाइँको मित्र सूचीमा हटाउनुहुन्छ?",
+    "A-y-s-to-delete-t-story": "के तपाइँ यस कथा मेटाउने बारे निश्चित हुनुहुन्छ?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "चेतावनी। निश्चित गर्नुहोस् कि तपाईंसँग सही ठेगाना छ"
@@ -1425,7 +1456,8 @@
       "Rock": "Rock",
       "Reggae": "रेगे",
       "Country": "देश"
-    }
+    },
+    "Playlist-Details": "प्लेलिस्ट विवरणहरू"
   },
   "WIINS-TUBE": {
     "CREATION": {

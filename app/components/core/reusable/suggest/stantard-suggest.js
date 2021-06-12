@@ -3,6 +3,7 @@ import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
+import i18n from '../../../../../assets/i18n/i18n'
 
 class StantardSuggest extends React.Component {
 
@@ -32,7 +33,7 @@ class StantardSuggest extends React.Component {
                 </View>
                 <View style={{ justifyContent: 'center' }}>
                     <Text style={{ fontSize: 16 }}>{suggest._meta.pseudo}</Text>
-                    <Text style={{ fontSize: 12, color: '#808080' }}>{suggest.mutalFriends} communs friends </Text>
+                    <Text style={{ fontSize: 12, color: '#808080' }}>{suggest.mutalFriends} {i18n.t('CORE.mutual-friends')}</Text>
                 </View>
             </TouchableOpacity>
         )

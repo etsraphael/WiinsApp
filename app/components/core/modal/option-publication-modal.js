@@ -167,7 +167,7 @@ class OptionPublicationModal extends React.Component {
         const report = {
             type: 'feed-publication',
             id: this.props.publicationId,
-            categorie: categorySelected
+            categorie: [categorySelected]
         }
 
         return sendReport(report).then(() => this.setState({ menu: 'reportPublicationSent' }))

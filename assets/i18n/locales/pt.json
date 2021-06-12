@@ -51,7 +51,8 @@
     "Enable-notification": "Ativar notificações",
     "Group-creation": "Criação do grupo",
     "Mute": "Mudo",
-    "Send": "Mandar"
+    "Send": "Mandar",
+    "days-message-delete-two-weeks": "Suas mensagens são excluídas automaticamente após 14 dias"
   },
   "CONFIRMATION": {
     "Delete-Room": "Tem certeza de que deseja excluir esta discussão ?"
@@ -218,7 +219,21 @@
     "Save-in-phone": "Salvar no telefone",
     "No": "Não",
     "Yes": "sim",
-    "Block-t-user": "Bloqueie esse usuário"
+    "Block-t-user": "Bloqueie esse usuário",
+    "Message": "Mensagem",
+    "Friend-request": "Pedido de amizade",
+    "feed": "fluxo",
+    "tube": "tubo",
+    "Music": "Música",
+    "Page": "Página",
+    "Music-Project": "Projeto de Música",
+    "Group": "Grupo",
+    "Earlier": "Mais cedo",
+    "Notifications": "Notificações",
+    "Report-t-profile": "Denunciar o perfil",
+    "Unfollow": "Deixar de seguir",
+    "Unfriend": "Não amigo",
+    "Block-User": "Bloquear usuário"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -578,7 +593,11 @@
     "Y-dont-have-a-conversation-yet": "Você ainda não tem uma conversa.",
     "Date-cannot-be-in-the-past": "A data de lançamento não pode estar no passado",
     "You-cannot-add-yourself": "Você não pode se adicionar",
-    "T-content-does-not-exist-anymore": "Este conteúdo não existe mais"
+    "T-content-does-not-exist-anymore": "Este conteúdo não existe mais",
+    "T-publication-no-longer-exists": "Esta publicação não existe mais",
+    "Could-not-play-video": "Não foi possível reproduzir o vídeo",
+    "No-music-liked-yet": "Nenhuma música gostou ainda",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Você não foi verificado devido aos seus requisitos. Experimente uma nova hora quando estiver pronto."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "A foto é recebida",
@@ -656,7 +675,12 @@
     "Yr-verification-request-was-accepted": "Sua solicitação de verificação foi aceita",
     "Yr-verification-request-was-refused": "Sua solicitação de verificação foi recusada",
     "Yr-certification-request-was-accepted": "Sua solicitação de certificação foi aceita",
-    "Yr-certification-request-was-refused": "Sua solicitação de certificação foi recusada"
+    "Yr-certification-request-was-refused": "Sua solicitação de certificação foi recusada",
+    "Value-comment-yr-publication": "{{value}} comentou sua publicação",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} curtir seu comentário em uma lista de reprodução de música",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} gostou da sua publicação no feed",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} marcou você em uma publicação no feed",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} marcou você em uma publicação em uma lista de reprodução de música"
   },
   "PAGE": {
     "Name-page": "Nome da página",
@@ -711,11 +735,14 @@
     "my-musics": "Mes musiquesMinhas musicas",
     "my-story": "Minhas postagens",
     "my-videos": "Meus vídeos",
-    "only-f-can-see": "Só amigos podem ver as publicações"
+    "only-f-can-see": "Só amigos podem ver as publicações",
+    "Edit-cover-photo": "Editar foto de capa",
+    "Edit-profile-photo": "Editar foto de perfil"
   },
   "PUBLICATION": {
     "delete-t-project": "Exclua este projeto",
-    "generate-t-id": "Gerar presença"
+    "generate-t-id": "Gerar presença",
+    "Uploading-publication": "Carregando publicação"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -880,10 +907,10 @@
       "Yr-profil-is-currently-being-checked-D": "Seu perfil está sendo verificado. Entraremos em contato em até 48 horas por e-mail.",
       "Verification": "Verificação",
       "Pl-s-t-docs-a-complet-t-form-below": "Envie os documentos necessários e preencha o formulário abaixo.",
-      "Upload-yr-password-id-identity-or-driver-license": "Envie sua senha, identidade ou carteira de motorista.",
       "Upload-a-photo-holding-t-ID-D": "Faça upload de uma foto segurando o documento de identidade com uma folha de papel com a data de hoje e \"Wiins\" escrito nela.",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "Eu concordo que meus dados podem ser usados para verificar minha conta.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Certifique-se de carregar o verso do cartão se for um cartão de identificação nacional (apenas para o cartão nacional)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Certifique-se de carregar o verso do cartão se for um cartão de identificação nacional (apenas para o cartão nacional)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Carregue seu passaporte, identidade ou carteira de motorista."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "A aceitação da violência como um meio de tentar mudar as coisas",
@@ -965,7 +992,8 @@
     "Yr-account-has-been-deleted": "Sua conta foi excluída",
     "Yr-account-is-activated": "Sua conta está ativada! Agora você pode aproveitar as funções centralizadas do espace-piin's para se comunicar, entreter-se ou tornar-se conhecido.",
     "activated-after-15min-payment": "Sua campanha será validada em cerca de quinze minutos após a validação do pagamento.",
-    "update-is-done": "A atualização está feita"
+    "update-is-done": "A atualização está feita",
+    "You-h-been-verified-i-t-platform-D": "Você foi verificado na plataforma. Você pode desfrutar de todos os extras agora."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Você tem certeza de mudar a data de lançamento do seu projeto ?",
@@ -994,7 +1022,10 @@
     "T-content-has-been-reported": "Este conteúdo foi denunciado. Nossos moderadores darão uma olhada em 24 horas para revisá-lo. Uma sanção será aplicada se isso não respeitar as regras da comunidade.",
     "T-user-has-been-blocked-D": "Este usuário foi bloqueado em sua conta. Nenhum conteúdo deste perfil será visível em sua conta.",
     "W-is-t-reason-to-report-t-post": "Qual é a razão para denunciar esta postagem?",
-    "W-is-t-reason-to-report-t-post-D": "Seu relatório é anônimo. Por favor, escolha apenas uma categoria para ajudar os moradores"
+    "W-is-t-reason-to-report-t-post-D": "Seu relatório é anônimo. Por favor, escolha apenas uma categoria para ajudar os moradores",
+    "A-y-s-to-unfollow-this-profile": "Tem certeza de que deseja parar de seguir este perfil?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Tem certeza de que deseja excluir este amigo da sua lista de amigos?",
+    "A-y-s-to-delete-t-story": "Tem certeza que deseja deletar esta história?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Aviso. Certifique-se de que você tem o endereço certo"
@@ -1368,7 +1399,8 @@
       "Rock": "Rocha",
       "Reggae": "Reggae",
       "Country": "País"
-    }
+    },
+    "Playlist-Details": "Detalhes da lista de reprodução"
   },
   "WIINS-TUBE": {
     "CREATION": {

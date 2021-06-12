@@ -93,7 +93,8 @@
     "Enable-notification": "Aktiveer kennisgewings",
     "Group-creation": "Skepping van die groep",
     "Mute": "Demp",
-    "Send": "Stuur"
+    "Send": "Stuur",
+    "days-message-delete-two-weeks": "U boodskappe word outomaties na 14 dae uitgevee"
   },
   "CONFIRMATION": {
     "Delete-Room": "Is u seker dat u hierdie bespreking sal uitvee?"
@@ -260,7 +261,21 @@
     "Save-in-phone": "Stoor in telefoon",
     "No": "Geen",
     "Yes": "Ja",
-    "Block-t-user": "Blokkeer hierdie gebruiker"
+    "Block-t-user": "Blokkeer hierdie gebruiker",
+    "Message": "Boodskap",
+    "Friend-request": "Vriendversoek",
+    "feed": "vloed",
+    "tube": "buis",
+    "Music": "Musiek",
+    "Page": "Bladsy",
+    "Music-Project": "Musiekprojek",
+    "Group": "Groep",
+    "Earlier": "Vroeër",
+    "Notifications": "Kennisgewings",
+    "Report-t-profile": "Rapporteer die profiel",
+    "Unfollow": "Ontvolg",
+    "Unfriend": "Onvriendin",
+    "Block-User": "Gebruiker blokkeer"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -620,7 +635,11 @@
     "Y-dont-have-a-conversation-yet": "U het nog nie 'n gesprek nie.",
     "Date-cannot-be-in-the-past": "Die vrystellingsdatum kan nie in die verlede wees nie",
     "You-cannot-add-yourself": "U kan nie uself byvoeg nie",
-    "T-content-does-not-exist-anymore": "Hierdie inhoud bestaan nie meer nie"
+    "T-content-does-not-exist-anymore": "Hierdie inhoud bestaan nie meer nie",
+    "T-publication-no-longer-exists": "Hierdie publikasie bestaan nie meer nie",
+    "Could-not-play-video": "Kon nie video speel nie",
+    "No-music-liked-yet": "Nog geen musiek hou nie",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "As gevolg van u vereistes, is u nie geverifieer nie. Probeer 'n nuwe tyd wanneer u gereed is."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Die foto word ontvang",
@@ -698,7 +717,12 @@
     "Yr-verification-request-was-accepted": "U verifikasieversoek is aanvaar",
     "Yr-verification-request-was-refused": "U verifikasieversoek is geweier",
     "Yr-certification-request-was-accepted": "U sertifiseringsversoek is aanvaar",
-    "Yr-certification-request-was-refused": "U sertifiseringsversoek is geweier"
+    "Yr-certification-request-was-refused": "U sertifiseringsversoek is geweier",
+    "Value-comment-yr-publication": "{{value}} het 'n opmerking oor u publikasie gemaak",
+    "Value-like-yr-comment-in-a-music-playlist": "{{value}} hou van u opmerking in 'n musieksnitlys",
+    "Value-liked-yr-publication-in-t-feed": "{{value}} hou van u publikasie in die feed",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}} het jou in 'n publikasie in die feed gemerk",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} het in 'n publikasie 'n musieksnitlys gemerk"
   },
   "PAGE": {
     "Name-page": "Bladsynaam",
@@ -753,11 +777,14 @@
     "my-musics": "My musiek",
     "my-story": "My plasings",
     "my-videos": "My video's",
-    "only-f-can-see": "Slegs vriende kan die publikasies sien"
+    "only-f-can-see": "Slegs vriende kan die publikasies sien",
+    "Edit-cover-photo": "Wysig voorbladfoto",
+    "Edit-profile-photo": "Wysig profielfoto"
   },
   "PUBLICATION": {
     "delete-t-project": "Vee hierdie projek uit",
-    "generate-t-id": "Genereer die voetspoor"
+    "generate-t-id": "Genereer die voetspoor",
+    "Uploading-publication": "Laai tans publikasie op"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -932,12 +959,12 @@
       "T-b-accepted-b-t-administration": "Om deur die administrasie aanvaar te word",
       "This-feature-requires-verification-to-use.": "Om hierdie funksie te gebruik, moet u dit verifieer",
       "Upload-a-photo-holding-t-ID-D": "Laai 'n foto op wat die ID bevat met 'n vel papier met die datum van vandag en 'Wiins' skryf daarop.",
-      "Upload-yr-password-id-identity-or-driver-license": "Laai u wagwoord, identiteit of bestuurderslisensie op.",
       "Verification": "Verifikasie",
       "Verified-zone": "Geverifieerde sone",
       "Y-m-complet-t-following-cdt-t-b-certified": "U moet die volgende voorwaardes nakom om gesertifiseer te word.",
       "Yr-profil-is-currently-being-checked-D": "U profiel word tans nagegaan. Ons sal u binne 48 uur per e-pos kontak.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Maak seker dat u die agterkant van die kaart oplaai as dit 'n nasionale ID-kaart is (slegs vir die nasionale kaart)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Maak seker dat u die agterkant van die kaart oplaai as dit 'n nasionale ID-kaart is (slegs vir die nasionale kaart)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Laai u paspoort, ID-identiteit of bestuurderslisensie op."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "My publikasies is slegs deur my vriende sigbaar",
@@ -1022,7 +1049,8 @@
     "Yr-account-has-been-deleted": "U rekening is uitgevee",
     "Yr-account-is-activated": "U rekening is geaktiveer! U kan nou gebruik maak van die sentrale funksies van espace-piin's om te kommunikeer, jouself te vermaak of om u bekend te maak.",
     "activated-after-15min-payment": "U veldtog sal binne vyftien minute na die bekragtiging van die betaling bekragtig word.",
-    "update-is-done": "Die opdatering is gedoen"
+    "update-is-done": "Die opdatering is gedoen",
+    "You-h-been-verified-i-t-platform-D": "U is op die platform geverifieer. U kan nou al die ekstra's geniet."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Is u seker dat u die vrystellingsdatum van u projek sal verander?",
@@ -1051,7 +1079,10 @@
     "T-content-has-been-reported": "Hierdie inhoud is gerapporteer. Ons moderators sal binne 24 uur vertraging kyk om dit te hersien. 'N Sanksie sal toegepas word as dit nie die reëls van die gemeenskap respekteer nie.",
     "T-user-has-been-blocked-D": "Hierdie gebruiker is van u rekening geblokkeer. Geen inhoud van hierdie profiel sal met u rekening sigbaar wees nie.",
     "W-is-t-reason-to-report-t-post": "Wat is die rede om hierdie berig te rapporteer?",
-    "W-is-t-reason-to-report-t-post-D": "U verslag is anoniem. Kies slegs 'n kategorie om die morators te help"
+    "W-is-t-reason-to-report-t-post-D": "U verslag is anoniem. Kies slegs 'n kategorie om die morators te help",
+    "A-y-s-to-unfollow-this-profile": "Is u seker dat u hierdie profiel sal onttrek?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Is u seker dat u hierdie vriend uit u vriendelys sal uitvee?",
+    "A-y-s-to-delete-t-story": "Is u seker dat u hierdie storie sal uitvee?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Waarskuwing. Maak seker dat u die regte adres het"
@@ -1425,7 +1456,8 @@
       "Rock": "Rots",
       "Reggae": "Reggae",
       "Country": "Land"
-    }
+    },
+    "Playlist-Details": "Besonderhede van snitlys"
   },
   "WIINS-TUBE": {
     "CREATION": {

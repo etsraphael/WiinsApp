@@ -93,7 +93,8 @@
     "Enable-notification": "Gaitu jakinarazpenak",
     "Group-creation": "Taldearen sorrera",
     "Mute": "Mutua",
-    "Send": "Bidali"
+    "Send": "Bidali",
+    "days-message-delete-two-weeks": "Zure mezuak automatikoki ezabatzen dira 14 egunen buruan"
   },
   "CONFIRMATION": {
     "Delete-Room": "Ziur zaude eztabaida ezabatuko duzula?"
@@ -260,7 +261,21 @@
     "Save-in-phone": "Gorde telefonoan",
     "No": "Ez",
     "Yes": "Bai",
-    "Block-t-user": "Blokeatu erabiltzaile hau"
+    "Block-t-user": "Blokeatu erabiltzaile hau",
+    "Message": "Mezua",
+    "Friend-request": "Lagun-eskaera",
+    "feed": "fluxua",
+    "tube": "hodia",
+    "Music": "Musika",
+    "Page": "Orrialdea",
+    "Music-Project": "Musika Proiektua",
+    "Group": "Taldea",
+    "Earlier": "Lehenago",
+    "Notifications": "Jakinarazpenak",
+    "Report-t-profile": "Profilaren berri eman",
+    "Unfollow": "Utzi",
+    "Unfriend": "Lagun gabea",
+    "Block-User": "Blokeatu erabiltzailea"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -620,7 +635,11 @@
     "Y-dont-have-a-conversation-yet": "Oraindik ez duzu elkarrizketarik.",
     "Date-cannot-be-in-the-past": "Argitaratze data ezin da iraganean egon",
     "You-cannot-add-yourself": "Ezin duzu zeure burua gehitu",
-    "T-content-does-not-exist-anymore": "Eduki hau ez da existitzen"
+    "T-content-does-not-exist-anymore": "Eduki hau ez da existitzen",
+    "T-publication-no-longer-exists": "Argitalpen hau jada ez dago",
+    "Could-not-play-video": "Ezin izan da bideoa erreproduzitu",
+    "No-music-liked-yet": "Oraindik ez zaio musika gustatu",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "Zure eskakizunak direla eta ez zaituzte egiaztatu. Saiatu denbora berria prest zaudenean."
   },
   "FEED-PUBLICATION": {
     "Picture-received": "Argazkia jaso da",
@@ -698,7 +717,12 @@
     "Yr-verification-request-was-accepted": "Zure egiaztapen eskaera onartu da",
     "Yr-verification-request-was-refused": "Zure egiaztapen eskaera ukatu egin da",
     "Yr-certification-request-was-accepted": "Zure ziurtagiri eskaera onartu da",
-    "Yr-certification-request-was-refused": "Zure ziurtagiri eskaera ukatu egin da"
+    "Yr-certification-request-was-refused": "Zure ziurtagiri eskaera ukatu egin da",
+    "Value-comment-yr-publication": "{{value}} -k zure argitalpena iruzkindu du",
+    "Value-like-yr-comment-in-a-music-playlist": "{{balioa}} gustuko duzu musika erreprodukzio-zerrendako zure iruzkina",
+    "Value-liked-yr-publication-in-t-feed": "{{balioa}} -ri gustatu zaio zure jarioko argitalpena",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{balioa}} jarioan publikazio batean etiketatu zaitu",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}} -k argitalpen batean musika erreprodukzio-zerrenda etiketatu zaitu"
   },
   "PAGE": {
     "Name-page": "Orriaren izena",
@@ -753,11 +777,14 @@
     "my-musics": "Nire musikak",
     "my-story": "Nire mezuak",
     "my-videos": "Nire bideoak",
-    "only-f-can-see": "Lagunek soilik ikus ditzakete argitalpenak"
+    "only-f-can-see": "Lagunek soilik ikus ditzakete argitalpenak",
+    "Edit-cover-photo": "Editatu azaleko argazkia",
+    "Edit-profile-photo": "Editatu profileko argazkia"
   },
   "PUBLICATION": {
     "delete-t-project": "Ezabatu proiektu hau",
-    "generate-t-id": "Sortu aztarna"
+    "generate-t-id": "Sortu aztarna",
+    "Uploading-publication": "Argitalpena kargatzen"
   },
   "REPORT": {
     "Code-Categorie": [
@@ -932,12 +959,12 @@
       "T-b-accepted-b-t-administration": "Administrazioak onartua izateko",
       "This-feature-requires-verification-to-use.": "Ezaugarri honek egiaztapena eskatzen du erabiltzeko",
       "Upload-a-photo-holding-t-ID-D": "Kargatu gaur eguneko data duen IDa duen orri batekin argazki bat eta \"Wiins\" -ek idazten du.",
-      "Upload-yr-password-id-identity-or-driver-license": "Kargatu pasahitza, ID identitatea edo gidabaimena.",
       "Verification": "Egiaztapena",
       "Verified-zone": "Egiaztatutako zona",
       "Y-m-complet-t-following-cdt-t-b-certified": "Ziurtagiria lortzeko honako baldintza hauek bete behar dituzu.",
       "Yr-profil-is-currently-being-checked-D": "Zure profila egiaztatzen ari da. 48 orduko epean zurekin harremanetan jarriko gara posta elektronikoz.",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ziurtatu txartelaren atzealdea kargatzen duzula nortasun agiri nazionala bada (txartel nazionalerako soilik)"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "Ziurtatu txartelaren atzealdea kargatzen duzula nortasun agiri nazionala bada (txartel nazionalerako soilik)",
+      "Upload-yr-passport-id-identity-or-driver-license": "Kargatu pasaportea, nortasun agiria edo gidabaimena."
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "Nire argitalpenak lagunek soilik ikus ditzakete",
@@ -1022,7 +1049,8 @@
     "Yr-account-has-been-deleted": "Zure kontua ezabatu da",
     "Yr-account-is-activated": "Zure kontua aktibatuta dago! Espace-piin-en funtzio zentralizatuak aprobetxatu ditzakezu komunikatzeko, entretenitzeko edo zure burua ezagutzera emateko.",
     "activated-after-15min-payment": "Ordainketa balioztatu eta hamabost minutu inguru barru balioztatuko da zure kanpaina.",
-    "update-is-done": "Eguneraketa amaitu da"
+    "update-is-done": "Eguneraketa amaitu da",
+    "You-h-been-verified-i-t-platform-D": "Plataforman egiaztatu zaituzte. Gehigarri guztiak goza ditzakezu orain."
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "Ziur al zaude zure proiektuaren kaleratze data aldatuko duzula?",
@@ -1051,7 +1079,10 @@
     "T-content-has-been-reported": "Eduki honen berri eman da. Gure moderatzaileek 24 orduko atzerapenarekin begiratuko dute berrikusteko. Zigor bat aplikatuko da horrek komunitatearen arauak errespetatzen ez baditu.",
     "T-user-has-been-blocked-D": "Erabiltzaile hau zure kontutik blokeatu da. Profileko edukia ez da zure kontuarekin ikusgai egongo.",
     "W-is-t-reason-to-report-t-post": "Zein da mezu honen berri emateko arrazoia?",
-    "W-is-t-reason-to-report-t-post-D": "Zure txostena anonimoa da. Mesedez, aukeratu kategoria bat moratorrei laguntzeko"
+    "W-is-t-reason-to-report-t-post-D": "Zure txostena anonimoa da. Mesedez, aukeratu kategoria bat moratorrei laguntzeko",
+    "A-y-s-to-unfollow-this-profile": "Ziur zaude profil honi jarraipena egingo diozula?",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "Ziur zaude lagun hau zure lagunen zerrendan ezabatuko duzula?",
+    "A-y-s-to-delete-t-story": "Ziur istorio hau ezabatuko duzula?"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "Abisua. Ziurtatu helbide egokia duzula"
@@ -1425,7 +1456,8 @@
       "Rock": "Arroka",
       "Reggae": "Reggaea",
       "Country": "Herrialdea"
-    }
+    },
+    "Playlist-Details": "Erreprodukzio zerrendaren xehetasunak"
   },
   "WIINS-TUBE": {
     "CREATION": {

@@ -1,13 +1,15 @@
 import React from 'react'
-import { StyleSheet, View, ActivityIndicator, TouchableOpacity, Text, ScrollView, LogBox } from 'react-native'
+import { StyleSheet, View, ActivityIndicator, TouchableOpacity, Text, ScrollView } from 'react-native'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import FastImage from 'react-native-fast-image'
 import * as PageActions from '../../../redux/Page/actions'
 import * as ProfilePublicationActions from '../../../redux/ProfilePublications/actions'
 import * as PublicationFeedActions from '../../../redux/FeedPublications/actions'
-import LinearGradient from 'react-native-linear-gradient'
 import ProfilePublication from './../profile/profile-publication'
+import i18n from '../../../../assets/i18n/i18n'
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faArrowLeft, faEllipsisH } from '@fortawesome/pro-light-svg-icons'
 
 class Page extends React.Component {
 
@@ -18,15 +20,13 @@ class Page extends React.Component {
             pagePublication: 1,
             publicationLoading: false
         }
-
-        LogBox.ignoreLogs(['VirtualizedLists should never be nested'])
     }
 
     // to show the publications feed
     _getPublicationList = () => {
         if (!this.props.ProfilePublications.isLoading) {
             this.setState({ pagePublication: ++this.state.pagePublication, publicationLoading: true })
-            this.props.actions.getByModeProfile(this.state.pagePublication, 'page/' + this.props.navigation.state.params.pageId)
+            this.props.actions.getByModeProfile(this.state.pagePublication, 'page/' + this.props.route.params.pageId)
             setTimeout(() => this.setState({ publicationLoading: false }), 3000);
         }
     }
@@ -36,85 +36,90 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        this.props.actions.getByModeProfile(1, 'page/' + this.props.navigation.state.params.pageId)
-        this.props.actions.getPage(this.props.navigation.state.params.pageId)
+        this.props.actions.getByModeProfile(1, 'page/' + this.props.route.params.pageId)
+        this.props.actions.getPage(this.props.route.params.pageId)
     }
 
     // to display the follow/unfollow button
     _renderBtnRelation = () => {
-
         return (
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                {this.props.Page.page.followed ?  this._displayBtnUnFollow() : this._displayBtnFollow()}
+            <View style={{ flexDirection: 'row', marginVertical: 2 }}>
+                {this.props.Page.page.followed ?
+                    <TouchableOpacity style={{ flex: 2 }} onPress={() => this.props.actions.unfollowPage(this.props.Page.page._id)}>
+                        <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{i18n.t('CORE.Following')}</Text>
+                        </View>
+                    </TouchableOpacity>
+                    :
+                    <TouchableOpacity style={{ flex: 2 }} onPress={() => this.props.actions.followPage(this.props.Page.page._id)}>
+                        <View style={{ backgroundColor: '#6600ff', borderRadius: 5, justifyContent: 'center', alignItems: 'center', paddingVertical: 5 }}>
+                            <Text style={{ fontSize: 19, fontWeight: '600', color: 'white' }}>{i18n.t('CORE.Follow')}</Text>
+                        </View>
+                    </TouchableOpacity>
+                }
+                <View style={{ flex: 1 }} />
             </View>
         )
+
     }
 
-    // to display the unfollow button
-    _displayBtnUnFollow = () => {
-        return (
-            <LinearGradient start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} colors={['#e65c00', '#F9D423']} style={styles.btn_nav}
-            style={{ paddingVertical: 12, paddingHorizontal: 12, borderRadius: 8, backgroundColor: '#e6e6e6', alignItems: 'center', justifyContent: 'center', marginHorizontal: 15 }}>
-                <TouchableOpacity onPress={() => this.props.actions.unfollowPage(this.props.Page.page._id)}>
-                    <Text style={{ fontSize: 12, color: 'white', fontWeight: '600' }}>Subscribed</Text>
-                </TouchableOpacity>
-            </LinearGradient>
-        )
-    }
-
-    // to display the follow button
-    _displayBtnFollow = () => {
-        return (
-            <LinearGradient start={{ x: 0, y: 1 }} end={{ x: 1, y: 0 }} colors={['#2193b0', '#6dd5ed']} style={styles.btn_nav}
-            style={{ paddingVertical: 12, paddingHorizontal: 15, borderRadius: 8, backgroundColor: '#e6e6e6', alignItems: 'center', justifyContent: 'center', marginHorizontal: 15 }}>
-                <TouchableOpacity onPress={() => this.props.actions.followPage(this.props.Page.page._id)}>
-                    <Text style={{ fontSize: 12, color: 'white', fontWeight: '600' }}>Follow</Text>
-                </TouchableOpacity>
-            </LinearGradient>
-        )
-    }
-
-    // to display the header of the page view
     _renderHeader = () => {
-
         return (
             <View style={styles.header_container}>
-                <View style={{ flex: 1 }}>
-                    <FastImage style={{ width: '100%', height: 220 }} resizeMode={FastImage.resizeMode.cover}
-                        source={{
-                            uri: this.props.Page.page.picturecover,
-                            priority: FastImage.priority.normal,
-                        }}
+
+                <View style={{ flex: 1, position: 'relative' }}>
+
+                    {/* Title and btn */}
+                    <View style={{ position: 'absolute', top: 30, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', zIndex: 1, width: '100%' }}>
+                        <View style={{ flex: 1, justifyContent: 'flex-start' }}>
+                            <TouchableOpacity onPress={() => this.props.navigation.goBack()}
+                                style={{ justifyContent: 'center', alignItems: 'center' }}>
+                                <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
+                            </TouchableOpacity>
+                        </View>
+                        <View style={{ flex: 3, justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: 18, color: 'white', fontWeight: '800' }}>{i18n.t('CORE.Profile')}</Text>
+                        </View>
+                        <TouchableOpacity style={{ flex: 1 }}>
+                            <FontAwesomeIcon icon={faEllipsisH} color={'white'} size={40} />
+                        </TouchableOpacity>
+                    </View>
+
+                    {/* Cover Picture */}
+                    <FastImage
+                        style={{ height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30 }}
+                        resizeMode={FastImage.resizeMode.cover}
+                        source={{ uri: this.props.Page.page.picturecover, priority: FastImage.priority.normal }}
                     />
-                </View>
-                <View style={styles.sub_header}>
-                    <View style={{ flexDirection: 'row' }}>
-                        <View style={{ flex: 3, alignItems: 'center', flexDirection: 'column-reverse' }}>
+
+                    {/* Background Filter */}
+                    <View style={{ backgroundColor: '#0000004d', width: '100%', height: 230, borderBottomLeftRadius: 30, borderBottomRightRadius: 30, position: 'absolute' }} />
+
+                    {/* Profile picture and name */}
+                    <View style={{ bottom: -50, width: '100%', flexDirection: 'row', paddingHorizontal: 5, position: 'absolute', paddingHorizontal: 35 }}>
+                        <View style={{ flex: 5, justifyContent: 'center', alignItems: 'center' }}>
+                            <FastImage
+                                style={{ width: '100%', aspectRatio: 1, borderRadius: 15, borderColor: '#6600ff', borderWidth: 2 }}
+                                source={{
+                                    uri: this.props.Page.page.pictureprofile,
+                                    priority: FastImage.priority.normal,
+                                }}
+                                resizeMode={FastImage.resizeMode.cover}
+                            />
+                        </View>
+                        <View style={{ flex: 7, paddingLeft: 15, justifyContent: 'space-evenly' }}>
                             {this._renderBtnRelation()}
-                        </View>
-                        <View style={{ flex: 4, alignItems: 'center' }}>
-                            <View style={styles.border_avatar}>
-                                <FastImage
-                                    style={{ height: 150, width: 150, borderRadius: 78 }}
-                                    source={{
-                                        uri: this.props.Page.page.pictureprofile,
-                                        priority: FastImage.priority.normal,
-                                    }}
-                                    resizeMode={FastImage.resizeMode.cover}
-                                />
-                            </View>
-                        </View>
-                        <View style={{ flex: 3 }}>
-                            <View style={{ position: 'absolute', bottom: 0, alignItems: 'center', marginLeft: 15 }}>
-                                <Text>Community</Text>
-                                <Text>{this.props.Page.page.followers}</Text>
+                            <View style={{ position: 'relative', bottom: -15 }}>
+                                <Text style={{ fontSize: 22, color: '#333333', fontFamily: 'Avenir-Heavy' }}>@{this.props.Page.page.name}</Text>
+                                <Text style={{ color: '#77838F', fontSize: 15, fontFamily: 'Avenir-Book' }}>{i18n.t('CORE.Community')} : {this.props.Page.page.followers}</Text>
                             </View>
                         </View>
                     </View>
+
                 </View>
-                <View style={{ alignItems: 'center' }}>
-                    <Text style={{ paddingVertical: 15, fontSize: 27 }}>{this.props.Page.page.name}</Text>
-                </View>
+
+                <View style={{ height: 75 }} />
+
             </View>
         )
     }

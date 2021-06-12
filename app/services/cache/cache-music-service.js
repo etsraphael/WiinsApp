@@ -261,8 +261,16 @@ export async function downloadPlaylistMusicList(musicList, actions) {
 
 }
 
-export async function cacheOneMusic(music, actions) {
+export function cacheOneMusic(music, actions, space) {
+    switch (space) {
+        case 'home': return null
+        case 'playlist-page': return cacheOneMusicFromPlaylistPage(music, actions)
+        default: return null
+    }
+}
 
+
+async function cacheOneMusicFromPlaylistPage(music, actions){
     if (!music.file) return null
 
     // check if the cache music cache exist

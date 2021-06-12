@@ -51,7 +51,8 @@
     "Enable-notification": "启用通知",
     "Group-creation": "组的创建",
     "Mute": "静音",
-    "Send": "发送"
+    "Send": "发送",
+    "days-message-delete-two-weeks": "您的邮件会在14天后自动删除"
   },
   "CONFIRMATION": {
     "Delete-Room": "您确定要删除此讨论吗？"
@@ -218,7 +219,21 @@
     "Save-in-phone": "储存在手机中",
     "No": "不",
     "Yes": "是的",
-    "Block-t-user": "阻止此用户"
+    "Block-t-user": "阻止此用户",
+    "Message": "信息",
+    "Friend-request": "好友请求",
+    "feed": "通量",
+    "tube": "管子",
+    "Music": "音乐",
+    "Page": "页",
+    "Music-Project": "音乐计划",
+    "Group": "团体",
+    "Earlier": "较早",
+    "Notifications": "通知事项",
+    "Report-t-profile": "报告个人资料",
+    "Unfollow": "取消关注",
+    "Unfriend": "取消交友",
+    "Block-User": "阻止用户"
   },
   "COUNTRY": {
     "AD": "安道尔",
@@ -578,7 +593,11 @@
     "Y-dont-have-a-conversation-yet": "您还没有对话。",
     "Date-cannot-be-in-the-past": "发布日期不能是过去的日期",
     "You-cannot-add-yourself": "您无法添加自己",
-    "T-content-does-not-exist-anymore": "该内容已不存在"
+    "T-content-does-not-exist-anymore": "该内容已不存在",
+    "T-publication-no-longer-exists": "该出版物不再存在",
+    "Could-not-play-video": "无法播放视频",
+    "No-music-liked-yet": "尚无音乐喜欢",
+    "You-havnt-been-verified-due-t-yr-requirements-D": "由于您的要求，您尚未通过验证。准备好后再尝试新的时间。"
   },
   "FEED-PUBLICATION": {
     "Picture-received": "收到照片",
@@ -656,7 +675,12 @@
     "Yr-verification-request-was-accepted": "您的验证请求已被接受",
     "Yr-verification-request-was-refused": "您的验证请求被拒绝",
     "Yr-certification-request-was-accepted": "您的认证请求已被接受",
-    "Yr-certification-request-was-refused": "您的认证请求被拒绝"
+    "Yr-certification-request-was-refused": "您的认证请求被拒绝",
+    "Value-comment-yr-publication": "{{value}}评论了您的出版物",
+    "Value-like-yr-comment-in-a-music-playlist": "像您在音乐播放列表中的评论一样{{value}}",
+    "Value-liked-yr-publication-in-t-feed": "{{value}}喜欢您在供稿中的出版物",
+    "Value-tagged-you-in-a-publication-in-t-feed": "{{value}}在Feed中的出版物中标记了您",
+    "Value-tagged-you-in-a-publication-a-music-playlist": "{{value}}在出版物中为您标记了音乐播放列表"
   },
   "PAGE": {
     "Name-page": "页面名称",
@@ -711,11 +735,14 @@
     "my-musics": "我的音乐",
     "my-story": "我的帖子",
     "my-videos": "我的影片",
-    "only-f-can-see": "只有朋友才能看到出版物"
+    "only-f-can-see": "只有朋友才能看到出版物",
+    "Edit-cover-photo": "编辑封面照片",
+    "Edit-profile-photo": "编辑个人资料照片"
   },
   "PUBLICATION": {
     "delete-t-project": "删除此项目",
-    "generate-t-id": "产生足迹"
+    "generate-t-id": "产生足迹",
+    "Uploading-publication": "上载出版物"
   },
   "REPORT": {
     "Code-Categorie": {
@@ -880,10 +907,10 @@
       "Yr-profil-is-currently-being-checked-D": "目前正在检查您的个人资料。我们将在48小时内通过电子邮件与您联系。",
       "Verification": "验证",
       "Pl-s-t-docs-a-complet-t-form-below": "请发送必要的文件并填写以下表格。",
-      "Upload-yr-password-id-identity-or-driver-license": "上传您的密码，ID身份或驾驶执照。",
       "Upload-a-photo-holding-t-ID-D": "上传带有ID的照片和一张带有今天日期的纸，并在上面写上“空白”。",
       "I-agree-t-m-data-may-b-used-t-check-my-account": "我同意我的数据可用于检查我的帐户。",
-      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "如果是身份证，请确保上传卡的背面（仅适用于身份证）"
+      "M-s-t-upload-t-back-of-the-card-if-its-a-national-id-card": "如果是身份证，请确保上传卡的背面（仅适用于身份证）",
+      "Upload-yr-passport-id-identity-or-driver-license": "上传您的护照，身份证件或驾驶执照。"
     },
     "visibility": {
       "my-publications-are-visible-b-m-friends": "接受暴力作为试图改变事物的手段",
@@ -965,7 +992,8 @@
     "Yr-account-has-been-deleted": "您的帐户已被删除",
     "Yr-account-is-activated": "您的帐户已激活！现在，您可以利用电子空间 piin 的集中功能来沟通、娱乐自己或使自己出名。",
     "activated-after-15min-payment": "您的广告系列将在付款验证后约十五分钟内得到验证。",
-    "update-is-done": "更新已完成"
+    "update-is-done": "更新已完成",
+    "You-h-been-verified-i-t-platform-D": "您已在平台中通过验证。您现在可以享受所有其他功能。"
   },
   "VALIDATION": {
     "A-y-s-to-change-t-date-project": "是否确实要更改项目的发布日期 ？",
@@ -994,7 +1022,10 @@
     "T-content-has-been-reported": "此内容已被举报。我们的主持人将在24小时内进行审核。如果不遵守社区规则，将采取制裁措施。",
     "T-user-has-been-blocked-D": "该用户已被阻止使用您的帐户。您的帐户看不到此配置文件的内容。",
     "W-is-t-reason-to-report-t-post": "举报此帖子的原因是什么？",
-    "W-is-t-reason-to-report-t-post-D": "您的报告是匿名的。请选择一个类别以帮助the旋者"
+    "W-is-t-reason-to-report-t-post-D": "您的报告是匿名的。请选择一个类别以帮助the旋者",
+    "A-y-s-to-unfollow-this-profile": "您确定要取消关注此个人资料吗？",
+    "A-y-s-to-delete-t-friend-in-yr-friend-list": "您确定要在朋友列表中删除此朋友吗？",
+    "A-y-s-to-delete-t-story": "您确定要删除此故事吗？"
   },
   "WARNING": {
     "BC-make-sure-you-have-the-correct-address": "警告。确保您拥有正确的地址"
@@ -1368,7 +1399,8 @@
       "Rock": "岩石",
       "Reggae": "雷鬼",
       "Country": "国家"
-    }
+    },
+    "Playlist-Details": "播放清单详细资料"
   },
   "WIINS-TUBE": {
     "CREATION": {

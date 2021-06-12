@@ -133,8 +133,9 @@ android {
         applicationId "com.wiins"
         minSdkVersion 24
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 19
-        versionName "19"
+        vectorDrawables.useSupportLibrary = true
+        versionCode 31
+        versionName "31"
         multiDexEnabled true
         missingDimensionStrategy 'react-native-camera', 'general'
     }
