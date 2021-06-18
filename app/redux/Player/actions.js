@@ -3,6 +3,7 @@ import TrackPlayer from 'react-native-track-player'
 import AsyncStorage from '@react-native-community/async-storage'
 import { likeMusicSuccess, dislikeMusicSuccess } from './../PlaylistMusicPage/actions'
 import { addMusicAfterLiked, pullMusicAfterDisliked } from './../MyFavMusic/actions'
+import { likeMusicFromHomeMusic, dislikeMusicFromHomeMusic } from './../MusicMenu/actions'
 import { sendError } from './../../../app/services/error/error-service'
 
 export function continueMusic() {
@@ -128,17 +129,17 @@ export function playMusicActions(music, payload) {
                 TrackPlayer.updateOptions({
                     stopWithApp: true,
                     capabilities: [
-                      TrackPlayer.CAPABILITY_PLAY,
-                      TrackPlayer.CAPABILITY_PAUSE,
-                      TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-                      TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-                      TrackPlayer.CAPABILITY_STOP,
+                        TrackPlayer.CAPABILITY_PLAY,
+                        TrackPlayer.CAPABILITY_PAUSE,
+                        TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
+                        TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
+                        TrackPlayer.CAPABILITY_STOP,
                     ],
                     compactCapabilities: [
-                      TrackPlayer.CAPABILITY_PLAY,
-                      TrackPlayer.CAPABILITY_PAUSE
+                        TrackPlayer.CAPABILITY_PLAY,
+                        TrackPlayer.CAPABILITY_PAUSE
                     ]
-                  });
+                });
                 await TrackPlayer.add(tracklist)
                 TrackPlayer.skip(music._id)
                 TrackPlayer.play()
@@ -263,7 +264,16 @@ export function likeMusicFromPlayerAction(music) {
                     if (response.status == 200) {
 
                         // update the music in the playlist
-                        dispatch(likeMusicSuccess(music._id))
+                        switch (music.space) {
+                            case 'playlist-page': {
+                                dispatch(likeMusicSuccess(music._id))
+                                break
+                            }
+                            case 'home': {
+                                dispatch(likeMusicFromHomeMusic(music._id, music.category))
+                                break
+                            }
+                        }
 
                         // add the music in the favorite playlist
                         dispatch(addMusicAfterLiked(music))
@@ -279,7 +289,7 @@ export function likeMusicFromPlayerAction(music) {
     }
 }
 
-export function dislikeMusicFromPlayerAction(id) {
+export function dislikeMusicFromPlayerAction(id, space, category) {
     return async (dispatch) => {
         try {
 
@@ -299,7 +309,16 @@ export function dislikeMusicFromPlayerAction(id) {
                     if (response.status == 200) {
 
                         // update the music in the playlist
-                        dispatch(dislikeMusicSuccess(id))
+                        switch (space) {
+                            case 'playlist-page': {
+                                dispatch(dislikeMusicSuccess(id))
+                                break;
+                            }
+                            case 'home': {
+                                dispatch(dislikeMusicFromHomeMusic(id, category))
+                                break;
+                            }
+                        }       
 
                         // add the music in the favorite playlist
                         dispatch(pullMusicAfterDisliked(id))

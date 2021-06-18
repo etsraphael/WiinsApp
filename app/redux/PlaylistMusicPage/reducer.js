@@ -67,9 +67,13 @@ export default PlaylistPageReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.LIKE_MUSIC_SUCCESS: {
+
+      console.log('starting')
       const newMusicList = state.playlist.musicList.map(x =>
         x._id === action.id ? { ...x, isLiked: true } : x
       )
+      console.log('id :' + action.id)
+      console.log(newMusicList)
       return {
         ...state,
         playlist: {

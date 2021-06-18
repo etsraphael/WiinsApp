@@ -20,6 +20,9 @@ export default MusicMenuReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.LIKE_MUSIC_FROM_HOME_MUSIC: {
+
+
+      
       const newMusicList = state.menu.stylesSuggestion[action.category].map(x =>
         x._id === action.id ? { ...x, isLiked: true } : x
       )
