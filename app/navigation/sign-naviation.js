@@ -1,8 +1,7 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import OnBoarding from '../components/sign/on-boarding'
-import SignIn from '../components/sign/sign-in'
-import SignUp from '../components/sign/sign-up'
+import Sign from '../components/sign/sign'
 import { NavigationContainer } from '@react-navigation/native'
 
 
@@ -15,8 +14,7 @@ export default SignNavigation = () => (
             initialRouteName={'OnBoarding'}
         >
             <Stack.Screen name={'OnBoarding'} component={OnBoarding} />
-            <Stack.Screen name={'SignIn'} component={SignIn} />
-            <Stack.Screen name={'Register'} component={SignUp} />
+            <Stack.Screen name={'Sign'} component={Sign} />
         </Stack.Navigator>
     </NavigationContainer>
 )
