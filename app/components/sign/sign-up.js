@@ -7,14 +7,13 @@ import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { Platform } from 'react-native'
-import { faLongArrowLeft, faCheckCircle } from '@fortawesome/pro-light-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import Snackbar from 'react-native-snackbar'
 import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import CheckBox from '@react-native-community/checkbox'
 import i18n from './../../../assets/i18n/i18n'
 import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service'
+import { Theme, WCheckBox, WGradientButton, WInput } from '../core/design'
 
 class SignUp extends React.Component {
 
@@ -55,10 +54,8 @@ class SignUp extends React.Component {
 
         if (!this._verificationTrue()) return null
         else {
-
             const user = { pseudo: this.state.pseudo, email: this.state.email, password: this.state.password }
             const userDetail = { language: getCurrentLanguageOfTheDevice() }
-
             return this.props.actions.register(user, userDetail)
         }
     }
@@ -188,61 +185,62 @@ class SignUp extends React.Component {
                         </LinearGradient>
                     </TouchableOpacity>
                 </View>
-
             </View>
         )
     }
 
     render() {
         return (
-            <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
-                <View style={{ paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
-                    <View style={styles.actionBarStyle}>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
-                            <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />
-                        </TouchableOpacity>
-                    </View>
-                    {
-                        !this.state.registration_success ? (
-                            <KeyboardAvoidingView
-                                behavior={Platform.OS === "ios" ? "padding" : null}
-                                keyboardVerticalOffset={0}
-                            >
-                                <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 31, marginTop: 56 }}>
-                                    <View style={styles.brand_container}>
-                                        <Text style={{ color: '#960CF8', fontSize: 32 }}>{i18n.t('CORE.Hello')}</Text>
-                                        <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? i18n.t('LOGIN-REGISTRER.Create-yr-account') : i18n.t('LOGIN-REGISTRER.Creating-yr-account')}</Text>
-                                    </View>
-                                    <View style={{ flex: 4, width: '100%', marginTop: 56 }}>
-                                        {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
-                                    </View>
-                                </ScrollView>
-                            </KeyboardAvoidingView>
-                        ) : (
-                            <View style={{ width: '100%', paddingHorizontal: 45, justifyContent: 'center', alignItems: 'center' }}>
-                                <View style={{ flexDirection: 'row', marginBottom: 15 }}>
-                                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                                        <FontAwesomeIcon icon={faCheckCircle} color={'green'} size={25} />
-                                    </View>
-                                    <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
-                                        <Text style={{ fontSize: 18 }}>{i18n.t('LOGIN-REGISTRER.click-on-email')}</Text>
-                                    </View>
+            <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white' }}>
+                <View
+                    behavior={Platform.OS === "ios" ? "padding" : null}
+                    keyboardVerticalOffset={0}
+                    style={{ width: '100%', paddingHorizontal: 36, flex: 1, position: 'relative' }}
+                >
+                    <ScrollView showsVerticalScrollIndicator={false}  style={{ flex: 1 }} bounces>
+                        <Text style={styles.mainLargeText}>Welcome</Text>
+                        <Text style={styles.subText}>Hello! Nice to meet you new Wiinser</Text>
+                        <View style={{ marginTop: 48 }}>
+                            <WInput boxStyle={styles.inputBox} label="Pseudo" textContentType="username" />
+                            <WInput boxStyle={styles.inputBox} label="Email" textContentType="emailAddress" />
+                            <WInput boxStyle={styles.inputBox} label="Password" textContentType="password" secureTextEntry={true} />
+                            <WInput boxStyle={styles.inputBox} label="Confirm your password" textContentType="password" secureTextEntry={true} />
+                            <View style={styles.termsBox}>
+                                <View style={{ paddingRight: 30 }}>
+                                    {/* <WCheckBox /> */}
+                                    <CheckBox
+                                        style={{ width: 20, height: 20 }}
+                                        boxType='circle'
+                                        value={this.state.conditionAccepted}
+                                        onValueChange={(newValue) => this.setState({ conditionAccepted: newValue })}
+                                    />
                                 </View>
-                                <View style={{ backgroundColor: 'white', marginVertical: 25, height: 1, width: '80%' }}></View>
-                                <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.btn_back}>
-                                    <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}>{i18n.t('CORE.Back')}</Text>
-                                </TouchableOpacity>
+                                <Text style={styles.termsLabel}>I certify that I am 16 years or older and I accept the user agreement and the privacy policy</Text>
                             </View>
-                        )
-                    }
+                            {/* <WGradientButton text="Create an account" style={styles.createButton} onPress={() => this._register()} /> */}
+                        </View>
+                        {/* <View style={styles.card_container}>
+                            {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
+                        </View> */}
+                    </ScrollView>
+                    <View style={{ position: 'absolute', bottom: 0, left: 0, right: 0, marginBottom: 36, paddingHorizontal: 36 }}>
+                        <WGradientButton text="Create an account" style={styles.createButton} onPress={() => this._register()} />
+                    </View>
                 </View>
-            </ScrollView>
+            </KeyboardAvoidingView>
         )
-
     }
 }
 
 const styles = StyleSheet.create({
+    mainLargeText: { color: "#002251", fontSize: 24, marginTop: 36 },
+    subText: { color: '#7A869A', fontSize: 14 },
+    inputBox: { marginBottom: 21 },
+    termsBox: { flexDirection: 'row', marginBottom: 130, alignItems: 'center' },
+    termsLabel: { color: Theme.wColor, fontSize: 13, flex: 1 },
+    forgotPwdLabel: { color: Theme.wColor },
+    createButton: {
+    },
     brand_container: {
         flexDirection: 'column',
         width: '100%',
@@ -344,3 +342,51 @@ const mapDispatchToProps = dispatch => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
+
+
+/**
+ * 
+ * <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
+                <View style={{ paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
+                    <View style={styles.actionBarStyle}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
+                            <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />
+                        </TouchableOpacity>
+                    </View>
+                    {
+                        !this.state.registration_success ? (
+                            <KeyboardAvoidingView
+                                behavior={Platform.OS === "ios" ? "padding" : null}
+                                keyboardVerticalOffset={0}
+                            >
+                                <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 31, marginTop: 56 }}>
+                                    <View style={styles.brand_container}>
+                                        <Text style={{ color: '#960CF8', fontSize: 32 }}>{i18n.t('CORE.Hello')}</Text>
+                                        <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? i18n.t('LOGIN-REGISTRER.Create-yr-account') : i18n.t('LOGIN-REGISTRER.Creating-yr-account')}</Text>
+                                    </View>
+                                    <View style={{ flex: 4, width: '100%', marginTop: 56 }}>
+                                        {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
+                                    </View>
+                                </ScrollView>
+                            </KeyboardAvoidingView>
+                        ) : (
+                            <View style={{ width: '100%', paddingHorizontal: 45, justifyContent: 'center', alignItems: 'center' }}>
+                                <View style={{ flexDirection: 'row', marginBottom: 15 }}>
+                                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
+                                        <FontAwesomeIcon icon={faCheckCircle} color={'green'} size={25} />
+                                    </View>
+                                    <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
+                                        <Text style={{ fontSize: 18 }}>{i18n.t('LOGIN-REGISTRER.click-on-email')}</Text>
+                                    </View>
+                                </View>
+                                <View style={{ backgroundColor: 'white', marginVertical: 25, height: 1, width: '80%' }}></View>
+                                <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.btn_back}>
+                                    <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}>{i18n.t('CORE.Back')}</Text>
+                                </TouchableOpacity>
+                            </View>
+                        )
+                    }
+                </View>
+            </ScrollView>
+ * 
+ */

@@ -13,6 +13,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faLongArrowLeft } from '@fortawesome/pro-light-svg-icons'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
+import { WInput, WGradientButton, WCheckBox, Theme } from '../core/design'
 
 class SignIn extends React.Component {
 
@@ -50,7 +51,7 @@ class SignIn extends React.Component {
     _displayLoading = () => {
         return (
             <View style={styles.loading_container}>
-                <ActivityIndicator size='large' color="grey" />
+                <ActivityIndicator size='large' color="#2CB0D6" />
             </View>
         )
     }
@@ -62,6 +63,7 @@ class SignIn extends React.Component {
                 <View>
                     <Text style={styles.inputLabel}>{I18n.t('LOGIN-REGISTRER.PseudoOrEmail')}</Text>
                     <TextInput
+                    textContentType="newPassword"
                         style={styles.input_container}
                         onChangeText={(val) => this.setState({ pseudo_email: val })}
                     />
@@ -95,37 +97,42 @@ class SignIn extends React.Component {
 
     render() {
         return (
-            <View style={{ flex: 1, backgroundColor: 'white' }}>
-                <StatusBar barStyle="dark-content" hidden={false} backgroundColor="transparent" translucent={true} />
-                <View style={styles.actionBarStyle}>
-                    <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
-                        <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />
-                    </TouchableOpacity>
-                </View>
-
-                <KeyboardAvoidingView
+            <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white' }}>
+                <View
                     behavior={Platform.OS === "ios" ? "padding" : null}
                     keyboardVerticalOffset={0}
-                    style={{ width: '100%', padding: 31, paddingTop: 50, flex: 1 }}
+                    style={{ width: '100%', paddingHorizontal: 36, flex: 1 }}
                 >
-                    <ScrollView showsVerticalScrollIndicator={false}>
-                        <View style={styles.brand_container}>
-                            <Text style={{ color: '#960CF8', fontSize: 32 }}>{I18n.t('CORE.Hello')}</Text>
-                            <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>
-                                {!this.props.MyUser.isLoading ? I18n.t('LOGIN-REGISTRER.Login-first-to-continue') : I18n.t('LOGIN-REGISTRER.Checking-yr-infos')}
-                            </Text>
+                    <ScrollView showsVerticalScrollIndicator={false}  style={{ marginVertical: 36, flex: 1 }} bounces>
+                        <Text style={styles.mainLargeText}>Welcome Back</Text>
+                        <Text style={styles.subText}>Hello Winnser, sign to continue!</Text>
+                        <View style={{ marginTop: 48 }}>
+                            <WInput boxStyle={styles.inputBox} label={I18n.t('LOGIN-REGISTRER.PseudoOrEmail')} textContentType="username" onChangeText={(val) => this.setState({ pseudo_email: val })} />
+                            <WInput boxStyle={styles.inputBox} label={I18n.t('CORE.Password')} textContentType="password" secureTextEntry={true} onChangeText={(val) => this.setState({ password: val })} />
+                            <View style={{ alignItems: 'flex-start', marginBottom: 26 }}>
+                                <Text style={styles.forgotPwdLabel}>{I18n.t('LOGIN-REGISTRER.ForgotPassword')}</Text>
+                            </View>
+                            <WGradientButton text="Sign in" style={styles.createButton} />
                         </View>
-                        <View style={styles.card_container}>
+                        {/* <View style={styles.card_container}>
                             {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
-                        </View>
+                        </View> */}
                     </ScrollView>
-                </KeyboardAvoidingView>
-            </View>
+                </View>
+            </KeyboardAvoidingView>
         )
     }
 }
 
 const styles = StyleSheet.create({
+    mainLargeText: { color: "#002251", fontSize: 24 },
+    subText: { color: '#7A869A', fontSize: 14 },
+    inputBox: { marginBottom: 21 },
+    termsBox: { flexDirection: 'row', marginBottom: 26, alignItems: 'center' },
+    termsLabel: { color: Theme.wColor, fontSize: 13, flex: 1 },
+    forgotPwdLabel: { color: Theme.wColor },
+    createButton: {
+    },
     brand_container: {
         flexDirection: 'column',
         width: '100%',
