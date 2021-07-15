@@ -36,6 +36,7 @@ function goToRequestNotification(navigation, data){
 export function updateStoreOnNotification(store, notification) {
         switch (notification.type) {
                 case 'message-received': return updateMessenger(store, notification)
+                case 'friend-request': return updateFriendRequestList(store, notification)
                 default: return null
         }
 }
@@ -61,6 +62,18 @@ function updateMessenger(store, notification) {
 
         }
 
+}
+
+function updateFriendRequestList(store, notification){
+
+        console.log('store')
+        console.log(store)
+
+        console.log('notification')
+        console.log(notification)
+
+
+        return null
 }
 
 async function goToCommentTagPublicationInNewFeed(notification, actions) {
