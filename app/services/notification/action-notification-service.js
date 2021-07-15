@@ -9,6 +9,7 @@ export async function checkNotification(navigation, actions) {
                                 case 'message-received': return openMessengerRoom(navigation, notification.data)
                                 case 'feed-publication-tag-comment': return goToCommentTagPublicationInNewFeed(navigation, notification.data, actions)
                                 case 'playlist-music-tag-comment': return goToCommentTagPublicationInMusic(navigation, notification.data, actions)
+                                case 'friend-request': return goToRequestNotification(navigation, notification.data)
                                 default: return null
                         }
                 }
@@ -18,6 +19,18 @@ export async function checkNotification(navigation, actions) {
 function openMessengerRoom(navigation, data) {
         const jumpToAction = TabActions.jumpTo('MAIN_MESSENGER', { notification: data })
         return navigation.dispatch(jumpToAction)
+}
+
+function goToRequestNotification(navigation, data){
+        alert('boum')
+
+        console.log('navigation')
+        console.log(navigation)
+
+        console.log('data')
+        console.log(data)
+
+        return null
 }
 
 export function updateStoreOnNotification(store, notification) {
