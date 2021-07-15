@@ -22,15 +22,8 @@ function openMessengerRoom(navigation, data) {
 }
 
 function goToRequestNotification(navigation, data){
-        alert('boum')
-
-        console.log('navigation')
-        console.log(navigation)
-
-        console.log('data')
-        console.log(data)
-
-        return null
+        const jumpToAction = TabActions.jumpTo('MAIN_FEED', { notification: data })
+        return navigation.dispatch(jumpToAction)
 }
 
 export function updateStoreOnNotification(store, notification) {
