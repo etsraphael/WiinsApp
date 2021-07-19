@@ -57,16 +57,8 @@ function updateMessenger(store, notification) {
 
 }
 
-function updateFriendRequestList(store, notification){
-
-        console.log('store')
-        console.log(store)
-
-        console.log('notification')
-        console.log(notification)
-
-
-        return null
+function updateFriendRequestList(store, notification) {
+        return store.dispatch({ type: 'ADD_ONE_REQUEST_NOTIFICATION_SUCCESS', notification })
 }
 
 async function goToCommentTagPublicationInNewFeed(notification, actions) {

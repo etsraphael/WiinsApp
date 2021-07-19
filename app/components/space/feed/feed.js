@@ -45,10 +45,6 @@ class Feed extends React.Component {
     }
 
     componentDidMount() {
-
-        this.props.navigation.navigate('Notification', {section: 'fiend'})
-
-
         checkNotification(this.props.navigation, {
             openToggleModal: (event) => this._toggleModal(event),
             goToRequestList: () => this.props.navigation.navigate('Notification', {section: 'fiend'})
