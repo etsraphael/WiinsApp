@@ -145,6 +145,13 @@ export default NotificationReducer = (state = initialState, action) => {
         request_list: state.request_list.filter(x => x.from._id !== action.id)
       }
     }
+    case ActionTypes.ADD_ONE_REQUEST_NOTIFICATION_SUCCESS: {
+      console.log('my action')
+      console.log(action.notification)
+      return {
+        ...state
+      }
+    }
     default: return { ...state }
   }
 }

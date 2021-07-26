@@ -9,6 +9,7 @@ export async function checkNotification(navigation, actions) {
                                 case 'message-received': return openMessengerRoom(navigation, notification.data)
                                 case 'feed-publication-tag-comment': return goToCommentTagPublicationInNewFeed(navigation, notification.data, actions)
                                 case 'playlist-music-tag-comment': return goToCommentTagPublicationInMusic(navigation, notification.data, actions)
+                                case 'friend-request': return goToRequestNotification(navigation, notification.data)
                                 default: return null
                         }
                 }
@@ -20,9 +21,15 @@ function openMessengerRoom(navigation, data) {
         return navigation.dispatch(jumpToAction)
 }
 
+function goToRequestNotification(navigation, data){
+        const jumpToAction = TabActions.jumpTo('MAIN_FEED', { notification: data })
+        return navigation.dispatch(jumpToAction)
+}
+
 export function updateStoreOnNotification(store, notification) {
         switch (notification.type) {
                 case 'message-received': return updateMessenger(store, notification)
+                case 'friend-request': return updateFriendRequestList(store, notification)
                 default: return null
         }
 }
@@ -48,6 +55,10 @@ function updateMessenger(store, notification) {
 
         }
 
+}
+
+function updateFriendRequestList(store, notification) {
+        return store.dispatch({ type: 'ADD_ONE_REQUEST_NOTIFICATION_SUCCESS', notification })
 }
 
 async function goToCommentTagPublicationInNewFeed(notification, actions) {
