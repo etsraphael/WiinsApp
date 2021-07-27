@@ -146,10 +146,18 @@ export default NotificationReducer = (state = initialState, action) => {
       }
     }
     case ActionTypes.ADD_ONE_REQUEST_NOTIFICATION_SUCCESS: {
-      console.log('my action')
-      console.log(action.notification)
       return {
-        ...state
+        ...state,
+        request_list: state.request_list.concat([{
+          from: {
+            _id: action.notification.profileId,
+            pictureprofile: action.notification.profilePictureLink,
+            _meta: {
+              pseudo: action.notification.profileName
+            }
+          },
+          type: 'FriendRequest'
+        }])
       }
     }
     default: return { ...state }

@@ -27,7 +27,7 @@ class NotificationPage extends React.Component {
         this.props.actions.resetActivityNotificationNumberAction()
         this.props.actions.getActivityNotificationList(1)
         this.props.actions.getRequestNotificationList(1)
-        if(!!this.props.route.params.section){
+        if(!!this.props.route.params){
             if(this.props.route.params.section == 'fiend'){
                 this._goTofriendRequest()  
             }
