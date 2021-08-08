@@ -1,19 +1,18 @@
 import React from 'react'
 import {
-    StyleSheet, View, TextInput, Text, TouchableOpacity,
-    ActivityIndicator, ScrollView, StatusBar, KeyboardAvoidingView
+    StyleSheet, View, Text, ActivityIndicator, ScrollView, KeyboardAvoidingView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { Platform } from 'react-native'
 import Snackbar from 'react-native-snackbar'
-import LinearGradient from 'react-native-linear-gradient'
-import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import CheckBox from '@react-native-community/checkbox'
 import i18n from './../../../assets/i18n/i18n'
 import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service'
-import { Theme, WCheckBox, WGradientButton, WInput } from '../core/design'
+import { Theme, WGradientButton, WInput } from '../core/design'
+import ErrorPresenter from '../core/reusable/misc/error-presenter'
+import Sign from './sign'
 
 class SignUp extends React.Component {
 
@@ -25,7 +24,10 @@ class SignUp extends React.Component {
             password: null,
             password2: null,
             registration_success: false,
-            conditionAccepted: false
+            conditionAccepted: false,
+
+            // error
+            error: null
         }
     }
 
@@ -47,13 +49,10 @@ class SignUp extends React.Component {
 
     // to send the registration
     _register = () => {
-
+        if (!this._verificationTrue()) return null
         if (!this.state.conditionAccepted) {
             return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
-        }
-
-        if (!this._verificationTrue()) return null
-        else {
+        } else {
             const user = { pseudo: this.state.pseudo, email: this.state.email, password: this.state.password }
             const userDetail = { language: getCurrentLanguageOfTheDevice() }
             return this.props.actions.register(user, userDetail)
@@ -65,31 +64,36 @@ class SignUp extends React.Component {
 
         // null value
         if (!this.state.email || !this.state.pseudo || !this.state.password) {
-            Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Missing-informations'), duration: Snackbar.LENGTH_LONG })
+            // Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Missing-informations'), duration: Snackbar.LENGTH_LONG })
+            this.setState({ error: i18n.t('ERROR-MESSAGE.Missing-informations') })
             return false
         }
 
         // email validation
         const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         if (reg.test(this.state.email) === false) {
-            Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Email-invalid'), duration: Snackbar.LENGTH_LONG })
+            // Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Email-invalid'), duration: Snackbar.LENGTH_LONG })
+            this.setState({ error: i18n.t('ERROR-MESSAGE.Email-invalid') })
             return false
         }
 
         // password validation
         if (this.state.password.length <= 4) {
-            Snackbar.show({ text: i18n.t('SETTING.password.Error-min-5-char'), duration: Snackbar.LENGTH_LONG })
+            // Snackbar.show({ text: i18n.t('SETTING.password.Error-min-5-char'), duration: Snackbar.LENGTH_LONG })
+            this.setState({ error: i18n.t('SETTING.password.Error-min-5-char') })
             return false
         }
 
         if (this.state.password !== this.state.password2 ) {
-            Snackbar.show({ text: i18n.t('PLACEHOLDER.Password-not-matching'), duration: Snackbar.LENGTH_LONG })
+            // Snackbar.show({ text: i18n.t('PLACEHOLDER.Password-not-matching'), duration: Snackbar.LENGTH_LONG })
+            this.setState({ error: i18n.t('PLACEHOLDER.Password-not-matching') })
             return false
         }
 
         // pseudo validation
         if (this.state.pseudo.length <= 4) {
             Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Your-username-must-have-at-least-4-char'), duration: Snackbar.LENGTH_LONG })
+            this.setState({ error: i18n.t('ERROR-MESSAGE.Your-username-must-have-at-least-4-char') })
             return false
         }
 
@@ -100,7 +104,7 @@ class SignUp extends React.Component {
     _displayLoading() {
         return (
             <View style={styles.loading_container}>
-                <ActivityIndicator size='large' color='grey' />
+                <ActivityIndicator size='large' color='#2CB0D6' />
             </View>
         )
     }
@@ -112,219 +116,75 @@ class SignUp extends React.Component {
         return Number(date.getTime())
     }
 
-    // to select the input views
-    _displayInput() {
+    acceptCondition() {
+        this.setState({ "conditionAccepted": true })
+    }
 
-        return (
-            <View style={{ marginBottom: 70 }}>
-                <View>
-                    <Text style={styles.inputLabel}>{i18n.t('PROFILE.Pseudo')}</Text>
-                    <TextInput
-                        value={this.state.pseudo}
-                        style={styles.input_container}
-                        onChangeText={(val) => this.setState({ pseudo: val.replace(/\s/g, '') })}
-                    />
-                </View>
-                <View>
-                    <Text style={styles.inputLabel}>{i18n.t('PROFILE.Email')}</Text>
-                    <TextInput
-                        value={this.state.email}
-                        autoCompleteType={'email'}
-                        style={styles.input_container}
-                        onChangeText={(val) => this.setState({ email: val.replace(/\s/g, '') })}
-                    />
-                </View>
-                <View>
-                    <Text style={styles.inputLabel}>{i18n.t('CORE.Password')}</Text>
-                    <TextInput
-                        style={styles.input_container}
-                        secureTextEntry={true}
-                        onChangeText={(val) => this.setState({ password: val })}
-                    />
-                </View>
-
-                <View>
-                    <Text style={styles.inputLabel}>{i18n.t('PLACEHOLDER.Confirm-your-password')}</Text>
-                    <TextInput
-                        style={styles.input_container}
-                        secureTextEntry={true}
-                        onChangeText={(val) => this.setState({ password2: val })}
-                    />
-                </View>
-
-                <View style={{ flexDirection: 'row', marginVertical: 25 }}>
-
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <CheckBox
-                            style={{ width: 20, height: 20, marginTop: 5 }}
-                            disabled={false}
-                            boxType={'square'}
-                            lineWidth={1}
-                            value={this.state.conditionAccepted}
-                            onValueChange={(newValue) => this.setState({ conditionAccepted: newValue })}
-                        />
-                    </View>
-
-                    <View style={{ flex: 7, paddingLeft: 15 }}>
-                        <Text>
-                            {i18n.t('LOGIN-REGISTRER.accept-tou')}
-                            <Text style={{ color: '#960CF8' }} onPress={() => this.props.navigation.navigate('SettingPrivacy')}> (click here to read it)</Text>
-                        </Text>
-                    </View>
-                </View>
-
-                <View style={{ marginTop: 5 }}>
-                    <TouchableOpacity onPress={() => this._register()} style={styles.btn_log} underlayColor='#fff'>
-                        <LinearGradient
-                            colors={['#35D1FE', '#960CF8']}
-                            locations={[0, 1]}
-                            start={{ x: 0.1, y: 0.09 }}
-                            end={{ x: 0.94, y: 0.95 }}
-                            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={styles.loginText}>{i18n.t('LOGIN-REGISTRER.Registration')}</Text>
-                        </LinearGradient>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        )
+    goToUseOfCondition = () => {
+        this.props.navigation.push("UseCondition", { acceptCondition: this.acceptCondition.bind(this) })
     }
 
     render() {
         return (
-            <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white' }}>
-                <View
-                    behavior={Platform.OS === "ios" ? "padding" : null}
-                    keyboardVerticalOffset={0}
-                    style={{ width: '100%', paddingHorizontal: 36, flex: 1, position: 'relative' }}
-                >
-                    <ScrollView showsVerticalScrollIndicator={false}  style={{ flex: 1 }} bounces>
-                        <Text style={styles.mainLargeText}>Welcome</Text>
-                        <Text style={styles.subText}>Hello! Nice to meet you new Wiinser</Text>
-                        <View style={{ marginTop: 48 }}>
-                            <WInput boxStyle={styles.inputBox} label="Pseudo" textContentType="username" />
-                            <WInput boxStyle={styles.inputBox} label="Email" textContentType="emailAddress" />
-                            <WInput boxStyle={styles.inputBox} label="Password" textContentType="password" secureTextEntry={true} />
-                            <WInput boxStyle={styles.inputBox} label="Confirm your password" textContentType="password" secureTextEntry={true} />
-                            <View style={styles.termsBox}>
-                                <View style={{ paddingRight: 30 }}>
-                                    {/* <WCheckBox /> */}
-                                    <CheckBox
-                                        style={{ width: 20, height: 20 }}
-                                        boxType='circle'
-                                        value={this.state.conditionAccepted}
-                                        onValueChange={(newValue) => this.setState({ conditionAccepted: newValue })}
-                                    />
+            <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white', position: 'relative' }}>
+                <Sign label="Create an account" navigation={this.props.navigation}>
+                    <ErrorPresenter
+                        error={this.state.error}
+                        onHide={() => this.setState({ error: null })}
+                        duration={3000}
+                        behavior={Platform.OS === "ios" ? "padding" : null}
+                        keyboardVerticalOffset={0}
+                        style={{ width: '100%', paddingHorizontal: 36, flex: 1, position: 'relative' }}
+                    >
+                        <ScrollView showsVerticalScrollIndicator={false}  style={{ flex: 1 }} bounces>
+                            <Text style={ [styles.mainLargeText, { marginTop: 36 }] }>Welcome</Text>
+                            <Text style={styles.subText}>Hello! Nice to meet you new Wiinser</Text>
+                            <View style={{ marginTop: 48 }}>
+                                <WInput boxStyle={styles.inputBox} label="Pseudo" onChangeText={(val) => this.setState({ pseudo: val.replace(/\s/g, '') })} textContentType="username" />
+                                <WInput boxStyle={styles.inputBox} label="Email" onChangeText={(val) => this.setState({ email: val.replace(/\s/g, '') })} textContentType="emailAddress" />
+                                <WInput boxStyle={styles.inputBox}  label="Password" onChangeText={(val) => this.setState({ password: val })} textContentType="password" secureTextEntry={true} />
+                                <WInput boxStyle={styles.inputBox} label="Confirm your password" onChangeText={(val) => this.setState({ password2: val })} textContentType="password" secureTextEntry={true} />
+                                <View style={styles.termsBox}>
+                                    <View style={{ paddingRight: 30 }}>
+                                        {/* <WCheckBox /> */}
+                                        <CheckBox
+                                            style={{ width: 20, height: 20 }}
+                                            boxType='circle'
+                                            value={this.state.conditionAccepted}
+                                            onValueChange={(newValue) => this.setState({ conditionAccepted: newValue })}
+                                        />
+                                    </View>
+                                    <Text onPress={this.goToUseOfCondition} style={styles.termsLabel}>I certify that I am 16 years or older and I accept the user agreement and the privacy policy</Text>
                                 </View>
-                                <Text style={styles.termsLabel}>I certify that I am 16 years or older and I accept the user agreement and the privacy policy</Text>
+                                <View style={{ marginBottom: 130 }}>
+                                    <WGradientButton text="Create an account" style={styles.createButton} onPress={() => this._register()} />
+                                </View>
                             </View>
-                            {/* <WGradientButton text="Create an account" style={styles.createButton} onPress={() => this._register()} /> */}
-                        </View>
-                        {/* <View style={styles.card_container}>
-                            {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
-                        </View> */}
-                    </ScrollView>
-                    <View style={{ position: 'absolute', bottom: 0, left: 0, right: 0, marginBottom: 36, paddingHorizontal: 36 }}>
-                        <WGradientButton text="Create an account" style={styles.createButton} onPress={() => this._register()} />
-                    </View>
-                </View>
+                        </ScrollView>
+                    </ErrorPresenter>
+                </Sign>
             </KeyboardAvoidingView>
         )
     }
 }
 
 const styles = StyleSheet.create({
-    mainLargeText: { color: "#002251", fontSize: 24, marginTop: 36 },
+    mainLargeText: { color: "#002251", fontSize: 24 },
     subText: { color: '#7A869A', fontSize: 14 },
     inputBox: { marginBottom: 21 },
-    termsBox: { flexDirection: 'row', marginBottom: 130, alignItems: 'center' },
+    termsBox: { flexDirection: 'row', /* marginBottom: 130, */marginBottom: 38,  alignItems: 'center' },
     termsLabel: { color: Theme.wColor, fontSize: 13, flex: 1 },
     forgotPwdLabel: { color: Theme.wColor },
-    createButton: {
-    },
-    brand_container: {
-        flexDirection: 'column',
-        width: '100%',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-    },
-    logoBrand: {
-        width: 190,
-        height: 190,
-        paddingRight: 25,
-        resizeMode: 'contain',
-    },
-    card_container: {
-        width: '100%',
-        marginTop: 56
-    },
-    input_container: {
-        paddingTop: 5,
-        paddingBottom: 5,
-        marginTop: 10,
-        marginBottom: 10,
-        color: 'black',
-        height: 39,
-        borderBottomColor: '#ABABAB',
-        borderBottomWidth: .5,
-    },
-    wiins_logo: {
-        width: 70,
-        height: 70,
-        borderRadius: 70 / 2,
-        borderColor: 'grey',
-    },
-    btn_log: {
-        marginTop: 10,
-        height: 60,
-        overflow: 'hidden',
-        borderWidth: 0,
-        borderRadius: 10
-    },
-    loginText: {
-        paddingTop: 5,
-        paddingBottom: 5,
-        textAlign: 'center',
-        color: 'white',
-        fontSize: 16
-    },
     loading_container: {
         position: 'absolute',
         left: 0,
         right: 0,
-        top: 100,
+        top: 0,
         bottom: 0,
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'white'
-    },
-    btn_Text: {
-        paddingTop: 5,
-        paddingBottom: 5,
-        color: 'black',
-        fontSize: 16
-    },
-    inputLabel: {
-        color: '#ABABAB',
-    },
-    actionBarStyle: {
-        flexDirection: 'row',
-        paddingTop: StatusBar.currentHeight,
-        paddingHorizontal: 31,
-        backgroundColor: 'white',
-        height: 60 + StatusBar.currentHeight,
-        alignItems: 'center'
-    },
-    btn_back: {
-        backgroundColor: '#e6e6e6',
-        padding: 5,
-        borderRadius: 5
-    },
-    textSection: {
         color: 'white',
-        fontWeight: '700',
-        paddingVertical: 8,
-        fontSize: 18,
-        textAlign: 'center'
+        backgroundColor: 'rgba(1, 1, 1, 0.5)'
     }
 })
 

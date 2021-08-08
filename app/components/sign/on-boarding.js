@@ -30,10 +30,10 @@ class OnBoarding extends React.Component {
                             <Text style={{ paddingTop: 7, color: '#FFFFFF', fontSize: 22, fontWeight: 'bold' }}>{I18n.t('CORE.Towards-an-infinite-space')}</Text>
                         </View>
                         <View style={styles.buttonsBox}>
-                            <WCustomButton style={styles.googleButton} onPress={() => this.props.navigation.navigate('Sign', { route: 'SignIn' })}>
+                            <WCustomButton style={styles.googleButton} onPress={() => this.props.navigation.navigate('SignIn')}>
                                 <Text style={{ fontSize: 16, color: Theme.wColor }}>{I18n.t('LOGIN-REGISTRER.Login')}</Text>
                             </WCustomButton>
-                            <WCustomButton style={styles.newAccountButton} onPress={() => this.props.navigation.navigate('Sign', { route: 'SignUp' })}>
+                            <WCustomButton style={styles.newAccountButton} onPress={() => this.props.navigation.navigate('SignUp')}>
                                 <Text style={{ fontSize: 16, color: '#FFFFFF' }}>{I18n.t('LOGIN-REGISTRER.Register')}</Text>
                             </WCustomButton>
                         </View>

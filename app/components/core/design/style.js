@@ -11,7 +11,7 @@ export const WCustomButton = ({ children, fillWidth=false, style, ...rest }) => 
 
 export const WInput = ({ label, boxStyle, style, ...rest }) => (
      <View style={[boxStyle, WStyles.wInputLabel]}>
-          <Text style={[WStyles.wInputLabel, { marginBottom: 9 }]}>{ label }</Text>
+          { label && <Text style={[WStyles.wInputLabel, { marginBottom: 9 }]}>{ label }</Text> }
           <TextInput style={[style, WStyles.wInput, WStyles.wCornerRadius]} selectionColor='#002251' { ...rest } />
      </View>
 )
