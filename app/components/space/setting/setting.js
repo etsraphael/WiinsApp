@@ -38,7 +38,7 @@ class Setting extends React.Component {
                     {/* Cover Picture */}
 
                     <LinearGradient
-                        colors={['#f12711', '#f5af19']}
+                        colors={['#2CB0D6', '#3087D7', '#6743E0', '#ED6569']}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 1 }}
                         style={{ height: 200 }} />
@@ -82,23 +82,16 @@ class Setting extends React.Component {
         ]
 
         return (
-            <View style={{ flex: 1, padding: 15 }}>
+            <View style={{ flex: 1, padding: 15, backgroundColor: 'white' }}>
                 <SafeAreaView style={{ flex: 1 }}>
                     <FlatList
                         style={{ flex: 1, paddingBottom: 45 }}
                         data={listSetting}
                         keyExtractor={(item) => item.code.toString()}
-                        ItemSeparatorComponent={() => <View style={{ height: 0.5, backgroundColor: '#c0c0c0' }} />}
                         renderItem={({ item }) =>
-                            <TouchableOpacity style={{ flexDirection: 'row', paddingVertical: 15 }} onPress={() => this._actionSelected(item.code)}>
-                                <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                                    {item.icon}
-                                </View>
-                                <View style={{ flex: 6, justifyContent: 'center' }}>
+                            <TouchableOpacity style={{ flexDirection: 'row', paddingVertical: 5 }} onPress={() => this._actionSelected(item.code)}>
+                                <View style={{ flex: 1, justifyContent: 'center', borderRadius: 11, backgroundColor: '#F6F7FA', paddingVertical: 20, paddingHorizontal: 19 }}>
                                     <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{item.title}</Text>
-                                </View>
-                                <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                                    <FontAwesomeIcon icon={faAngleRight} color={'#808080a3'} size={30} />
                                 </View>
                             </TouchableOpacity>
                         }
@@ -122,7 +115,8 @@ class Setting extends React.Component {
 
 const styles = StyleSheet.create({
     main_container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: 'white'
     },
     onCard: {
         backgroundColor: 'white',
