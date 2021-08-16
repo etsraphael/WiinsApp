@@ -1,7 +1,6 @@
 import React from 'react'
 import {
-    StyleSheet, View, Text, StatusBar, Platform,
-    KeyboardAvoidingView, ScrollView
+    StyleSheet, View, Text, StatusBar, Platform, ScrollView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
