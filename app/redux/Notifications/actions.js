@@ -5,6 +5,21 @@ import Snackbar from 'react-native-snackbar'
 import I18n from '../../../assets/i18n/i18n'
 import { getFeedPublicationByIdStart, getFeedPublicationByIdSuccess, getFeedPublicationByIdFail } from './../PublicationInModal/actions'
 
+export function addOneRequestNotificationStart() {
+    return { type: ActionTypes.ADD_ONE_REQUEST_NOTIFICATION }
+}
+
+export function addOneRequestNotificationSuccess(payload) {
+    return { type: ActionTypes.ADD_ONE_REQUEST_NOTIFICATION_SUCCESS, payload }
+}
+
+export function addOneRequestNotificationFail(error) {
+    return {
+        type: ActionTypes.ADD_ONE_REQUEST_NOTIFICATION_FAIL,
+        payload: error
+    }
+}
+
 export function deleteRequestById(id) {
     return { type: ActionTypes.DELETE_REQUEST_BY_ID, id }
 }

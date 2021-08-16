@@ -145,6 +145,21 @@ export default NotificationReducer = (state = initialState, action) => {
         request_list: state.request_list.filter(x => x.from._id !== action.id)
       }
     }
+    case ActionTypes.ADD_ONE_REQUEST_NOTIFICATION_SUCCESS: {
+      return {
+        ...state,
+        request_list: state.request_list.concat([{
+          from: {
+            _id: action.notification.profileId,
+            pictureprofile: action.notification.profilePictureLink,
+            _meta: {
+              pseudo: action.notification.profileName
+            }
+          },
+          type: 'FriendRequest'
+        }])
+      }
+    }
     default: return { ...state }
   }
 }
