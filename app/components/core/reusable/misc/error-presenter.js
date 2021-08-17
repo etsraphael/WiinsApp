@@ -1,7 +1,6 @@
 import React from 'react'
-import { StyleSheet, View, Text} from 'react-native'
+import { StyleSheet, View, Text, Animated, Easing} from 'react-native'
 import { PureComponent } from 'react'
-import Animated, { EasingNode } from 'react-native-reanimated'
 
 class ErrorPresenter  extends PureComponent {
     constructor(props) {
@@ -32,7 +31,7 @@ class ErrorPresenter  extends PureComponent {
         Animated.timing(this.state.opacity, { 
             toValue: 0, 
             duration: 500,
-            easing: EasingNode.ease
+            easing: Easing.ease
         }).start(this.props.onHide)
     }
     startTimer() {

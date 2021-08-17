@@ -3,6 +3,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 export const Theme = {
      'wColor': '#6245D8',
+     'wIconTint': '#2B2C43'
 }
 
 export const WGradient = ({ children, ...rest }) => (

@@ -1,6 +1,9 @@
+import { faEye, faEyeSlash } from "@fortawesome/pro-light-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import React, { useState } from "react";
 import { StyleSheet, TouchableOpacity, View, Text, TextInput, } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
+import { Theme } from "./theme";
 
 
 export const WCustomButton = ({ children, fillWidth=false, style, ...rest }) => (
@@ -15,6 +18,23 @@ export const WInput = ({ label, boxStyle, style, ...rest }) => (
           <TextInput style={[style, WStyles.wInput, WStyles.wCornerRadius]} selectionColor='#002251' { ...rest } />
      </View>
 )
+
+export const WInputPassword = ({ label, boxStyle, style, ...rest }) => {
+     const [visible, setVisible] = React.useState(false);
+     return (
+          <View style={[boxStyle, WStyles.wInputLabel]}>
+               { label && <Text style={[WStyles.wInputLabel, { marginBottom: 9 }]}>{ label }</Text> }
+               <View>
+                    <TextInput textContentType={visible ? "none": "password"} secureTextEntry={!visible} style={[style, WStyles.wInput, WStyles.wCornerRadius, WStyles.pwdInput]} selectionColor='#002251' { ...rest } />
+                    <View style={WStyles.pwdIconBox}>
+                         <TouchableOpacity onPress={() => setVisible(!visible)}>
+                              <FontAwesomeIcon icon={!visible ? faEyeSlash : faEye} size={25} color={Theme.wIconTint}/>
+                         </TouchableOpacity>
+                    </View>
+               </View>
+          </View>
+     )
+}
 
 export const WButton = ({ text, fillWidth=false, style, ...rest }) => (
      <TouchableOpacity {...rest} style={[ style, WStyles.wButton, WStyles.wCornerRadius ]}>
@@ -75,7 +95,10 @@ export const WStyles = new StyleSheet.create({
           paddingHorizontal: 16,
           // paddingVertical: 14,
           height: 46,
+          width: "100%",
           color: "#002251",
           fontSize: 16
-     }
+     },
+     pwdInput: {  paddingRight: 54 },
+     pwdIconBox: { position: "absolute", right: 0, height: "100%", width: 45, justifyContent: "center" }
 });

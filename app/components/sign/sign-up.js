@@ -10,7 +10,7 @@ import Snackbar from 'react-native-snackbar'
 import CheckBox from '@react-native-community/checkbox'
 import i18n from './../../../assets/i18n/i18n'
 import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service'
-import { Theme, WGradientButton, WInput } from '../core/design'
+import { Theme, WGradientButton, WInput, WInputPassword } from '../core/design'
 import ErrorPresenter from '../core/reusable/misc/error-presenter'
 import Sign from './sign'
 
@@ -141,8 +141,8 @@ class SignUp extends React.Component {
                             <View style={{ marginTop: 48 }}>
                                 <WInput boxStyle={styles.inputBox} label="Pseudo" onChangeText={(val) => this.setState({ pseudo: val.replace(/\s/g, '') })} textContentType="username" />
                                 <WInput boxStyle={styles.inputBox} label="Email" onChangeText={(val) => this.setState({ email: val.replace(/\s/g, '') })} textContentType="emailAddress" />
-                                <WInput boxStyle={styles.inputBox}  label="Password" onChangeText={(val) => this.setState({ password: val })} textContentType="password" secureTextEntry={true} />
-                                <WInput boxStyle={styles.inputBox} label="Confirm your password" onChangeText={(val) => this.setState({ password2: val })} textContentType="password" secureTextEntry={true} />
+                                <WInputPassword boxStyle={styles.inputBox}  label="Password" onChangeText={(val) => this.setState({ password: val })} />
+                                <WInputPassword boxStyle={styles.inputBox} label="Confirm your password" onChangeText={(val) => this.setState({ password2: val })} />
                                 <View style={styles.termsBox}>
                                     <View style={{ paddingRight: 30 }}>
                                         {/* <WCheckBox /> */}

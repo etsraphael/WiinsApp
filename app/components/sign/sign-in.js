@@ -11,7 +11,7 @@ import Snackbar from 'react-native-snackbar'
 import I18n from '../../../assets/i18n/i18n'
 import LinearGradient from 'react-native-linear-gradient'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import { WInput, WGradientButton, Theme } from '../core/design'
+import { WInput, WGradientButton, Theme, WInputPassword } from '../core/design'
 import ErrorPresenter from '../core/reusable/misc/error-presenter'
 import Sign from './sign'
 
@@ -80,7 +80,7 @@ class SignIn extends React.Component {
                             <Text style={styles.subText}>Hello Wiinser, sign to continue!</Text>
                             <View style={{ marginTop: 48 }}>
                                 <WInput boxStyle={styles.inputBox} label={I18n.t('LOGIN-REGISTRER.PseudoOrEmail')} textContentType="username" onChangeText={(val) => this.setState({ pseudo_email: val })} />
-                                <WInput boxStyle={styles.inputBox} label={I18n.t('CORE.Password')} textContentType="password" secureTextEntry={true} onChangeText={(val) => this.setState({ password: val })} />
+                                <WInputPassword boxStyle={styles.inputBox} label={I18n.t('CORE.Password')} onChangeText={(val) => this.setState({ password: val })} />
                                 <View style={{ alignItems: 'flex-start', marginBottom: 26 }}>
                                     <Text style={styles.forgotPwdLabel} onPress={this.forgotPassword}>{I18n.t('LOGIN-REGISTRER.ForgotPassword')}</Text>
                                 </View>
