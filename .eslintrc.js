@@ -1,15 +1,12 @@
 module.exports = {
   root: true,
-  // extends: '@react-native-community',
+  extends: ['@react-native-community', 'prettier'],
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
-    },
-    sourceType: "module"
+    ecmaVersion: 12,
+    sourceType: 'module'
   },
-  env: {
-    node: true,
-    es6: true
+  rules: {
+    'prettier/prettier': 'error'
   },
-  extends: ["eslint:recommended", "plugin:prettier/recommended"],
+  plugins: ['prettier']
 };
