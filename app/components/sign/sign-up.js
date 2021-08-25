@@ -11,13 +11,13 @@ import { connect } from 'react-redux';
 import * as MyUserActions from '../../redux/MyUser/actions';
 import { bindActionCreators } from 'redux';
 import { Platform } from 'react-native';
-import Snackbar from 'react-native-snackbar';
 import CheckBox from '@react-native-community/checkbox';
 import i18n from './../../../assets/i18n/i18n';
 import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service';
 import { Theme, WGradientButton, WInput, WInputPassword } from '../core/design';
 import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
+import { emailIsValid, passwordIsValid } from '../core/reusable/utility/validation';
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -42,15 +42,13 @@ class SignUp extends React.Component {
                     case 'success':
                         return this.setState({ registration_success: true });
                     case 'pseudo_already_exist': {
-                        return Snackbar.show({
-                            text: i18n.t('ERROR-MESSAGE.Pseudo-already-exist'),
-                            duration: Snackbar.LENGTH_LONG
+                        return this.setState({
+                            error: i18n.t('ERROR-MESSAGE.Pseudo-already-exist')
                         });
                     }
                     case 'email_already_exist': {
-                        return Snackbar.show({
-                            text: i18n.t('ERROR-MESSAGE.Email_already_exist'),
-                            duration: Snackbar.LENGTH_LONG
+                        return this.setState({
+                            error: i18n.t('ERROR-MESSAGE.Email_already_exist')
                         });
                     }
                 }
@@ -62,9 +60,8 @@ class SignUp extends React.Component {
     _register = () => {
         if (!this._verificationTrue()) return null;
         if (!this.state.conditionAccepted) {
-            return Snackbar.show({
-                text: i18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'),
-                duration: Snackbar.LENGTH_LONG
+            return this.setState({
+                error: i18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou')
             });
         } else {
             const user = {
@@ -89,24 +86,25 @@ class SignUp extends React.Component {
         }
 
         // email validation
-        const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (reg.test(this.state.email) === false) {
+        if (!emailIsValid(this.state.email)) {
             // Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Email-invalid'), duration: Snackbar.LENGTH_LONG })
             this.setState({ error: i18n.t('ERROR-MESSAGE.Email-invalid') });
             return false;
         }
 
         // password validation
-        if (this.state.password.length <= 4) {
-            // Snackbar.show({ text: i18n.t('SETTING.password.Error-min-5-char'), duration: Snackbar.LENGTH_LONG })
+        const isPasswordValid = passwordIsValid(this.state.password)
+        console.log(isPasswordValid)
+        if (!isPasswordValid[0]) {
+            console.log("here")
             this.setState({
-                error: i18n.t('SETTING.password.Error-min-5-char')
+                // error: i18n.t('SETTING.password.Error-min-5-char')
+                error: isPasswordValid[1]
             });
             return false;
         }
 
         if (this.state.password !== this.state.password2) {
-            // Snackbar.show({ text: i18n.t('PLACEHOLDER.Password-not-matching'), duration: Snackbar.LENGTH_LONG })
             this.setState({
                 error: i18n.t('PLACEHOLDER.Password-not-matching')
             });
@@ -115,12 +113,6 @@ class SignUp extends React.Component {
 
         // pseudo validation
         if (this.state.pseudo.length <= 4) {
-            Snackbar.show({
-                text: i18n.t(
-                    'ERROR-MESSAGE.Your-username-must-have-at-least-4-char'
-                ),
-                duration: Snackbar.LENGTH_LONG
-            });
             this.setState({
                 error: i18n.t(
                     'ERROR-MESSAGE.Your-username-must-have-at-least-4-char'
@@ -199,6 +191,7 @@ class SignUp extends React.Component {
                                 <WInput
                                     boxStyle={styles.inputBox}
                                     label="Pseudo"
+                                    placeholder="Enter your pseudo"
                                     onChangeText={val =>
                                         this.setState({
                                             pseudo: val.replace(/\s/g, '')
@@ -209,6 +202,7 @@ class SignUp extends React.Component {
                                 <WInput
                                     boxStyle={styles.inputBox}
                                     label="Email"
+                                    placeholder="Enter your email"
                                     onChangeText={val =>
                                         this.setState({
                                             email: val.replace(/\s/g, '')
@@ -219,6 +213,7 @@ class SignUp extends React.Component {
                                 <WInputPassword
                                     boxStyle={styles.inputBox}
                                     label="Password"
+                                    placeholder="Enter your password"
                                     onChangeText={val =>
                                         this.setState({ password: val })
                                     }
@@ -226,6 +221,7 @@ class SignUp extends React.Component {
                                 <WInputPassword
                                     boxStyle={styles.inputBox}
                                     label="Confirm your password"
+                                    placeholder="Enter your password"
                                     onChangeText={val =>
                                         this.setState({ password2: val })
                                     }

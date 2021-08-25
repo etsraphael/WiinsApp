@@ -12,20 +12,20 @@ export const WCustomButton = ({ children, fillWidth=false, style, ...rest }) => 
      </TouchableOpacity>
 );
 
-export const WInput = ({ label, boxStyle, style, ...rest }) => (
+export const WInput = ({ label, boxStyle, style, placeholderStyle, ...rest }) => (
      <View style={[boxStyle, WStyles.wInputLabel]}>
           { label && <Text style={[WStyles.wInputLabel, { marginBottom: 9 }]}>{ label }</Text> }
-          <TextInput style={[style, WStyles.wInput, WStyles.wCornerRadius]} selectionColor='#002251' { ...rest } />
+          <TextInput style={[style, placeholderStyle, WStyles.wInput, WStyles.wCornerRadius]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } />
      </View>
 )
 
-export const WInputPassword = ({ label, boxStyle, style, ...rest }) => {
+export const WInputPassword = ({ label, boxStyle, style, placeholderStyle, ...rest }) => {
      const [visible, setVisible] = React.useState(false);
      return (
           <View style={[boxStyle, WStyles.wInputLabel]}>
                { label && <Text style={[WStyles.wInputLabel, { marginBottom: 9 }]}>{ label }</Text> }
                <View>
-                    <TextInput textContentType={visible ? "none": "password"} secureTextEntry={!visible} style={[style, WStyles.wInput, WStyles.wCornerRadius, WStyles.pwdInput]} selectionColor='#002251' { ...rest } />
+                    <TextInput textContentType={visible ? "none": "password"} secureTextEntry={!visible} style={[style, placeholderStyle, WStyles.wInput, WStyles.wCornerRadius, WStyles.pwdInput]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } />
                     <View style={WStyles.pwdIconBox}>
                          <TouchableOpacity onPress={() => setVisible(!visible)}>
                               <FontAwesomeIcon icon={!visible ? faEyeSlash : faEye} size={25} color={Theme.wIconTint}/>
@@ -97,7 +97,8 @@ export const WStyles = new StyleSheet.create({
           height: 46,
           width: "100%",
           color: "#002251",
-          fontSize: 16
+          fontSize: 16,
+
      },
      pwdInput: {  paddingRight: 54 },
      pwdIconBox: { position: "absolute", right: 0, height: "100%", width: 45, justifyContent: "center" }

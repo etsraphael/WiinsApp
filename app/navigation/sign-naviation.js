@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native'
 import { Navigator, AppRegistry, View } from 'react-native'
 import { SignIn, SignUp, UseCondition, ForgotPassword } from '../components/sign'
 import { Component } from 'react'
+import HelpCommunity from '../components/sign/help-community'
 
 
 const Stack = createStackNavigator()
@@ -17,6 +18,7 @@ export default SignNavigation = () => (
             <Stack.Screen name={'SignUp'} component={SignUp} />
             <Stack.Screen name={'ForgotPassword'} component={ForgotPassword} />
             <Stack.Screen name={'UseCondition'} component={UseCondition} />
+            <Stack.Screen name={'HelpCommunity'} component={HelpCommunity} />
         </Stack.Navigator>
     </NavigationContainer>
 )

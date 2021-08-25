@@ -23,7 +23,8 @@ class ErrorPresenter  extends PureComponent {
         Animated.timing(this.state.opacity, { 
             toValue: 1, 
             duration: 500,
-            easing: EasingNode.ease
+            easing: Easing.ease,
+            useNativeDriver: true
         }).start()
         this.startTimer()
     }
@@ -31,7 +32,8 @@ class ErrorPresenter  extends PureComponent {
         Animated.timing(this.state.opacity, { 
             toValue: 0, 
             duration: 500,
-            easing: Easing.ease
+            easing: Easing.ease,
+            useNativeDriver: true
         }).start(this.props.onHide)
     }
     startTimer() {

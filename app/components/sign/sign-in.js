@@ -77,7 +77,7 @@ class SignIn extends React.Component {
     render() {
         return (
             <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white' }}>
-                <Sign label="Sign In" navigation={this.props.navigation}>
+                <Sign label="Login" navigation={this.props.navigation}>
                     <ErrorPresenter
                         error={this.state.error}
                         onHide={() => this.setState({ error: null })}
@@ -108,6 +108,7 @@ class SignIn extends React.Component {
                                     label={I18n.t(
                                         'LOGIN-REGISTRER.PseudoOrEmail'
                                     )}
+                                    placeholder="Enter your pseudo"
                                     textContentType="username"
                                     onChangeText={(val) =>
                                         this.setState({ pseudo_email: val })
@@ -116,6 +117,7 @@ class SignIn extends React.Component {
                                 <WInputPassword
                                     boxStyle={styles.inputBox}
                                     label={I18n.t('CORE.Password')}
+                                    placeholder="Enter your password"
                                     onChangeText={(val) =>
                                         this.setState({ password: val })
                                     }
