@@ -25,7 +25,7 @@ class Setting extends React.Component {
     // to display the header of the profile
     _renderHeader = () => {
         return (
-            <View style={{ borderBottomRightRadius: 35, backgroundColor: '#0C1A32', height: 200, overflow: 'hidden' }}>
+            <View style={{ backgroundColor: '#0C1A32', height: 250, overflow: 'hidden' }}>
 
                 <View style={{ flex: 1, position: 'relative' }}>
 
@@ -41,7 +41,7 @@ class Setting extends React.Component {
                         colors={['#2CB0D6', '#3087D7', '#6743E0', '#ED6569']}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 1 }}
-                        style={{ height: 200 }} />
+                        style={{ height: 250 }} />
 
                     {/* Profile picture and name */}
                     <View style={{ position: 'absolute', top: 130, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
@@ -82,7 +82,7 @@ class Setting extends React.Component {
         ]
 
         return (
-            <View style={{ flex: 1, padding: 15, backgroundColor: 'white' }}>
+            <View style={{ flex: 1, padding: 15, backgroundColor: 'white', borderRadius: 25, top: -30 }}>
                 <SafeAreaView style={{ flex: 1 }}>
                     <FlatList
                         style={{ flex: 1, paddingBottom: 45 }}
