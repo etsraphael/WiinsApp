@@ -19,6 +19,7 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { WInput, WGradientButton, Theme, WInputPassword } from '../core/design';
 import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
+import KeyboardShift from '../core/reusable/misc/keyboard-shift';
 
 class SignIn extends React.Component {
     constructor(props) {
@@ -92,55 +93,53 @@ class SignIn extends React.Component {
                             showsVerticalScrollIndicator={false}
                             style={{ flex: 1 }}
                             bounces>
-                            <Text
-                                style={[
-                                    styles.mainLargeText,
-                                    { marginTop: 36 }
-                                ]}>
-                                Welcome Back
-                            </Text>
-                            <Text style={styles.subText}>
-                                Hello Wiinser, sign to continue!
-                            </Text>
-                            <View style={{ marginTop: 48 }}>
-                                <WInput
-                                    boxStyle={styles.inputBox}
-                                    label={I18n.t(
-                                        'LOGIN-REGISTRER.PseudoOrEmail'
-                                    )}
-                                    placeholder="Enter your pseudo"
-                                    textContentType="username"
-                                    onChangeText={(val) =>
-                                        this.setState({ pseudo_email: val })
-                                    }
-                                />
-                                <WInputPassword
-                                    boxStyle={styles.inputBox}
-                                    label={I18n.t('CORE.Password')}
-                                    placeholder="Enter your password"
-                                    onChangeText={(val) =>
-                                        this.setState({ password: val })
-                                    }
-                                />
-                                <View
-                                    style={{
-                                        alignItems: 'flex-start',
-                                        marginBottom: 26
-                                    }}>
-                                    <Text
-                                        style={styles.forgotPwdLabel}
-                                        onPress={this.forgotPassword}>
-                                        {I18n.t(
-                                            'LOGIN-REGISTRER.ForgotPassword'
-                                        )}
-                                    </Text>
-                                </View>
-                                <WGradientButton
-                                    text="Sign in"
-                                    style={styles.createButton}
-                                    onPress={() => this._login()}
-                                />
-                            </View>
+                            <KeyboardShift>
+                                {() => (
+                                    <>
+                                        <Text style={[styles.mainLargeText, { marginTop: 36 }]}>
+                                            Welcome Back
+                                        </Text>
+                                        <Text style={styles.subText}>
+                                            Hello Wiinser, sign to continue!
+                                        </Text>
+                                        <View style={{ marginTop: 48 }}>
+                                            <WInput
+                                                boxStyle={styles.inputBox}
+                                                label={I18n.t('LOGIN-REGISTRER.PseudoOrEmail')}
+                                                placeholder="Enter your pseudo"
+                                                textContentType="username"
+                                                onChangeText={(val) =>
+                                                    this.setState({ pseudo_email: val })
+                                                }
+                                            />
+                                            <WInputPassword
+                                                boxStyle={styles.inputBox}
+                                                label={I18n.t('CORE.Password')}
+                                                placeholder="Enter your password"
+                                                onChangeText={(val) =>
+                                                    this.setState({ password: val })
+                                                }
+                                            />
+                                            <View
+                                                style={{
+                                                    alignItems: 'flex-start',
+                                                    marginBottom: 26
+                                                }}>
+                                                <Text
+                                                    style={styles.forgotPwdLabel}
+                                                    onPress={this.forgotPassword}>
+                                                    {I18n.t('LOGIN-REGISTRER.ForgotPassword')}
+                                                </Text>
+                                            </View>
+                                            <WGradientButton
+                                                text="Sign in"
+                                                style={styles.createButton}
+                                                onPress={() => this._login()}
+                                            />
+                                        </View>
+                                    </>
+                                )}
+                            </KeyboardShift>
                         </ScrollView>
                     </ErrorPresenter>
                 </Sign>

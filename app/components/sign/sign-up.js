@@ -5,7 +5,9 @@ import {
     Text,
     ActivityIndicator,
     ScrollView,
-    KeyboardAvoidingView
+    KeyboardAvoidingView,
+    Keyboard,
+    findNodeHandle
 } from 'react-native'
 import { connect } from 'react-redux';
 import * as MyUserActions from '../../redux/MyUser/actions';
@@ -14,10 +16,12 @@ import { Platform } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import i18n from './../../../assets/i18n/i18n';
 import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service';
-import { Theme, WGradientButton, WInput, WInputPassword } from '../core/design';
+import { Theme, WGradientButton, WInput, WInputPassword, WStyles } from '../core/design';
 import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
 import { emailIsValid, passwordIsValid } from '../core/reusable/utility/validation';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import KeyboardShift from '../core/reusable/misc/keyboard-shift';
 
 class SignUp extends React.Component {
     constructor(props) {
@@ -54,6 +58,24 @@ class SignUp extends React.Component {
                 }
             }
         }
+    }
+
+    componentDidMount() {
+        this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShowHandler)
+        this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHideHandler)
+    }
+
+    componentWillUnmount() {
+        this.keyboardWillShowSub.remove();
+        this.keyboardWillHideSub.remove();
+    }
+
+    keyboardWillShowHandler = (event) => {
+        console.log({ 'height': event })
+    }
+
+    keyboardWillHideHandler() {
+
     }
 
     // to send the registration
@@ -152,12 +174,8 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <KeyboardAvoidingView
-                style={{
-                    flex: 1,
-                    backgroundColor: 'white',
-                    position: 'relative'
-                }}>
+            <View
+                style={{ flex: 1 }}>
                 <Sign
                     label="Create an account"
                     navigation={this.props.navigation}>
@@ -173,93 +191,96 @@ class SignUp extends React.Component {
                             flex: 1,
                             position: 'relative'
                         }}>
-                        <ScrollView
-                            showsVerticalScrollIndicator={false}
-                            style={{ flex: 1 }}
-                            bounces>
-                            <Text
-                                style={[
-                                    styles.mainLargeText,
-                                    { marginTop: 36 }
-                                ]}>
-                                Welcome
-                            </Text>
-                            <Text style={styles.subText}>
-                                Hello! Nice to meet you new Wiinser
-                            </Text>
-                            <View style={{ marginTop: 48 }}>
-                                <WInput
-                                    boxStyle={styles.inputBox}
-                                    label="Pseudo"
-                                    placeholder="Enter your pseudo"
-                                    onChangeText={val =>
-                                        this.setState({
-                                            pseudo: val.replace(/\s/g, '')
-                                        })
-                                    }
-                                    textContentType="username"
-                                />
-                                <WInput
-                                    boxStyle={styles.inputBox}
-                                    label="Email"
-                                    placeholder="Enter your email"
-                                    onChangeText={val =>
-                                        this.setState({
-                                            email: val.replace(/\s/g, '')
-                                        })
-                                    }
-                                    textContentType="emailAddress"
-                                />
-                                <WInputPassword
-                                    boxStyle={styles.inputBox}
-                                    label="Password"
-                                    placeholder="Enter your password"
-                                    onChangeText={val =>
-                                        this.setState({ password: val })
-                                    }
-                                />
-                                <WInputPassword
-                                    boxStyle={styles.inputBox}
-                                    label="Confirm your password"
-                                    placeholder="Enter your password"
-                                    onChangeText={val =>
-                                        this.setState({ password2: val })
-                                    }
-                                />
-                                <View style={styles.termsBox}>
-                                    <View style={{ paddingRight: 30 }}>
-                                        {/* <WCheckBox /> */}
-                                        <CheckBox
-                                            style={{ width: 20, height: 20 }}
-                                            boxType="circle"
-                                            value={this.state.conditionAccepted}
-                                            onValueChange={newValue =>
-                                                this.setState({
-                                                    conditionAccepted: newValue
-                                                })
-                                            }
+                        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false} bounces>
+                            <KeyboardShift>
+                            {() => (
+                                <>
+                                <Text
+                                    style={[
+                                        styles.mainLargeText,
+                                        { marginTop: 36 }
+                                    ]}>
+                                    Welcome
+                                </Text>
+                                <Text style={styles.subText}>
+                                    Hello! Nice to meet you new Wiinser
+                                </Text>
+                                <View style={{ marginTop: 48 }}>
+                                    <WInput
+                                        boxStyle={styles.inputBox}
+                                        label="Pseudo"
+                                        placeholder="Enter your pseudo"
+                                        onChangeText={val =>
+                                            this.setState({
+                                                pseudo: val.replace(/\s/g, '')
+                                            })
+                                        }
+                                        textContentType="username"
+                                    />
+                                    <WInput
+                                        boxStyle={styles.inputBox}
+                                        label="Email"
+                                        placeholder="Enter your email"
+                                        onChangeText={val =>
+                                            this.setState({
+                                                email: val.replace(/\s/g, '')
+                                            })
+                                        }
+                                        textContentType="emailAddress"
+                                    />
+                                    <WInputPassword
+                                        boxStyle={styles.inputBox}
+                                        label="Password"
+                                        placeholder="Enter your password"
+                                        onChangeText={val =>
+                                            this.setState({ password: val })
+                                        }
+                                    />
+                                    <WInputPassword
+                                        boxStyle={styles.inputBox}
+                                        label="Confirm your password"
+                                        placeholder="Enter your password"
+                                        onChangeText={val =>
+                                            this.setState({ password2: val })
+                                        }
+                                    />
+                                    <View style={styles.termsBox}>
+                                        <View style={{ paddingRight: 30 }}>
+                                            {/* <WCheckBox /> */}
+                                            <CheckBox
+                                                style={{ width: 20, height: 20 }}
+                                                boxType="circle"
+                                                value={this.state.conditionAccepted}
+                                                onValueChange={newValue =>
+                                                    this.setState({
+                                                        conditionAccepted: newValue
+                                                    })
+                                                }
+                                            />
+                                        </View>
+                                        <Text
+                                            onPress={this.goToUseOfCondition}
+                                            style={styles.termsLabel}>
+                                            I certify that I am 16 years or older
+                                            and I accept the user agreement and the
+                                            privacy policy
+                                        </Text>
+                                    </View>
+                                    <View style={{ marginBottom: 130 }}>
+                                        <WGradientButton
+                                            text="Create an account"
+                                            style={styles.createButton}
+                                            onPress={() => this._register()}
                                         />
                                     </View>
-                                    <Text
-                                        onPress={this.goToUseOfCondition}
-                                        style={styles.termsLabel}>
-                                        I certify that I am 16 years or older
-                                        and I accept the user agreement and the
-                                        privacy policy
-                                    </Text>
                                 </View>
-                                <View style={{ marginBottom: 130 }}>
-                                    <WGradientButton
-                                        text="Create an account"
-                                        style={styles.createButton}
-                                        onPress={() => this._register()}
-                                    />
-                                </View>
-                            </View>
+                                </>
+                            )}
+                            </KeyboardShift>
                         </ScrollView>
                     </ErrorPresenter>
                 </Sign>
-            </KeyboardAvoidingView>
+            </View>
         );
     }
 }
