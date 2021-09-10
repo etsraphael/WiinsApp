@@ -6,57 +6,75 @@ import {
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import i18n from './../../../assets/i18n/i18n';
+import i18n from './../../../assets/i18n/i18n'
 import { Theme, WInput, WGradientButton } from '../core/design'
 import { Sign } from '.'
 import Cadena from '../../../assets/svg/Cadena.svg'
 import ErrorPresenter from '../core/reusable/misc/error-presenter'
 import { emailIsValid } from '../core/reusable/utility/validation'
 
+const EMAIL = 'email'
 
 class ForgotPassword extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
         this.state = {
-            email: null,
+            [EMAIL]: null,
 
             // error
-            error: null
-        };
+            error: null,
+            flaggedInput: null
+        }
     }
     validationTrue = () => {
         // null value
         if (!this.state.email) {
-            this.setState({
-                error: i18n.t('ERROR-MESSAGE.Missing-informations')
-            });
-            return false;
+            this.setState({ error: i18n.t('ERROR-MESSAGE.Missing-informations') })
+            this.flagInput(EMAIL)
+            return false
         }
-
-        // email validation
+        
         if (!emailIsValid(this.state.email)) {
-            this.setState({ error: i18n.t('ERROR-MESSAGE.Email-invalid') });
-            return false;
+            this.setState({ error: i18n.t('ERROR-MESSAGE.Email-invalid') })
+            this.flagInput(EMAIL)
+            return false
         }
+        return true
+    }
 
-        return true;
+    // err input
+    flagInput = (flaggedInput) => {
+        this.setState({ flaggedInput })
+    }
+
+    // check if input is flagged
+    checkIfFlagged = (flaggedInput) => {
+        return !!this.state.flaggedInput && (this.state.flaggedInput === flaggedInput)
+    }
+
+    // handle input
+    handleInput = (val, input) => {
+        this.setState({
+            flaggedInput: null,
+            [input]: val
+        })
     }
 
     forgotPassword = () => {
         if (!this.validationTrue())
-            return;    
+            return    
     }
 
     render() {
         return (
             <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white' }}>
-                <Sign label="Forgot Password" onBackPress={() => this.props.navigation.goBack()}  >
+                <Sign label='Forgot Password' onBackPress={() => this.props.navigation.goBack()}  >
                     <ErrorPresenter
                         error={this.state.error}
                         onHide={() => this.setState({ error: null })}
                         duration={3000}>
-                        <View
-                            behavior={Platform.OS === "ios" ? "padding" : null}
+                        <KeyboardAvoidingView
+                            behavior={Platform.OS === 'ios' ? 'padding' : null}
                             keyboardVerticalOffset={0}
                             style={{ width: '100%', paddingHorizontal: 36, flex: 1 }}
                         >
@@ -65,12 +83,12 @@ class ForgotPassword extends React.Component {
                                     <Cadena />
                                 </View>
                                 <Text style={ [styles.text, { marginTop: 36 }] }>Enter your email address for recovery of your password.</Text>
-                                <WInput style={{ marginTop: 16 }} placeholder="Enter your email" onChangeText={(val) => this.setState({ email: val })} />
+                                <WInput style={{ marginTop: 16 }} placeholder='Enter your email' flag={this.checkIfFlagged(EMAIL)} onChangeText={(val) => this.handleInput(val, EMAIL)} />
                                 <View style={{ marginTop: 43 }}>
-                                    <WGradientButton text="Send Mail" onPress={this.forgotPassword} />
+                                    <WGradientButton text='Send Mail' onPress={this.forgotPassword} />
                                 </View>
                             </ScrollView>
-                        </View>
+                        </KeyboardAvoidingView>
                     </ErrorPresenter>
                 </Sign>
             </KeyboardAvoidingView>
@@ -79,7 +97,7 @@ class ForgotPassword extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    mainLargeText: { color: "#002251", fontSize: 24, lineHeight: 29 },
+    mainLargeText: { color: '#002251', fontSize: 24, lineHeight: 29 },
     text: { color: '#7A869A', fontSize: 16, lineHeight: 19 },
     bottomText: { color: '#7A869A', fontSize: 14, textAlign: 'center', lineHeight: 20, paddingBottom: 36  },
     inputBox: { marginBottom: 21 },

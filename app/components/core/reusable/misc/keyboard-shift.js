@@ -35,7 +35,7 @@ export default class KeyboardShift extends Component {
     const { height: windowHeight } = Dimensions.get('window')
     const keyboardHeight = event.endCoordinates.height
     const currentlyFocusedField = TextInputState.currentlyFocusedInput()
-    console.log({ currentlyFocusedField: currentlyFocusedField || 'hel' })
+    
     currentlyFocusedField.measure((originX, originY, width, height, pageX, pageY) => {
       const fieldHeight = height
       const fieldTop = pageY

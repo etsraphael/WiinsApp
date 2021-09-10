@@ -18,19 +18,25 @@ import Sign from './sign';
 import { emailIsValid, passwordIsValid } from '../core/reusable/utility/validation';
 import KeyboardShift from '../core/reusable/misc/keyboard-shift';
 
+const PSEUDO = 'pseudo'
+const EMAIL = 'email'
+const PASSWORD = 'password'
+const CONFIRM_PASSWORD = 'password2'
+
 class SignUp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: null,
-            pseudo: null,
-            password: null,
-            password2: null,
+            [EMAIL]: null,
+            [PSEUDO]: null,
+            [PASSWORD]: null,
+            [CONFIRM_PASSWORD]: null,
             registration_success: false,
             conditionAccepted: false,
 
             // error
-            error: null
+            error: null,
+            flaggedInput: null
         };
     }
 
@@ -64,57 +70,70 @@ class SignUp extends React.Component {
             });
         } else {
             const user = {
-                pseudo: this.state.pseudo,
-                email: this.state.email,
-                password: this.state.password
+                pseudo: this.state[PSEUDO],
+                email: this.state[EMAIL],
+                password: this.state[PASSWORD]
             };
             const userDetail = { language: getCurrentLanguageOfTheDevice() };
             return this.props.actions.register(user, userDetail);
         }
     };
 
+    // err input
+    flagInput = (flaggedInput) => {
+        this.setState({ flaggedInput })
+    }
+
+    // check if input is flagged
+    checkIfFlagged = (flaggedInput) => {
+        return !!this.state.flaggedInput && (this.state.flaggedInput === flaggedInput)
+    }
+
+    // handle input
+    handleInput = (val, input) => {
+        this.setState({
+            flaggedInput: null,
+            [input]: val
+        })
+    }
+
     // to check all the verifications
     _verificationTrue = () => {
-        if (!this.state.email || !this.state.pseudo || !this.state.password) {
-            // Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Missing-informations'), duration: Snackbar.LENGTH_LONG })
+        if (!this.state[EMAIL] || !this.state[PSEUDO] || !this.state[PASSWORD] || !this.state[CONFIRM_PASSWORD]) {
             this.setState({
                 error: i18n.t('ERROR-MESSAGE.Missing-informations')
             });
+            const concernedInput = !this.state[PSEUDO] ? PSEUDO : !this.state[EMAIL] ? EMAIL : !this.state[PASSWORD] ? PASSWORD : CONFIRM_PASSWORD
+            this.flagInput(concernedInput)
             return false;
         }
 
-        // email validation
-        if (!emailIsValid(this.state.email)) {
-            // Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Email-invalid'), duration: Snackbar.LENGTH_LONG })
-            this.setState({ error: i18n.t('ERROR-MESSAGE.Email-invalid') });
-            return false;
-        }
-
-        // password validation
-        const isPasswordValid = passwordIsValid(this.state.password)
-        if (!isPasswordValid[0]) {
-            console.log("here")
-            this.setState({
-                // error: i18n.t('SETTING.password.Error-min-5-char')
-                error: isPasswordValid[1]
-            });
-            return false;
-        }
-
-        if (this.state.password !== this.state.password2) {
-            this.setState({
-                error: i18n.t('PLACEHOLDER.Password-not-matching')
-            });
-            return false;
-        }
-
-        // pseudo validation
-        if (this.state.pseudo.length < 4) {
+        if (this.state[PSEUDO].length < 4) {
             this.setState({
                 error: i18n.t(
                     'ERROR-MESSAGE.Your-username-must-have-at-least-4-char'
                 )
             });
+            this.flagInput(PSEUDO)
+            return false;
+        }
+        
+        if (!emailIsValid(this.state[EMAIL])) {
+            this.setState({ error: i18n.t('ERROR-MESSAGE.Email-invalid') });
+            this.flagInput(EMAIL)
+            return false;
+        }
+        
+        const isPasswordValid = passwordIsValid(this.state[PASSWORD])
+        if (!isPasswordValid[0]) {
+            this.setState({ error: isPasswordValid[1] });
+            this.flagInput(PASSWORD)
+            return false;
+        }
+
+        if (this.state[PASSWORD] !== this.state[CONFIRM_PASSWORD]) {
+            this.setState({ error: i18n.t('PLACEHOLDER.Password-not-matching') });
+            this.flagInput(CONFIRM_PASSWORD)
             return false;
         }
 
@@ -125,7 +144,7 @@ class SignUp extends React.Component {
     _displayLoading() {
         return (
             <View style={styles.loading_container}>
-                <ActivityIndicator size="large" color="#2CB0D6" />
+                <ActivityIndicator size='large' color='#2CB0D6' />
             </View>
         );
     }
@@ -137,10 +156,12 @@ class SignUp extends React.Component {
         return Number(date.getTime());
     };
 
+    // handle condition acceptance
     acceptCondition() {
         this.setState({ conditionAccepted: true });
     }
 
+    // redirect user to the USE OF CONDITION screen
     goToUseOfCondition = () => {
         this.props.navigation.push('UseCondition', {
             acceptCondition: this.acceptCondition.bind(this)
@@ -152,7 +173,7 @@ class SignUp extends React.Component {
             <View
                 style={{ flex: 1 }}>
                 <Sign
-                    label="Create an account"
+                    label='Create an account'
                     navigation={this.props.navigation}>
                     <ErrorPresenter
                         error={this.state.error}
@@ -181,48 +202,40 @@ class SignUp extends React.Component {
                                 <View style={{ marginTop: 48 }}>
                                     <WInput
                                         boxStyle={styles.inputBox}
-                                        label="Pseudo"
-                                        placeholder="Enter your pseudo"
-                                        onChangeText={val =>
-                                            this.setState({
-                                                pseudo: val.replace(/\s/g, '')
-                                            })
-                                        }
-                                        textContentType="username"
+                                        label='Pseudo'
+                                        placeholder='Enter your pseudo'
+                                        flag={this.checkIfFlagged(PSEUDO)}
+                                        onChangeText={val => this.handleInput(val.replace(/\s/g, ''), PSEUDO)}
+                                        textContentType='username'
                                     />
                                     <WInput
                                         boxStyle={styles.inputBox}
-                                        label="Email"
-                                        placeholder="Enter your email"
-                                        onChangeText={val =>
-                                            this.setState({
-                                                email: val.replace(/\s/g, '')
-                                            })
-                                        }
-                                        textContentType="emailAddress"
+                                        label='Email'
+                                        placeholder='Enter your email'
+                                        flag={this.checkIfFlagged(EMAIL)}
+                                        onChangeText={val => this.handleInput(val.replace(/\s/g, ''), EMAIL) }
+                                        textContentType='emailAddress'
                                     />
                                     <WInputPassword
                                         boxStyle={styles.inputBox}
-                                        label="Password"
-                                        placeholder="Enter your password"
-                                        onChangeText={val =>
-                                            this.setState({ password: val })
-                                        }
+                                        label='Password'
+                                        placeholder='Enter your password'
+                                        flag={this.checkIfFlagged(PASSWORD)}
+                                        onChangeText={val => this.handleInput(val, PASSWORD)}
                                     />
                                     <WInputPassword
                                         boxStyle={styles.inputBox}
-                                        label="Confirm your password"
-                                        placeholder="Enter your password"
-                                        onChangeText={val =>
-                                            this.setState({ password2: val })
-                                        }
+                                        label='Confirm your password'
+                                        placeholder='Enter your password'
+                                        flag={this.checkIfFlagged(CONFIRM_PASSWORD)}
+                                        onChangeText={val => this.handleInput(val, CONFIRM_PASSWORD)}
                                     />
                                     <View style={styles.termsBox}>
                                         <View style={{ paddingRight: 30 }}>
                                             {/* <WCheckBox /> */}
                                             <CheckBox
                                                 style={{ width: 20, height: 20 }}
-                                                boxType="circle"
+                                                boxType='circle'
                                                 value={this.state.conditionAccepted}
                                                 onValueChange={newValue =>
                                                     this.setState({
@@ -241,7 +254,7 @@ class SignUp extends React.Component {
                                     </View>
                                     <View style={{ marginBottom: 130 }}>
                                         <WGradientButton
-                                            text="Create an account"
+                                            text='Create an account'
                                             style={styles.createButton}
                                             onPress={() => this._register()}
                                         />
