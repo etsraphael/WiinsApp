@@ -25,8 +25,7 @@ export const WInputPassword = ({ label, boxStyle, style, placeholderStyle, ...re
           <View style={boxStyle}>
                { label && <Text style={[WStyles.wInputLabel, { marginBottom: 9 }]}>{ label }</Text> }
                <View>
-                    {/* <TextInput textContentType={visible ? "none": "password"} secureTextEntry={!visible} style={[style, placeholderStyle, WStyles.wInput, WStyles.wCornerRadius, WStyles.pwdInput]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } /> */}
-                    <TextInput textContentType={visible ? "none": "password"} style={[style, placeholderStyle, WStyles.wInput, WStyles.wCornerRadius, WStyles.pwdInput]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } />
+                    <TextInput textContentType={visible ? "none": "password"} secureTextEntry={!visible} style={[style, placeholderStyle, WStyles.wInput, WStyles.wCornerRadius, WStyles.pwdInput]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } />
                     <View style={WStyles.pwdIconBox}>
                          <TouchableOpacity onPress={() => setVisible(!visible)}>
                               <FontAwesomeIcon icon={!visible ? faEyeSlash : faEye} size={25} color={Theme.wIconTint}/>

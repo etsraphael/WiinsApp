@@ -6,32 +6,72 @@ import {
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
+import i18n from './../../../assets/i18n/i18n';
 import { Theme, WInput, WGradientButton } from '../core/design'
 import { Sign } from '.'
 import Cadena from '../../../assets/svg/Cadena.svg'
+import ErrorPresenter from '../core/reusable/misc/error-presenter'
+import { emailIsValid } from '../core/reusable/utility/validation'
 
 
 class ForgotPassword extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: null,
+
+            // error
+            error: null
+        };
+    }
+    validationTrue = () => {
+        // null value
+        if (!this.state.email) {
+            this.setState({
+                error: i18n.t('ERROR-MESSAGE.Missing-informations')
+            });
+            return false;
+        }
+
+        // email validation
+        if (!emailIsValid(this.state.email)) {
+            this.setState({ error: i18n.t('ERROR-MESSAGE.Email-invalid') });
+            return false;
+        }
+
+        return true;
+    }
+
+    forgotPassword = () => {
+        if (!this.validationTrue())
+            return;    
+    }
+
     render() {
         return (
             <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white' }}>
                 <Sign label="Forgot Password" onBackPress={() => this.props.navigation.goBack()}  >
-                    <View
-                        behavior={Platform.OS === "ios" ? "padding" : null}
-                        keyboardVerticalOffset={0}
-                        style={{ width: '100%', paddingHorizontal: 36, flex: 1 }}
-                    >
-                        <ScrollView showsVerticalScrollIndicator={false}  style={{ flex: 1 }} bounces>
-                            <View style={{ paddingTop: 48, alignItems: 'center' }}>
-                                <Cadena />
-                            </View>
-                            <Text style={ [styles.text, { marginTop: 36 }] }>Enter your email address for recovery of your password.</Text>
-                            <WInput style={{ marginTop: 16 }} placeholder="Enter your email" />
-                            <View style={{ marginTop: 43 }}>
-                                <WGradientButton text="Send Mail" />
-                            </View>
-                        </ScrollView>
-                    </View>
+                    <ErrorPresenter
+                        error={this.state.error}
+                        onHide={() => this.setState({ error: null })}
+                        duration={3000}>
+                        <View
+                            behavior={Platform.OS === "ios" ? "padding" : null}
+                            keyboardVerticalOffset={0}
+                            style={{ width: '100%', paddingHorizontal: 36, flex: 1 }}
+                        >
+                            <ScrollView showsVerticalScrollIndicator={false}  style={{ flex: 1 }} bounces>
+                                <View style={{ paddingTop: 48, alignItems: 'center' }}>
+                                    <Cadena />
+                                </View>
+                                <Text style={ [styles.text, { marginTop: 36 }] }>Enter your email address for recovery of your password.</Text>
+                                <WInput style={{ marginTop: 16 }} placeholder="Enter your email" onChangeText={(val) => this.setState({ email: val })} />
+                                <View style={{ marginTop: 43 }}>
+                                    <WGradientButton text="Send Mail" onPress={this.forgotPassword} />
+                                </View>
+                            </ScrollView>
+                        </View>
+                    </ErrorPresenter>
                 </Sign>
             </KeyboardAvoidingView>
         )

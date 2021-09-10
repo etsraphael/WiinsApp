@@ -4,23 +4,18 @@ import {
     View,
     Text,
     ActivityIndicator,
-    ScrollView,
-    KeyboardAvoidingView,
-    Keyboard,
-    findNodeHandle
+    ScrollView
 } from 'react-native'
 import { connect } from 'react-redux';
 import * as MyUserActions from '../../redux/MyUser/actions';
 import { bindActionCreators } from 'redux';
-import { Platform } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import i18n from './../../../assets/i18n/i18n';
 import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service';
-import { Theme, WGradientButton, WInput, WInputPassword, WStyles } from '../core/design';
+import { Theme, WGradientButton, WInput, WInputPassword } from '../core/design';
 import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
 import { emailIsValid, passwordIsValid } from '../core/reusable/utility/validation';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import KeyboardShift from '../core/reusable/misc/keyboard-shift';
 
 class SignUp extends React.Component {
@@ -60,24 +55,6 @@ class SignUp extends React.Component {
         }
     }
 
-    componentDidMount() {
-        this.keyboardWillShowSub = Keyboard.addListener('keyboardWillShow', this.keyboardWillShowHandler)
-        this.keyboardWillHideSub = Keyboard.addListener('keyboardWillHide', this.keyboardWillHideHandler)
-    }
-
-    componentWillUnmount() {
-        this.keyboardWillShowSub.remove();
-        this.keyboardWillHideSub.remove();
-    }
-
-    keyboardWillShowHandler = (event) => {
-        console.log({ 'height': event })
-    }
-
-    keyboardWillHideHandler() {
-
-    }
-
     // to send the registration
     _register = () => {
         if (!this._verificationTrue()) return null;
@@ -98,7 +75,6 @@ class SignUp extends React.Component {
 
     // to check all the verifications
     _verificationTrue = () => {
-        // null value
         if (!this.state.email || !this.state.pseudo || !this.state.password) {
             // Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Missing-informations'), duration: Snackbar.LENGTH_LONG })
             this.setState({
@@ -116,7 +92,6 @@ class SignUp extends React.Component {
 
         // password validation
         const isPasswordValid = passwordIsValid(this.state.password)
-        console.log(isPasswordValid)
         if (!isPasswordValid[0]) {
             console.log("here")
             this.setState({
@@ -134,7 +109,7 @@ class SignUp extends React.Component {
         }
 
         // pseudo validation
-        if (this.state.pseudo.length <= 4) {
+        if (this.state.pseudo.length < 4) {
             this.setState({
                 error: i18n.t(
                     'ERROR-MESSAGE.Your-username-must-have-at-least-4-char'
@@ -183,8 +158,6 @@ class SignUp extends React.Component {
                         error={this.state.error}
                         onHide={() => this.setState({ error: null })}
                         duration={3000}
-                        behavior={Platform.OS === 'ios' ? 'padding' : null}
-                        keyboardVerticalOffset={0}
                         style={{
                             width: '100%',
                             paddingHorizontal: 36,

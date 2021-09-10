@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types'
 import React, { Component } from 'react'
-import { Animated, Dimensions, Keyboard, StyleSheet, TextInput, UIManager } from 'react-native'
+import { Animated, Dimensions, Keyboard, StyleSheet, TextInput } from 'react-native'
 
 const { State: TextInputState } = TextInput
 
@@ -10,6 +10,7 @@ export default class KeyboardShift extends Component {
   }
 
   componentDidMount() {
+    Keyboard.addListener('keyboardDidChangeFrame', () => console.log('here'))
     this.keyboardDidShowSub = Keyboard.addListener('keyboardDidShow', this.handleKeyboardDidShow)
     this.keyboardDidHideSub = Keyboard.addListener('keyboardDidHide', this.handleKeyboardDidHide)
   }
@@ -34,12 +35,11 @@ export default class KeyboardShift extends Component {
     const { height: windowHeight } = Dimensions.get('window')
     const keyboardHeight = event.endCoordinates.height
     const currentlyFocusedField = TextInputState.currentlyFocusedInput()
-    
+    console.log({ currentlyFocusedField: currentlyFocusedField || 'hel' })
     currentlyFocusedField.measure((originX, originY, width, height, pageX, pageY) => {
       const fieldHeight = height
       const fieldTop = pageY
       const gap = (windowHeight - keyboardHeight) - (fieldTop + fieldHeight)
-      console.log({ gap })
       if (gap >= 0) {
         return
       }
