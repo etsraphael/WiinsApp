@@ -48,11 +48,15 @@ class ErrorPresenter  extends PureComponent {
     }
     render() {
         const { opacity } = this.state
+        const transform = opacity.interpolate({
+            inputRange: [0, 1],
+            outputRange: [100, 0]
+        })
         const { style, ...rest } = this.props;
         return (
             <View style={[style, { flex: 1, position: 'relative' }]} { ...rest }>
                 { this.props.children }
-                <Animated.View style={[styles.errorBox, { opacity }]}>
+                <Animated.View style={[styles.errorBox, { opacity, transform: [{  translateY: transform}] }]}>
                     <Text style={styles.errorText}>{ this.props.error || '' }</Text>
                 </Animated.View>
             </View>

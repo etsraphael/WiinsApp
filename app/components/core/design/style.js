@@ -42,16 +42,18 @@ export const WButton = ({ text, fillWidth=false, style, ...rest }) => (
      </TouchableOpacity>
 )
 
-export const WGradientButton = (props) => (
-     <LinearGradient
-          colors={['#00DAFA','#3087D7','#6743E0']}
-          location={[0, 0.5217208328780595, 1]}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={WStyles.wCornerRadius}
-     >
-          <WButton { ...props } />
-     </LinearGradient>
+export const WGradientButton = ({ text, fillWidth=false, style, ...rest }) => (
+     <TouchableOpacity {...rest}>
+          <LinearGradient
+               colors={['#00DAFA','#3087D7','#6743E0']}
+               location={[0, 0.5217208328780595, 1]}
+               start={{ x: 0, y: 0 }}
+               end={{ x: 1, y: 1 }}
+               style={[ style, WStyles.wButton, WStyles.wCornerRadius, { flex: 1 } ]}
+          >
+               <Text style={WStyles.wButtonText}>{ text }</Text>
+          </LinearGradient>
+     </TouchableOpacity>
 )
 
 export const WCheckBox = ({ checked=false, error=false, onToggle=null }) => {

@@ -31,7 +31,7 @@ export default class KeyboardShift extends Component {
   }
 
   handleKeyboardDidShow = (event) => {
-    const { offset=10 } = this.props
+    const { offset=0 } = this.props
     const { height: windowHeight } = Dimensions.get('window')
     const keyboardHeight = event.endCoordinates.height
     const currentlyFocusedField = TextInputState.currentlyFocusedInput()

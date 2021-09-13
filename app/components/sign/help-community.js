@@ -46,7 +46,7 @@ class HelpCommunity extends React.Component {
                                 We need programmers, designers, artist, editor ...
                             </Text>
                             <View style={{ marginBottom: 87, marginTop: 87 }}>
-                                <WGradientButton text="Join us in thid adventure" />
+                                <WGradientButton text="Join us in this adventure" />
                             </View>
                         </ScrollView>
                     </View>
