@@ -13,23 +13,25 @@ import {
 import { connect } from 'react-redux';
 import * as MyUserActions from '../../redux/MyUser/actions';
 import { bindActionCreators } from 'redux';
-import Snackbar from 'react-native-snackbar';
 import I18n from '../../../assets/i18n/i18n';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
-import { WInput, WGradientButton, Theme, WInputPassword } from '../core/design';
+import { WInput, WGradientButton, Theme, WInputPassword } from '../core/reusable/design';
 import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
 import KeyboardShift from '../core/reusable/misc/keyboard-shift';
 
+const PSEUDO_EMAIL = 'pseudo_email'
+const PASSWORD = 'password'
 class SignIn extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            pseudo_email: null,
-            password: null,
+            [PSEUDO_EMAIL]: null,
+            [PASSWORD]: null,
 
             // error
-            error: null
+            error: null,
+            flaggedInput: null
         };
     }
 
@@ -37,13 +39,12 @@ class SignIn extends React.Component {
         if (!newProps.MyUser.isLoading && newProps.MyUser.error) {
             switch (newProps.MyUser.error) {
                 case 'email_or_password_invalid': {
-                    // return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect'), duration: Snackbar.LENGTH_LONG })
+                    this.flagInput(PSEUDO_EMAIL + " " + PASSWORD)
                     return this.setState({
                         error: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect')
                     });
                 }
                 case 'account_deactivated': {
-                    // return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Account_desactivated'), duration: Snackbar.LENGTH_LONG })
                     return this.setState({
                         error: I18n.t('ERROR-MESSAGE.Account_desactivated')
                     });
@@ -52,17 +53,54 @@ class SignIn extends React.Component {
         }
     };
 
-    // to log the user
-    _login = () => {
-        Keyboard.dismiss();
-        if (!this.state.pseudo_email || !this.state.password) {
-            // return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect'), duration: Snackbar.LENGTH_LONG })
+    validate = () => {
+        if (!this.state[PSEUDO_EMAIL] || this.state[PSEUDO_EMAIL] === '') {
+            this.flagInput(PSEUDO_EMAIL)
             return this.setState({
                 error: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect')
             });
+            return false
         }
-        this.props.actions.login(this.state.pseudo_email, this.state.password);
+
+        if (!this.state[PASSWORD] || this.state[PASSWORD] === '') {
+            this.flagInput(PASSWORD)
+            return this.setState({
+                error: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect')
+            });
+            return false
+        }
+
+        return true
+    }
+
+    // to log the user
+    _login = () => {
+        Keyboard.dismiss();
+        if (!this.validate())
+            return
+        this.props.actions.login(this.state[PSEUDO_EMAIL], this.state[PASSWORD]);
     };
+
+    // err input
+    flagInput = (flaggedInput) => {
+        flaggedInput = this.state.flaggedInput != null ? `this.state.flaggedInput ${flaggedInput}` : flaggedInput
+        this.setState({ flaggedInput })
+    }
+
+    // check if input is flagged
+    checkIfFlagged = (flaggedInput) => {
+        return !!this.state.flaggedInput && (
+                (this.state.flaggedInput === flaggedInput) || (this.state.flaggedInput.includes(flaggedInput))
+            )
+    }
+
+    // handle input
+    handleInput = (val, input) => {
+        this.setState({
+            flaggedInput: null,
+            [input]: val
+        })
+    }
 
     // to select the loading animation
     _displayLoading = () => {
@@ -108,17 +146,15 @@ class SignIn extends React.Component {
                                                 label={I18n.t('LOGIN-REGISTRER.PseudoOrEmail')}
                                                 placeholder="Enter your pseudo"
                                                 textContentType="username"
-                                                onChangeText={(val) =>
-                                                    this.setState({ pseudo_email: val })
-                                                }
+                                                flag={this.checkIfFlagged(PSEUDO_EMAIL)}
+                                                onChangeText={val => this.handleInput(val, PSEUDO_EMAIL) }
                                             />
                                             <WInputPassword
                                                 boxStyle={styles.inputBox}
                                                 label={I18n.t('CORE.Password')}
                                                 placeholder="Enter your password"
-                                                onChangeText={(val) =>
-                                                    this.setState({ password: val })
-                                                }
+                                                flag={this.checkIfFlagged(PASSWORD)}
+                                                onChangeText={val => this.handleInput(val, PASSWORD) }
                                             />
                                             <View
                                                 style={{

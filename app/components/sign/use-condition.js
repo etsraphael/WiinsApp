@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import { Theme } from '../core/design'
+import { Theme } from '../core/reusable/design'
 import { Sign } from '.'
 
 const ConditionsOfUse = {

@@ -3,7 +3,7 @@ import { View, StatusBar, Platform, Text, StyleSheet, ActivityIndicator } from '
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import { WGradient02 } from '../core/design';
+import { WGradient02 } from '../core/reusable/design';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faLongArrowLeft } from '@fortawesome/pro-light-svg-icons'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'

@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as PlayerMusicActions from '../../redux/Player/actions'
 import { setTheLanguageOfTheDeviceByDefault } from './../../services/translation/translation-service'
-import { Theme, WCustomButton, WGradient } from '../core/design'
+import { Theme, WCustomButton, WGradient } from '../core/reusable/design'
 import UsdHolding from '../../../assets/svg/hand-holding-usd-solid.svg'
 import HelpingHands from '../../../assets/svg/hands-helping-solid.svg'
 
