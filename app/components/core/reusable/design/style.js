@@ -12,20 +12,20 @@ export const WCustomButton = ({ children, fillWidth=false, style, ...rest }) => 
      </TouchableOpacity>
 );
 
-export const WInput = ({ label, boxStyle, style, placeholderStyle, flag=false, ...rest }) => (
+export const WInput = ({ inputRef, label, boxStyle, style, placeholderStyle, flag=false, ...rest }) => (
      <View style={boxStyle}>
           { label && <Text style={[WStyles.wInputLabel, { marginBottom: 9 }]}>{ label }</Text> }
-          <TextInput style={[style, placeholderStyle, WStyles.wInput, WStyles.wCornerRadius, (flag && WStyles.wInputFlagged)]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } />
+          <TextInput ref={inputRef} style={[style, placeholderStyle, WStyles.wInput, WStyles.wCornerRadius, (flag && WStyles.wInputFlagged)]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } />
      </View>
 )
 
-export const WInputPassword = ({ label, boxStyle, style, placeholderStyle, flag=false, ...rest }) => {
+export const WInputPassword = ({ inputRef, label, boxStyle, style, placeholderStyle, flag=false, ...rest }) => {
      const [visible, setVisible] = React.useState(false);
      return (
           <View style={boxStyle}>
                { label && <Text style={[WStyles.wInputLabel, { marginBottom: 9 }]}>{ label }</Text> }
                <View>
-                    <TextInput textContentType={visible ? "none": "password"} secureTextEntry={!visible} style={[style, placeholderStyle, WStyles.wInput, WStyles.wCornerRadius, WStyles.pwdInput, (flag && WStyles.wInputFlagged)]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } />
+                    <TextInput ref={inputRef} textContentType={visible ? "none": "password"} secureTextEntry={!visible} style={[style, placeholderStyle, WStyles.wInput, WStyles.wCornerRadius, WStyles.pwdInput, (flag && WStyles.wInputFlagged)]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } />
                     <View style={WStyles.pwdIconBox}>
                          <TouchableOpacity onPress={() => setVisible(!visible)}>
                               <FontAwesomeIcon icon={!visible ? faEyeSlash : faEye} size={25} color={Theme.wIconTint}/>

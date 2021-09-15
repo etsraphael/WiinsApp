@@ -39,7 +39,7 @@ class SignIn extends React.Component {
         if (!newProps.MyUser.isLoading && newProps.MyUser.error) {
             switch (newProps.MyUser.error) {
                 case 'email_or_password_invalid': {
-                    this.flagInput(PSEUDO_EMAIL + " " + PASSWORD)
+                    this.flagInput(PSEUDO_EMAIL + ' ' + PASSWORD)
                     return this.setState({
                         error: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect')
                     });
@@ -106,7 +106,7 @@ class SignIn extends React.Component {
     _displayLoading = () => {
         return (
             <View style={styles.loading_container}>
-                <ActivityIndicator size="large" color="#2CB0D6" />
+                <ActivityIndicator size='large' color='#2CB0D6' />
             </View>
         );
     };
@@ -116,7 +116,7 @@ class SignIn extends React.Component {
     render() {
         return (
             <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white' }}>
-                <Sign label="Login" navigation={this.props.navigation}>
+                <Sign label='Login' navigation={this.props.navigation}>
                     <ErrorPresenter
                         error={this.state.error}
                         onHide={() => this.setState({ error: null })}
@@ -144,15 +144,19 @@ class SignIn extends React.Component {
                                             <WInput
                                                 boxStyle={styles.inputBox}
                                                 label={I18n.t('LOGIN-REGISTRER.PseudoOrEmail')}
-                                                placeholder="Enter your pseudo"
-                                                textContentType="username"
+                                                placeholder='Enter your pseudo'
+                                                textContentType='username'
                                                 flag={this.checkIfFlagged(PSEUDO_EMAIL)}
+                                                returnKeyType='next'
+                                                onSubmitEditing={() => this.passwordField.focus()} 
                                                 onChangeText={val => this.handleInput(val, PSEUDO_EMAIL) }
                                             />
                                             <WInputPassword
+                                                inputRef={ref => this.passwordField = ref}
+                                                returnKeyType='done'
                                                 boxStyle={styles.inputBox}
                                                 label={I18n.t('CORE.Password')}
-                                                placeholder="Enter your password"
+                                                placeholder='Enter your password'
                                                 flag={this.checkIfFlagged(PASSWORD)}
                                                 onChangeText={val => this.handleInput(val, PASSWORD) }
                                             />
@@ -168,7 +172,7 @@ class SignIn extends React.Component {
                                                 </Text>
                                             </View>
                                             <WGradientButton
-                                                text="Sign in"
+                                                text='Sign in'
                                                 style={styles.createButton}
                                                 onPress={() => this._login()}
                                             />

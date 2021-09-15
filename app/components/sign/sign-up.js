@@ -205,29 +205,39 @@ class SignUp extends React.Component {
                                         label='Pseudo'
                                         placeholder='Enter your pseudo'
                                         flag={this.checkIfFlagged(PSEUDO)}
+                                        returnKeyType='next'
+                                        onSubmitEditing={() => this.emailField.focus()} 
                                         onChangeText={val => this.handleInput(val.replace(/\s/g, ''), PSEUDO)}
                                         textContentType='username'
                                     />
                                     <WInput
+                                        inputRef={ref => this.emailField = ref}
                                         boxStyle={styles.inputBox}
                                         label='Email'
                                         placeholder='Enter your email'
                                         flag={this.checkIfFlagged(EMAIL)}
+                                        returnKeyType='next'
+                                        onSubmitEditing={() => this.pwdOneField.focus()} 
                                         onChangeText={val => this.handleInput(val.replace(/\s/g, ''), EMAIL) }
                                         textContentType='emailAddress'
                                     />
                                     <WInputPassword
+                                        inputRef={ref => this.pwdOneField = ref}
                                         boxStyle={styles.inputBox}
                                         label='Password'
                                         placeholder='Enter your password'
                                         flag={this.checkIfFlagged(PASSWORD)}
+                                        returnKeyType='next'
+                                        onSubmitEditing={() => this.pwdTwoField.focus()} 
                                         onChangeText={val => this.handleInput(val, PASSWORD)}
                                     />
                                     <WInputPassword
+                                        inputRef={ref => this.pwdTwoField = ref}
                                         boxStyle={styles.inputBox}
                                         label='Confirm your password'
                                         placeholder='Enter your password'
                                         flag={this.checkIfFlagged(CONFIRM_PASSWORD)}
+                                        returnKeyType='done'
                                         onChangeText={val => this.handleInput(val, CONFIRM_PASSWORD)}
                                     />
                                     <View style={styles.termsBox}>
@@ -252,7 +262,7 @@ class SignUp extends React.Component {
                                             privacy policy
                                         </Text>
                                     </View>
-                                    <View style={{ marginBottom: 130 }}>
+                                    <View style={{ marginBottom: 165 }}>
                                         <WGradientButton
                                             text='Create an account'
                                             style={styles.createButton}
