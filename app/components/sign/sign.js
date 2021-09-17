@@ -17,14 +17,19 @@ class Sign extends React.Component {
                </View>
           )
      }
-     
+
      render() {
           return (
                <>
                     <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
-                    <WGradient02 style={{ flex: 1, paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 30 : StatusBar.currentHeight + 30 }}>
+                    <WGradient02 style={styles.gradientContainer}>
                          <View style={styles.headerSection}>
-                              <FontAwesomeIcon icon={faLongArrowLeft} size={25} color={'white'} onPress={() => this.props.onBackPress ? this.props.onBackPress() : this.props.navigation ? this.props.navigation.navigate('OnBoarding') : null} />
+                              <FontAwesomeIcon 
+                                   icon={faLongArrowLeft}
+                                   size={25}
+                                   color={'white'}
+                                   onPress={() => this.props.onBackPress ? this.props.onBackPress() : this.props.navigation ? this.props.navigation.navigate('OnBoarding') : null} 
+                              />
                               <Text style={styles.headerText}>{this.props.label}</Text>
                          </View>
                          <View style={styles.bodySection}>
@@ -38,6 +43,10 @@ class Sign extends React.Component {
 }
 
 const styles = StyleSheet.create({
+     gradientContainer: {
+          flex: 1,
+          paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 30 : StatusBar.currentHeight + 30
+     },
      headerText: {
           fontSize: 28,
           textAlign: 'left',

@@ -58,7 +58,7 @@ export const PrimaryGradientButton = ({ text, fillWidth = false, style, ...rest 
      </TouchableOpacity>
 )
 
-export const Styles = new StyleSheet.create({
+const Styles = new StyleSheet.create({
      inputContainer: {
           marginBottom: 9,
           fontSize: 14,
