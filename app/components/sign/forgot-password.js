@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import i18n from './../../../assets/i18n/i18n'
-import { Theme, WInput, WGradientButton } from '../core/reusable/design'
+import { Theme, WInput, PrimaryGradientButton } from '../core/reusable/design'
 import { Sign } from '.'
 import Cadena from '../../../assets/svg/Cadena.svg'
 import ErrorPresenter from '../core/reusable/misc/error-presenter'
@@ -85,7 +85,7 @@ class ForgotPassword extends React.Component {
                                 <Text style={ [styles.text, { marginTop: 36 }] }>Enter your email address for recovery of your password.</Text>
                                 <WInput style={{ marginTop: 16 }} placeholder='Enter your email' flag={this.checkIfFlagged(EMAIL)} onChangeText={(val) => this.handleInput(val, EMAIL)} />
                                 <View style={{ marginTop: 43 }}>
-                                    <WGradientButton text='Send Mail' onPress={this.forgotPassword} />
+                                    <PrimaryGradientButton text='Send Mail' onPress={this.forgotPassword} />
                                 </View>
                             </ScrollView>
                         </KeyboardAvoidingView>

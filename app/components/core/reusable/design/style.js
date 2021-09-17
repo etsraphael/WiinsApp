@@ -42,7 +42,7 @@ export const WButton = ({ text, fillWidth=false, style, ...rest }) => (
      </TouchableOpacity>
 )
 
-export const WGradientButton = ({ text, fillWidth=false, style, ...rest }) => (
+export const PrimaryGradientButton = ({ text, fillWidth=false, style, ...rest }) => (
      <TouchableOpacity {...rest}>
           <LinearGradient
                colors={['#00DAFA','#3087D7','#6743E0']}
@@ -56,24 +56,8 @@ export const WGradientButton = ({ text, fillWidth=false, style, ...rest }) => (
      </TouchableOpacity>
 )
 
-export const WCheckBox = ({ checked=false, error=false, onToggle=null }) => {
-     const [ state, setState ] = useState({ checked, error });
-     return (
-          <TouchableOpacity onPress={() => setState({ ...state, checked: !state.checked })} style={[WStyles.wCheckbox, (state.checked ? WStyles.wCheckboxChecked : state.error ? WStyles.wCheckboxError: {})]}></TouchableOpacity>
-     )
-}
-
 
 export const WStyles = new StyleSheet.create({
-     wCheckbox: {
-          width: 16,
-          height: 16,
-          borderRadius: 8,
-          borderWidth: 1,
-          borderColor: '#00DAFA'
-     },
-     wCheckboxChecked: { backgroundColor: '#00DAFA' },
-     wCheckboxError: { borderColor: 'red' },
      wButton: {
           paddingVertical: 10,
      },

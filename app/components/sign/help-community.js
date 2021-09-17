@@ -10,7 +10,7 @@ import {
 import { connect } from 'react-redux';
 import * as MyUserActions from '../../redux/MyUser/actions';
 import { bindActionCreators } from 'redux';
-import { Theme, WGradientButton } from '../core/reusable/design';
+import { Theme, PrimaryGradientButton } from '../core/reusable/design';
 import { Sign } from '.';
 
 class HelpCommunity extends React.Component {
@@ -46,7 +46,7 @@ class HelpCommunity extends React.Component {
                                 We need programmers, designers, artist, editor ...
                             </Text>
                             <View style={{ marginBottom: 87, marginTop: 87 }}>
-                                <WGradientButton text="Join us in this adventure" />
+                                <PrimaryGradientButton text="Join us in this adventure" />
                             </View>
                         </ScrollView>
                     </View>

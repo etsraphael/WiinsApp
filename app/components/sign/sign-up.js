@@ -12,7 +12,7 @@ import { bindActionCreators } from 'redux';
 import CheckBox from '@react-native-community/checkbox';
 import i18n from './../../../assets/i18n/i18n';
 import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service';
-import { Theme, WGradientButton, WInput, StandardInputPassword } from '../core/reusable/design';
+import { Theme, PrimaryGradientButton, WInput, StandardInputPassword } from '../core/reusable/design';
 import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
 import { emailIsValid, passwordIsValid } from '../core/reusable/utility/validation';
@@ -263,7 +263,7 @@ class SignUp extends React.Component {
                                         </Text>
                                     </View>
                                     <View style={{ marginBottom: 165 }}>
-                                        <WGradientButton
+                                        <PrimaryGradientButton
                                             text='Create an account'
                                             style={styles.createButton}
                                             onPress={() => this._register()}

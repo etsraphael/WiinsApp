@@ -15,7 +15,7 @@ import * as MyUserActions from '../../redux/MyUser/actions';
 import { bindActionCreators } from 'redux';
 import I18n from '../../../assets/i18n/i18n';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
-import { WInput, WGradientButton, Theme, StandardInputPassword } from '../core/reusable/design';
+import { WInput, PrimaryGradientButton, Theme, StandardInputPassword } from '../core/reusable/design';
 import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
 import KeyboardShift from '../core/reusable/misc/keyboard-shift';
@@ -171,7 +171,7 @@ class SignIn extends React.Component {
                                                     {I18n.t('LOGIN-REGISTRER.ForgotPassword')}
                                                 </Text>
                                             </View>
-                                            <WGradientButton
+                                            <PrimaryGradientButton
                                                 text='Sign in'
                                                 style={styles.createButton}
                                                 onPress={() => this._login()}
