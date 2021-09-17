@@ -10,7 +10,6 @@ export default class KeyboardShift extends Component {
   }
 
   componentDidMount() {
-    Keyboard.addListener('keyboardDidChangeFrame', () => console.log('here'))
     this.keyboardDidShowSub = Keyboard.addListener('keyboardDidShow', this.handleKeyboardDidShow)
     this.keyboardDidHideSub = Keyboard.addListener('keyboardDidHide', this.handleKeyboardDidHide)
   }

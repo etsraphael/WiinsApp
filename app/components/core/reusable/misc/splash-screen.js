@@ -3,8 +3,6 @@ import { View, StatusBar } from 'react-native'
 import FastImage from "react-native-fast-image"
 import { AppTheme } from "../utility/theme-util"
 
-
-
 const SplashScreen = () => {
     return (
         <View style={{ flex: 1, width: '100%', justifyContent: 'center', alignItems: 'center', backgroundColor: AppTheme.colors.background }}>

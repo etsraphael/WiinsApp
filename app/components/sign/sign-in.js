@@ -73,9 +73,9 @@ class SignIn extends React.Component {
     // to log the user
     _login = () => {
         Keyboard.dismiss();
-        if (!this.validate())
-            return
-        this.props.actions.login(this.state[PSEUDO_EMAIL], this.state[PASSWORD]);
+        if (!this.validate()){
+            return this.props.actions.login(this.state[PSEUDO_EMAIL], this.state[PASSWORD]);
+        }
     };
 
     // err input
