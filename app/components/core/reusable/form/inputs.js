@@ -17,7 +17,7 @@ export const WInput = ({ inputRef, label, boxStyle, style, placeholderStyle, fla
           {label && <Text style={Styles.inputContainer}>{label}</Text>}
           <TextInput
                ref={inputRef}
-               style={[style, placeholderStyle, Styles.wInput, { borderRadius: 15 }, (flag && Styles.wInputFlagged)]}
+               style={[style, placeholderStyle, Styles.inputText, { borderRadius: 15 }, (flag && Styles.inputFlagged)]}
                placeholderTextColor="#C1C7D0"
                selectionColor='#002251'
                {...rest}
@@ -35,7 +35,7 @@ export const StandardInputPassword = ({ inputRef, label, boxStyle, style, placeh
                          ref={inputRef}
                          textContentType={visible ? "none" : "password"}
                          secureTextEntry={!visible}
-                         style={[style, placeholderStyle, Styles.wInput, { borderRadius: 15 }, Styles.pwdInput, (flag && Styles.wInputFlagged)]}
+                         style={[style, placeholderStyle, Styles.inputText, { borderRadius: 15, paddingRight: 54 }, (flag && Styles.inputFlagged)]}
                          placeholderTextColor="#C1C7D0"
                          selectionColor='#002251'
                          {...rest}
@@ -70,7 +70,6 @@ export const PrimaryGradientButton = ({ text, fillWidth = false, style, ...rest 
      </TouchableOpacity>
 )
 
-
 export const Styles = new StyleSheet.create({
      inputContainer: {
           marginBottom: 9,
@@ -82,7 +81,7 @@ export const Styles = new StyleSheet.create({
           fontSize: 16,
           textAlign: 'center'
      },
-     wInput: {
+     inputText: {
           backgroundColor: "#F2F4F7",
           paddingHorizontal: 16,
           height: 46,
@@ -90,7 +89,15 @@ export const Styles = new StyleSheet.create({
           color: "#002251",
           fontSize: 16,
      },
-     wInputFlagged: { borderColor: 'red', borderWidth: 2 },
-     pwdInput: { paddingRight: 54 },
-     pwdIconBox: { position: "absolute", right: 0, height: "100%", width: 45, justifyContent: "center" }
+     inputFlagged: {
+          borderColor: 'red',
+          borderWidth: 2
+     },
+     pwdIconBox: {
+          position: "absolute",
+          right: 0,
+          height: "100%",
+          width: 45,
+          justifyContent: "center"
+     }
 });
