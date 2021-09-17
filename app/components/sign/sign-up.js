@@ -12,7 +12,8 @@ import { bindActionCreators } from 'redux';
 import CheckBox from '@react-native-community/checkbox';
 import i18n from './../../../assets/i18n/i18n';
 import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service';
-import { Theme, PrimaryGradientButton, WInput, StandardInputPassword } from '../core/reusable/design';
+import { Theme } from '../core/reusable/design';
+import { PrimaryGradientButton, WInput, StandardInputPassword } from '../core/reusable/form';
 import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
 import { emailIsValid, passwordIsValid } from '../core/reusable/utility/validation';
@@ -117,13 +118,13 @@ class SignUp extends React.Component {
             this.flagInput(PSEUDO)
             return false;
         }
-        
+
         if (!emailIsValid(this.state[EMAIL])) {
             this.setState({ error: i18n.t('ERROR-MESSAGE.Email-invalid') });
             this.flagInput(EMAIL)
             return false;
         }
-        
+
         const isPasswordValid = passwordIsValid(this.state[PASSWORD])
         if (!isPasswordValid[0]) {
             this.setState({ error: isPasswordValid[1] });
@@ -187,91 +188,91 @@ class SignUp extends React.Component {
                         }}>
                         <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false} bounces>
                             <KeyboardShift>
-                            {() => (
-                                <>
-                                <Text
-                                    style={[
-                                        styles.mainLargeText,
-                                        { marginTop: 36 }
-                                    ]}>
-                                    Welcome
-                                </Text>
-                                <Text style={styles.subText}>
-                                    Hello! Nice to meet you new Wiinser
-                                </Text>
-                                <View style={{ marginTop: 48 }}>
-                                    <WInput
-                                        boxStyle={styles.inputBox}
-                                        label='Pseudo'
-                                        placeholder='Enter your pseudo'
-                                        flag={this.checkIfFlagged(PSEUDO)}
-                                        returnKeyType='next'
-                                        onSubmitEditing={() => this.emailField.focus()} 
-                                        onChangeText={val => this.handleInput(val.replace(/\s/g, ''), PSEUDO)}
-                                        textContentType='username'
-                                    />
-                                    <WInput
-                                        inputRef={ref => this.emailField = ref}
-                                        boxStyle={styles.inputBox}
-                                        label='Email'
-                                        placeholder='Enter your email'
-                                        flag={this.checkIfFlagged(EMAIL)}
-                                        returnKeyType='next'
-                                        onSubmitEditing={() => this.pwdOneField.focus()} 
-                                        onChangeText={val => this.handleInput(val.replace(/\s/g, ''), EMAIL) }
-                                        textContentType='emailAddress'
-                                    />
-                                    <StandardInputPassword
-                                        inputRef={ref => this.pwdOneField = ref}
-                                        boxStyle={styles.inputBox}
-                                        label='Password'
-                                        placeholder='Enter your password'
-                                        flag={this.checkIfFlagged(PASSWORD)}
-                                        returnKeyType='next'
-                                        onSubmitEditing={() => this.pwdTwoField.focus()} 
-                                        onChangeText={val => this.handleInput(val, PASSWORD)}
-                                    />
-                                    <StandardInputPassword
-                                        inputRef={ref => this.pwdTwoField = ref}
-                                        boxStyle={styles.inputBox}
-                                        label='Confirm your password'
-                                        placeholder='Enter your password'
-                                        flag={this.checkIfFlagged(CONFIRM_PASSWORD)}
-                                        returnKeyType='done'
-                                        onChangeText={val => this.handleInput(val, CONFIRM_PASSWORD)}
-                                    />
-                                    <View style={styles.termsBox}>
-                                        <View style={{ paddingRight: 30 }}>
-                                            {/* <WCheckBox /> */}
-                                            <CheckBox
-                                                style={{ width: 20, height: 20 }}
-                                                boxType='circle'
-                                                value={this.state.conditionAccepted}
-                                                onValueChange={newValue =>
-                                                    this.setState({
-                                                        conditionAccepted: newValue
-                                                    })
-                                                }
-                                            />
-                                        </View>
+                                {() => (
+                                    <>
                                         <Text
-                                            onPress={this.goToUseOfCondition}
-                                            style={styles.termsLabel}>
-                                            I certify that I am 16 years or older
-                                            and I accept the user agreement and the
-                                            privacy policy
+                                            style={[
+                                                styles.mainLargeText,
+                                                { marginTop: 36 }
+                                            ]}>
+                                            Welcome
                                         </Text>
-                                    </View>
-                                    <View style={{ marginBottom: 165 }}>
-                                        <PrimaryGradientButton
-                                            text='Create an account'
-                                            style={styles.createButton}
-                                            onPress={() => this._register()}
-                                        />
-                                    </View>
-                                </View>
-                                </>
-                            )}
+                                        <Text style={styles.subText}>
+                                            Hello! Nice to meet you new Wiinser
+                                        </Text>
+                                        <View style={{ marginTop: 48 }}>
+                                            <WInput
+                                                boxStyle={styles.inputBox}
+                                                label='Pseudo'
+                                                placeholder='Enter your pseudo'
+                                                flag={this.checkIfFlagged(PSEUDO)}
+                                                returnKeyType='next'
+                                                onSubmitEditing={() => this.emailField.focus()}
+                                                onChangeText={val => this.handleInput(val.replace(/\s/g, ''), PSEUDO)}
+                                                textContentType='username'
+                                            />
+                                            <WInput
+                                                inputRef={ref => this.emailField = ref}
+                                                boxStyle={styles.inputBox}
+                                                label='Email'
+                                                placeholder='Enter your email'
+                                                flag={this.checkIfFlagged(EMAIL)}
+                                                returnKeyType='next'
+                                                onSubmitEditing={() => this.pwdOneField.focus()}
+                                                onChangeText={val => this.handleInput(val.replace(/\s/g, ''), EMAIL)}
+                                                textContentType='emailAddress'
+                                            />
+                                            <StandardInputPassword
+                                                inputRef={ref => this.pwdOneField = ref}
+                                                boxStyle={styles.inputBox}
+                                                label='Password'
+                                                placeholder='Enter your password'
+                                                flag={this.checkIfFlagged(PASSWORD)}
+                                                returnKeyType='next'
+                                                onSubmitEditing={() => this.pwdTwoField.focus()}
+                                                onChangeText={val => this.handleInput(val, PASSWORD)}
+                                            />
+                                            <StandardInputPassword
+                                                inputRef={ref => this.pwdTwoField = ref}
+                                                boxStyle={styles.inputBox}
+                                                label='Confirm your password'
+                                                placeholder='Enter your password'
+                                                flag={this.checkIfFlagged(CONFIRM_PASSWORD)}
+                                                returnKeyType='done'
+                                                onChangeText={val => this.handleInput(val, CONFIRM_PASSWORD)}
+                                            />
+                                            <View style={styles.termsBox}>
+                                                <View style={{ paddingRight: 30 }}>
+                                                    {/* <WCheckBox /> */}
+                                                    <CheckBox
+                                                        style={{ width: 20, height: 20 }}
+                                                        boxType='circle'
+                                                        value={this.state.conditionAccepted}
+                                                        onValueChange={newValue =>
+                                                            this.setState({
+                                                                conditionAccepted: newValue
+                                                            })
+                                                        }
+                                                    />
+                                                </View>
+                                                <Text
+                                                    onPress={this.goToUseOfCondition}
+                                                    style={styles.termsLabel}>
+                                                    I certify that I am 16 years or older
+                                                    and I accept the user agreement and the
+                                                    privacy policy
+                                                </Text>
+                                            </View>
+                                            <View style={{ marginBottom: 165 }}>
+                                                <PrimaryGradientButton
+                                                    text='Create an account'
+                                                    style={styles.createButton}
+                                                    onPress={() => this._register()}
+                                                />
+                                            </View>
+                                        </View>
+                                    </>
+                                )}
                             </KeyboardShift>
                         </ScrollView>
                     </ErrorPresenter>

@@ -10,7 +10,8 @@ import {
 import { connect } from 'react-redux';
 import * as MyUserActions from '../../redux/MyUser/actions';
 import { bindActionCreators } from 'redux';
-import { Theme, PrimaryGradientButton } from '../core/reusable/design';
+import { Theme } from '../core/reusable/design';
+import { PrimaryGradientButton } from './../core/reusable/form'
 import { Sign } from '.';
 
 class HelpCommunity extends React.Component {

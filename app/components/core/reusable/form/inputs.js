@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import React from "react";
 import { StyleSheet, TouchableOpacity, View, Text, TextInput, } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import { Theme } from "./theme";
+import { Theme } from "../design";
 
 
 export const StandardCustomBtn = ({ children, fillWidth=false, style, ...rest }) => (
