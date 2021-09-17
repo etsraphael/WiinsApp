@@ -15,7 +15,7 @@ import * as MyUserActions from '../../redux/MyUser/actions';
 import { bindActionCreators } from 'redux';
 import I18n from '../../../assets/i18n/i18n';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
-import { WInput, WGradientButton, Theme, WInputPassword } from '../core/reusable/design';
+import { WInput, WGradientButton, Theme, StandardInputPassword } from '../core/reusable/design';
 import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
 import KeyboardShift from '../core/reusable/misc/keyboard-shift';
@@ -151,7 +151,7 @@ class SignIn extends React.Component {
                                                 onSubmitEditing={() => this.passwordField.focus()} 
                                                 onChangeText={val => this.handleInput(val, PSEUDO_EMAIL) }
                                             />
-                                            <WInputPassword
+                                            <StandardInputPassword
                                                 inputRef={ref => this.passwordField = ref}
                                                 returnKeyType='done'
                                                 boxStyle={styles.inputBox}

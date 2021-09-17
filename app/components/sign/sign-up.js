@@ -12,7 +12,7 @@ import { bindActionCreators } from 'redux';
 import CheckBox from '@react-native-community/checkbox';
 import i18n from './../../../assets/i18n/i18n';
 import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service';
-import { Theme, WGradientButton, WInput, WInputPassword } from '../core/reusable/design';
+import { Theme, WGradientButton, WInput, StandardInputPassword } from '../core/reusable/design';
 import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
 import { emailIsValid, passwordIsValid } from '../core/reusable/utility/validation';
@@ -221,7 +221,7 @@ class SignUp extends React.Component {
                                         onChangeText={val => this.handleInput(val.replace(/\s/g, ''), EMAIL) }
                                         textContentType='emailAddress'
                                     />
-                                    <WInputPassword
+                                    <StandardInputPassword
                                         inputRef={ref => this.pwdOneField = ref}
                                         boxStyle={styles.inputBox}
                                         label='Password'
@@ -231,7 +231,7 @@ class SignUp extends React.Component {
                                         onSubmitEditing={() => this.pwdTwoField.focus()} 
                                         onChangeText={val => this.handleInput(val, PASSWORD)}
                                     />
-                                    <WInputPassword
+                                    <StandardInputPassword
                                         inputRef={ref => this.pwdTwoField = ref}
                                         boxStyle={styles.inputBox}
                                         label='Confirm your password'

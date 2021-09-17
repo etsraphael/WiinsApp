@@ -19,7 +19,7 @@ export const WInput = ({ inputRef, label, boxStyle, style, placeholderStyle, fla
      </View>
 )
 
-export const WInputPassword = ({ inputRef, label, boxStyle, style, placeholderStyle, flag=false, ...rest }) => {
+export const StandardInputPassword = ({ inputRef, label, boxStyle, style, placeholderStyle, flag=false, ...rest }) => {
      const [visible, setVisible] = React.useState(false);
      return (
           <View style={boxStyle}>
