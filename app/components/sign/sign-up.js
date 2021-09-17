@@ -13,7 +13,7 @@ import CheckBox from '@react-native-community/checkbox';
 import i18n from './../../../assets/i18n/i18n';
 import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service';
 import { Theme } from '../core/reusable/design';
-import { PrimaryGradientButton, WInput, StandardInputPassword } from '../core/reusable/form';
+import { PrimaryGradientButton, StandardInput, StandardInputPassword } from '../core/reusable/form';
 import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
 import { emailIsValid, passwordIsValid } from '../core/reusable/utility/validation';
@@ -201,7 +201,7 @@ class SignUp extends React.Component {
                                             Hello! Nice to meet you new Wiinser
                                         </Text>
                                         <View style={{ marginTop: 48 }}>
-                                            <WInput
+                                            <StandardInput
                                                 boxStyle={styles.inputBox}
                                                 label='Pseudo'
                                                 placeholder='Enter your pseudo'
@@ -211,7 +211,7 @@ class SignUp extends React.Component {
                                                 onChangeText={val => this.handleInput(val.replace(/\s/g, ''), PSEUDO)}
                                                 textContentType='username'
                                             />
-                                            <WInput
+                                            <StandardInput
                                                 inputRef={ref => this.emailField = ref}
                                                 boxStyle={styles.inputBox}
                                                 label='Email'

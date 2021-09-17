@@ -5,14 +5,13 @@ import { StyleSheet, TouchableOpacity, View, Text, TextInput, } from "react-nati
 import LinearGradient from "react-native-linear-gradient";
 import { Theme } from "../design";
 
-
 export const StandardCustomBtn = ({ children, fillWidth = false, style, ...rest }) => (
      <TouchableOpacity {...rest} style={[style, { paddingVertical: 10, borderRadius: 15 }]}>
           {children}
      </TouchableOpacity>
 );
 
-export const WInput = ({ inputRef, label, boxStyle, style, placeholderStyle, flag = false, ...rest }) => (
+export const StandardInput = ({ inputRef, label, boxStyle, style, placeholderStyle, flag = false, ...rest }) => (
      <View style={boxStyle}>
           {label && <Text style={Styles.inputContainer}>{label}</Text>}
           <TextInput
@@ -49,12 +48,6 @@ export const StandardInputPassword = ({ inputRef, label, boxStyle, style, placeh
           </View>
      )
 }
-
-export const WButton = ({ text, fillWidth = false, style, ...rest }) => (
-     <TouchableOpacity {...rest} style={[style, { paddingVertical: 10, borderRadius: 15 }]}>
-          <Text style={Styles.buttonText}>{text}</Text>
-     </TouchableOpacity>
-)
 
 export const PrimaryGradientButton = ({ text, fillWidth = false, style, ...rest }) => (
      <TouchableOpacity {...rest}>

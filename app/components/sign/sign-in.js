@@ -16,7 +16,7 @@ import { bindActionCreators } from 'redux';
 import I18n from '../../../assets/i18n/i18n';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { Theme } from '../core/reusable/design';
-import { StandardInputPassword, WInput, PrimaryGradientButton } from '../core/reusable/form';
+import { StandardInputPassword, StandardInput, PrimaryGradientButton } from '../core/reusable/form';
 import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
 import KeyboardShift from '../core/reusable/misc/keyboard-shift';
@@ -142,7 +142,7 @@ class SignIn extends React.Component {
                                             Hello Wiinser, sign to continue!
                                         </Text>
                                         <View style={{ marginTop: 48 }}>
-                                            <WInput
+                                            <StandardInput
                                                 boxStyle={styles.inputBox}
                                                 label={I18n.t('LOGIN-REGISTRER.PseudoOrEmail')}
                                                 placeholder='Enter your pseudo'
