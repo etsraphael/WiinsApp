@@ -6,7 +6,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { Theme } from "./theme";
 
 
-export const WCustomButton = ({ children, fillWidth=false, style, ...rest }) => (
+export const StandardCustomBtn = ({ children, fillWidth=false, style, ...rest }) => (
      <TouchableOpacity {...rest} style={[ style, WStyles.wButton, WStyles.wCornerRadius ]}>
           { children }
      </TouchableOpacity>

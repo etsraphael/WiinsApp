@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as PlayerMusicActions from '../../redux/Player/actions'
 import { setTheLanguageOfTheDeviceByDefault } from './../../services/translation/translation-service'
-import { Theme, WCustomButton, WGradient } from '../core/reusable/design'
+import { Theme, StandardCustomBtn, WGradient } from '../core/reusable/design'
 import UsdHolding from '../../../assets/svg/hand-holding-usd-solid.svg'
 import HelpingHands from '../../../assets/svg/hands-helping-solid.svg'
 
@@ -33,12 +33,12 @@ class OnBoarding extends React.Component {
                             <Text style={{ paddingTop: 7, color: '#FFFFFF', fontSize: 22, fontWeight: 'bold' }}>{I18n.t('CORE.Towards-an-infinite-space')}</Text>
                         </View>
                         <View style={styles.buttonsBox}>
-                            <WCustomButton style={styles.googleButton} onPress={() => this.props.navigation.navigate('SignIn')}>
+                            <StandardCustomBtn style={styles.googleButton} onPress={() => this.props.navigation.navigate('SignIn')}>
                                 <Text style={{ fontSize: 16, color: Theme.wColor }}>{I18n.t('LOGIN-REGISTRER.Login')}</Text>
-                            </WCustomButton>
-                            <WCustomButton style={styles.newAccountButton} onPress={() => this.props.navigation.navigate('SignUp')}>
+                            </StandardCustomBtn>
+                            <StandardCustomBtn style={styles.newAccountButton} onPress={() => this.props.navigation.navigate('SignUp')}>
                                 <Text style={{ fontSize: 16, color: '#FFFFFF' }}>{I18n.t('LOGIN-REGISTRER.Register')}</Text>
-                            </WCustomButton>
+                            </StandardCustomBtn>
                             <View style={styles.vectorBox}>
                                 <TouchableOpacity onPress={() => this.props.navigation.navigate('HelpCommunity')}>
                                     <HelpingHands style={styles.vectorItem} />
