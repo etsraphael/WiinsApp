@@ -1,21 +1,21 @@
 import { faEye, faEyeSlash } from "@fortawesome/pro-light-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, TouchableOpacity, View, Text, TextInput, } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 import { Theme } from "./theme";
 
 
 export const StandardCustomBtn = ({ children, fillWidth=false, style, ...rest }) => (
-     <TouchableOpacity {...rest} style={[ style, WStyles.wButton, WStyles.wCornerRadius ]}>
+     <TouchableOpacity {...rest} style={[ style, Styles.wButton, Styles.wCornerRadius ]}>
           { children }
      </TouchableOpacity>
 );
 
 export const WInput = ({ inputRef, label, boxStyle, style, placeholderStyle, flag=false, ...rest }) => (
      <View style={boxStyle}>
-          { label && <Text style={[WStyles.wInputLabel, { marginBottom: 9 }]}>{ label }</Text> }
-          <TextInput ref={inputRef} style={[style, placeholderStyle, WStyles.wInput, WStyles.wCornerRadius, (flag && WStyles.wInputFlagged)]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } />
+          { label && <Text style={[Styles.wInputLabel, { marginBottom: 9 }]}>{ label }</Text> }
+          <TextInput ref={inputRef} style={[style, placeholderStyle, Styles.wInput, Styles.wCornerRadius, (flag && Styles.wInputFlagged)]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } />
      </View>
 )
 
@@ -23,10 +23,10 @@ export const StandardInputPassword = ({ inputRef, label, boxStyle, style, placeh
      const [visible, setVisible] = React.useState(false);
      return (
           <View style={boxStyle}>
-               { label && <Text style={[WStyles.wInputLabel, { marginBottom: 9 }]}>{ label }</Text> }
+               { label && <Text style={[Styles.wInputLabel, { marginBottom: 9 }]}>{ label }</Text> }
                <View>
-                    <TextInput ref={inputRef} textContentType={visible ? "none": "password"} secureTextEntry={!visible} style={[style, placeholderStyle, WStyles.wInput, WStyles.wCornerRadius, WStyles.pwdInput, (flag && WStyles.wInputFlagged)]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } />
-                    <View style={WStyles.pwdIconBox}>
+                    <TextInput ref={inputRef} textContentType={visible ? "none": "password"} secureTextEntry={!visible} style={[style, placeholderStyle, Styles.wInput, Styles.wCornerRadius, Styles.pwdInput, (flag && Styles.wInputFlagged)]} placeholderTextColor="#C1C7D0" selectionColor='#002251' { ...rest } />
+                    <View style={Styles.pwdIconBox}>
                          <TouchableOpacity onPress={() => setVisible(!visible)}>
                               <FontAwesomeIcon icon={!visible ? faEyeSlash : faEye} size={25} color={Theme.wIconTint}/>
                          </TouchableOpacity>
@@ -37,8 +37,8 @@ export const StandardInputPassword = ({ inputRef, label, boxStyle, style, placeh
 }
 
 export const WButton = ({ text, fillWidth=false, style, ...rest }) => (
-     <TouchableOpacity {...rest} style={[ style, WStyles.wButton, WStyles.wCornerRadius ]}>
-          <Text style={WStyles.wButtonText}>{ text }</Text>
+     <TouchableOpacity {...rest} style={[ style, Styles.wButton, Styles.wCornerRadius ]}>
+          <Text style={Styles.wButtonText}>{ text }</Text>
      </TouchableOpacity>
 )
 
@@ -49,15 +49,15 @@ export const PrimaryGradientButton = ({ text, fillWidth=false, style, ...rest })
                location={[0, 0.5217208328780595, 1]}
                start={{ x: 0, y: 0 }}
                end={{ x: 1, y: 1 }}
-               style={[ style, WStyles.wButton, WStyles.wCornerRadius, { flex: 1 } ]}
+               style={[ style, Styles.wButton, Styles.wCornerRadius, { flex: 1 } ]}
           >
-               <Text style={WStyles.wButtonText}>{ text }</Text>
+               <Text style={Styles.wButtonText}>{ text }</Text>
           </LinearGradient>
      </TouchableOpacity>
 )
 
 
-export const WStyles = new StyleSheet.create({
+export const Styles = new StyleSheet.create({
      wButton: {
           paddingVertical: 10,
      },
@@ -65,9 +65,6 @@ export const WStyles = new StyleSheet.create({
           color: '#ffffff',
           fontSize: 16,
           textAlign: 'center'
-     },
-     wButtonStroke: {
-          
      },
      wCornerRadius: {
           borderRadius: 15
