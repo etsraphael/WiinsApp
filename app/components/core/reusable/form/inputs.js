@@ -5,11 +5,6 @@ import { StyleSheet, TouchableOpacity, View, Text, TextInput, } from "react-nati
 import LinearGradient from "react-native-linear-gradient";
 import { Theme } from "../design";
 
-export const StandardCustomBtn = ({ children, fillWidth = false, style, ...rest }) => (
-     <TouchableOpacity {...rest} style={[style, { paddingVertical: 10, borderRadius: 15 }]}>
-          {children}
-     </TouchableOpacity>
-);
 
 export const StandardInput = ({ inputRef, label, boxStyle, style, placeholderStyle, flag = false, ...rest }) => (
      <View style={boxStyle}>
