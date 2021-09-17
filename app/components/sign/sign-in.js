@@ -29,8 +29,6 @@ class SignIn extends React.Component {
         this.state = {
             [PSEUDO_EMAIL]: null,
             [PASSWORD]: null,
-
-            // error
             error: null,
             flaggedInput: null
         };
@@ -60,7 +58,6 @@ class SignIn extends React.Component {
             return this.setState({
                 error: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect')
             });
-            return false
         }
 
         if (!this.state[PASSWORD] || this.state[PASSWORD] === '') {
@@ -68,7 +65,6 @@ class SignIn extends React.Component {
             return this.setState({
                 error: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect')
             });
-            return false
         }
 
         return true
