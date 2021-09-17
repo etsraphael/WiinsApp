@@ -14,11 +14,14 @@ export const StandardCustomBtn = ({ children, fillWidth = false, style, ...rest 
 
 export const WInput = ({ inputRef, label, boxStyle, style, placeholderStyle, flag = false, ...rest }) => (
      <View style={boxStyle}>
-          {label && <Text style={[{
-               marginBottom: 9, fontSize: 14,
-               color: "#C1C7D0"
-          }]}>{label}</Text>}
-          <TextInput ref={inputRef} style={[style, placeholderStyle, Styles.wInput, { borderRadius: 15 }, (flag && Styles.wInputFlagged)]} placeholderTextColor="#C1C7D0" selectionColor='#002251' {...rest} />
+          {label && <Text style={Styles.inputContainer}>{label}</Text>}
+          <TextInput
+               ref={inputRef}
+               style={[style, placeholderStyle, Styles.wInput, { borderRadius: 15 }, (flag && Styles.wInputFlagged)]}
+               placeholderTextColor="#C1C7D0"
+               selectionColor='#002251'
+               {...rest}
+          />
      </View>
 )
 
@@ -26,12 +29,17 @@ export const StandardInputPassword = ({ inputRef, label, boxStyle, style, placeh
      const [visible, setVisible] = React.useState(false);
      return (
           <View style={boxStyle}>
-               {label && <Text style={[{
-                    marginBottom: 9, fontSize: 14,
-                    color: "#C1C7D0"
-               }]}>{label}</Text>}
+               {label && <Text style={Styles.inputContainer}>{label}</Text>}
                <View>
-                    <TextInput ref={inputRef} textContentType={visible ? "none" : "password"} secureTextEntry={!visible} style={[style, placeholderStyle, Styles.wInput, { borderRadius: 15 }, Styles.pwdInput, (flag && Styles.wInputFlagged)]} placeholderTextColor="#C1C7D0" selectionColor='#002251' {...rest} />
+                    <TextInput
+                         ref={inputRef}
+                         textContentType={visible ? "none" : "password"}
+                         secureTextEntry={!visible}
+                         style={[style, placeholderStyle, Styles.wInput, { borderRadius: 15 }, Styles.pwdInput, (flag && Styles.wInputFlagged)]}
+                         placeholderTextColor="#C1C7D0"
+                         selectionColor='#002251'
+                         {...rest}
+                    />
                     <View style={Styles.pwdIconBox}>
                          <TouchableOpacity onPress={() => setVisible(!visible)}>
                               <FontAwesomeIcon icon={!visible ? faEyeSlash : faEye} size={25} color={Theme.wIconTint} />
@@ -64,6 +72,11 @@ export const PrimaryGradientButton = ({ text, fillWidth = false, style, ...rest 
 
 
 export const Styles = new StyleSheet.create({
+     inputContainer: {
+          marginBottom: 9,
+          fontSize: 14,
+          color: "#C1C7D0"
+     },
      buttonText: {
           color: '#ffffff',
           fontSize: 16,
