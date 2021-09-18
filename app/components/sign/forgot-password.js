@@ -10,7 +10,6 @@ import { Theme } from '../core/reusable/design'
 import { StandardInput, PrimaryGradientButton } from './../core/reusable/form'
 import { Sign } from '.'
 import Cadena from '../../../assets/svg/Cadena.svg'
-import ErrorPresenter from '../core/reusable/misc/error-presenter'
 import { emailIsValid } from '../core/reusable/utility/validation'
 import Snackbar from 'react-native-snackbar'
 import I18n from '../../../assets/i18n/i18n';
@@ -69,8 +68,13 @@ class ForgotPassword extends React.Component {
 
     render() {
         return (
-            <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white' }}>
-                <Sign label='Forgot Password' onBackPress={() => this.props.navigation.goBack()}  >
+            <KeyboardAvoidingView
+                style={{ flex: 1, backgroundColor: 'white' }}
+            >
+                <Sign
+                    label='Forgot Password'
+                    onBackPress={() => this.props.navigation.goBack()}
+                >
                     <View style={{ flex: 1, position: 'relative' }}>
                         <KeyboardAvoidingView
                             behavior={Platform.OS === 'ios' ? 'padding' : null}
@@ -82,7 +86,12 @@ class ForgotPassword extends React.Component {
                                     <Cadena />
                                 </View>
                                 <Text style={[styles.text, { marginTop: 36 }]}>Enter your email address for recovery of your password.</Text>
-                                <StandardInput style={{ marginTop: 16 }} placeholder='Enter your email' flag={this.checkIfFlagged(EMAIL)} onChangeText={(val) => this.handleInput(val, EMAIL)} />
+                                <StandardInput
+                                    style={{ marginTop: 16 }}
+                                    placeholder='Enter your email'
+                                    flag={this.checkIfFlagged(EMAIL)}
+                                    onChangeText={(val) => this.handleInput(val, EMAIL)}
+                                />
                                 <View style={{ marginTop: 43 }}>
                                     <PrimaryGradientButton text='Send Mail' onPress={this.forgotPassword} />
                                 </View>
@@ -96,13 +105,39 @@ class ForgotPassword extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    mainLargeText: { color: '#002251', fontSize: 24, lineHeight: 29 },
-    text: { color: '#7A869A', fontSize: 16, lineHeight: 19 },
-    bottomText: { color: '#7A869A', fontSize: 14, textAlign: 'center', lineHeight: 20, paddingBottom: 36 },
-    inputBox: { marginBottom: 21 },
-    termsBox: { flexDirection: 'row', marginBottom: 26, alignItems: 'center' },
-    termsLabel: { color: Theme.wColor, fontSize: 13, flex: 1 },
-    forgotPwdLabel: { color: Theme.wColor }
+    mainLargeText: {
+        color: '#002251',
+        fontSize: 24,
+        lineHeight: 29
+    },
+    text: {
+        color: '#7A869A',
+        fontSize: 16,
+        lineHeight: 19
+    },
+    bottomText: {
+        color: '#7A869A',
+        fontSize: 14,
+        textAlign: 'center',
+        lineHeight: 20,
+        paddingBottom: 36
+    },
+    inputBox: {
+        marginBottom: 21
+    },
+    termsBox: {
+        flexDirection: 'row',
+        marginBottom: 26,
+        alignItems: 'center'
+    },
+    termsLabel: {
+        color: Theme.wColor,
+        fontSize: 13,
+        flex: 1
+    },
+    forgotPwdLabel: {
+        color: Theme.wColor
+    }
 })
 
 const mapStateToProps = state => ({
