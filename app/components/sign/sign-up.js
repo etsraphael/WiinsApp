@@ -10,14 +10,14 @@ import { connect } from 'react-redux';
 import * as MyUserActions from '../../redux/MyUser/actions';
 import { bindActionCreators } from 'redux';
 import CheckBox from '@react-native-community/checkbox';
-import i18n from './../../../assets/i18n/i18n';
 import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service';
 import { Theme } from '../core/reusable/design';
 import { PrimaryGradientButton, StandardInput, StandardInputPassword } from '../core/reusable/form';
-import ErrorPresenter from '../core/reusable/misc/error-presenter';
+import Snackbar from 'react-native-snackbar'
 import Sign from './sign';
 import { emailIsValid, passwordIsValid } from '../core/reusable/utility/validation';
 import KeyboardShift from '../core/reusable/misc/keyboard-shift';
+import I18n from '../../../assets/i18n/i18n';
 
 const PSEUDO = 'pseudo'
 const EMAIL = 'email'
@@ -48,14 +48,10 @@ class SignUp extends React.Component {
                     case 'success':
                         return this.setState({ registration_success: true });
                     case 'pseudo_already_exist': {
-                        return this.setState({
-                            error: i18n.t('ERROR-MESSAGE.Pseudo-already-exist')
-                        });
+                        return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Pseudo-already-exist'), duration: Snackbar.LENGTH_LONG })
                     }
                     case 'email_already_exist': {
-                        return this.setState({
-                            error: i18n.t('ERROR-MESSAGE.Email_already_exist')
-                        });
+                        return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Email_already_exist'), duration: Snackbar.LENGTH_LONG })
                     }
                 }
             }
@@ -66,9 +62,7 @@ class SignUp extends React.Component {
     _register = () => {
         if (!this._verificationTrue()) return null;
         if (!this.state.conditionAccepted) {
-            return this.setState({
-                error: i18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou')
-            });
+            return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
         } else {
             const user = {
                 pseudo: this.state[PSEUDO],
@@ -101,39 +95,33 @@ class SignUp extends React.Component {
     // to check all the verifications
     _verificationTrue = () => {
         if (!this.state[EMAIL] || !this.state[PSEUDO] || !this.state[PASSWORD] || !this.state[CONFIRM_PASSWORD]) {
-            this.setState({
-                error: i18n.t('ERROR-MESSAGE.Missing-informations')
-            });
+            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Missing-informations'), duration: Snackbar.LENGTH_LONG })
             const concernedInput = !this.state[PSEUDO] ? PSEUDO : !this.state[EMAIL] ? EMAIL : !this.state[PASSWORD] ? PASSWORD : CONFIRM_PASSWORD
             this.flagInput(concernedInput)
             return false;
         }
 
         if (this.state[PSEUDO].length < 4) {
-            this.setState({
-                error: i18n.t(
-                    'ERROR-MESSAGE.Your-username-must-have-at-least-4-char'
-                )
-            });
+            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Your-username-must-have-at-least-4-char'), duration: Snackbar.LENGTH_LONG })
             this.flagInput(PSEUDO)
             return false;
         }
 
         if (!emailIsValid(this.state[EMAIL])) {
-            this.setState({ error: i18n.t('ERROR-MESSAGE.Email-invalid') });
+            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Email-invalid'), duration: Snackbar.LENGTH_LONG })
             this.flagInput(EMAIL)
             return false;
         }
 
         const isPasswordValid = passwordIsValid(this.state[PASSWORD])
         if (!isPasswordValid[0]) {
-            this.setState({ error: isPasswordValid[1] });
+            Snackbar.show({ text: isPasswordValid[1] , duration: Snackbar.LENGTH_LONG })
             this.flagInput(PASSWORD)
             return false;
         }
 
         if (this.state[PASSWORD] !== this.state[CONFIRM_PASSWORD]) {
-            this.setState({ error: i18n.t('PLACEHOLDER.Password-not-matching') });
+            Snackbar.show({ text: I18n.t('PLACEHOLDER.Password-not-matching'), duration: Snackbar.LENGTH_LONG })
             this.flagInput(CONFIRM_PASSWORD)
             return false;
         }
@@ -171,15 +159,11 @@ class SignUp extends React.Component {
 
     render() {
         return (
-            <View
-                style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
                 <Sign
                     label='Create an account'
                     navigation={this.props.navigation}>
-                    <ErrorPresenter
-                        error={this.state.error}
-                        onHide={() => this.setState({ error: null })}
-                        duration={3000}
+                    <View
                         style={{
                             width: '100%',
                             paddingHorizontal: 36,
@@ -275,7 +259,7 @@ class SignUp extends React.Component {
                                 )}
                             </KeyboardShift>
                         </ScrollView>
-                    </ErrorPresenter>
+                    </View>
                 </Sign>
             </View>
         );
