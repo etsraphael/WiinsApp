@@ -6,13 +6,14 @@ import {
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import i18n from './../../../assets/i18n/i18n'
 import { Theme } from '../core/reusable/design'
 import { StandardInput, PrimaryGradientButton } from './../core/reusable/form'
 import { Sign } from '.'
 import Cadena from '../../../assets/svg/Cadena.svg'
 import ErrorPresenter from '../core/reusable/misc/error-presenter'
 import { emailIsValid } from '../core/reusable/utility/validation'
+import Snackbar from 'react-native-snackbar'
+import I18n from '../../../assets/i18n/i18n';
 
 const EMAIL = 'email'
 
@@ -30,13 +31,13 @@ class ForgotPassword extends React.Component {
     validationTrue = () => {
         // null value
         if (!this.state.email) {
-            this.setState({ error: i18n.t('ERROR-MESSAGE.Missing-informations') })
+            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Missing-informations'), duration: Snackbar.LENGTH_LONG })
             this.flagInput(EMAIL)
             return false
         }
 
         if (!emailIsValid(this.state.email)) {
-            this.setState({ error: i18n.t('ERROR-MESSAGE.Email-invalid') })
+            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Email-invalid'), duration: Snackbar.LENGTH_LONG })
             this.flagInput(EMAIL)
             return false
         }
@@ -70,10 +71,7 @@ class ForgotPassword extends React.Component {
         return (
             <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white' }}>
                 <Sign label='Forgot Password' onBackPress={() => this.props.navigation.goBack()}  >
-                    <ErrorPresenter
-                        error={this.state.error}
-                        onHide={() => this.setState({ error: null })}
-                        duration={3000}>
+                    <View style={{ flex: 1, position: 'relative' }}>
                         <KeyboardAvoidingView
                             behavior={Platform.OS === 'ios' ? 'padding' : null}
                             keyboardVerticalOffset={0}
@@ -90,7 +88,7 @@ class ForgotPassword extends React.Component {
                                 </View>
                             </ScrollView>
                         </KeyboardAvoidingView>
-                    </ErrorPresenter>
+                    </View>
                 </Sign>
             </KeyboardAvoidingView>
         )
