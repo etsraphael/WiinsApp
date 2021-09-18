@@ -1,8 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import FastImage from 'react-native-fast-image';
-import { AppTheme } from '../utility/theme-util';
-import { NativeModule } from 'react-native'
 
 const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
 export default class ImageView extends React.Component {
