@@ -283,16 +283,30 @@ class SignUp extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    mainLargeText: { color: '#002251', fontSize: 24 },
-    subText: { color: '#7A869A', fontSize: 14 },
-    inputBox: { marginBottom: 21 },
+    mainLargeText: { 
+        color: '#002251',
+        fontSize: 24
+    },
+    subText: { 
+        color: '#7A869A',
+        fontSize: 14
+    },
+    inputBox: { 
+        marginBottom: 21
+    },
     termsBox: {
         flexDirection: 'row',
-        /* marginBottom: 130, */ marginBottom: 38,
+        marginBottom: 38,
         alignItems: 'center'
     },
-    termsLabel: { color: Theme.wColor, fontSize: 13, flex: 1 },
-    forgotPwdLabel: { color: Theme.wColor },
+    termsLabel: { 
+        color: Theme.wColor,
+        fontSize: 13,
+        flex: 1
+    },
+    forgotPwdLabel: { 
+        color: Theme.wColor
+    },
     loading_container: {
         position: 'absolute',
         left: 0,

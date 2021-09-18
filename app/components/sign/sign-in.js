@@ -17,9 +17,9 @@ import I18n from '../../../assets/i18n/i18n';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { Theme } from '../core/reusable/design';
 import { StandardInputPassword, StandardInput, PrimaryGradientButton } from '../core/reusable/form';
-import ErrorPresenter from '../core/reusable/misc/error-presenter';
 import Sign from './sign';
 import KeyboardShift from '../core/reusable/misc/keyboard-shift';
+import Snackbar from 'react-native-snackbar'
 
 const PSEUDO_EMAIL = 'pseudo_email'
 const PASSWORD = 'password'
@@ -39,14 +39,10 @@ class SignIn extends React.Component {
             switch (newProps.MyUser.error) {
                 case 'email_or_password_invalid': {
                     this.flagInput(PSEUDO_EMAIL + ' ' + PASSWORD)
-                    return this.setState({
-                        error: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect')
-                    });
+                    return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect'), duration: Snackbar.LENGTH_LONG })
                 }
                 case 'account_deactivated': {
-                    return this.setState({
-                        error: I18n.t('ERROR-MESSAGE.Account_desactivated')
-                    });
+                    return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Account_desactivated'), duration: Snackbar.LENGTH_LONG })
                 }
             }
         }
@@ -55,18 +51,12 @@ class SignIn extends React.Component {
     validate = () => {
         if (!this.state[PSEUDO_EMAIL] || this.state[PSEUDO_EMAIL] === '') {
             this.flagInput(PSEUDO_EMAIL)
-            return this.setState({
-                error: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect')
-            });
+            return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect'), duration: Snackbar.LENGTH_LONG })
         }
-
         if (!this.state[PASSWORD] || this.state[PASSWORD] === '') {
             this.flagInput(PASSWORD)
-            return this.setState({
-                error: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect')
-            });
+            return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Pseudo-Or-Email-Incorrect'), duration: Snackbar.LENGTH_LONG })
         }
-
         return true
     }
 
@@ -114,9 +104,7 @@ class SignIn extends React.Component {
         return (
             <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white' }}>
                 <Sign label='Login' navigation={this.props.navigation}>
-                    <ErrorPresenter
-                        error={this.state.error}
-                        onHide={() => this.setState({ error: null })}
+                    <View
                         behavior={Platform.OS === 'ios' ? 'padding' : null}
                         keyboardVerticalOffset={0}
                         style={{
@@ -178,7 +166,7 @@ class SignIn extends React.Component {
                                 )}
                             </KeyboardShift>
                         </ScrollView>
-                    </ErrorPresenter>
+                    </View>
                 </Sign>
             </KeyboardAvoidingView>
         );
