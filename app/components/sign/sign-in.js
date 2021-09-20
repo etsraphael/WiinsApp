@@ -76,8 +76,8 @@ class SignIn extends React.Component {
     // check if input is flagged
     checkIfFlagged = (flaggedInput) => {
         return !!this.state.flaggedInput && (
-                (this.state.flaggedInput === flaggedInput) || (this.state.flaggedInput.includes(flaggedInput))
-            )
+            (this.state.flaggedInput === flaggedInput) || (this.state.flaggedInput.includes(flaggedInput))
+        )
     }
 
     // handle input
@@ -106,11 +106,7 @@ class SignIn extends React.Component {
                     <View
                         behavior={Platform.OS === 'ios' ? 'padding' : null}
                         keyboardVerticalOffset={0}
-                        style={{
-                            width: '100%',
-                            paddingHorizontal: 36,
-                            flex: 1
-                        }}>
+                        style={styles.containerSign}>
                         <ScrollView
                             showsVerticalScrollIndicator={false}
                             style={{ flex: 1 }}
@@ -118,7 +114,7 @@ class SignIn extends React.Component {
                             <KeyboardShift>
                                 {() => (
                                     <>
-                                        <Text style={[styles.mainLargeText, { marginTop: 36 }]}>
+                                        <Text style={styles.mainLargeText}>
                                             Welcome Back
                                         </Text>
                                         <Text style={styles.subText}>
@@ -132,8 +128,8 @@ class SignIn extends React.Component {
                                                 textContentType='username'
                                                 flag={this.checkIfFlagged(PSEUDO_EMAIL)}
                                                 returnKeyType='next'
-                                                onSubmitEditing={() => this.passwordField.focus()} 
-                                                onChangeText={val => this.handleInput(val, PSEUDO_EMAIL) }
+                                                onSubmitEditing={() => this.passwordField.focus()}
+                                                onChangeText={val => this.handleInput(val, PSEUDO_EMAIL)}
                                             />
                                             <StandardInputPassword
                                                 inputRef={ref => this.passwordField = ref}
@@ -142,13 +138,10 @@ class SignIn extends React.Component {
                                                 label={I18n.t('CORE.Password')}
                                                 placeholder='Enter your password'
                                                 flag={this.checkIfFlagged(PASSWORD)}
-                                                onChangeText={val => this.handleInput(val, PASSWORD) }
+                                                onChangeText={val => this.handleInput(val, PASSWORD)}
                                             />
                                             <View
-                                                style={{
-                                                    alignItems: 'flex-start',
-                                                    marginBottom: 26
-                                                }}>
+                                                style={{ alignItems: 'flex-start', marginBottom: 26 }}>
                                                 <Text
                                                     style={styles.forgotPwdLabel}
                                                     onPress={this.forgotPassword}>
@@ -173,12 +166,36 @@ class SignIn extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    mainLargeText: { color: '#002251', fontSize: 24 },
-    subText: { color: '#7A869A', fontSize: 14 },
-    inputBox: { marginBottom: 21 },
-    termsBox: { flexDirection: 'row', marginBottom: 26, alignItems: 'center' },
-    termsLabel: { color: Theme.wColor, fontSize: 13, flex: 1 },
-    forgotPwdLabel: { color: Theme.wColor },
+    containerSign: {
+        width: '100%',
+        paddingHorizontal: 36,
+        flex: 1
+    },
+    mainLargeText: {
+        color: '#002251',
+        fontSize: 24,
+        marginTop: 36
+    },
+    subText: {
+        color: '#7A869A',
+        fontSize: 14
+    },
+    inputBox: {
+        marginBottom: 21
+    },
+    termsBox: {
+        flexDirection: 'row',
+        marginBottom: 26,
+        alignItems: 'center'
+    },
+    termsLabel: {
+        color: Theme.wColor,
+        fontSize: 13,
+        flex: 1
+    },
+    forgotPwdLabel: {
+        color: Theme.wColor
+    },
     createButton: {},
     brand_container: {
         flexDirection: 'column',
