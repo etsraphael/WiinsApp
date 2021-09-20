@@ -18,7 +18,7 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { Theme } from '../core/reusable/design';
 import { StandardInputPassword, StandardInput, PrimaryGradientButton } from '../core/reusable/form';
 import Sign from './sign';
-import KeyboardShift from '../core/reusable/misc/keyboard-shift';
+import KeyboardShift from '../core/reusable/form/keyboard-shift';
 import Snackbar from 'react-native-snackbar'
 
 const PSEUDO_EMAIL = 'pseudo_email'

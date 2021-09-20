@@ -16,7 +16,7 @@ import { PrimaryGradientButton, StandardInput, StandardInputPassword } from '../
 import Snackbar from 'react-native-snackbar'
 import Sign from './sign';
 import { emailIsValid, passwordIsValid } from '../core/reusable/utility/validation';
-import KeyboardShift from '../core/reusable/misc/keyboard-shift';
+import KeyboardShift from '../core/reusable/form/keyboard-shift';
 import I18n from '../../../assets/i18n/i18n';
 
 const PSEUDO = 'pseudo'

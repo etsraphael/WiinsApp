@@ -23,18 +23,18 @@ export default class KeyboardShift extends Component {
     const { children: renderProp } = this.props;
     const { shift } = this.state;
     return (
-      <Animated.View style={[styles.container, { transform: [{translateY: shift}] }]}>
+      <Animated.View style={[styles.container, { transform: [{ translateY: shift }] }]}>
         {renderProp()}
       </Animated.View>
     );
   }
 
   handleKeyboardDidShow = (event) => {
-    const { offset=0 } = this.props
+    const { offset = 0 } = this.props
     const { height: windowHeight } = Dimensions.get('window')
     const keyboardHeight = event.endCoordinates.height
     const currentlyFocusedField = TextInputState.currentlyFocusedInput()
-    
+
     currentlyFocusedField.measure((originX, originY, width, height, pageX, pageY) => {
       const fieldHeight = height
       const fieldTop = pageY

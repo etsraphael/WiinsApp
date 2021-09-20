@@ -3,8 +3,8 @@ import { StyleSheet, View, TextInput, TouchableOpacity } from 'react-native';
 import { faSearch, faTimes } from '@fortawesome/pro-light-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
-const SearchView = ({ searchTermLimit = 0, style, onChangeText, value='', ...rest }) => {
-    const [ s, setValue ] = useState(value);
+const SearchView = ({ searchTermLimit = 0, style, onChangeText, value = '', ...rest }) => {
+    const [s, setValue] = useState(value);
     const hasValuePastSearchLimit = s.length > searchTermLimit;
     const clearValue = () => {
         setValue('');
@@ -19,7 +19,7 @@ const SearchView = ({ searchTermLimit = 0, style, onChangeText, value='', ...res
             <TextInput
                 style={[styles.searchBar, style]}
                 onChangeText={handleTextChange}
-                { ...{ ...rest, value: s } }
+                {...{ ...rest, value: s }}
             />
             <TouchableOpacity onPress={hasValuePastSearchLimit ? clearValue : null} style={styles.iconBox}>
                 <FontAwesomeIcon icon={hasValuePastSearchLimit ? faTimes : faSearch} color={'grey'} size={21} style={{ opacity: 0.8 }} />
