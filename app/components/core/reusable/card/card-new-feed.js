@@ -14,7 +14,7 @@ import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
 import { AppTheme } from '../utility/theme-util'
-import GradientBorderCircle from '../misc/gradient-border'
+import GradientBorderCircle from '../utility/gradient-border'
 import FeedCardImageView from './feed-card-image-view'
 
 class CardNewFeed extends PureComponent {
