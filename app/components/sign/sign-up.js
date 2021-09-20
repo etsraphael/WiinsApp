@@ -115,7 +115,7 @@ class SignUp extends React.Component {
 
         const isPasswordValid = passwordIsValid(this.state[PASSWORD])
         if (!isPasswordValid[0]) {
-            Snackbar.show({ text: isPasswordValid[1] , duration: Snackbar.LENGTH_LONG })
+            Snackbar.show({ text: isPasswordValid[1], duration: Snackbar.LENGTH_LONG })
             this.flagInput(PASSWORD)
             return false;
         }
@@ -163,22 +163,12 @@ class SignUp extends React.Component {
                 <Sign
                     label='Create an account'
                     navigation={this.props.navigation}>
-                    <View
-                        style={{
-                            width: '100%',
-                            paddingHorizontal: 36,
-                            flex: 1,
-                            position: 'relative'
-                        }}>
+                    <View style={styles.containerSign}>
                         <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false} bounces>
                             <KeyboardShift>
                                 {() => (
                                     <>
-                                        <Text
-                                            style={[
-                                                styles.mainLargeText,
-                                                { marginTop: 36 }
-                                            ]}>
+                                        <Text style={styles.mainLargeText}>
                                             Welcome
                                         </Text>
                                         <Text style={styles.subText}>
@@ -267,15 +257,22 @@ class SignUp extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    mainLargeText: { 
-        color: '#002251',
-        fontSize: 24
+    containerSign: {
+        width: '100%',
+        paddingHorizontal: 36,
+        flex: 1,
+        position: 'relative'
     },
-    subText: { 
+    mainLargeText: {
+        color: '#002251',
+        fontSize: 24,
+        marginTop: 36
+    },
+    subText: {
         color: '#7A869A',
         fontSize: 14
     },
-    inputBox: { 
+    inputBox: {
         marginBottom: 21
     },
     termsBox: {
@@ -283,12 +280,12 @@ const styles = StyleSheet.create({
         marginBottom: 38,
         alignItems: 'center'
     },
-    termsLabel: { 
+    termsLabel: {
         color: Theme.wColor,
         fontSize: 13,
         flex: 1
     },
-    forgotPwdLabel: { 
+    forgotPwdLabel: {
         color: Theme.wColor
     },
     loading_container: {
