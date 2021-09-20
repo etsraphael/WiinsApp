@@ -5,7 +5,8 @@ import {
     Text,
     Platform,
     KeyboardAvoidingView,
-    ScrollView
+    ScrollView,
+    Linking
 } from 'react-native';
 import { connect } from 'react-redux';
 import * as MyUserActions from '../../redux/MyUser/actions';
@@ -43,7 +44,10 @@ class HelpCommunity extends React.Component {
                                 We need programmers, designers, artist, editor ...
                             </Text>
                             <View style={{ marginBottom: 87, marginTop: 87 }}>
-                                <PrimaryGradientButton text="Join us in this adventure" />
+                                <PrimaryGradientButton
+                                    onPress={() => Linking.openURL('https://discord.gg/bBE6xmR')}
+                                    text="Join us in this adventure"
+                                />
                             </View>
                         </ScrollView>
                     </View>
