@@ -13,13 +13,11 @@ import * as PublicationInModalActions from '../../../redux/PublicationInModal/ac
 import { bindActionCreators } from 'redux'
 import CardNewFeedMasonry from './../../core/reusable/card//card-new-feed-masonry'
 import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faSearch, faTimes } from '@fortawesome/pro-light-svg-icons'
 import SuggestionDiscover from './suggestion-discover'
 import I18n from './../../../../assets/i18n/i18n'
 import PublicationModalContainer from '../../core/modal/publication-modal-container'
 import { checkNotification } from './../../../services/notification/action-notification-service'
-import SearchView from '../../core/reusable/misc/search-view'
+import SearchView from '../../core/reusable/form/search-view'
 
 class Discover extends React.Component {
 
