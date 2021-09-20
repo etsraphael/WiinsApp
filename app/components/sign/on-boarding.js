@@ -92,7 +92,10 @@ const styles = StyleSheet.create({
         marginTop: 48,
         justifyContent: 'center'
     },
-    vectorItem: { marginHorizontal: 10, tintColor: 'red' }
+    vectorItem: {
+        marginHorizontal: 10,
+        tintColor: 'red'
+    }
 })
 
 

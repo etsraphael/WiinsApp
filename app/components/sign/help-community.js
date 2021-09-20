@@ -33,11 +33,7 @@ class HelpCommunity extends React.Component {
                             showsVerticalScrollIndicator={false}
                             style={{ flex: 1 }}
                             bounces>
-                            <Text
-                                style={[
-                                    styles.mainLargeText,
-                                    { marginTop: 36 }
-                                ]}>
+                            <Text style={styles.mainLargeText}>
                                 Welcome
                             </Text>
                             <Text style={[styles.text, { marginTop: 10 }]}>
@@ -58,13 +54,40 @@ class HelpCommunity extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    mainLargeText: { color: "#002251", fontSize: 24, lineHeight: 29 },
-    text: { color: '#7A869A', fontSize: 14, lineHeight: 20 },
-    bottomText: { color: '#7A869A', fontSize: 14, textAlign: 'center', lineHeight: 20, paddingBottom: 36  },
-    inputBox: { marginBottom: 21 },
-    termsBox: { flexDirection: 'row', marginBottom: 26, alignItems: 'center' },
-    termsLabel: { color: Theme.wColor, fontSize: 13, flex: 1 },
-    forgotPwdLabel: { color: Theme.wColor },
+    mainLargeText: {
+        color: "#002251",
+        fontSize: 24,
+        lineHeight: 29,
+        marginTop: 36
+    },
+    text: {
+        color: '#7A869A',
+        fontSize: 14,
+        lineHeight: 20
+    },
+    bottomText: {
+        color: '#7A869A',
+        fontSize: 14,
+        textAlign: 'center',
+        lineHeight: 20,
+        paddingBottom: 36
+    },
+    inputBox: {
+        marginBottom: 21
+    },
+    termsBox: {
+        flexDirection: 'row',
+        marginBottom: 26,
+        alignItems: 'center'
+    },
+    termsLabel: {
+        color: Theme.wColor,
+        fontSize: 13,
+        flex: 1
+    },
+    forgotPwdLabel: {
+        color: Theme.wColor
+    }
 });
 
 const mapStateToProps = (state) => ({

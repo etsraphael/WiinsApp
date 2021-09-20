@@ -24,11 +24,11 @@ class Sign extends React.Component {
                     <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
                     <WGradient02 style={styles.gradientContainer}>
                          <View style={styles.headerSection}>
-                              <FontAwesomeIcon 
+                              <FontAwesomeIcon
                                    icon={faLongArrowLeft}
                                    size={25}
                                    color={'white'}
-                                   onPress={() => this.props.onBackPress ? this.props.onBackPress() : this.props.navigation ? this.props.navigation.navigate('OnBoarding') : null} 
+                                   onPress={() => this.props.onBackPress ? this.props.onBackPress() : this.props.navigation ? this.props.navigation.navigate('OnBoarding') : null}
                               />
                               <Text style={styles.headerText}>{this.props.label}</Text>
                          </View>

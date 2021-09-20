@@ -79,7 +79,7 @@ class ForgotPassword extends React.Component {
                         <KeyboardAvoidingView
                             behavior={Platform.OS === 'ios' ? 'padding' : null}
                             keyboardVerticalOffset={0}
-                            style={{ width: '100%', paddingHorizontal: 36, flex: 1 }}
+                            style={styles.containerKeyBoard}
                         >
                             <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }} bounces>
                                 <View style={{ paddingTop: 48, alignItems: 'center' }}>
@@ -105,6 +105,9 @@ class ForgotPassword extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    containerKeyBoard: {
+        width: '100%', paddingHorizontal: 36, flex: 1
+    },
     mainLargeText: {
         color: '#002251',
         fontSize: 24,

@@ -1,11 +1,10 @@
 import React from 'react'
 import {
-    StyleSheet, View, Text, StatusBar, Platform, ScrollView
+    StyleSheet, View, Text, Platform, ScrollView
 } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 import { Theme } from '../core/reusable/design'
 import { Sign } from '.'
 
@@ -34,15 +33,15 @@ class UseCondition extends React.Component {
                     keyboardVerticalOffset={0}
                     style={{ width: '100%', paddingHorizontal: 36, flex: 1 }}
                 >
-                    <ScrollView showsVerticalScrollIndicator={false}  style={{ flex: 1 }} bounces>
-                        <Text style={ [styles.text, { marginTop: 36 }] }>Maybe we give you a tip on how to make millions of dollars in our « GTU », so take the time to read it.</Text>
+                    <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }} bounces>
+                        <Text style={[styles.text, { marginTop: 36 }]}>Maybe we give you a tip on how to make millions of dollars in our « GTU », so take the time to read it.</Text>
                         <View style={{ marginTop: 17, marginHorizontal: 22, marginBottom: 87 }}>
                             {
                                 Object.keys(ConditionsOfUse).map((k, i) => {
                                     return (
                                         <React.Fragment key={`cond-of-use-${i}`}>
-                                            <Text style={[styles.mainLargeText, { marginBottom: 13, marginTop: 17 }]}>{ k }</Text>
-                                            { ConditionsOfUse[k].map((t, i) => <Text key={`condtion-of-use-${i}`} style={[styles.text , { marginTop: 5 }]}>{ t }</Text>) }
+                                            <Text style={styles.mainLargeText}>{k}</Text>
+                                            {ConditionsOfUse[k].map((t, i) => <Text key={`condtion-of-use-${i}`} style={[styles.text, { marginTop: 5 }]}>{t}</Text>)}
                                         </React.Fragment>
                                     )
                                 })
@@ -57,13 +56,41 @@ class UseCondition extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    mainLargeText: { color: "#002251", fontSize: 24, lineHeight: 29 },
-    text: { color: '#7A869A', fontSize: 14, lineHeight: 20 },
-    bottomText: { color: '#7A869A', fontSize: 14, textAlign: 'center', lineHeight: 20, paddingBottom: 36  },
-    inputBox: { marginBottom: 21 },
-    termsBox: { flexDirection: 'row', marginBottom: 26, alignItems: 'center' },
-    termsLabel: { color: Theme.wColor, fontSize: 13, flex: 1 },
-    forgotPwdLabel: { color: Theme.wColor },
+    mainLargeText: {
+        color: "#002251",
+        fontSize: 24,
+        lineHeight: 29,
+        marginBottom: 13,
+        marginTop: 17
+    },
+    text: {
+        color: '#7A869A',
+        fontSize: 14,
+        lineHeight: 20
+    },
+    bottomText: {
+        color: '#7A869A',
+        fontSize: 14,
+        textAlign: 'center',
+        lineHeight: 20,
+        paddingBottom: 36
+    },
+    inputBox: {
+        marginBottom: 21
+    },
+    termsBox: {
+        flexDirection: 'row',
+        marginBottom: 26,
+        alignItems: 'center'
+    },
+    termsLabel: {
+        color: Theme.wColor,
+        fontSize: 13,
+        flex: 1
+    },
+    forgotPwdLabel: {
+        color: Theme.wColor
+    }
 })
 
 const mapStateToProps = state => ({
