@@ -13,7 +13,7 @@ import LinearGradient from 'react-native-linear-gradient'
 import { TubesCategories } from './../../core/data/tubes'
 import * as TubeMenuActions from '../../../redux/TubeMenu/actions'
 import I18n from '../../../../assets/i18n/i18n'
-import SearchView from '../../core/reusable/misc/search-view'
+import SearchView from '../../core/reusable/form/search-view'
 
 class HomeTube extends React.Component {
 

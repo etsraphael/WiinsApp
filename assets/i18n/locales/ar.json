@@ -233,7 +233,10 @@
     "Report-t-profile": "الإبلاغ عن الملف الشخصي",
     "Unfollow": "الغاء المتابعة",
     "Unfriend": "الغاء الصداقه",
-    "Block-User": "مستخدم محضور"
+    "Block-User": "مستخدم محضور",
+    "Your-Email..": "بريدك الالكتروني..",
+    "General-Conditions-Of-Use": "شروط الاستخدام العامة",
+    "Help-Community": "مجتمع المساعدة"
   },
   "COUNTRY": {
     "AD": "اندورا",
@@ -489,7 +492,8 @@
     "Create-video-P": "إنشاء قائمة تشغيل الفيديو",
     "Create-video-PT": "قم بإنشاء فيديو",
     "choose-creation": "اختر خلقك !",
-    "choose-creation-d": "من هذه المساحة ، يمكنك إنشاء جميع الإبداعات الممكنة على المنصة"
+    "choose-creation-d": "من هذه المساحة ، يمكنك إنشاء جميع الإبداعات الممكنة على المنصة",
+    "Create-an-account": "انشئ حساب"
   },
   "DATE": {
     "M": "M",
@@ -631,7 +635,11 @@
     "Create-yr-account": "أنشئ حسابك",
     "Creating-yr-account": "إنشاء حسابك",
     "Login-first-to-continue": "تسجيل الدخول أولا للمتابعة",
-    "Checking-yr-infos": "التحقق من المعلومات الخاصة بك"
+    "Checking-yr-infos": "التحقق من المعلومات الخاصة بك",
+    "Sign-t-continu": "قم بالتسجيل للمتابعة!",
+    "Hello-Nice-t-meet-u": "أهلا! سعيد بلقائك",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "أدخل عنوان بريدك الإلكتروني لاستعادة كلمة المرور الخاصة بك",
+    "Send-email": "ارسل بريد"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "آخر مشروع",
@@ -962,7 +970,8 @@
       "Responsability": "المسؤوليات",
       "Services": "خدمات",
       "Site-management": "إدارة الموقع"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "ربما نقدم لك نصيحة حول كيفية جني ملايين الدولارات في «GTU» لدينا ، لذا خذ الوقت الكافي لقراءتها."
   },
   "THIS-IS": {
     "id-of-t-music": "معرف الموسيقى"

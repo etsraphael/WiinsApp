@@ -275,7 +275,10 @@
     "Report-t-profile": "Pranešti apie profilį",
     "Unfollow": "Nesekti",
     "Unfriend": "Draugas",
-    "Block-User": "Užblokuoti vartotoją"
+    "Block-User": "Užblokuoti vartotoją",
+    "Your-Email..": "Tavo elektroninis paštas..",
+    "General-Conditions-Of-Use": "Bendrosios naudojimo sąlygos",
+    "Help-Community": "Pagalba bendruomenei"
   },
   "COUNTRY": {
     "AD": "Andora",
@@ -531,7 +534,8 @@
     "Create-video-P": "Sukurkite vaizdo įrašų grojaraštį",
     "Create-video-PT": "Sukurkite vaizdo įrašą",
     "choose-creation": "Pasirinkite savo kūrybą!",
-    "choose-creation-d": "Šioje erdvėje galite sukurti visus įmanomus kūrinius platformoje"
+    "choose-creation-d": "Šioje erdvėje galite sukurti visus įmanomus kūrinius platformoje",
+    "Create-an-account": "Sukurti paskyrą"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Create-yr-account": "Susikurkite savo paskyrą",
     "Creating-yr-account": "Jūsų paskyros kūrimas",
     "Login-first-to-continue": "Pirmiausia prisijunkite, jei norite tęsti",
-    "Checking-yr-infos": "Tikrinti savo informaciją"
+    "Checking-yr-infos": "Tikrinti savo informaciją",
+    "Sign-t-continu": "Norėdami tęsti, pasirašykite!",
+    "Hello-Nice-t-meet-u": "Sveiki! Malonu susipažinti",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Įveskite savo el. Pašto adresą, kad atkurtumėte slaptažodį",
+    "Send-email": "Išsiųsti laišką"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Naujausias projektas",
@@ -1019,7 +1027,8 @@
       "Responsability": "Atsakomybė",
       "Services": "Paslaugos",
       "Site-management": "Svetainės valdymas"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Galbūt duosime jums patarimą, kaip uždirbti milijonus dolerių mūsų „GTU“, todėl skirkite laiko jį perskaityti."
   },
   "THIS-IS": {
     "id-of-t-music": "Jūsų muzikos identifikatorius"

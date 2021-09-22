@@ -13,11 +13,9 @@ import { faPlay, faCommentLines, faEllipsisH } from '@fortawesome/pro-light-svg-
 import { faHeart as faHeartEmpty } from '@fortawesome/pro-light-svg-icons'
 import { faHeart as faHeartFull } from '@fortawesome/free-solid-svg-icons'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
-// import { faEllipsisH } from '@fortawesome/pro-solid-svg-icons'
-import reducer from '../../../../redux/MyUser/reducer'
 import { AppTheme } from '../utility/theme-util'
-import GradientBorderCircle from '../misc/gradient-border'
-import ImageView from '../misc/image-view'
+import GradientBorderCircle from '../utility/gradient-border'
+import FeedCardImageView from './feed-card-image-view'
 
 class CardNewFeed extends PureComponent {
 
@@ -123,7 +121,7 @@ class CardNewFeed extends PureComponent {
                         onLoad={this.onImageLoaded}
                     /> */}
 
-                    <ImageView
+                    <FeedCardImageView
                         style={{ flex: 1, width: '100%', height: this.state.imageHeight || 400, borderRadius: 15 }}
                         source={{ uri: publication.file, priority: FastImage.priority.normal }}
                         resizeMode={FastImage.resizeMode.cover}
@@ -243,8 +241,8 @@ class CardNewFeed extends PureComponent {
                                 <FontAwesomeIcon icon={faEllipsisH} color={AppTheme.colors.primaryBlur} size={19} />
                             </TouchableOpacity>
                         </View>
+                    </View>
                 </View>
-                </View>            
 
             )
         }
@@ -352,10 +350,10 @@ class CardNewFeed extends PureComponent {
 
         return (
             <View style={
-                [styles.card], 
+                [styles.card],
                 {
                     ...(this.props.lastIndex ? { marginBottom: 50 } : { marginBottom: 0, borderBottomColor: '#dedede', borderBottomWidth: 1 })
-                    , marginTop: this.props.index === 0 ? 20 : 0  
+                    , marginTop: this.props.index === 0 ? 20 : 0
                 }
             }>
                 {this._showHeader(publication)}

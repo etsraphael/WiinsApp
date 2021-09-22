@@ -1,45 +1,57 @@
 import React from 'react'
 import {
-    StyleSheet, View, TextInput, Text, TouchableOpacity,
-    ActivityIndicator, ScrollView, StatusBar, KeyboardAvoidingView
+    StyleSheet,
+    View,
+    Text,
+    ActivityIndicator,
+    ScrollView
 } from 'react-native'
-import { connect } from 'react-redux'
-import * as MyUserActions from '../../redux/MyUser/actions'
-import { bindActionCreators } from 'redux'
-import { Platform } from 'react-native'
-import { faLongArrowLeft, faCheckCircle } from '@fortawesome/pro-light-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { connect } from 'react-redux';
+import * as MyUserActions from '../../redux/MyUser/actions';
+import { bindActionCreators } from 'redux';
+import CheckBox from '@react-native-community/checkbox';
+import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service';
+import { Theme } from '../core/reusable/design';
+import { PrimaryGradientButton, StandardInput, StandardInputPassword } from '../core/reusable/form';
 import Snackbar from 'react-native-snackbar'
-import LinearGradient from 'react-native-linear-gradient'
-import { getStatusBarHeight } from 'react-native-iphone-x-helper'
-import CheckBox from '@react-native-community/checkbox'
-import i18n from './../../../assets/i18n/i18n'
-import { getCurrentLanguageOfTheDevice } from './../../services/translation/translation-service'
+import Sign from './sign';
+import { emailIsValid, passwordIsValid } from '../core/reusable/utility/validation';
+import KeyboardShift from '../core/reusable/form/keyboard-shift';
+import I18n from '../../../assets/i18n/i18n';
+
+const PSEUDO = 'pseudo'
+const EMAIL = 'email'
+const PASSWORD = 'password'
+const CONFIRM_PASSWORD = 'password2'
 
 class SignUp extends React.Component {
-
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            email: null,
-            pseudo: null,
-            password: null,
-            password2: null,
+            [EMAIL]: null,
+            [PSEUDO]: null,
+            [PASSWORD]: null,
+            [CONFIRM_PASSWORD]: null,
             registration_success: false,
-            conditionAccepted: false
-        }
+            conditionAccepted: false,
+
+            // error
+            error: null,
+            flaggedInput: null
+        };
     }
 
     UNSAFE_componentWillReceiveProps(newProps) {
         if (!newProps.MyUser.isLoading) {
             if (!!newProps.MyUser.message) {
                 switch (newProps.MyUser.message) {
-                    case 'success': return this.setState({ registration_success: true })
+                    case 'success':
+                        return this.setState({ registration_success: true });
                     case 'pseudo_already_exist': {
-                        return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Pseudo-already-exist'), duration: Snackbar.LENGTH_LONG })
+                        return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Pseudo-already-exist'), duration: Snackbar.LENGTH_LONG })
                     }
                     case 'email_already_exist': {
-                        return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Email_already_exist'), duration: Snackbar.LENGTH_LONG })
+                        return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Email_already_exist'), duration: Snackbar.LENGTH_LONG })
                     }
                 }
             }
@@ -48,299 +60,253 @@ class SignUp extends React.Component {
 
     // to send the registration
     _register = () => {
-
+        if (!this._verificationTrue()) return null;
         if (!this.state.conditionAccepted) {
-            return Snackbar.show({ text: i18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
+            return Snackbar.show({ text: I18n.t('ERROR-MESSAGE.y-h-to-accept-the-tou'), duration: Snackbar.LENGTH_LONG })
+        } else {
+            const user = {
+                pseudo: this.state[PSEUDO],
+                email: this.state[EMAIL],
+                password: this.state[PASSWORD]
+            };
+            const userDetail = { language: getCurrentLanguageOfTheDevice() };
+            return this.props.actions.register(user, userDetail);
         }
+    };
 
-        if (!this._verificationTrue()) return null
-        else {
+    // err input
+    flagInput = (flaggedInput) => {
+        this.setState({ flaggedInput })
+    }
 
-            const user = { pseudo: this.state.pseudo, email: this.state.email, password: this.state.password }
-            const userDetail = { language: getCurrentLanguageOfTheDevice() }
+    // check if input is flagged
+    checkIfFlagged = (flaggedInput) => {
+        return !!this.state.flaggedInput && (this.state.flaggedInput === flaggedInput)
+    }
 
-            return this.props.actions.register(user, userDetail)
-        }
+    // handle input
+    handleInput = (val, input) => {
+        this.setState({
+            flaggedInput: null,
+            [input]: val
+        })
     }
 
     // to check all the verifications
     _verificationTrue = () => {
-
-        // null value
-        if (!this.state.email || !this.state.pseudo || !this.state.password) {
-            Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Missing-informations'), duration: Snackbar.LENGTH_LONG })
-            return false
+        if (!this.state[EMAIL] || !this.state[PSEUDO] || !this.state[PASSWORD] || !this.state[CONFIRM_PASSWORD]) {
+            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Missing-informations'), duration: Snackbar.LENGTH_LONG })
+            const concernedInput = !this.state[PSEUDO] ? PSEUDO : !this.state[EMAIL] ? EMAIL : !this.state[PASSWORD] ? PASSWORD : CONFIRM_PASSWORD
+            this.flagInput(concernedInput)
+            return false;
         }
 
-        // email validation
-        const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-        if (reg.test(this.state.email) === false) {
-            Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Email-invalid'), duration: Snackbar.LENGTH_LONG })
-            return false
+        if (this.state[PSEUDO].length < 4) {
+            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Your-username-must-have-at-least-4-char'), duration: Snackbar.LENGTH_LONG })
+            this.flagInput(PSEUDO)
+            return false;
         }
 
-        // password validation
-        if (this.state.password.length <= 4) {
-            Snackbar.show({ text: i18n.t('SETTING.password.Error-min-5-char'), duration: Snackbar.LENGTH_LONG })
-            return false
+        if (!emailIsValid(this.state[EMAIL])) {
+            Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Email-invalid'), duration: Snackbar.LENGTH_LONG })
+            this.flagInput(EMAIL)
+            return false;
         }
 
-        if (this.state.password !== this.state.password2 ) {
-            Snackbar.show({ text: i18n.t('PLACEHOLDER.Password-not-matching'), duration: Snackbar.LENGTH_LONG })
-            return false
+        const isPasswordValid = passwordIsValid(this.state[PASSWORD])
+        if (!isPasswordValid[0]) {
+            Snackbar.show({ text: isPasswordValid[1], duration: Snackbar.LENGTH_LONG })
+            this.flagInput(PASSWORD)
+            return false;
         }
 
-        // pseudo validation
-        if (this.state.pseudo.length <= 4) {
-            Snackbar.show({ text: i18n.t('ERROR-MESSAGE.Your-username-must-have-at-least-4-char'), duration: Snackbar.LENGTH_LONG })
-            return false
+        if (this.state[PASSWORD] !== this.state[CONFIRM_PASSWORD]) {
+            Snackbar.show({ text: I18n.t('PLACEHOLDER.Password-not-matching'), duration: Snackbar.LENGTH_LONG })
+            this.flagInput(CONFIRM_PASSWORD)
+            return false;
         }
 
-        return true
-    }
+        return true;
+    };
 
     // to select the loading animation
     _displayLoading() {
         return (
             <View style={styles.loading_container}>
-                <ActivityIndicator size='large' color='grey' />
+                <ActivityIndicator size='large' color='#2CB0D6' />
             </View>
-        )
+        );
     }
 
     // to make sure the user is more than 18 years old
     _getMaxDate = () => {
-        let date = new Date()
-        date.setFullYear(date.getFullYear() - 18)
-        return Number(date.getTime())
+        let date = new Date();
+        date.setFullYear(date.getFullYear() - 18);
+        return Number(date.getTime());
+    };
+
+    // handle condition acceptance
+    acceptCondition() {
+        this.setState({ conditionAccepted: true });
     }
 
-    // to select the input views
-    _displayInput() {
-
-        return (
-            <View style={{ marginBottom: 70 }}>
-                <View>
-                    <Text style={styles.inputLabel}>{i18n.t('PROFILE.Pseudo')}</Text>
-                    <TextInput
-                        value={this.state.pseudo}
-                        style={styles.input_container}
-                        onChangeText={(val) => this.setState({ pseudo: val.replace(/\s/g, '') })}
-                    />
-                </View>
-                <View>
-                    <Text style={styles.inputLabel}>{i18n.t('PROFILE.Email')}</Text>
-                    <TextInput
-                        value={this.state.email}
-                        autoCompleteType={'email'}
-                        style={styles.input_container}
-                        onChangeText={(val) => this.setState({ email: val.replace(/\s/g, '') })}
-                    />
-                </View>
-                <View>
-                    <Text style={styles.inputLabel}>{i18n.t('CORE.Password')}</Text>
-                    <TextInput
-                        style={styles.input_container}
-                        secureTextEntry={true}
-                        onChangeText={(val) => this.setState({ password: val })}
-                    />
-                </View>
-
-                <View>
-                    <Text style={styles.inputLabel}>{i18n.t('PLACEHOLDER.Confirm-your-password')}</Text>
-                    <TextInput
-                        style={styles.input_container}
-                        secureTextEntry={true}
-                        onChangeText={(val) => this.setState({ password2: val })}
-                    />
-                </View>
-
-                <View style={{ flexDirection: 'row', marginVertical: 25 }}>
-
-                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <CheckBox
-                            style={{ width: 20, height: 20, marginTop: 5 }}
-                            disabled={false}
-                            boxType={'square'}
-                            lineWidth={1}
-                            value={this.state.conditionAccepted}
-                            onValueChange={(newValue) => this.setState({ conditionAccepted: newValue })}
-                        />
-                    </View>
-
-                    <View style={{ flex: 7, paddingLeft: 15 }}>
-                        <Text>
-                            {i18n.t('LOGIN-REGISTRER.accept-tou')}
-                            <Text style={{ color: '#960CF8' }} onPress={() => this.props.navigation.navigate('SettingPrivacy')}> (click here to read it)</Text>
-                        </Text>
-                    </View>
-                </View>
-
-                <View style={{ marginTop: 5 }}>
-                    <TouchableOpacity onPress={() => this._register()} style={styles.btn_log} underlayColor='#fff'>
-                        <LinearGradient
-                            colors={['#35D1FE', '#960CF8']}
-                            locations={[0, 1]}
-                            start={{ x: 0.1, y: 0.09 }}
-                            end={{ x: 0.94, y: 0.95 }}
-                            style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={styles.loginText}>{i18n.t('LOGIN-REGISTRER.Registration')}</Text>
-                        </LinearGradient>
-                    </TouchableOpacity>
-                </View>
-
-            </View>
-        )
-    }
+    // redirect user to the USE OF CONDITION screen
+    goToUseOfCondition = () => {
+        this.props.navigation.push('UseCondition', {
+            acceptCondition: this.acceptCondition.bind(this)
+        });
+    };
 
     render() {
         return (
-            <ScrollView style={{ flex: 1, backgroundColor: 'white' }}>
-                <View style={{ paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() + 10 : 10 }}>
-                    <View style={styles.actionBarStyle}>
-                        <TouchableOpacity onPress={() => this.props.navigation.navigate('OnBoarding')}>
-                            <FontAwesomeIcon icon={faLongArrowLeft} size={35} color={'grey'} />
-                        </TouchableOpacity>
+            <View style={{ flex: 1 }}>
+                <Sign
+                    label={I18n.t('CREATION.Create-an-account')}   
+                    navigation={this.props.navigation}>
+                    <View style={styles.containerSign}>
+                        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false} bounces>
+                            <KeyboardShift>
+                                {() => (
+                                    <>
+                                        <Text style={styles.mainLargeText}>
+                                            {I18n.t('CORE.Welcome')}
+                                        </Text>
+                                        <Text style={styles.subText}>
+                                            {I18n.t('LOGIN-REGISTRER.Hello-Nice-t-meet-u')}
+                                        </Text>
+                                        <View style={{ marginTop: 48 }}>
+                                            <StandardInput
+                                                boxStyle={styles.inputBox}
+                                                label={I18n.t('PROFILE.Pseudo')}
+                                                placeholder={I18n.t('CORE.Your-Pseudo..')}
+                                                flag={this.checkIfFlagged(PSEUDO)}
+                                                returnKeyType='next'
+                                                onSubmitEditing={() => this.emailField.focus()}
+                                                onChangeText={val => this.handleInput(val.replace(/\s/g, ''), PSEUDO)}
+                                                textContentType='username'
+                                            />
+                                            <StandardInput
+                                                inputRef={ref => this.emailField = ref}
+                                                boxStyle={styles.inputBox}
+                                                label={I18n.t('PROFILE.Email')}
+                                                placeholder={I18n.t('CORE.Your-Email..')}
+                                                flag={this.checkIfFlagged(EMAIL)}
+                                                returnKeyType='next'
+                                                onSubmitEditing={() => this.pwdOneField.focus()}
+                                                onChangeText={val => this.handleInput(val.replace(/\s/g, ''), EMAIL)}
+                                                textContentType='emailAddress'
+                                            />
+                                            <StandardInputPassword
+                                                inputRef={ref => this.pwdOneField = ref}
+                                                boxStyle={styles.inputBox}
+                                                label={I18n.t('CORE.Password')}
+                                                placeholder={I18n.t('CORE.Your-Password..')}
+                                                flag={this.checkIfFlagged(PASSWORD)}
+                                                returnKeyType='next'
+                                                onSubmitEditing={() => this.pwdTwoField.focus()}
+                                                onChangeText={val => this.handleInput(val, PASSWORD)}
+                                            />
+                                            <StandardInputPassword
+                                                inputRef={ref => this.pwdTwoField = ref}
+                                                boxStyle={styles.inputBox}
+                                                label={I18n.t('PLACEHOLDER.Confirm-your-password')}
+                                                placeholder={I18n.t('CORE.Your-Password..')}
+                                                flag={this.checkIfFlagged(CONFIRM_PASSWORD)}
+                                                returnKeyType='done'
+                                                onChangeText={val => this.handleInput(val, CONFIRM_PASSWORD)}
+                                            />
+                                            <View style={styles.termsBox}>
+                                                <View style={{ paddingRight: 30 }}>
+                                                    {/* <WCheckBox /> */}
+                                                    <CheckBox
+                                                        style={{ width: 20, height: 20 }}
+                                                        boxType='circle'
+                                                        value={this.state.conditionAccepted}
+                                                        onValueChange={newValue =>
+                                                            this.setState({
+                                                                conditionAccepted: newValue
+                                                            })
+                                                        }
+                                                    />
+                                                </View>
+                                                <Text
+                                                    onPress={this.goToUseOfCondition}
+                                                    style={styles.termsLabel}>
+                                                        {I18n.t('LOGIN-REGISTRER.accept-tou')}
+                                                </Text>
+                                            </View>
+                                            <View style={{ marginBottom: 165 }}>
+                                                <PrimaryGradientButton
+                                                    text={I18n.t('CREATION.Create-an-account')}
+                                                    style={styles.createButton}
+                                                    onPress={() => this._register()}
+                                                />
+                                            </View>
+                                        </View>
+                                    </>
+                                )}
+                            </KeyboardShift>
+                        </ScrollView>
                     </View>
-                    {
-                        !this.state.registration_success ? (
-                            <KeyboardAvoidingView
-                                behavior={Platform.OS === "ios" ? "padding" : null}
-                                keyboardVerticalOffset={0}
-                            >
-                                <ScrollView contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 31, marginTop: 56 }}>
-                                    <View style={styles.brand_container}>
-                                        <Text style={{ color: '#960CF8', fontSize: 32 }}>{i18n.t('CORE.Hello')}</Text>
-                                        <Text style={{ color: '#787878', marginTop: 10, fontSize: 20 }}>{!this.props.MyUser.isLoading ? i18n.t('LOGIN-REGISTRER.Create-yr-account') : i18n.t('LOGIN-REGISTRER.Creating-yr-account')}</Text>
-                                    </View>
-                                    <View style={{ flex: 4, width: '100%', marginTop: 56 }}>
-                                        {this.props.MyUser.isLoading ? this._displayLoading() : this._displayInput()}
-                                    </View>
-                                </ScrollView>
-                            </KeyboardAvoidingView>
-                        ) : (
-                            <View style={{ width: '100%', paddingHorizontal: 45, justifyContent: 'center', alignItems: 'center' }}>
-                                <View style={{ flexDirection: 'row', marginBottom: 15 }}>
-                                    <View style={{ flex: 2, justifyContent: 'center', alignItems: 'center' }}>
-                                        <FontAwesomeIcon icon={faCheckCircle} color={'green'} size={25} />
-                                    </View>
-                                    <View style={{ flex: 8, justifyContent: 'center', alignItems: 'center' }}>
-                                        <Text style={{ fontSize: 18 }}>{i18n.t('LOGIN-REGISTRER.click-on-email')}</Text>
-                                    </View>
-                                </View>
-                                <View style={{ backgroundColor: 'white', marginVertical: 25, height: 1, width: '80%' }}></View>
-                                <TouchableOpacity onPress={() => this.props.navigation.goBack()} style={styles.btn_back}>
-                                    <Text style={[styles.btn_Text, { paddingHorizontal: 45 }]}>{i18n.t('CORE.Back')}</Text>
-                                </TouchableOpacity>
-                            </View>
-                        )
-                    }
-                </View>
-            </ScrollView>
-        )
-
+                </Sign>
+            </View>
+        );
     }
 }
 
 const styles = StyleSheet.create({
-    brand_container: {
-        flexDirection: 'column',
+    containerSign: {
         width: '100%',
-        justifyContent: 'center',
-        alignItems: 'flex-start',
+        paddingHorizontal: 36,
+        flex: 1,
+        position: 'relative'
     },
-    logoBrand: {
-        width: 190,
-        height: 190,
-        paddingRight: 25,
-        resizeMode: 'contain',
+    mainLargeText: {
+        color: '#002251',
+        fontSize: 24,
+        marginTop: 36
     },
-    card_container: {
-        width: '100%',
-        marginTop: 56
+    subText: {
+        color: '#7A869A',
+        fontSize: 14
     },
-    input_container: {
-        paddingTop: 5,
-        paddingBottom: 5,
-        marginTop: 10,
-        marginBottom: 10,
-        color: 'black',
-        height: 39,
-        borderBottomColor: '#ABABAB',
-        borderBottomWidth: .5,
+    inputBox: {
+        marginBottom: 21
     },
-    wiins_logo: {
-        width: 70,
-        height: 70,
-        borderRadius: 70 / 2,
-        borderColor: 'grey',
+    termsBox: {
+        flexDirection: 'row',
+        marginBottom: 38,
+        alignItems: 'center'
     },
-    btn_log: {
-        marginTop: 10,
-        height: 60,
-        overflow: 'hidden',
-        borderWidth: 0,
-        borderRadius: 10
+    termsLabel: {
+        color: Theme.wColor,
+        fontSize: 13,
+        flex: 1
     },
-    loginText: {
-        paddingTop: 5,
-        paddingBottom: 5,
-        textAlign: 'center',
-        color: 'white',
-        fontSize: 16
+    forgotPwdLabel: {
+        color: Theme.wColor
     },
     loading_container: {
         position: 'absolute',
         left: 0,
         right: 0,
-        top: 100,
+        top: 0,
         bottom: 0,
         alignItems: 'center',
         justifyContent: 'center',
-        color: 'white'
-    },
-    btn_Text: {
-        paddingTop: 5,
-        paddingBottom: 5,
-        color: 'black',
-        fontSize: 16
-    },
-    inputLabel: {
-        color: '#ABABAB',
-    },
-    actionBarStyle: {
-        flexDirection: 'row',
-        paddingTop: StatusBar.currentHeight,
-        paddingHorizontal: 31,
-        backgroundColor: 'white',
-        height: 60 + StatusBar.currentHeight,
-        alignItems: 'center'
-    },
-    btn_back: {
-        backgroundColor: '#e6e6e6',
-        padding: 5,
-        borderRadius: 5
-    },
-    textSection: {
         color: 'white',
-        fontWeight: '700',
-        paddingVertical: 8,
-        fontSize: 18,
-        textAlign: 'center'
+        backgroundColor: 'rgba(1, 1, 1, 0.5)'
     }
-})
+});
 
 const mapStateToProps = state => ({
     MyUser: state.MyUser
-})
+});
 
-const ActionCreators = Object.assign(
-    {},
-    MyUserActions
-)
+const ActionCreators = Object.assign({}, MyUserActions);
 
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(ActionCreators, dispatch),
-})
+    actions: bindActionCreators(ActionCreators, dispatch)
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

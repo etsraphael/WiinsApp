@@ -275,7 +275,10 @@
     "Report-t-profile": "Rapporteer die profiel",
     "Unfollow": "Ontvolg",
     "Unfriend": "Onvriendin",
-    "Block-User": "Gebruiker blokkeer"
+    "Block-User": "Gebruiker blokkeer",
+    "Your-Email..": "Jou epos..",
+    "General-Conditions-Of-Use": "Algemene gebruiksvoorwaardes",
+    "Help-Community": "Help Gemeenskap"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Skep 'n videospeellys",
     "Create-video-PT": "Skep 'n video",
     "choose-creation": "Kies jou skepping!",
-    "choose-creation-d": "Vanuit hierdie ruimte kan u alle skeppings op die platform skep"
+    "choose-creation-d": "Vanuit hierdie ruimte kan u alle skeppings op die platform skep",
+    "Create-an-account": "Maak 'n rekening oop"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Create-yr-account": "Skep jou rekening",
     "Creating-yr-account": "Maak u rekening",
     "Login-first-to-continue": "Meld eers aan om voort te gaan",
-    "Checking-yr-infos": "Kontroleer u inligting"
+    "Checking-yr-infos": "Kontroleer u inligting",
+    "Sign-t-continu": "Teken om voort te gaan!",
+    "Hello-Nice-t-meet-u": "Hallo! Aangename kennis",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Voer u e -posadres in om u wagwoord te herstel",
+    "Send-email": "Stuur pos"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Laaste projek",
@@ -1019,7 +1027,8 @@
       "Responsability": "Verantwoordelikhede",
       "Services": "Dienste",
       "Site-management": "Terreinbestuur"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Miskien gee ons u 'n wenk oor hoe om miljoene dollars in ons 'GTU' te verdien, dus neem die tyd om dit te lees."
   },
   "THIS-IS": {
     "id-of-t-music": "Jou musiek-identifiseerder"

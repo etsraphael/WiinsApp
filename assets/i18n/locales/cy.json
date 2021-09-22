@@ -275,7 +275,10 @@
     "Report-t-profile": "Riportiwch y proffil",
     "Unfollow": "Dad-ddadlennu",
     "Unfriend": "Anghyfeillgar",
-    "Block-User": "Defnyddiwr Bloc"
+    "Block-User": "Defnyddiwr Bloc",
+    "Your-Email..": "Dy ebost..",
+    "General-Conditions-Of-Use": "Amodau Defnyddio Cyffredinol",
+    "Help-Community": "Helpu Cymuned"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Creu rhestr chwarae fideo",
     "Create-video-PT": "Creu fideo",
     "choose-creation": "Dewiswch eich creadigaeth!",
-    "choose-creation-d": "O'r gofod hwn, gallwch greu'r holl greadigaethau sy'n bosibl ar y platfform"
+    "choose-creation-d": "O'r gofod hwn, gallwch greu'r holl greadigaethau sy'n bosibl ar y platfform",
+    "Create-an-account": "Creu cyfrif"
   },
   "DATE": {
     "M": "M.",
@@ -673,7 +677,11 @@
     "Registration": "Cofrestru",
     "Sign-up": "Cofrestru",
     "accept-tou": "Rwy'n tystio fy mod i'n 16 oed neu'n hŷn ac rwy'n cytuno i'r cytundeb defnyddiwr a'r polisi preifatrwydd",
-    "click-on-email": "Cliciwch ar y ddolen e-bost"
+    "click-on-email": "Cliciwch ar y ddolen e-bost",
+    "Sign-t-continu": "Arwyddwch i barhau!",
+    "Hello-Nice-t-meet-u": "Helo! Braf cwrdd â chi",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Rhowch eich cyfeiriad e-bost i adfer eich cyfrinair",
+    "Send-email": "Anfon Post"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Prosiect diweddaraf",
@@ -1019,7 +1027,8 @@
       "Responsability": "Cyfrifoldebau",
       "Services": "Gwasanaethau",
       "Site-management": "Rheoli safle"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Efallai ein bod yn rhoi tip i chi ar sut i wneud miliynau o ddoleri yn ein «GTU», felly cymerwch yr amser i'w ddarllen."
   },
   "THIS-IS": {
     "id-of-t-music": "Eich dynodwr cerddoriaeth"

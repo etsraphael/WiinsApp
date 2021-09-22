@@ -233,7 +233,10 @@
     "Report-t-profile": "Report the profile",
     "Unfollow": "Unfollow",
     "Unfriend": "Unfriend",
-    "Block-User": "Block User"
+    "Block-User": "Block User",
+    "Your-Email..": "Your email..",
+    "General-Conditions-Of-Use": "General Conditions Of Use",
+    "Help-Community": "Help Community"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -489,7 +492,8 @@
     "Create-video-P": "Create a video playlist",
     "Create-video-PT": "Creat a video",
     "choose-creation": "Choose your creation !",
-    "choose-creation-d": "From this space, you can create all the creations possible on the platform"
+    "choose-creation-d": "From this space, you can create all the creations possible on the platform",
+    "Create-an-account": "Create an account"
   },
   "DATE": {
     "M": "M",
@@ -631,7 +635,11 @@
     "Create-yr-account": "Create your account",
     "Creating-yr-account": "Creating your account",
     "Login-first-to-continue": "Login first to continue",
-    "Checking-yr-infos": "Checking your infos"
+    "Checking-yr-infos": "Checking your infos",
+    "Sign-t-continu": "Sign to continue!",
+    "Hello-Nice-t-meet-u": "Hello! Nice to meet you",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Enter your email address for recovery of your password",
+    "Send-email": "Send Mail"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Lastest project",
@@ -962,7 +970,8 @@
       "Responsability": "Responsibilities",
       "Services": "Services",
       "Site-management": "Site management"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Maybe we give you a tip on how to make millions of dollars in our « GTU », so take the time to read it."
   },
   "THIS-IS": {
     "id-of-t-music": "Your music identifier"

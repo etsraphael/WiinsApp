@@ -275,7 +275,10 @@
     "Report-t-profile": "Jelentse a profilt",
     "Unfollow": "Követés megszüntetése",
     "Unfriend": "Baráttalan",
-    "Block-User": "Felhasználó letiltása"
+    "Block-User": "Felhasználó letiltása",
+    "Your-Email..": "Az email címed..",
+    "General-Conditions-Of-Use": "Általános használati feltételek",
+    "Help-Community": "Súgó közösség"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Hozzon létre egy videolejátszási listát",
     "Create-video-PT": "Hozz létre videót",
     "choose-creation": "Válassza ki az alkotását!",
-    "choose-creation-d": "Ezen a téren létrehozhatja az összes lehetséges alkotást a platformon"
+    "choose-creation-d": "Ezen a téren létrehozhatja az összes lehetséges alkotást a platformon",
+    "Create-an-account": "Hozzon létre egy fiókot"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Registration": "Bejegyzés",
     "Sign-up": "Regisztrálj",
     "accept-tou": "Igazolom, hogy 16 éves vagy idősebb vagyok, és elfogadom a felhasználói megállapodást és az adatvédelmi irányelveket",
-    "click-on-email": "Kattintson az e-mail linkre"
+    "click-on-email": "Kattintson az e-mail linkre",
+    "Sign-t-continu": "A folytatáshoz jelentkezzen be!",
+    "Hello-Nice-t-meet-u": "Helló! Örvendek",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Adja meg e -mail címét a jelszó helyreállításához",
+    "Send-email": "Levél küldés"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Legutóbbi projekt",
@@ -1019,7 +1027,8 @@
       "Responsability": "Feladatok",
       "Services": "Szolgáltatások",
       "Site-management": "A webhely kezelése"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Talán adunk egy tippet, hogyan lehet több millió dollárt keresni a „GTU” -nkban, ezért szánjon időt az elolvasására."
   },
   "THIS-IS": {
     "id-of-t-music": "A zenei azonosítója"

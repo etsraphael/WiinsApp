@@ -233,7 +233,10 @@
     "Report-t-profile": "ਪ੍ਰੋਫਾਈਲ ਦੀ ਰਿਪੋਰਟ ਕਰੋ",
     "Unfollow": "ਅਣਜਾਣ",
     "Unfriend": "ਅਨਫ੍ਰੈਂਡ",
-    "Block-User": "ਬਲਾਕ ਉਪਭੋਗਤਾ"
+    "Block-User": "ਬਲਾਕ ਉਪਭੋਗਤਾ",
+    "Your-Email..": "ਤੁਹਾਡਾ ਈਮੇਲ..",
+    "General-Conditions-Of-Use": "ਵਰਤੋਂ ਦੀਆਂ ਆਮ ਸ਼ਰਤਾਂ",
+    "Help-Community": "ਮਦਦ ਭਾਈਚਾਰੇ"
   },
   "COUNTRY": {
     "AD": " ਅੰਡੋਰਾ",
@@ -489,7 +492,8 @@
     "Create-video-P": "ਇੱਕ ਵੀਡੀਓ ਪਲੇਲਿਸਟ ਬਣਾਓ",
     "Create-video-PT": "ਇੱਕ ਵੀਡੀਓ ਬਣਾਓ",
     "choose-creation": "ਆਪਣੀ ਰਚਨਾ ਦੀ ਚੋਣ ਕਰੋ !",
-    "choose-creation-d": "ਇਸ ਸਪੇਸ ਤੋਂ, ਤੁਸੀਂ ਪਲੇਟਫਾਰਮ 'ਤੇ ਸਾਰੀਆਂ ਸਿਰਜਣਾਵਾਂ ਬਣਾ ਸਕਦੇ ਹੋ"
+    "choose-creation-d": "ਇਸ ਸਪੇਸ ਤੋਂ, ਤੁਸੀਂ ਪਲੇਟਫਾਰਮ 'ਤੇ ਸਾਰੀਆਂ ਸਿਰਜਣਾਵਾਂ ਬਣਾ ਸਕਦੇ ਹੋ",
+    "Create-an-account": "ਅਕਾਉਂਟ ਬਣਾਓ"
   },
   "DATE": {
     "M": "ਐਮ",
@@ -631,7 +635,11 @@
     "Create-yr-account": "ਆਪਣਾ ਖਾਤਾ ਬਣਾਓ",
     "Creating-yr-account": "ਤੁਹਾਡਾ ਖਾਤਾ ਬਣਾਉਣਾ",
     "Login-first-to-continue": "ਜਾਰੀ ਰੱਖਣ ਲਈ ਪਹਿਲਾਂ ਲੌਗਇਨ ਕਰੋ",
-    "Checking-yr-infos": "ਤੁਹਾਡੇ ਇਨਫੋਸ ਦੀ ਜਾਂਚ ਕਰ ਰਿਹਾ ਹੈ"
+    "Checking-yr-infos": "ਤੁਹਾਡੇ ਇਨਫੋਸ ਦੀ ਜਾਂਚ ਕਰ ਰਿਹਾ ਹੈ",
+    "Sign-t-continu": "ਜਾਰੀ ਰੱਖਣ ਲਈ ਸਾਈਨ ਕਰੋ!",
+    "Hello-Nice-t-meet-u": "ਸਤ ਸ੍ਰੀ ਅਕਾਲ! ਤੁਹਾਨੂੰ ਮਿਲਕੇ ਅੱਛਾ ਲਗਿਆ",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "ਆਪਣਾ ਪਾਸਵਰਡ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨ ਲਈ ਆਪਣਾ ਈਮੇਲ ਪਤਾ ਦਾਖਲ ਕਰੋ",
+    "Send-email": "ਮੇਲ ਭੇਜੋ"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "ਤਾਜ਼ਾ ਪ੍ਰੋਜੈਕਟ",
@@ -962,7 +970,8 @@
       "Responsability": "ਜ਼ਿੰਮੇਵਾਰੀਆਂ",
       "Services": "ਸੇਵਾਵਾਂ",
       "Site-management": "ਸਾਈਟ ਪ੍ਰਬੰਧਨ"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "ਹੋ ਸਕਦਾ ਹੈ ਕਿ ਅਸੀਂ ਤੁਹਾਨੂੰ ਸਾਡੇ «GTU millions ਵਿੱਚ ਲੱਖਾਂ ਡਾਲਰ ਕਮਾਉਣ ਦੇ ਸੁਝਾਅ ਦੇਈਏ, ਇਸ ਲਈ ਇਸਨੂੰ ਪੜ੍ਹਨ ਲਈ ਸਮਾਂ ਕੱੋ."
   },
   "THIS-IS": {
     "id-of-t-music": "ਤੁਹਾਡਾ ਸੰਗੀਤ ਪਛਾਣਕਰਤਾ"

@@ -275,7 +275,10 @@
     "Report-t-profile": "Tilkynntu um prófílinn",
     "Unfollow": "Hætta við",
     "Unfriend": "Óvinur",
-    "Block-User": "Loka á notanda"
+    "Block-User": "Loka á notanda",
+    "Your-Email..": "Netfangið þitt..",
+    "General-Conditions-Of-Use": "Almenn notkunarskilyrði",
+    "Help-Community": "Hjálparsamfélag"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Búðu til vídeó spilunarlista",
     "Create-video-PT": "Búðu til myndband",
     "choose-creation": "Veldu sköpun þína!",
-    "choose-creation-d": "Úr þessu rými geturðu búið til allar mögulegar sköpun á pallinum"
+    "choose-creation-d": "Úr þessu rými geturðu búið til allar mögulegar sköpun á pallinum",
+    "Create-an-account": "Búðu til reikning"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Create-yr-account": "Búðu til reikninginn þinn",
     "Creating-yr-account": "Að búa til reikninginn þinn",
     "Login-first-to-continue": "Skráðu þig fyrst inn til að halda áfram",
-    "Checking-yr-infos": "Athugaðu upplýsingar þínar"
+    "Checking-yr-infos": "Athugaðu upplýsingar þínar",
+    "Sign-t-continu": "Skráðu þig til að halda áfram!",
+    "Hello-Nice-t-meet-u": "Halló! Gaman að hitta þig",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Sláðu inn netfangið þitt til að endurheimta lykilorðið þitt",
+    "Send-email": "Senda póst"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Síðasta verkefnið",
@@ -1019,7 +1027,8 @@
       "Responsability": "Skyldur",
       "Services": "Þjónusta",
       "Site-management": "Stjórnun vefsvæða"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Kannski gefum við þér ábendingu um hvernig á að græða milljónir dollara í „GTU“ okkar, svo gefðu þér tíma til að lesa hana."
   },
   "THIS-IS": {
     "id-of-t-music": "Auðkenni tónlistar þinnar"

@@ -233,7 +233,10 @@
     "Report-t-profile": "Denunciar o perfil",
     "Unfollow": "Deixar de seguir",
     "Unfriend": "Não amigo",
-    "Block-User": "Bloquear usuário"
+    "Block-User": "Bloquear usuário",
+    "Your-Email..": "Seu email..",
+    "General-Conditions-Of-Use": "Condições Gerais de Uso",
+    "Help-Community": "Comunidade de ajuda"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -489,7 +492,8 @@
     "Create-video-P": "Crie uma lista de vídeo",
     "Create-video-PT": "Crie um vídeo",
     "choose-creation": "Escolha sua criação !",
-    "choose-creation-d": "Nesse espaço, você pode criar todas as criações possíveis na plataforma"
+    "choose-creation-d": "Nesse espaço, você pode criar todas as criações possíveis na plataforma",
+    "Create-an-account": "Crie a sua conta aqui"
   },
   "DATE": {
     "M": "M",
@@ -631,7 +635,11 @@
     "Create-yr-account": "crie sua conta",
     "Creating-yr-account": "Criando sua conta",
     "Login-first-to-continue": "Faça login primeiro para continuar",
-    "Checking-yr-infos": "Verificando suas informações"
+    "Checking-yr-infos": "Verificando suas informações",
+    "Sign-t-continu": "Assine para continuar!",
+    "Hello-Nice-t-meet-u": "Olá! Prazer em conhecê-lo",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Digite seu endereço de e-mail para recuperação de sua senha",
+    "Send-email": "Enviar correio"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Último projeto",
@@ -962,7 +970,8 @@
       "Responsability": "Responsabilidades",
       "Services": "Serviços",
       "Site-management": "Gerenciamento do site"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Talvez lhe possamos dar uma dica sobre como ganhar milhões de dólares em nosso «GTU», então reserve um tempo para lê-la."
   },
   "THIS-IS": {
     "id-of-t-music": "Seu identificador de música"

@@ -275,7 +275,10 @@
     "Report-t-profile": "Rapportera profilen",
     "Unfollow": "Sluta följa",
     "Unfriend": "Ovän",
-    "Block-User": "Blockera användare"
+    "Block-User": "Blockera användare",
+    "Your-Email..": "Din email..",
+    "General-Conditions-Of-Use": "Allmänna användningsvillkor",
+    "Help-Community": "Hjälpgemenskap"
   },
   "COUNTRY": {
     "AD": "andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Skapa en videospellista",
     "Create-video-PT": "Skapa en video",
     "choose-creation": "Välj din skapelse!",
-    "choose-creation-d": "Från detta utrymme kan du skapa alla möjliga skapelser på plattformen"
+    "choose-creation-d": "Från detta utrymme kan du skapa alla möjliga skapelser på plattformen",
+    "Create-an-account": "Skapa ett konto"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Create-yr-account": "Skapa ditt konto",
     "Creating-yr-account": "Skapa ditt konto",
     "Login-first-to-continue": "Logga in först för att fortsätta",
-    "Checking-yr-infos": "Kontrollera dina informationer"
+    "Checking-yr-infos": "Kontrollera dina informationer",
+    "Sign-t-continu": "Signera för att fortsätta!",
+    "Hello-Nice-t-meet-u": "Hej! Trevligt att träffas",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Ange din e -postadress för att återställa ditt lösenord",
+    "Send-email": "Skicka brev"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Senaste projektet",
@@ -1019,7 +1027,8 @@
       "Responsability": "Ansvar",
       "Services": "Tjänster",
       "Site-management": "Sajtunderhåll"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Kanske ger vi dig ett tips om hur du tjänar miljoner dollar i vår «GTU», så ta dig tid att läsa den."
   },
   "THIS-IS": {
     "id-of-t-music": "Din musikidentifierare"

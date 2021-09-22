@@ -275,7 +275,10 @@
     "Report-t-profile": "Ilmoita profiili",
     "Unfollow": "Älä seuraa",
     "Unfriend": "Epäystävällinen",
-    "Block-User": "Estä käyttäjä"
+    "Block-User": "Estä käyttäjä",
+    "Your-Email..": "Sähköpostisi..",
+    "General-Conditions-Of-Use": "Yleiset käyttöehdot",
+    "Help-Community": "Auta yhteisöä"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Luo video-soittolista",
     "Create-video-PT": "Luo video",
     "choose-creation": "Valitse luomuksesi!",
-    "choose-creation-d": "Tästä tilasta voit luoda kaikki alustalla mahdolliset luomukset"
+    "choose-creation-d": "Tästä tilasta voit luoda kaikki alustalla mahdolliset luomukset",
+    "Create-an-account": "Luo tili"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Registration": "Rekisteröinti",
     "Sign-up": "Kirjaudu",
     "accept-tou": "Vakuutan olevani 16-vuotias tai vanhempi ja hyväksyn käyttäjän sopimuksen ja tietosuojakäytännön",
-    "click-on-email": "Napsauta sähköpostilinkkiä"
+    "click-on-email": "Napsauta sähköpostilinkkiä",
+    "Sign-t-continu": "Kirjaudu jatkaaksesi!",
+    "Hello-Nice-t-meet-u": "Hei! Hauska tavata",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Anna sähköpostiosoitteesi salasanan palauttamiseksi",
+    "Send-email": "Lähetä postia"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Viimeisin projekti",
@@ -1019,7 +1027,8 @@
       "Responsability": "Vastuut",
       "Services": "Palvelut",
       "Site-management": "Sivun hallinta"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Ehkä annamme sinulle vihjeen siitä, miten ansaita miljoonia dollareita \"GTU: ssa\", joten käytä aikaa sen lukemiseen."
   },
   "THIS-IS": {
     "id-of-t-music": "Musiikkitunnuksesi"

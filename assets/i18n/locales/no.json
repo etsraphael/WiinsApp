@@ -275,7 +275,10 @@
     "Report-t-profile": "Rapporter profilen",
     "Unfollow": "Slutte å følge",
     "Unfriend": "Unfriend",
-    "Block-User": "Blokker bruker"
+    "Block-User": "Blokker bruker",
+    "Your-Email..": "Din epost..",
+    "General-Conditions-Of-Use": "Generelle bruksbetingelser",
+    "Help-Community": "Hjelpefellesskap"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Lag en videospilleliste",
     "Create-video-PT": "Lag en video",
     "choose-creation": "Velg din skapelse!",
-    "choose-creation-d": "Fra dette rommet kan du lage alle mulige kreasjoner på plattformen"
+    "choose-creation-d": "Fra dette rommet kan du lage alle mulige kreasjoner på plattformen",
+    "Create-an-account": "Opprett en konto"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Create-yr-account": "lag din konto",
     "Creating-yr-account": "Opprette kontoen din",
     "Login-first-to-continue": "Logg inn først for å fortsette",
-    "Checking-yr-infos": "Kontrollerer informasjonen din"
+    "Checking-yr-infos": "Kontrollerer informasjonen din",
+    "Sign-t-continu": "Signer for å fortsette!",
+    "Hello-Nice-t-meet-u": "Hallo! Hyggelig å møte deg",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Skriv inn e -postadressen din for å gjenopprette passordet ditt",
+    "Send-email": "Send e -post"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Siste prosjekt",
@@ -1019,7 +1027,8 @@
       "Responsability": "Ansvar",
       "Services": "Tjenester",
       "Site-management": "Webområdeadministrasjon"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Kanskje gir vi deg et tips om hvordan du tjener millioner av dollar i «GTU» vår, så ta deg tid til å lese den."
   },
   "THIS-IS": {
     "id-of-t-music": "Musikkidentifikatoren din"

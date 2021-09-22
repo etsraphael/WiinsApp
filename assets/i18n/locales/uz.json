@@ -275,7 +275,10 @@
     "Report-t-profile": "Profil haqida xabar bering",
     "Unfollow": "Obunani bekor qilish",
     "Unfriend": "Do'stlashmang",
-    "Block-User": "Foydalanuvchini bloklash"
+    "Block-User": "Foydalanuvchini bloklash",
+    "Your-Email..": "Sizning elektron manzilingiz..",
+    "General-Conditions-Of-Use": "Foydalanishning umumiy shartlari",
+    "Help-Community": "Yordam Jamiyati"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Video pleylist yarating",
     "Create-video-PT": "Video yarating",
     "choose-creation": "Yaratilishingizni tanlang!",
-    "choose-creation-d": "Ushbu maydondan siz platformada mumkin bo'lgan barcha asarlarni yaratishingiz mumkin"
+    "choose-creation-d": "Ushbu maydondan siz platformada mumkin bo'lgan barcha asarlarni yaratishingiz mumkin",
+    "Create-an-account": "Hisob ochish"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Registration": "Ro'yxatdan o'tish",
     "Sign-up": "Ro'yxatdan o'tish",
     "accept-tou": "Men 16 yoshga to'lganligimni tasdiqlayman va foydalanuvchi shartnomasi va maxfiylik siyosatiga roziman",
-    "click-on-email": "Iltimos, elektron pochta havolasini bosing"
+    "click-on-email": "Iltimos, elektron pochta havolasini bosing",
+    "Sign-t-continu": "Davom etish uchun imzolang!",
+    "Hello-Nice-t-meet-u": "Salom! Tanishganimdan xursandman",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Parolni tiklash uchun elektron pochta manzilingizni kiriting",
+    "Send-email": "Pochta yuborish"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Oxirgi loyiha",
@@ -1019,7 +1027,8 @@
       "Responsability": "Mas'uliyat",
       "Services": "Xizmatlar",
       "Site-management": "Saytlarni boshqarish"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Balki biz sizga \"GTU\" da qanday qilib millionlab dollar topish mumkinligi haqida maslahat beramiz, shuning uchun uni o'qishga vaqt ajrating."
   },
   "THIS-IS": {
     "id-of-t-music": "Sizning musiqa identifikatoringiz"

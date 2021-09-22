@@ -233,7 +233,10 @@
     "Report-t-profile": "Signaler le profil",
     "Unfollow": "Se désabonner",
     "Unfriend": "Un ami",
-    "Block-User": "Bloquer un utilisateur"
+    "Block-User": "Bloquer un utilisateur",
+    "Your-Email..": "Votre e-mail..",
+    "General-Conditions-Of-Use": "Conditions Générales d'Utilisation",
+    "Help-Community": "Communauté d'aide"
   },
   "COUNTRY": {
     "AD": "Andorre",
@@ -489,7 +492,8 @@
     "Create-video-P": "Créer une playlist de vidéo",
     "Create-video-PT": "Créer une video",
     "choose-creation": "Choisir votre création !",
-    "choose-creation-d": "Depuis cet espace, vous pouvez créer toute les créations possible sur la plateforme."
+    "choose-creation-d": "Depuis cet espace, vous pouvez créer toute les créations possible sur la plateforme.",
+    "Create-an-account": "Créer un compte"
   },
   "DATE": {
     "M": "M",
@@ -631,7 +635,11 @@
     "Create-yr-account": "Créez votre compte",
     "Creating-yr-account": "Création de votre compte",
     "Login-first-to-continue": "Connectez-vous d'abord pour continuer",
-    "Checking-yr-infos": "Vérifier vos infos"
+    "Checking-yr-infos": "Vérifier vos infos",
+    "Sign-t-continu": "Signez pour continuer !",
+    "Hello-Nice-t-meet-u": "Salut! Ravi de vous rencontrer",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Entrez votre adresse e-mail pour récupérer votre mot de passe",
+    "Send-email": "Envoyer un mail"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Derniers projet",
@@ -962,7 +970,8 @@
       "Responsability": "Responsabilités",
       "Services": "Services",
       "Site-management": "Gestion du site"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Peut-être que nous vous donnons une astuce pour gagner des millions de dollars dans nos « GTU », alors prenez le temps de le lire."
   },
   "THIS-IS": {
     "id-of-t-music": "L'identificateur de votre musique"

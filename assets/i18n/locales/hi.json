@@ -233,7 +233,10 @@
     "Report-t-profile": "प्रोफ़ाइल की रिपोर्ट करें",
     "Unfollow": "करें",
     "Unfriend": "unfriend",
-    "Block-User": "खंड उपयोगकर्ता"
+    "Block-User": "खंड उपयोगकर्ता",
+    "Your-Email..": "तुम्हारा ईमेल..",
+    "General-Conditions-Of-Use": "उपयोग की सामान्य शर्तें",
+    "Help-Community": "सहायता समुदाय"
   },
   "COUNTRY": {
     "AD": "एंडोरा",
@@ -489,7 +492,8 @@
     "Create-video-P": "एक वीडियो प्लेलिस्ट बनाएं",
     "Create-video-PT": "एक वीडियो बनाएं",
     "choose-creation": "अपनी रचना चुनें !",
-    "choose-creation-d": "इस स्थान से, आप मंच पर सभी कृतियों को संभव बना सकते हैं"
+    "choose-creation-d": "इस स्थान से, आप मंच पर सभी कृतियों को संभव बना सकते हैं",
+    "Create-an-account": "खाता बनाएं"
   },
   "DATE": {
     "M": "म",
@@ -631,7 +635,11 @@
     "Create-yr-account": "अपने खाते बनाएँ",
     "Creating-yr-account": "अपना खाता बनाना",
     "Login-first-to-continue": "जारी रखने के लिए सबसे पहले लॉगिन करें",
-    "Checking-yr-infos": "अपने infos की जाँच"
+    "Checking-yr-infos": "अपने infos की जाँच",
+    "Sign-t-continu": "जारी रखने के लिए साइन इन करें!",
+    "Hello-Nice-t-meet-u": "नमस्कार! आप से मिलकर अच्छा लगा",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "अपना पासवर्ड पुनर्प्राप्त करने के लिए अपना ईमेल पता दर्ज करें",
+    "Send-email": "मेल भेजे"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "लास्ट प्रोजेक्ट",
@@ -962,7 +970,8 @@
       "Responsability": "जिम्मेदारियों",
       "Services": "सेवाओं",
       "Site-management": "साइट प्रबंधन"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "हो सकता है कि हम आपको हमारे «जीटीयू» में लाखों डॉलर बनाने के बारे में एक टिप दें, इसलिए इसे पढ़ने के लिए समय निकालें।"
   },
   "THIS-IS": {
     "id-of-t-music": "आपका संगीत पहचानकर्ता"
