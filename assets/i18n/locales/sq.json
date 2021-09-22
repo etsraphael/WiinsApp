@@ -275,7 +275,10 @@
     "Report-t-profile": "Raporto profilin",
     "Unfollow": "Mos ndiq",
     "Unfriend": "Unfriend",
-    "Block-User": "Blloko përdoruesin"
+    "Block-User": "Blloko përdoruesin",
+    "Your-Email..": "Emaili juaj ..",
+    "General-Conditions-Of-Use": "Kushtet e Përgjithshme të Përdorimit",
+    "Help-Community": "Komuniteti i ndihmës"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Krijoni një listë dëgjimi për videot",
     "Create-video-PT": "Krijoni një video",
     "choose-creation": "Zgjidhni krijimin tuaj!",
-    "choose-creation-d": "Nga kjo hapësirë, ju mund të krijoni të gjitha krijimet e mundshme në platformë"
+    "choose-creation-d": "Nga kjo hapësirë, ju mund të krijoni të gjitha krijimet e mundshme në platformë",
+    "Create-an-account": "Krijo nje llogari"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Registration": "Regjistrimi",
     "Sign-up": "Regjistrohu",
     "accept-tou": "Unë vërtetoj se jam 16 vjeç ose më i vjetër dhe pajtohem me marrëveshjen e përdoruesit dhe politikën e privatësisë",
-    "click-on-email": "Ju lutemi klikoni në lidhjen e postës elektronike"
+    "click-on-email": "Ju lutemi klikoni në lidhjen e postës elektronike",
+    "Sign-t-continu": "Nënshkruani për të vazhduar!",
+    "Hello-Nice-t-meet-u": "Përshëndetje! Me pelqen te takoj",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Vendosni adresën tuaj të postës elektronike për rikuperimin e fjalëkalimit tuaj",
+    "Send-email": "Dërgo postë"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Projekti më i fundit",
@@ -1019,7 +1027,8 @@
       "Responsability": "Përgjegjësitë",
       "Services": "Shërbimet",
       "Site-management": "Menaxhimi i faqes"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Ndoshta ne ju japim një këshillë se si të fitoni miliona dollarë në \"GTU\" tonë, kështu që merrni kohë për ta lexuar atë."
   },
   "THIS-IS": {
     "id-of-t-music": "Identifikuesi juaj i muzikës"

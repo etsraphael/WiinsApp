@@ -14,13 +14,14 @@ import { bindActionCreators } from 'redux';
 import { Theme } from '../core/reusable/design';
 import { PrimaryGradientButton } from './../core/reusable/form'
 import { Sign } from '.';
+import I18n from '../../../assets/i18n/i18n';
 
 class HelpCommunity extends React.Component {
     render() {
         return (
             <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white' }}>
                 <Sign
-                    label="Help Community"
+                    label={I18n.t('CORE.Help-Community')}
                     onBackPress={() => this.props.navigation.goBack()}>
                     <View
                         behavior={Platform.OS === 'ios' ? 'padding' : null}
@@ -35,7 +36,7 @@ class HelpCommunity extends React.Component {
                             style={{ flex: 1 }}
                             bounces>
                             <Text style={styles.mainLargeText}>
-                                Welcome
+                                {I18n.t('CORE.Welcome')}
                             </Text>
                             <Text style={[styles.text, { marginTop: 10 }]}>
                                 « They did not know it was impossible so they did it » Mark Twain or Winston Churchill or Marcel Pagnol. We don't know but it's a good quote!
@@ -46,7 +47,7 @@ class HelpCommunity extends React.Component {
                             <View style={{ marginBottom: 87, marginTop: 87 }}>
                                 <PrimaryGradientButton
                                     onPress={() => Linking.openURL('https://discord.gg/bBE6xmR')}
-                                    text="Join us in this adventure"
+                                    text={I18n.t('TEMPORARY.Join-us-on-discord')}
                                 />
                             </View>
                         </ScrollView>

@@ -233,7 +233,10 @@
     "Report-t-profile": "프로필 신고",
     "Unfollow": "언 팔로우",
     "Unfriend": "친구 해제",
-    "Block-User": "사용자 차단"
+    "Block-User": "사용자 차단",
+    "Your-Email..": "귀하의 이메일..",
+    "General-Conditions-Of-Use": "일반 사용 조건",
+    "Help-Community": "도움말 커뮤니티"
   },
   "COUNTRY": {
     "AD": "안도라",
@@ -489,7 +492,8 @@
     "Create-video-P": "비디오 재생 목록 만들기",
     "Create-video-PT": "비디오 만들기",
     "choose-creation": "당신의 창조물을 선택하십시오 !",
-    "choose-creation-d": "이 공간에서 플랫폼에서 가능한 모든 작품을 만들 수 있습니다"
+    "choose-creation-d": "이 공간에서 플랫폼에서 가능한 모든 작품을 만들 수 있습니다",
+    "Create-an-account": "계정 만들기"
   },
   "DATE": {
     "M": "미디엄",
@@ -631,7 +635,11 @@
     "Create-yr-account": "계정 생성",
     "Creating-yr-account": "계정 생성",
     "Login-first-to-continue": "계속하려면 먼저 로그인하세요.",
-    "Checking-yr-infos": "정보 확인"
+    "Checking-yr-infos": "정보 확인",
+    "Sign-t-continu": "계속하려면 서명하세요!",
+    "Hello-Nice-t-meet-u": "여보세요! 만나서 반가워",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "비밀번호 복구를 위해 이메일 주소를 입력하세요",
+    "Send-email": "메일을 보내다"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "가장 마지막 프로젝트",
@@ -962,7 +970,8 @@
       "Responsability": "책임",
       "Services": "서비스",
       "Site-management": "사이트 관리"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "« GTU »로 수백만 달러를 버는 방법에 대한 팁을 제공할 수 있으므로 시간을 내어 읽어보세요."
   },
   "THIS-IS": {
     "id-of-t-music": "음악 식별자"

@@ -275,7 +275,10 @@
     "Report-t-profile": "Profili bildirin",
     "Unfollow": "Takibi bırak",
     "Unfriend": "Arkadaşlıktan Çıkar",
-    "Block-User": "Kullanıcıyı engelle"
+    "Block-User": "Kullanıcıyı engelle",
+    "Your-Email..": "E-posta adresiniz..",
+    "General-Conditions-Of-Use": "Genel Kullanım Koşulları",
+    "Help-Community": "Yardım Topluluğu"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Bir video oynatma listesi oluşturun",
     "Create-video-PT": "Bir video oluşturun",
     "choose-creation": "Yaratıcılığınızı seçin!",
-    "choose-creation-d": "Bu alandan, platformda mümkün olan tüm kreasyonları oluşturabilirsiniz."
+    "choose-creation-d": "Bu alandan, platformda mümkün olan tüm kreasyonları oluşturabilirsiniz.",
+    "Create-an-account": "Bir hesap oluşturun"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Create-yr-account": "hesabını oluştur",
     "Creating-yr-account": "Hesabınız oluşturuluyor",
     "Login-first-to-continue": "Devam etmek için önce giriş yapın",
-    "Checking-yr-infos": "Bilgilerinizi kontrol etme"
+    "Checking-yr-infos": "Bilgilerinizi kontrol etme",
+    "Sign-t-continu": "Devam etmek için imzalayın!",
+    "Hello-Nice-t-meet-u": "Merhaba! Tanıştığımıza memnun oldum",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Şifrenizi kurtarmak için e-posta adresinizi girin",
+    "Send-email": "Posta göndermek"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "En son proje",
@@ -1019,7 +1027,8 @@
       "Responsability": "Sorumlulukları",
       "Services": "Hizmetler",
       "Site-management": "Site yönetimi"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Belki size « GTU »muzdan nasıl milyonlarca dolar kazanacağınıza dair bir ipucu verebiliriz, bu yüzden okumak için zaman ayırın."
   },
   "THIS-IS": {
     "id-of-t-music": "Müzik tanımlayıcınız"

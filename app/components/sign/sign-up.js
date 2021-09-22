@@ -161,7 +161,7 @@ class SignUp extends React.Component {
         return (
             <View style={{ flex: 1 }}>
                 <Sign
-                    label='Create an account'
+                    label={I18n.t('CREATION.Create-an-account')}   
                     navigation={this.props.navigation}>
                     <View style={styles.containerSign}>
                         <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false} bounces>
@@ -169,16 +169,16 @@ class SignUp extends React.Component {
                                 {() => (
                                     <>
                                         <Text style={styles.mainLargeText}>
-                                            Welcome
+                                            {I18n.t('CORE.Welcome')}
                                         </Text>
                                         <Text style={styles.subText}>
-                                            Hello! Nice to meet you new Wiinser
+                                            {I18n.t('LOGIN-REGISTRER.Hello-Nice-t-meet-u')}
                                         </Text>
                                         <View style={{ marginTop: 48 }}>
                                             <StandardInput
                                                 boxStyle={styles.inputBox}
-                                                label='Pseudo'
-                                                placeholder='Enter your pseudo'
+                                                label={I18n.t('PROFILE.Pseudo')}
+                                                placeholder={I18n.t('CORE.Your-Pseudo..')}
                                                 flag={this.checkIfFlagged(PSEUDO)}
                                                 returnKeyType='next'
                                                 onSubmitEditing={() => this.emailField.focus()}
@@ -188,8 +188,8 @@ class SignUp extends React.Component {
                                             <StandardInput
                                                 inputRef={ref => this.emailField = ref}
                                                 boxStyle={styles.inputBox}
-                                                label='Email'
-                                                placeholder='Enter your email'
+                                                label={I18n.t('PROFILE.Email')}
+                                                placeholder={I18n.t('CORE.Your-Email..')}
                                                 flag={this.checkIfFlagged(EMAIL)}
                                                 returnKeyType='next'
                                                 onSubmitEditing={() => this.pwdOneField.focus()}
@@ -199,8 +199,8 @@ class SignUp extends React.Component {
                                             <StandardInputPassword
                                                 inputRef={ref => this.pwdOneField = ref}
                                                 boxStyle={styles.inputBox}
-                                                label='Password'
-                                                placeholder='Enter your password'
+                                                label={I18n.t('CORE.Password')}
+                                                placeholder={I18n.t('CORE.Your-Password..')}
                                                 flag={this.checkIfFlagged(PASSWORD)}
                                                 returnKeyType='next'
                                                 onSubmitEditing={() => this.pwdTwoField.focus()}
@@ -209,8 +209,8 @@ class SignUp extends React.Component {
                                             <StandardInputPassword
                                                 inputRef={ref => this.pwdTwoField = ref}
                                                 boxStyle={styles.inputBox}
-                                                label='Confirm your password'
-                                                placeholder='Enter your password'
+                                                label={I18n.t('PLACEHOLDER.Confirm-your-password')}
+                                                placeholder={I18n.t('CORE.Your-Password..')}
                                                 flag={this.checkIfFlagged(CONFIRM_PASSWORD)}
                                                 returnKeyType='done'
                                                 onChangeText={val => this.handleInput(val, CONFIRM_PASSWORD)}
@@ -232,14 +232,12 @@ class SignUp extends React.Component {
                                                 <Text
                                                     onPress={this.goToUseOfCondition}
                                                     style={styles.termsLabel}>
-                                                    I certify that I am 16 years or older
-                                                    and I accept the user agreement and the
-                                                    privacy policy
+                                                        {I18n.t('LOGIN-REGISTRER.accept-tou')}
                                                 </Text>
                                             </View>
                                             <View style={{ marginBottom: 165 }}>
                                                 <PrimaryGradientButton
-                                                    text='Create an account'
+                                                    text={I18n.t('CREATION.Create-an-account')}
                                                     style={styles.createButton}
                                                     onPress={() => this._register()}
                                                 />

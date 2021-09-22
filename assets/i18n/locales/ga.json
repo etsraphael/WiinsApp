@@ -275,7 +275,10 @@
     "Report-t-profile": "Tuairiscigh an phróifíl",
     "Unfollow": "Unollow",
     "Unfriend": "Neamhchara",
-    "Block-User": "Úsáideoir Bloc"
+    "Block-User": "Úsáideoir Bloc",
+    "Your-Email..": "Do r-phost..",
+    "General-Conditions-Of-Use": "Coinníollacha Úsáide Ginearálta",
+    "Help-Community": "Cuidigh leis an bPobal"
   },
   "COUNTRY": {
     "AD": "Andóra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Cruthaigh seinmliosta físe",
     "Create-video-PT": "Cruthaigh físeán",
     "choose-creation": "Roghnaigh do chruthú!",
-    "choose-creation-d": "Ón spás seo, is féidir leat na bunú go léir is féidir a chruthú ar an ardán"
+    "choose-creation-d": "Ón spás seo, is féidir leat na bunú go léir is féidir a chruthú ar an ardán",
+    "Create-an-account": "Cruthaigh cuntas"
   },
   "DATE": {
     "M": "M.",
@@ -673,7 +677,11 @@
     "Registration": "Clárú",
     "Sign-up": "Clarú",
     "accept-tou": "Deimhním go bhfuil mé 16 bliana d’aois nó níos sine agus aontaím leis an gcomhaontú úsáideora agus leis an mbeartas príobháideachta",
-    "click-on-email": "Cliceáil ar an nasc ríomhphoist le do thoil"
+    "click-on-email": "Cliceáil ar an nasc ríomhphoist le do thoil",
+    "Sign-t-continu": "Sínigh chun leanúint ar aghaidh!",
+    "Hello-Nice-t-meet-u": "Dia dhuit! Go deas bualadh leat",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Cuir isteach do sheoladh ríomhphoist chun do phasfhocal a aisghabháil",
+    "Send-email": "Seol Ríomhphost"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "An tionscadal is déanaí",
@@ -1019,7 +1027,8 @@
       "Responsability": "Freagrachtaí",
       "Services": "Seirbhísí",
       "Site-management": "Bainistíocht láithreáin"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "B’fhéidir go dtabharfaimid barr duit ar conas na milliúin dollar a dhéanamh inár «GTU», mar sin glac do chuid ama chun é a léamh."
   },
   "THIS-IS": {
     "id-of-t-music": "Aitheantóir ceoil"

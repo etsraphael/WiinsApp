@@ -275,7 +275,10 @@
     "Report-t-profile": "Prijavi profil",
     "Unfollow": "Prestani pratiti",
     "Unfriend": "Neprijatelj",
-    "Block-User": "Blokirati korisnika"
+    "Block-User": "Blokirati korisnika",
+    "Your-Email..": "Tvoj email..",
+    "General-Conditions-Of-Use": "Opći uvjeti korištenja",
+    "Help-Community": "Zajednica za pomoć"
   },
   "COUNTRY": {
     "AD": "Andora",
@@ -531,7 +534,8 @@
     "Create-video-P": "Stvorite popis za reprodukciju videozapisa",
     "Create-video-PT": "Stvorite video",
     "choose-creation": "Odaberite svoju kreaciju!",
-    "choose-creation-d": "Iz ovog prostora možete stvoriti sve moguće kreacije na platformi"
+    "choose-creation-d": "Iz ovog prostora možete stvoriti sve moguće kreacije na platformi",
+    "Create-an-account": "Stvorite račun"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Registration": "Registracija",
     "Sign-up": "Prijavite se",
     "accept-tou": "Potvrđujem da imam 16 ili više godina i da se slažem s korisničkim ugovorom i pravilima o privatnosti",
-    "click-on-email": "Molimo kliknite vezu e-pošte"
+    "click-on-email": "Molimo kliknite vezu e-pošte",
+    "Sign-t-continu": "Potpišite se za nastavak!",
+    "Hello-Nice-t-meet-u": "Zdravo! Drago mi je",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Unesite svoju adresu e -pošte za oporavak lozinke",
+    "Send-email": "Poslati mail"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Najnoviji projekt",
@@ -1019,7 +1027,8 @@
       "Responsability": "Odgovornosti",
       "Services": "Usluge",
       "Site-management": "Upravljanje gradilištem"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Možda vam damo savjet kako zaraditi milijune dolara u našem «GTU -u», pa odvojite vrijeme da ga pročitate."
   },
   "THIS-IS": {
     "id-of-t-music": "Vaš glazbeni identifikator"

@@ -275,7 +275,10 @@
     "Report-t-profile": "Raportați profilul",
     "Unfollow": "Abandonați-vă",
     "Unfriend": "Prieten",
-    "Block-User": "Blocați utilizatorul"
+    "Block-User": "Blocați utilizatorul",
+    "Your-Email..": "Email-ul tau..",
+    "General-Conditions-Of-Use": "Condiții generale de utilizare",
+    "Help-Community": "Ajutați comunitatea"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Creați o listă de redare video",
     "Create-video-PT": "Creați un videoclip",
     "choose-creation": "Alege-ți creația!",
-    "choose-creation-d": "Din acest spațiu, puteți crea toate creațiile posibile pe platformă"
+    "choose-creation-d": "Din acest spațiu, puteți crea toate creațiile posibile pe platformă",
+    "Create-an-account": "Creează un cont"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Create-yr-account": "Creeaza-ti contul",
     "Creating-yr-account": "Crearea contului dvs.",
     "Login-first-to-continue": "Conectați-vă mai întâi pentru a continua",
-    "Checking-yr-infos": "Verificarea informațiilor"
+    "Checking-yr-infos": "Verificarea informațiilor",
+    "Sign-t-continu": "Semnați pentru a continua!",
+    "Hello-Nice-t-meet-u": "Buna! Încântat de cunoștință",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Introduceți adresa de e-mail pentru recuperarea parolei",
+    "Send-email": "Trimiteți e-mail"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Ultimul proiect",
@@ -1019,7 +1027,8 @@
       "Responsability": "Responsabilități",
       "Services": "Servicii",
       "Site-management": "Managementul site-ului"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Poate vă oferim un sfat despre cum să câștigați milioane de dolari în „GTU”, așa că faceți-vă timp pentru ao citi."
   },
   "THIS-IS": {
     "id-of-t-music": "Identificatorul dvs. de muzică"

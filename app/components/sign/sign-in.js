@@ -102,7 +102,7 @@ class SignIn extends React.Component {
     render() {
         return (
             <KeyboardAvoidingView style={{ flex: 1, backgroundColor: 'white' }}>
-                <Sign label='Login' navigation={this.props.navigation}>
+                <Sign label={I18n.t('LOGIN-REGISTRER.Login')} navigation={this.props.navigation}>
                     <View
                         behavior={Platform.OS === 'ios' ? 'padding' : null}
                         keyboardVerticalOffset={0}
@@ -115,16 +115,16 @@ class SignIn extends React.Component {
                                 {() => (
                                     <>
                                         <Text style={styles.mainLargeText}>
-                                            Welcome Back
+                                           {I18n.t('CORE.Welcome')}
                                         </Text>
                                         <Text style={styles.subText}>
-                                            Hello Wiinser, sign to continue!
+                                            {I18n.t('LOGIN-REGISTRER.Sign-t-continu')}
                                         </Text>
                                         <View style={{ marginTop: 48 }}>
                                             <StandardInput
                                                 boxStyle={styles.inputBox}
                                                 label={I18n.t('LOGIN-REGISTRER.PseudoOrEmail')}
-                                                placeholder='Enter your pseudo'
+                                                placeholder={I18n.t('CORE.Your-Pseudo..')}
                                                 textContentType='username'
                                                 flag={this.checkIfFlagged(PSEUDO_EMAIL)}
                                                 returnKeyType='next'
@@ -136,7 +136,7 @@ class SignIn extends React.Component {
                                                 returnKeyType='done'
                                                 boxStyle={styles.inputBox}
                                                 label={I18n.t('CORE.Password')}
-                                                placeholder='Enter your password'
+                                                placeholder={I18n.t('CORE.Your-Password..')}
                                                 flag={this.checkIfFlagged(PASSWORD)}
                                                 onChangeText={val => this.handleInput(val, PASSWORD)}
                                             />
@@ -149,7 +149,7 @@ class SignIn extends React.Component {
                                                 </Text>
                                             </View>
                                             <PrimaryGradientButton
-                                                text='Sign in'
+                                                text={I18n.t('LOGIN-REGISTRER.Login')}
                                                 style={styles.createButton}
                                                 onPress={() => this._login()}
                                             />

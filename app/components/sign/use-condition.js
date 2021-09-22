@@ -7,6 +7,7 @@ import * as MyUserActions from '../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { Theme } from '../core/reusable/design'
 import { Sign } from '.'
+import I18n from '../../../assets/i18n/i18n';
 
 const ConditionsOfUse = {
     '1. Definition of the role of the GTU': [
@@ -27,14 +28,16 @@ class UseCondition extends React.Component {
     }
     render() {
         return (
-            <Sign label="General Conditions Of Use" onBackPress={this.goBack} style={{ flex: 1, backgroundColor: 'white' }}>
+            <Sign label={I18n.t('CORE.General-Conditions-Of-Use')} onBackPress={this.goBack} style={{ flex: 1, backgroundColor: 'white' }}>
                 <View
                     behavior={Platform.OS === "ios" ? "padding" : null}
                     keyboardVerticalOffset={0}
                     style={{ width: '100%', paddingHorizontal: 36, flex: 1 }}
                 >
                     <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }} bounces>
-                        <Text style={[styles.text, { marginTop: 36 }]}>Maybe we give you a tip on how to make millions of dollars in our « GTU », so take the time to read it.</Text>
+                        <Text style={[styles.text, { marginTop: 36 }]}>
+                            {I18n.t('TERMS-OF-USE.Maybe-w-give-u-a-tip')}
+                        </Text>
                         <View style={{ marginTop: 17, marginHorizontal: 22, marginBottom: 87 }}>
                             {
                                 Object.keys(ConditionsOfUse).map((k, i) => {

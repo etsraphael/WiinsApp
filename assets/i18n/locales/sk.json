@@ -275,7 +275,10 @@
     "Report-t-profile": "Nahlásiť profil",
     "Unfollow": "Zrušiť sledovanie",
     "Unfriend": "Nepriateľ",
-    "Block-User": "Blokovať používateľa"
+    "Block-User": "Blokovať používateľa",
+    "Your-Email..": "Tvoj email..",
+    "General-Conditions-Of-Use": "Všeobecné podmienky použitia",
+    "Help-Community": "Komunita pomoci"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Vytvorte zoznam videí",
     "Create-video-PT": "Vytvorte video",
     "choose-creation": "Vyberte si svoj výtvor!",
-    "choose-creation-d": "Z tohto priestoru môžete vytvárať všetky možné výtvory na platforme"
+    "choose-creation-d": "Z tohto priestoru môžete vytvárať všetky možné výtvory na platforme",
+    "Create-an-account": "Vytvoriť účet"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Create-yr-account": "Vytvor si účet",
     "Creating-yr-account": "Vytvára sa váš účet",
     "Login-first-to-continue": "Ak chcete pokračovať, najskôr sa prihláste",
-    "Checking-yr-infos": "Prebieha kontrola informácií"
+    "Checking-yr-infos": "Prebieha kontrola informácií",
+    "Sign-t-continu": "Pokračujte prihlásením!",
+    "Hello-Nice-t-meet-u": "Ahoj! Rád som ťa spoznal",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Zadajte svoju e -mailovú adresu na obnovenie hesla",
+    "Send-email": "Poslať mail"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Posledný projekt",
@@ -1019,7 +1027,8 @@
       "Responsability": "Zodpovednosti",
       "Services": "Služby",
       "Site-management": "Správa stránok"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Možno vám dáme tip, ako zarobiť milióny dolárov v našom «GTU», urobte si preto čas na jeho prečítanie."
   },
   "THIS-IS": {
     "id-of-t-music": "Váš hudobný identifikátor"

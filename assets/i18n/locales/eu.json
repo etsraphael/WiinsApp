@@ -275,7 +275,10 @@
     "Report-t-profile": "Profilaren berri eman",
     "Unfollow": "Utzi",
     "Unfriend": "Lagun gabea",
-    "Block-User": "Blokeatu erabiltzailea"
+    "Block-User": "Blokeatu erabiltzailea",
+    "Your-Email..": "Zure emaila..",
+    "General-Conditions-Of-Use": "Erabilera Baldintza Orokorrak",
+    "Help-Community": "Lagundu komunitateari"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Sortu bideo erreprodukzio zerrenda",
     "Create-video-PT": "Sortu bideo bat",
     "choose-creation": "Aukeratu zure sorkuntza!",
-    "choose-creation-d": "Espazio honetatik, plataforman ahalik eta sorkuntza guztiak sor ditzakezu"
+    "choose-creation-d": "Espazio honetatik, plataforman ahalik eta sorkuntza guztiak sor ditzakezu",
+    "Create-an-account": "Kontu bat sortu"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Create-yr-account": "Sortu zure kontua",
     "Creating-yr-account": "Zure kontua sortzen",
     "Login-first-to-continue": "Hasi saioa lehenbailehen jarraitzeko",
-    "Checking-yr-infos": "Zure informazioa egiaztatzen"
+    "Checking-yr-infos": "Zure informazioa egiaztatzen",
+    "Sign-t-continu": "Jarraitu sinatzeko!",
+    "Hello-Nice-t-meet-u": "Kaixo! Urte askotarako",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Idatzi zure helbide elektronikoa pasahitza berreskuratzeko",
+    "Send-email": "Bidali posta"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Azken proiektua",
@@ -1019,7 +1027,8 @@
       "Responsability": "Erantzukizunak",
       "Services": "Zerbitzuak",
       "Site-management": "Gunearen kudeaketa"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Agian milioika dolar irabazteko aholkua emango dizugu gure «GTU» n, beraz, hartu denbora irakurtzeko."
   },
   "THIS-IS": {
     "id-of-t-music": "Zure musika identifikatzailea"

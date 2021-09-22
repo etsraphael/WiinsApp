@@ -233,7 +233,10 @@
     "Report-t-profile": "报告个人资料",
     "Unfollow": "取消关注",
     "Unfriend": "取消交友",
-    "Block-User": "阻止用户"
+    "Block-User": "阻止用户",
+    "Your-Email..": "你的邮件..",
+    "General-Conditions-Of-Use": "一般使用条件",
+    "Help-Community": "帮助社区"
   },
   "COUNTRY": {
     "AD": "安道尔",
@@ -489,7 +492,8 @@
     "Create-video-P": "创建视频播放列表",
     "Create-video-PT": "制作视频",
     "choose-creation": "选择您的作品 ！",
-    "choose-creation-d": "在这个空间中，您可以在平台上创建所有可能的创作"
+    "choose-creation-d": "在这个空间中，您可以在平台上创建所有可能的创作",
+    "Create-an-account": "创建一个帐户"
   },
   "DATE": {
     "M": "中号",
@@ -631,7 +635,11 @@
     "Create-yr-account": "创建您的帐户",
     "Creating-yr-account": "建立您的帐户",
     "Login-first-to-continue": "首先登录以继续",
-    "Checking-yr-infos": "检查您的信息"
+    "Checking-yr-infos": "检查您的信息",
+    "Sign-t-continu": "签到继续！",
+    "Hello-Nice-t-meet-u": "你好！很高兴见到你",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "输入您的电子邮件地址以找回密码",
+    "Send-email": "发邮件"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "最近的项目",
@@ -962,7 +970,8 @@
       "Responsability": "责任",
       "Services": "服务",
       "Site-management": "站点管理"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "也许我们会为您提供有关如何在我们的“GTU”中赚取数百万美元的提示，因此请花点时间阅读它。"
   },
   "THIS-IS": {
     "id-of-t-music": "您的音乐标识符"

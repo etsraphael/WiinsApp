@@ -275,7 +275,10 @@
     "Report-t-profile": "Báo cáo hồ sơ",
     "Unfollow": "Bỏ theo dõi",
     "Unfriend": "Hủy kết bạn",
-    "Block-User": "Chặn người dùng"
+    "Block-User": "Chặn người dùng",
+    "Your-Email..": "Email của bạn..",
+    "General-Conditions-Of-Use": "Điều kiện sử dụng chung",
+    "Help-Community": "Cộng đồng trợ giúp"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Tạo danh sách phát video",
     "Create-video-PT": "Tạo video",
     "choose-creation": "Chọn sáng tạo của bạn!",
-    "choose-creation-d": "Từ không gian này, bạn có thể tạo tất cả các sáng tạo có thể trên nền tảng"
+    "choose-creation-d": "Từ không gian này, bạn có thể tạo tất cả các sáng tạo có thể trên nền tảng",
+    "Create-an-account": "Tạo một tài khoản"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Registration": "Đăng ký",
     "Sign-up": "Đăng ký",
     "accept-tou": "Tôi xác nhận rằng tôi từ 16 tuổi trở lên và tôi đồng ý với thỏa thuận người dùng và chính sách bảo mật",
-    "click-on-email": "Vui lòng nhấp vào liên kết email"
+    "click-on-email": "Vui lòng nhấp vào liên kết email",
+    "Sign-t-continu": "Đăng ký để tiếp tục!",
+    "Hello-Nice-t-meet-u": "Xin chào! Hân hạnh được biết bạn",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Nhập địa chỉ email của bạn để khôi phục mật khẩu của bạn",
+    "Send-email": "Gửi thư"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Dự án mới nhất",
@@ -1019,7 +1027,8 @@
       "Responsability": "Trách nhiệm",
       "Services": "Dịch vụ",
       "Site-management": "Quản lý trang web"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Có thể chúng tôi cung cấp cho bạn mẹo về cách kiếm hàng triệu đô la trong «GTU» của chúng tôi, vì vậy hãy dành thời gian đọc nó."
   },
   "THIS-IS": {
     "id-of-t-music": "Mã nhận dạng âm nhạc của bạn"

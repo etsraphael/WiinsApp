@@ -233,7 +233,10 @@
     "Report-t-profile": "プロファイルを報告する",
     "Unfollow": "フォロー解除",
     "Unfriend": "友達を外す",
-    "Block-User": "ユーザをブロックする"
+    "Block-User": "ユーザをブロックする",
+    "Your-Email..": "あなたのメールアドレス。",
+    "General-Conditions-Of-Use": "一般的な使用条件",
+    "Help-Community": "ヘルプコミュニティ"
   },
   "COUNTRY": {
     "AD": "アンドラ",
@@ -489,7 +492,8 @@
     "Create-video-P": "ビデオプレイリストを作成する",
     "Create-video-PT": "ビデオを作成する",
     "choose-creation": "あなたの作成を選択してください ！",
-    "choose-creation-d": "このスペースから、プラットフォーム上で可能なすべての作成物を作成できます"
+    "choose-creation-d": "このスペースから、プラットフォーム上で可能なすべての作成物を作成できます",
+    "Create-an-account": "アカウントを作成する"
   },
   "DATE": {
     "M": "M",
@@ -631,7 +635,11 @@
     "Create-yr-account": "アカウントを作成",
     "Creating-yr-account": "アカウントの作成",
     "Login-first-to-continue": "最初にログインして続行します",
-    "Checking-yr-infos": "あなたの情報をチェックする"
+    "Checking-yr-infos": "あなたの情報をチェックする",
+    "Sign-t-continu": "続行するには署名してください。",
+    "Hello-Nice-t-meet-u": "こんにちは！会えて嬉しい",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "パスワードを回復するためのメールアドレスを入力してください",
+    "Send-email": "メールを送る"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "最後のプロジェクト",
@@ -962,7 +970,8 @@
       "Responsability": "責任",
       "Services": "サービス",
       "Site-management": "サイト管理"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "«GTU»で数百万ドルを稼ぐ方法のヒントを教えてくれるかもしれませんので、時間をかけて読んでください。"
   },
   "THIS-IS": {
     "id-of-t-music": "音楽識別子"

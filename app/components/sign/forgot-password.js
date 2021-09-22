@@ -72,7 +72,7 @@ class ForgotPassword extends React.Component {
                 style={{ flex: 1, backgroundColor: 'white' }}
             >
                 <Sign
-                    label='Forgot Password'
+                    label={I18n.t('LOGIN-REGISTRER.ForgotPassword')}
                     onBackPress={() => this.props.navigation.goBack()}
                 >
                     <View style={{ flex: 1, position: 'relative' }}>
@@ -85,15 +85,17 @@ class ForgotPassword extends React.Component {
                                 <View style={{ paddingTop: 48, alignItems: 'center' }}>
                                     <Cadena />
                                 </View>
-                                <Text style={[styles.text, { marginTop: 36 }]}>Enter your email address for recovery of your password.</Text>
+                                <Text style={[styles.text, { marginTop: 36 }]}>
+                                    {I18n.t('LOGIN-REGISTRER.Enter-yr-email-address-for-recovery-of-yr-password')}
+                                </Text>
                                 <StandardInput
                                     style={{ marginTop: 16 }}
-                                    placeholder='Enter your email'
+                                    placeholder={I18n.t('CORE.Your-Email..')}
                                     flag={this.checkIfFlagged(EMAIL)}
                                     onChangeText={(val) => this.handleInput(val, EMAIL)}
                                 />
-                                <View style={{ marginTop: 43 }}>
-                                    <PrimaryGradientButton text='Send Mail' onPress={this.forgotPassword} />
+                                <View style={{ marginTop: 43 }}>   
+                                    <PrimaryGradientButton text={I18n.t('LOGIN-REGISTRER.Send-email')} onPress={this.forgotPassword} />
                                 </View>
                             </ScrollView>
                         </KeyboardAvoidingView>

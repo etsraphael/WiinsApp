@@ -275,7 +275,10 @@
     "Report-t-profile": "Zgłoś profil",
     "Unfollow": "Przestań obserwować",
     "Unfriend": "Nieprzyjaciel",
-    "Block-User": "Zablokować użytkownika"
+    "Block-User": "Zablokować użytkownika",
+    "Your-Email..": "Twój email..",
+    "General-Conditions-Of-Use": "Ogólne warunki użytkowania",
+    "Help-Community": "Pomoc Społeczność"
   },
   "COUNTRY": {
     "AD": "Andora",
@@ -531,7 +534,8 @@
     "Create-video-P": "Utwórz listę odtwarzania wideo",
     "Create-video-PT": "Utwórz film",
     "choose-creation": "Wybierz swoje dzieło!",
-    "choose-creation-d": "Z tej przestrzeni możesz tworzyć wszystkie możliwe kreacje na platformie"
+    "choose-creation-d": "Z tej przestrzeni możesz tworzyć wszystkie możliwe kreacje na platformie",
+    "Create-an-account": "Utwórz konto"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Create-yr-account": "Utwórz swoje konto",
     "Creating-yr-account": "Tworzenie Twojego konta",
     "Login-first-to-continue": "Zaloguj się najpierw, aby kontynuować",
-    "Checking-yr-infos": "Sprawdzam Twoje informacje"
+    "Checking-yr-infos": "Sprawdzam Twoje informacje",
+    "Sign-t-continu": "Zarejestruj się, aby kontynuować!",
+    "Hello-Nice-t-meet-u": "Cześć! Miło mi cię poznać",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Wpisz swój adres e-mail w celu odzyskania hasła",
+    "Send-email": "Wyślij maila"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Ostatni projekt",
@@ -1019,7 +1027,8 @@
       "Responsability": "Obowiązki",
       "Services": "Usługi",
       "Site-management": "Zarządzanie witryną"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Może damy Ci wskazówkę, jak zarobić miliony dolarów w naszym „GTU”, więc poświęć trochę czasu na przeczytanie tego."
   },
   "THIS-IS": {
     "id-of-t-music": "Twój identyfikator muzyki"

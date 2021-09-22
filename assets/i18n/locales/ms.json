@@ -275,7 +275,10 @@
     "Report-t-profile": "Laporkan profil",
     "Unfollow": "Berhenti mengikut",
     "Unfriend": "Tidak berteman",
-    "Block-User": "Sekat Pengguna"
+    "Block-User": "Sekat Pengguna",
+    "Your-Email..": "Emel anda..",
+    "General-Conditions-Of-Use": "Syarat Umum Penggunaan",
+    "Help-Community": "Tolong Komuniti"
   },
   "COUNTRY": {
     "AD": "Andorra",
@@ -531,7 +534,8 @@
     "Create-video-P": "Buat senarai main video",
     "Create-video-PT": "Buat video",
     "choose-creation": "Pilih ciptaan anda!",
-    "choose-creation-d": "Dari ruang ini, anda boleh membuat semua ciptaan yang mungkin di platform"
+    "choose-creation-d": "Dari ruang ini, anda boleh membuat semua ciptaan yang mungkin di platform",
+    "Create-an-account": "Buat akaun"
   },
   "DATE": {
     "M": "M",
@@ -673,7 +677,11 @@
     "Registration": "Pendaftaran",
     "Sign-up": "Mendaftar",
     "accept-tou": "Saya mengesahkan bahawa saya berumur 16 tahun ke atas dan saya bersetuju dengan perjanjian pengguna dan dasar privasi",
-    "click-on-email": "Sila klik pada pautan e-mel"
+    "click-on-email": "Sila klik pada pautan e-mel",
+    "Sign-t-continu": "Masuk untuk meneruskan!",
+    "Hello-Nice-t-meet-u": "Helo! Senang berjumpa dengan anda",
+    "Enter-yr-email-address-for-recovery-of-yr-password": "Masukkan alamat e-mel anda untuk mendapatkan semula kata laluan anda",
+    "Send-email": "Hantar surat"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Projek terakhir",
@@ -1019,7 +1027,8 @@
       "Responsability": "Tanggungjawab",
       "Services": "Perkhidmatan",
       "Site-management": "Pengurusan laman web"
-    }
+    },
+    "Maybe-w-give-u-a-tip": "Mungkin kami memberi anda petua tentang bagaimana menjana berjuta-juta dolar dalam «GTU» kami, jadi luangkan masa untuk membacanya."
   },
   "THIS-IS": {
     "id-of-t-music": "Pengecam muzik anda"
