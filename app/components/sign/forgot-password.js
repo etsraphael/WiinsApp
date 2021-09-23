@@ -67,7 +67,7 @@ class ForgotPassword extends React.Component {
                 </Text>
                 <StandardInput
                     style={{ marginTop: 16 }}
-                    placeholder={I18n.t('CORE.Your-Email..')}
+                    placeholder={I18n.t('PLACEHOLDER.Your-Email')}
                     flag={this.checkIfFlagged(EMAIL)}
                     onChangeText={(val) => this.handleInput(val, EMAIL)}
                 />

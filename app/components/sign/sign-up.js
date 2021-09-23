@@ -178,7 +178,7 @@ class SignUp extends React.Component {
                                             <StandardInput
                                                 boxStyle={styles.inputBox}
                                                 label={I18n.t('PROFILE.Pseudo')}
-                                                placeholder={I18n.t('CORE.Your-Pseudo..')}
+                                                placeholder={I18n.t('PLACEHOLDER.Your-Pseudo')}
                                                 flag={this.checkIfFlagged(PSEUDO)}
                                                 returnKeyType='next'
                                                 onSubmitEditing={() => this.emailField.focus()}
@@ -189,7 +189,7 @@ class SignUp extends React.Component {
                                                 inputRef={ref => this.emailField = ref}
                                                 boxStyle={styles.inputBox}
                                                 label={I18n.t('PROFILE.Email')}
-                                                placeholder={I18n.t('CORE.Your-Email..')}
+                                                placeholder={I18n.t('PLACEHOLDER.Your-Email')}
                                                 flag={this.checkIfFlagged(EMAIL)}
                                                 returnKeyType='next'
                                                 onSubmitEditing={() => this.pwdOneField.focus()}
@@ -200,7 +200,7 @@ class SignUp extends React.Component {
                                                 inputRef={ref => this.pwdOneField = ref}
                                                 boxStyle={styles.inputBox}
                                                 label={I18n.t('CORE.Password')}
-                                                placeholder={I18n.t('CORE.Your-Password..')}
+                                                placeholder={I18n.t('PLACEHOLDER.Your-Password')}
                                                 flag={this.checkIfFlagged(PASSWORD)}
                                                 returnKeyType='next'
                                                 onSubmitEditing={() => this.pwdTwoField.focus()}
@@ -210,7 +210,7 @@ class SignUp extends React.Component {
                                                 inputRef={ref => this.pwdTwoField = ref}
                                                 boxStyle={styles.inputBox}
                                                 label={I18n.t('PLACEHOLDER.Confirm-your-password')}
-                                                placeholder={I18n.t('CORE.Your-Password..')}
+                                                placeholder={I18n.t('PLACEHOLDER.Your-Password')}
                                                 flag={this.checkIfFlagged(CONFIRM_PASSWORD)}
                                                 returnKeyType='done'
                                                 onChangeText={val => this.handleInput(val, CONFIRM_PASSWORD)}

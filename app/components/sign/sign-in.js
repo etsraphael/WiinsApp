@@ -115,7 +115,7 @@ class SignIn extends React.Component {
                                 {() => (
                                     <>
                                         <Text style={styles.mainLargeText}>
-                                           {I18n.t('CORE.Welcome')}
+                                            {I18n.t('CORE.Welcome')}
                                         </Text>
                                         <Text style={styles.subText}>
                                             {I18n.t('LOGIN-REGISTRER.Sign-t-continu')}
@@ -124,7 +124,7 @@ class SignIn extends React.Component {
                                             <StandardInput
                                                 boxStyle={styles.inputBox}
                                                 label={I18n.t('LOGIN-REGISTRER.PseudoOrEmail')}
-                                                placeholder={I18n.t('CORE.Your-Pseudo..')}
+                                                placeholder={I18n.t('PLACEHOLDER.Your-Pseudo')}
                                                 textContentType='username'
                                                 flag={this.checkIfFlagged(PSEUDO_EMAIL)}
                                                 returnKeyType='next'
@@ -136,7 +136,7 @@ class SignIn extends React.Component {
                                                 returnKeyType='done'
                                                 boxStyle={styles.inputBox}
                                                 label={I18n.t('CORE.Password')}
-                                                placeholder={I18n.t('CORE.Your-Password..')}
+                                                placeholder={I18n.t('PLACEHOLDER.Your-Password')}
                                                 flag={this.checkIfFlagged(PASSWORD)}
                                                 onChangeText={val => this.handleInput(val, PASSWORD)}
                                             />
