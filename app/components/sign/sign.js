@@ -10,6 +10,10 @@ import { getStatusBarHeight } from 'react-native-iphone-x-helper'
 
 class Sign extends React.Component {
 
+     componentDidMount(){
+          this.props.actions.resetUserConnected()
+     }
+
      _displayLoading() {
           return (
                <View style={styles.loading_container}>

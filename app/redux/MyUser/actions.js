@@ -2,6 +2,25 @@ import * as ActionTypes from './constants'
 import AsyncStorage from '@react-native-community/async-storage';
 import { sendError } from './../../../app/services/error/error-service'
 import { sendTokenDevice } from './../../services/notification/token-service'
+import Snackbar from 'react-native-snackbar'
+import I18n from '../../../assets/i18n/i18n';
+
+export function resetUserConnected() {
+    return { type: ActionTypes.RESET_USER_CONNECTED }
+}
+
+export function forgotPasswordSendSuccess() {
+    return { type: ActionTypes.FORGOT_PASSWORD_SEND_SUCCESS }
+}
+
+export function forgotPasswordSendStart() {
+    return { type: ActionTypes.FORGOT_PASSWORD_SEND }
+}
+
+export function forgotPasswordSendFail() {
+    Snackbar.show({ text: I18n.t('ERROR-MESSAGE.Email-invalid'), duration: Snackbar.LENGTH_LONG })
+    return { type: ActionTypes.FORGOT_PASSWORD_SEND_FAIL }
+}
 
 export function loginSuccess(user) {
     return {
@@ -43,12 +62,12 @@ export function logOutAction() {
     return { type: ActionTypes.LOGOUT }
 }
 
-export function setUpLanguage(payload){
+export function setUpLanguage(payload) {
     return { type: ActionTypes.SET_UP_LANGUAGE_CONFIG, payload }
 }
 
 export function setUpLanguageActions(lgCode) {
-    return (dispatch) => dispatch(setUpLanguage(lgCode)) 
+    return (dispatch) => dispatch(setUpLanguage(lgCode))
 }
 
 
@@ -62,7 +81,7 @@ export function login(email, password) {
                 body: JSON.stringify({ email, password })
             })
                 .then((response) => response.json())
-                .then( async (response) => {
+                .then(async (response) => {
                     if (response.status == 200) {
                         await AsyncStorage.setItem('userToken', response.token)
                         await sendTokenDevice()
@@ -84,7 +103,7 @@ export function register(user, userDetail) {
             return fetch('https://wiins-backend.herokuapp.com/auth/signup/validation-pseudo', {
                 method: 'POST',
                 headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-                body: JSON.stringify({user, userDetail})
+                body: JSON.stringify({ user, userDetail })
             })
                 .then((response) => response.json())
                 .then(response => {
@@ -94,6 +113,29 @@ export function register(user, userDetail) {
         } catch (error) {
             sendError(error)
             return dispatch(loginFail(error))
+        }
+    }
+}
+
+export function forgotPasswordSend(email) {
+    return async (dispatch) => {
+        try {
+
+            dispatch(forgotPasswordSendStart())
+
+            return fetch('https://wiins-backend.herokuapp.com/auth/passwordForgot', {
+                method: 'POST',
+                headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email })
+            })
+                .then((response) => response.json())
+                .then(response => {
+                    if (response.status == 200) return dispatch(forgotPasswordSendSuccess())
+                    else return dispatch(forgotPasswordSendFail(response.message))
+                })
+        } catch (error) {
+            sendError(error)
+            return dispatch(forgotPasswordSendFail())
         }
     }
 }

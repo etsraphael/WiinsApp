@@ -3,6 +3,7 @@ import * as ActionTypes from './constants'
 
 export default MyUserReducer = (state = initialState, action) => {
   switch (action.type) {
+    case ActionTypes.FORGOT_PASSWORD_SEND:
     case ActionTypes.REGISTER:
     case ActionTypes.LOGIN: {
       return {
@@ -33,6 +34,13 @@ export default MyUserReducer = (state = initialState, action) => {
         message: action.message
       }
     }
+    case ActionTypes.FORGOT_PASSWORD_SEND_FAIL:
+    case ActionTypes.FORGOT_PASSWORD_SEND_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+      }     
+    }
     case ActionTypes.SET_UP_LANGUAGE_CONFIG: {
       return {
         ...state,
@@ -45,6 +53,7 @@ export default MyUserReducer = (state = initialState, action) => {
         }
       }
     }
+    case ActionTypes.RESET_USER_CONNECTED:
     case ActionTypes.LOGOUT: return initialState
     default: return state
   }

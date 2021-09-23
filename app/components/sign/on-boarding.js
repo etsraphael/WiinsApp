@@ -23,7 +23,7 @@ class OnBoarding extends React.Component {
             <>
                 <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
                 <WGradient style={styles.backgroundImage}>
-                    <View style={{ flex: 1, flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-end', padding: 31, paddingBottom: 10 }}>
+                    <View style={styles.signContainer}>
                         <View style={styles.onboardingBox}>
                             <Image
                                 source={require('../../../assets/image/icon/icon-brand.png')}
@@ -57,6 +57,14 @@ class OnBoarding extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    signContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        padding: 31,
+        paddingBottom: 10
+    },
     backgroundImage: {
         flex: 1,
     },

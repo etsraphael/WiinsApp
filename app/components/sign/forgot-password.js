@@ -15,7 +15,6 @@ import Snackbar from 'react-native-snackbar'
 import I18n from '../../../assets/i18n/i18n';
 
 const EMAIL = 'email'
-
 class ForgotPassword extends React.Component {
     constructor(props) {
         super(props)
@@ -62,8 +61,13 @@ class ForgotPassword extends React.Component {
     }
 
     forgotPassword = () => {
-        if (!this.validationTrue())
-            return
+
+        return this.props.actions.forgotPasswordSend(this.state[EMAIL])
+
+
+
+        // if (!this.validationTrue())
+        //     return this.props.actions.login(this.state[EMAIL])
     }
 
     render() {
@@ -94,7 +98,7 @@ class ForgotPassword extends React.Component {
                                     flag={this.checkIfFlagged(EMAIL)}
                                     onChangeText={(val) => this.handleInput(val, EMAIL)}
                                 />
-                                <View style={{ marginTop: 43 }}>   
+                                <View style={{ marginTop: 43 }}>
                                     <PrimaryGradientButton text={I18n.t('LOGIN-REGISTRER.Send-email')} onPress={this.forgotPassword} />
                                 </View>
                             </ScrollView>
@@ -108,7 +112,9 @@ class ForgotPassword extends React.Component {
 
 const styles = StyleSheet.create({
     containerKeyBoard: {
-        width: '100%', paddingHorizontal: 36, flex: 1
+        width: '100%',
+        paddingHorizontal: 36,
+        flex: 1
     },
     mainLargeText: {
         color: '#002251',
