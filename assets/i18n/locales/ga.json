@@ -681,7 +681,10 @@
     "Sign-t-continu": "Sínigh chun leanúint ar aghaidh!",
     "Hello-Nice-t-meet-u": "Dia dhuit! Go deas bualadh leat",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Cuir isteach do sheoladh ríomhphoist chun do phasfhocal a aisghabháil",
-    "Send-email": "Seol Ríomhphost"
+    "Send-email": "Seol Ríomhphost",
+    "Email-adress-sent": "Seoladh ríomhphoist seolta",
+    "Checking-yr-mail": "Seiceáil do r-phost le do thoil. Ná bíodh aon leisce ort breathnú i do thurscar",
+    "": "Seiceáil do r-phost le do thoil. Ná bíodh aon leisce ort breathnú i do thurscar"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "An tionscadal is déanaí",

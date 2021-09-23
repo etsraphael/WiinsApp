@@ -681,7 +681,10 @@
     "Sign-t-continu": "Norėdami tęsti, pasirašykite!",
     "Hello-Nice-t-meet-u": "Sveiki! Malonu susipažinti",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Įveskite savo el. Pašto adresą, kad atkurtumėte slaptažodį",
-    "Send-email": "Išsiųsti laišką"
+    "Send-email": "Išsiųsti laišką",
+    "Email-adress-sent": "Pašto adresas išsiųstas",
+    "Checking-yr-mail": "Prašau, patikrink savo el. paštą. Nesivaržykite ieškoti savo šlamšto",
+    "": "Prašau, patikrink savo el. paštą. Nesivaržykite ieškoti savo šlamšto"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Naujausias projektas",

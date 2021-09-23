@@ -681,7 +681,10 @@
     "Sign-t-continu": "Pokračujte prihlásením!",
     "Hello-Nice-t-meet-u": "Ahoj! Rád som ťa spoznal",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Zadajte svoju e -mailovú adresu na obnovenie hesla",
-    "Send-email": "Poslať mail"
+    "Send-email": "Poslať mail",
+    "Email-adress-sent": "E -mailová adresa odoslaná",
+    "Checking-yr-mail": "Prosím, skontrolujte si email. Neváhajte sa pozrieť do svojho spamu",
+    "": "Prosím, skontrolujte si email. Neváhajte sa pozrieť do svojho spamu"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Posledný projekt",

@@ -681,7 +681,10 @@
     "Sign-t-continu": "Signera för att fortsätta!",
     "Hello-Nice-t-meet-u": "Hej! Trevligt att träffas",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Ange din e -postadress för att återställa ditt lösenord",
-    "Send-email": "Skicka brev"
+    "Send-email": "Skicka brev",
+    "Email-adress-sent": "E -postadress skickad",
+    "Checking-yr-mail": "Kontrollera din e-post. Tveka inte att titta i din skräppost",
+    "": "Kontrollera din e-post. Tveka inte att titta i din skräppost"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Senaste projektet",

@@ -681,7 +681,10 @@
     "Sign-t-continu": "Nënshkruani për të vazhduar!",
     "Hello-Nice-t-meet-u": "Përshëndetje! Me pelqen te takoj",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Vendosni adresën tuaj të postës elektronike për rikuperimin e fjalëkalimit tuaj",
-    "Send-email": "Dërgo postë"
+    "Send-email": "Dërgo postë",
+    "Email-adress-sent": "Adresa e postës elektronike u dërgua",
+    "Checking-yr-mail": "Ju lutem kontrolloni emailin tuaj. Mos hezitoni të shikoni në mesazhet tuaja të padëshiruara",
+    "": "Ju lutem kontrolloni emailin tuaj. Mos hezitoni të shikoni në mesazhet tuaja të padëshiruara"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Projekti më i fundit",

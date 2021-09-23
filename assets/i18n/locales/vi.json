@@ -681,7 +681,10 @@
     "Sign-t-continu": "Đăng ký để tiếp tục!",
     "Hello-Nice-t-meet-u": "Xin chào! Hân hạnh được biết bạn",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Nhập địa chỉ email của bạn để khôi phục mật khẩu của bạn",
-    "Send-email": "Gửi thư"
+    "Send-email": "Gửi thư",
+    "Email-adress-sent": "Địa chỉ email đã gửi",
+    "Checking-yr-mail": "Vui lòng kiểm tra email của bạn. Đừng ngần ngại nhìn vào thư rác của bạn",
+    "": "Vui lòng kiểm tra email của bạn. Đừng ngần ngại nhìn vào thư rác của bạn"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Dự án mới nhất",

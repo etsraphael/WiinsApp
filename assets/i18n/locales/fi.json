@@ -681,7 +681,10 @@
     "Sign-t-continu": "Kirjaudu jatkaaksesi!",
     "Hello-Nice-t-meet-u": "Hei! Hauska tavata",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Anna sähköpostiosoitteesi salasanan palauttamiseksi",
-    "Send-email": "Lähetä postia"
+    "Send-email": "Lähetä postia",
+    "Email-adress-sent": "Sähköpostiosoite lähetetty",
+    "Checking-yr-mail": "Ole hyvä ja tarkista sähköpostisi. Älä epäröi katsoa roskapostiasi",
+    "": "Ole hyvä ja tarkista sähköpostisi. Älä epäröi katsoa roskapostiasi"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Viimeisin projekti",

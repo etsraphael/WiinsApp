@@ -681,7 +681,10 @@
     "Sign-t-continu": "Davom etish uchun imzolang!",
     "Hello-Nice-t-meet-u": "Salom! Tanishganimdan xursandman",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Parolni tiklash uchun elektron pochta manzilingizni kiriting",
-    "Send-email": "Pochta yuborish"
+    "Send-email": "Pochta yuborish",
+    "Email-adress-sent": "E -pochta manzili yuborildi",
+    "Checking-yr-mail": "Iltimos, elektron pochtangizni tekshiring. O'z spamingizni qidirishdan ikkilanmang",
+    "": "Iltimos, elektron pochtangizni tekshiring. O'z spamingizni qidirishdan ikkilanmang"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Oxirgi loyiha",

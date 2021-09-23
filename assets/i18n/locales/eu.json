@@ -681,7 +681,10 @@
     "Sign-t-continu": "Jarraitu sinatzeko!",
     "Hello-Nice-t-meet-u": "Kaixo! Urte askotarako",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Idatzi zure helbide elektronikoa pasahitza berreskuratzeko",
-    "Send-email": "Bidali posta"
+    "Send-email": "Bidali posta",
+    "Email-adress-sent": "Helbide elektronikoa bidali da",
+    "Checking-yr-mail": "Mesedez, egiaztatu zure posta elektronikoa. Ez izan zalantzarik zure spamean begiratzeko",
+    "": "Mesedez, egiaztatu zure posta elektronikoa. Ez izan zalantzarik zure spamean begiratzeko"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Azken proiektua",

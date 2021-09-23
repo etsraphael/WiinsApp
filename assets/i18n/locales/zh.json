@@ -639,7 +639,10 @@
     "Sign-t-continu": "签到继续！",
     "Hello-Nice-t-meet-u": "你好！很高兴见到你",
     "Enter-yr-email-address-for-recovery-of-yr-password": "输入您的电子邮件地址以找回密码",
-    "Send-email": "发邮件"
+    "Send-email": "发邮件",
+    "Email-adress-sent": "已发送电子邮件地址",
+    "Checking-yr-mail": "请查看你的邮箱。不要犹豫查看您的垃圾邮件",
+    "": "请查看你的邮箱。不要犹豫查看您的垃圾邮件"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "最近的项目",

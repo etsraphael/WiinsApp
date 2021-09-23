@@ -639,7 +639,10 @@
     "Sign-t-continu": "Assine para continuar!",
     "Hello-Nice-t-meet-u": "Olá! Prazer em conhecê-lo",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Digite seu endereço de e-mail para recuperação de sua senha",
-    "Send-email": "Enviar correio"
+    "Send-email": "Enviar correio",
+    "Email-adress-sent": "Endereço de email enviado",
+    "Checking-yr-mail": "Por favor verifique seu email. Não hesite em olhar seu spam",
+    "": "Por favor verifique seu email. Não hesite em olhar seu spam"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Último projeto",

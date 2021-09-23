@@ -681,7 +681,10 @@
     "Sign-t-continu": "Skráðu þig til að halda áfram!",
     "Hello-Nice-t-meet-u": "Halló! Gaman að hitta þig",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Sláðu inn netfangið þitt til að endurheimta lykilorðið þitt",
-    "Send-email": "Senda póst"
+    "Send-email": "Senda póst",
+    "Email-adress-sent": "Netfang sent",
+    "Checking-yr-mail": "Vinsamlegast athugaðu tölvupóstinn þinn. Ekki hika við að leita í ruslpóstinum þínum",
+    "": "Vinsamlegast athugaðu tölvupóstinn þinn. Ekki hika við að leita í ruslpóstinum þínum"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Síðasta verkefnið",

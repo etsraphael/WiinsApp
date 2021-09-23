@@ -681,7 +681,10 @@
     "Sign-t-continu": "A folytatáshoz jelentkezzen be!",
     "Hello-Nice-t-meet-u": "Helló! Örvendek",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Adja meg e -mail címét a jelszó helyreállításához",
-    "Send-email": "Levél küldés"
+    "Send-email": "Levél küldés",
+    "Email-adress-sent": "E -mail cím elküldve",
+    "Checking-yr-mail": "Kérem nézze meg email-jeit. Ne habozzon, nézzen be a spambe",
+    "": "Kérem nézze meg email-jeit. Ne habozzon, nézzen be a spambe"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Legutóbbi projekt",

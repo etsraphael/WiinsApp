@@ -681,7 +681,10 @@
     "Sign-t-continu": "Potpišite se za nastavak!",
     "Hello-Nice-t-meet-u": "Zdravo! Drago mi je",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Unesite svoju adresu e -pošte za oporavak lozinke",
-    "Send-email": "Poslati mail"
+    "Send-email": "Poslati mail",
+    "Email-adress-sent": "Adresa e -pošte je poslana",
+    "Checking-yr-mail": "Molimo provjerite svoju e -poštu. Ne ustručavajte se pogledati svoju neželjenu poštu",
+    "": "Molimo provjerite svoju e -poštu. Ne ustručavajte se pogledati svoju neželjenu poštu"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Najnoviji projekt",

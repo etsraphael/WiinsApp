@@ -34,8 +34,15 @@ export default MyUserReducer = (state = initialState, action) => {
         message: action.message
       }
     }
-    case ActionTypes.FORGOT_PASSWORD_SEND_FAIL:
+
     case ActionTypes.FORGOT_PASSWORD_SEND_SUCCESS: {
+      return {
+        ...state,
+        isLoading: false,
+        message: action.message
+      } 
+    }
+    case ActionTypes.FORGOT_PASSWORD_SEND_FAIL: {
       return {
         ...state,
         isLoading: false,

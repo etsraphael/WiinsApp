@@ -16,16 +16,30 @@ import I18n from '../../../assets/i18n/i18n';
 
 const EMAIL = 'email'
 class ForgotPassword extends React.Component {
+
     constructor(props) {
         super(props)
         this.state = {
             [EMAIL]: null,
+            emailSent: true,
 
             // error
             error: null,
             flaggedInput: null
         }
     }
+
+    UNSAFE_componentWillReceiveProps(newProps) {
+        if (!newProps.MyUser.isLoading) {
+            if (!!newProps.MyUser.message) {
+                switch (newProps.MyUser.message) {
+                    case 'email-sent':
+                        return this.setState({ emailSent: true });
+                }
+            }
+        }
+    }
+
     validationTrue = () => {
         // null value
         if (!this.state.email) {
@@ -40,6 +54,44 @@ class ForgotPassword extends React.Component {
             return false
         }
         return true
+    }
+
+    _formView = () => {
+        return (
+            <View>
+                <View style={{ paddingTop: 48, alignItems: 'center' }}>
+                    <Cadena />
+                </View>
+                <Text style={[styles.text, { marginTop: 36 }]}>
+                    {I18n.t('LOGIN-REGISTRER.Enter-yr-email-address-for-recovery-of-yr-password')}
+                </Text>
+                <StandardInput
+                    style={{ marginTop: 16 }}
+                    placeholder={I18n.t('CORE.Your-Email..')}
+                    flag={this.checkIfFlagged(EMAIL)}
+                    onChangeText={(val) => this.handleInput(val, EMAIL)}
+                />
+                <View style={{ marginTop: 43 }}>
+                    <PrimaryGradientButton text={I18n.t('LOGIN-REGISTRER.Send-email')} onPress={this.forgotPassword} />
+                </View>
+            </View>
+        )
+    }
+
+    _confirmationView = () => {
+        return (
+        <View>
+                <View style={{ paddingTop: 48, alignItems: 'center' }}>
+                    <Cadena />
+                </View>
+                <Text style={[styles.text, { marginTop: 36, textAlign: 'center' }]}>
+                    {I18n.t('LOGIN-REGISTRER.Email-adress-sent')}
+                </Text>
+                <Text style={[styles.text, { marginTop: 5, textAlign: 'center'  }]}>
+                    {I18n.t('LOGIN-REGISTRER.Checking-yr-mail')}
+                </Text>
+        </View>
+        )
     }
 
     // err input
@@ -61,13 +113,8 @@ class ForgotPassword extends React.Component {
     }
 
     forgotPassword = () => {
-
-        return this.props.actions.forgotPasswordSend(this.state[EMAIL])
-
-
-
-        // if (!this.validationTrue())
-        //     return this.props.actions.login(this.state[EMAIL])
+        if (!this.validationTrue()) return null
+        else return this.props.actions.forgotPasswordSend(this.state[EMAIL])
     }
 
     render() {
@@ -86,21 +133,13 @@ class ForgotPassword extends React.Component {
                             style={styles.containerKeyBoard}
                         >
                             <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }} bounces>
-                                <View style={{ paddingTop: 48, alignItems: 'center' }}>
-                                    <Cadena />
-                                </View>
-                                <Text style={[styles.text, { marginTop: 36 }]}>
-                                    {I18n.t('LOGIN-REGISTRER.Enter-yr-email-address-for-recovery-of-yr-password')}
-                                </Text>
-                                <StandardInput
-                                    style={{ marginTop: 16 }}
-                                    placeholder={I18n.t('CORE.Your-Email..')}
-                                    flag={this.checkIfFlagged(EMAIL)}
-                                    onChangeText={(val) => this.handleInput(val, EMAIL)}
-                                />
-                                <View style={{ marginTop: 43 }}>
-                                    <PrimaryGradientButton text={I18n.t('LOGIN-REGISTRER.Send-email')} onPress={this.forgotPassword} />
-                                </View>
+
+
+                                {this.state.emailSent ? this._confirmationView() : this._formView()}
+
+
+
+
                             </ScrollView>
                         </KeyboardAvoidingView>
                     </View>

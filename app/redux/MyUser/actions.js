@@ -9,8 +9,8 @@ export function resetUserConnected() {
     return { type: ActionTypes.RESET_USER_CONNECTED }
 }
 
-export function forgotPasswordSendSuccess() {
-    return { type: ActionTypes.FORGOT_PASSWORD_SEND_SUCCESS }
+export function forgotPasswordSendSuccess(message) {
+    return { type: ActionTypes.FORGOT_PASSWORD_SEND_SUCCESS, message }
 }
 
 export function forgotPasswordSendStart() {
@@ -120,6 +120,8 @@ export function register(user, userDetail) {
 export function forgotPasswordSend(email) {
     return async (dispatch) => {
         try {
+
+            return dispatch(forgotPasswordSendSuccess('email-sent'))
 
             dispatch(forgotPasswordSendStart())
 

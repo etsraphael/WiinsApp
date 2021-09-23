@@ -681,7 +681,10 @@
     "Sign-t-continu": "Semnați pentru a continua!",
     "Hello-Nice-t-meet-u": "Buna! Încântat de cunoștință",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Introduceți adresa de e-mail pentru recuperarea parolei",
-    "Send-email": "Trimiteți e-mail"
+    "Send-email": "Trimiteți e-mail",
+    "Email-adress-sent": "Adresa de e-mail trimisă",
+    "Checking-yr-mail": "Vă rugăm să verificați email-ul. Nu ezitați să căutați în spamul dvs.",
+    "": "Vă rugăm să verificați email-ul. Nu ezitați să căutați în spamul dvs."
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Ultimul proiect",

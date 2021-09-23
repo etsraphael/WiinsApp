@@ -681,7 +681,10 @@
     "Sign-t-continu": "Devam etmek için imzalayın!",
     "Hello-Nice-t-meet-u": "Merhaba! Tanıştığımıza memnun oldum",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Şifrenizi kurtarmak için e-posta adresinizi girin",
-    "Send-email": "Posta göndermek"
+    "Send-email": "Posta göndermek",
+    "Email-adress-sent": "E-posta adresi gönderildi",
+    "Checking-yr-mail": "Lütfen emailinizi kontrol edin. Spam'inize bakmaktan çekinmeyin",
+    "": "Lütfen emailinizi kontrol edin. Spam'inize bakmaktan çekinmeyin"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "En son proje",

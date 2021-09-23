@@ -681,7 +681,10 @@
     "Sign-t-continu": "Zarejestruj się, aby kontynuować!",
     "Hello-Nice-t-meet-u": "Cześć! Miło mi cię poznać",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Wpisz swój adres e-mail w celu odzyskania hasła",
-    "Send-email": "Wyślij maila"
+    "Send-email": "Wyślij maila",
+    "Email-adress-sent": "Wysłano adres e-mail",
+    "Checking-yr-mail": "Proszę sprawdzić email. Nie wahaj się zajrzeć do swojego spamu",
+    "": "Proszę sprawdzić email. Nie wahaj się zajrzeć do swojego spamu"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Ostatni projekt",

@@ -681,7 +681,10 @@
     "Sign-t-continu": "Skilt for at fortsætte!",
     "Hello-Nice-t-meet-u": "Hej! Dejligt at møde dig",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Indtast din e -mail -adresse for gendannelse af din adgangskode",
-    "Send-email": "Send mail"
+    "Send-email": "Send mail",
+    "Email-adress-sent": "E -mailadresse sendt",
+    "Checking-yr-mail": "Tjek venligst din email. Tøv ikke med at kigge i din spam",
+    "": "Tjek venligst din email. Tøv ikke med at kigge i din spam"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Sidste projekt",

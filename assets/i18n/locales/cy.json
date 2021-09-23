@@ -681,7 +681,10 @@
     "Sign-t-continu": "Arwyddwch i barhau!",
     "Hello-Nice-t-meet-u": "Helo! Braf cwrdd â chi",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Rhowch eich cyfeiriad e-bost i adfer eich cyfrinair",
-    "Send-email": "Anfon Post"
+    "Send-email": "Anfon Post",
+    "Email-adress-sent": "Anfonwyd cyfeiriad e-bost",
+    "Checking-yr-mail": "Gwiriwch eich e-bost. Peidiwch ag oedi cyn edrych yn eich sbam",
+    "": "Gwiriwch eich e-bost. Peidiwch ag oedi cyn edrych yn eich sbam"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Prosiect diweddaraf",

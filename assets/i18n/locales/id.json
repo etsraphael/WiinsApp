@@ -681,7 +681,10 @@
     "Sign-t-continu": "Tanda tangani untuk melanjutkan!",
     "Hello-Nice-t-meet-u": "Halo! Senang berkenalan dengan Anda",
     "Enter-yr-email-address-for-recovery-of-yr-password": "Masukkan alamat email Anda untuk pemulihan kata sandi Anda",
-    "Send-email": "Kirim Email"
+    "Send-email": "Kirim Email",
+    "Email-adress-sent": "Alamat email terkirim",
+    "Checking-yr-mail": "Silakan periksa email Anda. Jangan ragu untuk mencari di spam Anda",
+    "": "Silakan periksa email Anda. Jangan ragu untuk mencari di spam Anda"
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "Proyek terbaru",

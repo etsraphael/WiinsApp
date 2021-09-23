@@ -639,7 +639,10 @@
     "Sign-t-continu": "계속하려면 서명하세요!",
     "Hello-Nice-t-meet-u": "여보세요! 만나서 반가워",
     "Enter-yr-email-address-for-recovery-of-yr-password": "비밀번호 복구를 위해 이메일 주소를 입력하세요",
-    "Send-email": "메일을 보내다"
+    "Send-email": "메일을 보내다",
+    "Email-adress-sent": "이메일 주소 전송됨",
+    "Checking-yr-mail": "이메일을 확인하세요. 주저하지 말고 스팸함을 살펴보세요.",
+    "": "이메일을 확인하세요. 주저하지 말고 스팸함을 살펴보세요."
   },
   "MAIN-MUSIC": {
     "Lastest-Project": "가장 마지막 프로젝트",
