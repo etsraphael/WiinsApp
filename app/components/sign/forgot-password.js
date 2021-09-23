@@ -21,7 +21,7 @@ class ForgotPassword extends React.Component {
         super(props)
         this.state = {
             [EMAIL]: null,
-            emailSent: true,
+            emailSent: false,
 
             // error
             error: null,
@@ -133,13 +133,7 @@ class ForgotPassword extends React.Component {
                             style={styles.containerKeyBoard}
                         >
                             <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }} bounces>
-
-
                                 {this.state.emailSent ? this._confirmationView() : this._formView()}
-
-
-
-
                             </ScrollView>
                         </KeyboardAvoidingView>
                     </View>
