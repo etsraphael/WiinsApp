@@ -70,7 +70,6 @@ export function setUpLanguageActions(lgCode) {
     return (dispatch) => dispatch(setUpLanguage(lgCode))
 }
 
-
 export function login(email, password) {
     return async (dispatch) => {
         try {
@@ -120,9 +119,6 @@ export function register(user, userDetail) {
 export function forgotPasswordSend(email) {
     return async (dispatch) => {
         try {
-
-            return dispatch(forgotPasswordSendSuccess('email-sent'))
-
             dispatch(forgotPasswordSendStart())
 
             return fetch('https://wiins-backend.herokuapp.com/auth/passwordForgot', {
@@ -132,7 +128,9 @@ export function forgotPasswordSend(email) {
             })
                 .then((response) => response.json())
                 .then(response => {
-                    if (response.status == 200) return dispatch(forgotPasswordSendSuccess())
+                    if (response.status == 200) {
+                        return dispatch(forgotPasswordSendSuccess('email-sent'))
+                    }
                     else return dispatch(forgotPasswordSendFail(response.message))
                 })
         } catch (error) {
