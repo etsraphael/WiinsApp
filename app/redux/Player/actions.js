@@ -1,5 +1,5 @@
 import * as ActionTypes from './constants'
-import TrackPlayer from 'react-native-track-player'
+import TrackPlayer, { Capability } from 'react-native-track-player'
 import AsyncStorage from '@react-native-community/async-storage'
 import { likeMusicSuccess, dislikeMusicSuccess } from './../PlaylistMusicPage/actions'
 import { addMusicAfterLiked, pullMusicAfterDisliked } from './../MyFavMusic/actions'
@@ -125,23 +125,38 @@ export function playMusicActions(music, payload) {
                 }
             }
 
+            const indexMusic = tracklist.map(x => x.id).indexOf(music._id)
+
             TrackPlayer.setupPlayer().then(async () => {
                 TrackPlayer.updateOptions({
                     stopWithApp: true,
                     capabilities: [
-                        TrackPlayer.CAPABILITY_PLAY,
-                        TrackPlayer.CAPABILITY_PAUSE,
-                        TrackPlayer.CAPABILITY_SKIP_TO_PREVIOUS,
-                        TrackPlayer.CAPABILITY_SKIP_TO_NEXT,
-                        TrackPlayer.CAPABILITY_STOP,
+                        Capability.JumpBackward,
+                        Capability.JumpForward,
+                        Capability.Pause,
+                        Capability.Play,
+                        Capability.SeekTo,
+                        Capability.Stop,
                     ],
                     compactCapabilities: [
-                        TrackPlayer.CAPABILITY_PLAY,
-                        TrackPlayer.CAPABILITY_PAUSE
-                    ]
+                        Capability.JumpBackward,
+                        Capability.JumpForward,
+                        Capability.Pause,
+                        Capability.Play,
+                        Capability.SeekTo,
+                        Capability.Stop,
+                    ],
+                    notificationCapabilities: [
+                        Capability.JumpBackward,
+                        Capability.JumpForward,
+                        Capability.Pause,
+                        Capability.Play,
+                        Capability.SeekTo,
+                        Capability.Stop,
+                    ],
                 });
                 await TrackPlayer.add(tracklist)
-                TrackPlayer.skip(music._id)
+                TrackPlayer.skip(indexMusic)
                 TrackPlayer.play()
             })
 
@@ -318,7 +333,7 @@ export function dislikeMusicFromPlayerAction(id, space, category) {
                                 dispatch(dislikeMusicFromHomeMusic(id, category))
                                 break;
                             }
-                        }       
+                        }
 
                         // add the music in the favorite playlist
                         dispatch(pullMusicAfterDisliked(id))
