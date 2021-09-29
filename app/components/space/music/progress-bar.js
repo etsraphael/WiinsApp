@@ -3,10 +3,10 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { StyleSheet, Text, View } from 'react-native'
 import * as PlayerMusicActions from '../../../redux/Player/actions'
-import TrackPlayer, { ProgressComponent } from 'react-native-track-player';
+import TrackPlayer from 'react-native-track-player';
 import Slider from '@react-native-community/slider';
 
-class ProgressBar extends ProgressComponent {
+class ProgressBar extends React.Component {
 
     constructor(props) {
         super(props)
@@ -19,8 +19,9 @@ class ProgressBar extends ProgressComponent {
 
     render = () => {
 
+
         return (
-            <View style={styles.container}>
+            <>
                 <View style={{ paddingHorizontal: 25, alignItems: 'center', flexDirection: 'row', marginVertical: 15 }}>
                     <View style={{ flex: 1, alignItems: 'center' }}><Text>{this.props.Player.timer.start}</Text></View>
                     <Slider
@@ -36,7 +37,7 @@ class ProgressBar extends ProgressComponent {
                     />
                     <View style={{ flex: 1, alignItems: 'center' }}><Text>{this.props.Player.timer.end}</Text></View>
                 </View>
-            </View>
+            </>
         )
     }
     

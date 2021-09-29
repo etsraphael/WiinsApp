@@ -4,8 +4,6 @@ import OnBoarding from '../components/sign/on-boarding'
 import { NavigationContainer } from '@react-navigation/native'
 import { Navigator, AppRegistry, View } from 'react-native'
 import { SignIn, SignUp, UseCondition, ForgotPassword, WelcomePage, HelpCommunity } from '../components/sign'
-import { Component } from 'react'
-
 
 const Stack = createStackNavigator()
 
@@ -24,7 +22,7 @@ export default SignNavigation = () => (
 )
 
 
-class SignNavigationn extends Component {
+class SignNavigationn extends React.Component  {
     renderScene = (route, nav) => {
         switch (route.id) {
             case 'SignIn':

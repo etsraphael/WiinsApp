@@ -63,7 +63,9 @@ class MainApp extends React.Component {
     }
 
     // to select the sign view
-    _beforAuth() { return <SignNavigation /> }
+    _beforAuth() { 
+        return <SignNavigation />
+    }
 
     // to select the home view
     _afterAuth() {

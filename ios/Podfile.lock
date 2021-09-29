@@ -67,24 +67,24 @@ PODS:
     - GoogleUtilities/Environment (~> 7.2)
     - nanopb (~> 2.30907.0)
     - PromisesObjC (~> 1.2)
-  - GoogleUtilities/AppDelegateSwizzler (7.5.0):
+  - GoogleUtilities/AppDelegateSwizzler (7.5.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (7.5.0):
+  - GoogleUtilities/Environment (7.5.2):
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/Logger (7.5.0):
+  - GoogleUtilities/Logger (7.5.2):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (7.5.0):
+  - GoogleUtilities/MethodSwizzler (7.5.2):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (7.5.0):
+  - GoogleUtilities/Network (7.5.2):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (7.5.0)"
-  - GoogleUtilities/Reachability (7.5.0):
+  - "GoogleUtilities/NSData+zlib (7.5.2)"
+  - GoogleUtilities/Reachability (7.5.2):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (7.5.0):
+  - GoogleUtilities/UserDefaults (7.5.2):
     - GoogleUtilities/Logger
   - libwebp (1.2.0):
     - libwebp/demux (= 1.2.0)
@@ -295,13 +295,13 @@ PODS:
     - React-jsi (= 0.64.2)
     - React-perflogger (= 0.64.2)
   - React-jsinspector (0.64.2)
-  - react-native-camera (4.1.1):
+  - react-native-camera (4.2.1):
     - React-Core
-    - react-native-camera/RCT (= 4.1.1)
-    - react-native-camera/RN (= 4.1.1)
-  - react-native-camera/RCT (4.1.1):
+    - react-native-camera/RCT (= 4.2.1)
+    - react-native-camera/RN (= 4.2.1)
+  - react-native-camera/RCT (4.2.1):
     - React-Core
-  - react-native-camera/RN (4.1.1):
+  - react-native-camera/RN (4.2.1):
     - React-Core
   - react-native-ffmpeg/https-lts (0.5.1):
     - mobile-ffmpeg-https (= 4.4.LTS)
@@ -318,8 +318,9 @@ PODS:
     - React
   - react-native-splash-screen (3.2.0):
     - React
-  - react-native-track-player (1.2.7):
+  - react-native-track-player (2.1.1):
     - React-Core
+    - SwiftAudioEx (= 0.14.2)
   - react-native-video (5.1.1):
     - React-Core
     - react-native-video/Video (= 5.1.1)
@@ -458,6 +459,7 @@ PODS:
   - Sentry (7.1.4):
     - Sentry/Core (= 7.1.4)
   - Sentry/Core (7.1.4)
+  - SwiftAudioEx (0.14.2)
   - TOCropViewController (2.6.0)
   - Yoga (1.14.0)
 
@@ -545,6 +547,7 @@ SPEC REPOS:
     - SDWebImage
     - SDWebImageWebPCoder
     - Sentry
+    - SwiftAudioEx
     - TOCropViewController
 
 EXTERNAL SOURCES:
@@ -685,7 +688,7 @@ SPEC CHECKSUMS:
   glog: 73c2498ac6884b13ede40eda8228cb1eee9d9d62
   GoogleAppMeasurement: c542a2feaac9ab98fd074e8f1a02c3585bbfbd47
   GoogleDataTransport: 8b0e733ea77c9218778e5a9e34ba9508b8328939
-  GoogleUtilities: eea970f4a389963963bffe8d8fabe43540678b9c
+  GoogleUtilities: 8de2a97a17e15b6b98e38e8770e2d129a57c0040
   libwebp: e90b9c01d99205d03b6bb8f2c8c415e5a4ef66f0
   mobile-ffmpeg-https: 7ec3461d626f2d86be1e904bcfb29ed0be8cad7a
   nanopb: 59221d7f958fb711001e6a449489542d92ae113e
@@ -701,16 +704,16 @@ SPEC CHECKSUMS:
   React-jsi: 67747b9722f6dab2ffe15b011bcf6b3f2c3f1427
   React-jsiexecutor: 80c46bd381fd06e418e0d4f53672dc1d1945c4c3
   React-jsinspector: cc614ec18a9ca96fd275100c16d74d62ee11f0ae
-  react-native-camera: 457a5279a12864bc241c28518fecd5db2838754c
+  react-native-camera: 3eae183c1d111103963f3dd913b65d01aef8110f
   react-native-ffmpeg: 9fbe53d5afd6f35978804756f58238cf9340d1d8
-  react-native-image-picker: 5a7dd93d4f9dd0d910da5dde3707fd96f70d03b3
-  react-native-image-resizer: 506412a2bdd70dde64a61e13505ce10f61a04369
-  react-native-safe-area-context: 8465df05de8106c584b117f0e027e17174d6e02e
-  react-native-slider: b733e17fdd31186707146debf1f04b5d94aa1a93
+  react-native-image-picker: 31971f6184e7c1dcb4fc1f122e1ba2c3fb11ef1e
+  react-native-image-resizer: d9fb629a867335bdc13230ac2a58702bb8c8828f
+  react-native-safe-area-context: 61c8c484a3a9e7d1fda19f7b1794b35bbfd2262a
+  react-native-slider: e99fc201cefe81270fc9d81714a7a0f5e566b168
   react-native-spinkit: da294fd828216ad211fe36a5c14c1e09f09e62db
   react-native-splash-screen: 200d11d188e2e78cea3ad319964f6142b6384865
-  react-native-track-player: 878d6c66e4ae3a69f6a534c57c6c34a42e9b033f
-  react-native-video: 1574074179ecaf6a9dd067116c8f31bf9fec15c8
+  react-native-track-player: 8a3e5dd0ac608dd3ba9888dac93901b7691c69c4
+  react-native-video: 0bb76b6d6b77da3009611586c7dbf817b947f30e
   React-perflogger: 25373e382fed75ce768a443822f07098a15ab737
   React-RCTActionSheet: af7796ba49ffe4ca92e7277a5d992d37203f7da5
   React-RCTAnimation: 6a2e76ab50c6f25b428d81b76a5a45351c4d77aa
@@ -724,13 +727,13 @@ SPEC CHECKSUMS:
   React-runtimeexecutor: a9904c6d0218fb9f8b19d6dd88607225927668f9
   ReactCommon: 149906e01aa51142707a10665185db879898e966
   rn-fetch-blob: f065bb7ab7fb48dd002629f8bdcb0336602d3cba
-  RNCAsyncStorage: cb9a623793918c6699586281f0b51cbc38f046f9
-  RNCCheckbox: 7d36e3a79b7301e8b126c5136cc449af65d9cdab
-  RNCClipboard: 5e299c6df8e0c98f3d7416b86ae563d3a9f768a3
-  RNCMaskedView: f127cd9652acfa31b91dcff613e07ba18b774db6
+  RNCAsyncStorage: b03032fdbdb725bea0bd9e5ec5a7272865ae7398
+  RNCCheckbox: 6bd119c26c6eb8264a29d59ff66cb70a14de3349
+  RNCClipboard: 41d8d918092ae8e676f18adada19104fa3e68495
+  RNCMaskedView: 0e1bc4bfa8365eba5fbbb71e07fbdc0555249489
   RNCPicker: 28e41a58b79cd82cc639391bb99ca1b2489a3ea9
-  RNCPushNotificationIOS: 5b1cf9ad2aaa107ecb92d5d2d7005ba521b2b97a
-  RNDateTimePicker: c9911be59b1f8670b9f244b85af3a7c295e175ed
+  RNCPushNotificationIOS: 61a7c72bd1ebad3568025957d001e0f0e7b32191
+  RNDateTimePicker: 7658208086d86d09e1627b5c34ba0cf237c60140
   RNFastImage: a7384db75df352500261e8e8f1ac2026def26102
   RNFBAnalytics: 454b17745d3824156cb906e2777d85f6848bf3e1
   RNFBApp: 02bde3edecf2e9694b908a5d3504e03449980f20
@@ -738,18 +741,19 @@ SPEC CHECKSUMS:
   RNFS: 3ab21fa6c56d65566d1fb26c2228e2b6132e5e32
   RNGestureHandler: a479ebd5ed4221a810967000735517df0d2db211
   RNImageCropPicker: 35a3ceb837446fa11547704709bb22b5fac6d584
-  RNLocalize: b9a5d22c7e4ecb5db604861f1b1fff6013e03340
+  RNLocalize: 82a569022724d35461e2dc5b5d015a13c3ca995b
   RNScreens: f7ad633b2e0190b77b6a7aab7f914fad6f198d8d
   RNSentry: 68644ef607b780551cc555f084869764f2566652
-  RNSnackbar: b6cbf294923b8d6c6056592bca87527c81a0130b
-  RNSound: c980916b596cc15c8dcd2f6ecd3b13c4881dbe20
+  RNSnackbar: be3333a21a453ccc272f41a8add5a71f7d44dfcd
+  RNSound: da030221e6ac7e8290c6b43f2b5f2133a8e225b0
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: d0dac55073088d24b2ac1b191a71a8f8d0adac21
   Sentry: 1d3eb1a25f8c5333c88dd5603904a6d461cd9fcf
+  SwiftAudioEx: df9d62dcae6c2eca358bc36eb972ebac440cd943
   TOCropViewController: 3105367e808b7d3d886a74ff59bf4804e7d3ab38
   Yoga: 575c581c63e0d35c9a83f4b46d01d63abc1100ac
 
-PODFILE CHECKSUM: 5d970ae27bd0df0d90b02047ff6441b7b1a793ed
+PODFILE CHECKSUM: 5a8e17ea428407cb71f05dbcb45b8ba4d70a31b6
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

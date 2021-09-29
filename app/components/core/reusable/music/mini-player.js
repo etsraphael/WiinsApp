@@ -10,7 +10,6 @@ import * as PlayerMusicActions from '../../../../redux/Player/actions'
 import * as PlaylistPageActions from '../../../../redux/PlaylistMusicPage/actions'
 import { faMusic, faAngleDown, faRepeat } from '@fortawesome/pro-light-svg-icons'
 import { faHeart, faPause, faUserPlus, faStepBackward, faStepForward, faRandom, faPlay, faRepeat1Alt, faUserCheck } from '@fortawesome/pro-solid-svg-icons'
-
 import ProgressBar from '../../../space/music/progress-bar'
 
 class MiniPlayer extends React.Component {
@@ -35,7 +34,6 @@ class MiniPlayer extends React.Component {
             this.props.Player.musicIsPlaying.music.category
         )
     }
-
 
     // to pause the music
     _pause = () => {
@@ -270,7 +268,6 @@ class MiniPlayer extends React.Component {
     }
 
     render() {
-
         return (
             <View style={styles.container}>
                 <TouchableOpacity onPress={() => this._openModalMusic()}>
