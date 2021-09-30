@@ -6,8 +6,8 @@ buildscript {
         firebaseMessagingVersion = "+"
         buildToolsVersion = "30.0.2"
         minSdkVersion = 16
-        compileSdkVersion = 29
-        targetSdkVersion = 29
+        compileSdkVersion = 30
+        targetSdkVersion = 30
         reactNativeFFmpegPackage = "min-gpl"
     }
     repositories {
