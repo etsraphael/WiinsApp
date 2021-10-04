@@ -10,15 +10,55 @@ import { Sign } from '.'
 import I18n from '../../../assets/i18n/i18n';
 
 const ConditionsOfUse = {
-    '1. Definition of the role of the GTU': [
-        `1.1. The purpose of the present general conditions of use (known as "GTU") is to provide a legal framework for the terms and conditions of availability of the site and services of Espace-Piin's Inc. via Wiin's and to define the conditions of access and use of the services by the "user".`,
-        `1.2. Use of the Wiin's website and Wiin's applications (iOS and Android) and all products, Wiin's Music, Wiin's Tube, Wiin's Story, including the audio and video player that may be incorporated therein, are subject to these terms and conditions of use.`,
-        `1.3. This legally binding agreement between you and Shopping Spaces Inc. includes (a) the terms and conditions set forth in this document, (b) the Wiin's Community`,
-        `15.2.Any content put online by the user is his sole responsibility. The user undertakes not to put online any content that may harm the interests of third parties. Any legal action taken by an injured third party against the site will be borne by the user. The user's content may be removed or modified by the site at any time without notice.`
+    [I18n.t('TERMS-OF-USE.TITLE.Definition-of-the-Tou')]: [
+        I18n.t('TERMS-OF-USE.About-definition-of-the-Tou')
     ],
-    '16. Applicable law and jurisdiction': [
-        `Canadian law applies to this Agreement. In the event of failure to reach an amicable resolution of a dispute arising between the parties, the Canadian courts shall have sole jurisdiction to determine the outcome. If you have any questions regarding the application of these GTU, you can contact the publisher at the contact information listed in ARTICLE 1. `
-    ]
+    [I18n.t('TERMS-OF-USE.TITLE.Agreement-to-the-Tou')]: [
+        I18n.t('TERMS-OF-USE.About-agreement-to-the-Tou')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Modification-of-the-Tou')]: [
+        I18n.t('TERMS-OF-USE.About-modification-of-the-Tou')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Legal-information')]: [
+        I18n.t('TERMS-OF-USE.About-legal-information-adress')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Definitions')]: [
+        I18n.t('TERMS-OF-USE.About-definitions')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Access-to-the-site')]: [
+        I18n.t('TERMS-OF-USE.About-access-to-the-site')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Payment-confirmation-unsubscribe')]: [
+        I18n.t('TERMS-OF-USE.About-payment-confirmation-unsubscribe')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Price')]: [
+        I18n.t('TERMS-OF-USE.About-price-early-access')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Unsubscribe')]: [
+        I18n.t('TERMS-OF-USE.About-unsubscribe')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.General-restriction-of-use')]: [
+        I18n.t('TERMS-OF-USE.About-general-restriction-of-use')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Personal-information')]: [
+        I18n.t('TERMS-OF-USE.About-personal-information')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Intellectual-property-rights')]: [
+        I18n.t('TERMS-OF-USE.About-intellectual-property-rights')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Responsibility')]: [
+        I18n.t('TERMS-OF-USE.About-responsibility')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Hypertext-links')]: [
+        I18n.t('TERMS-OF-USE.About-hypertext-links')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Publication-by-user')]: [
+        I18n.t('TERMS-OF-USE.About-publication-by-user')
+    ],
+    [I18n.t('TERMS-OF-USE.TITLE.Applicable-law-and-jurisdiction')]: [
+        I18n.t('TERMS-OF-USE.About-applicable-law-and-jurisdiction')
+    ],
+
 }
 
 class UseCondition extends React.Component {
