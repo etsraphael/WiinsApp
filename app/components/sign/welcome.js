@@ -1,15 +1,11 @@
 import React from 'react'
-import {
-    StyleSheet, View, Text, Platform,
-    KeyboardAvoidingView, ScrollView, TouchableOpacity
-} from 'react-native'
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from 'react-native'
 import { Theme } from '../core/reusable/design'
-import { StandardInput, PrimaryGradientButton } from './../core/reusable/form'
 import { Sign } from '.'
 import WelcomeSVG from '../../../assets/svg/welcome.svg'
 import I18n from '../../../assets/i18n/i18n';
 class WelcomePage extends React.Component {
-    
+
     constructor(props) {
         super(props)
     }
@@ -33,14 +29,12 @@ class WelcomePage extends React.Component {
                                 <WelcomeSVG />
                             </View>
                             <Text style={[styles.text, { marginTop: 48 }]}>
-                                A confirmation email has been sent to you. Your nickname is reserved for 30 days. 
-                                If you do not confirm your account within this period, your nickname will be released 
-                                again and your email address will be deleted from our database.
+                                {I18n.t('LOGIN-REGISTRER.A-confirmation-email-has-been-sent-to-you-Yr-nickname-is-reserved-for-30-days')}
                             </Text>
                             <View style={{ display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
                                 <TouchableOpacity style={styles.bottomText}>
                                     <Text style={{ color: Theme.wColor }}>
-                                        Return to Sign in
+                                        {I18n.t('CORE.Back')}
                                     </Text>
                                 </TouchableOpacity>
                             </View>

@@ -26,11 +26,7 @@ class HelpCommunity extends React.Component {
                     <View
                         behavior={Platform.OS === 'ios' ? 'padding' : null}
                         keyboardVerticalOffset={0}
-                        style={{
-                            width: '100%',
-                            paddingHorizontal: 36,
-                            flex: 1
-                        }}>
+                        style={styles.signContainer}>
                         <ScrollView
                             showsVerticalScrollIndicator={false}
                             style={{ flex: 1 }}
@@ -38,11 +34,11 @@ class HelpCommunity extends React.Component {
                             <Text style={styles.mainLargeText}>
                                 {I18n.t('CORE.Welcome')}
                             </Text>
-                            <Text style={[styles.text, { marginTop: 10 }]}>
-                                « They did not know it was impossible so they did it » Mark Twain or Winston Churchill or Marcel Pagnol. We don't know but it's a good quote!
+                            <Text style={styles.textMain}>
+                                {I18n.t('DONATION.T-did-not-know-it-was-impossible-so-they-did-it')}
                             </Text>
-                            <Text style={[styles.text, { marginTop: 10 }]}>
-                                We need programmers, designers, artist, editor ...
+                            <Text style={styles.textMain}>
+                                {I18n.t('DONATION.W-nd-programmers-designers-artist-editr')}
                             </Text>
                             <View style={{ marginBottom: 87, marginTop: 87 }}>
                                 <PrimaryGradientButton
@@ -59,16 +55,22 @@ class HelpCommunity extends React.Component {
 }
 
 const styles = StyleSheet.create({
+    signContainer: {
+        width: '100%',
+        paddingHorizontal: 36,
+        flex: 1
+    },
     mainLargeText: {
         color: "#002251",
         fontSize: 24,
         lineHeight: 29,
         marginTop: 36
     },
-    text: {
+    textMain: {
         color: '#7A869A',
         fontSize: 14,
-        lineHeight: 20
+        lineHeight: 20,
+        marginTop: 10
     },
     bottomText: {
         color: '#7A869A',

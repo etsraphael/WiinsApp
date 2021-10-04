@@ -50,7 +50,7 @@ class UseCondition extends React.Component {
                                 })
                             }
                         </View>
-                        <Text style={styles.bottomText}>Date of last revision : 09/03/2021</Text>
+                        {/* <Text style={styles.bottomText}>Date of last revision : 09/03/2021</Text> */}
                     </ScrollView>
                 </View>
             </Sign>
