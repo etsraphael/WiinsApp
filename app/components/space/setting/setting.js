@@ -5,7 +5,6 @@ import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faArrowLeft, faCertificate, faSignOut, faUserShield, faLanguage } from '@fortawesome/pro-duotone-svg-icons'
-import { faAngleRight } from '@fortawesome/pro-light-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
 import I18n from '../../../../assets/i18n/i18n'
@@ -82,16 +81,19 @@ class Setting extends React.Component {
         ]
 
         return (
-            <View style={{ flex: 1, padding: 15, backgroundColor: 'white', borderRadius: 25, top: -30 }}>
+            <View style={styles.listBtnContainer}>
                 <SafeAreaView style={{ flex: 1 }}>
                     <FlatList
                         style={{ flex: 1, paddingBottom: 45 }}
                         data={listSetting}
                         keyExtractor={(item) => item.code.toString()}
                         renderItem={({ item }) =>
-                            <TouchableOpacity style={{ flexDirection: 'row', paddingVertical: 5 }} onPress={() => this._actionSelected(item.code)}>
-                                <View style={{ flex: 1, justifyContent: 'center', borderRadius: 11, backgroundColor: '#F6F7FA', paddingVertical: 20, paddingHorizontal: 19 }}>
-                                    <Text style={{ color: '#000000', fontSize: 16, fontWeight: '600', fontFamily: 'Avenir-Heavy' }}>{item.title}</Text>
+                            <TouchableOpacity 
+                                style={{ flexDirection: 'row', paddingVertical: 5 }} 
+                                onPress={() => this._actionSelected(item.code)}
+                            >
+                                <View style={styles.navigationBtn}>
+                                    <Text style={styles.textBtnNaviagation}>{item.title}</Text>
                                 </View>
                             </TouchableOpacity>
                         }
@@ -117,6 +119,27 @@ const styles = StyleSheet.create({
     main_container: {
         flex: 1,
         backgroundColor: 'white'
+    },
+    listBtnContainer: {
+        flex: 1,
+        padding: 15,
+        backgroundColor: 'white',
+        borderRadius: 25,
+        top: -30
+    },
+    navigationBtn: {
+        flex: 1,
+        justifyContent: 'center',
+        borderRadius: 11,
+        backgroundColor: '#F6F7FA',
+        paddingVertical: 20,
+        paddingHorizontal: 19
+    },
+    textBtnNaviagation: {
+        color: '#000000',
+        fontSize: 16,
+        fontWeight: '600',
+        fontFamily: 'Avenir-Heavy'
     },
     onCard: {
         backgroundColor: 'white',
