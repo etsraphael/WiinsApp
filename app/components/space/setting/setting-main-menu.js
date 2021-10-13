@@ -8,22 +8,9 @@ import { faArrowLeft, faCertificate, faSignOut, faUserShield, faLanguage } from 
 import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
 import I18n from '../../../../assets/i18n/i18n'
-import SettingMainMenu from './setting-main-menu'
-import { createStackNavigator } from '@react-navigation/stack'
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 
-const Stack = createStackNavigator()
-
-const MyTheme = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-      background: 'white',
-      border: 0
-    },
-  };
-
-class Setting extends React.Component {
+class SettingMainMenu extends React.Component {
+    
 
     constructor(props) {
         super(props)
@@ -33,38 +20,6 @@ class Setting extends React.Component {
     _logOut = async () => {
         await AsyncStorage.removeItem('userToken')
         this.props.actions.logOut()
-    }
-
-    // to display the header of the profile
-    _renderHeader = () => {
-        return (
-            <View style={{ backgroundColor: '#0C1A32', height: 250, overflow: 'hidden' }}>
-
-                <View style={{ flex: 1, position: 'relative' }}>
-
-                    {/* Back Btn */}
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}
-                        style={{ position: 'absolute', left: 25, width: 35, height: 35, top: 55, zIndex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
-                    </TouchableOpacity>
-
-                    {/* Cover Picture */}
-
-                    <LinearGradient
-                        colors={['#2CB0D6', '#3087D7', '#6743E0', '#ED6569']}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 1 }}
-                        style={{ height: 250 }} />
-
-                    {/* Profile picture and name */}
-                    <View style={{ position: 'absolute', top: 130, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
-                        <View style={{ flex: 1, paddingHorizontal: 35, justifyContent: 'center' }}>
-                            <Text style={{ fontSize: 28, color: 'white', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Setting')}</Text>
-                        </View>
-                    </View>
-                </View>
-            </View>
-        )
     }
 
     _actionSelected = (code) => {
@@ -80,9 +35,7 @@ class Setting extends React.Component {
         }
     }
 
-    // icons setting
-    _renderBody = () => {
-
+    render() {
         const listSetting = [
             // { title: I18n.t('CORE.Profile'), code: 'SettingProfile', icon: <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} /> },
             // { title: I18n.t('CORE.Password'), code: 'SettingPassword', icon: <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} /> },
@@ -95,6 +48,7 @@ class Setting extends React.Component {
         ]
 
         return (
+
             <View style={styles.listBtnContainer}>
                 <SafeAreaView style={{ flex: 1 }}>
                     <FlatList
@@ -116,71 +70,15 @@ class Setting extends React.Component {
             </View>
         )
     }
-
-    _renderMenu = () => {
-
-        return (
-            <View style={styles.listBtnContainer}>
-                <SafeAreaView style={{ flex: 1, minHeight: 400 }}>
-                    <NavigationContainer theme={MyTheme} independent={true}>
-                        <Stack.Navigator
-                            screenOptions={{
-                                headerShown: false,
-                                cardStyle: {
-                                    backgroundColor: "transparent",
-                                    opacity: 1
-                                  }
-                            }}
-                            initialRouteName={'SettingMainMenu'}
-                        >
-                            <Stack.Screen  name={'SettingMainMenu'} component={SettingMainMenu} />
-                        </Stack.Navigator>
-                    </NavigationContainer>
-                </SafeAreaView>
-            </View>
-        )
-
-        // return (
-        // <Stack.Navigator
-        //     screenOptions={{ headerShown: false }}
-        //     initialRouteName={'SettingMainMenu'}
-        // >
-        //     {/* <Stack.Screen name={'Camera'}>
-        //         {(props) => <Camera {...props} closeModal={propsInitial.closeModal} />}
-        //     </Stack.Screen> */}
-        //     <Stack.Screen name={'SettingMainMenu'} component={SettingMainMenu} />
-        // </Stack.Navigator>
-        // )
-    }
-
-    render() {
-
-
-        return (
-
-
-            <View style={styles.container}>
-                <ScrollView style={{ height: '100%' }}>
-                    {this._renderHeader()}
-                    {/* {this._renderBody()} */}
-                    {this._renderMenu()}
-                </ScrollView>
-            </View>
-        )
-    }
 }
 
 const styles = StyleSheet.create({
-    main_container: {
-        flex: 1,
-        backgroundColor: 'white'
-    },
     listBtnContainer: {
         flex: 1,
         padding: 15,
         backgroundColor: 'white',
-        borderRadius: 25,
-        top: -30
+        top: -30,
+        paddingTop: 35
     },
     navigationBtn: {
         flex: 1,
@@ -195,7 +93,8 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '600',
         fontFamily: 'Avenir-Heavy'
-    }
+    },
+
 })
 
 const mapStateToProps = state => ({
@@ -212,4 +111,4 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(ActionCreators, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Setting)
+export default connect(mapStateToProps, mapDispatchToProps)(SettingMainMenu)
