@@ -140,17 +140,6 @@ class Setting extends React.Component {
             </View>
         )
 
-        // return (
-        // <Stack.Navigator
-        //     screenOptions={{ headerShown: false }}
-        //     initialRouteName={'SettingMainMenu'}
-        // >
-        //     {/* <Stack.Screen name={'Camera'}>
-        //         {(props) => <Camera {...props} closeModal={propsInitial.closeModal} />}
-        //     </Stack.Screen> */}
-        //     <Stack.Screen name={'SettingMainMenu'} component={SettingMainMenu} />
-        // </Stack.Navigator>
-        // )
     }
 
     render() {
