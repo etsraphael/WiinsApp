@@ -485,7 +485,8 @@ const styles = StyleSheet.create({
     main_container: {
         flex: 1,
         paddingTop: Platform.OS === 'ios' ? getStatusBarHeight() : 0,
-        marginBottom: 65
+        marginBottom: 65,
+        backgroundColor: 'white'
     },
     container_btn_header: {
         paddingHorizontal: 10,

@@ -11,17 +11,10 @@ import I18n from '../../../../assets/i18n/i18n'
 import SettingMainMenu from './setting-main-menu'
 import { createStackNavigator } from '@react-navigation/stack'
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
+import SettingCertification from './setting-certification'
+import { SettingNavigationMain } from './../../../navigation/setting-navigation'
 
 const Stack = createStackNavigator()
-
-const MyTheme = {
-    ...DefaultTheme,
-    colors: {
-      ...DefaultTheme.colors,
-      background: 'white',
-      border: 0
-    },
-  };
 
 class Setting extends React.Component {
 
@@ -38,23 +31,26 @@ class Setting extends React.Component {
     // to display the header of the profile
     _renderHeader = () => {
         return (
-            <View style={{ backgroundColor: '#0C1A32', height: 250, overflow: 'hidden' }}>
+            <View style={{ backgroundColor: '#0C1A32', height: 150, overflow: 'hidden' }}>
 
                 <View style={{ flex: 1, position: 'relative' }}>
 
                     {/* Back Btn */}
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}
-                        style={{ position: 'absolute', left: 25, width: 35, height: 35, top: 55, zIndex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                        <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
-                    </TouchableOpacity>
+                    <View style={{ flexDirection: 'row', textAlign: 'center', position: 'absolute', width: '100%', zIndex: 1, top: 20, paddingHorizontal: 25, paddingVertical: 20 }}>
+                        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+                            <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
+                        </TouchableOpacity>
+                        <View style={{ paddingLeft: 15, justifyContent: 'center', top: -3 }}>
+                            <Text style={{ fontSize: 28, color: 'white', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Setting')}</Text>
+                        </View>
+                    </View>
 
                     {/* Cover Picture */}
-
                     <LinearGradient
                         colors={['#2CB0D6', '#3087D7', '#6743E0', '#ED6569']}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 1 }}
-                        style={{ height: 250 }} />
+                        style={{ height: 150 }} />
 
                     {/* Profile picture and name */}
                     <View style={{ position: 'absolute', top: 130, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
@@ -118,40 +114,20 @@ class Setting extends React.Component {
     }
 
     _renderMenu = () => {
-
         return (
             <View style={styles.listBtnContainer}>
                 <SafeAreaView style={{ flex: 1, minHeight: 400 }}>
-                    <NavigationContainer theme={MyTheme} independent={true}>
-                        <Stack.Navigator
-                            screenOptions={{
-                                headerShown: false,
-                                cardStyle: {
-                                    backgroundColor: "transparent",
-                                    opacity: 1
-                                  }
-                            }}
-                            initialRouteName={'SettingMainMenu'}
-                        >
-                            <Stack.Screen  name={'SettingMainMenu'} component={SettingMainMenu} />
-                        </Stack.Navigator>
-                    </NavigationContainer>
+                    <SettingNavigationMain />
                 </SafeAreaView>
             </View>
         )
-
     }
 
     render() {
-
-
         return (
-
-
-            <View style={styles.container}>
+            <View>
                 <ScrollView style={{ height: '100%' }}>
                     {this._renderHeader()}
-                    {/* {this._renderBody()} */}
                     {this._renderMenu()}
                 </ScrollView>
             </View>
