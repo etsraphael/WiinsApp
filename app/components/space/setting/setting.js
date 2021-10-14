@@ -8,13 +8,7 @@ import { faArrowLeft, faCertificate, faSignOut, faUserShield, faLanguage } from 
 import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
 import I18n from '../../../../assets/i18n/i18n'
-import SettingMainMenu from './setting-main-menu'
-import { createStackNavigator } from '@react-navigation/stack'
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
-import SettingCertification from './setting-certification'
 import { SettingNavigationMain } from './../../../navigation/setting-navigation'
-
-const Stack = createStackNavigator()
 
 class Setting extends React.Component {
 
