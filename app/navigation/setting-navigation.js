@@ -9,6 +9,7 @@ import SettingCertification from '../components/space/setting/setting-certificat
 import SettingPrivacy from '../components/space/setting/setting-privacy'
 import SettingLanguage from '../components/space/setting/setting-language'
 import SettingMainMenu from '../components/space/setting/setting-main-menu'
+import SettingMenuProfile from '../components/space/setting/setting-menu-profile'
 
 const MyTheme = {
     ...DefaultTheme,
@@ -34,6 +35,7 @@ export const SettingNavigationMain = () => (
             initialRouteName={'SettingMainMenu'}
         >
             <Stack.Screen name={'SettingMainMenu'} component={SettingMainMenu} />
+            <Stack.Screen name={'SettingMenuProfile'} component={SettingMenuProfile} />
             <Stack.Screen name={'SettingCertification'} component={SettingCertification} />
             <Stack.Screen name={'SettingProfile'} component={SettingProfile} />
             <Stack.Screen name={'SettingLedger'} component={SettingLedger} />

@@ -8,18 +8,47 @@ import { faArrowLeft, faCertificate, faSignOut, faUserShield, faLanguage } from 
 import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
 import I18n from '../../../../assets/i18n/i18n'
+import { SettingNavigationMain } from '../../../navigation/setting-navigation'
 
-class SettingMainMenu extends React.Component {
-    
+class SettingMenuProfile extends React.Component {
 
     constructor(props) {
         super(props)
     }
 
-    // to logout the user
-    _logOut = async () => {
-        await AsyncStorage.removeItem('userToken')
-        this.props.actions.logOut()
+    // to display the header of the profile
+    _renderHeader = () => {
+        return (
+            <View style={{ backgroundColor: '#0C1A32', height: 150, overflow: 'hidden' }}>
+
+                <View style={{ flex: 1, position: 'relative' }}>
+
+                    {/* Back Btn */}
+                    <View style={{ flexDirection: 'row', textAlign: 'center', position: 'absolute', width: '100%', zIndex: 1, top: 20, paddingHorizontal: 25, paddingVertical: 20 }}>
+                        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
+                            <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
+                        </TouchableOpacity>
+                        <View style={{ paddingLeft: 15, justifyContent: 'center', top: -3 }}>
+                            <Text style={{ fontSize: 28, color: 'white', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Setting')}</Text>
+                        </View>
+                    </View>
+
+                    {/* Cover Picture */}
+                    <LinearGradient
+                        colors={['#2CB0D6', '#3087D7', '#6743E0', '#ED6569']}
+                        start={{ x: 0, y: 0 }}
+                        end={{ x: 1, y: 1 }}
+                        style={{ height: 150 }} />
+
+                    {/* Profile picture and name */}
+                    <View style={{ position: 'absolute', top: 130, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
+                        <View style={{ flex: 1, paddingHorizontal: 35, justifyContent: 'center' }}>
+                            <Text style={{ fontSize: 28, color: 'white', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Setting')}</Text>
+                        </View>
+                    </View>
+                </View>
+            </View>
+        )
     }
 
     _actionSelected = (code) => {
@@ -31,14 +60,14 @@ class SettingMainMenu extends React.Component {
             case 'SettingOther': return this.props.navigation.navigate('SettingOther')
             case 'SettingPrivacy': return this.props.navigation.navigate('SettingPrivacy')
             case 'SettingLanguage': return this.props.navigation.navigate('SettingLanguage')
-            case 'SettingMenuProfile': return this.props.navigation.navigate('SettingMenuProfile')
             case 'Logout': return this._logOut()
         }
     }
 
-    render() {
+    // icons setting
+    _renderBody = () => {
+
         const listSetting = [
-            { title: I18n.t('CORE.Profile'), code: 'SettingMenuProfile', icon: <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} /> },
             // { title: I18n.t('CORE.Profile'), code: 'SettingProfile', icon: <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} /> },
             // { title: I18n.t('CORE.Password'), code: 'SettingPassword', icon: <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} /> },
             // { title: I18n.t('CORE.Ledger'), code: 'SettingLedger', icon: <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} /> },
@@ -50,7 +79,6 @@ class SettingMainMenu extends React.Component {
         ]
 
         return (
-
             <View style={styles.listBtnContainer}>
                 <SafeAreaView style={{ flex: 1 }}>
                     <FlatList
@@ -72,15 +100,45 @@ class SettingMainMenu extends React.Component {
             </View>
         )
     }
+
+    _renderMenu = () => {
+        return (
+            <View style={styles.listBtnContainer}>
+                <SafeAreaView style={{ flex: 1, minHeight: 400 }}>
+                    <SettingNavigationMain />
+                </SafeAreaView>
+            </View>
+        )
+    }
+
+    render() {
+
+
+        alert('oh')
+        return (
+            <View>
+
+                <Text> aldskfjsdofjn dsfgsjdifj </Text>
+                {/* <ScrollView style={{ height: '100%' }}>
+                    {this._renderHeader()}
+                    {this._renderMenu()}
+                </ScrollView> */}
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
+    main_container: {
+        flex: 1,
+        backgroundColor: 'white'
+    },
     listBtnContainer: {
         flex: 1,
         padding: 15,
         backgroundColor: 'white',
-        top: -30,
-        paddingTop: 35
+        borderRadius: 25,
+        top: -30
     },
     navigationBtn: {
         flex: 1,
@@ -95,8 +153,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: '600',
         fontFamily: 'Avenir-Heavy'
-    },
-
+    }
 })
 
 const mapStateToProps = state => ({
@@ -113,4 +170,4 @@ const mapDispatchToProps = dispatch => ({
     actions: bindActionCreators(ActionCreators, dispatch),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SettingMainMenu)
+export default connect(mapStateToProps, mapDispatchToProps)(SettingMenuProfile)
