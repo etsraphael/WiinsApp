@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
+import { NavigationContainer } from '@react-navigation/native'
 import SettingProfile from '../components/space/setting/setting-profile'
 import SettingLedger from '../components/space/setting/setting-ledger'
 import SettingOther from '../components/space/setting/setting-other'
@@ -11,26 +11,21 @@ import SettingLanguage from '../components/space/setting/setting-language'
 import SettingMainMenu from '../components/space/setting/setting-main-menu'
 import SettingMenuProfile from '../components/space/setting/setting-menu-profile'
 
-const MyTheme = {
-    ...DefaultTheme,
-    colors: {
-        ...DefaultTheme.colors,
-        background: 'white',
-        border: 0
-    },
-};
 
 const Stack = createStackNavigator()
 
 export const SettingNavigationMain = () => (
-    <NavigationContainer theme={MyTheme} independent={true}>
+    <NavigationContainer independent={true}>
         <Stack.Navigator
             screenOptions={{
                 headerShown: false,
                 cardStyle: {
-                    backgroundColor: "transparent",
-                    opacity: 1
-                }
+                    flex: 1,
+                    backgroundColor: "red",
+                    opacity: 1,
+                    position: 'relative',
+                    overflow: 'visible'
+                },
             }}
             initialRouteName={'SettingMainMenu'}
         >

@@ -1,10 +1,10 @@
 import React from 'react'
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, FlatList, SafeAreaView } from 'react-native'
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, SafeAreaView, Dimensions  } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft, faCertificate, faSignOut, faUserShield, faLanguage } from '@fortawesome/pro-duotone-svg-icons'
+import { faArrowLeft } from '@fortawesome/pro-duotone-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
 import I18n from '../../../../assets/i18n/i18n'
@@ -45,64 +45,7 @@ class Setting extends React.Component {
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 1 }}
                         style={{ height: 150 }} />
-
-                    {/* Profile picture and name */}
-                    <View style={{ position: 'absolute', top: 130, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
-                        <View style={{ flex: 1, paddingHorizontal: 35, justifyContent: 'center' }}>
-                            <Text style={{ fontSize: 28, color: 'white', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Setting')}</Text>
-                        </View>
-                    </View>
                 </View>
-            </View>
-        )
-    }
-
-    _actionSelected = (code) => {
-        switch (code) {
-            case 'SettingProfile': return this.props.navigation.navigate('SettingProfile')
-            case 'SettingPassword': return this.props.navigation.navigate('SettingPassword')
-            case 'SettingLedger': return this.props.navigation.navigate('SettingLedger')
-            case 'SettingCertification': return this.props.navigation.navigate('SettingCertification')
-            case 'SettingOther': return this.props.navigation.navigate('SettingOther')
-            case 'SettingPrivacy': return this.props.navigation.navigate('SettingPrivacy')
-            case 'SettingLanguage': return this.props.navigation.navigate('SettingLanguage')
-            case 'Logout': return this._logOut()
-        }
-    }
-
-    // icons setting
-    _renderBody = () => {
-
-        const listSetting = [
-            { title: I18n.t('CORE.Profile'), code: 'SettingMenuProfile', icon: <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} /> },
-            // { title: I18n.t('CORE.Password'), code: 'SettingPassword', icon: <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} /> },
-            // { title: I18n.t('CORE.Ledger'), code: 'SettingLedger', icon: <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} /> },
-            // { title: I18n.t('CORE.Others'), code: 'SettingOther', icon: <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('CORE.Certification'), code: 'SettingCertification', icon: <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} /> },
-            { title: 'Privacy', code: 'SettingPrivacy', icon: <FontAwesomeIcon icon={faUserShield} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('SIDEBAR-SETTING.Language'), code: 'SettingLanguage', icon: <FontAwesomeIcon icon={faLanguage} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('NAVBAR.Logout'), code: 'Logout', icon: <FontAwesomeIcon icon={faSignOut} color={'#808080a3'} size={30} /> }
-        ]
-
-        return (
-            <View style={styles.listBtnContainer}>
-                <SafeAreaView style={{ flex: 1 }}>
-                    <FlatList
-                        style={{ flex: 1, paddingBottom: 45 }}
-                        data={listSetting}
-                        keyExtractor={(item) => item.code.toString()}
-                        renderItem={({ item }) =>
-                            <TouchableOpacity
-                                style={{ flexDirection: 'row', paddingVertical: 5 }}
-                                onPress={() => this._actionSelected(item.code)}
-                            >
-                                <View style={styles.navigationBtn}>
-                                    <Text style={styles.textBtnNaviagation}>{item.title}</Text>
-                                </View>
-                            </TouchableOpacity>
-                        }
-                    />
-                </SafeAreaView>
             </View>
         )
     }
@@ -110,8 +53,16 @@ class Setting extends React.Component {
     _renderMenu = () => {
         return (
             <View style={styles.listBtnContainer}>
-                <SafeAreaView style={{ flex: 1, minHeight: 400 }}>
-                    <SettingNavigationMain />
+                <SafeAreaView style={{ height: Dimensions.get('window').height + 350 }}>
+                    {/* <View style={{backgroundColor: 'red', height: 150}}/>
+                    <View style={{backgroundColor: 'green', height: 150}}/>
+                    <View style={{backgroundColor: 'red', height: 150}}/>
+                    <View style={{backgroundColor: 'green', height: 150}}/>
+                    <View style={{backgroundColor: 'red', height: 150}}/>
+                    <View style={{backgroundColor: 'green', height: 150}}/>  */}
+                    <SettingNavigationMain/>
+                    {/* <View style={{backgroundColor: 'green', height: 150}}/> */}
+
                 </SafeAreaView>
             </View>
         )
@@ -119,10 +70,17 @@ class Setting extends React.Component {
 
     render() {
         return (
-            <View>
-                <ScrollView style={{ height: '100%' }}>
-                    {this._renderHeader()}
-                    {this._renderMenu()}
+            <View style={{ flex: 1 }}>
+                <ScrollView
+                    style={styles.main_container}
+                    contentContainerStyle={{ flexGrow: 1 }}
+                >
+                    <View style={{ height: 40 }}>
+                        {this._renderHeader()}
+                    </View>
+                    <View style={{ flex: 1, top: 100, marginBottom: 150 }}>
+                        {this._renderMenu()}
+                    </View>
                 </ScrollView>
             </View>
         )
@@ -131,7 +89,7 @@ class Setting extends React.Component {
 
 const styles = StyleSheet.create({
     main_container: {
-        flex: 1,
+        flexDirection: 'column',
         backgroundColor: 'white'
     },
     listBtnContainer: {
@@ -139,7 +97,8 @@ const styles = StyleSheet.create({
         padding: 15,
         backgroundColor: 'white',
         borderRadius: 25,
-        top: -30
+        top: -30,
+        justifyContent: 'flex-end'
     },
     navigationBtn: {
         flex: 1,
