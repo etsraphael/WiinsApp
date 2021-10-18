@@ -19,48 +19,16 @@ class SettingMenuProfile extends React.Component {
     // to display the header of the profile
     _renderHeader = () => {
         return (
-            <View style={{ backgroundColor: '#0C1A32', height: 150, overflow: 'hidden' }}>
-
-                <View style={{ flex: 1, position: 'relative' }}>
-
-                    {/* Back Btn */}
-                    <View style={{ flexDirection: 'row', textAlign: 'center', position: 'absolute', width: '100%', zIndex: 1, top: 20, paddingHorizontal: 25, paddingVertical: 20 }}>
-                        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
-                            <FontAwesomeIcon icon={faArrowLeft} color={'white'} size={30} />
-                        </TouchableOpacity>
-                        <View style={{ paddingLeft: 15, justifyContent: 'center', top: -3 }}>
-                            <Text style={{ fontSize: 28, color: 'white', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Setting')}</Text>
-                        </View>
-                    </View>
-
-                    {/* Cover Picture */}
-                    <LinearGradient
-                        colors={['#2CB0D6', '#3087D7', '#6743E0', '#ED6569']}
-                        start={{ x: 0, y: 0 }}
-                        end={{ x: 1, y: 1 }}
-                        style={{ height: 150 }} />
-
-                    {/* Profile picture and name */}
-                    <View style={{ position: 'absolute', top: 130, width: '100%', flexDirection: 'row', paddingHorizontal: 5 }}>
-                        <View style={{ flex: 1, paddingHorizontal: 35, justifyContent: 'center' }}>
-                            <Text style={{ fontSize: 28, color: 'white', fontFamily: 'Avenir-Heavy' }}>{I18n.t('CORE.Setting')}</Text>
-                        </View>
-                    </View>
-                </View>
+            <View style={{ paddingLeft: 25, paddingTop: 5 }}>
+                <Text style={{ fontSize: 28, color: 'grey', fontFamily: 'Avenir-Heavy', fontWeight: '600' }}>{I18n.t('CORE.Profile')}</Text>
             </View>
         )
     }
 
     _actionSelected = (code) => {
         switch (code) {
-            case 'SettingProfile': return this.props.navigation.navigate('SettingProfile')
-            case 'SettingPassword': return this.props.navigation.navigate('SettingPassword')
-            case 'SettingLedger': return this.props.navigation.navigate('SettingLedger')
-            case 'SettingCertification': return this.props.navigation.navigate('SettingCertification')
-            case 'SettingOther': return this.props.navigation.navigate('SettingOther')
-            case 'SettingPrivacy': return this.props.navigation.navigate('SettingPrivacy')
-            case 'SettingLanguage': return this.props.navigation.navigate('SettingLanguage')
-            case 'Logout': return this._logOut()
+            case 'SettingProfile':
+            default: return null
         }
     }
 
@@ -68,20 +36,38 @@ class SettingMenuProfile extends React.Component {
     _renderBody = () => {
 
         const listSetting = [
-            // { title: I18n.t('CORE.Profile'), code: 'SettingProfile', icon: <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} /> },
-            // { title: I18n.t('CORE.Password'), code: 'SettingPassword', icon: <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} /> },
-            // { title: I18n.t('CORE.Ledger'), code: 'SettingLedger', icon: <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} /> },
-            // { title: I18n.t('CORE.Others'), code: 'SettingOther', icon: <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('CORE.Certification'), code: 'SettingCertification', icon: <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} /> },
-            { title: 'Privacy', code: 'SettingPrivacy', icon: <FontAwesomeIcon icon={faUserShield} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('SIDEBAR-SETTING.Language'), code: 'SettingLanguage', icon: <FontAwesomeIcon icon={faLanguage} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('NAVBAR.Logout'), code: 'Logout', icon: <FontAwesomeIcon icon={faSignOut} color={'#808080a3'} size={30} /> }
+            { title: 'General information', code: 'SettingCertification' },
+            { title: 'Confidentiality', code: 'SettingPrivacy' },
+            { title: 'Language', code: 'SettingLanguage' },
+            { title: 'Download data', code: 'SettingLanguage2' },
+            { title: 'To become Wiinser Pro', code: 'SettingLanguage3' },
+            { title: 'Notifications', code: 'SettingLanguage4' }
         ]
 
         return (
             <View style={styles.listBtnContainer}>
                 <SafeAreaView style={{ flex: 1 }}>
-                    <FlatList
+
+
+
+
+                {
+                        listSetting.map(item => (
+                        <TouchableOpacity
+                            style={{ flexDirection: 'row', paddingVertical: 5 }}
+                            onPress={() => this._actionSelected(item.code)}
+                        >
+                            <View style={styles.navigationBtn}>
+                                <Text style={styles.textBtnNaviagation}>{item.title}</Text>
+                            </View>
+                        </TouchableOpacity>))
+                    }
+
+
+
+
+
+                    {/* <FlatList
                         style={{ flex: 1, paddingBottom: 45 }}
                         data={listSetting}
                         keyExtractor={(item) => item.code.toString()}
@@ -95,8 +81,16 @@ class SettingMenuProfile extends React.Component {
                                 </View>
                             </TouchableOpacity>
                         }
-                    />
+                    /> */}
+
+
+
+
                 </SafeAreaView>
+
+
+
+
             </View>
         )
     }
@@ -105,24 +99,19 @@ class SettingMenuProfile extends React.Component {
         return (
             <View style={styles.listBtnContainer}>
                 <SafeAreaView style={{ flex: 1, minHeight: 400 }}>
-                    <SettingNavigationMain />
+                    {this._renderBody()}
                 </SafeAreaView>
             </View>
         )
     }
 
     render() {
-
-
-        alert('oh')
         return (
-            <View>
-
-                <Text> aldskfjsdofjn dsfgsjdifj </Text>
-                {/* <ScrollView style={{ height: '100%' }}>
+            <View style={styles.main_container}>
+                <ScrollView style={{ height: '100%' }}>
                     {this._renderHeader()}
                     {this._renderMenu()}
-                </ScrollView> */}
+                </ScrollView>
             </View>
         )
     }
@@ -137,8 +126,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 15,
         backgroundColor: 'white',
-        borderRadius: 25,
-        top: -30
+        borderRadius: 25
     },
     navigationBtn: {
         flex: 1,

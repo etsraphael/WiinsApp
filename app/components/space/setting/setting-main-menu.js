@@ -1,16 +1,13 @@
 import React from 'react'
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, FlatList, SafeAreaView } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity, SafeAreaView } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
-import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faArrowLeft, faCertificate, faSignOut, faUserShield, faLanguage } from '@fortawesome/pro-duotone-svg-icons'
-import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
 import I18n from '../../../../assets/i18n/i18n'
 
 class SettingMainMenu extends React.Component {
-    
+
 
     constructor(props) {
         super(props)
@@ -38,36 +35,34 @@ class SettingMainMenu extends React.Component {
 
     render() {
         const listSetting = [
-            { title: I18n.t('CORE.Profile'), code: 'SettingMenuProfile', icon: <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} /> },
-            // { title: I18n.t('CORE.Profile'), code: 'SettingProfile', icon: <FontAwesomeIcon icon={faUser} color={'#808080a3'} size={30} /> },
-            // { title: I18n.t('CORE.Password'), code: 'SettingPassword', icon: <FontAwesomeIcon icon={faKey} color={'#808080a3'} size={30} /> },
-            // { title: I18n.t('CORE.Ledger'), code: 'SettingLedger', icon: <FontAwesomeIcon icon={faWallet} color={'#808080a3'} size={30} /> },
-            // { title: I18n.t('CORE.Others'), code: 'SettingOther', icon: <FontAwesomeIcon icon={faEllipsisH} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('CORE.Certification'), code: 'SettingCertification', icon: <FontAwesomeIcon icon={faCertificate} color={'#808080a3'} size={30} /> },
-            { title: 'Privacy', code: 'SettingPrivacy', icon: <FontAwesomeIcon icon={faUserShield} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('SIDEBAR-SETTING.Language'), code: 'SettingLanguage', icon: <FontAwesomeIcon icon={faLanguage} color={'#808080a3'} size={30} /> },
-            { title: I18n.t('NAVBAR.Logout'), code: 'Logout', icon: <FontAwesomeIcon icon={faSignOut} color={'#808080a3'} size={30} /> }
+            { title: I18n.t('CORE.Profile'), code: 'SettingMenuProfile' },
+            // { title: I18n.t('CORE.Profile'), code: 'SettingProfile' },
+            // { title: I18n.t('CORE.Password'), code: 'SettingPassword' },
+            // { title: I18n.t('CORE.Ledger'), code: 'SettingLedger' },
+            // { title: I18n.t('CORE.Others'), code: 'SettingOther' },
+            { title: I18n.t('CORE.Certification'), code: 'SettingCertification' },
+            { title: 'Privacy', code: 'SettingPrivacy' },
+            { title: I18n.t('SIDEBAR-SETTING.Language'), code: 'SettingLanguage' },
+            { title: I18n.t('NAVBAR.Logout'), code: 'Logout' }
         ]
 
         return (
 
             <View style={styles.listBtnContainer}>
-                <SafeAreaView style={{ flex: 1 }}>
-                    <FlatList
-                        style={{ flex: 1, paddingBottom: 45 }}
-                        data={listSetting}
-                        keyExtractor={(item) => item.code.toString()}
-                        renderItem={({ item }) =>
-                            <TouchableOpacity
-                                style={{ flexDirection: 'row', paddingVertical: 5 }}
-                                onPress={() => this._actionSelected(item.code)}
-                            >
-                                <View style={styles.navigationBtn}>
-                                    <Text style={styles.textBtnNaviagation}>{item.title}</Text>
-                                </View>
-                            </TouchableOpacity>
-                        }
-                    />
+                <SafeAreaView style={{ flex: 1, flexGrow: 1 }}>
+
+                    {
+                        listSetting.map(item => (
+                        <TouchableOpacity
+                            style={{ flexDirection: 'row', paddingVertical: 5 }}
+                            onPress={() => this._actionSelected(item.code)}
+                        >
+                            <View style={styles.navigationBtn}>
+                                <Text style={styles.textBtnNaviagation}>{item.title}</Text>
+                            </View>
+                        </TouchableOpacity>))
+                    }
+
                 </SafeAreaView>
             </View>
         )
@@ -76,7 +71,7 @@ class SettingMainMenu extends React.Component {
 
 const styles = StyleSheet.create({
     listBtnContainer: {
-        flex: 1,
+        height: '100%',
         padding: 15,
         backgroundColor: 'white',
         top: -30,
