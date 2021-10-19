@@ -44,16 +44,6 @@ class SettingMainMenu extends React.Component {
             { title: 'Privacy', code: 'SettingPrivacy' },
             { title: I18n.t('SIDEBAR-SETTING.Language'), code: 'SettingLanguage' },
             { title: I18n.t('NAVBAR.Logout'), code: 'Logout' },
-
-            // to delete
-            { title: I18n.t('CORE.Certification'), code: 'SettingCertification2' },
-            { title: 'Privacy', code: 'SettingPrivacy2' },
-            { title: I18n.t('SIDEBAR-SETTING.Language'), code: 'SettingLanguage2' },
-            { title: I18n.t('NAVBAR.Logout'), code: 'Logout2' },
-            { title: I18n.t('CORE.Certification'), code: 'SettingCertification3' },
-            { title: 'Privacy', code: 'SettingPrivacy3' },
-            { title: I18n.t('SIDEBAR-SETTING.Language'), code: 'SettingLanguage3' },
-            { title: I18n.t('NAVBAR.Logout'), code: 'Logout3' }
         ]
 
         return (            

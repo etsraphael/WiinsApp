@@ -10,10 +10,27 @@ import AsyncStorage from '@react-native-community/async-storage'
 import I18n from '../../../../assets/i18n/i18n'
 import { SettingNavigationMain } from './../../../navigation/setting-navigation'
 
+
+
+const listPage = [
+    { title: I18n.t('CORE.Profile'), code: 'SettingMenuProfile' },
+    // { title: I18n.t('CORE.Profile'), code: 'SettingProfile' },
+    // { title: I18n.t('CORE.Password'), code: 'SettingPassword' },
+    // { title: I18n.t('CORE.Ledger'), code: 'SettingLedger' },
+    // { title: I18n.t('CORE.Others'), code: 'SettingOther' },
+    { title: I18n.t('CORE.Certification'), code: 'SettingCertification' },
+    { title: 'Privacy', code: 'SettingPrivacy' },
+    { title: I18n.t('SIDEBAR-SETTING.Language'), code: 'SettingLanguage' },
+    { title: I18n.t('NAVBAR.Logout'), code: 'Logout' },
+]
+
 class Setting extends React.Component {
 
     constructor(props) {
         super(props)
+        state = {
+            pageSelected: 'default'
+        }
     }
 
     // to logout the user
@@ -53,16 +70,20 @@ class Setting extends React.Component {
     _renderMenu = () => {
         return (
             <View style={styles.listBtnContainer}>
-                <SafeAreaView style={{ height: Dimensions.get('window').height + 350 }}>
-                    {/* <View style={{backgroundColor: 'red', height: 150}}/>
-                    <View style={{backgroundColor: 'green', height: 150}}/>
-                    <View style={{backgroundColor: 'red', height: 150}}/>
-                    <View style={{backgroundColor: 'green', height: 150}}/>
-                    <View style={{backgroundColor: 'red', height: 150}}/>
-                    <View style={{backgroundColor: 'green', height: 150}}/>  */}
-                    <SettingNavigationMain/>
-                    {/* <View style={{backgroundColor: 'green', height: 150}}/> */}
-
+                <SafeAreaView style={{ flex: 1 }}>
+                <SafeAreaView style={{ flex: 1 }}>
+                    {
+                        listPage.map(item => (
+                            <TouchableOpacity
+                                style={{ flexDirection: 'row', paddingVertical: 5 }}
+                                onPress={() => this._actionSelected(item.code)}
+                            >
+                                <View style={styles.navigationBtn}>
+                                    <Text style={styles.textBtnNaviagation}>{item.title}</Text>
+                                </View>
+                            </TouchableOpacity>))
+                    }
+                </SafeAreaView>
                 </SafeAreaView>
             </View>
         )
