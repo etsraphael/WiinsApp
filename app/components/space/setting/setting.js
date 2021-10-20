@@ -9,6 +9,9 @@ import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
 import I18n from '../../../../assets/i18n/i18n'
 import Modal from 'react-native-modal'
+import SettingLanguage from './setting-language'
+import SettingCertification from './setting-certification'
+import SettingPrivacy from './setting-privacy'
 
 const listPage = [
     { title: I18n.t('CORE.Profile'), code: 'SettingMenuProfile' },
@@ -79,11 +82,29 @@ class Setting extends React.Component {
                 animationOut={'bounceOutDown'}
                 animationInTiming={500}
                 style={styles.modalContainer}
-                swipeDirection={'down'}
+                // swipeDirection={'down'}
                 swipeThreshold={50}
                 onBackdropPress={() => this.setState({ modalVisible: false })}
             >
-                <View style={{ flex: 1, backgroundColor: 'red' }} />
+                <ScrollView style={{ flex: 1 }}>
+                    {/* <SettingLanguage/> */}
+                    {/* <SettingCertification/> */}
+                    {/* <SettingPrivacy/> */}
+                    <View style={{backgroundColor: 'red', height: 350}}/>
+                    <View style={{backgroundColor: 'blue', height: 350}}/>
+                    <View style={{backgroundColor: 'red', height: 350}}/>
+                    <View style={{backgroundColor: 'blue', height: 350}}/>
+                    <View style={{backgroundColor: 'red', height: 350}}/>
+                    <View style={{backgroundColor: 'blue', height: 350}}/>
+                    <View style={{backgroundColor: 'red', height: 350}}/>
+                    <View style={{backgroundColor: 'blue', height: 350}}/>
+
+                </ScrollView >
+
+
+
+
+
             </Modal>)
     }
 
