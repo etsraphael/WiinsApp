@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, SafeAreaView, Dimensions  } from 'react-native'
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, SafeAreaView, Dimensions } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
@@ -8,9 +8,7 @@ import { faArrowLeft } from '@fortawesome/pro-duotone-svg-icons'
 import LinearGradient from 'react-native-linear-gradient'
 import AsyncStorage from '@react-native-community/async-storage'
 import I18n from '../../../../assets/i18n/i18n'
-import { SettingNavigationMain } from './../../../navigation/setting-navigation'
-
-
+import Modal from 'react-native-modal'
 
 const listPage = [
     { title: I18n.t('CORE.Profile'), code: 'SettingMenuProfile' },
@@ -28,8 +26,8 @@ class Setting extends React.Component {
 
     constructor(props) {
         super(props)
-        state = {
-            pageSelected: 'default'
+        this.state = {
+            modalVisible: false
         }
     }
 
@@ -61,29 +59,53 @@ class Setting extends React.Component {
                         colors={['#2CB0D6', '#3087D7', '#6743E0', '#ED6569']}
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 1 }}
-                        style={{ height: 150 }} />
+                        style={{ height: 150 }}
+                    />
                 </View>
             </View>
         )
+    }
+
+    // open modal 
+    _modalView = (mode) => {
+
+        return (
+            <Modal
+                onSwipeComplete={() => this.setState({ modalVisible: false })}
+                isVisible={this.state.modalVisible}
+                transparent={true}
+                propagateSwipe={true}
+                animationIn={'bounceInUp'}
+                animationOut={'bounceOutDown'}
+                animationInTiming={500}
+                style={styles.modalContainer}
+                swipeDirection={'down'}
+                swipeThreshold={50}
+                onBackdropPress={() => this.setState({ modalVisible: false })}
+            >
+                <View style={{ flex: 1, backgroundColor: 'red' }} />
+            </Modal>)
+    }
+
+    _openModal = () => {
+        this.setState({ modalVisible: true })
     }
 
     _renderMenu = () => {
         return (
             <View style={styles.listBtnContainer}>
                 <SafeAreaView style={{ flex: 1 }}>
-                <SafeAreaView style={{ flex: 1 }}>
                     {
                         listPage.map(item => (
                             <TouchableOpacity
                                 style={{ flexDirection: 'row', paddingVertical: 5 }}
-                                onPress={() => this._actionSelected(item.code)}
+                                onPress={() => this._openModal(item.code)}
                             >
                                 <View style={styles.navigationBtn}>
                                     <Text style={styles.textBtnNaviagation}>{item.title}</Text>
                                 </View>
                             </TouchableOpacity>))
                     }
-                </SafeAreaView>
                 </SafeAreaView>
             </View>
         )
@@ -103,6 +125,9 @@ class Setting extends React.Component {
                         {this._renderMenu()}
                     </View>
                 </ScrollView>
+
+
+                {this._modalView()}
             </View>
         )
     }
@@ -112,6 +137,15 @@ const styles = StyleSheet.create({
     main_container: {
         flexDirection: 'column',
         backgroundColor: 'white'
+    },
+    modalContainer: {
+        backgroundColor: 'white',
+        flex: 1,
+        margin: 0,
+        overflow: 'hidden',
+        marginTop: 110,
+        borderTopStartRadius: 25,
+        borderTopEndRadius: 25
     },
     listBtnContainer: {
         flex: 1,
