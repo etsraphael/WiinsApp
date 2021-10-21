@@ -30,7 +30,8 @@ class Setting extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            modalVisible: false
+            modalVisible: false,
+            pageSelected: null
         }
     }
 
@@ -69,6 +70,17 @@ class Setting extends React.Component {
         )
     }
 
+    // show the page selected
+    _pageSelected = () => {
+        switch (this.state.pageSelected) {
+            case 'profile':
+                
+                break;
+        
+            default: return (<SettingPrivacy/>)
+        }
+    }
+
     // open modal 
     _modalView = (mode) => {
 
@@ -87,17 +99,16 @@ class Setting extends React.Component {
                 onBackdropPress={() => this.setState({ modalVisible: false })}
             >
                 <ScrollView style={{ flex: 1 }}>
+
+                    {this._pageSelected()}
+
+
+
+
                     {/* <SettingLanguage/> */}
                     {/* <SettingCertification/> */}
                     {/* <SettingPrivacy/> */}
-                    <View style={{backgroundColor: 'red', height: 350}}/>
-                    <View style={{backgroundColor: 'blue', height: 350}}/>
-                    <View style={{backgroundColor: 'red', height: 350}}/>
-                    <View style={{backgroundColor: 'blue', height: 350}}/>
-                    <View style={{backgroundColor: 'red', height: 350}}/>
-                    <View style={{backgroundColor: 'blue', height: 350}}/>
-                    <View style={{backgroundColor: 'red', height: 350}}/>
-                    <View style={{backgroundColor: 'blue', height: 350}}/>
+
 
                 </ScrollView >
 
