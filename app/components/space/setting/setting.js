@@ -105,9 +105,6 @@ class Setting extends React.Component {
             >
                 <ScrollView style={{ flex: 1 }}>
                     {this._pageSelected()}
-                    {/* <SettingLanguage/> */}
-                    {/* <SettingCertification/> */}
-                    {/* <SettingPrivacy/> */}
                 </ScrollView >
             </Modal>)
     }
