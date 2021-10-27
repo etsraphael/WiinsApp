@@ -73,9 +73,18 @@ class Setting extends React.Component {
     // show the page selected
     _pageSelected = () => {
         switch (this.state.pageSelected) {
-            case 'profile': return <View/>
-            default: return (<SettingPrivacy/>)
+            // navigation for the profile
+            case 'profile': return (<View/>)
+            case 'settingLanguage': return (<SettingLanguage/>)
+            case 'settingPrivacy': return (<SettingPrivacy/>)
+            case 'SettingCertification': return (<SettingCertification/>)
+            default: return this._defaultPage()
         }
+    }
+
+    // default view 
+    _defaultPage = () => {
+        return (<View/>)
     }
 
     // open modal 
