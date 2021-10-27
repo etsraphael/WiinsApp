@@ -73,10 +73,7 @@ class Setting extends React.Component {
     // show the page selected
     _pageSelected = () => {
         switch (this.state.pageSelected) {
-            case 'profile':
-                
-                break;
-        
+            case 'profile': return <View/>
             default: return (<SettingPrivacy/>)
         }
     }
@@ -94,28 +91,15 @@ class Setting extends React.Component {
                 animationOut={'bounceOutDown'}
                 animationInTiming={500}
                 style={styles.modalContainer}
-                // swipeDirection={'down'}
                 swipeThreshold={50}
                 onBackdropPress={() => this.setState({ modalVisible: false })}
             >
                 <ScrollView style={{ flex: 1 }}>
-
                     {this._pageSelected()}
-
-
-
-
                     {/* <SettingLanguage/> */}
                     {/* <SettingCertification/> */}
                     {/* <SettingPrivacy/> */}
-
-
                 </ScrollView >
-
-
-
-
-
             </Modal>)
     }
 
@@ -157,8 +141,6 @@ class Setting extends React.Component {
                         {this._renderMenu()}
                     </View>
                 </ScrollView>
-
-
                 {this._modalView()}
             </View>
         )
