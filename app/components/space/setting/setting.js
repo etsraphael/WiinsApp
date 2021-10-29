@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, SafeAreaView, Dimensions } from 'react-native'
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
@@ -74,9 +74,9 @@ class Setting extends React.Component {
     _pageSelected = () => {
         switch (this.state.pageSelected) {
             // navigation for the profile
-            case 'profile': return (<View/>)
-            case 'settingLanguage': return (<SettingLanguage/>)
-            case 'settingPrivacy': return (<SettingPrivacy/>)
+            case 'Profile': return (<View/>)
+            case 'SettingLanguage': return (<SettingLanguage closeModal={() => this._closeModal()}/>)
+            case 'SettingPrivacy': return (<SettingPrivacy/>)
             case 'SettingCertification': return (<SettingCertification/>)
             default: return this._defaultPage()
         }
@@ -87,12 +87,15 @@ class Setting extends React.Component {
         return (<View/>)
     }
 
-    // open modal 
-    _modalView = (mode) => {
+    _closeModal = () => {
+        return this.setState({ modalVisible: false, pageSelected: null })
+    }
 
+    // open modal 
+    _modalView = () => {
         return (
             <Modal
-                onSwipeComplete={() => this.setState({ modalVisible: false })}
+                onSwipeComplete={() => this._closeModal()}
                 isVisible={this.state.modalVisible}
                 transparent={true}
                 propagateSwipe={true}
@@ -101,7 +104,7 @@ class Setting extends React.Component {
                 animationInTiming={500}
                 style={styles.modalContainer}
                 swipeThreshold={50}
-                onBackdropPress={() => this.setState({ modalVisible: false })}
+                onBackdropPress={() => this._closeModal()}
             >
                 <ScrollView style={{ flex: 1 }}>
                     {this._pageSelected()}
@@ -109,8 +112,8 @@ class Setting extends React.Component {
             </Modal>)
     }
 
-    _openModal = () => {
-        this.setState({ modalVisible: true })
+    _openModal = (selection) => {
+        this.setState({ modalVisible: true, pageSelected: selection })
     }
 
     _renderMenu = () => {

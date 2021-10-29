@@ -64,7 +64,7 @@ class SettingLanguage extends React.Component {
         return (
             <View>
                 <View style={{ flexDirection: 'row', padding: 15 }}>
-                    <TouchableOpacity onPress={() => this.props.navigation.goBack()}
+                    <TouchableOpacity onPress={() => this.props.closeModal()}
                         style={{ justifyContent: 'center', alignItems: 'center' }}>
                         <FontAwesomeIcon icon={faArrowLeft} color={'grey'} size={30} />
                     </TouchableOpacity>
