@@ -56,6 +56,7 @@ class SettingMenuProfile extends React.Component {
                         <TouchableOpacity
                             style={{ flexDirection: 'row', paddingVertical: 5 }}
                             onPress={() => this._actionSelected(item.code)}
+                            key={item.code}
                         >
                             <View style={styles.navigationBtn}>
                                 <Text style={styles.textBtnNaviagation}>{item.title}</Text>
@@ -106,6 +107,8 @@ class SettingMenuProfile extends React.Component {
     }
 
     render() {
+
+
         return (
             <View style={styles.main_container}>
                 <ScrollView style={{ height: '100%' }}>

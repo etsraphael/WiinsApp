@@ -17,27 +17,10 @@ const Stack = createStackNavigator()
 export const SettingNavigationMain = () => (
     <NavigationContainer independent={true}>
         <Stack.Navigator
-            screenOptions={{
-                headerShown: false,
-                cardStyle: {
-                    flex: 1,
-                    backgroundColor: "red",
-                    opacity: 1,
-                    position: 'relative',
-                    overflow: 'visible'
-                },
-            }}
-            initialRouteName={'SettingMainMenu'}
+            screenOptions={{ headerShown: false }}
+            initialRouteName={'Default'}
         >
-            <Stack.Screen name={'SettingMainMenu'} component={SettingMainMenu} />
-            <Stack.Screen name={'SettingMenuProfile'} component={SettingMenuProfile} />
-            <Stack.Screen name={'SettingCertification'} component={SettingCertification} />
-            <Stack.Screen name={'SettingProfile'} component={SettingProfile} />
-            <Stack.Screen name={'SettingLedger'} component={SettingLedger} />
-            <Stack.Screen name={'SettingOther'} component={SettingOther} />
-            <Stack.Screen name={'SettingPassword'} component={SettingPassword} />
-            <Stack.Screen name={'SettingPrivacy'} component={SettingPrivacy} />
-            <Stack.Screen name={'SettingLanguage'} component={SettingLanguage} />
+            <Stack.Screen name={'Default'} component={SettingMenuProfile} />
         </Stack.Navigator>
     </NavigationContainer>
 )

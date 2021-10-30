@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native'
+import { StyleSheet, View, Text, ScrollView, TouchableOpacity, SafeAreaView, Dimensions } from 'react-native'
 import { connect } from 'react-redux'
 import * as MyUserActions from '../../../redux/MyUser/actions'
 import { bindActionCreators } from 'redux'
@@ -12,6 +12,7 @@ import Modal from 'react-native-modal'
 import SettingLanguage from './setting-language'
 import SettingCertification from './setting-certification'
 import SettingPrivacy from './setting-privacy'
+import { SettingNavigationMain } from './../../../navigation/setting-navigation'
 
 const listPage = [
     { title: I18n.t('CORE.Profile'), code: 'SettingMenuProfile' },
@@ -72,19 +73,42 @@ class Setting extends React.Component {
 
     // show the page selected
     _pageSelected = () => {
+
+
+
+        // return (<View>
+
+
+        //     <View style={{ backgroundColor: 'red', height: 150 }} />
+        //     <View style={{ backgroundColor: 'blue', height: 'auto' }}>
+        //         <Text>sdojivnsdvo</Text>
+        //     </View>
+        //     <View style={{ backgroundColor: 'red', height: 150 }} />
+        //     <View style={{ backgroundColor: 'blue', height: 150 }} />
+        //     <View style={{ backgroundColor: 'red', height: 150 }} />
+
+        // </View>)
+
+
+
+
         switch (this.state.pageSelected) {
             // navigation for the profile
-            case 'Profile': return (<View/>)
-            case 'SettingLanguage': return (<SettingLanguage closeModal={() => this._closeModal()}/>)
-            case 'SettingPrivacy': return (<SettingPrivacy/>)
-            case 'SettingCertification': return (<SettingCertification/>)
+            case 'SettingMenuProfile': return (
+                <View style={{ backgroundColor: 'blue', height: Dimensions.get('window').height - 40}}>
+                    <SettingNavigationMain/>
+                </View>
+            )
+            case 'SettingLanguage': return (<SettingLanguage closeModal={() => this._closeModal()} />)
+            case 'SettingPrivacy': return (<SettingPrivacy />)
+            case 'SettingCertification': return (<SettingCertification closeModal={() => this._closeModal()} />)
             default: return this._defaultPage()
         }
     }
 
     // default view 
     _defaultPage = () => {
-        return (<View/>)
+        return (<View />)
     }
 
     _closeModal = () => {
@@ -125,6 +149,7 @@ class Setting extends React.Component {
                             <TouchableOpacity
                                 style={{ flexDirection: 'row', paddingVertical: 5 }}
                                 onPress={() => this._openModal(item.code)}
+                                key={item.code}
                             >
                                 <View style={styles.navigationBtn}>
                                     <Text style={styles.textBtnNaviagation}>{item.title}</Text>
