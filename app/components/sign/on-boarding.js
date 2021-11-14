@@ -15,7 +15,7 @@ class OnBoarding extends React.Component {
 
     componentDidMount() {
         this.props.actions.resetPlayerActions()
-            setTheLanguageOfTheDeviceByDefault()
+        setTheLanguageOfTheDeviceByDefault()
     }
 
     render() {
